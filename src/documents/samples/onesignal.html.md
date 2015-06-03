@@ -22,14 +22,14 @@ Follow the directions below to see a great use care for how OneSignal can be int
 
 2) Add the SOOMLA store: Import, drag the prefab, initialize and setup your virtual goods. Here are the <a href="http://know.soom.la/unity/store/store_gettingstarted/" target="_blank">full instructions</a>.
 
-3) Add the code below into the scene(s) where your game's virtual goods store is available.
+3) Add the code below into your game.
 
 <div role="tabpanel">
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs nav-tabs-use-case-code" role="tablist">
     <li role="presentation" class="active"><a href="#sample-unity" aria-controls="unity" role="tab" data-toggle="tab">Unity</a></li>
-    <li role="presentation"><a href="#sample-cocos2dx" aria-controls="cocos2dx" role="tab" data-toggle="tab">Cocos2d-x</a></li>
+    <li role="presentation"><a href="#sample-cocos2dx" aria-controls="cocos2dx" role="tab" data-toggle="tab">Cocos2d-x v3</a></li>
     <li role="presentation"><a href="#sample-ios" aria-controls="iod" role="tab" data-toggle="tab">iOS</a></li>
     <li role="presentation"><a href="#sample-android" aria-controls="android" role="tab" data-toggle="tab">Android</a></li>
   </ul>
@@ -47,7 +47,6 @@ using Soomla.Store;
 //Apply this script to a gameobject in the scene where the store is initialized
 public class purchaseTracking : MonoBehaviour {
 
-
     void Start() {
         StoreEvents.OnMarketPurchaseStarted += onMarketPurchaseStarted;
     }
@@ -61,9 +60,52 @@ public class purchaseTracking : MonoBehaviour {
       </pre>
 
     </div>
-    <div role="tabpanel" class="tab-pane" id="sample-cocos2dx">...</div>
-    <div role="tabpanel" class="tab-pane" id="sample-ios">...</div>
-    <div role="tabpanel" class="tab-pane" id="sample-android">...</div>
+    <div role="tabpanel" class="tab-pane" id="sample-cocos2dx">
+      <pre>
+        <code class="hljs cpp">
+
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCStoreConsts::EVENT_MARKET_PURCHASE_STARTED, CC_CALLBACK_1(Example::onMarketPurchaseStarted, this));
+
+void Example::onMarketPurchaseStarted(EventCustom *event) {
+  // DICT_ELEMENT_PURCHASABLE - the PurchasableVirtualItem whose purchase
+  //                            operation has just started
+
+  // Read purchase data if you need to.
+  // __Dictionary *eventData = (__Dictionary *)event->getUserData();
+  // CCPurchasableVirtualItem *purchasable = dynamic_cast<CCPurchasableVirtualItem *>(eventData->objectForKey(CCStoreConsts::DICT_ELEMENT_PURCHASABLE));
+
+  _push->sendTag("StartedPurchase", "true");
+}
+</code>
+</pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="sample-ios">
+              <pre>
+        <code class="hljs objectivec">
+// observe the event:
+[[NSNotificationCenter defaultCenter] addObserver:self
+  selector:@selector(marketPurchaseStarted:) name:EVENT_MARKET_PURCHASE_STARTED object:nil];
+
+// your handler:
+- (void)marketPurchaseStarted:(NSNotification*)notification {
+  // notification's userInfo contains the following keys:
+  // DICT_ELEMENT_PURCHASABLE = The item whose purchase process has started
+
+  [OneSignal.defaultClient sendTag:@"StartedPurchase" value:@"true"];
+}
+</code>
+</pre>
+</div>
+    <div role="tabpanel" class="tab-pane" id="sample-android">
+              <pre>
+        <code class="hljs java">
+@Subscribe
+public void onMarketPurchaseStarted(MarketPurchaseStartedEvent marketPurchaseStartedEvent) {
+  OneSignal.sendTag("StoreOpened", "1");
+}
+</code>
+</pre>
+    </div>
   </div>
 
 </div>
