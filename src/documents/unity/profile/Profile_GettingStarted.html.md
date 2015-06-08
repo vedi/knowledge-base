@@ -74,7 +74,11 @@ And that's it! unity3d-profile knows how to contact the social provider (Faceboo
 
   2. Under `headerpaths` change `Facebook/Scripts` to `Plugins/Facebook/Scripts`</div>
   
-5. In the menu bar of the Unity editor go to **Window > Soomla > Edit Settings** and set up "Permissions" you want to request from FB.
+5. In the menu bar of the Unity editor go to **Window > Soomla > Edit Settings** and set up "Permissions" you want to request from FB on login.
+
+  <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app, 
+  just request the reasonable minimum. Other permissions will be requested, when they will be needed. 
+  For instance, if you try to call `UpdateStory`, SoomlaProfile will ask for `publish_actions` permission, if your app has not got it.<br></div>
 
 
 ###Google+

@@ -46,11 +46,15 @@ platform: 'ios'
     [[SoomlaProfile getInstance] initialize:providerParams];
   ```
 
-  1. **Facebook** - You can provide your custom permission set here.
+  1. **Facebook** - You can provide your custom permission set here, these permissions will be requested from the user on login.
 
     ```objectivec
     @(FACEBOOK) : @{ @"permissions": @"public_profile,user_friends" }
 	```
+
+  <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app, 
+  just request the reasonable minimum. Other permissions will be requested, when they will be needed. 
+  For instance, if you try to call `updateStory`, SoomlaProfile will ask for `publish_actions` permission, if your app has not got it.<br></div>
 
   2. **Google+** - Please provide **CLIENT ID** from the "API&Auth" -> "Credentials" -> "Client ID for iOS applicatio" section in [Google Developer Console Projects](https://console.developers.google.com/project/), like so:
     ```objectivec
@@ -173,7 +177,7 @@ The callback to this process is `openURL` which should be defined in your `AppDe
 
   - See [Browser-based Authentication](#browser-based-authentication)
 
-4. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
+4. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles.
 
 ### Twitter Caveats
 
