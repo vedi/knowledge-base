@@ -60,9 +60,9 @@ And that's it! unity3d-profile knows how to contact the social provider (Faceboo
 
 1. Download and import the official [Facebook SDK](https://developers.facebook.com/docs/unity/getting-started/canvas).
 
-	<div class="warning-box">You don't need to initialize FB. SoomlaProfile will initialize it for you. (Do **not** call `FB.Init()`).</div>
-	
 2. Follow Facebook's integration process.
+
+<div class="warning-box">You don't need to initialize FB. SoomlaProfile will initialize it for you. (Do **not** call `FB.Init()`).</div>
 
 3. Create an empty folder named `Facebook` under `Assets/Plugins`.
 
