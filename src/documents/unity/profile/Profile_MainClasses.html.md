@@ -134,12 +134,12 @@ SoomlaProfile.Like(
 );
 ```
 
-The 3rd parameter received by the `like` function is a pageId. This can either be a page-id or page-name.
+The 2nd parameter received by the `like` function is a pageId. This can either be a page-id or page-name.
 
 ######For iOS Applications:
 When using the `like` function, you should pass the page-id in most cases. There reason for that is that the page-name will only work correctly when the Facebook App is not installed on the device. In which case, SOOMLA tries to open the "like" page in the browser.
 
-Page ID can be fetched from sites like http://findmyfacebookid.com/ , or Services like https://graph.facebook.com/requested_page_name, which once queried with a valid pageName will return a JsonString that contains the pageId value under the key "id".
+Page-id can be fetched from sites like http://findmyfacebookid.com/ , or Services like https://graph.facebook.com/requested_page_name, which once queried with a valid pageName will return a JsonString that contains the pageId value under the key "id".
 
 <div class="info-box">Note that the user is given the reward just for clicking `Like` from the application. The `Like` function opens the page to like, but does not track if the user *actually* liked the page or not.</div>
 
@@ -169,6 +169,21 @@ SoomlaProfile.UpdateStatus(
 
 ![alt text](/img/tutorial_img/unity-profile/socialStatus.png "Update Status")
 
+<br>
+### `UpdateStatusWithConfirmation`
+
+Works the same as `UpdateStatus` only here a confirmation dialog will be shown before the operation is performed.
+
+``` cs
+SoomlaProfile.UpdateStatusWithConfirmation(
+	Provider.FACEBOOK,                      // Provider
+	"I LOVE SOOMLA!  http://www.soom.la",   // Message to post as status
+	"",                                     // Payload
+	null,                                   // Reward
+	customMessage							// Message to show in the confirmation dialog
+);
+```
+**NOTE:** This confirmation dialog is not supported in FB. 
 <br>
 ###`UpdateStory`
 This function posts a story (which is a detailed status) on the user's wall in the supplied social provider. Upon a successful update, the user will receive the supplied reward.
@@ -202,6 +217,7 @@ SoomlaProfile.UpdateStory(
 	"This is the story.",                       // Text of the story to post
 	"The story of SOOMBOT (Profile Test App)",  // Name
 	"SOOMBOT Story",                            // Caption
+	"Hey! It's SOOMBOT Story",                 	// Description
 	"http://about.soom.la/soombots",            // Link to post
 	"http://about.soom.la/.../spockbot.png",    // Image URL
 	"",                                         // Payload
@@ -210,6 +226,27 @@ SoomlaProfile.UpdateStory(
 ```
 
 ![alt text](/img/tutorial_img/unity-profile/socialStory.png "Post Story")
+
+<br>
+### `UpdateStoryWithConfirmation`
+
+Works the same as `updateStory` only here a confirmation dialog will be shown before the operation is performed.
+
+``` cs
+SoomlaProfile.UpdateStoryWithConfirmation(
+	Provider.FACEBOOK,                          // Provider
+	"This is the story.",                       // Text of the story to post
+	"The story of SOOMBOT (Profile Test App)",  // Name
+	"SOOMBOT Story",                            // Caption
+	"Hey! It's SOOMBOT Story",                 	// Description
+	"http://about.soom.la/soombots",            // Link to post
+	"http://about.soom.la/.../spockbot.png",    // Image URL
+	"",                                         // Payload
+	null,                                       // Reward
+	customMessage								// Message to show in the confirmation dialog
+);
+```
+**NOTE:** This confirmation dialog is not supported in FB. 
 
 <br>
 ###`UploadImage`
@@ -236,6 +273,11 @@ SoomlaProfile.UploadImage(
 	mysteryReward                         // Reward for posting a story
 );
 ```
+
+There is another function - `UploadImageWithConfirmation`. Works the same as `UploadImage` only here a confirmation 
+dialog will be shown before the operation is performed. 
+
+**NOTE:** This confirmation dialog is not supported in FB. 
 
 ![alt text](/img/tutorial_img/unity-profile/socialUpload.png "Upload Image")
 
@@ -300,6 +342,19 @@ public void onGetContactsFinished(Provider provider, SocialPageData<UserProfile>
 
 ``` cs
 SoomlaProfile.OpenAppRatingPage();
+```
+
+<br>
+### `MultiShare`
+
+`MultiShare` Shares text and/or image using native sharing functionality of your target platform.
+The user will be shown a screen where he selects where he wants to share.
+
+``` cs
+SoomlaProfile.MultiShare(
+    "I'm happy. I can be shared everywhere.",
+    "path/to/file/you/want/to/share"
+);
 ```
 
 <br>

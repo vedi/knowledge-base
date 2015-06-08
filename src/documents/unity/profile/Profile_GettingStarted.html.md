@@ -60,17 +60,26 @@ And that's it! unity3d-profile knows how to contact the social provider (Faceboo
 
 1. Download and import the official [Facebook SDK](https://developers.facebook.com/docs/unity/getting-started/canvas).
 
-	<div class="warning-box">You don't need to initialize FB. SoomlaProfile will initialize it for you. (Do **not** call `FB.Init()`).</div>
+2. Follow Facebook's integration process.
 
-2. Create an empty folder named `Facebook` under `Assets/Plugins`.
+<div class="warning-box">You don't need to initialize FB. SoomlaProfile will initialize it for you. (Do **not** call `FB.Init()`).</div>
 
-3. Move the `Scripts` folder from `Assets/Facebook` to `Assets/Plugins/Facebook` - SOOMLA works from the `Plugins` folder so that it'll be available to UnityScript developers. This is why you need to move `Facebook` into `Plugins` as well.
+3. Create an empty folder named `Facebook` under `Assets/Plugins`.
+
+4. Move the `Scripts` folder from `Assets/Facebook` to `Assets/Plugins/Facebook` - SOOMLA works from the `Plugins` folder so that it'll be available to UnityScript developers. This is why you need to move `Facebook` into `Plugins` as well.
 
   <div class="info-box">**NOTE:** When working with Unity version > 4.5.0 (targeting iOS) please follow these extra steps:<br>
 
   1. Edit the file `Assets/Facebook/Editor/iOS/fixup.projmods`<br>
 
   2. Under `headerpaths` change `Facebook/Scripts` to `Plugins/Facebook/Scripts`</div>
+
+5. In the menu bar of the Unity editor go to **Window > Soomla > Edit Settings** and set up "Permissions" you want to request from FB on login.
+
+  <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app, 
+  just request the reasonable minimum. Other permissions will be requested, when they will be needed. 
+  For instance, if you try to call `UpdateStory`, SoomlaProfile will ask for `publish_actions` permission, if your app has not got it.<br></div>
+
 
 ###Google+
 
