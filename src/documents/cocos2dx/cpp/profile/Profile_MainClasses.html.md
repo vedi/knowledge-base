@@ -7,6 +7,7 @@ position: 2
 theme: 'platforms'
 collection: 'cocos2dx_profile'
 module: 'profile'
+lang: 'cpp' 
 platform: 'cocos2dx'
 ---
 

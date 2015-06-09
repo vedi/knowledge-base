@@ -7,6 +7,7 @@ position: 1
 theme: 'platforms'
 collection: 'cocos2djs_store'
 module: 'store'
+lang: 'js' 
 platform: 'cocos2dx'
 ---
 
@@ -16,7 +17,9 @@ platform: 'cocos2dx'
 
 *If you want to develop with C++ sources, refer to the "Working with Sources" section below.*
 
-<div class="info-box">If you didn't already, clone the Cocos2d-js framework from [here](https://github.com/cocos2d/cocos2d-js), or download it from the [Cocos2d-x website](http://www.cocos2d-x.org/download). Make sure the version you clone is supported by SOOMLA's cocos2dx-store (the tag is the version).</div>
+<div class="info-box">If you didn't already, clone the Cocos2d-js framework from [here](https://github.com/cocos2d/cocos2d-js), 
+or download it from the [Cocos2d-x website](http://www.cocos2d-x.org/download). Make sure the version you clone is 
+supported by SOOMLA's cocos2dx-store (the tag is the version).</div>
 
 1. Clone [soomla-cocos2dx-core](https://github.com/soomla/soomla-cocos2dx-core) and cocos2dx-store into the `Classes` folder of your project.
 
@@ -26,7 +29,7 @@ platform: 'cocos2dx'
 	$ git clone git@github.com:soomla/cocos2dx-store.git frameworks/runtime-src/Classes/cocos2dx-store
 	```
 
-1. cocos2dx-store uses a [fork](https://github.com/soomla/jansson) of the jansson library for JSON parsing. Clone it there as well.
+1. We use a [fork](https://github.com/soomla/jansson) of the jansson library for JSON parsing. Clone it there as well.
 
 	```
 	$ git clone git@github.com:soomla/jansson.git frameworks/runtime-src/Classes/jansson
@@ -161,7 +164,7 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
 1. Import cocos2dx-store module into your project's Android.mk by adding the following:
 
     ```
-    # Add these lines along with your other LOCAL_STATIC_LIBRARIES
+    # Add these lines along with your other LOCAL_WHOLE_STATIC_LIBRARIES
     LOCAL_WHOLE_STATIC_LIBRARIES += cocos2dx_store_static
 
 	# Add these lines at the end of the file, along with the other import-module calls

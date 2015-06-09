@@ -4,5 +4,6 @@ layout: 'l2-main'
 theme: 'platforms'
 collection: 'cocos2djs_levelup'
 platform: 'cocos2dx'
+lang: 'js'
 module: 'levelup'
 ---
