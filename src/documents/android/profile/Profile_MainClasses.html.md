@@ -444,6 +444,8 @@ A `Reward` is an entity which can be earned by the user for meeting certain crit
 
 A specific type of `Reward` that you can use to give your users some amount of a virtual item. **For example:** Give users 100 coins (virtual currency) for liking your page.
 
+<div class="info-box">`VirtualItemReward` is a part of `android-store`, and not part of the Profile module. </div>
+
 ``` java
 VirtualCurrency coin = new VirtualCurrency("Coin", "", "coin_ID");
 

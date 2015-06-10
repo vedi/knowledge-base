@@ -496,6 +496,8 @@ A `CCReward` is an entity which can be earned by the user for meeting certain cr
 
 A specific type of `CCReward` that you can use to give your users some amount of a virtual item. **For example:** Give users 100 coins (virtual currency) for liking your page.
 
+<div class="info-box">`CCVirtualItemReward` is a part of `cocos2dx-store`, and not part of the Profile module. </div>
+
 ``` cpp
 CCReward *coinReward = CCVirtualItemReward::create(
 	CCString::create("coinReward"),         // ID
