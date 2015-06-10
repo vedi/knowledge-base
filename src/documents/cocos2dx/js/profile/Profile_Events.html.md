@@ -216,7 +216,7 @@ This event is triggered when fetching the contacts from the social provider has 
 ```js
 Soomla.addHandler(Soomla.ProfileConsts.EVENT_GET_CONTACTS_STARTED, this.onGetContactsStarted, this);
 
-this.onGetContactsStarted = function (provider, fromFirst, payload) {
+this.onGetContactsStarted = function (provider, fromStart, payload) {
   // ... your game specific implementation here ...
 }
 ```
@@ -240,7 +240,7 @@ This event is triggered when fetching the contacts from the social provider has 
 ```js
 Soomla.addHandler(Soomla.ProfileConsts.EVENT_GET_CONTACTS_FAILED, this.onGetContactsFailed, this);
 
-this.onGetContactsFailed = function (provider, errorDescription, fromFirst, payload) {
+this.onGetContactsFailed = function (provider, errorDescription, fromStart, payload) {
   // ... your game specific implementation here ...
 }
 ```
@@ -252,7 +252,7 @@ This event is triggered when fetching the feed from the social provider has star
 ```js
 Soomla.addHandler(Soomla.ProfileConsts.EVENT_GET_FEED_STARTED, this.onGetFeedStarted, this);
 
-this.onGetFeedStarted = function (provider, fromFirst, payload) {
+this.onGetFeedStarted = function (provider, fromStart, payload) {
   // ... your game specific implementation here ...
 }
 ```
@@ -276,7 +276,7 @@ This event is triggered when fetching the feed from the social provider has fail
 ```js
 Soomla.addHandler(Soomla.ProfileConsts.EVENT_GET_FEED_FAILED, this.onGetFeedFailed, this);
 
-this.onGetFeedFailed = function (provider, errorDescription, fromFirst, payload) {
+this.onGetFeedFailed = function (provider, errorDescription, fromStart, payload) {
   // ... your game specific implementation here ...
 }
 ```

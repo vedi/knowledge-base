@@ -439,7 +439,7 @@ void Example::getFeed() {
         );
 }
 
-void Example::onGetContactsFinished(EventCustom *event) {
+void Example::onGetFeedFinished(EventCustom *event) {
 
     __Dictionary *eventData = (__Dictionary *)event->getUserData();
     __Bool *hasMore = dynamic_cast<__Bool *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_HAS_MORE));
