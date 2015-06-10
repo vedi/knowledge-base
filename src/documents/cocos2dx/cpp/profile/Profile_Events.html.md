@@ -165,9 +165,9 @@ void Example::onLoginFinished(EventCustom *event) {
 This event is triggered when logging into the social provider has been cancelled.
 
 ```cpp
-Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_LOGIN_CANCELLED, CC_CALLBACK_1(Example::onLoginCancelledEvent, this));
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_LOGIN_CANCELLED, CC_CALLBACK_1(Example::onLoginCancelled, this));
 
-void Example::onLoginCancelledEvent(EventCustom *event) {
+void Example::onLoginCancelled(EventCustom *event) {
   // DICT_ELEMENT_PROVIDER - the social provider
   // DICT_ELEMENT_PAYLOAD  - an identification string that you can give when you initiate
   //      the login operation and want to receive back upon cancellation
