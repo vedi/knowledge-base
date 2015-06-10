@@ -7,6 +7,7 @@ position: 2
 theme: 'platforms'
 collection: 'cocos2dx_levelup'
 module: 'levelup'
+lang: 'cpp' 
 platform: 'cocos2dx'
 ---
 

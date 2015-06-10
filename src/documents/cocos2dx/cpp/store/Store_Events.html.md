@@ -7,6 +7,7 @@ position: 5
 theme: 'platforms'
 collection: 'cocos2dx_store'
 module: 'store'
+lang: 'cpp' 
 platform: 'cocos2dx'
 ---
 

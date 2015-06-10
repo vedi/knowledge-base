@@ -11,9 +11,17 @@
 
           <li class="icon-option">
             <% if @module == item.id: %>
-            <a class="icon-link link-current" href="/<%= @platform %>/<%= item.id %>"><%= item.title %></a>
+              <% if @lang: %>
+                <a class="icon-link link-current" href="/<%= @platform %>/<%= @lang %>/<%= item.id %>"><%= item.title %></a>
+              <% else: %>
+                <a class="icon-link link-current" href="/<%= @platform %>/<%= item.id %>"><%= item.title %></a>
+              <% end %>
             <% else: %>
-            <a class="icon-link" href="/<%= @platform %>/<%= item.id %>"><%= item.title %></a>
+              <% if @lang: %>
+                <a class="icon-link" href="/<%= @platform %>/<%= @lang %>/<%= item.id %>"><%= item.title %></a>
+              <% else: %>
+                <a class="icon-link" href="/<%= @platform %>/<%= item.id %>"><%= item.title %></a>
+              <% end %>
             <% end %>
           </li>
 
