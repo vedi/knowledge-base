@@ -168,7 +168,7 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
     LOCAL_WHOLE_STATIC_LIBRARIES += cocos2dx_store_static
 
 	# Add these lines at the end of the file, along with the other import-module calls
-    $(call import-module, extensions/cocos2dx-store)  
+    $(call import-module, cocos2dx-store)  
     ```
 
 1. Add the following jars to your android project's classpath:
