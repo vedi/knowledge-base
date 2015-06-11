@@ -564,15 +564,15 @@ initialization and `Soomla.IStoreAssets` definitions. See the cocos2dx-store int
     score1.reset(true);
     
     recordGate1.isOpen(); // true
-    gatesListOR.isOpen(); // true
+    gatesListOr.isOpen(); // true
     
-    gatesListAND.canOpen(); // false (all sub-gates need to be open for AND)
-    gatesListAND.isOpen(); // false
+    gatesListAnd.canOpen(); // false (all sub-gates need to be open for AND)
+    gatesListAnd.isOpen(); // false
     
     score2.setTempScore(desiredRecord2);
     score2.reset(true);
     
     recordGate2.isOpen(); // true
-    gatesListOR.isOpen(); // still true
-    gatesListAND.isOpen(); // true
+    gatesListOr.isOpen(); // still true
+    gatesListAnd.isOpen(); // true
   ```
