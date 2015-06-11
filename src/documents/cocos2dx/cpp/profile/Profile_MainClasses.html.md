@@ -7,7 +7,7 @@ position: 2
 theme: 'platforms'
 collection: 'cocos2dx_profile'
 module: 'profile'
-lang: 'cpp' 
+lang: 'cpp'
 platform: 'cocos2dx'
 ---
 
@@ -324,7 +324,7 @@ soomla::CCSoomlaProfile::getInstance()->getContacts(
 	&profileError                         // Used for error handling
 );
 ```
-OR 
+OR
 ``` cpp
 soomla::CCSoomlaProfile::getInstance()->getContacts(
 	soomla::FACEBOOK,                     // Provider
@@ -333,7 +333,7 @@ soomla::CCSoomlaProfile::getInstance()->getContacts(
 	&profileError                         // Used for error handling
 );
 ```
-OR 
+OR
 ``` cpp
 soomla::CCSoomlaProfile::getInstance()->getContacts(
 	soomla::FACEBOOK,                     // Provider
@@ -351,7 +351,7 @@ Note that the results will contain only part of the list. In order to get more i
 ```cpp
 void Example::getContacts() {
     Director::getInstance()->getEventDispatcher()->addCustomEventListener(
-            CCProfileConsts::EVENT_GET_CONTACTS_FINISHED, 
+            CCProfileConsts::EVENT_GET_CONTACTS_FINISHED,
             CC_CALLBACK_1(Example::onGetContactsFinished, this));
 
     // request for the 1st page
@@ -368,9 +368,9 @@ void Example::onGetContactsFinished(EventCustom *event) {
     __Dictionary *eventData = (__Dictionary *)event->getUserData();
     __Bool *hasMore = dynamic_cast<__Bool *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_HAS_MORE));
     __Array *contactsArray = dynamic_cast<__Array *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_CONTACTS));
-    
+
     // ... handle page results ...
-    
+
     if (hasMore != nullptr && hasMore->getValue()) {
         soomla::CCSoomlaProfile::getInstance()->getContacts(
             soomla::FACEBOOK,
@@ -388,7 +388,7 @@ void Example::onGetContactsFinished(EventCustom *event) {
 <br>
 ### `getFeed`
 
-This function Retrieves a list of the user's feed entries from the supplied provider. Upon a successful retrieval of 
+This function Retrieves a list of the user's feed entries from the supplied provider. Upon a successful retrieval of
 feed entries the user will be granted the supplied reward.
 
 <div class="info-box">G+ does not support this.</div>
@@ -400,7 +400,7 @@ soomla::CCSoomlaProfile::getInstance()->getFeed(
 	&profileError                         // Used for error handling
 );
 ```
-OR 
+OR
 ``` cpp
 soomla::CCSoomlaProfile::getInstance()->getFeed(
 	soomla::FACEBOOK,                     // Provider
@@ -409,7 +409,7 @@ soomla::CCSoomlaProfile::getInstance()->getFeed(
 	&profileError                         // Used for error handling
 );
 ```
-OR 
+OR
 ``` cpp
 soomla::CCSoomlaProfile::getInstance()->getFeed(
 	soomla::FACEBOOK,                     // Provider
@@ -427,7 +427,7 @@ Note that the results will contain only part of the list. In order to get more i
 ```cpp
 void Example::getFeed() {
     Director::getInstance()->getEventDispatcher()->addCustomEventListener(
-            CCProfileConsts::EVENT_GET_FEED_FINISHED, 
+            CCProfileConsts::EVENT_GET_FEED_FINISHED,
             CC_CALLBACK_1(Example::onGetFeedFinished, this));
 
     // request for the 1st page
@@ -444,9 +444,9 @@ void Example::onGetFeedFinished(EventCustom *event) {
     __Dictionary *eventData = (__Dictionary *)event->getUserData();
     __Bool *hasMore = dynamic_cast<__Bool *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_HAS_MORE));
     __Array *feedList = dynamic_cast<__Array *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_FEEDS));
-    
+
     // ... handle page results ...
-    
+
     if (hasMore != nullptr && hasMore->getValue()) {
         soomla::CCSoomlaProfile::getInstance()->getFeed(
             soomla::FACEBOOK,
@@ -496,7 +496,7 @@ A `CCReward` is an entity which can be earned by the user for meeting certain cr
 
 A specific type of `CCReward` that you can use to give your users some amount of a virtual item. **For example:** Give users 100 coins (virtual currency) for liking your page.
 
-<div class="info-box">`CCVirtualItemReward` is a part of `cocos2dx-store`, and not part of the Profile module. </div>
+<div class="info-box">`CCVirtualItemReward` is a part of `cocos2dx-store`. In case you want to use it, you'll need to import cocos2dx-store as well.</div>
 
 ``` cpp
 CCReward *coinReward = CCVirtualItemReward::create(

@@ -7,7 +7,7 @@ position: 2
 theme: 'platforms'
 collection: 'cocos2djs_profile'
 module: 'profile'
-lang: 'js' 
+lang: 'js'
 platform: 'cocos2dx'
 ---
 
@@ -54,9 +54,9 @@ This class represents a profile of a user from a social network (provider).
 
 ## Soomla.SoomlaProfile
 
-This is the main class that controls the entire SOOMLA Profile module. Use this class to perform various social and 
-authentication operations for users. After Profile initialized the instance of this class is available through 
-`Soomla.soomlaProfile`. The Profile module will work with the social and authentication plugins of the integrated social 
+This is the main class that controls the entire SOOMLA Profile module. Use this class to perform various social and
+authentication operations for users. After Profile initialized the instance of this class is available through
+`Soomla.soomlaProfile`. The Profile module will work with the social and authentication plugins of the integrated social
 provider (FB, G+, Twitter, etc..).
 
 <div class="info-box">Most of the functions in this class call relevant functions from the social provider's SDK, and do NOT return a value, but rather fire appropriate events that contain the return values. Read more about [Event Handling](/cocos2dx/cpp/profile/Profile_Events).</div>
@@ -340,7 +340,7 @@ this.onGetContactsFinished = function (provider, contacts, payload, hasMore) {
 <br>
 ### `getFeed`
 
-This function Retrieves a list of the user's feed entries from the supplied provider. Upon a successful retrieval of 
+This function Retrieves a list of the user's feed entries from the supplied provider. Upon a successful retrieval of
 feed entries the user will be granted the supplied reward.
 
 <div class="info-box">G+ does not support this.</div>
@@ -410,8 +410,8 @@ Soomla.soomlaProfile.multiShare(
 
 A `Reward` is an entity which can be earned by the user for meeting certain criteria in game progress.
 
-<div class="info-box">Note that `Reward` is a part of soomla-cocos2dx-core, and not part of the Profile module. However, 
-because `Reward`s are used very often throughout Profile, it's important that you are familiar with the different 
+<div class="info-box">Note that `Reward` is a part of soomla-cocos2dx-core, and not part of the Profile module. However,
+because `Reward`s are used very often throughout Profile, it's important that you are familiar with the different
 `Reward` types.</div>
 
 `Reward` itself cannot be instantiated, but there are many types of rewards, all explained below.
@@ -421,7 +421,7 @@ because `Reward`s are used very often throughout Profile, it's important that yo
 
 A specific type of `Reward` that you can use to give your users some amount of a virtual item. **For example:** Give users 100 coins (virtual currency) for liking your page.
 
-<div class="info-box">`VirtualItemReward` is a part of `cocos2dx-store`, and not part of the Profile module. </div>
+<div class="info-box">`VirtualItemReward` is a part of `cocos2dx-store`. In case you want to use it, you'll need to import cocos2dx-store as well.</div>
 
 ``` js
 var coinReward = Soomla.Models.VirtualItemReward.create({

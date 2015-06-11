@@ -183,7 +183,7 @@ SoomlaProfile.UpdateStatusWithConfirmation(
 	customMessage							// Message to show in the confirmation dialog
 );
 ```
-**NOTE:** This confirmation dialog is not supported in FB. 
+**NOTE:** This confirmation dialog is not supported in FB.
 <br>
 ###`UpdateStory`
 This function posts a story (which is a detailed status) on the user's wall in the supplied social provider. Upon a successful update, the user will receive the supplied reward.
@@ -246,7 +246,7 @@ SoomlaProfile.UpdateStoryWithConfirmation(
 	customMessage								// Message to show in the confirmation dialog
 );
 ```
-**NOTE:** This confirmation dialog is not supported in FB. 
+**NOTE:** This confirmation dialog is not supported in FB.
 
 <br>
 ###`UploadImage`
@@ -274,10 +274,10 @@ SoomlaProfile.UploadImage(
 );
 ```
 
-There is another function - `UploadImageWithConfirmation`. Works the same as `UploadImage` only here a confirmation 
-dialog will be shown before the operation is performed. 
+There is another function - `UploadImageWithConfirmation`. Works the same as `UploadImage` only here a confirmation
+dialog will be shown before the operation is performed.
 
-**NOTE:** This confirmation dialog is not supported in FB. 
+**NOTE:** This confirmation dialog is not supported in FB.
 
 ![alt text](/img/tutorial_img/unity-profile/socialUpload.png "Upload Image")
 
@@ -370,7 +370,7 @@ A `Reward` is an entity which can be earned by the user for meeting certain crit
 
 A specific type of `Reward` that you can use to give your users some amount of a virtual item. **For example:** Give users 100 coins (virtual currency) for liking your page.
 
-<div class="info-box">`VirtualItemReward` is a part of `unity3d-store`, and not part of the Profile module. </div>
+<div class="info-box">`VirtualItemReward` is a part of `unity3d-store`. In case you want to use it, you'll need to import unity3d-store as well.</div>
 
 ``` cs
 VirtualCurrency coin = new VirtualCurrency("Coin", "", "coin_currency");

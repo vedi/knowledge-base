@@ -316,7 +316,7 @@ You could use `getContacts` to show your users a personalized screen where they 
 ``` java
 SoomlaProfile.getInstance().getContacts(
 	IProvider.Provider.FACEBOOK,          // Provider
-	false,                                // fromStart     
+	false,                                // fromStart
 	"",                                   // Payload
 	someReward                            // Reward
 );
@@ -332,7 +332,7 @@ public void getContacts() {
     // request for the 1st page
     SoomlaProfile.getInstance().getContacts(
         IProvider.Provider.FACEBOOK,          // Provider
-        true,                                 // fromStart     
+        true,                                 // fromStart
         "",                                   // Payload
         null                                  // Reward
     );
@@ -342,11 +342,11 @@ public void getContacts() {
 public void onGetContactsFinished(GetContactsFinishedEvent getContactsFinishedEvent) {
 
     // ... handle page results ...
-    
+
     if (getContactsFinishedEvent.HasMore) {
         SoomlaProfile.getInstance().getContacts(
             IProvider.Provider.FACEBOOK,          // Provider
-            false,                                // fromStart     
+            false,                                // fromStart
             "",                                   // Payload
             null                                  // Reward
         );
@@ -367,7 +367,7 @@ This function retrieves a list of the user's feed entries from the supplied prov
 ``` java
 SoomlaProfile.getInstance().getFeed(
 	IProvider.Provider.FACEBOOK,          // Provider
-	false,                                // fromStart     
+	false,                                // fromStart
 	"",                                   // Payload
 	someReward                            // Reward
 );
@@ -383,7 +383,7 @@ public void getFeed() {
     // request for the 1st page
     SoomlaProfile.getInstance().getFeed(
         IProvider.Provider.FACEBOOK,          // Provider
-        true,                                 // fromStart     
+        true,                                 // fromStart
         "",                                   // Payload
         null                                  // Reward
     );
@@ -393,11 +393,11 @@ public void getFeed() {
 public void onGetFeedFinished(GetFeedFinishedEvent getFeedFinishedEvent) {
 
     // ... handle page results ...
-    
+
     if (getFeedFinishedEvent.HasMore) {
         SoomlaProfile.getInstance().getFeed(
             IProvider.Provider.FACEBOOK,          // Provider
-            false,                                // fromStart     
+            false,                                // fromStart
             "",                                   // Payload
             null                                  // Reward
         );
@@ -444,7 +444,7 @@ A `Reward` is an entity which can be earned by the user for meeting certain crit
 
 A specific type of `Reward` that you can use to give your users some amount of a virtual item. **For example:** Give users 100 coins (virtual currency) for liking your page.
 
-<div class="info-box">`VirtualItemReward` is a part of `android-store`, and not part of the Profile module. </div>
+<div class="info-box">`VirtualItemReward` is a part of `android-store`. In case you want to use it, you'll need to import android-store as well.</div>
 
 ``` java
 VirtualCurrency coin = new VirtualCurrency("Coin", "", "coin_ID");
