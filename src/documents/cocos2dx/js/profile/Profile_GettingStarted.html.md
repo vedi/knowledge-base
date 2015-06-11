@@ -50,9 +50,9 @@ follow these directions only for the Profile module.</div>
 1. Initialize Native Bridge in your `AppDelegate.cpp` in the method `applicationDidFinishLaunching`:
 
     ```cpp
-        // Bind native bridges
-        soomla::CCCoreBridge::getInstance();
-        soomla::CCProfileBridge::getInstance();
+    // Bind native bridges
+    soomla::CCCoreBridge::getInstance();
+    soomla::CCProfileBridge::getInstance();
     ```
 
 1. Copy soomla js-files to your project:

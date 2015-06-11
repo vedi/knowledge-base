@@ -313,7 +313,7 @@ userProf->getFirstName();
 
 This function retrieves a list of the user's contacts from the supplied provider.
 
-<div class="info-box">Notice that some social providers (FB, G+, Twitter) supply all of the user's contacts and some supply only the contacts that use your app.</div>
+<div class="info-box">Notice that some social providers (G+, Twitter) supply all of the user's contacts and some (FB) supply only the contacts that use your app.</div>
 
 You could use `getContacts` to show your users a personalized screen where they can see which of their friends are also playing your game, or you could offer the contacts that don't play your game to download your game and receive some free coins.
 
@@ -439,7 +439,7 @@ void Example::getFeed() {
         );
 }
 
-void Example::onGetContactsFinished(EventCustom *event) {
+void Example::onGetFeedFinished(EventCustom *event) {
 
     __Dictionary *eventData = (__Dictionary *)event->getUserData();
     __Bool *hasMore = dynamic_cast<__Bool *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_HAS_MORE));
@@ -495,6 +495,8 @@ A `CCReward` is an entity which can be earned by the user for meeting certain cr
 ### CCVirtualItemReward [<img class="link-icon-small" src="/img/tutorial_img/linkImg.png">](https://github.com/soomla/cocos2dx-store/blob/master/Soomla/rewards/CCVirtualItemReward.h)
 
 A specific type of `CCReward` that you can use to give your users some amount of a virtual item. **For example:** Give users 100 coins (virtual currency) for liking your page.
+
+<div class="info-box">`CCVirtualItemReward` is a part of `cocos2dx-store`, and not part of the Profile module. </div>
 
 ``` cpp
 CCReward *coinReward = CCVirtualItemReward::create(
