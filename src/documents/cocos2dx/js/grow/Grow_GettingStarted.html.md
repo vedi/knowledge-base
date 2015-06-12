@@ -81,7 +81,7 @@ the root of your Cocos2d-x framework.
 
 1. Initialize `CCSoomla` with a custom secret of your choice (**Custom Secret** is an encryption secret you provide that will be used to secure your data.):
 
-  ```cpp
+  ```js
   soomla::CCSoomla::initialize("ExampleCustomSecret");
   ```
 
@@ -161,6 +161,7 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
  - `$(SRCROOT)/../Classes/soomla-cocos2dx-core/Soomla`
  - `$(SRCROOT)/../Classes/soomla-cocos2dx-core/build/ios/headers`
  - `$(SRCROOT)/../Classes/cocos2dx-store/Soomla`
+ - `$(SRCROOT)/../Classes/cocos2dx-store/build/ios/headers`
  - `$(SRCROOT)/../Classes/cocos2dx-profile/Soomla`
  - `$(SRCROOT)/../Classes/cocos2dx-profile/build/ios/headers`
  - `$(SRCROOT)/../Classes/cocos2dx-levelup/Soomla`
@@ -364,7 +365,7 @@ Soomla.initialize("ExampleCustomSecret");
 /** Initialize Highway **/
 Soomla.Cocos2dXSoomlaHighway.createShared('yourGameKey', 'yourEnvKey');
 
-/** Set up and initialize Core, Store, Profile, and LevelUp **/
+/** Set up and initialize Store, Profile, and LevelUp **/
 var assets = ExampleAssets.create();
 
 var storeParams = {
