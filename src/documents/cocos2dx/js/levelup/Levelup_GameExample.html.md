@@ -245,17 +245,17 @@ ChimposJourney.createInitialWorld = function () {
 
   // Initial world
   var mainWorld = Soomla.Models.World.create({
-    itemId: 'main_world'                        // ID
+    itemId: 'main_world',                       // ID
     missions: [coconutMission, likeMission]     // Missions
   });
 
   var jungleWorld = Soomla.Models.World.create({
-    itemId: 'jungleWorld_ID'                    // ID
+    itemId: 'jungleWorld_ID',                   // ID
     missions: [statusMissionJungle]             // Missions
   });
 
   var desertWorld = Soomla.Models.World.create({
-    itemId: 'desertWorld_ID'                    // ID
+    itemId: 'desertWorld_ID',                   // ID
     missions: [statusMissionDesert]             // Missions
   });
 
@@ -417,17 +417,17 @@ We also defined `mainWorld` to contain the 2 worlds. Later we initialized `Sooml
 
 // Initial world
   var mainWorld = Soomla.Models.World.create({
-    itemId: 'main_world'                        // ID
+    itemId: 'main_world',                       // ID
     missions: [coconutMission, likeMission]     // Missions
   });
 
   var jungleWorld = Soomla.Models.World.create({
-    itemId: 'jungleWorld_ID'                    // ID
+    itemId: 'jungleWorld_ID',                   // ID
     missions: [statusMissionJungle]             // Missions
   });
 
   var desertWorld = Soomla.Models.World.create({
-    itemId: 'desertWorld_ID'                    // ID
+    itemId: 'desertWorld_ID',                   // ID
     missions: [statusMissionDesert]             // Missions
   });
 
