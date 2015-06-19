@@ -1,13 +1,11 @@
 ---
 layout: "sample"
-image: "Events"
-title: "Events"
-text: "Learn how to observe and handle economy events triggered by android-store to customize your game-specific behavior."
+image: "test-sample"
+title: "SUPERSONIC"
+text: "Show rewarded video to earn coins"
 position: 5
-theme: 'platforms'
-collection: 'android_store'
-module: 'store'
-platform: 'android'
+relates: ["supersonic"]
+collection: 'samples'
 ---
 
 # Unity Ads + SOOMLA Store
