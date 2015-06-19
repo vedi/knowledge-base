@@ -1,0 +1,37 @@
+---
+layout: 'knowledge-base'
+---
+<div class="jumbotron" id="know-soomla">
+    <div id="jumbo-main-text">
+        <img class="dropdown-menu-icon" src="/img/samples/Icon2-<%= @document.image %>.png"/>
+    </div>
+    <div id="jumbo-small-text">
+        <%= @document.text %>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h4>Related Apps</h4>
+            <% for relatedDocName in @document.relates: %>
+                <% result = @getCollection('samples').findOne({basename: relatedDocName}) %>
+                <% if (result): %>
+                <% doc = result.toJSON() %>
+                <div class="menu-option">
+                <a href="<%= doc.link %>" class="link-container">
+                <div class="option-head-text"><%= doc.title %></div>
+                <div class="option-text"><%= doc.text %></div>
+                </a>
+                </div>
+                <% else: %>
+                No related document found: <%=relatedDocName%>
+                <% end %>
+            <% end %>
+        </div>
+        <div class="col-md-9">
+            <div id="doc-container" class="article-content clearfix">
+                <%- @content %>
+            </div>
+        </div>
+    </div>
+</div>
