@@ -127,11 +127,11 @@ This event is triggered when a market purchase operation has completed successfu
 @Subscribe
 public void onMarketPurchase(MarketPurchaseEvent marketPurchaseEvent) {
   // marketPurchaseEvent contains:
-  //   purchasableVirtualItem - the item that was purchased
-  //   payload - text that you can provide when you initiate the purchase operation
+  //   PurchasableVirtualItem - the item that was purchased
+  //   Payload - text that you can provide when you initiate the purchase operation
   //             and receive back upon completion
-  //   token - associated with in-app billing purchase
-  //   orderId - order ID of the item
+  //   ExtraInfo - a hash of extra information associated with the in-app billing purchase.
+  //          possible keys are: 'token', 'orderId', 'originalJson', 'signature', 'userId'
 
   // ... your game specific implementation here ...
 }

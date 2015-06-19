@@ -192,7 +192,7 @@ For example, you could use `GetStoredUserProfile` to get the user's `FirstName`,
 
 This function retrieves a list of the user's contacts from the supplied provider.
 
-<div class="info-box">Notice that some social providers (FB, G+, Twitter) supply all of the user's contacts and some supply only the contacts that use your app.</div>
+<div class="info-box">Notice that some social providers (G+, Twitter) supply all of the user's contacts and some (FB) supply only the contacts that use your app.</div>
 
 You could use `getContacts` to show your users a personalized screen where they can see which of their friends are also playing your game, or you could offer the contacts that don't play your game to download your game and receive some free coins.
 
@@ -212,7 +212,7 @@ Note that the results will contain only part of the list. In order to get more i
 - (void)getContacts {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getContactsFinished:)
       name:EVENT_UP_GET_CONTACTS_FINISHED object:nil];
-    
+
     // request for the 1st page
     [[SoomlaProfile getInstance] getContactsWithProvider:FACEBOOK
         andFromStart: YES       // you definitely need the 1st page
@@ -243,7 +243,7 @@ Note that the results will contain only part of the list. In order to get more i
 <br>
 ###`getFeed`
 
-This function Retrieves a list of the user's feed entries from the supplied provider. Upon a successful retrieval of 
+This function Retrieves a list of the user's feed entries from the supplied provider. Upon a successful retrieval of
 feed entries the user will be granted the supplied reward.
 
 <div class="info-box">G+ does not support this.</div>
@@ -264,7 +264,7 @@ Note that the results will contain only part of the list. In order to get more i
 - (void)getFeed {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getFeedFinished:)
       name:EVENT_UP_GET_FEED_FINISHED object:nil];
-    
+
     // request for the 1st page
     [[SoomlaProfile getInstance] getFeedWithProvider:FACEBOOK
         andFromStart: YES       // you definitely need the 1st page
@@ -301,6 +301,19 @@ Note that the results will contain only part of the list. In order to get more i
 [[SoomlaProfile getInstance] openAppRatingPage];
 ```
 
+<br>
+###`multiShare`
+
+
+`multiShare` Shares text and/or image using native sharing functionality of your target platform.
+The user will be shown a screen where he selects where he wants to share.
+
+``` objectivec
+[[SoomlaProfile getInstance] multiShareWithText:@""I'm happy. I can be shared everywhere."
+                               andImageFilePath:@"path/to/file/you/want/to/share"];
+
+```
+
 ##Auxiliary Model: Reward
 
 A `Reward` is an entity which can be earned by the user for meeting certain criteria in game progress.
@@ -313,6 +326,8 @@ A `Reward` is an entity which can be earned by the user for meeting certain crit
 ###**VirtualItemReward**
 
 A specific type of `Reward` that you can use to give your users some amount of a virtual item. **For example:** Give users 100 coins (virtual currency) for liking your page.
+
+<div class="info-box">`VirtualItemReward` is a part of `ios-store`. In case you want to use it, you'll need to import ios-store as well.</div>
 
 ``` objectivec
 VirtualItemReward* coinReward;

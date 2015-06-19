@@ -5,63 +5,104 @@ title: "Getting Started"
 text: "Get started with cocos2dx-profile. Here you can find integration instructions and a basic example of initialization."
 position: 1
 theme: 'platforms'
-collection: 'cocos2dx_profile'
+collection: 'cocos2djs_profile'
 module: 'profile'
-lang: 'cpp' 
+lang: 'js' 
 platform: 'cocos2dx'
 ---
 
 #Getting Started
 
-*If you want to develop with sources, refer to the [Working with sources](#working-with-sources) section below*.
+*If you want to develop with C++ sources, refer to the [Working with sources](#working-with-sources) section below.*
 
-<div class="info-box">Profile depends on SOOMLA's Core module. This document assumes that you are new to SOOMLA and have not worked with any of the other SOOMLA modules. If this is not the case, and you already have Core & Store, please follow these directions only for the Profile module.</div>
+<div class="info-box">If you didn't already, clone the Cocos2d-js framework from [here](https://github.com/cocos2d/cocos2d-js), 
+or download it from the [Cocos2d-x website](http://www.cocos2d-x.org/download). Make sure the version you clone is 
+supported by SOOMLA's cocos2dx-profile (the tag is the version).</div>
+
+<div class="info-box">Profile depends on SOOMLA's Core module. This document assumes that you are new to SOOMLA and have 
+not worked with any of the other SOOMLA modules. If this is not the case, and you already have Core & Store, please 
+follow these directions only for the Profile module.</div>
 
 ##General Instructions
 
-1. If you didn't already, clone the Cocos2d-x framework from [here](https://github.com/cocos2d/cocos2d-x), or download it from the [Cocos2d-x website](http://www.cocos2d-x.org/download). Make sure the version you clone is supported by cocos2dx-profile (the tag is the version).
-
-2. Clone [soomla-cocos2dx-core](https://github.com/soomla/soomla-cocos2dx-core) and **cocos2dx-profile** into the `extensions` directory located at the root of your Cocos2d-x framework:
+1. Clone [soomla-cocos2dx-core](https://github.com/soomla/soomla-cocos2dx-core) and **cocos2dx-profile** into the `Classes` folder of your project.
 
     ```
-    $ git clone git@github.com:soomla/soomla-cocos2dx-core.git extensions/soomla-cocos2dx-core
+    $ git clone git@github.com:soomla/soomla-cocos2dx-core.git frameworks/runtime-src/Classes/soomla-cocos2dx-core
 
-    $ git clone git@github.com:soomla/cocos2dx-profile.git extensions/cocos2dx-profile
+    $ git clone git@github.com:soomla/cocos2dx-profile.git frameworks/runtime-src/Classes/cocos2dx-profile
     ```
 
-3. We use a [fork](https://github.com/soomla/jansson) of the jansson library for JSON parsing, clone our fork into the `external` directory at the root of your framework:
+1. We use a [fork](https://github.com/soomla/jansson) of the jansson library for JSON parsing. Clone it there as well.
 
     ```
     $ git clone git@github.com:soomla/jansson.git external/jansson
     ```
-4. Make sure to include the `Cocos2dxProfile.h` header whenever you use any of the **cocos2dx-profile** methods:
 
-  ``` cpp
-  #include "Cocos2dxProfile.h"
-  ```
+1. Register soomla js-bindings in your `js_module_register.h`:
 
-5. Initialize `CCSoomla` with a `customSecret` and `CCSoomlaProfile` with its params. **Custom Secret** is an encryption secret you provide that will be used to secure your data. Choose this secret wisely, you can't change it after you launch your game!
+    ```cpp
+    #include "Cocos2dxProfile.h"
+    ...
+    sc->addRegisterCallback(register_jsb_soomla);
+    ```
 
-  ``` cpp
-  soomla::CCSoomla::initialize("customSecret");
-  ```
+1. Initialize Native Bridge in your `AppDelegate.cpp` in the method `applicationDidFinishLaunching`:
 
-  ``` cpp
-  __Dictionary *profileParams = __Dictionary::create();
-  soomla::CCSoomlaProfile::initialize(profileParams);
-  ```
+    ```cpp
+    // Bind native bridges
+    soomla::CCCoreBridge::getInstance();
+    soomla::CCProfileBridge::getInstance();
+    ```
 
-    <div class="warning-box">Initialize `CCSoomlaProfile` ONLY ONCE when your application loads.</div>
+1. Copy soomla js-files to your project:
 
-6. Note that some social providers need special parameters to be passed to `CCSoomlaProfile` in order for them to work:
+    ```bash
+    mkdir script/soomla
+    cp frameworks/runtime-src/Classes/soomla-cocos2dx-core/js/* script/soomla/
+    cp frameworks/runtime-src/Classes/cocos2dx-profile/js/* script/soomla/
+    ```
+
+1. Add them to your `project.json`:
+
+    ```js
+  "jsList": [
+    "script/soomla/lodash.js",
+    "script/soomla/soomla-core.js",
+    "script/soomla/soomla-profile.js",
+    // your other files
+  ]
+    ```
+
+1. Initialize `Soomla` and `Soomla.SoomlaProfile` with a `customSecret` and other params:
+
+	``` js
+    Soomla.initialize("customSecret");
+
+    var profileParams = {
+    };
+
+    Soomla.SoomlaProfile.createShared(profileParams);
+	```
+
+	- *Custom Secret* - is an encryption secret you provide that will be used to secure your data.
+
+	<div class="warning-box">Choose the secret wisely. You can't change it after you launch your game!
+	Initialize `Soomla.SoomlaProfile` ONLY ONCE when your application loads.</div>
+
+    <div class="warning-box">Initialize `SoomlaProfile` ONLY ONCE when your application loads.</div>
+
+
+1. Note that some social providers need special parameters to be passed to `SoomlaProfile` in order for them to work:
 
   a. **Facebook** - You can provide your custom permission set here, these permissions will be requested from the user on login.
 
-	``` cpp
-    __Dictionary *facebookParams = __Dictionary::create();
-    facebookParams->setObject(__String::create("public_profile,user_friends"), "permissions");
-
-    profileParams->setObject(facebookParams, soomla::CCUserProfileUtils::providerEnumToString(soomla::FACEBOOK)->getCString());
+	``` js
+	    var profileParams = {
+          facebook: {
+            permissions: 'public_profile,user_friends'
+          }
+        };
 	```
   <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app, 
   just request the reasonable minimum. Other permissions will be requested, when they will be needed. 
@@ -74,63 +115,74 @@ platform: 'cocos2dx'
 
   b. **Google+** - Please provide Client ID from the "API & Auth, credentials" section like so:
 
-  ``` cpp
-  __Dictionary *googleParams = __Dictionary::create();
-  googleParams->setObject(__String::create("[YOUR CLIENT ID]"), "clientId");
-
-  profileParams->setObject(googleParams, soomla::CCUserProfileUtils::providerEnumToString(soomla::GOOGLE)->getCString());
+  ``` js
+    var profileParams = {
+      google: {
+        clientId: '[YOUR CLIENT ID]'
+      }
+    };
   ```
 
   c. **Twitter** - Please provide a "Consumer Key" and a "Consumer Secret" from the "Keys and Access Tokens" section in [Twitter Apps](https://apps.twitter.com/), like so:
 
-  ``` cpp
-  __Dictionary *twitterParams = __Dictionary::create();
-  twitterParams->setObject(__String::create("[YOUR CONSUMER KEY]"), "consumerKey");
-  twitterParams->setObject(__String::create("[YOUR CONSUMER SECRET]"), "consumerSecret");
-
-  profileParams->setObject(twitterParams, soomla::CCUserProfileUtils::providerEnumToString(soomla::TWITTER)->getCString());
+  ``` js
+    var profileParams = {
+      twitter: {
+        consumerKey: '[YOUR CONSUMER KEY]',
+        consumerSecret: '[YOUR CONSUMER SECRET]'
+      }
+    };
   ```
 
-7. You'll need to subscribe to profile events to get notified about social network related events. refer to the [Event Handling](/cocos2dx/cpp/profile/Profile_Events) section for more information.
+1. You'll need to subscribe to profile events to get notified about social network related events. refer to the [Event Handling](/cocos2dx/js/profile/Profile_Events) section for more information.
 
 <br>
 <div class="info-box">The next steps are different according to which platform you're using.</div>
 
-##Instructions for iOS
+###**Instructions for iOS**
 
 In your XCode project, perform the following steps:
 
-1. Add `jansson` (**external/jansson/**) to your project (just add it as a source folder, make sure to check "create group").
+1. In order to proceed Soomla needs to know, where your cocos2d-x is. Please, create a symlink with cocos2d-x at the path `frameworks/runtime-src` of the project, which looks at cocos2d-x. It can be something like that:
 
-2. For each of the following XCode projects:
+    ```bash
+ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime-src/cocos2d-x
+    ````
 
-  * `Cocos2dXCore.xcodeproj` (**extensions/soomla-cocos2dx-core/**).
+1. Add `jansson` (**frameworks/runtime-src/Classes/jansson/**) to your project (just add it as a source folder, make sure to check "create group").
 
-  * `Cocos2dXProfile.xcodeproj` (**extensions/cocos2dx-profile/**).
+1. For each of the following XCode projects:
 
-    Perform the following:
+ * `Cocos2dXCore.xcodeproj` (**frameworks/runtime-src/Classes/soomla-cocos2dx-core/**).
+
+ * `Cocos2dXProfile.xcodeproj` (**frameworks/runtime-src/Classes/cocos2dx-profile/**).
 
     a. Drag the project into your project.
 
     b. Add its targets to your **Build Phases->Target Dependencies**.
 
-    c. Add the Products (\*.a) of the project to **Build Phases->Link Binary With Libraries**.
+    c. Add its `.a` files to **Build Phases->Link Binary With Libraries**.
 
-  ![alt text](/img/tutorial_img/cocos2dx-profile/iosStep2.png "iOS Integration")
+ ![alt text](/img/tutorial_img/cocos2dx-profile/iosStep2.png "iOS Integration")
 
-3. Add the following directories to **Build Settings->Header Search Paths** (with `recursive` option):
- - `$(SRCROOT)/../cocos2d/extensions/soomla-cocos2dx-core/Soomla`
- - `$(SRCROOT)/../cocos2d/extensions/soomla-cocos2dx-core/build/ios/headers`
- - `$(SRCROOT)/../cocos2d/extensions/cocos2dx-profile/Soomla`
- - `$(SRCROOT)/../cocos2d/extensions/cocos2dx-profile/build/ios/headers`
+1. Add the following directories to **Build Settings->Header Search Paths** (with `recursive` option):
+
+ - `$(SRCROOT)/../Classes/soomla-cocos2dx-core/Soomla`
+ - `$(SRCROOT)/../Classes/soomla-cocos2dx-core/build/ios/headers`
+ - `$(SRCROOT)/../Classes/cocos2dx-profile/Soomla`
+ - `$(SRCROOT)/../Classes/cocos2dx-profile/build/ios/headers`
 
  ![alt text](/img/tutorial_img/cocos2dx-profile/headerSP.png "Header search paths")
 
-4. To support browser-based authentication read [here](#browser-based-authentication).
+1. To support browser-based authentication read [here](#browser-based-authentication).
 
-5. Make sure you have the following frameworks linked to your XCode project: **Security, libsqlite3.0.dylib**.
+1. Add `-ObjC` to your project **Build Settings->Other Linker Flags**.
 
-6. Go to **Build Settings->Library Search Paths**, set the library search paths to `extensions/cocos2dx-profile/build/ios` with the `recursive` option.
+	![alt text](/img/tutorial_img/cocos2dx_getting_started/objc.png "Other Linker Flags")
+
+1. Make sure you have the following frameworks linked to your XCode project: **Security, libsqlite3.0.dylib**.
+
+1. Go to **Build Settings->Library Search Paths**, set the library search paths to `$(SRCROOT)/../Classes/cocos2dx-profile/build/ios` with the `recursive` option.
 
 <div class="info-box">The following steps should be done according to the target social network.</div>
 
@@ -146,7 +198,8 @@ Facebook is supported out-of-the-box, you just have to follow the next steps to 
 
 ###Google+ for iOS
 
-Google+ is supported out-of-the-box, authentication is done either through the signed in Google+ account or through the web browser (fallback). Follow the next steps to make it work:
+Google+ is supported out-of-the-box, authentication is done either through the signed in Google+ account or through the 
+web browser (fallback). Follow the next steps to make it work:
 
 1. Click [here](https://console.developers.google.com/project) to create your Google Plus app.
 
@@ -176,7 +229,8 @@ Google+ is supported out-of-the-box, authentication is done either through the s
 
 ###Twitter for iOS
 
-Twitter is supported out-of-the-box, authentication is done either through the signed in **native** Twitter account (iOS 5+) or through web browser (fallback). Follow the next steps to make it work:
+Twitter is supported out-of-the-box, authentication is done either through the signed in **native** Twitter account 
+(iOS 5+) or through web browser (fallback). Follow the next steps to make it work:
 
 1. Click [here](https://apps.twitter.com/) to create your Twitter app.
 
@@ -192,27 +246,41 @@ Twitter is supported out-of-the-box, authentication is done either through the s
 
   NOTE: **ios-profile** uses the [STTWitter](https://github.com/nst/STTwitter) library (v 0.1.5) to support Twitter integration.  
 
-That's it! Now all you have to do is build your XCode project and run your game with cocos2dx-profile.
+
+**That's it! Now all you have to do is build your XCode project and run your game with cocos2dx-profile.**
+
+> If you use Cocos IDE you'll need to `Build Custom Simulator` for iOS there.
+
+<br>
 
 
 ##Instructions for Android
 
+1. Set COCOS2D_JAVASCRIPT flag for your project changing your `frameworks/runtime-src/proj.android/jni/Application.mk`:
+    ```
+    APP_CPPFLAGS += -DCOCOS2D_JAVASCRIPT=1
+    ```
+
+1. Add "../Classes" to `ndk_module_path`, adding it to the file `frameworks/runtime-src/proj.android/build-cfg.json`
+
 1. Import cocos2dx-profile module into your project's Android.mk by adding the following:
 
     ```
-    LOCAL_WHOLE_STATIC_LIBRARIES += cocos2dx_profile_static # add this line along with your other LOCAL_WHOLE_STATIC_LIBRARIES
+    # Add these lines along with your other LOCAL_WHOLE_STATIC_LIBRARIES
+    LOCAL_WHOLE_STATIC_LIBRARIES += cocos2dx_profile_static
 
-    $(call import-module, extensions/cocos2dx-profile) # add this line at the end of the file, along with the other import-module calls
+	# Add these lines at the end of the file, along with the other import-module calls
+    $(call import-module, cocos2dx-profile)
     ```
 
 2. Add the following jars to your android project's classpath:
 
-  From `extensions/soomla-cocos2dx-core/build/android`:
+  From `frameworks/runtime-src/Classes/soomla-cocos2dx-core/build/android`:
   - SoomlaAndroidCore.jar
   - Cocos2dxAndroidCore.jar
   - square-otto-1.3.2.jar
 
-  From `extensions/cocos2dx-profile/build/android`:
+  From `frameworks/runtime-src/Classes/cocos2dx-profile/build/android`:
   - AndroidProfile.jar
   - Cocos2dxAndroidProfile.jar
 
@@ -233,7 +301,7 @@ That's it! Now all you have to do is build your XCode project and run your game 
 
 <div class="info-box">The following steps should be done according to the target social network.
 
-<br>NOTE: All jars for social providers are located at the following path: `extensions/cocos2dx-profile/build/android`</div>
+<br>NOTE: All jars for social providers are located at the following path: `frameworks/runtime-src/Classes/cocos2dx-profile/build/android`</div>
 
 ###Facebook for Android
 
@@ -319,7 +387,9 @@ Twitter is supported out-of-the-box, authentication is done via web view. Follow
       </application>
       ```
 
-That's it! Don't forget to run the **build_native.sh** script so cocos2dx-profile sources will be built with cocos2d-x.
+**That's it! You can begin using cocos2dx-profile in your game.**
+
+> Don't forget to `Build Custom Simulator` for Android, if you use Cocos IDE.
 
 ##Working with sources
 
@@ -328,9 +398,8 @@ For those of you who want to contribute code, please use our "sources environmen
 1. Fetch submodules of repositories by recursively cloning them:
 
   ```
-  $ git clone --recursive git@github.com:soomla/soomla-cocos2dx-core.git extensions/soomla-cocos2dx-core
-
-  $ git clone --recursive git@github.com:soomla/cocos2dx-profile.git extensions/cocos2dx-profile
+  $ git clone --recursive git@github.com:soomla/soomla-cocos2dx-core.git frameworks/runtime-src/Classes/soomla-cocos2dx-core
+  $ git clone --recursive git@github.com:soomla/soomla-cocos2dx-core.git frameworks/runtime-src/Classes/cocos2dx-profile
   ```
 
   or, if you have repositories already cloned, fetch the submodules with this command:
@@ -341,9 +410,9 @@ For those of you who want to contribute code, please use our "sources environmen
 
   <div class="info=box">**IMPORTANT:** You should run this command in every repository.</div>
 
-2. For iOS: Use a sourced versions of linked projects (`extensions/soomla-cocos2dx-core/development/Cocos2dxCoreFromSources.xcodeproj`, `extensions/cocos2dx-profile/development/Cocos2dxProfileFromSources.xcodeproj`)
+2. For iOS: Use a sourced versions of linked projects (`frameworks/runtime-src/Classes/soomla-cocos2dx-core/development/Cocos2dxCoreFromSources.xcodeproj`, `frameworks/runtime-src/Classes/cocos2dx-profile/development/Cocos2dxProfileFromSources.xcodeproj`)
 
-3. For Android: You can use our "sourced" modules for Android Studio (or IntelliJ IDEA) (`extensions/soomla-cocos2dx-core/development/Cocos2dxCoreFromSources.iml`, `extensions/cocos2dx-profile/development/Cocos2dxProfileFromSources.iml`), just include them in your project.
+3. For Android: You can use our "sourced" modules for Android Studio (or IntelliJ IDEA) (`frameworks/runtime-src/Classes/soomla-cocos2dx-core/development/Cocos2dxCoreFromSources.iml`, `frameworks/runtime-src/Classes/cocos2dx-profile/development/Cocos2dxProfileFromSources.iml`), just include them in your project.
 
 ##Caveats
 
@@ -424,41 +493,41 @@ The callback to this process is `openURL` which should be defined in your `AppCo
 
 ##Example
 
-Below is an example of initializing Profile, logging the user into Facebook, and sharing a story on the user's Facebook wall. To see a full example, please see [cocos2dx-profile-example](https://github.com/soomla/cocos2dx-profile-example). To learn about the different entities and functionality of Profile, see [Main Classes & Operations](/cocos2dx/cpp/profile/Profile_MainClasses).
+Below is an example of initializing Profile, logging the user into Facebook, and sharing a story on the user's Facebook wall. To see a full example, please see [cocos2dx-profile-example](https://github.com/soomla/cocos2dx-profile-example). To learn about the different entities and functionality of Profile, see [Main Classes & Operations](/cocos2dx/js/profile/Profile_MainClasses).
 
 <br>
 
-Initialize `CCSoomla` and `CCSoomlaProfile`.
+Initialize `Soomla` and `SoomlaProfile`.
 
-``` cpp
-soomla::CCSoomla::initialize("customSecret");
+``` js
+Soomla.initialize("customSecret");
 
-...
+var profileParams = {
+};
 
-__Dictionary *profileParams = __Dictionary::create();
-soomla::CCSoomlaProfile::initialize(profileParams);
+Soomla.SoomlaProfile.createShared(profileParams);
 ```
 
 <br>
 Log the user into Facebook.
 
-``` cpp
-soomla::CCSoomlaProfile::getInstance()->login(soomla::FACEBOOK, &profileError);
+``` js
+Soomla.soomlaProfile.login(Soomla.Models.Provider.FACEBOOK);
 ```
 
 <br>
 Share a story on the user's Facebook wall.
 
-``` cpp
-soomla::CCSoomlaProfile::getInstance()->updateStory(
-    soomla::FACEBOOK,
-    "Check out this great story by SOOMLA!",
-    "SOOMLA is 2 years young!",
-    "SOOMLA Story",
-    "soomla_2_years",
-    "http://blog.soom.la/2014/08/congratulations-soomla-is-2-years-young.html",
-    "http://blog.soom.la/wp-content/uploads/2014/07/Birthday-bot-300x300.png",
-    soomla::CCBadgeReward::create("sheriff", "Sheriff"), &profileError  
+``` js
+Soomla.soomlaProfile.updateStory(
+    Soomla.Models.Provider.FACEBOOK,
+    'Check out this great story by SOOMLA!',
+    'SOOMLA is 2 years young!',
+    'SOOMLA Story',
+    'soomla_2_years',
+    'http://blog.soom.la/2014/08/congratulations-soomla-is-2-years-young.html',
+    'http://blog.soom.la/wp-content/uploads/2014/07/Birthday-bot-300x300.png',
+    Soomla.BadgeReward.create({itemId: 'sheriff', name: 'Sheriff'})  
 );
 ```
 
