@@ -136,10 +136,13 @@ This event is triggered when a market purchase operation has completed successfu
 ```js
 Soomla.addHandler(Soomla.StoreConsts.EVENT_MARKET_PURCHASE, this.onMarketPurchase, this);
 
-this.onMarketPurchase = function (purchasableVirtualItem, token, payload) {
+this.onMarketPurchase = function (purchasableVirtualItem, payload, extraInfo) {
     // purchasableVirtualItem   - the PurchasableVirtualItem whose purchase operation has just started
-    // token                    - The purchase token
     // payload                  - a text that you can give when you initiate the purchase operation and you want to receive back upon completion
+    // extraInfo                - contains platform specific information about the market purchase
+    //      Android: The "extra" dictionary will contain: 'token', 'orderId', 'originalJson', 'signature', 'userId'
+    //      iOS: The "extra" dictionary will contain: 'receiptUrl', 'transactionIdentifier', 'receiptBase64',
+    //          'transactionDate', 'originalTransactionDate', 'originalTransactionIdentifier'
 
     // ... your game specific implementation here ...
 }

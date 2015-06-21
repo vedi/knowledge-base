@@ -175,23 +175,17 @@ Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCStoreCon
 
 void Example::onMarketPurchase(EventCustom *event) {
   // DICT_ELEMENT_PURCHASABLE       - the PurchasableVirtualItem that was just purchased
-  // DICT_ELEMENT_TOKEN             - The purchase token
   // DICT_ELEMENT_DEVELOPERPAYLOAD  - a text that you can give when you initiate the
   //    purchase operation and you want to receive back upon completion
-  // Android only:
-  // DICT_ELEMENT_ORIGINAL_JSON     - Original JSON of the purchase (Google Only)
-  // DICT_ELEMENT_SIGNATURE         - Purchase signature (Google Only)
-  // DICT_ELEMENT_USER_ID           - The purchasing user ID (Amazon Only)
+  // DICT_ELEMENT_EXTRA_INFO        - contains platform specific information about the market purchase
+  //  Android: The "extra" dictionary will contain: 'token', 'orderId', 'originalJson', 'signature', 'userId'
+  //  iOS: The "extra" dictionary will contain: 'receiptUrl', 'transactionIdentifier', 'receiptBase64',
+  //    'transactionDate', 'originalTransactionDate', 'originalTransactionIdentifier'
 
   __Dictionary *eventData = (__Dictionary *)event->getUserData();
   CCPurchasableVirtualItem *purchasable = dynamic_cast<CCPurchasableVirtualItem *>(eventData->objectForKey(CCStoreConsts::DICT_ELEMENT_PURCHASABLE));
-  __String *token = dynamic_cast<__String *>(eventData->objectForKey(CCStoreConsts::DICT_ELEMENT_TOKEN));
   __String *payload = dynamic_cast<__String *>(eventData->objectForKey(CCStoreConsts::DICT_ELEMENT_DEVELOPERPAYLOAD));
-
-  // Android only
-  __String *originalJSON = dynamic_cast<__String *>(eventData->objectForKey(CCStoreConsts::DICT_ELEMENT_ORIGINAL_JSON));
-  __String *signature = dynamic_cast<__String *>(eventData->objectForKey(CCStoreConsts::DICT_ELEMENT_SIGNATURE));
-  __String *userId = dynamic_cast<__String *>(eventData->objectForKey(CCStoreConsts::DICT_ELEMENT_USER_ID));
+  __Dictionary *eventData = dynamic_cast<(__Dictionary *>(eventData->objectForKey(CCStoreConsts::DICT_ELEMENT_EXTRA_INFO));
 
   // ... your game specific implementation here ...
 }
