@@ -18,10 +18,12 @@ layout: 'knowledge-base'
                 <% if (result): %>
                 <% doc = result.toJSON() %>
                 <div class="menu-option">
-                <a href="<%= doc.link %>" class="link-container">
-                <div class="option-head-text"><%= doc.title %></div>
-                <div class="option-text"><%= doc.text %></div>
-                </a>
+                    <a href="<%= doc.link %>" class="link-container">
+                        <div class="related-samples-item">
+                            <div class="option-head-text"><%= doc.title %></div>
+                            <div class="option-text"><%= doc.text %></div>
+                        </div>
+                    </a>
                 </div>
                 <% else: %>
                 No related document found: <%=relatedDocName%>
@@ -29,7 +31,7 @@ layout: 'knowledge-base'
             <% end %>
         </div>
         <div class="col-md-9">
-            <div id="doc-container" class="article-content clearfix">
+            <div id="doc-container" class="clearfix">
                 <%- @content %>
             </div>
         </div>
