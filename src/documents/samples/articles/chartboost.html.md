@@ -1,10 +1,10 @@
 ---
 layout: "sample"
-image: "supersonic_logo"
-title: "SUPERSONIC"
+image: "chartboost_logo"
+title: "CHARTBOOST"
 text: "Show rewarded video to earn coins"
 position: 5
-relates: ["chartboost"]
+relates: ["supersonic"]
 collection: 'samples'
 theme: 'samples'
 ---

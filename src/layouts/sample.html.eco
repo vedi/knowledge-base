@@ -1,9 +1,16 @@
 ---
 layout: 'knowledge-base'
+title: 'Soomla Integrations'
+theme: 'samples'
 ---
+
 <div class="jumbotron" id="know-soomla">
     <div id="jumbo-main-text">
-        <img class="dropdown-menu-icon" src="/img/samples/Icon2-<%= @document.image %>.png"/>
+        <div id="hierarchy-nav">
+          <%- @partial('nav-menu-l1', {current:'integrations'}) %>
+          <%- @partial('nav-menu-l3', {collection:@document.collection, icon:@document.image}) %>
+        </div>
+        <img class="dropdown-menu-icon sample-logo" src="/img/samples/Icon2-<%= @document.image %>.png"/>
     </div>
     <div id="jumbo-small-text">
         <%= @document.text %>
@@ -12,17 +19,16 @@ layout: 'knowledge-base'
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <h4>Related Apps</h4>
+            <div class="related-samples-title">Related Apps</div>
             <% for relatedDocName in @document.relates: %>
                 <% result = @getCollection('samples').findOne({basename: relatedDocName}) %>
                 <% if (result): %>
                 <% doc = result.toJSON() %>
-                <div class="menu-option">
-                    <a href="<%= doc.link %>" class="link-container">
-                        <div class="related-samples-item">
-                            <div class="option-head-text"><%= doc.title %></div>
-                            <div class="option-text"><%= doc.text %></div>
-                        </div>
+                <div class="menu-option related-samples-item">
+                    <a href="<%= doc.url %>" class="link-container">
+                        <div class="option-head-text related-samples-sub-title"><%= doc.title %></div>
+                        <div class="option-text related-samples-text"><%= doc.text %></div>
+                        <legend/>
                     </a>
                 </div>
                 <% else: %>
@@ -31,7 +37,7 @@ layout: 'knowledge-base'
             <% end %>
         </div>
         <div class="col-md-9">
-            <div id="doc-container" class="clearfix">
+            <div id="doc-container" class="clearfix sample-content">
                 <%- @content %>
             </div>
         </div>
