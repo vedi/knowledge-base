@@ -14,5 +14,4 @@ git clone git@github.com:soomla/knowledge-base.git
 cd knowledge-base
 npm install
 bower install
-docpad run
-```
+	```
