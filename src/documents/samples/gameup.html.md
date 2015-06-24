@@ -18,7 +18,7 @@ platform: 'android'
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs nav-tabs-use-case-code" role="tablist">
-    <!-- <li role="presentation" class="active"><a href="#sample-unity" aria-controls="unity" role="tab" data-toggle="tab">Unity</a></li> -->
+    <li role="presentation" class="active"><a href="#sample-unity" aria-controls="unity" role="tab" data-toggle="tab">Unity</a></li>
     <!-- <li role="presentation"><a href="#sample-cocos2dx" aria-controls="cocos2dx" role="tab" data-toggle="tab">Cocos2d-x</a></li> -->
     <!-- <li role="presentation"><a href="#sample-ios" aria-controls="ios" role="tab" data-toggle="tab">iOS</a></li> -->
     <li role="presentation" class="active"><a href="#sample-android" aria-controls="android" role="tab" data-toggle="tab">Android</a></li>
@@ -26,13 +26,142 @@ platform: 'android'
 
   <!-- Tab panes -->
   <div class="tab-content tab-content-use-case-code">
-    <!-- <div role="tabpanel" class="tab-pane active" id="sample-unity">
+    <div role="tabpanel" class="tab-pane active" id="sample-unity">
+      <p>
+        <b>Tip:</b> The [GameUp Unity SDK](https://github.com/gameup-io/gameup-unity-sdk) is available to download on [Github](https://github.com/gameup-io/gameup-unity-sdk/releases).
+      </p>
+
+      <p>
+        First, let's create a static helper class to handle the GameUp session for us:
+      </p>
       <pre>
         <code class="cs">
-# TODO
+using UnityEngine;
+using System.Collections;
+using GameUp;
+using System.Collections.Generic;
+using System;
+using Soomla;
+using Soomla.Profile;
+using Soomla.LevelUp;
+public class SoomlaGameUpBehaviour : MonoBehaviour
+{
+  private static readonly String SESSION_KEY = "io.gameup.unity.session";
+  private static GameUpSession session;
+
+  void Start ()
+  {
+    // Initialise the GameUp SDK.
+    Client.ApiKey = "your-api-key-here";
+
+    //
+    // Listener to handle login events.
+    //
+    ProfileEvents.OnLoginFinished += onLoginFinished;
+    //
+    // Listener that handles logout events.
+    //
+    ProfileEvents.OnLogoutFinished += onLogoutFinished;
+
+    //
+    // Handler that submits a particular new Soomla record score to a GameUp
+    // leaderboard.
+    //
+    LevelUpEvents.OnScoreRecordChanged += onScoreRecordChanged;
+
+    //
+    // An example of how a GameUp achievement might be triggered. This specific
+    // example achievement is triggered by exactly matching the current high
+    // score, but not beating it.
+    //
+    LevelUpEvents.OnScoreRecordReached += onScoreRecordReached;
+  }
+
+  //
+  // Listener to handle login events.
+  //
+  private void onLoginFinished(UserProfile userProfile, string payload) {
+    string type = userProfile.Provider().ToString();
+    string id = userProfile.ProfileId;
+
+    // Use the resulting social profile type and ID to request a new
+    // GameUp session for this user.
+    String acc = "io.gameup.accounts.com.soomla.profile." + type + "." + id;
+    Client.LoginAnonymous(acc, (SessionClient sessionClient) => {
+      // Store the session for future use.
+      session = sessionClient;
+    }, (int statusCode, string reason) => {
+      //handle login error
+    });
+
+  }
+
+  //
+  // Listener that handles logout events.
+  //
+  private void onLoginFinished(string message) {
+    // Drop the GameUp session when the user logs out.
+    session = null;
+  }
+
+
+  //
+  // Handler that submits a particular new Soomla record score to a GameUp
+  // leaderboard.
+  //
+  private void onScoreRecordChanged(Score score) {
+    String scoreId = score.ID;
+    // See if we want to report this score. Each GameUp leaderboard is
+    // usually only relevant to one score type, but we can have more than
+    // one leaderboard and submit different scores to each one!
+    if ("soomla-score-id-we-care-about".Equals(scoreId)) {
+        // Now check if the user is logged in, otherwise we can't report the
+        // score.
+        if (session != null) {
+            // Finally, report the score to GameUp!
+            // Note: GameUp prefers whole numbers as score values, but they
+            // can represent anything. For example for a Soomla score of
+            // 10.25 you might submit to GameUp the value 1025.
+            long score = (long) ScoreStorage.LatestScore(scoreId);
+            session.UpdateLeaderboard("gameup-leaderboard-id", score, (Rank rank) => {
+              // Now we might do something with the rank, such as notify the
+              // user if they've got a new best rank.
+            }, (int statusCode, string reason) => {
+              //handle leaderboard update error
+            });
+
+            // Now we might do something with the rank, such as notify the
+            // user if they've got a new best rank.
+        }
+    }
+  }
+
+  //
+  // An example of how a GameUp achievement might be triggered. This specific
+  // example achievement is triggered by exactly matching the current high
+  // score, but not beating it.
+  //
+  private void onScoreRecordReached(Score score) {
+    // We can only trigger achievements if we have a session.
+    if (session != null) {
+      session.Achievements ((AchievementList list) => {
+        foreach (Achievement achievement : list) {
+          if (achievement.PublicId.Equals("gameup-public-achievement-id")) {
+            if (achievement.IsCompleted()) {
+              // If this it means the achievement was just
+              // unlocked, so we might congratulate the user.
+            }
+          }
+        }
+      }, (int statusCode, string reason) => {
+        //handle achievement retrieve error
+      });
+    }
+  }
+}
         </code>
       </pre>
-    </div> -->
+    </div>
     <!-- <div role="tabpanel" class="tab-pane" id="sample-cocos2dx">...</div> -->
     <!-- <div role="tabpanel" class="tab-pane" id="sample-ios">...</div> -->
     <div role="tabpanel" class="tab-pane active" id="sample-android">
@@ -76,7 +205,7 @@ public class GameUpSessionHelper {
     //
     // Instruct the helper to manage a new session. Use null to just erase the
     // current session instead.
-    // 
+    //
     // @param newSession A new session to manage, or null to 'log out'.
     //
     public static void setSession(GameUpSession newSession) {
