@@ -21,7 +21,7 @@ platform: 'android'
     <li role="presentation" class="active"><a href="#sample-unity" aria-controls="unity" role="tab" data-toggle="tab">Unity</a></li>
     <!-- <li role="presentation"><a href="#sample-cocos2dx" aria-controls="cocos2dx" role="tab" data-toggle="tab">Cocos2d-x</a></li> -->
     <!-- <li role="presentation"><a href="#sample-ios" aria-controls="ios" role="tab" data-toggle="tab">iOS</a></li> -->
-    <li role="presentation" class="active"><a href="#sample-android" aria-controls="android" role="tab" data-toggle="tab">Android</a></li>
+    <li role="presentation"><a href="#sample-android" aria-controls="android" role="tab" data-toggle="tab">Android</a></li>
   </ul>
 
   <!-- Tab panes -->
@@ -31,19 +31,17 @@ platform: 'android'
         <b>Tip:</b> The [GameUp Unity SDK](https://github.com/gameup-io/gameup-unity-sdk) is available to download on [Github](https://github.com/gameup-io/gameup-unity-sdk/releases).
       </p>
 
-      <p>
-        First, let's create a static helper class to handle the GameUp session for us:
-      </p>
       <pre>
         <code class="cs">
 using UnityEngine;
 using System.Collections;
-using GameUp;
 using System.Collections.Generic;
 using System;
+using GameUp;
 using Soomla;
 using Soomla.Profile;
 using Soomla.LevelUp;
+
 public class SoomlaGameUpBehaviour : MonoBehaviour
 {
   private static readonly String SESSION_KEY = "io.gameup.unity.session";
@@ -164,7 +162,7 @@ public class SoomlaGameUpBehaviour : MonoBehaviour
     </div>
     <!-- <div role="tabpanel" class="tab-pane" id="sample-cocos2dx">...</div> -->
     <!-- <div role="tabpanel" class="tab-pane" id="sample-ios">...</div> -->
-    <div role="tabpanel" class="tab-pane active" id="sample-android">
+    <div role="tabpanel" class="tab-pane" id="sample-android">
       <p>
         <b>Tip:</b> The [GameUp Android SDK](https://github.com/gameup-io/gameup-android-sdk) is available through [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Cio.gameup.android).
       </p>
