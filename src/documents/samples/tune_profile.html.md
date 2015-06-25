@@ -77,7 +77,55 @@ public class TuneSoomlaProfileScript : MonoBehaviour {
       </pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-cocos2dx">...</div>
-    <div role="tabpanel" class="tab-pane" id="sample-ios">...</div>
+    <div role="tabpanel" class="tab-pane" id="sample-ios">
+      <pre>
+        <code class="objc">
+#import "ViewController.h"
+#import "SoomlaProfile.h"
+#import "ProfileEventHandling.h"
+#import "UserProfile.h"
+#import "UserProfileUtils.h"
+#import <MobileAppTracker/MobileAppTracker.h>
+
+@interface ViewController ()
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    // Register for Soomla login finished event
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginFinished:) name:EVENT_UP_LOGIN_FINISHED object:nil];
+    
+    // Initialize Soomla Profile
+    [[SoomlaProfile getInstance] initialize:providerParams];
+}
+
+// Set user ID and measure login event upon login finished
+- (void)loginFinished:(NSNotification\*)notification {
+    UserProfile \*userProfile = notification.userInfo[DICT_ELEMENT_USER_PROFILE];
+    NSString \*userId = [userProfile profileId];
+    // Set different user ids in TUNE SDK based on provider
+    NSString *provider = [UserProfileUtils providerEnumToString:[userProfile provider]];
+    if ([provider isEqualToString:@"facebook"]) {
+        [MobileAppTracker setFacebookUserId:userId];
+    } else if ([provider isEqualToString:@"google"]) {
+        [MobileAppTracker setGoogleUserId:userId];
+    } else if ([provider isEqualToString:@"twitter"]) {
+        [MobileAppTracker setTwitterUserId:userId];
+    } else {
+        [MobileAppTracker setUserId:userId];
+    }
+    // Measure a login event for this user id
+    [MobileAppTracker measureEventName:MAT_EVENT_LOGIN];
+}
+
+@end
+        </code>
+      </pre>
+    </div>
     <div role="tabpanel" class="tab-pane" id="sample-android">
       <pre>
         <code class="java">
