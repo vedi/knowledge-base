@@ -16,7 +16,7 @@ platform: 'android'
 
 The biggest hurdle for marketing a mobile app is integrating SDKs for every ad network and publisher you want to work with. With [TUNE](http://www.tune.com), you never have to integrate another advertising SDK. Not only have we integrated with mobile ad networks and publishers, but you can easily pass conversion information to any third party partner you choose.
 
-The [TUNE](http://www.tune.com) SDK provides application session and event logging functionality. To begin measuring sessions and installs, initiate the “measureSession” method. You can then rely on TUNE to log in-app events (such as purchases, game levels, and any other user engagement).
+The [TUNE SDK](https://developers.mobileapptracking.com/mobile-sdks/) provides application session and event logging functionality. To begin measuring sessions and installs, initiate the “measureSession” method. You can then rely on TUNE to log in-app events (such as purchases, game levels, and any other user engagement).
 
 This document will show you how to measure user logins from SOOMLA Profile, so you can see which ad networks and publishers are sending you more users logging in, and via which methods, in TUNE.
 
@@ -213,6 +213,13 @@ public class MainActivity extends Activity {
 
 </div>
 
+## Getting started with the two SDKs
+
+1. [Sign up](https://platform.mobileapptracking.com/#!/advertiser) with TUNE to get started on your home for attribution and analytics.
+
+2. Download and integrate the [TUNE SDK](https://developers.mobileapptracking.com/mobile-sdks/).
+
+3. Download and integrate [SOOMLA Profile](http://know.soom.la/).
 
 ## Support
 
