@@ -12,7 +12,7 @@ platform: 'android'
 
 # TUNE + SOOMLA Profile
 
-## Use Case: Measure user logins through SOOMLA Profile, with user ID.
+## Use Case: Measure SOOMLA Profile logins
 
 
 <div role="tabpanel">
@@ -28,7 +28,53 @@ platform: 'android'
   <!-- Tab panes -->
   <div class="tab-content tab-content-use-case-code">
     <div role="tabpanel" class="tab-pane active" id="sample-unity">
-      ...
+      <pre>
+        <code class="cs">
+using UnityEngine;
+using System.Collections;
+using MATSDK;
+using Soomla.Profile;
+
+public class TuneSoomlaProfileScript : MonoBehaviour {
+    void Start () {
+        // Listen for Soomla OnLoginFinished event
+        ProfileEvents.OnLoginFinished += onLoginFinished;
+        // Initialize Soomla Profile
+        SoomlaProfile.Initialize();
+
+        // Initialize TUNE SDK
+        MATBinding.Init("tune_advertiser_id", "tune_conversion_key");
+        // Measure initial app open
+        MATBinding.MeasureSession();
+    }
+
+    void OnApplicationPause(bool pauseStatus) {
+        if (!pauseStatus) {
+            // Measure app resumes from background
+            MATBinding.MeasureSession();
+        }
+    }
+
+    // Set user ID and measure login event upon login finished
+    public void onLoginFinished(UserProfile userProfileJson, string payload) {
+        Provider provider = userProfileJson.Provider;
+        string userId = userProfileJson.ProfileId;
+        // Set different user ids in TUNE SDK based on provider
+        if (provider == Provider.FACEBOOK) {
+            MATBinding.SetFacebookUserId(userId);
+        } else if (provider == Provider.GOOGLE) {
+            MATBinding.SetGoogleUserId(userId);
+        } else if (provider == Provider.TWITTER) {
+            MATBinding.SetTwitterUserId(userId);
+        } else {
+            MATBinding.SetUserId(userId);
+        }
+        // Measure a login event for this user id
+        MATBinding.MeasureEvent("login");
+    }
+}
+        </code>
+      </pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-cocos2dx">...</div>
     <div role="tabpanel" class="tab-pane" id="sample-ios">...</div>
@@ -38,6 +84,7 @@ platform: 'android'
 import android.app.Activity;
 import android.os.Bundle;
 
+import com.mobileapptracker.MATEvent;
 import com.mobileapptracker.MobileAppTracker;
 import com.soomla.BusProvider;
 import com.soomla.Soomla;
@@ -47,7 +94,6 @@ import com.soomla.profile.domain.IProvider;
 import com.soomla.profile.domain.UserProfile;
 import com.soomla.profile.events.auth.LoginFinishedEvent;
 import com.squareup.otto.Subscribe;
-
 
 public class MainActivity extends Activity {
     private MobileAppTracker mobileAppTracker;
@@ -90,19 +136,20 @@ public class MainActivity extends Activity {
         // On login finished, set the user ID in TUNE based on provider, and measure a login
         UserProfile user = loginFinishedEvent.UserProfile;
         if (user != null) {
+            IProvider.Provider provider = user.getProvider();
             String userId = user.getProfileId();
             // Set different user ids in TUNE SDK based on provider
-            if (user.getProvider() == IProvider.Provider.FACEBOOK) {
+            if (provider == IProvider.Provider.FACEBOOK) {
                 mobileAppTracker.setFacebookUserId(userId);
-            } else if (user.getProvider() == IProvider.Provider.GOOGLE) {
+            } else if (provider == IProvider.Provider.GOOGLE) {
                 mobileAppTracker.setGoogleUserId(userId);
-            } else if (user.getProvider() == IProvider.Provider.TWITTER) {
+            } else if (provider == IProvider.Provider.TWITTER) {
                 mobileAppTracker.setTwitterUserId(userId);
             } else {
                 mobileAppTracker.setUserId(userId);
             }
             // Measure a login event for this user id
-            mobileAppTracker.measureEvent("login");
+            mobileAppTracker.measureEvent(MATEvent.LOGIN);
         }
     }
 }
@@ -116,6 +163,6 @@ public class MainActivity extends Activity {
 
 ## Support
 
-For more information and implementation help, please see our [documentation](https://developers.mobileapptracking.com/mobile-sdks/).
+For more information on SDK implementation and events to measure, please visit our [documentation](https://developers.mobileapptracking.com/mobile-sdks/).
 
 If you have further questions, please feel free to contact us at [support@mobileapptracking.com](mailto:support@mobileapptracking.com).
