@@ -106,7 +106,76 @@ public class TuneSoomlaStoreScript : MonoBehaviour {
       </pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-cocos2dx">...</div>
-    <div role="tabpanel" class="tab-pane" id="sample-ios">...</div>
+    <div role="tabpanel" class="tab-pane" id="sample-ios">
+      <pre>
+        <code class="objectivec">
+#import "ViewController.h"
+#import "MarketItem.h"
+#import "PurchasableVirtualItem.h"
+#import "PurchaseWithMarket.h"
+#import "SoomlaStore.h"
+#import "StoreEventHandling.h"
+#import <MobileAppTracker/MobileAppTracker.h>
+
+@interface ViewController ()
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    // Listen for Soomla EVENT_MARKET_PURCHASED event
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(marketPurchased:)
+                                                 name:EVENT_MARKET_PURCHASED object:nil];
+    
+    // Initialize Soomla Store with your Store Assets
+    [[SoomlaStore getInstance] initializeWithStoreAssets:[[YourStoreAssetsImplementation alloc] init]];
+}
+
+// On purchase complete, set purchase info and measure purchase in TUNE
+- (void)marketPurchased:(NSNotification \*)notification {
+    CGFloat revenue;
+    NSString \*currency;
+    NSArray \*items;
+    PurchaseType \*type = [notification.userInfo[DICT_ELEMENT_PURCHASABLE] purchaseType];
+    if ([type isKindOfClass:[PurchaseWithMarket class]]) {
+        MarketItem \*item = ((PurchaseWithMarket \*)type).marketItem;
+        revenue = (CGFloat)([item marketPriceMicros] / 1000000);
+        currency = [item marketCurrencyCode];
+        // Create event item to store purchase item data
+        MATEventItem \*eventItem = [MATEventItem eventItemWithName:[item marketTitle]
+                                                        attribute1:[item productId]
+                                                        attribute2:nil
+                                                        attribute3:nil
+                                                        attribute4:nil
+                                                        attribute5:nil];
+        // Add event item to MATItem array in order to pass to TUNE SDK
+        items = @[eventItem];
+    }
+    
+    // Get transaction ID and receipt data for purchase validation
+    NSDictionary \*dict = notification.userInfo[DICT_ELEMENT_EXTRA_INFO];
+    NSString \*transactionId = dict[@"transactionIdentifier"];
+    NSString \*receipt = dict[@"receiptBase64"];
+    NSData \*receiptData = [[NSData alloc] initWithBase64EncodedString:receipt options:1];
+
+    // Create a MATEvent with this purchase data
+    MATEvent \*purchaseEvent = [MATEvent eventWithName:MAT_EVENT_PURCHASE];
+    purchaseEvent.revenue = revenue;
+    purchaseEvent.currencyCode = currency;
+    purchaseEvent.refId = transactionId;
+    purchaseEvent.receipt = receiptData;
+    purchaseEvent.eventItems = items;
+    // Measure "purchase" event
+    [MobileAppTracker measureEvent:purchaseEvent];
+}
+
+@end
+        </code>
+      </pre>
+    </div>
     <div role="tabpanel" class="tab-pane" id="sample-android">
       <pre>
         <code class="java">
@@ -162,9 +231,9 @@ public class MainActivity extends Activity {
         super.onPause();
     }
 
+    // On purchase complete, set purchase info and measure purchase in TUNE
     @Subscribe
     public void onMarketPurchase(MarketPurchaseEvent marketPurchaseEvent) {
-        // On purchase complete, set purchase info and measure purchase in TUNE
         double revenue = 0;
         String currency = "";
         MATEventItem[] items = new MATEventItem[0];
