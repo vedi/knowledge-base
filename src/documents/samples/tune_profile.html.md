@@ -113,7 +113,7 @@ public class TuneSoomlaProfileScript : MonoBehaviour {
     UserProfile \*userProfile = notification.userInfo[DICT_ELEMENT_USER_PROFILE];
     NSString \*userId = [userProfile profileId];
     // Set different user ids in TUNE SDK based on provider
-    NSString *provider = [UserProfileUtils providerEnumToString:[userProfile provider]];
+    NSString \*provider = [UserProfileUtils providerEnumToString:[userProfile provider]];
     if ([provider isEqualToString:@"facebook"]) {
         [MobileAppTracker setFacebookUserId:userId];
     } else if ([provider isEqualToString:@"google"]) {
