@@ -73,7 +73,7 @@ public class TuneSoomlaLevelUpScript : MonoBehaviour {
     public void onLevelStarted(Level level) {
         // Create a MATEvent for level_achieved with the level ID
         MATEvent levelEvent = new MATEvent("level_achieved");
-        matEvent.contentId = level.ID;
+        levelEvent.contentId = level.ID;
         // Measure "level_achieved" event for this level ID
         MATBinding.MeasureEvent (levelEvent);
     }
