@@ -12,7 +12,7 @@ platform: 'android'
 
 # TUNE + SOOMLA LevelUp
 
-## Use Case: Measure SOOMLA LevelUp
+## Use Case: Measure SOOMLA LevelUp events
 
 The biggest hurdle for marketing a mobile app is integrating SDKs for every ad network and publisher you want to work with. With [TUNE](http://www.tune.com), you never have to integrate another advertising SDK. Not only have we integrated with mobile ad networks and publishers, but you can easily pass conversion information to any third party partner you choose.
 
