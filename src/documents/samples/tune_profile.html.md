@@ -42,15 +42,15 @@ using Soomla.Profile;
 
 public class TuneSoomlaProfileScript : MonoBehaviour {
     void Start () {
-        // Listen for Soomla OnLoginFinished event
-        ProfileEvents.OnLoginFinished += onLoginFinished;
-        // Initialize Soomla Profile
-        SoomlaProfile.Initialize();
-
         // Initialize TUNE SDK
         MATBinding.Init("tune_advertiser_id", "tune_conversion_key");
         // Measure initial app open
         MATBinding.MeasureSession();
+
+        // Listen for Soomla OnLoginFinished event
+        ProfileEvents.OnLoginFinished += onLoginFinished;
+        // Initialize Soomla Profile
+        SoomlaProfile.Initialize();
     }
 
     void OnApplicationPause(bool pauseStatus) {
