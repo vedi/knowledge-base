@@ -1,16 +1,14 @@
 ---
 layout: "sample"
-image: "Events"
-title: "Events"
-text: "Learn how to observe and handle economy events triggered by android-store to customize your game-specific behavior."
+image: "chartboost_logo"
+title: "CHARTBOOST"
+text: "Show rewarded video to earn coins"
 position: 5
-theme: 'platforms'
-collection: 'android_store'
-module: 'store'
-platform: 'android'
+relates: ["supersonic"]
+collection: 'samples'
+theme: 'samples'
 ---
 
-# Unity Ads + SOOMLA Store
 
 ## Use Case: Reward coins on video ads completion
 
@@ -18,7 +16,7 @@ platform: 'android'
 <div role="tabpanel">
 
   <!-- Nav tabs -->
-  <ul class="nav nav-tabs nav-tabs-use-case-code" role="tablist">
+  <ul class="nav nav-tabs nav-tabs-use-case-code sample-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#sample-unity" aria-controls="unity" role="tab" data-toggle="tab">Unity</a></li>
     <li role="presentation"><a href="#sample-cocos2dx" aria-controls="cocos2dx" role="tab" data-toggle="tab">Cocos2d-x</a></li>
     <li role="presentation"><a href="#sample-ios" aria-controls="iod" role="tab" data-toggle="tab">iOS</a></li>
@@ -83,13 +81,13 @@ public class freeCoins : MonoBehaviour {
 </div>
 
 
-## Getting started with the two SDKs
+<div class="samples-title">Getting started with the two SDKs</div>
 
 1. If you are already using Unity to develop the game, getting started with Unity Ads is very simple. Import the package, drag the prefab and you are good to go. Here are the <a href="https://unityads.unity3d.com/help/Documentation for Publishers/Integration-Guide-for-Unity" target="_blank">full instructions</a>.
 
 2. Adding SOOMLA store is also very easy: Import, drag the prefab, initialize and setup your virtual goods. Here are the <a href="http://know.soom.la/unity/store/store_gettingstarted/" target="_blank">full instructions</a>.
 
-## Additional tips and recommendations
+<div class="samples-title">Additional tips and recommendations</div>
 
 1. Combine 2 or 3 Video ad networks for increased coverage. Working with a single provider will often lead to inventory problems where `UnityAdsCampaignsAvailable();` returns empty.
 

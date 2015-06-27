@@ -21,7 +21,7 @@ To get started with GROW, please follow our [Getting Started tutorial](/unity/gr
 
 ### Why use GROW?
 
-- With GROW, you can see how you're app is doing in a number of different aspects, including average revenue, average session duration, what percentage of your users are social in your game, and more. These are all explained in detail in the section below.
+- With GROW, you can see how your app is doing in a number of different aspects, including average revenue, average session duration, what percentage of your users are social in your game, and more. These are all explained in detail in the section below.
 
 - GROW is different than other analytics services because it allows data sharing. In the dashboard, you'll be able to see aggregative analytics about other developers' apps as well as your own. This feature makes it possible for you to **compare your game to other indie games** and see how you measure.
 

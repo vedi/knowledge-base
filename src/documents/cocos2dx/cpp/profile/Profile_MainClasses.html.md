@@ -7,6 +7,7 @@ position: 2
 theme: 'platforms'
 collection: 'cocos2dx_profile'
 module: 'profile'
+lang: 'cpp'
 platform: 'cocos2dx'
 ---
 
@@ -159,6 +160,22 @@ soomla::CCSoomlaProfile::getInstance()->updateStatus(
 ![alt text](/img/tutorial_img/profile/socialStatus.png "Update Status")
 
 <br>
+### `updateStatusWithConfirmation`
+
+Works the same as `updateStatus` only here a confirmation dialog will be shown before the operation is performed.
+
+``` cpp
+soomla::CCSoomlaProfile::getInstance()->updateStatusWithConfirmation(
+	soomla::FACEBOOK,                       // Provider
+	"I LOVE SOOMLA!  http://www.soom.la",   // Message to post as status
+	"",                                     // Payload
+	nullptr,                                // Reward
+	customMessage,							// Message to show in the confirmation dialog
+	&profileError                           // Used for error handling
+);
+```
+
+<br>
 ### `updateStory`
 This function posts a story (which is a detailed status) on the user's wall in the supplied social provider. Upon a successful update, the user will receive the supplied reward.
 
@@ -191,6 +208,28 @@ soomla::CCSoomlaProfile::getInstance()->updateStory(
 ```
 
 ![alt text](/img/tutorial_img/profile/socialStory.png "Post Story")
+
+<br>
+### `updateStoryWithConfirmation`
+
+Works the same as `updateStory` only here a confirmation dialog will be shown before the operation is performed.
+
+``` cpp
+soomla::CCSoomlaProfile::getInstance()->updateStoryWithConfirmation(
+	soomla::FACEBOOK,                          // Provider
+	"This is the story.",                       // Text of the story to post
+	"The story of SOOMBOT (Profile Test App)",  // Name
+	"SOOMBOT Story",                            // Caption
+	"Hey! It's SOOMBOT Story",                 	// Description
+	"http://about.soom.la/soombots",            // Link to post
+	"http://about.soom.la/.../spockbot.png",    // Image URL
+	"",                                         // Payload
+	nullptr,                                    // Reward
+	customMessage,								// Message to show in the confirmation dialog
+	&profileError                               // Used for error handling
+);
+```
+
 
 <br>
 ### `uploadImage`
@@ -234,6 +273,23 @@ soomla::CCSoomlaProfile::getInstance()->uploadImage(
 <div class="info-box">The image to upload should be on the device already; the path supplied needs to be a full path to the image on the device.</div>
 
 <br>
+### `uploadImageWithConfirmation`
+
+Works the same as `uploadImage` only here a confirmation dialog will be shown before the operation is performed.
+
+``` cpp
+soomla::CCSoomlaProfile::getInstance()->uploadImageWithConfirmation(
+	soomla::FACEBOOK,                       // Provider
+	"I love SOOMLA! http://www.soom.la",  	// Message to post with imag
+	"someFileName",                       	// File path
+	"",                                   	// Payload
+	nullptr,                          		// Reward
+	customMessage,							// Message to show in the confirmation dialog
+	&profileError                           // Used for error handling
+);
+```
+
+<br>
 ### `getStoredUserProfile`
 
 This function retrieves the user's profile for the given social provider from the **local device storage** (`getStoredUserProfile` does not call any social provider function, it retrieves and returns its information from the storage, contrary to what is depicted in the diagram at the beginning of this section). This function allows you to get user information even if the user is offline.
@@ -257,7 +313,7 @@ userProf->getFirstName();
 
 This function retrieves a list of the user's contacts from the supplied provider.
 
-<div class="info-box">Notice that some social providers (FB, G+, Twitter) supply all of the user's contacts and some supply only the contacts that use your app.</div>
+<div class="info-box">Notice that some social providers (G+, Twitter) supply all of the user's contacts and some (FB) supply only the contacts that use your app.</div>
 
 You could use `getContacts` to show your users a personalized screen where they can see which of their friends are also playing your game, or you could offer the contacts that don't play your game to download your game and receive some free coins.
 
@@ -268,7 +324,7 @@ soomla::CCSoomlaProfile::getInstance()->getContacts(
 	&profileError                         // Used for error handling
 );
 ```
-OR 
+OR
 ``` cpp
 soomla::CCSoomlaProfile::getInstance()->getContacts(
 	soomla::FACEBOOK,                     // Provider
@@ -277,7 +333,7 @@ soomla::CCSoomlaProfile::getInstance()->getContacts(
 	&profileError                         // Used for error handling
 );
 ```
-OR 
+OR
 ``` cpp
 soomla::CCSoomlaProfile::getInstance()->getContacts(
 	soomla::FACEBOOK,                     // Provider
@@ -295,7 +351,7 @@ Note that the results will contain only part of the list. In order to get more i
 ```cpp
 void Example::getContacts() {
     Director::getInstance()->getEventDispatcher()->addCustomEventListener(
-            CCProfileConsts::EVENT_GET_CONTACTS_FINISHED, 
+            CCProfileConsts::EVENT_GET_CONTACTS_FINISHED,
             CC_CALLBACK_1(Example::onGetContactsFinished, this));
 
     // request for the 1st page
@@ -312,9 +368,9 @@ void Example::onGetContactsFinished(EventCustom *event) {
     __Dictionary *eventData = (__Dictionary *)event->getUserData();
     __Bool *hasMore = dynamic_cast<__Bool *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_HAS_MORE));
     __Array *contactsArray = dynamic_cast<__Array *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_CONTACTS));
-    
+
     // ... handle page results ...
-    
+
     if (hasMore != nullptr && hasMore->getValue()) {
         soomla::CCSoomlaProfile::getInstance()->getContacts(
             soomla::FACEBOOK,
@@ -332,7 +388,7 @@ void Example::onGetContactsFinished(EventCustom *event) {
 <br>
 ### `getFeed`
 
-This function Retrieves a list of the user's feed entries from the supplied provider. Upon a successful retrieval of 
+This function Retrieves a list of the user's feed entries from the supplied provider. Upon a successful retrieval of
 feed entries the user will be granted the supplied reward.
 
 <div class="info-box">G+ does not support this.</div>
@@ -344,7 +400,7 @@ soomla::CCSoomlaProfile::getInstance()->getFeed(
 	&profileError                         // Used for error handling
 );
 ```
-OR 
+OR
 ``` cpp
 soomla::CCSoomlaProfile::getInstance()->getFeed(
 	soomla::FACEBOOK,                     // Provider
@@ -353,7 +409,7 @@ soomla::CCSoomlaProfile::getInstance()->getFeed(
 	&profileError                         // Used for error handling
 );
 ```
-OR 
+OR
 ``` cpp
 soomla::CCSoomlaProfile::getInstance()->getFeed(
 	soomla::FACEBOOK,                     // Provider
@@ -371,7 +427,7 @@ Note that the results will contain only part of the list. In order to get more i
 ```cpp
 void Example::getFeed() {
     Director::getInstance()->getEventDispatcher()->addCustomEventListener(
-            CCProfileConsts::EVENT_GET_FEED_FINISHED, 
+            CCProfileConsts::EVENT_GET_FEED_FINISHED,
             CC_CALLBACK_1(Example::onGetFeedFinished, this));
 
     // request for the 1st page
@@ -383,14 +439,14 @@ void Example::getFeed() {
         );
 }
 
-void Example::onGetContactsFinished(EventCustom *event) {
+void Example::onGetFeedFinished(EventCustom *event) {
 
     __Dictionary *eventData = (__Dictionary *)event->getUserData();
     __Bool *hasMore = dynamic_cast<__Bool *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_HAS_MORE));
     __Array *feedList = dynamic_cast<__Array *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_FEEDS));
-    
+
     // ... handle page results ...
-    
+
     if (hasMore != nullptr && hasMore->getValue()) {
         soomla::CCSoomlaProfile::getInstance()->getFeed(
             soomla::FACEBOOK,
@@ -414,6 +470,19 @@ void Example::onGetContactsFinished(EventCustom *event) {
 soomla::CCSoomlaProfile::openAppRatingPage(&profileError);
 ```
 
+<br>
+### `multiShare`
+
+`multiShare` Shares text and/or image using native sharing functionality of your target platform.
+The user will be shown a screen where he selects where he wants to share.
+
+``` cpp
+soomla::CCSoomlaProfile::getInstance()->multiShare(
+    "I'm happy. I can be shared everywhere.",
+    "path/to/file/you/want/to/share"
+);
+```
+
 ## Auxiliary Model: CCReward [<img class="link-icon" src="/img/tutorial_img/linkImg.png">](https://github.com/soomla/soomla-cocos2dx-core/blob/master/Soomla/rewards/CCReward.h)
 
 A `CCReward` is an entity which can be earned by the user for meeting certain criteria in game progress.
@@ -426,6 +495,8 @@ A `CCReward` is an entity which can be earned by the user for meeting certain cr
 ### CCVirtualItemReward [<img class="link-icon-small" src="/img/tutorial_img/linkImg.png">](https://github.com/soomla/cocos2dx-store/blob/master/Soomla/rewards/CCVirtualItemReward.h)
 
 A specific type of `CCReward` that you can use to give your users some amount of a virtual item. **For example:** Give users 100 coins (virtual currency) for liking your page.
+
+<div class="info-box">`CCVirtualItemReward` is a part of `cocos2dx-store`. In case you want to use it, you'll need to import cocos2dx-store as well.</div>
 
 ``` cpp
 CCReward *coinReward = CCVirtualItemReward::create(

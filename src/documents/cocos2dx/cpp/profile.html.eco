@@ -4,5 +4,6 @@ layout: 'l2-main'
 theme: 'platforms'
 collection: 'cocos2dx_profile'
 platform: 'cocos2dx'
+lang: 'cpp'
 module: 'profile'
 ---

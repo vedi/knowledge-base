@@ -4,5 +4,6 @@ layout: 'l2-main'
 theme: 'platforms'
 collection: 'cocos2dx_grow'
 platform: 'cocos2dx'
+lang: 'cpp'
 module: 'grow'
 ---

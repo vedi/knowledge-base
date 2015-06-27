@@ -1,9 +1,136 @@
-@tab-use-case-code-bg-color: @nav-grid-bg-color;
 
-.nav-tabs-use-case-code li.active {
-  background-color: @tab-use-case-code-bg-color;
+// **LIST OF SAMPLES PAGE**
+
+.samples-page {
+	margin-bottom: 50px;
 }
 
-.tab-content-use-case-code pre {
-  margin-top: 0 !important;
+.col-centered {
+	display:inline-block;
+  float:none;
+  text-align:left;
+  margin-right:-4px;
+}
+
+	// circle logos
+.circle-sample {
+	margin-left: 75px;
+	width: 150px;
+	margin-bottom: 100px;
+
+	.option-image {
+	  border-radius: 105px;
+	  width: 150px;
+	  height: 150px;
+	  text-align: center;
+	  border: 8px solid @circle-color;
+	  background-repeat: no-repeat;
+	  background-position: center;
+	  background-size: 122px;
+	}
+
+	.option-image:hover {
+		background-size: 130px;
+	}
+}
+
+// **SAMPLE PAGE**
+
+.sample-logo {
+  max-width: 150px;
+}
+
+// navigate tabs
+.nav-tabs.sample-tabs {
+	border:none;
+
+	> li.active  {
+		> a, > a:hover {
+			border-width: 0px 0px 6px 0px;
+  		border-bottom-color: #1676a6;
+			background-color: transparent;
+		}
+	}
+
+	> li {
+		> a:hover {
+			border-width: 0px 0px 6px 0px;
+			border-bottom-color: rgba(22, 118, 166, 0.3);
+			background-color: transparent;
+		}
+	}
+}
+
+// order list - circle bullets
+.sample-content {
+
+	ol {
+		margin-left: 0;
+		padding-right: 0;
+		list-style-type: none;
+		padding-left: 5px;
+
+		li {
+			counter-increment: step-counter;
+
+			p {
+				margin-left: 50px;
+				padding-top: 6px;
+				padding-bottom: 20px;
+			}
+		}
+
+		li::before {
+			content: counter(step-counter);
+			color: white;
+			font-weight: bold;
+			padding: 6px 14px;
+			border-radius: 50%;
+			background-color: #006181;
+			width: 36px;
+			height: 36px;
+			position: absolute;
+		}
+	}
+}
+
+// order list - title
+.samples-title {
+	color:  #006181;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 33px;
+	text-align: left;
+}
+
+// related items
+.related-samples-title {
+	color:  #4d4d4d;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 33px;
+	text-align: left;
+	padding-bottom: 17px;
+}
+
+.related-samples-item {
+	margin-bottom: 10px;
+
+	.related-samples-sub-title {
+		color:  #006181;
+		font-size: 16px;
+		font-weight: 600;
+		text-align: left;
+		margin-top: 0;
+	}
+
+	.related-samples-text {
+		color:  #5a5a5a;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 24px;
+		text-align: left;
+		margin-top: 5px;
+		margin-bottom: 10px;
+	}
 }

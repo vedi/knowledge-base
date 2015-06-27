@@ -136,9 +136,8 @@ The event `EVENT_MARKET_PURCHASED` is triggered when a market purchase operation
   // notification's userInfo contains the following keys:
   // DICT_ELEMENT_PURCHASABLE      = The item that was purchased
   // DICT_ELEMENT_RECEIPT          = URL to receipt of the purchase
-  // DICT_ELEMENT_TOKEN            = Associated with the in-app billing purchase
-  // DICT_ELEMENT_DEVELOPERPAYLOAD = Text that you can provide when you initiate the purchase
-  //                                 operation and receive back upon completion
+  // DICT_ELEMENT_EXTRA_INFO       = A dictionary of extra information associated with the in-app billing purchase.
+  //                                  possible keys are: 'receiptUrl', 'transactionIdentifier', 'receiptBase64', 'transactionDate', 'originalTransactionDate', 'originalTransactionIdentifier'
 
   // ... your game specific implementation here ...
 }

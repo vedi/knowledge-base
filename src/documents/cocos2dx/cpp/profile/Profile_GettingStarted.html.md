@@ -7,6 +7,7 @@ position: 1
 theme: 'platforms'
 collection: 'cocos2dx_profile'
 module: 'profile'
+lang: 'cpp' 
 platform: 'cocos2dx'
 ---
 
@@ -54,7 +55,22 @@ platform: 'cocos2dx'
 
 6. Note that some social providers need special parameters to be passed to `CCSoomlaProfile` in order for them to work:
 
-  a. **Facebook** - No special parameters
+  a. **Facebook** - You can provide your custom permission set here, these permissions will be requested from the user on login.
+
+	``` cpp
+    __Dictionary *facebookParams = __Dictionary::create();
+    facebookParams->setObject(__String::create("public_profile,user_friends"), "permissions");
+
+    profileParams->setObject(facebookParams, soomla::CCUserProfileUtils::providerEnumToString(soomla::FACEBOOK)->getCString());
+	```
+  <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app, 
+  just request the reasonable minimum. Other permissions will be requested, when they will be needed. 
+  For instance, if you try to call `updateStory`, SoomlaProfile will ask for `publish_actions` permission, if your app has not got it.
+  </div>
+  
+  <div class="info-box">**NOTE:** Currently the Android implementation does not work in this way, 
+  and you should provide all the needed permissions there. We are working on fixing that.</div>
+
 
   b. **Google+** - Please provide Client ID from the "API & Auth, credentials" section like so:
 
