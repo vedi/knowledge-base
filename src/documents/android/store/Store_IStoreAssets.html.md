@@ -16,11 +16,7 @@ platform: 'android'
 
 `IStoreAssets` is an interface that represents a single game’s economy. When you use SOOMLA to create your game economy, one of the first steps to take is to create your own implementation of `IStoreAssets`. This is where you declare all of your virtual currencies, virtual currency packs, and virtual goods of all kinds.
 
-### Guidelines
-
-- Each item in `IStoreAssets` has a unique item ID that is used to identify it in various functions throughout the SDK. Make sure your item IDs do NOT contain periods (.).
-
-- Make sure to implement ALL functions, even if you don't need some of them, just have them return an empty array.
+<div class="info-box">Each item in `IStoreAssets` has a unique item ID that is used to identify it in various functions throughout the SDK. Make sure your item IDs do NOT contain periods (.).</div
 
 ### Example
 
