@@ -39,7 +39,7 @@ Before doing anything, SOOMLA recommends that you go through [Android In-app Bil
         android:name="com.soomla.store.SoomlaApp">
     ```
 
-3. Initialize Soomla with a secret that you chose to encrypt the user data. (For those who came from older versions, this should be the same as the old "customSec"):
+3. In the `onCreate()` method of your main activity, initialize Soomla with a secret that you chose to encrypt the user data. (For those who came from older versions, this should be the same as the old "customSec"):
 
     ``` java
     Soomla.initialize("[YOUR CUSTOM GAME SECRET HERE]");
@@ -48,10 +48,12 @@ Before doing anything, SOOMLA recommends that you go through [Android In-app Bil
     <div class="info-box">This secret is your encryption secret for data saved in the DB.</div>
 
 4. Create your own implementation of `IStoreAssets` in order to describe your game's specific assets.
+
   - See the brief [example](#example) at the bottom.
+
   - See a more detailed example, our MuffinRush [example](https://github.com/soomla/android-store/blob/master/SoomlaAndroidExample/src/com/soomla/example/MuffinRushAssets.java).
 
-5. Initialize `SoomlaStore` with the class you just created:
+5. In the `onCreate()` method of your main activity, initialize `SoomlaStore` with the class you just created:
 
     ``` java
     SoomlaStore.getInstance().initialize(new YourStoreAssetsImplementation());
@@ -104,7 +106,7 @@ Once you complete the following steps, see the [Google Play IAB](/android/store/
       ...
       protected void onCreate(Bundle savedInstanceState) {
           ...
-          GooglePlayIabService.getInstance().setPublicKey("[YOUR PUBLIC KEY FROM GOOGLE PLAY]");
+          GooglePlayIabService.getInstance().setPublicKey("[YOUR KEY FROM GOOGLE PLAY]");
       }
   }
   ```

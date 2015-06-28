@@ -33,13 +33,13 @@ platform: 'android'
 	             android:name="com.soomla.SoomlaApp">
 	```
 
-4. Initialize `Soomla` with a "Soomla Secret", a secret of your choice used to encrypt your users' data. (If you used an older version of android-store, this should be the same as the old "custom secret"):
+4. In the `onCreate()` method of your main activity, initialize `Soomla` with a "Soomla Secret", a secret of your choice used to encrypt your users' data. (If you used an older version of android-store, this should be the same as the old "custom secret"):
 
 	``` java
 	Soomla.initialize("[YOUR CUSTOM GAME SECRET HERE]");
 	```
 
-5. Initialize `SoomlaProfile`:
+5. In the `onCreate()` method of your main activity, initialize `SoomlaProfile`:
 
 	``` java
 	SoomlaProfile.getInstance().initialize();
