@@ -326,7 +326,6 @@ public class SoomlaGameUpActivity extends Activity {
         // We can only trigger achievements if we have a session.
         GameUpSession session = GameUpSessionHelper.getSession();
         if (session != null) {
-
             // This particular achievement just requires that any score is
             // matched, so we don't mind what the scoreId was.
             Achievement ach = session.achievement("gameup-achievement-id");
