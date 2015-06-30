@@ -1,13 +1,12 @@
 ---
 layout: "sample"
-image: "Events"
-title: "Events"
+image: "gameup_logo"
+title: "GAMEUP"
 text: "Learn how to observe and handle economy events triggered by android-store to customize your game-specific behavior."
-position: 5
-theme: 'platforms'
-collection: 'android_store'
-module: 'store'
-platform: 'android'
+position: 6
+relates: ["chartboost"]
+collection: 'samples'
+theme: 'samples'
 ---
 
 # GameUp + SOOMLA
@@ -17,7 +16,7 @@ platform: 'android'
 <div role="tabpanel">
 
   <!-- Nav tabs -->
-  <ul class="nav nav-tabs nav-tabs-use-case-code" role="tablist">
+  <ul class="nav nav-tabs nav-tabs-use-case-code sample-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#sample-unity" aria-controls="unity" role="tab" data-toggle="tab">Unity</a></li>
     <!-- <li role="presentation"><a href="#sample-cocos2dx" aria-controls="cocos2dx" role="tab" data-toggle="tab">Cocos2d-x</a></li> -->
     <!-- <li role="presentation"><a href="#sample-ios" aria-controls="ios" role="tab" data-toggle="tab">iOS</a></li> -->
@@ -27,10 +26,6 @@ platform: 'android'
   <!-- Tab panes -->
   <div class="tab-content tab-content-use-case-code">
     <div role="tabpanel" class="tab-pane active" id="sample-unity">
-      <p>
-        <b>Tip:</b> The [GameUp Unity SDK](https://github.com/gameup-io/gameup-unity-sdk) is available to download on [Github](https://github.com/gameup-io/gameup-unity-sdk/releases).
-      </p>
-
       <pre>
         <code class="cs">
 using UnityEngine;
@@ -53,7 +48,7 @@ public class SoomlaGameUpBehaviour : MonoBehaviour
     Client.ApiKey = "your-api-key-here";
 
     //
-    // Listener to handle login events.
+    // Listener that handles login events.
     //
     ProfileEvents.OnLoginFinished += onLoginFinished;
     //
@@ -62,7 +57,7 @@ public class SoomlaGameUpBehaviour : MonoBehaviour
     ProfileEvents.OnLogoutFinished += onLogoutFinished;
 
     //
-    // Handler that submits a particular new Soomla record score to a GameUp
+    // Listener that submits a particular new Soomla record score to a GameUp
     // leaderboard.
     //
     LevelUpEvents.OnScoreRecordChanged += onScoreRecordChanged;
@@ -76,7 +71,7 @@ public class SoomlaGameUpBehaviour : MonoBehaviour
   }
 
   //
-  // Listener to handle login events.
+  // Listener that handles login events.
   //
   private void onLoginFinished(UserProfile userProfile, string payload) {
     string type = userProfile.Provider().ToString();
@@ -86,6 +81,7 @@ public class SoomlaGameUpBehaviour : MonoBehaviour
     // GameUp session for this user.
     String acc = "io.gameup.accounts.com.soomla.profile." + type + "." + id;
     Client.LoginAnonymous(acc, (SessionClient sessionClient) => {
+
       // Store the session for future use.
       session = sessionClient;
     }, (int statusCode, string reason) => {
@@ -104,32 +100,33 @@ public class SoomlaGameUpBehaviour : MonoBehaviour
 
 
   //
-  // Handler that submits a particular new Soomla record score to a GameUp
+  // Listener that submits a particular new Soomla record score to a GameUp
   // leaderboard.
   //
   private void onScoreRecordChanged(Score score) {
     String scoreId = score.ID;
+
     // See if we want to report this score. Each GameUp leaderboard is
     // usually only relevant to one score type, but we can have more than
     // one leaderboard and submit different scores to each one!
     if ("soomla-score-id-we-care-about".Equals(scoreId)) {
+
         // Now check if the user is logged in, otherwise we can't report the
         // score.
         if (session != null) {
+
             // Finally, report the score to GameUp!
             // Note: GameUp prefers whole numbers as score values, but they
             // can represent anything. For example for a Soomla score of
             // 10.25 you might submit to GameUp the value 1025.
-            long score = (long) ScoreStorage.LatestScore(scoreId);
-            session.UpdateLeaderboard("gameup-leaderboard-id", score, (Rank rank) => {
+            long latestScore = (long) score.Latest;
+            session.UpdateLeaderboard("gameup-leaderboard-id", latestScore, (Rank rank) => {
+
               // Now we might do something with the rank, such as notify the
               // user if they've got a new best rank.
             }, (int statusCode, string reason) => {
               //handle leaderboard update error
             });
-
-            // Now we might do something with the rank, such as notify the
-            // user if they've got a new best rank.
         }
     }
   }
@@ -140,6 +137,7 @@ public class SoomlaGameUpBehaviour : MonoBehaviour
   // score, but not beating it.
   //
   private void onScoreRecordReached(Score score) {
+
     // We can only trigger achievements if we have a session.
     if (session != null) {
       session.Achievements ((AchievementList list) => {
@@ -163,10 +161,6 @@ public class SoomlaGameUpBehaviour : MonoBehaviour
     <!-- <div role="tabpanel" class="tab-pane" id="sample-cocos2dx">...</div> -->
     <!-- <div role="tabpanel" class="tab-pane" id="sample-ios">...</div> -->
     <div role="tabpanel" class="tab-pane" id="sample-android">
-      <p>
-        <b>Tip:</b> The [GameUp Android SDK](https://github.com/gameup-io/gameup-android-sdk) is available through [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Cio.gameup.android).
-      </p>
-
       <p>
         First, let's create a static helper class to handle the GameUp session for us:
       </p>
@@ -255,7 +249,7 @@ public class SoomlaGameUpActivity extends Activity {
     }
 
     //
-    // Listener to handle login events.
+    // Listener that handles login events.
     //
     @Subscribe
     public void onLoginFinished(LoginFinishedEvent event) {
@@ -281,7 +275,7 @@ public class SoomlaGameUpActivity extends Activity {
     }
 
     //
-    // Handler that submits a particular new Soomla record score to a GameUp
+    // Listener that submits a particular new Soomla record score to a GameUp
     // leaderboard.
     //
     @Subscribe
@@ -336,10 +330,23 @@ public class SoomlaGameUpActivity extends Activity {
 
 </div>
 
-## Sign up to GameUp, it's free!
+<div class="samples-title">Getting Started</div>
 
-Just go to the [GameUp Dashboard](https://dashboard.gameup.io/#/signup) to sign up for free, or check out our [main site](https://gameup.io/) and [documentation](https://gameup.io/docs/) for more details.
+GameUp is a **free** BaaS (backend as a service) for game developers which offers a plethora of features: user accounts, social login, cloud storage, multiplayer, leaderboards, achievements and push notifications.
 
-## Need help?
+1. Go to the [GameUp Dashboard](https://dashboard.gameup.io/#/signup) to sign up for free.
 
-We're here for you, [get in touch](https://gameup.io/contact/) and we can help you with integration, feature design, and more!
+2. Get your API key and integrate the code samples above into your game.
+
+3. Initialize SOOMLA Profile and LevelUp.  Follow all steps in the platform specific getting started guides. <br> (<a href="http://know.soom.la/unity/profile/profile_gettingstarted/" target="_blank">Unity Profile</a> | <a href="http://know.soom.la/unity/levelup/levelup_gettingstarted/" target="_blank">Unity LevelUp</a> | <a href="http://know.soom.la/android/profile/profile_gettingstarted/" target="_blank">Android Profile</a>)
+
+3. Check out the [GameUp website](https://gameup.io/) and [documentation](https://gameup.io/docs/) for more details.
+
+4. We're here for you, [get in touch](https://gameup.io/contact/) and we can help you with integration, feature design, and more!
+
+
+<div class="samples-title">Downloads</div>
+
+* The [GameUp Unity SDK](https://github.com/gameup-io/gameup-unity-sdk) is available to download on [Github](https://github.com/gameup-io/gameup-unity-sdk/releases).
+
+* The [GameUp Android SDK](https://github.com/gameup-io/gameup-android-sdk) is available through [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Cio.gameup.android).
