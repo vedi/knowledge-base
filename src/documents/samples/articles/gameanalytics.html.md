@@ -50,13 +50,24 @@ public class GA_Soomla : MonoBehaviour
         LevelUpEvents.OnLevelEnded += GA_Soomla.OnLevelEnded;
         LevelUpEvents.OnMissionCompleted += GA_Soomla.OnMissionCompleted;
         LevelUpEvents.OnGateOpened += GA_Soomla.OnGateOpened;
+
+        // Initialize SOOMLA Store & LevelUp
+        // Assumes you've implemented your store assets
+        // and an initial world with levels and missions
+        SoomlaStore.Initialize (new YourStoreAssetsImplementation ());
+        SoomlaLevelUp.Initialize (WORLD);
     }
 
     #region StoreEvents
 
     private static void OnCurrencyBalanceChanged(VirtualCurrency virtualCurrency, int balance, int amountAdded) {
-        GameAnalytics.NewResourceEvent(amountAdded > 0 ? GA_Resource.GAResourceFlowType.GAResourceFlowTypeSource : GA_Resource.GAResourceFlowType.GAResourceFlowTypeSink,
-            virtualCurrency.ItemId, Mathf.Abs(amountAdded), "virtual_currency", virtualCurrency.ItemId);
+        GameAnalytics.NewResourceEvent(
+            amountAdded > 0 ? GA_Resource.GAResourceFlowType.GAResourceFlowTypeSource :
+                              GA_Resource.GAResourceFlowType.GAResourceFlowTypeSink,
+            virtualCurrency.ItemId,
+            Mathf.Abs(amountAdded),
+            "virtual_currency",
+            virtualCurrency.ItemId);
     }
 
     private static void OnMarketPurchase(PurchasableVirtualItem pvi, string payload, Dictionary<string, string> extra) {
@@ -235,11 +246,15 @@ public class GA_Soomla : MonoBehaviour
 
 <div class="samples-title">Getting started</div>
 
-1. Sign up to GameAnalytics <a href="https://go.gameanalytics.com/signup" target="_blank">here</a>.
+1. Download and install the GameAnalytics Unity SDK. [(Instructions)](https://github.com/GameAnalytics/GA-SDK-UNITY/wiki/Download%20and%20Installation).
 
-2. Integrate GameAnalytics into your game using our <a href="http://www.gameanalytics.com/docs" target="_blank">docs</a>.
+2. Sign up for a GameAnalytics account, login and create a new studio and game through our Unity plugin. [(Instructions)](https://github.com/GameAnalytics/GA-SDK-UNITY/wiki/Sign%20up%20and%20login)
 
-3. Integrate SOOMLA Store and LevelUp.  Follow all steps in the platform specific getting started guides: <br>
+3. Configure the GameAnalytics settings in Unity. [(Instructions)](https://github.com/GameAnalytics/GA-SDK-UNITY/wiki/Settings)
+
+4. Create a GameAnalytics game object in your Unity scene. [(Instructions)](https://github.com/GameAnalytics/GA-SDK-UNITY/wiki/GameAnalytics%20object)
+
+5. Integrate SOOMLA Store and LevelUp.  Follow all steps in the platform specific getting started guides: <br>
     <a href="http://know.soom.la/unity/store/store_gettingstarted/" target="_blank">Unity Store</a> |
     <a href="http://know.soom.la/unity/levelup/levelup_gettingstarted/" target="_blank">Unity LevelUp</a>
 
