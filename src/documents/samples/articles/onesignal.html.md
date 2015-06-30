@@ -7,7 +7,6 @@ position: 6
 relates: ["chartboost"]
 collection: 'samples'
 theme: 'samples'
-standalone: true
 ---
 
 # OneSignal + SOOMLA Store
