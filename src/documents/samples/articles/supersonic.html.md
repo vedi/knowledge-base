@@ -57,7 +57,7 @@ public class MainGame : MonoBehaviour {
 
         // Initialize SOOMLA
         // Assumes you've implemented your store assets and an initial world
-        SoomlaStore.Initialize (new StoreAssets ());
+        SoomlaStore.Initialize (new YourStoreAssetsImplementation ());
         SoomlaProfile.Initialize ();
         SoomlaLevelUp.Initialize (WORLD);
 
@@ -154,7 +154,7 @@ public class MainGame : MonoBehaviour {
 
         // Initialize SOOMLA
         // Assumes you've implemented your store assets and an initial world
-        SoomlaStore.Initialize (new StoreAssets ());
+        SoomlaStore.Initialize (new YourStoreAssetsImplementation ());
 
         // Initialize Supersonic
         Supersonic.Agent.start ();
@@ -336,7 +336,7 @@ public class MainActivity extends Activity implements RewardedVideoListener, Off
         // Initialize SOOMLA
         // Assumes you've implemented your store assets and an initial world
         Soomla.initialize(SOOMLA_SECRET);
-        SoomlaStore.getInstance().initialize(new StoreAssets());
+        SoomlaStore.getInstance().initialize(new YourStoreAssetsImplementation());
 
         // Initialize Supersonic
         supersonicAgent = SupersonicFactory.getInstance();
