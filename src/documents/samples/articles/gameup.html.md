@@ -13,7 +13,7 @@ theme: 'samples'
 
 ## Use Case: Cross-device achievements and leaderboards
 
-<div role="tabpanel">
+<div>
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs nav-tabs-use-case-code sample-tabs" role="tablist">

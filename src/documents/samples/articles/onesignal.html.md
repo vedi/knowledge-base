@@ -13,7 +13,7 @@ theme: 'samples'
 
 ## Use Case: Send push notifications after store events
 
-<div role="tabpanel">
+<div>
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs nav-tabs-use-case-code sample-tabs" role="tablist">
