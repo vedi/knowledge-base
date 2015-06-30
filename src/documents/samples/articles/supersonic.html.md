@@ -6,7 +6,6 @@ text: "Show rewarded video to earn coins"
 position: 5
 relates: ["chartboost"]
 collection: 'samples'
-standalone: true
 theme: 'samples'
 ---
 
