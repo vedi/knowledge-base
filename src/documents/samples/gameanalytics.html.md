@@ -245,13 +245,13 @@ public class GA_Soomla : MonoBehaviour
 
 <div class="samples-title">Getting started</div>
 
-1. Download and install the GameAnalytics Unity SDK. [(Instructions)](https://github.com/GameAnalytics/GA-SDK-UNITY/wiki/Download%20and%20Installation).
+1. Download and install the GameAnalytics Unity SDK. <a href="https://github.com/GameAnalytics/GA-SDK-UNITY/wiki/Download%20and%20Installation" target="_blank">(Instructions)</a>.
 
-2. Sign up for a GameAnalytics account, login and create a new studio and game through our Unity plugin. [(Instructions)](https://github.com/GameAnalytics/GA-SDK-UNITY/wiki/Sign%20up%20and%20login)
+2. Sign up for a GameAnalytics account, login and create a new studio and game through our Unity plugin. <a href="https://github.com/GameAnalytics/GA-SDK-UNITY/wiki/Sign%20up%20and%20login" target="_blank">(Instructions)</a>
 
-3. Configure the GameAnalytics settings in Unity. [(Instructions)](https://github.com/GameAnalytics/GA-SDK-UNITY/wiki/Settings)
+3. Configure the GameAnalytics settings in Unity. <a href="https://github.com/GameAnalytics/GA-SDK-UNITY/wiki/Settings" target="_blank">(Instructions)</a>
 
-4. Create a GameAnalytics game object in your Unity scene. [(Instructions)](https://github.com/GameAnalytics/GA-SDK-UNITY/wiki/GameAnalytics%20object)
+4. Create a GameAnalytics game object in your Unity scene. <a href="https://github.com/GameAnalytics/GA-SDK-UNITY/wiki/GameAnalytics%20object" target="_blank">(Instructions)</a>
 
 5. Integrate SOOMLA Store and LevelUp.  Follow all steps in the platform specific getting started guides: <br>
     <a href="/unity/store/store_gettingstarted/" target="_blank">Unity Store</a> |

@@ -22,9 +22,9 @@ theme: 'samples'
 <br>
 
 
-The biggest hurdle for marketing a mobile app is integrating SDKs for every ad network and publisher you want to work with. With [TUNE](http://www.tune.com), you never have to integrate another advertising SDK. Not only have we integrated with mobile ad networks and publishers, but you can easily pass conversion information to any third party partner you choose.
+The biggest hurdle for marketing a mobile app is integrating SDKs for every ad network and publisher you want to work with. With <a href="http://www.tune.com" target="_blank">TUNE</a>, you never have to integrate another advertising SDK. Not only have we integrated with mobile ad networks and publishers, but you can easily pass conversion information to any third party partner you choose.
 
-The [TUNE SDK](https://developers.mobileapptracking.com/mobile-sdks/) provides application session and event logging functionality. To begin measuring sessions and installs, initiate the `measureSession` method. You can then rely on TUNE to log in-app events (such as purchases, game levels, and any other user engagement).
+The <a href="https://developers.mobileapptracking.com/mobile-sdks/" target="_blank">TUNE SDK</a> provides application session and event logging functionality. To begin measuring sessions and installs, initiate the `measureSession` method. You can then rely on TUNE to log in-app events (such as purchases, game levels, and any other user engagement).
 
 This document will show you how to measure events from all SOOMLA modules - Store, Profile and LevelUp - so you can identify which ad networks and publishers send you the most valuable users.
 
@@ -541,6 +541,6 @@ public class TuneSoomlaLevelUpScript : MonoBehaviour {
 
 <div class="samples-title">Support</div>
 
-* For more information on SDK implementation and events to measure, please visit our [documentation](https://developers.mobileapptracking.com/mobile-sdks/).
+* For more information on SDK implementation and events to measure, please visit our <a href="https://developers.mobileapptracking.com/mobile-sdks/" target="_blank">documentation</a>.
 
 * If you have further questions, please feel free to contact us at [support@mobileapptracking.com](mailto:support@mobileapptracking.com).

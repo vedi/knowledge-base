@@ -83,7 +83,7 @@ public class freeCoins : MonoBehaviour {
 
 <div class="samples-title">Getting started with the two SDKs</div>
 
-1. If you are already using Unity to develop the game, getting started with Unity Ads is very simple. Import the package, drag the prefab and you are good to go. Here are the <a href="https://unityads.unity3d.com/help/Documentation for Publishers/Integration-Guide-for-Unity" target="_blank">full instructions</a>.
+1. If you are already using Unity to develop the game, getting started with Unity Ads is very simple. Import the package, drag the prefab and you are good to go. Here are the <a href="https://unityads.unity3d.com/help/Documentation%20for%20Publishers/GettingStarted" target="_blank">full instructions</a>.
 
 2. Adding SOOMLA store is also very easy: Import, drag the prefab, initialize and setup your virtual goods. Here are the <a href="/unity/store/store_gettingstarted/" target="_blank">full instructions</a>.
 

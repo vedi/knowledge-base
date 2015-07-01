@@ -101,7 +101,7 @@ public void onMarketPurchaseStarted(MarketPurchaseStartedEvent marketPurchaseSta
 
 <div class="samples-title">Getting Started</div>
 
-<a title="OneSignal Push Notification Service" href="https://onesignal.com">OneSignal</a> is a free, multi-platform, push notification delivery system for mobile apps. OneSignal supports platforms including iOS, Android, Windows Phone, and Amazon fire devices.
+<a title="OneSignal Push Notification Service" href="https://onesignal.com" target="_blank">OneSignal</a> is a free, multi-platform, push notification delivery system for mobile apps. OneSignal supports platforms including iOS, Android, Windows Phone, and Amazon fire devices.
 
 Follow the directions below to see a great use case for how OneSignal can be integrated with SOOMLA Store to increase paying player conversion.
 

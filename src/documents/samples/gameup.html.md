@@ -334,19 +334,19 @@ public class SoomlaGameUpActivity extends Activity {
 
 GameUp is a **free** BaaS (backend as a service) for game developers which offers a plethora of features: user accounts, social login, cloud storage, multiplayer, leaderboards, achievements and push notifications.
 
-1. Go to the [GameUp Dashboard](https://dashboard.gameup.io/#/signup) to sign up for free.
+1. Go to the <a href="https://dashboard.gameup.io/#/signup" target="_blank">GameUp Dashboard</a> to sign up for free.
 
 2. Get your API key and integrate the code samples above into your game.
 
 3. Initialize SOOMLA Profile and LevelUp.  Follow all steps in the platform specific getting started guides. <br> (<a href="/unity/profile/profile_gettingstarted/" target="_blank">Unity Profile</a> | <a href="/unity/levelup/levelup_gettingstarted/" target="_blank">Unity LevelUp</a> | <a href="/android/profile/profile_gettingstarted/" target="_blank">Android Profile</a>)
 
-3. Check out the [GameUp website](https://gameup.io/) and [documentation](https://gameup.io/docs/) for more details.
+3. Check out the <a href="https://gameup.io/" target="_blank">GameUp website</a> and <a href="https://gameup.io/docs/" target="_blank">documentation</a> for more details.
 
-4. We're here for you, [get in touch](https://gameup.io/contact/) and we can help you with integration, feature design, and more!
+4. We're here for you, <a href="https://gameup.io/contact/" target="_blank">get in touch</a> and we can help you with integration, feature design, and more!
 
 
 <div class="samples-title">Downloads</div>
 
-* The [GameUp Unity SDK](https://github.com/gameup-io/gameup-unity-sdk) is available to download on [Github](https://github.com/gameup-io/gameup-unity-sdk/releases).
+* The <a href="https://github.com/gameup-io/gameup-unity-sdk" target="_blank">GameUp Unity SDK</a> is available to download on <a href="https://github.com/gameup-io/gameup-unity-sdk/releases" target="_blank">Github</a>.
 
-* The [GameUp Android SDK](https://github.com/gameup-io/gameup-android-sdk) is available through [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Cio.gameup.android).
+* The <a href="https://github.com/gameup-io/gameup-android-sdk" target="_blank">GameUp Android SDK</a> is available through <a href="http://search.maven.org/#search%7Cga%7C1%7Cio.gameup.android" target="_blank">Maven Central</a>.
