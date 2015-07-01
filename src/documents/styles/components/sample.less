@@ -19,18 +19,20 @@
 	margin-bottom: 100px;
 
 	.option-image {
-	  border-radius: 105px;
-	  width: 150px;
-	  height: 150px;
-	  text-align: center;
+
+	  @edge: 150px;
+	  .square(@edge);
+	  border-radius: 50%;
 	  border: 8px solid @circle-color;
 	  background-repeat: no-repeat;
 	  background-position: center;
-	  background-size: 122px;
-	}
+	  background-size: 120px;
+	  .transition(all 0.1s ease-in-out);
 
-	.option-image:hover {
-		background-size: 130px;
+	  &:hover {
+		.scale(1.1,1.1);
+		background-color: #fff;
+	  }
 	}
 }
 
