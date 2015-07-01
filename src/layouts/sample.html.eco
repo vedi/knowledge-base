@@ -8,9 +8,8 @@ theme: 'samples'
     <div id="jumbo-main-text">
         <div id="hierarchy-nav">
           <%- @partial('nav-menu-l1', {current:'integrations'}) %>
-          <%- @partial('nav-menu-l3', {collection:@document.collection, icon:'Star'}) %>
+          <%- @partial('nav-menu-l3', {collection:@document.collection, navicon:@document.navicon}) %>
         </div>
-        <img class="dropdown-menu-icon sample-logo" src="/img/samples/Icon2-<%= @document.image %>.png"/>
     </div>
     <div id="jumbo-small-text">
         <%= @document.text %>

@@ -6,10 +6,11 @@ text: "Measure SOOMLA in-game events to see which ad networks and publishers sen
 position: 5
 relates: ["supersonic", "unity_ads"]
 collection: 'samples'
+navicon: "nav-icon-tune.png"
 theme: 'samples'
 ---
 
-# TUNE + SOOMLA
+# TUNE Integration
 
 <div class="samples-title">Use Cases</div>
 

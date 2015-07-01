@@ -6,10 +6,11 @@ text: "Show rewarded video / offer wall to earn coins"
 position: 5
 relates: ["unity_ads", "tune"]
 collection: 'samples'
+navicon: "nav-icon-supersonic.png"
 theme: 'samples'
 ---
 
-# Supersonic + SOOMLA
+# Supersonic Integration
 
 <div class="samples-title">Use Cases</div>
 

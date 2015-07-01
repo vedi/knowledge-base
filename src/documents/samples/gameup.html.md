@@ -6,10 +6,11 @@ text: "Use SOOMLA Profile & LevelUp events to update sessions, leaderboards and 
 position: 6
 relates: ["gameanalytics", "onesignal"]
 collection: 'samples'
+navicon: "nav-icon-gameup.png"
 theme: 'samples'
 ---
 
-# GameUp + SOOMLA
+# GameUp Integration
 
 ## Use Case: Cross-device achievements and leaderboards
 

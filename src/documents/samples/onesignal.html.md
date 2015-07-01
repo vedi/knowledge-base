@@ -6,10 +6,11 @@ text: "Deliver push notifications triggered by SOOMLA Store events"
 position: 6
 relates: ["tune", "gameup"]
 collection: 'samples'
+navicon: "nav-icon-onesignal.png"
 theme: 'samples'
 ---
 
-# OneSignal + SOOMLA Store
+# OneSignal Integration
 
 ## Use Case: Send push notifications after store events
 
