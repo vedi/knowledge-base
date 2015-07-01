@@ -457,14 +457,14 @@ public class MainActivity extends Activity implements RewardedVideoListener, Off
     <a href="http://developers.supersonic.com/hc/en-us/articles/201481051-Getting-Started-with-the-Supersonic-Android-SDK" target="_blank">Android</a>
 
 4. Integrate SOOMLA Store and LevelUp.  Follow all steps in the platform specific getting started guides: <br>
-    <a href="http://know.soom.la/unity/store/store_gettingstarted/" target="_blank">Unity Store</a> |
-    <a href="http://know.soom.la/unity/levelup/levelup_gettingstarted/" target="_blank">Unity LevelUp</a> |
-    <a href="http://know.soom.la/android/store/store_gettingstarted/" target="_blank">Android Store</a> |
-    <a href="http://know.soom.la/ios/store/store_gettingstarted/" target="_blank">iOS Store</a>
+    <a href="/unity/store/store_gettingstarted/" target="_blank">Unity Store</a> |
+    <a href="/unity/levelup/levelup_gettingstarted/" target="_blank">Unity LevelUp</a> |
+    <a href="/android/store/store_gettingstarted/" target="_blank">Android Store</a> |
+    <a href="/ios/store/store_gettingstarted/" target="_blank">iOS Store</a>
 
 
 <div class="samples-title">Additional tips and recommendations</div>
 
 1. Combine 2 or 3 Video ad networks for increased coverage.<br> Working with a single provider could lead to inventory problems where there are no ads available.
 
-2. Adding <a href="http://know.soom.la/unity/grow/grow_gettingstarted/" target="_blank">SOOMLA GROW</a> will allow your users to backup their balances and will give you more tools to analyze their behavior.
+2. Adding <a href="/unity/grow/grow_gettingstarted/" target="_blank">SOOMLA GROW</a> will allow your users to backup their balances and will give you more tools to analyze their behavior.

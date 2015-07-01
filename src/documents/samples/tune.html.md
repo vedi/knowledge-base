@@ -534,9 +534,9 @@ public class TuneSoomlaLevelUpScript : MonoBehaviour {
 2. Download and integrate the [TUNE SDK](https://developers.mobileapptracking.com/mobile-sdks/).
 
 3. Integrate SOOMLA Store and LevelUp.  Follow all steps in the platform specific getting started guides: <br>
-    <a href="http://know.soom.la/unity/" target="_blank">Unity</a> |
-    <a href="http://know.soom.la/ios/" target="_blank">iOS</a> |
-    <a href="http://know.soom.la/android/" target="_blank">Android</a>
+    <a href="/unity/" target="_blank">Unity</a> |
+    <a href="/ios/" target="_blank">iOS</a> |
+    <a href="/android/" target="_blank">Android</a>
 
 
 <div class="samples-title">Support</div>

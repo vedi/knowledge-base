@@ -254,6 +254,6 @@ public class GA_Soomla : MonoBehaviour
 4. Create a GameAnalytics game object in your Unity scene. [(Instructions)](https://github.com/GameAnalytics/GA-SDK-UNITY/wiki/GameAnalytics%20object)
 
 5. Integrate SOOMLA Store and LevelUp.  Follow all steps in the platform specific getting started guides: <br>
-    <a href="http://know.soom.la/unity/store/store_gettingstarted/" target="_blank">Unity Store</a> |
-    <a href="http://know.soom.la/unity/levelup/levelup_gettingstarted/" target="_blank">Unity LevelUp</a>
+    <a href="/unity/store/store_gettingstarted/" target="_blank">Unity Store</a> |
+    <a href="/unity/levelup/levelup_gettingstarted/" target="_blank">Unity LevelUp</a>
 

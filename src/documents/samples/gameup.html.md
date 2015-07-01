@@ -338,7 +338,7 @@ GameUp is a **free** BaaS (backend as a service) for game developers which offer
 
 2. Get your API key and integrate the code samples above into your game.
 
-3. Initialize SOOMLA Profile and LevelUp.  Follow all steps in the platform specific getting started guides. <br> (<a href="http://know.soom.la/unity/profile/profile_gettingstarted/" target="_blank">Unity Profile</a> | <a href="http://know.soom.la/unity/levelup/levelup_gettingstarted/" target="_blank">Unity LevelUp</a> | <a href="http://know.soom.la/android/profile/profile_gettingstarted/" target="_blank">Android Profile</a>)
+3. Initialize SOOMLA Profile and LevelUp.  Follow all steps in the platform specific getting started guides. <br> (<a href="/unity/profile/profile_gettingstarted/" target="_blank">Unity Profile</a> | <a href="/unity/levelup/levelup_gettingstarted/" target="_blank">Unity LevelUp</a> | <a href="/android/profile/profile_gettingstarted/" target="_blank">Android Profile</a>)
 
 3. Check out the [GameUp website](https://gameup.io/) and [documentation](https://gameup.io/docs/) for more details.
 
