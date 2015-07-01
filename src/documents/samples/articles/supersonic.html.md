@@ -4,7 +4,7 @@ image: "supersonic_logo"
 title: "SUPERSONIC"
 text: "Show rewarded video to earn coins"
 position: 5
-relates: ["chartboost"]
+relates: ["unity_ads"]
 collection: 'samples'
 theme: 'samples'
 ---

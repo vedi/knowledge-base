@@ -4,7 +4,7 @@ image: "gameup_logo"
 title: "GAMEUP"
 text: "Learn how to observe and handle economy events triggered by android-store to customize your game-specific behavior."
 position: 6
-relates: ["chartboost"]
+relates: ["unity_ads"]
 collection: 'samples'
 theme: 'samples'
 ---

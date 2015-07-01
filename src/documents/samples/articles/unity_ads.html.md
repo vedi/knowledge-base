@@ -1,7 +1,7 @@
 ---
 layout: "sample"
-image: "chartboost_logo"
-title: "CHARTBOOST"
+image: "unityads_logo"
+title: "UNITY ADS"
 text: "Show rewarded video to earn coins"
 position: 5
 relates: ["supersonic"]

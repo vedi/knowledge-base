@@ -4,7 +4,7 @@ image: "onesignal_logo"
 title: "ONESIGNAL"
 text: "Learn how to deliver push notifications triggered by android-store events."
 position: 6
-relates: ["chartboost"]
+relates: ["unity_ads"]
 collection: 'samples'
 theme: 'samples'
 ---
