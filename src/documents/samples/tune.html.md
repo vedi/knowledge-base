@@ -541,6 +541,15 @@ public class TuneSoomlaLevelUpScript : MonoBehaviour {
     <a href="/android/" target="_blank">Android</a>
 
 
+<div class="samples-title">Sample projects</div>
+
+For sample projects of TUNE + SOOMLA integration, please see in GitHub:
+
+<a href="https://github.com/john-gu/TuneSoomlaUnity" target="_blank">Unity</a> |
+<a href="https://github.com/john-gu/TuneSoomlaIOS" target="_blank">iOS</a> |
+<a href="https://github.com/john-gu/TuneSoomlaAndroid" target="_blank">Android</a>
+
+
 <div class="samples-title">Support</div>
 
 * For more information on SDK implementation and events to measure, please visit our <a href="https://developers.mobileapptracking.com/mobile-sdks/" target="_blank">documentation</a>.
