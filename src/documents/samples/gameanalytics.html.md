@@ -2,9 +2,9 @@
 layout: "sample"
 image: "gameanalytics_logo"
 title: "GAMEANALYTICS"
-text: "Show rewarded video to earn coins"
+text: "Handle SOOMLA Store & LevelUp events and send them to GameAnalytics"
 position: 5
-relates: ["gameup"]
+relates: ["gameup", "onesignal"]
 collection: 'samples'
 theme: 'samples'
 ---

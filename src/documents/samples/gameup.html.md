@@ -2,9 +2,9 @@
 layout: "sample"
 image: "gameup_logo"
 title: "GAMEUP"
-text: "Learn how to observe and handle economy events triggered by android-store to customize your game-specific behavior."
+text: "Use SOOMLA Profile & LevelUp events to update sessions, leaderboards and achievements"
 position: 6
-relates: ["unity_ads"]
+relates: ["gameanalytics", "onesignal"]
 collection: 'samples'
 theme: 'samples'
 ---

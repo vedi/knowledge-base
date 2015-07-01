@@ -2,9 +2,9 @@
 layout: "sample"
 image: "onesignal_logo"
 title: "ONESIGNAL"
-text: "Learn how to deliver push notifications triggered by android-store events."
+text: "Deliver push notifications triggered by SOOMLA Store events"
 position: 6
-relates: ["unity_ads"]
+relates: ["tune", "gameup"]
 collection: 'samples'
 theme: 'samples'
 ---

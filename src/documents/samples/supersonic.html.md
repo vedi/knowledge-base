@@ -2,9 +2,9 @@
 layout: "sample"
 image: "supersonic_logo"
 title: "SUPERSONIC"
-text: "Show rewarded video to earn coins"
+text: "Show rewarded video / offer wall to earn coins"
 position: 5
-relates: ["unity_ads"]
+relates: ["unity_ads", "tune"]
 collection: 'samples'
 theme: 'samples'
 ---

@@ -2,9 +2,9 @@
 layout: "sample"
 image: "unityads_logo"
 title: "UNITY ADS"
-text: "Show rewarded video to earn coins"
+text: "Show rewarded ad to earn coins"
 position: 5
-relates: ["supersonic"]
+relates: ["supersonic", "tune"]
 collection: 'samples'
 theme: 'samples'
 ---

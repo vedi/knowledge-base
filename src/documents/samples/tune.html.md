@@ -2,9 +2,9 @@
 layout: "sample"
 image: "tune_logo"
 title: "TUNE"
-text: "Show rewarded video to earn coins"
+text: "Measure SOOMLA in-game events to see which ad networks and publishers send the most engaged users"
 position: 5
-relates: ["supersonic"]
+relates: ["supersonic", "unity_ads"]
 collection: 'samples'
 theme: 'samples'
 ---
