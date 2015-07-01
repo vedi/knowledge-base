@@ -67,7 +67,7 @@ public class TuneSoomlaStoreScript : MonoBehaviour {
     }
 
     public void onMarketPurchase(PurchasableVirtualItem pvi, string payload,
-            Dictionary<string, string> extra) {
+            Dictionary<string, string> extras) {
 
         // On purchase complete, set purchase info and measure purchase in TUNE
         double revenue = 0;
