@@ -1,7 +1,7 @@
 ---
 layout: "sample"
 image: "onesignal_logo"
-title: "ONESIGNAL"
+title: "OneSignal"
 text: "Deliver push notifications triggered by SOOMLA Store events"
 position: 6
 relates: ["tune", "gameup"]

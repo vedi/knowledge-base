@@ -1,7 +1,7 @@
 ---
 layout: "sample"
 image: "supersonic_logo"
-title: "SUPERSONIC"
+title: "Supersonic"
 text: "Show rewarded video / offer wall to earn coins"
 position: 5
 relates: ["unity_ads", "tune"]

@@ -1,7 +1,7 @@
 ---
 layout: "sample"
 image: "unityads_logo"
-title: "UNITY ADS"
+title: "Unity Ads"
 text: "Show rewarded ad to earn coins"
 position: 5
 relates: ["supersonic", "tune"]

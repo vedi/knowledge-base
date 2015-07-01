@@ -1,7 +1,7 @@
 ---
 layout: "sample"
 image: "gameanalytics_logo"
-title: "GAMEANALYTICS"
+title: "GameAnalytics"
 text: "Handle SOOMLA Store & LevelUp events and send them to GameAnalytics"
 position: 5
 relates: ["gameup", "onesignal"]

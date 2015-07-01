@@ -1,7 +1,7 @@
 ---
 layout: "sample"
 image: "gameup_logo"
-title: "GAMEUP"
+title: "GameUp"
 text: "Use SOOMLA Profile & LevelUp events to update sessions, leaderboards and achievements"
 position: 6
 relates: ["gameanalytics", "onesignal"]
