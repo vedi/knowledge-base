@@ -86,6 +86,11 @@ docpadConfig = {
 				title: 'Download',
 				link: '/download'
 			}
+			{
+				id: 'integrations',
+				title: 'Integrations',
+				link: '/samples'
+			}
 		]
 
 		soomlaModules: {
