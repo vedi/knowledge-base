@@ -1,14 +1,16 @@
 ---
 layout: "sample"
 image: "unityads_logo"
-title: "UNITY ADS"
-text: "Show rewarded video to earn coins"
+title: "Unity Ads"
+text: "Show rewarded ad to earn coins"
 position: 5
-relates: ["supersonic"]
+relates: ["supersonic", "tune"]
 collection: 'samples'
+navicon: "nav-icon-unityads.png"
 theme: 'samples'
 ---
 
+# Unity Ads Integration
 
 ## Use Case: Reward coins on video ads completion
 

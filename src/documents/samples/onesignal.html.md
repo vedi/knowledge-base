@@ -1,15 +1,16 @@
 ---
 layout: "sample"
 image: "onesignal_logo"
-title: "ONESIGNAL"
-text: "Learn how to deliver push notifications triggered by android-store events."
+title: "OneSignal"
+text: "Deliver push notifications triggered by SOOMLA Store events"
 position: 6
-relates: ["unity_ads"]
+relates: ["tune", "gameup"]
 collection: 'samples'
+navicon: "nav-icon-onesignal.png"
 theme: 'samples'
 ---
 
-# OneSignal + SOOMLA Store
+# OneSignal Integration
 
 ## Use Case: Send push notifications after store events
 
