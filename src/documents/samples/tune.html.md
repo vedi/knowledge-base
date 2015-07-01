@@ -154,6 +154,7 @@ public class TuneSoomlaStoreScript : MonoBehaviour {
     CGFloat revenue;
     NSString \*currency;
     NSArray \*items;
+
     PurchaseType \*type = [notification.userInfo[DICT_ELEMENT_PURCHASABLE] purchaseType];
     if ([type isKindOfClass:[PurchaseWithMarket class]]) {
         MarketItem \*item = ((PurchaseWithMarket \*)type).marketItem;
@@ -251,9 +252,10 @@ public class MainActivity extends Activity {
     // On purchase complete, set purchase info and measure purchase in TUNE
     @Subscribe
     public void onMarketPurchase(MarketPurchaseEvent marketPurchaseEvent) {
-        double revenue = 0;
-        String currency = "";
-        MATEventItem[] items = new MATEventItem[0];
+        double revenue;
+        String currency;
+        List<MATEventItem> items = new ArrayList<MATEventItem>();
+
         PurchaseType type = marketPurchaseEvent.getPurchasableVirtualItem().getPurchaseType();
         if (type instanceof PurchaseWithMarket) {
             MarketItem item = ((PurchaseWithMarket) type).getMarketItem();
@@ -263,7 +265,7 @@ public class MainActivity extends Activity {
             MATEventItem eventItem = new MATEventItem(item.getMarketTitle())
                     .withAttribute1(item.getProductId());
             // Add event item to MATItem array in order to pass to TUNE SDK
-            items[items.length] = eventItem;
+            items.add(eventItem);
         }
 
         // Get order ID and receipt data for purchase validation
@@ -272,13 +274,13 @@ public class MainActivity extends Activity {
         String receiptSignature = marketPurchaseEvent.getSignature();
 
         // Create a MATEvent with this purchase data
-        MATEvent purchaseEvent = new MATEvent("purchase")
+        MATEvent purchaseEvent = new MATEvent(MATEvent.PURCHASE)
                 .withRevenue(revenue)
                 .withCurrencyCode(currency)
                 .withAdvertiserRefId(orderId)
                 .withReceipt(receiptData, receiptSignature);
         // Set event item if it exists
-        if (items.length != 0) {
+        if (!items.isEmpty()) {
             purchaseEvent.withEventItems(items);
         }
         // Measure "purchase" event
