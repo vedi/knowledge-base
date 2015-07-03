@@ -89,7 +89,7 @@ docpadConfig = {
 			{
 				id: 'integrations',
 				title: 'Integrations',
-				link: '/samples'
+				link: '/integrations'
 			}
 		]
 
