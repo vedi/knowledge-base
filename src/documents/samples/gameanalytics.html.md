@@ -19,6 +19,8 @@ theme: 'samples'
   <!-- Nav tabs -->
   <ul class="nav nav-tabs nav-tabs-use-case-code sample-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#sample-unity" aria-controls="unity" role="tab" data-toggle="tab">Unity</a></li>
+    <li role="presentation"><a href="#sample-ios" aria-controls="ios" role="tab" data-toggle="tab">iOS</a></li>
+    <li role="presentation"><a href="#sample-android" aria-controls="android" role="tab" data-toggle="tab">Android</a></li>
   </ul>
 
   <!-- Tab panes -->
@@ -236,9 +238,298 @@ public class GA_Soomla : MonoBehaviour
         </code>
       </pre>
 
+  </div>
+    <div role="tabpanel" class="tab-pane" id="sample-ios">
+      <pre>
+        <code class="">
+//
+//  AppDelegate.m
+//  TestApp
+//
+//  Copyright (c) 2014 GameAnalytics. All rights reserved.
+//
+
+#import "AppDelegate.h"
+#import "GameAnalytics.h"
+#import "TestAppIAP.h"
+#import "GameAnalytics.h"
+#import "Soomla.h"
+#import "StoreEventHandling.h"
+#import "PurchaseWithMarket.h"
+#import "PurchasableVirtualItem.h"
+#import "MarketItem.h"
+
+@interface AppDelegate ()
+
+@end
+
+@implementation AppDelegate
+
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [TestAppIAP sharedInstance];
+
+    // Override point for customization after application launch.
+
+    // Configure engine version
+    [GameAnalytics configureEngineVersion:@"ios 1.0.0"];
+
+    // Enable log
+    [GameAnalytics setEnabledInfoLog:YES];
+    [GameAnalytics setEnabledVerboseLog:YES];
+
+    // Configure available virtual currencies and item types
+    [GameAnalytics configureAvailableResourceCurrencies:@[@"gems", @"gold"]];
+    [GameAnalytics configureAvailableResourceItemTypes:@[@"boost", @"lives"]];
+
+    // Configure available custom dimensions
+    [GameAnalytics configureAvailableCustomDimensions01:@[@"ninja", @"samurai"]];
+    [GameAnalytics configureAvailableCustomDimensions02:@[@"whale", @"dolphin"]];
+    [GameAnalytics configureAvailableCustomDimensions03:@[@"horde", @"alliance"]];
+
+    // Configure build version
+    [GameAnalytics configureBuild:@"0.1.0"];
+
+    // Initialize
+    [GameAnalytics initializeWithGameKey:@"<game_key>" gameSecret:@"<secret_key>"];
+
+    // Handle SOOMLA events
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(currencyBalanceChanged:) name:EVENT_CURRENCY_BALANCE_CHANGED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(marketPurchased:) name:EVENT_MARKET_PURCHASED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemPurchased:) name:EVENT_ITEM_PURCHASED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(goodUpgrade:) name:EVENT_GOOD_UPGRADE object:nil];
+
+    // Initialize SOOMLA Store
+    // Assumes you've implemented your store assets.
+    [Soomla initializeWithSecret:@"<SECRET_GAME_KEY>"];
+    [[SoomlaStore getInstance] initializeWithStoreAssets:[[YourStoreAssetsImplementation alloc] init]];
+    return YES;
+}
+
+- (void)currencyBalanceChanged:(NSNotification*)notification
+{
+    NSDictionary* userInfo = [notification userInfo];
+    NSNumber* amountAdded = [userInfo objectForKey:DICT_ELEMENT_AMOUNT_ADDED];
+    NSString* itemId = [userInfo objectForKey:DICT_ELEMENT_CURRENCY];
+
+    GAResourceFlowType flowType = GAResourceFlowTypeSource;
+    if ([amountAdded intValue] <= 0)
+    {
+        flowType = GAResourceFlowTypeSink;
+    }
+
+    [GameAnalytics addResourceEventWithFlowType:flowType currency:@"<virtual_currency_type_goes_here (e.g. Gems, BeamBoosters, Coins)>" amount:amountAdded itemType:@"<item_type_goes_here (e.g. Weapons, IAP, Gameplay, Boosters)>" itemId:itemId];
+}
+
+- (void)marketPurchased:(NSNotification*)notification
+{
+    NSDictionary* userInfo = [notification userInfo];
+    PurchasableVirtualItem* purchasableVirtualItem = [userInfo objectForKey:DICT_ELEMENT_PURCHASABLE];
+    PurchaseWithMarket* purchaseWithMarket = (PurchaseWithMarket*)[purchasableVirtualItem purchaseType];
+    MarketItem* marketItem = [purchaseWithMarket marketItem];
+    double price = [marketItem price];
+    NSInteger amount = (NSInteger)(price * 100.0);
+
+    [GameAnalytics addBusinessEventWithCurrency:[marketItem marketCurrencyCode] amount:amount itemType:@"<item_type_goes_here (e.g. GoldPacks)>" itemId:[purchasableVirtualItem itemId] cartType:@"<cart_type_goes_here (e.g. The game location of the purchase)>" autoFetchReceipt: YES];
+}
+
+- (void)itemPurchased:(NSNotification*)notification
+{
+    NSDictionary* userInfo = [notification userInfo];
+    NSString* itemId = [userInfo objectForKey:DICT_ELEMENT_PURCHASABLE_ID];
+
+    [GameAnalytics addDesignEventWithEventId:[NSString stringWithFormat:@"%@%@", @"Purchased:", itemId]];
+}
+
+- (void)goodUpgrade:(NSNotification*)notification
+{
+    NSDictionary* userInfo = [notification userInfo];
+    NSString* itemId = [userInfo objectForKey:DICT_ELEMENT_GOOD];
+    NSString* upgradeId = [userInfo objectForKey:DICT_ELEMENT_UpgradeVG];
+
+    [GameAnalytics addDesignEventWithEventId:[NSString stringWithFormat:@"%@%@%@%@", @"Upgrade:", itemId, @":", upgradeId]];
+}
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+@end
+        </code>
+      </pre>
+
+    </div>
+    <div role="tabpanel" class="tab-pane" id="sample-android">
+      <pre>
+        <code class="">
+package com.gameanalytics.dummy;
+
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+import com.gameanalytics.sdk.GAErrorSeverity;
+import com.gameanalytics.sdk.GAPlatform;
+import com.gameanalytics.sdk.GAProgressionStatus;
+import com.gameanalytics.sdk.GAResourceFlowType;
+import com.gameanalytics.sdk.GameAnalytics;
+import com.gameanalytics.sdk.StringVector;
+import com.soomla.BusProvider;
+import com.soomla.Soomla;
+import com.soomla.store.domain.MarketItem;
+import com.soomla.store.domain.PurchasableVirtualItem;
+import com.soomla.store.events.CurrencyBalanceChangedEvent;
+import com.soomla.store.events.GoodUpgradeEvent;
+import com.soomla.store.events.ItemPurchasedEvent;
+import com.soomla.store.events.MarketPurchaseEvent;
+import com.soomla.store.purchaseTypes.PurchaseWithMarket;
+import com.squareup.otto.Subscribe;
+
+import java.util.HashMap;
+
+
+public class MainActivity extends ActionBarActivity
+{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		initializeGameAnalytics();
+
+        // Register this instance to receive SOOMLA events.
+        BusProvider.getInstance().register(this);
+
+        // Initialize SOOMLA Store
+        // Assumes you've implemented your store assets.
+		Soomla.initialize("<GAME SECRET GOES HERE>");
+        SoomlaStore.getInstance().initialize(new YourStoreAssetsImplementation());
+	}
+
+	@Subscribe
+	public void onCurrencyBalanceChanged(CurrencyBalanceChangedEvent currencyBalanceChangedEvent)
+	{
+		int amountAdded = currencyBalanceChangedEvent.getAmountAdded();
+
+		GameAnalytics.addResourceEventWithFlowType(
+		    amountAdded > 0 ?
+		        GAResourceFlowType.GAResourceFlowTypeSource :
+		        GAResourceFlowType.GAResourceFlowTypeSink,
+            "<virtual_currency_type_goes_here (e.g. Gems, BeamBoosters, Coins)>",
+            Math.abs(amountAdded),
+            "<item_type_goes_here (e.g. Weapons, IAP, Gameplay, Boosters)>",
+            currencyBalanceChangedEvent.getCurrencyItemId());
+	}
+
+	@Subscribe
+	public void onMarketPurchase(MarketPurchaseEvent marketPurchaseEvent)
+	{
+		PurchasableVirtualItem purchasableVirtualItem = marketPurchaseEvent.PurchasableVirtualItem;
+		PurchaseWithMarket purchaseWithMarket =
+		    PurchaseWithMarket.class.isInstance(purchasableVirtualItem.getPurchaseType()) ?
+		    (PurchaseWithMarket)purchasableVirtualItem.getPurchaseType() : null;
+
+		if(purchaseWithMarket != null)
+		{
+			MarketItem marketItem = purchaseWithMarket.getMarketItem();
+			HashMap<String, String> extraInfo = marketPurchaseEvent.ExtraInfo;
+
+			if(extraInfo.containsKey("originalJson") && extraInfo.containsKey("signature"))
+			{
+				String receipt = extraInfo.get("originalJson");
+				String signature = extraInfo.get("signature");
+
+				GameAnalytics.addBusinessEventWithCurrency(
+				    marketItem.getMarketCurrencyCode(),
+				    (int)(marketItem.getPrice() * 100.0),
+				    purchasableVirtualItem.getItemId(),
+				    "<cart_type_goes_here (e.g. The game location of the purchase)>",
+                    receipt, "google_play", signature);
+			}
+		}
+	}
+
+	@Subscribe
+	public void onItemPurchased(ItemPurchasedEvent itemPurchasedEvent)
+	{
+		GameAnalytics.addDesignEventWithEventId("Purchased:" + itemPurchasedEvent.getItemId());
+	}
+
+	@Subscribe
+	public void onGoodUpgrade(GoodUpgradeEvent goodUpgradeEvent)
+	{
+		GameAnalytics.addDesignEventWithEventId("Upgrade:" + goodUpgradeEvent.getGoodItemId() + ":" + goodUpgradeEvent.getCurrentUpgrade());
+	}
+
+	private void initializeGameAnalytics()
+	{
+		GAPlatform.initializeWithContext(this.getApplicationContext());
+
+		// Configure engine version
+		GameAnalytics.configureEngineVersion("android 1.0.0");
+
+		// Enable log
+		GameAnalytics.setEnabledInfoLog(true);
+		GameAnalytics.setEnabledVerboseLog(true);
+
+		// Configure available virtual currencies and item types
+		StringVector currencies = new StringVector();
+		currencies.add("gems");
+		currencies.add("gold");
+		GameAnalytics.configureAvailableResourceCurrencies(currencies);
+
+		StringVector itemTypes = new StringVector();
+		itemTypes.add("boost");
+		itemTypes.add("lives");
+		GameAnalytics.configureAvailableResourceItemTypes(itemTypes);
+
+		// Configure available custom dimensions
+		StringVector customDimension01 = new StringVector();
+		customDimension01.add("ninja");
+		customDimension01.add("samurai");
+		GameAnalytics.configureAvailableCustomDimensions01(customDimension01);
+
+		StringVector customDimension02 = new StringVector();
+		customDimension02.add("whale");
+		customDimension02.add("dolphin");
+		GameAnalytics.configureAvailableCustomDimensions02(customDimension02);
+
+		StringVector customDimension03 = new StringVector();
+		customDimension03.add("horde");
+		customDimension03.add("alliance");
+		GameAnalytics.configureAvailableCustomDimensions03(customDimension03);
+
+		// Configure build version
+		GameAnalytics.configureBuild("0.1.0");
+
+		// Initialize
+		GameAnalytics.initializeWithGameKey("<game_key>", "<secret_key>");
+	}
+}
+        </code>
+      </pre>
     </div>
   </div>
-
 </div>
 
 
