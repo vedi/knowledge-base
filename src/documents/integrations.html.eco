@@ -2,6 +2,7 @@
 layout: 'knowledge-base'
 title: 'Soomla Integrations'
 theme: 'samples'
+standalone: true
 ---
 
 <div class="jumbotron" id="know-soomla">
@@ -20,7 +21,7 @@ theme: 'samples'
     <div class="nav-options nav-options-bottom">
         <div class="container samples-page">
             <% for doc in @getCollection('samples').toJSON(): %>
-                <div class="col-centered col-xs-6 col-sm-3 ">
+                <div class="col-centered col-xs-6 col-md-3 ">
                     <div class="circle-sample">
                         <%- @partial('sample-item', {image: "/img/samples/Icon2-#{doc.image}.png", link: doc.url}) %>
                     </div>
