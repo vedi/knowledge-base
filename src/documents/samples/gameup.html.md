@@ -157,8 +157,6 @@ public class SoomlaGameUpBehaviour : MonoBehaviour
         </code>
       </pre>
     </div>
-    <!-- <div role="tabpanel" class="tab-pane" id="sample-cocos2dx">...</div> -->
-    <!-- <div role="tabpanel" class="tab-pane" id="sample-ios">...</div> -->
     <div role="tabpanel" class="tab-pane" id="sample-android">
       <p>
         First, let's create a static helper class to handle the GameUp session for us:
@@ -243,7 +241,7 @@ public class SoomlaGameUpActivity extends Activity {
         // Initialise the GameUp SDK.
         GameUp.init(this, "your-api-key-here");
 
-        // Register this instance to receive Soomla events.
+        // Register this instance to receive SOOMLA events.
         BusProvider.getInstance().register(this);
     }
 
