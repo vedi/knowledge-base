@@ -33,13 +33,13 @@ This document will show you how to measure events from all SOOMLA modules - Stor
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs nav-tabs-use-case-code sample-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#sample-unity-store" aria-controls="unity" role="tab" data-toggle="tab">Unity - IAP</a></li>
-    <li role="presentation"><a href="#sample-ios-store" aria-controls="ios" role="tab" data-toggle="tab">iOS - IAP</a></li>
-    <li role="presentation"><a href="#sample-android-store" aria-controls="android" role="tab" data-toggle="tab">Android - IAP</a></li>
-    <li role="presentation"><a href="#sample-unity-profile" aria-controls="unity" role="tab" data-toggle="tab">Unity - Social</a></li>
-    <li role="presentation"><a href="#sample-ios-profile" aria-controls="ios" role="tab" data-toggle="tab">iOS - Social</a></li>
-    <li role="presentation"><a href="#sample-android-profile" aria-controls="android" role="tab" data-toggle="tab">Android - Social</a></li>
-    <li role="presentation"><a href="#sample-unity-levelup" aria-controls="unity" role="tab" data-toggle="tab">Unity - Levels</a></li>
+    <li role="presentation" class="active"><a href="#sample-unity-store" aria-controls="unity" role="tab" data-toggle="tab">Unity IAP</a></li>
+    <li role="presentation"><a href="#sample-ios-store" aria-controls="ios" role="tab" data-toggle="tab">iOS IAP</a></li>
+    <li role="presentation"><a href="#sample-android-store" aria-controls="android" role="tab" data-toggle="tab">Android IAP</a></li>
+    <li role="presentation"><a href="#sample-unity-profile" aria-controls="unity" role="tab" data-toggle="tab">Unity Social</a></li>
+    <li role="presentation"><a href="#sample-ios-profile" aria-controls="ios" role="tab" data-toggle="tab">iOS Social</a></li>
+    <li role="presentation"><a href="#sample-android-profile" aria-controls="android" role="tab" data-toggle="tab">Android Social</a></li>
+    <li role="presentation"><a href="#sample-unity-levelup" aria-controls="unity" role="tab" data-toggle="tab">Unity Levels</a></li>
   </ul>
 
   <!-- Tab panes -->
