@@ -12,7 +12,7 @@ theme: 'samples'
 
 # Supersonic Integration
 
-<div class="samples-title">Use Cases</div>
+<div class="samples-title">This article shows multiple integration samples:</div>
 
 * Reward coins on RewardedVideo/OfferWall ads completion.
 

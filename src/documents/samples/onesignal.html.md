@@ -12,8 +12,6 @@ theme: 'samples'
 
 # OneSignal Integration
 
-## Use Case: Send push notifications after store events
-
 <div>
 
   <!-- Nav tabs -->

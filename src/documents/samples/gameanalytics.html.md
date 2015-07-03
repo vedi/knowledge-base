@@ -2,7 +2,7 @@
 layout: "sample"
 image: "gameanalytics_logo"
 title: "GameAnalytics"
-text: "Handle SOOMLA Store & LevelUp events and send them to GameAnalytics"
+text: "Report SOOMLA Store & LevelUp in-game events to GameAnalytics"
 position: 5
 relates: ["gameup", "onesignal"]
 collection: 'samples'
@@ -11,8 +11,6 @@ theme: 'samples'
 ---
 
 # GameAnalytics Integration
-
-## Use Case: report in-game events to analytics
 
 <br>
 

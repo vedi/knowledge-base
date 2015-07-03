@@ -12,8 +12,6 @@ theme: 'samples'
 
 # GameUp Integration
 
-## Use Case: Cross-device achievements and leaderboards
-
 <div>
 
   <!-- Nav tabs -->
