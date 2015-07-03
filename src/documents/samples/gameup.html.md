@@ -335,11 +335,14 @@ GameUp is a **free** BaaS (backend as a service) for game developers which offer
 
 2. Get your API key and integrate the code samples above into your game.
 
-3. Initialize SOOMLA Profile and LevelUp.  Follow all steps in the platform specific getting started guides. <br> (<a href="/unity/profile/profile_gettingstarted/" target="_blank">Unity Profile</a> | <a href="/unity/levelup/levelup_gettingstarted/" target="_blank">Unity LevelUp</a> | <a href="/android/profile/profile_gettingstarted/" target="_blank">Android Profile</a>)
+3. Integrate SOOMLA Profile and LevelUp.  Follow all steps in the platform specific getting started guides. <br>
+    <a href="/unity/profile/profile_gettingstarted/" target="_blank">Unity Profile</a> |
+    <a href="/unity/levelup/levelup_gettingstarted/" target="_blank">Unity LevelUp</a> |
+    <a href="/android/profile/profile_gettingstarted/" target="_blank">Android Profile</a>
 
-3. Check out the <a href="https://gameup.io/" target="_blank">GameUp website</a> and <a href="https://gameup.io/docs/" target="_blank">documentation</a> for more details.
+4. Check out the <a href="https://gameup.io/" target="_blank">GameUp website</a> and <a href="https://gameup.io/docs/" target="_blank">documentation</a> for more details.
 
-4. We're here for you, <a href="https://gameup.io/contact/" target="_blank">get in touch</a> and we can help you with integration, feature design, and more!
+5. We're here for you, <a href="https://gameup.io/contact/" target="_blank">get in touch</a> and we can help you with integration, feature design, and more!
 
 
 <div class="samples-title">Downloads</div>

@@ -17,9 +17,6 @@ theme: 'samples'
   <!-- Nav tabs -->
   <ul class="nav nav-tabs nav-tabs-use-case-code sample-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#sample-unity" aria-controls="unity" role="tab" data-toggle="tab">Unity</a></li>
-    <li role="presentation"><a href="#sample-cocos2dx" aria-controls="cocos2dx" role="tab" data-toggle="tab">Cocos2d-x</a></li>
-    <li role="presentation"><a href="#sample-ios" aria-controls="iod" role="tab" data-toggle="tab">iOS</a></li>
-    <li role="presentation"><a href="#sample-android" aria-controls="android" role="tab" data-toggle="tab">Android</a></li>
   </ul>
 
   <!-- Tab panes -->
@@ -72,9 +69,6 @@ public class freeCoins : MonoBehaviour {
       </pre>
 
     </div>
-    <div role="tabpanel" class="tab-pane" id="sample-cocos2dx">...</div>
-    <div role="tabpanel" class="tab-pane" id="sample-ios">...</div>
-    <div role="tabpanel" class="tab-pane" id="sample-android">...</div>
   </div>
 
 </div>
@@ -84,7 +78,7 @@ public class freeCoins : MonoBehaviour {
 
 1. If you are already using Unity to develop the game, getting started with Unity Ads is very simple. Import the package, drag the prefab and you are good to go. Here are the <a href="https://unityads.unity3d.com/help/Documentation%20for%20Publishers/GettingStarted" target="_blank">full instructions</a>.
 
-2. Adding SOOMLA store is also very easy: Import, drag the prefab, initialize and setup your virtual goods. Here are the <a href="/unity/store/store_gettingstarted/" target="_blank">full instructions</a>.
+2. Integrate SOOMLA Store and. See <a href="/unity/store/store_gettingstarted/" target="_blank">Full instructions</a>.
 
 <div class="samples-title">Additional tips and recommendations</div>
 

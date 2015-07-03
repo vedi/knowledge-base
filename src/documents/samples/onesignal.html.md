@@ -108,6 +108,12 @@ Follow the directions below to see a great use case for how OneSignal can be int
 
 2. Add SOOMLA store: Import, drag the prefab, initialize and setup your virtual goods. Here are the <a href="/unity/store/store_gettingstarted/" target="_blank">full instructions</a>.
 
+2. Integrate SOOMLA Store.  Follow all steps in the platform specific getting started guides: <br>
+    <a href="/unity/store/store_gettingstarted/" target="_blank">Unity</a> |
+    <a href="/cocos2dx/store/store_gettingstarted/" target="_blank">Cocos2d-x</a> |
+    <a href="/ios/store/store_gettingstarted/" target="_blank">iOS</a> |
+    <a href="/android/store/store_gettingstarted/" target="_blank">Android</a> |
+
 3. Add the sample code above into your game.
 
 4. On the OneSignal website, set up a segment that matches users with the tag "StartedPurchase", who have amount spent equal to zero, and who have been inactive for at least 3 hours. This works because OneSignal automatically tracks when a user spends money or hasn't used your app in a while. Next, create an automatic message to send to that segment of players.
