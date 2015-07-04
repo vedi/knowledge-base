@@ -7,6 +7,7 @@ position: 6
 relates: ["tune", "gameup"]
 collection: 'samples'
 navicon: "nav-icon-onesignal.png"
+backlink: "http://onesignal.com/"
 theme: 'samples'
 ---
 

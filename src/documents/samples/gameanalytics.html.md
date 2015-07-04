@@ -7,6 +7,7 @@ position: 5
 relates: ["gameup", "onesignal"]
 collection: 'samples'
 navicon: "nav-icon-gameanalytics.png"
+backlink: "http://www.gameanalytics.com/"
 theme: 'samples'
 ---
 

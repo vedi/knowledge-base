@@ -18,7 +18,9 @@ theme: 'samples'
 <div class="container">
     <div class="row">
         <div class="hidden-xs col-sm-3">
-            <img src="/img/samples/Icon2-<%- @document.image %>.png" class="integration-brand-logo">
+            <a href="<%- @document.backlink %>" class="integration-brand-logo" target="_blank">
+                <img src="/img/samples/Icon2-<%- @document.image %>.png">
+            </a>
             <div class="related-samples-title">Related Integrations</div>
             <% for relatedDocName in @document.relates: %>
                 <% result = @getCollection('samples').findOne({basename: relatedDocName}) %>
