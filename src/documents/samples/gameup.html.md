@@ -63,7 +63,7 @@ public class SoomlaGameUpBehaviour : MonoBehaviour
 
     //
     // An example of how a GameUp achievement might be triggered. This specific
-    // example achievement is triggered by exactly matching the current high
+    // example achievement is triggered by exactly matching any current high
     // score, but not beating it.
     //
     LevelUpEvents.OnScoreRecordReached += onScoreRecordReached;
@@ -132,14 +132,15 @@ public class SoomlaGameUpBehaviour : MonoBehaviour
 
   //
   // An example of how a GameUp achievement might be triggered. This specific
-  // example achievement is triggered by exactly matching the current high
+  // example achievement is triggered by exactly matching any current high
   // score, but not beating it.
   //
   private void onScoreRecordReached(Score score) {
 
     // We can only trigger achievements if we have a session.
     if (session != null) {
-      session.Achievements ((AchievementList list) => {
+      session.Achievement("gameup-achievement-id", () => {
+        session.Achievements ((AchievementList list) => {
         foreach (Achievement achievement : list) {
           if (achievement.PublicId.Equals("gameup-public-achievement-id")) {
             if (achievement.IsCompleted()) {
@@ -150,6 +151,9 @@ public class SoomlaGameUpBehaviour : MonoBehaviour
         }
       }, (int statusCode, string reason) => {
         //handle achievement retrieve error
+      }
+      }, , (int statusCode, string reason) => {
+        //handle achievement submit error
       });
     }
   }
@@ -245,6 +249,14 @@ public class SoomlaGameUpActivity extends Activity {
         BusProvider.getInstance().register(this);
     }
 
+    @Override
+    public void onPause() {
+        // Unregister from Soomla events
+        BusProvider.getInstance().unregister(this);
+
+        super.onPause();
+    }
+
     //
     // Listener that handles login events.
     //
@@ -304,14 +316,18 @@ public class SoomlaGameUpActivity extends Activity {
 
     //
     // An example of how a GameUp achievement might be triggered. This specific
-    // example achievement is triggered by exactly matching the current high
+    // example achievement is triggered by exactly matching any current high
     // score, but not beating it.
     //
     @Subscribe
     public void onScoreRecordReached(ScoreRecordReachedEvent event) {
+
         // We can only trigger achievements if we have a session.
         GameUpSession session = GameUpSessionHelper.getSession();
         if (session != null) {
+
+            // This particular achievement just requires that any score is
+            // matched, so we don't mind what the scoreId was.
             Achievement ach = session.achievement("gameup-achievement-id");
             if (ach != null) {
                 // If this is not null, it means the achievement was just
