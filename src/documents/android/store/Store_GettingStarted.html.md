@@ -177,7 +177,7 @@ public class StoreExampleActivity extends Activity {
         Soomla.initialize("[CUSTOM SECRET HERE]");
         SoomlaStore.getInstance().initialize(storeAssets);
 
-        /** The following are relevant only if your Billing Provider is Google Play **/
+        /** The following is relevant only if your Billing Provider is Google Play **/
 
         // When you create your app in Google play Developer Console,
         // you'll find this key under the "Services & APIs" tab.
