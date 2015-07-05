@@ -7,6 +7,7 @@ position: 4
 relates: ["unity_ads", "tune"]
 collection: 'samples'
 navicon: "nav-icon-supersonic.png"
+featured: true
 backlink: "http://www.supersonic.com/"
 theme: 'samples'
 ---
