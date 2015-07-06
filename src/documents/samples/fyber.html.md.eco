@@ -1,0 +1,52 @@
+---
+layout: "sample"
+image: "Events"
+title: "Events"
+text: "Learn how to observe and handle economy events triggered by android-store to customize your game-specific behavior."
+position: 5
+theme: 'platforms'
+collection: 'android_store'
+module: 'store'
+platform: 'android'
+---
+
+# Fyber + SOOMLA Store
+
+## Use Case: Reward coins on video ads completion
+
+<div role="tabpanel">
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs nav-tabs-use-case-code" role="tablist">
+    <li role="presentation" class="active"><a href="#sample-unity" aria-controls="unity" role="tab" data-toggle="tab">Unity</a></li>
+    <li role="presentation"><a href="#sample-ios" aria-controls="iod" role="tab" data-toggle="tab">iOS</a></li>
+    <li role="presentation"><a href="#sample-android" aria-controls="android" role="tab" data-toggle="tab">Android</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content tab-content-use-case-code">
+    <div role="tabpanel" class="tab-pane active" id="sample-unity">
+      <pre>
+        <code class="cs">
+<%- @include('./fyber_example.cs') %>
+        </code>
+      </pre>
+
+    </div>
+    <div role="tabpanel" class="tab-pane" id="sample-android">
+        <pre>
+            <code class="java">
+<%- @include('./fyber_example.java') %>
+            </code>
+        </pre>        
+    </div>
+    <div role="tabpanel" class="tab-pane" id="sample-ios">
+        <pre>
+            <code class="cs">
+
+            </code>
+        </pre>
+    </div>
+  </div>
+
+</div>
