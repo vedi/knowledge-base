@@ -12,7 +12,7 @@ platform: 'android'
 
 # Fyber + SOOMLA Store
 
-## Use Case: Reward coins on video ads completion
+This article shows an example of how to integrate Fyber Ads together with Soomla Store to reward and store virtual currency after completing a Rewarded Video.
 
 <div role="tabpanel">
 
@@ -50,3 +50,18 @@ platform: 'android'
   </div>
 
 </div>
+
+## Getting started with the Fyber SDK
+
+1. Create an account with Fyber [here](https://dashboard.fyber.com)
+1. Create a new application in the Dashboard
+1. [Download](http://developer.fyber.com/content/) the Fyber SDK and follow the integration guide for your platform
+    - [Unity](http://developer.fyber.com/content/unity/integration/getting-started/)
+    - [Android](http://developer.fyber.com/content/android/basics/getting-started-sdk/)
+    - [iOS](http://developer.fyber.com/content/ios/basics/getting-started-sdk/)
+
+## Additional tips and recommendations
+
+1. Using multiple networks through Fyber Mediation will help you increase both your fill rate and revenue!
+1. Adding [SOOMLA GROW](http://know.soom.la/unity/grow/grow_gettingstarted/)  will allow your users to backup their balances and will give you more tools to analyze their behavior.
+
