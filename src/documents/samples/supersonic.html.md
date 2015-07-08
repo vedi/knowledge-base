@@ -450,7 +450,8 @@ public class MainActivity extends Activity implements RewardedVideoListener, Off
 
 <div class="samples-title">Getting started</div>
 
-1. Sign up to Supersonic <a href="https://www.supersonicads.com/partners/signup?cid=oso_part_soomla" target="_blank">here</a>.
+1. Sign up to Supersonic <a href="
+https://www.supersonic.com/lp/roam/lp_m1/?utm_source=Soomla%20Promotion&utm_medium=Soomla%20Knowledge%20Center&utm_campaign=SDK%20Integration%20Article" target="_blank">here</a>.
 
 2. <a href="https://www.supersonicads.com/partners/login" target="_blank">Login</a> to the Supersonic Dashboard and <a href="http://developers.supersonic.com/hc/en-us/articles/200772061-Adding-Your-App" target="_blank">add your application</a>.
 
