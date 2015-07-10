@@ -417,18 +417,18 @@ void Example::onBillingNotSupported(EventCustom *event) {
 }
 ```
 
-### EVENT_UNEXPECTED_ERROR_IN_STORE
+### EVENT_UNEXPECTED_STORE_ERROR
 
 This event is triggered an unexpected error occurs in the Store.
 
 ```cpp
-Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCStoreConsts::EVENT_UNEXPECTED_ERROR_IN_STORE, CC_CALLBACK_1(Example::onUnexpectedErrorInStore, this));
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCStoreConsts::EVENT_UNEXPECTED_STORE_ERROR, CC_CALLBACK_1(Example::onUnexpectedErrorInStore, this));
 
-void Example::onUnexpectedErrorInStore(EventCustom *event) {
+void Example::onUnexpectedStoreError(EventCustom *event) {
   // DICT_ELEMENT_ERROR_MESSAGE - the description of the error
 
   __Dictionary *eventData = (__Dictionary *)event->getUserData();
-  __String *errorMessage = dynamic_cast<__String *>(eventData->objectForKey(CCStoreConsts::DICT_ELEMENT_ERROR_MESSAGE));
+  __Integer *errorCode = dynamic_cast<__Integer *>(eventData->objectForKey(CCStoreConsts::DICT_ELEMENT_ERROR_CODE));
 
   // ... your game specific implementation here ...
 }
