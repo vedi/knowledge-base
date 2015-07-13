@@ -37,6 +37,14 @@ platform: 'unity'
   - **Soomla Secret** - This is an encryption secret you provide that will be used to secure your data. (If you used versions before v1.5.2 this secret MUST be the same as Custom Secret)
 
   - **Public Key** - If your billing service provider is Google Play, you'll need to insert the public key given to you from Google. (Learn more in step 4 [here](/android/store/Store_GooglePlayIAB)). **Choose both secrets wisely. You can't change them after you launch your game!**
+  
+    In order to turn on Server Side Verification for purchases Google Play, check the checkbox **Receipt Validation**, and provide needed data.
+    
+    Additionally you can set the value of `Verify On Server Failure` to `true` if you want to get purchases automatically 
+    verified in the case of there was a network failure during verification process.
+      
+    For details, how to get your app prepared for Server Side Verification, follow the guide 
+    [Google Play In-app Verification](/android/store/Store_GooglePlayVerification)         
 
   ![alt text](/img/tutorial_img/unity_getting_started/soomlaSettings.png "Soomla Settings")
 
@@ -74,9 +82,13 @@ SoomlaStore.StartIabServiceInBg();
 SoomlaStore.StopIabServiceInBg();
 ```
 
-This is not mandatory, your game will work without this, but we do recommend it because it enhances performance. The idea here is to preemptively start the in-app billing setup process with Google's (or Amazon's) servers.
+This is not mandatory, your game will work without this, but we do recommend it because it enhances performance. The 
+idea here is to preemptively start the in-app billing setup process with Google's (or Amazon's) servers.
 
-In many games the user has to navigate into the in-game store, or start a game session in order to reach the point of making purchases. You want the user experience to be fast and smooth and prevent any lag that could be caused by network latency and setup routines you could have done silently in the background.
+In many games the user has to navigate into the in-game store, or start a game session in order to reach the point of 
+making purchases. You want the user experience to be fast and smooth and prevent any lag that could be caused by network 
+latency and setup routines you could have done silently in the background.
+
 
 ###Tips for running the app
 

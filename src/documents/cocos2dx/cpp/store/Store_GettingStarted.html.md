@@ -216,6 +216,19 @@ SOOMLA's cocos2dx-store knows how to contact Google Play, Amazon Appstore, or Ap
     In many games the user has to navigate into the in-game store, or start a game session in order to reach the point of making purchases. You want the user experience to be fast and smooth and prevent any lag that could be caused by network latency and setup routines you could have done silently in the background.
 
     <div class="info-box">Don't forget to close the Iab Service when your store is closed.</div>
+    
+5. In order to turn on Server Side Verification for purchases, provide the following settings:
+    
+	``` cpp
+	storeParams->setObject(__String::create(<YOU_CLIENT_ID>), "clientId");
+	storeParams->setObject(__String::create(<YOUR_CLIENT_SECRET>), "clientSecret");
+	storeParams->setObject(__String::create(<YOUR_REFRESH_TOKEN>), "refreshToken");
+	```
+    
+    Optionally you can set the value of `verifyOnServerFailure` to `true` if you want to get purchases
+    automatically verified in the case of there was a network failure during verification process.
+    
+    For details, how to get your app prepared for Server Side Verification, follow the guide [Google Play In-app Verification](/android/store/Store_GooglePlayVerification)   
 
 ###Amazon
 

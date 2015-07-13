@@ -120,6 +120,21 @@ Once you complete the following steps, see the [Google Play IAB](/android/store/
       }
   }
   ```
+  
+5. In order to turn on Server Side Verification for purchases, provide the following settings:
+
+  ``` java
+      GooglePlayIabService.getInstance().configVerifyPurchases(new HashMap<String, Object>() {{
+          put("clientId", <YOU_CLIENT_ID>);
+          put("clientSecret", <YOUR_CLIENT_SECRET>);
+          put("refreshToken", <YOUR_REFRESH_TOKEN>);
+      }});
+  ```
+
+Optionally you can set the value of `verifyOnServerFailure` to `true` if you want to get purchases
+automatically verified in the case of there was a network failure during verification process.
+
+For details, how to get your app prepared for Server Side Verification, follow the guide [Google Play In-app Verification](/android/store/Store_GooglePlayVerification)   
 
 ####**If you have an in-game storefront**
 
