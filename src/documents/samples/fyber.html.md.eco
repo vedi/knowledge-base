@@ -29,14 +29,14 @@ This article shows an example of how to integrate Fyber Ads together with Soomla
     <div role="tabpanel" class="tab-pane active" id="sample-unity">
       <pre>
 ```
-<%- @include('./fyber/fyber_example.unity') %>
+<%- @include('./fyber/fyber_example.cs') %>
 ```
       </pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-ios">
         <pre>
 ```
-<%- @include('./fyber/fyber_example.objc') %>
+<%- @include('./fyber/fyber_example.m') %>
 ```
         </pre>
     </div>
