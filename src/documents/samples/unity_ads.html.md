@@ -3,7 +3,7 @@ layout: "sample"
 image: "unityads_logo"
 title: "Unity Ads"
 text: "Show rewarded ad to earn coins"
-position: 7
+position: 8
 relates: ["supersonic", "tune"]
 collection: 'samples'
 navicon: "nav-icon-unityads.png"
