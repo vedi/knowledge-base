@@ -19,7 +19,7 @@ This article shows an example of how to integrate Fyber Ads together with Soomla
   <!-- Nav tabs -->
   <ul class="nav nav-tabs nav-tabs-use-case-code" role="tablist">
     <li role="presentation" class="active"><a href="#sample-unity" aria-controls="unity" role="tab" data-toggle="tab">Unity</a></li>
-    <li role="presentation"><a href="#sample-ios" aria-controls="iod" role="tab" data-toggle="tab">iOS</a></li>
+    <li role="presentation"><a href="#sample-ios" aria-controls="ios" role="tab" data-toggle="tab">iOS</a></li>
     <li role="presentation"><a href="#sample-android" aria-controls="android" role="tab" data-toggle="tab">Android</a></li>
   </ul>
 
@@ -28,10 +28,16 @@ This article shows an example of how to integrate Fyber Ads together with Soomla
     <div role="tabpanel" class="tab-pane active" id="sample-unity">
       <pre>
         <code class="cs">
-<%- @include('./fyber_example.cs') %>
+<%- @include('./fyber_example.unity') %>
         </code>
       </pre>
-
+    </div>
+    <div role="tabpanel" class="tab-pane" id="sample-ios">
+        <pre>
+            <code class="objectivec">
+<%- @include('./fyber_example.objc') %>
+            </code>
+        </pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-android">
         <pre>
@@ -40,13 +46,7 @@ This article shows an example of how to integrate Fyber Ads together with Soomla
             </code>
         </pre>        
     </div>
-    <div role="tabpanel" class="tab-pane" id="sample-ios">
-        <pre>
-            <code class="cs">
 
-            </code>
-        </pre>
-    </div>
   </div>
 
 </div>
@@ -54,7 +54,7 @@ This article shows an example of how to integrate Fyber Ads together with Soomla
 ## Getting started with the Fyber SDK
 
 1. Create an account with Fyber [here](https://dashboard.fyber.com)
-1. Create a new application in the Dashboard
+1. Create a new application in the Fyber Dashboard
 1. [Download](http://developer.fyber.com/content/) the Fyber SDK and follow the integration guide for your platform
     - [Unity](http://developer.fyber.com/content/unity/integration/getting-started/)
     - [Android](http://developer.fyber.com/content/android/basics/getting-started-sdk/)
