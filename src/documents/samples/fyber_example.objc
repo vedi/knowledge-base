@@ -1,0 +1,77 @@
+#import "ViewController.h"
+
+@interface ViewController ()
+
+@end
+
+@implementation ViewController
+
+NSString &#42;APP_ID = @"YOUR_FYBER_APPID";
+NSString &#42;SECURITY_TOKEN = @"YOUR_FYBER_CLIENT_SECURITY_TOKEN";
+NSString &#42;USER_ID = @"YOUR_USER_ID";
+
+NSString &#42;SOOMLA_SECRET = @"YOUR_SOOMLA_SECRET";
+
+SPBrandEngageClient &#42;brandEngageClient = nil;
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    // Setting the text for Show Video and Show Interstitial buttons
+    [self.requestVideo setTitle:@"Request\nVideo" forState:UIControlStateNormal];
+    [self.showVideo setTitle:@"Show\nVideo" forState:UIControlStateNormal];
+    [self setVideoReady:NO];
+
+    // Initialize SoomlaStore
+    [Soomla initializeWithSecret:SOOMLA_SECRET];
+    [[SoomlaStore getInstance] initializeWithStoreAssets:[[YourStoreAssetsImplementation alloc] init]];
+
+    // Initialize Fyber SDK
+    [SponsorPaySDK startForAppId:APP_ID userId:USER_ID securityToken:SECURITY_TOKEN];
+}
+
+- (void)setVideoReady:(bool)ready {
+    [self.showVideo setEnabled:ready];
+}
+
+// Request a video from the Fyber sdk
+- (IBAction)requestVideoButton:(id)sender {
+    brandEngageClient = [SponsorPaySDK requestBrandEngageOffersNotifyingDelegate:self placementId:nil queryVCSWithCurrencyId:nil vcsDelegate:self];
+}
+
+// Show a video after being notified in brandEngageClient didReceiveOffers (implemented below) that there is a video available
+- (IBAction)showVideoButton:(id)sender {
+    [brandEngageClient startWithParentViewController:self];
+    [self setVideoReady:NO];
+}
+
+// When a call from the VCS is received, store the amount of coins awarded, using the Virtual Currency ID specified in the Fyber Dashboard and your StoreAssets implementation
+- (void)virtualCurrencyConnector:(SPVirtualCurrencyServerConnector &#42;)connector
+  didReceiveDeltaOfCoinsResponse:(double)deltaOfCoins
+                      currencyId:(NSString &#42;)currencyId
+                    currencyName:(NSString &#42;)currencyName
+             latestTransactionId:(NSString &#42;)transactionId
+{
+    [StoreInventory giveAmount:(int)deltaOfCoins ofItem:currencyId];
+}
+
+-(void)virtualCurrencyConnector:(SPVirtualCurrencyServerConnector &#42;)vcConnector
+                failedWithError:(SPVirtualCurrencyRequestErrorType)error
+                      errorCode:(NSString &#42;)errorCode
+                   errorMessage:(NSString &#42;)errorMessage
+{
+
+
+}
+
+// Called when the brandEngageClient changes status
+- (void)brandEngageClient:(SPBrandEngageClient &#42;)brandEngageClient didChangeStatus:(SPBrandEngageClientStatus)newStatus {
+    [self setVideoReady:NO];
+}
+
+// Called when a request for videos is complete and a video either is or is not available
+- (void)brandEngageClient:(SPBrandEngageClient &#42;)brandEngageClient didReceiveOffers:(BOOL)areOffersAvailable {
+    [self setVideoReady:areOffersAvailable];
+}
+
+@end
