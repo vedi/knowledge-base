@@ -53,7 +53,7 @@ public class FyberRvExample : MonoBehaviour {
 		// Initialize Fyber SDK with your App ID, Security Token, and User ID
 		sponsorPayPlugin.Start(APP_ID, USER_ID, SECURITY_TOKEN);
 
-		// Initialize the Soomla Store
+		// Initialize SOOMLA Store
 		SoomlaStore.Initialize(new YourStoreAssetsImplementation());
 	}
 
