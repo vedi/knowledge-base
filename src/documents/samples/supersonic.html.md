@@ -4,7 +4,7 @@ image: "supersonic_logo"
 title: "Supersonic"
 text: "Show rewarded video / offer wall to earn coins"
 position: 5
-relates: ["unity_ads", "tune"]
+relates: ["fyber", "unity_ads"]
 collection: 'samples'
 navicon: "nav-icon-supersonic.png"
 featured: true
