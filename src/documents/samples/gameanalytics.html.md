@@ -536,11 +536,14 @@ public class MainActivity extends ActionBarActivity
 
 <div class="samples-title">Getting started</div>
 
-1. Sign up to <a href="http://www.gameanalytics.com/signup" target="_blank">GameAnalytics for FREE</a>
+1. Sign up to <a href="http://www.gameanalytics.com/signup" target="_blank">GameAnalytics</a> for free.
 
 2. Create your account, studio and game.
 
-3. Follow instructions on how to integrate your platform: <a href="https://guides.gameanalytics.com/content/sdk?page=unity" target="_blank">Unity</a> | <a https://guides.gameanalytics.com/content/sdk?page=ios" target="_blank">iOS</a> | <a href="https://guides.gameanalytics.com/content/sdk?page=android" target="_blank">Android</a>
+3. Follow instructions on how to integrate your platform: <br>
+    <a href="https://guides.gameanalytics.com/content/sdk?page=unity" target="_blank">Unity</a> |
+    <a href="https://guides.gameanalytics.com/content/sdk?page=ios" target="_blank">iOS</a> |
+    <a href="https://guides.gameanalytics.com/content/sdk?page=android" target="_blank">Android</a>
 
 4. Integrate SOOMLA Store and LevelUp. Follow all steps in the platform specific getting started guides: <a href="http://know.soom.la/unity/store/store_gettingstarted/" target="_blank">Unity Store</a> | <a href="http://know.soom.la/ios/store/store_gettingstarted/" target="_blank">iOS Store</a> | <a href="http://know.soom.la/android/store/store_gettingstarted/" target="_blank">Android Store</a> | <a href="http://know.soom.la/unity/levelup/levelup_gettingstarted/" target="_blank">Unity LevelUp</a>
 
