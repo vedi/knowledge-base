@@ -7,7 +7,7 @@ position: 1
 theme: 'platforms'
 collection: 'cocos2djs_store'
 module: 'store'
-lang: 'js' 
+lang: 'js'
 platform: 'cocos2dx'
 ---
 
@@ -17,8 +17,8 @@ platform: 'cocos2dx'
 
 *If you want to develop with C++ sources, refer to the "Working with Sources" section below.*
 
-<div class="info-box">If you didn't already, clone the Cocos2d-js framework from [here](https://github.com/cocos2d/cocos2d-js), 
-or download it from the [Cocos2d-x website](http://www.cocos2d-x.org/download). Make sure the version you clone is 
+<div class="info-box">If you didn't already, clone the Cocos2d-js framework from [here](https://github.com/cocos2d/cocos2d-js),
+or download it from the [Cocos2d-x website](http://www.cocos2d-x.org/download). Make sure the version you clone is
 supported by SOOMLA's cocos2dx-store (the tag is the version).</div>
 
 1. Clone [soomla-cocos2dx-core](https://github.com/soomla/soomla-cocos2dx-core) and cocos2dx-store into the `Classes` folder of your project.
@@ -254,7 +254,7 @@ SOOMLA's cocos2dx-store knows how to contact Google Play, Amazon Appstore, or Ap
     ```js
     // Start Iab Service
     Soomla.soomlaStore.startIabServiceInBg();
-    
+
     // Stop Iab Service
     Soomla.soomlaStore.stopIabServiceInBg();
     ```
@@ -265,19 +265,18 @@ SOOMLA's cocos2dx-store knows how to contact Google Play, Amazon Appstore, or Ap
 
     <div class="info-box">Don't forget to close the Iab Service when your store is closed.</div>
 
-5. In order to turn on Server Side Verification for purchases, provide the following settings:
-    
-      ``` js
-      storeParams.clientId = <YOU_CLIENT_ID>;
-      storeParams.clientSecret = <YOUR_CLIENT_SECRET>;
-      storeParams.refreshToken = <YOUR_REFRESH_TOKEN>;
-      ```
-    
-    Optionally you can set the value of `verifyOnServerFailure` to `true` if you want to get purchases
-    automatically verified in the case of there was a network failure during verification process.
-    
-    For details, how to get your app prepared for Server Side Verification, follow the guide [Google Play In-app Verification](/android/store/Store_GooglePlayVerification)   
+5. In case you want to turn on purchase verification you need to get clientId, clientSecret and refreshToken as explained in [Google Play Purchase Verification](/android/store/Store_GooglePlayVerification) and use them like this:
 
+	``` js
+		storeParams.clientId = <YOU_CLIENT_ID>;
+		storeParams.clientSecret = <YOUR_CLIENT_SECRET>;
+		storeParams.refreshToken = <YOUR_REFRESH_TOKEN>;
+	```
+	>  Optionally you can turn on `verifyOnServerFailure` if you want to get purchases automatically verified in case of network failures during the verification process:
+	>
+	> ``` java
+	> storeParams.verifyOnServerFailure = true;
+	> ```
 
 ###Amazon
 
@@ -321,14 +320,14 @@ Then, initialize `Soomla.soomlaStore` with your implementation of `Soomla.IStore
 ```js
 //In `main.js`:
     Soomla.initialize("ExampleCustomSecret");
-    
+
     // We initialize SoomlaStore before we open the store.
     var assets = new YourImplementationAssets();
     var storeParams = {
       androidPublicKey: "ExamplePublicKey",
       testPurchases: true
     };
-    
+
     // This is the call to initialize SoomlaStore
     Soomla.soomlaStore.initialize(assets, storeParams);
 ```
