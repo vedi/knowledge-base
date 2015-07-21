@@ -27,8 +27,8 @@ theme: 'samples'
   <!-- Tab panes -->
   <div class="tab-content tab-content-use-case-code">
     <div role="tabpanel" class="tab-pane active" id="sample-unity">
-      <pre>
-        <code class="cs">
+    <pre>
+    ```
 using UnityEngine;
 using Soomla.Store;
 using Soomla.Levelup;
@@ -236,13 +236,13 @@ public class GA_Soomla : MonoBehaviour
         return result;
     }
 }
-        </code>
-      </pre>
+```
+    </pre>
 
   </div>
     <div role="tabpanel" class="tab-pane" id="sample-ios">
       <pre>
-        <code class="">
+```
 //
 //  AppDelegate.m
 //  TestApp
@@ -374,13 +374,13 @@ public class GA_Soomla : MonoBehaviour
 }
 
 @end
-        </code>
+```
       </pre>
 
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-android">
       <pre>
-        <code class="">
+```
 package com.gameanalytics.dummy;
 
 import android.support.v7.app.ActionBarActivity;
@@ -527,7 +527,7 @@ public class MainActivity extends ActionBarActivity
 		GameAnalytics.initializeWithGameKey("<game_key>", "<secret_key>");
 	}
 }
-        </code>
+```
       </pre>
     </div>
   </div>
