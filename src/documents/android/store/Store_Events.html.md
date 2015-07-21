@@ -325,7 +325,7 @@ This event is triggered an unexpected error occurs in the Store.
 @Subscribe
 public void onUnexpectedStoreError(UnexpectedStoreErrorEvent unexpectedStoreErrorEvent) {
   // unexpectedStoreErrorEvent contains:
-  //   message - description of the error
+  //   errorCode - code of the error
 
   // ... your game specific implementation here ...
 }

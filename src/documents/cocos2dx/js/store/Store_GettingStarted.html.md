@@ -265,6 +265,20 @@ SOOMLA's cocos2dx-store knows how to contact Google Play, Amazon Appstore, or Ap
 
     <div class="info-box">Don't forget to close the Iab Service when your store is closed.</div>
 
+5. In order to turn on Server Side Verification for purchases, provide the following settings:
+    
+      ``` js
+      storeParams.clientId = <YOU_CLIENT_ID>;
+      storeParams.clientSecret = <YOUR_CLIENT_SECRET>;
+      storeParams.refreshToken = <YOUR_REFRESH_TOKEN>;
+      ```
+    
+    Optionally you can set the value of `verifyOnServerFailure` to `true` if you want to get purchases
+    automatically verified in the case of there was a network failure during verification process.
+    
+    For details, how to get your app prepared for Server Side Verification, follow the guide [Google Play In-app Verification](/android/store/Store_GooglePlayVerification)   
+
+
 ###Amazon
 
 1. Add `in-app-purchasing-1.0.3.jar` and `AndroidStoreAmazon.jar` from `frameworks/runtime-src/Classes/cocos2dx-store/build/android/billing-services/amazon` to your classpath:
