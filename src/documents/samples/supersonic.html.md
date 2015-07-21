@@ -3,8 +3,8 @@ layout: "sample"
 image: "supersonic_logo"
 title: "Supersonic"
 text: "Show rewarded video / offer wall to earn coins"
-position: 5
-relates: ["unity_ads", "tune"]
+position: 6
+relates: ["fyber", "unity_ads"]
 collection: 'samples'
 navicon: "nav-icon-supersonic.png"
 featured: true
@@ -38,7 +38,7 @@ theme: 'samples'
   <div class="tab-content tab-content-use-case-code">
     <div role="tabpanel" class="tab-pane active" id="sample-unity">
       <pre>
-        <code class="cs">
+```
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -129,13 +129,13 @@ public class MainGame : MonoBehaviour {
     }
 
 }
-        </code>
+```
       </pre>
 
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-unity-insufficient-funds">
       <pre>
-        <code class="cs">
+```
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -217,12 +217,12 @@ public class MainGame : MonoBehaviour {
     }
 
 }
-        </code>
+```
       </pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-ios">
       <pre>
-        <code class="">
+```
 #import "ViewController.h"
 
 @implementation ViewController
@@ -296,12 +296,12 @@ public class MainGame : MonoBehaviour {
     }
 
 @end
-        </code>
+```
       </pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-android">
       <pre>
-        <code class="java">
+```
 package com.supersonic.soomlasample;
 import android.app.Activity;
 import android.os.Bundle;
@@ -440,7 +440,7 @@ public class MainActivity extends Activity implements RewardedVideoListener, Off
     public void onOfferwallClosed() {}
 
 }
-        </code>
+```
       </pre>
     </div>
   </div>

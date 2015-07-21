@@ -3,7 +3,7 @@ layout: "sample"
 image: "unityads_logo"
 title: "Unity Ads"
 text: "Show rewarded ad to earn coins"
-position: 7
+position: 8
 relates: ["supersonic", "tune"]
 collection: 'samples'
 navicon: "nav-icon-unityads.png"
@@ -24,7 +24,7 @@ theme: 'samples'
   <div class="tab-content tab-content-use-case-code">
     <div role="tabpanel" class="tab-pane active" id="sample-unity">
       <pre>
-        <code class="cs">
+```
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
@@ -66,7 +66,7 @@ public class freeCoins : MonoBehaviour {
         }
     }
 }
-        </code>
+```
       </pre>
 
     </div>

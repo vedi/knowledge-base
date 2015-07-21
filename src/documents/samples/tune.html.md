@@ -3,7 +3,7 @@ layout: "sample"
 image: "tune_logo"
 title: "TUNE"
 text: "Measure SOOMLA in-game events to see which ad networks and publishers send the most engaged users"
-position: 6
+position: 7
 relates: ["supersonic", "unity_ads"]
 collection: 'samples'
 navicon: "nav-icon-tune.png"
@@ -47,7 +47,7 @@ This document will show you how to measure events from all SOOMLA modules - Stor
   <div class="tab-content tab-content-use-case-code">
     <div role="tabpanel" class="tab-pane active" id="sample-unity-store">
       <pre>
-        <code class="cs">
+```
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -119,12 +119,12 @@ public class TuneSoomlaStoreScript : MonoBehaviour {
         MATBinding.MeasureEvent(purchaseEvent);
     }
 }
-        </code>
+```
       </pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-ios-store">
       <pre>
-        <code class="objectivec">
+```
 #import "ViewController.h"
 #import "MarketItem.h"
 #import "PurchasableVirtualItem.h"
@@ -193,12 +193,12 @@ public class TuneSoomlaStoreScript : MonoBehaviour {
 }
 
 @end
-        </code>
+```
       </pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-android-store">
       <pre>
-        <code class="java">
+```
 import android.app.Activity;
 import android.os.Bundle;
 
@@ -289,12 +289,12 @@ public class MainActivity extends Activity {
         mobileAppTracker.measureEvent(purchaseEvent);
     }
 }
-        </code>
+```
       </pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-unity-profile">
       <pre>
-        <code class="cs">
+```
 using UnityEngine;
 using System.Collections;
 using MATSDK;
@@ -340,12 +340,12 @@ public class TuneSoomlaProfileScript : MonoBehaviour {
         MATBinding.MeasureEvent("login");
     }
 }
-        </code>
+```
       </pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-ios-profile">
       <pre>
-        <code class="objectivec">
+```
 #import "ViewController.h"
 #import "SoomlaProfile.h"
 #import "ProfileEventHandling.h"
@@ -391,12 +391,12 @@ public class TuneSoomlaProfileScript : MonoBehaviour {
 }
 
 @end
-        </code>
+```
       </pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-android-profile">
       <pre>
-        <code class="java">
+```
 import android.app.Activity;
 import android.os.Bundle;
 
@@ -471,12 +471,12 @@ public class MainActivity extends Activity {
         }
     }
 }
-        </code>
+```
       </pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-unity-levelup">
       <pre>
-        <code class="cs">
+```
 using UnityEngine;
 using System.Collections;
 using MATSDK;
@@ -522,7 +522,7 @@ public class TuneSoomlaLevelUpScript : MonoBehaviour {
         MATBinding.MeasureEvent (levelEvent);
     }
 }
-        </code>
+```
       </pre>
     </div>
 

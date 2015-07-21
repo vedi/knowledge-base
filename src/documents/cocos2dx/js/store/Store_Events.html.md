@@ -337,14 +337,14 @@ this.onBillingNotSupported = function () {
 }
 ```
 
-### EVENT_UNEXPECTED_ERROR_IN_STORE
+### EVENT_UNEXPECTED_STORE_ERROR
 
 This event is triggered an unexpected error occurs in the Store.
 
 ```js
-Soomla.addHandler(Soomla.StoreConsts.EVENT_UNEXPECTED_ERROR_IN_STORE, this.onUnexpectedErrorInStore, this);
+Soomla.addHandler(Soomla.StoreConsts.EVENT_UNEXPECTED_STORE_ERROR, this.onUnexpectedErrorInStore, this);
 
-this.onUnexpectedErrorInStore = function () {
+this.onUnexpectedStoreError = function (errorCode) {
     // ... your game specific implementation here ...
 }
 ```

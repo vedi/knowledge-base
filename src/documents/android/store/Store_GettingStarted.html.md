@@ -121,6 +121,22 @@ Once you complete the following steps, see the [Google Play IAB](/android/store/
   }
   ```
 
+5. In case you want to turn on purchase verification you need to get clientId, clientSecret and refreshToken as explained in [Google Play Purchase Verification](/android/store/Store_GooglePlayVerification) and use them like this:
+
+  ``` java
+      GooglePlayIabService.getInstance().configVerifyPurchases(new HashMap<String, Object>() {{
+          put("clientId", <YOU_CLIENT_ID>);
+          put("clientSecret", <YOUR_CLIENT_SECRET>);
+          put("refreshToken", <YOUR_REFRESH_TOKEN>);
+      }});
+  ```
+
+  >  Optionally you can turn on `verifyOnServerFailure` if you want to get purchases automatically verified in case of network failures during the verification process:
+  >
+  > ``` java
+  > GooglePlayIabService.getInstance().verifyOnServerFailure = true;
+  > ```
+
 ####**If you have an in-game storefront**
 
 We recommend that you open the IAB Service and keep it open in the background. This how to do that:

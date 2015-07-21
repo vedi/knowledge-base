@@ -3,7 +3,7 @@ layout: "sample"
 image: "gameanalytics_logo"
 title: "GameAnalytics"
 text: "Report SOOMLA Store & LevelUp in-game events to GameAnalytics"
-position: 1
+position: 2
 relates: ["gameup", "onesignal"]
 collection: 'samples'
 navicon: "nav-icon-gameanalytics.png"
@@ -27,8 +27,8 @@ theme: 'samples'
   <!-- Tab panes -->
   <div class="tab-content tab-content-use-case-code">
     <div role="tabpanel" class="tab-pane active" id="sample-unity">
-      <pre>
-        <code class="cs">
+    <pre>
+    ```
 using UnityEngine;
 using Soomla.Store;
 using Soomla.Levelup;
@@ -236,13 +236,13 @@ public class GA_Soomla : MonoBehaviour
         return result;
     }
 }
-        </code>
-      </pre>
+```
+    </pre>
 
   </div>
     <div role="tabpanel" class="tab-pane" id="sample-ios">
       <pre>
-        <code class="">
+```
 //
 //  AppDelegate.m
 //  TestApp
@@ -374,13 +374,13 @@ public class GA_Soomla : MonoBehaviour
 }
 
 @end
-        </code>
+```
       </pre>
 
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-android">
       <pre>
-        <code class="">
+```
 package com.gameanalytics.dummy;
 
 import android.support.v7.app.ActionBarActivity;
@@ -527,7 +527,7 @@ public class MainActivity extends ActionBarActivity
 		GameAnalytics.initializeWithGameKey("<game_key>", "<secret_key>");
 	}
 }
-        </code>
+```
       </pre>
     </div>
   </div>
@@ -536,15 +536,14 @@ public class MainActivity extends ActionBarActivity
 
 <div class="samples-title">Getting started</div>
 
-1. Download and install the GameAnalytics Unity SDK. <a href="https://github.com/GameAnalytics/GA-SDK-UNITY/wiki/Download%20and%20Installation" target="_blank">(Instructions)</a>.
+1. Sign up to <a href="http://www.gameanalytics.com/signup" target="_blank">GameAnalytics</a> for free.
 
-2. Sign up for a GameAnalytics account, login and create a new studio and game through our Unity plugin. <a href="https://github.com/GameAnalytics/GA-SDK-UNITY/wiki/Sign%20up%20and%20login" target="_blank">(Instructions)</a>
+2. Create your account, studio and game.
 
-3. Configure the GameAnalytics settings in Unity. <a href="https://github.com/GameAnalytics/GA-SDK-UNITY/wiki/Settings" target="_blank">(Instructions)</a>
+3. Follow instructions on how to integrate your platform: <br>
+    <a href="https://guides.gameanalytics.com/content/sdk?page=unity" target="_blank">Unity</a> |
+    <a href="https://guides.gameanalytics.com/content/sdk?page=ios" target="_blank">iOS</a> |
+    <a href="https://guides.gameanalytics.com/content/sdk?page=android" target="_blank">Android</a>
 
-4. Create a GameAnalytics game object in your Unity scene. <a href="https://github.com/GameAnalytics/GA-SDK-UNITY/wiki/GameAnalytics%20object" target="_blank">(Instructions)</a>
-
-5. Integrate SOOMLA Store and LevelUp.  Follow all steps in the platform specific getting started guides: <br>
-    <a href="/unity/store/store_gettingstarted/" target="_blank">Unity Store</a> |
-    <a href="/unity/levelup/levelup_gettingstarted/" target="_blank">Unity LevelUp</a>
+4. Integrate SOOMLA Store and LevelUp. Follow all steps in the platform specific getting started guides: <a href="http://know.soom.la/unity/store/store_gettingstarted/" target="_blank">Unity Store</a> | <a href="http://know.soom.la/ios/store/store_gettingstarted/" target="_blank">iOS Store</a> | <a href="http://know.soom.la/android/store/store_gettingstarted/" target="_blank">Android Store</a> | <a href="http://know.soom.la/unity/levelup/levelup_gettingstarted/" target="_blank">Unity LevelUp</a>
 

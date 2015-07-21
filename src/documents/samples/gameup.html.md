@@ -3,7 +3,7 @@ layout: "sample"
 image: "gameup_logo"
 title: "GameUp"
 text: "Use SOOMLA Profile & LevelUp events to update sessions, leaderboards and achievements"
-position: 2
+position: 3
 relates: ["gameanalytics", "onesignal"]
 collection: 'samples'
 navicon: "nav-icon-gameup.png"
@@ -27,7 +27,7 @@ theme: 'samples'
   <div class="tab-content tab-content-use-case-code">
     <div role="tabpanel" class="tab-pane active" id="sample-unity">
       <pre>
-        <code class="cs">
+```
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -159,7 +159,7 @@ public class SoomlaGameUpBehaviour : MonoBehaviour
     }
   }
 }
-        </code>
+```
       </pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-android">
@@ -168,7 +168,7 @@ public class SoomlaGameUpBehaviour : MonoBehaviour
       </p>
 
       <pre>
-        <code class="java">
+```
 import com.soomla.data.KeyValueStorage;
 import io.gameup.android.GameUpSession;
 
@@ -213,7 +213,7 @@ public class GameUpSessionHelper {
         }
     }
 }
-        </code>
+```
       </pre>
 
       <p>
@@ -221,7 +221,7 @@ public class GameUpSessionHelper {
       </p>
 
       <pre>
-        <code class="java">
+```
 import android.app.Activity;
 
 import com.soomla.BusProvider;
@@ -337,7 +337,7 @@ public class SoomlaGameUpActivity extends Activity {
         }
     }
 }
-        </code>
+```
       </pre>
     </div>
   </div>
