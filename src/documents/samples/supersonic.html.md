@@ -3,7 +3,7 @@ layout: "sample"
 image: "supersonic_logo"
 title: "Supersonic"
 text: "Show rewarded video / offer wall to earn coins"
-position: 6
+position: 7
 relates: ["fyber", "unity_ads"]
 collection: 'samples'
 navicon: "nav-icon-supersonic.png"
