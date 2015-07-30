@@ -149,3 +149,32 @@ A `Dictionary` providing the user's pay-rank by [Genre](/unity/grow/grow_insight
 For example, in order to access a user's pay rank by the `Action` genre use `SoomlaInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Action]`
 
 ##Example
+
+``` cs
+
+void Start () {
+
+    // Initialize SoomlaHighway
+    SoomlaHighway.Initialize();
+
+    // Initialize SoomlaInsights
+    SoomlaInsights.Initialize();
+
+    // Add event listeners
+    HighwayEvents.OnInsightsInitialized += OnSoomlaInsightsInitialized;
+    HighwayEvents.OnInsightsRefreshFinished += OnSoomlaInsightsRefreshFinished;
+
+}
+
+void OnSoomlaInsightsInitialized () {
+    Debug.Log("Soomla insights has been initialized.");
+}
+
+void OnSoomlaInsightsRefreshFinished (){
+    if (SoomlaInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Educational] > 3) {
+        // ... Do stuff according to your business plan ...
+    }
+}
+
+
+```
