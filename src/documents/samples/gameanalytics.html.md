@@ -3,7 +3,7 @@ layout: "sample"
 image: "gameanalytics_logo"
 title: "GameAnalytics"
 text: "Report SOOMLA Store & LevelUp in-game events to GameAnalytics"
-position: 2
+position: 3
 relates: ["gameup", "onesignal"]
 collection: 'samples'
 navicon: "nav-icon-gameanalytics.png"
