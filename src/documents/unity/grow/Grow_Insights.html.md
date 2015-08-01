@@ -14,21 +14,28 @@ platform: 'unity'
 
 ##Overview
 
-Soomla-Insights brings you priceless insights about your users. Current version supports Pay-Insights which categorizes users according to their pay-rank.
+Soomla-Insights brings you priceless insights about your users. You can use the provided insights to take actions on your users at real time during gameplay or when your users arrive in the game. Things you can do may include:  
+
+- Create special prices for paying users in your genre.
+- Adapt the game difficulty for the specific user.
+- Create push campaigns.
+- A lot more ... you can create your own personalization features and even share them with others on http://answers.soom.la.
+
+Currently, Insights supports PayInsights which categorizes users according to their pay-rank. More about this below.
 
 ##Integration
 
 <div class="info-box">Soomla-Insights depends on Soomla-Highway, so make sure you follow the [Setup GROW](/unity/grow/grow_gettingstarted/#SetupGROW) instructions before integrating Soomla-Insights.</div>
 
-1. Initialize `SoomlaInsights` after initializing `SoomlaHighway`:
+1. Initialize `SoomlaInsights` **after** initializing `SoomlaHighway`:
 
     ``` cs
     SoomlaInsights.Initialize();
     ```
 
-2. Create event handler functions in order to be notified about (and handle) Soomla-Insights related events. See [Events](/unity/grow/grow_insights/#Events) for more information.
+2. Create event handler functions in order to be notified about (and handle) Soomla-Insights related events. See [Events](/unity/grow/Grow_Insights/#Events) for more information.
 
-3. Once initialized, Soomla-Insights will automatically retrieve relevant insights from the server. Once the insights are ready (see [`OnInsightsRefreshFinished`](/unity/grow/grow_insights/#OnInsightsRefreshFinished)) you can access them as explained in [Insights](/unity/grow/grow_insights/#Insights).
+3. Once initialized, Soomla-Insights will automatically retrieve relevant insights from the server. Once the insights are ready (see [`OnInsightsRefreshFinished`](/unity/grow/Grow_Insights/#OnInsightsRefreshFinished)) you can access them as explained below.
 
 ##Events
 
@@ -104,7 +111,7 @@ Manually refresh the insights. The `OnInsightsRefreshStarted` event is triggered
 
 **`UserInsights`**
 
-The [User-Insights](/unity/grow/grow_insights/#UserInsights) received from the server.
+The [User-Insights](/unity/grow/Grow_Insights/#UserInsights) received from the server.
 
 <div class="info-box">Soomla-Insights caches its data on the device so that it's accessible even when there is no internet connection.</div>
 
@@ -117,7 +124,7 @@ Located in `SoomlaInsights` and can be accessed using `SoomlaInsights.UserInsigh
 
 **`PayInsights`**
 
-The [Pay-Insights](/unity/grow/grow_insights/#PayInsights) received from the server.
+The [Pay-Insights](/unity/grow/Grow_Insights/#PayInsights) received from the server.
 
 ###PayInsights
 
@@ -128,7 +135,7 @@ Located in `UserInsights` and can be accessed using `SoomlaInsights.UserInsights
 
 **`PayRankByGenre`**
 
-A `Dictionary` providing the user's pay-rank by [Genre](/unity/grow/grow_insights/#Genre)
+A `Dictionary` providing the user's pay-rank by [Genre](/unity/grow/Grow_Insights/#Genre)
 
 #####Possible return values
 
@@ -157,15 +164,15 @@ For example, in order to access a user's pay rank by the `Action` genre use `Soo
 
 void Start () {
 
+    // Add event listeners - Make sure to set the event handlers before you initialize
+    HighwayEvents.OnInsightsInitialized += OnSoomlaInsightsInitialized;
+    HighwayEvents.OnInsightsRefreshFinished += OnSoomlaInsightsRefreshFinished;
+
     // Initialize SoomlaHighway
     SoomlaHighway.Initialize();
 
     // Initialize SoomlaInsights
     SoomlaInsights.Initialize();
-
-    // Add event listeners
-    HighwayEvents.OnInsightsInitialized += OnSoomlaInsightsInitialized;
-    HighwayEvents.OnInsightsRefreshFinished += OnSoomlaInsightsRefreshFinished;
 
 }
 
