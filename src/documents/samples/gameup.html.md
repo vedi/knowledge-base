@@ -3,7 +3,7 @@ layout: "sample"
 image: "gameup_logo"
 title: "GameUp"
 text: "Use SOOMLA Profile & LevelUp events to update sessions, leaderboards and achievements"
-position: 3
+position: 4
 relates: ["gameanalytics", "onesignal"]
 collection: 'samples'
 navicon: "nav-icon-gameup.png"
