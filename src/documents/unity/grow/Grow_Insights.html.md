@@ -1,8 +1,8 @@
 ---
 layout: "content"
 image: "Tutorial"
-title: "SoomlaInsights"
-text: "Get started with Soomla-Insights for Unity. Here you can find initialization instructions, event handling and usage examples."
+title: "Soomla Insights"
+text: "Get started with Soomla Insights for Unity. Here you can find initialization instructions, event handling and usage examples."
 position: 4
 theme: 'platforms'
 collection: 'unity_grow'
@@ -14,7 +14,7 @@ platform: 'unity'
 
 ##Overview
 
-Soomla-Insights brings you priceless insights about your users. You can use the provided insights to take actions on your users at real time during gameplay or when your users arrive in the game. Things you can do may include:  
+Soomla Insights brings you priceless insights about your users. You can use the provided insights to take actions on your users at real time during gameplay or when your users arrive in the game. Things you can do may include:  
 
 - Create special prices for paying users in your genre.
 - Adapt the game difficulty for the specific user.
