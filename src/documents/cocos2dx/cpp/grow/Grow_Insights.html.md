@@ -5,9 +5,10 @@ title: "Soomla Insights"
 text: "Get started with Soomla Insights for Cocos2d-x. Here you can find initialization instructions, event handling and usage examples."
 position: 4
 theme: 'platforms'
-collection: 'unity_grow'
+collection: 'cocos2dx_grow'
 module: 'grow'
-platform: 'unity'
+lang: 'cpp'
+platform: 'cocos2dx'
 ---
 
 # Soomla Insights
@@ -87,7 +88,7 @@ void ExampleScene::onInsightsRefreshFinished(cocos2d::CCDictionary *eventData) {
 
 Following is a list of all the events in Soomla-Insights and an example of how to observe & handle them. The events' handling examples are written for v3, but it's easy to convert them to v2 dialect, see how above.
 
-###EVENT_SOOMLA_INSIGHTS_INITIALIZED
+### EVENT_SOOMLA_INSIGHTS_INITIALIZED
 
 This event is triggered when the Soomla-Insights feature is initialized and ready.
 
@@ -99,7 +100,7 @@ void Example::onSoomlaInsightsInitialized(EventCustom *event) {
 }
 ```
 
-###EVENT_INSIGHTS_REFRESH_STARTED
+### EVENT_INSIGHTS_REFRESH_STARTED
 
 This event is triggered when fetching insights from the server has started.
 
@@ -111,7 +112,7 @@ void Example::onInsightsRefreshStarted(EventCustom *event) {
 }
 ```
 
-###EVENT_INSIGHTS_REFRESH_FINISHED
+### EVENT_INSIGHTS_REFRESH_FINISHED
 
 This event is triggered when fetching insights from the server has finished.
 
@@ -123,7 +124,7 @@ void Example::onInsightsRefreshFinished(EventCustom *event) {
 }
 ```
 
-###EVENT_INSIGHTS_REFRESH_FAILED
+### EVENT_INSIGHTS_REFRESH_FAILED
 
 This event is triggered when fetching insights from the server has failed.
 
@@ -135,15 +136,15 @@ void Example::onInsightsRefreshFailed(EventCustom *event) {
 }
 ```
 
-##Main Classes & Methods
+## Main Classes & Methods
 
 Here you can find descriptions of the main classes of Soomla-Insights. These classes contain functionality for insights-related operations such as refreshing insights, retrieving and using them.
 
-###CCSoomlaInsights
+### CCSoomlaInsights
 
 `CCSoomlaInsights` is the main class of Soomla-Insights which is in charge of fetching insights.
 
-####Functions
+#### Functions
 
 **`CCSoomlaInsights::refreshInsights()`**
 
@@ -155,29 +156,29 @@ Returns the [User-Insights](/cocos2dx/cpp/grow/Grow_Insights/#UserInsights) rece
 
 <div class="info-box">Soomla-Insights caches its data on the device so that it's accessible even when there is no internet connection.</div>
 
-###CCUserInsights
+### CCUserInsights
 
 `CCUserInsights` holds insights related to the user currently playing the game.
 Located in `CCSoomlaInsights` and can be accessed using `CCSoomlaInsights::getUserInsights()`.
 
-####Functions
+#### Functions
 
 **`CCUserInsights::getPayInsights()`**
 
 Returns the [Pay-Insights](/cocos2dx/cpp/grow/Grow_Insights/#PayInsights) received from the server.
 
-###CCPayInsights
+### CCPayInsights
 
 `CCPayInsights` holds insights related to the user's payments.
 Located in `CCUserInsights` and can be accessed using `CCUserInsights::getPayInsights()`.
 
-####Functions
+#### Functions
 
 **`CCPayInsights::getPayRankForGenre(soomla::Genre genre)`**
 
 Returns the user's pay-rank for the given [genre](/cocos2dx/cpp/grow/Grow_Insights/#Genre)
 
-#####Possible return values
+##### Possible return values
 
 - -1: No insights for selected genre
 - 0: The user has paid 0$ in total
@@ -190,22 +191,23 @@ Returns the user's pay-rank for the given [genre](/cocos2dx/cpp/grow/Grow_Insigh
 
 <div class="info-box">NOTE: Pay rank is calculated according to the user's total revenue from ALL games using Soomla.</div>
 
-###Genre
+### Genre
 
 `Genre` represents a game genre.
 
-####Usage
+#### Usage
 
 For example, in order to access a user's pay rank by the `Action` genre use `CCSoomlaInsights::getInstance()->getUserInsights()->getPayInsights()->getPayRankForGenre(Genre::Action)`
 
-###Example
+### Example
 
 ``` cpp
 
-
 // Add event listeners - Make sure to set the event handlers before you initialize
-Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCHighwayConsts::EVENT_SOOMLA_INSIGHTS_INITIALIZED, CC_CALLBACK_1(Example::onSoomlaInsightsInitialized, this));
-Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCHighwayConsts::EVENT_INSIGHTS_REFRESH_FINISHED, CC_CALLBACK_1(Example::onInsightsRefreshFinished, this));
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(
+            CCHighwayConsts::EVENT_SOOMLA_INSIGHTS_INITIALIZED, CC_CALLBACK_1(Example::onSoomlaInsightsInitialized, this));
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(
+            CCHighwayConsts::EVENT_INSIGHTS_REFRESH_FINISHED, CC_CALLBACK_1(Example::onInsightsRefreshFinished, this));
 
 // Initialize SoomlaHighway
 CCSoomlaHighway::initShared(
@@ -221,10 +223,10 @@ void ExampleScene::onSoomlaInsightsInitialized(cocos2d::CCDictionary *eventData)
 }
 
 void ExampleScene::onInsightsRefreshFinished(cocos2d::CCDictionary *eventData) {
-    if (CCSoomlaInsights::getInstance()->getUserInsights()->getPayInsights()->getPayRankForGenre(Genre::Educational) > 3) {
+    if (CCSoomlaInsights::getInstance()->getUserInsights()->
+                getPayInsights()->getPayRankForGenre(Genre::Educational) > 3) {
         // ... Do stuff according to your business plan ...
     }
 }
-
 
 ```
