@@ -26,7 +26,7 @@ Currently, Insights supports PayInsights which categorizes users according to th
 
 ## Integration
 
-<div class="info-box">Soomla-Insights depends on Soomla-Highway, so make sure you follow the [Setup GROW](/cocos2dx/cpp/grow/grow_gettingstarted/#SetupGROW) instructions before integrating Soomla-Insights.</div>
+<div class="info-box">Soomla-Insights depends on Soomla-Highway, so make sure you follow the [Setup GROW](/cocos2dx/cpp/grow/grow_gettingstarted/#GettingStarted2) instructions before integrating Soomla-Insights.</div>
 
 1. Initialize `SoomlaInsights` **after** initializing `SoomlaHighway`:
 
@@ -34,9 +34,9 @@ Currently, Insights supports PayInsights which categorizes users according to th
     CCSoomlaInsights::initShared();
     ```
 
-2. Create event handler functions in order to be notified about (and handle) Soomla-Insights related events. See [Events](/cocos2dx/cpp/grow/Grow_Insights/#Events) for more information.
+2. Create event handler functions in order to be notified about (and handle) Soomla-Insights related events. See [Events](/cocos2dx/cpp/grow/Grow_Insights/#SoomlaInsightsEvents) for more information.
 
-3. Once initialized, Soomla-Insights will automatically retrieve relevant insights from the server. Once the insights are ready (see [`OnInsightsRefreshFinished`](/cocos2dx/cpp/grow/Grow_Insights/#OnInsightsRefreshFinished)) you can access them as explained below.
+3. Once initialized, Soomla-Insights will automatically retrieve relevant insights from the server. Once the insights are ready (see [`OnInsightsRefreshFinished`](/cocos2dx/cpp/grow/Grow_Insights/#EVENT_INSIGHTS_REFRESH_FINISHED)) you can access them as explained below.
 
 ## Observing & Handling Events
 
@@ -152,7 +152,7 @@ Manually refresh the insights. The `OnInsightsRefreshStarted` event is triggered
 
 **`CCSoomlaInsights::getUserInsights()`**
 
-Returns the [User-Insights](/cocos2dx/cpp/grow/Grow_Insights/#UserInsights) received from the server.
+Returns the [User-Insights](/cocos2dx/cpp/grow/Grow_Insights/#CCUserInsights) received from the server.
 
 <div class="info-box">Soomla-Insights caches its data on the device so that it's accessible even when there is no internet connection.</div>
 
@@ -165,7 +165,7 @@ Located in `CCSoomlaInsights` and can be accessed using `CCSoomlaInsights::getUs
 
 **`CCUserInsights::getPayInsights()`**
 
-Returns the [Pay-Insights](/cocos2dx/cpp/grow/Grow_Insights/#PayInsights) received from the server.
+Returns the [Pay-Insights](/cocos2dx/cpp/grow/Grow_Insights/#CCPayInsights) received from the server.
 
 ### CCPayInsights
 
