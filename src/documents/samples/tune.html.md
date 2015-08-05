@@ -21,6 +21,8 @@ theme: 'samples'
 
 * Measure SOOMLA LevelUp events to see which ad networks and publishers are sending you engaged users that make more in-game progress.
 
+* Measure SOOMLA Insights events to see which ad networks and publishers are sending you paying users.
+
 <br>
 
 
@@ -28,7 +30,7 @@ The biggest hurdle for marketing a mobile app is integrating SDKs for every ad n
 
 The <a href="https://developers.mobileapptracking.com/mobile-sdks/" target="_blank">TUNE SDK</a> provides application session and event logging functionality. To begin measuring sessions and installs, initiate the `measureSession` method. You can then rely on TUNE to log in-app events (such as purchases, game levels, and any other user engagement).
 
-This document will show you how to measure events from all SOOMLA modules - Store, Profile and LevelUp - so you can identify which ad networks and publishers send you the most valuable users.
+This document will show you how to measure events from all SOOMLA modules - Store, Profile, LevelUp, and Insights - so you can identify which ad networks and publishers send you the most valuable users.
 
 <div>
 
@@ -41,6 +43,7 @@ This document will show you how to measure events from all SOOMLA modules - Stor
     <li role="presentation"><a href="#sample-ios-profile" aria-controls="ios" role="tab" data-toggle="tab">iOS Social</a></li>
     <li role="presentation"><a href="#sample-android-profile" aria-controls="android" role="tab" data-toggle="tab">Android Social</a></li>
     <li role="presentation"><a href="#sample-unity-levelup" aria-controls="unity" role="tab" data-toggle="tab">Unity Levels</a></li>
+    <li role="presentation"><a href="#sample-unity-insights" aria-controls="unity" role="tab" data-toggle="tab">Unity Insights</a></li>
   </ul>
 
   <!-- Tab panes -->
@@ -520,6 +523,55 @@ public class TuneSoomlaLevelUpScript : MonoBehaviour {
 
         // Measure "level_achieved" event for this level ID
         MATBinding.MeasureEvent (levelEvent);
+    }
+}
+```
+      </pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="sample-unity-insights">
+      <pre>
+```
+using UnityEngine;
+using System.Collections;
+using MATSDK;
+using Soomla.Highway;
+using Soomla.Insights;
+
+public class TuneSoomlaInsightsScript : MonoBehaviour {
+    void Start () {
+        // Initialize TUNE SDK
+        MATBinding.Init("tune_advertiser_id", "tune_conversion_key");
+        // Measure initial app open
+        MATBinding.MeasureSession();
+
+        // Add event listeners - Make sure to set the event handlers before you initialize
+        HighwayEvents.OnInsightsInitialized += OnSoomlaInsightsInitialized;
+        HighwayEvents.OnInsightsRefreshFinished += OnSoomlaInsightsRefreshFinished;
+        
+        // Initialize SoomlaHighway
+        SoomlaHighway.Initialize();
+        
+        // Initialize SoomlaInsights
+        SoomlaInsights.Initialize();
+    }
+
+    void OnApplicationPause(bool pauseStatus) {
+        if (!pauseStatus) {
+            // Measure app resumes from background
+            MATBinding.MeasureSession();
+        }
+    }
+    
+    void OnSoomlaInsightsInitialized () {
+        Debug.Log("Soomla insights has been initialized.");
+    }
+    
+    void OnSoomlaInsightsRefreshFinished (){
+        if (SoomlaInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Educational] > 0) {
+            // Set in TUNE SDK that user is a paying user for a given genre
+            // which will be sent with future events
+            MATBinding.SetPayingUser(true);
+        }
     }
 }
 ```
