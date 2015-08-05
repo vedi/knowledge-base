@@ -177,7 +177,7 @@ void Example::onMarketPurchase(EventCustom *event) {
   // DICT_ELEMENT_PURCHASABLE       - the PurchasableVirtualItem that was just purchased
   // DICT_ELEMENT_DEVELOPERPAYLOAD  - a text that you can give when you initiate the
   //    purchase operation and you want to receive back upon completion
-  // DICT_ELEMENT_EXTRA_INFO        - contains platform specific information about the market purchase
+  // DICT_ELEMENT_EXTRA_INFO        - a dictionary of platform specific information about the market purchase
   //  Android: The "extra" dictionary will contain: 'token', 'orderId', 'originalJson', 'signature', 'userId'
   //  iOS: The "extra" dictionary will contain: 'receiptUrl', 'transactionIdentifier', 'receiptBase64',
   //    'transactionDate', 'originalTransactionDate', 'originalTransactionIdentifier'
@@ -185,7 +185,21 @@ void Example::onMarketPurchase(EventCustom *event) {
   __Dictionary *eventData = (__Dictionary *)event->getUserData();
   CCPurchasableVirtualItem *purchasable = dynamic_cast<CCPurchasableVirtualItem *>(eventData->objectForKey(CCStoreConsts::DICT_ELEMENT_PURCHASABLE));
   __String *payload = dynamic_cast<__String *>(eventData->objectForKey(CCStoreConsts::DICT_ELEMENT_DEVELOPERPAYLOAD));
-  __Dictionary *eventData = dynamic_cast<(__Dictionary *>(eventData->objectForKey(CCStoreConsts::DICT_ELEMENT_EXTRA_INFO));
+  __Dictionary *extraInfo = dynamic_cast<(__Dictionary *>(eventData->objectForKey(CCStoreConsts::DICT_ELEMENT_EXTRA_INFO));
+  
+  // Data from DICT_ELEMENT_EXTRA_INFO
+  //  Android ONLY. 
+  __String *originalJSON = dynamic_cast<__String *>(extraInfo->objectForKey(CCStoreConsts::DICT_ELEMENT_ORIGINAL_JSON));
+  __String *signature = dynamic_cast<__String *>(extraInfo->objectForKey(CCStoreConsts::DICT_ELEMENT_SIGNATURE));
+  __String *userId = dynamic_cast<__String *>(extraInfo->objectForKey(CCStoreConsts::DICT_ELEMENT_USER_ID));  
+  //  iOS ONLY. 
+  __String *receiptUrl = dynamic_cast<__String *>(extraInfo->objectForKey("receiptUrl"));  
+  __String *transactionIdentifier = dynamic_cast<__String *>(extraInfo->objectForKey("transactionIdentifier"));  
+  __String *receiptBase64 = dynamic_cast<__String *>(extraInfo->objectForKey("receiptBase64"));  
+  __String *transactionDate = dynamic_cast<__String *>(extraInfo->objectForKey("transactionDate"));  
+  __String *originalTransactionDate = dynamic_cast<__String *>(extraInfo->objectForKey("originalTransactionDate"));  
+  __String *originalTransactionIdentifier = dynamic_cast<__String *>(extraInfo->objectForKey("originalTransactionIdentifier"));  
+
 
   // ... your game specific implementation here ...
 }
@@ -417,18 +431,18 @@ void Example::onBillingNotSupported(EventCustom *event) {
 }
 ```
 
-### EVENT_UNEXPECTED_ERROR_IN_STORE
+### EVENT_UNEXPECTED_STORE_ERROR
 
 This event is triggered an unexpected error occurs in the Store.
 
 ```cpp
-Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCStoreConsts::EVENT_UNEXPECTED_ERROR_IN_STORE, CC_CALLBACK_1(Example::onUnexpectedErrorInStore, this));
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCStoreConsts::EVENT_UNEXPECTED_STORE_ERROR, CC_CALLBACK_1(Example::onUnexpectedErrorInStore, this));
 
-void Example::onUnexpectedErrorInStore(EventCustom *event) {
+void Example::onUnexpectedStoreError(EventCustom *event) {
   // DICT_ELEMENT_ERROR_MESSAGE - the description of the error
 
   __Dictionary *eventData = (__Dictionary *)event->getUserData();
-  __String *errorMessage = dynamic_cast<__String *>(eventData->objectForKey(CCStoreConsts::DICT_ELEMENT_ERROR_MESSAGE));
+  __Integer *errorCode = dynamic_cast<__Integer *>(eventData->objectForKey(CCStoreConsts::DICT_ELEMENT_ERROR_CODE));
 
   // ... your game specific implementation here ...
 }

@@ -27,7 +27,7 @@ theme: 'samples'
   <div class="tab-content tab-content-use-case-code">
     <div role="tabpanel" class="tab-pane active" id="sample-unity">
       <pre>
-        <code class="cs">
+```
 using UnityEngine;
 using System.Collections;
 using Soomla;
@@ -45,13 +45,13 @@ public class purchaseTracking : MonoBehaviour {
     }
 
 }
-        </code>
+```
       </pre>
 
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-cocos2dx">
       <pre>
-        <code class="hljs cpp">
+```
 
 Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCStoreConsts::EVENT_MARKET_PURCHASE_STARTED, CC_CALLBACK_1(Example::onMarketPurchaseStarted, this));
 
@@ -65,12 +65,12 @@ void Example::onMarketPurchaseStarted(EventCustom *event) {
 
   _push->sendTag("StartedPurchase", "true");
 }
-</code>
+```
 </pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-ios">
               <pre>
-        <code class="hljs objectivec">
+```
 // observe the event:
 [[NSNotificationCenter defaultCenter] addObserver:self
   selector:@selector(marketPurchaseStarted:) name:EVENT_MARKET_PURCHASE_STARTED object:nil];
@@ -82,18 +82,18 @@ void Example::onMarketPurchaseStarted(EventCustom *event) {
 
   [OneSignal.defaultClient sendTag:@"StartedPurchase" value:@"true"];
 }
-</code>
+```
 </pre>
 </div>
     <div role="tabpanel" class="tab-pane" id="sample-android">
-              <pre>
-        <code class="hljs java">
+        <pre>
+```
 @Subscribe
 public void onMarketPurchaseStarted(MarketPurchaseStartedEvent marketPurchaseStartedEvent) {
   OneSignal.sendTag("StoreOpened", "1");
 }
-</code>
-</pre>
+```
+        </pre>
     </div>
   </div>
 
