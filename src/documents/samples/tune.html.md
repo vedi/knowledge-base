@@ -152,36 +152,36 @@ public class TuneSoomlaStoreScript : MonoBehaviour {
 }
 
 // On purchase complete, set purchase info and measure purchase in TUNE
-- (void)marketPurchased:(NSNotification \*)notification {
+- (void)marketPurchased:(NSNotification *)notification {
     CGFloat revenue;
-    NSString \*currency;
-    NSArray \*items;
+    NSString *currency;
+    NSArray *items;
 
-    PurchaseType \*type = [notification.userInfo[DICT_ELEMENT_PURCHASABLE] purchaseType];
+    PurchaseType *type = [notification.userInfo[DICT_ELEMENT_PURCHASABLE] purchaseType];
     if ([type isKindOfClass:[PurchaseWithMarket class]]) {
-        MarketItem \*item = ((PurchaseWithMarket \*)type).marketItem;
+        MarketItem *item = ((PurchaseWithMarket *)type).marketItem;
         revenue = (CGFloat)([item marketPriceMicros] / 1000000);
         currency = [item marketCurrencyCode];
 
         // Create event item to store purchase item data
-        MATEventItem \*eventItem = [MATEventItem eventItemWithName:[item marketTitle]
-                                                        attribute1:[item productId]
-                                                        attribute2:nil
-                                                        attribute3:nil
-                                                        attribute4:nil
-                                                        attribute5:nil];
+        MATEventItem *eventItem = [MATEventItem eventItemWithName:[item marketTitle]
+                                                       attribute1:[item productId]
+                                                       attribute2:nil
+                                                       attribute3:nil
+                                                       attribute4:nil
+                                                       attribute5:nil];
         // Add event item to MATItem array in order to pass to TUNE SDK
         items = @[eventItem];
     }
 
     // Get transaction ID and receipt data for purchase validation
-    NSDictionary \*dict = notification.userInfo[DICT_ELEMENT_EXTRA_INFO];
-    NSString \*transactionId = dict[@"transactionIdentifier"];
-    NSString \*receipt = dict[@"receiptBase64"];
-    NSData \*receiptData = [[NSData alloc] initWithBase64EncodedString:receipt options:1];
+    NSDictionary *dict = notification.userInfo[DICT_ELEMENT_EXTRA_INFO];
+    NSString *transactionId = dict[@"transactionIdentifier"];
+    NSString *receipt = dict[@"receiptBase64"];
+    NSData *receiptData = [[NSData alloc] initWithBase64EncodedString:receipt options:1];
 
     // Create a MATEvent with this purchase data
-    MATEvent \*purchaseEvent = [MATEvent eventWithName:MAT_EVENT_PURCHASE];
+    MATEvent *purchaseEvent = [MATEvent eventWithName:MAT_EVENT_PURCHASE];
     purchaseEvent.revenue = revenue;
     purchaseEvent.currencyCode = currency;
     purchaseEvent.refId = transactionId;
@@ -371,12 +371,12 @@ public class TuneSoomlaProfileScript : MonoBehaviour {
 }
 
 // Set user ID and measure login event upon login finished
-- (void)loginFinished:(NSNotification\*)notification {
-    UserProfile \*userProfile = notification.userInfo[DICT_ELEMENT_USER_PROFILE];
-    NSString \*userId = [userProfile profileId];
+- (void)loginFinished:(NSNotification*)notification {
+    UserProfile *userProfile = notification.userInfo[DICT_ELEMENT_USER_PROFILE];
+    NSString *userId = [userProfile profileId];
 
     // Set different user IDs in TUNE SDK based on provider
-    NSString \*provider = [UserProfileUtils providerEnumToString:[userProfile provider]];
+    NSString *provider = [UserProfileUtils providerEnumToString:[userProfile provider]];
     if ([provider isEqualToString:@"facebook"]) {
         [MobileAppTracker setFacebookUserId:userId];
     } else if ([provider isEqualToString:@"google"]) {
