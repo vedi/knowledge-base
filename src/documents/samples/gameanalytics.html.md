@@ -35,6 +35,17 @@ using Soomla.Levelup;
 using System.Collections.Generic;
 using System.Linq;
 
+public enum EPayRank
+{
+    PayRank0 = 0,
+    PayRank1 = 1,
+    PayRank2 = 2,
+    PayRank3 = 3,
+    PayRank4 = 4,
+    PayRank5 = 5,
+    PayRank6 = 6
+}
+
 public class GA_Soomla : MonoBehaviour
 {
     private void Start() {
@@ -52,11 +63,19 @@ public class GA_Soomla : MonoBehaviour
         LevelUpEvents.OnMissionCompleted += GA_Soomla.OnMissionCompleted;
         LevelUpEvents.OnGateOpened += GA_Soomla.OnGateOpened;
 
+        // Register SOOMLA Insights event handlers
+        HighwayEvents.OnInsightsRefreshFinished += OnSoomlaInsightsRefreshFinished;
+
         // Initialize SOOMLA Store & LevelUp
         // Assumes you've implemented your store assets
         // and an initial world with levels and missions
         SoomlaStore.Initialize (new YourStoreAssetsImplementation ());
         SoomlaLevelUp.Initialize (WORLD);
+
+        // Initialize SOOMLA Highway & Insights
+        // Assumes you've setup GROW
+        SoomlaHighway.Initialize();
+        SoomlaInsights.Initialize();
     }
 
     #region StoreEvents
@@ -174,6 +193,24 @@ public class GA_Soomla : MonoBehaviour
 
     #endregion // LevelUpEvents
 
+    #region InsightsEvents
+
+    private static void OnSoomlaInsightsRefreshFinished()
+    {
+        int payRank = SoomlaInsights.UserInsights.PayInsights.PayRankByGenre[Genre.<YOUR_GENRE>];
+
+        if (payRank >= 0)
+        {
+            // Assumes you've setup the following custom dimensions in the GameAnalytics settings in Unity (for CustomDimension01 in this example):
+            // CustomDimension01 = { "PayRank0", "PayRank1", "PayRank2", "PayRank3", "PayRank4", "PayRank5", "PayRank6" }
+            // Look here for more information: https://github.com/GameAnalytics/GA-SDK-UNITY/wiki/Settings#custom-dimensions
+
+            GameAnalytics.SetCustomDimension01(((EPayRank)payRank).ToString());
+            GameAnalytics.NewDesignEvent("PayRank:" + payRank, (float)payRank);
+        }
+    }
+
+    #endregion // LevelUpEvents
 
     //
     // Private helper methods
