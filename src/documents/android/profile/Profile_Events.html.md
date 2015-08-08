@@ -100,6 +100,7 @@ This event is triggered when logging into the social provider has started.
 public void onLoginStarted(LoginStartedEvent loginStartedEvent) {
 	// A LoginStartedEvent contains the following:
 	// provider = the provider where the login has started
+	// autoLogin = will be "true" if the user was logged in using the AutoLogin functionality
 	// payload  = an identification String that you can give when you initiate the login
 	//            operation and want to receive back upon starting
 
@@ -116,6 +117,7 @@ This event is triggered when logging into the social provider has finished **suc
 public void onLoginFinished(LoginFinishedEvent loginFinishedEvent) {
 	// A LoginFinishedEvent contains the following:
 	// userProfile = the user's profile from the logged in provider
+	// autoLogin = will be "true" if the user was logged in using the AutoLogin functionality
 	// payload     = an identification string that you can give when you initiate the
 	//               login operation and want to receive back upon its completion
 
@@ -132,6 +134,7 @@ This event is triggered when logging into the social provider has been cancelled
 public void onLoginCancelled(LoginCancelledEvent loginCancelledEvent) {
 	// A LoginCancelledEvent contains the following:
 	// provider = the provider which the user has cancelled login to
+	// autoLogin = will be "true" if the user was logged in using the AutoLogin functionality
 	// payload  = an identification string that you can give when you initiate the
 	//            login operation and want to receive back upon cancellation
 
@@ -149,6 +152,7 @@ public void onLoginFailed(LoginFailedEvent loginFailedEvent) {
 	// A LoginFailedEvent contains the following:
 	// provider         = the provider on which the login has failed
 	// errorDescription = description of the reason for failure
+	// autoLogin 		    = will be "true" if the user was logged in using the AutoLogin functionality
 	// payload          = an identification string that you can give when you initiate
 	//                    the login operation and want to receive back upon failure
 
