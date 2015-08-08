@@ -76,8 +76,8 @@ And that's it! unity3d-profile knows how to contact the social provider (Faceboo
 
 5. In the menu bar of the Unity editor go to **Window > Soomla > Edit Settings** and set up "Login Permissions" you want to request from FB on login.
 
-  <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app, 
-  just request the reasonable minimum. Other permissions will be requested, when they will be needed. 
+  <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app,
+  just request the reasonable minimum. Other permissions will be requested, when they will be needed.
   For instance, if you try to call `UpdateStory`, SoomlaProfile will ask for `publish_actions` permission, if your app has not got it.</div>
 
 
@@ -107,11 +107,11 @@ Twitter is supported out-of-the-box, authentication is done either through the s
 2. In the menu bar of the Unity editor go to **Window > Soomla > Edit Settings** and toggle the "twitter" check box. Then fill in "Consumer Key" and "Consumer Secret".
 
 	**NOTE:** "Consumer Key" and "Consumer Secret" are located under "Keys and Access Tokens" of your twitter app.
-	
-###Common
 
-There is a common option, supported with all providers: `autoLogin`. Setting this option makes Soomla to try to log 
-in automatically to this provider, if an user already logged in with it in the previous sessions. 
+###Common
+There are some settings you can define which applies in all social providers params:
+
+`autoLogin` - Setting autoLogin to true will tell Profile to try and login the user automatically to the provider, if the user has already logged in with it in the previous sessions. The default value is `false`.
 
 ##Caveats
 

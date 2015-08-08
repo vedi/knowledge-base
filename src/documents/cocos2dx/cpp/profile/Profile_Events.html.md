@@ -7,7 +7,7 @@ position: 3
 theme: 'platforms'
 collection: 'cocos2dx_profile'
 module: 'profile'
-lang: 'cpp' 
+lang: 'cpp'
 platform: 'cocos2dx'
 ---
 
@@ -129,7 +129,7 @@ Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileC
 
 void Example::onLoginStarted(EventCustom *event) {
   // DICT_ELEMENT_PROVIDER - the social provider
-  // DICT_ELEMENT_AUTO_LOGIN - Comes "true" if user login automatically
+  // DICT_ELEMENT_AUTO_LOGIN - will be "true" if the user was logged in using the AutoLogin functionality
   // DICT_ELEMENT_PAYLOAD  - an identification string that you can give when you initiate
   //      the login operation and want to receive back upon starting
 
@@ -150,7 +150,7 @@ Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileC
 
 void Example::onLoginFinished(EventCustom *event) {
   // DICT_ELEMENT_USER_PROFILE - the user's profile from the logged in provider
-  // DICT_ELEMENT_AUTO_LOGIN - Comes "true" if user login automatically
+  // DICT_ELEMENT_AUTO_LOGIN - will be "true" if the user was logged in using the AutoLogin functionality
   // DICT_ELEMENT_PAYLOAD      - an identification string that you can give when you initiate
   //      the login operation and want to receive back upon its completion
 
@@ -171,7 +171,7 @@ Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileC
 
 void Example::onLoginCancelled(EventCustom *event) {
   // DICT_ELEMENT_PROVIDER - the social provider
-  // DICT_ELEMENT_AUTO_LOGIN - Comes "true" if user login automatically
+  // DICT_ELEMENT_AUTO_LOGIN - will be "true" if the user was logged in using the AutoLogin functionality
   // DICT_ELEMENT_PAYLOAD  - an identification string that you can give when you initiate
   //      the login operation and want to receive back upon cancellation
 
@@ -193,7 +193,7 @@ Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileC
 void Example::onLoginFailed(EventCustom *event) {
   // DICT_ELEMENT_PROVIDER - the social provider
   // DICT_ELEMENT_MESSAGE  - the failure message
-  // DICT_ELEMENT_AUTO_LOGIN - Comes "true" if user login automatically
+  // DICT_ELEMENT_AUTO_LOGIN - will be "true" if the user was logged in using the AutoLogin functionality
   // DICT_ELEMENT_PAYLOAD  - an identification string that you can give when you initiate
   //      the login operation and want to receive back upon failure
 

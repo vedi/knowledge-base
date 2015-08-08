@@ -7,7 +7,7 @@ position: 3
 theme: 'platforms'
 collection: 'cocos2djs_profile'
 module: 'profile'
-lang: 'js' 
+lang: 'js'
 platform: 'cocos2dx'
 ---
 
@@ -33,8 +33,8 @@ The names of such events are defined in `Soomla.ProfileConsts`, the data of the 
 
 ** Subscribing **
 
-Subscribe to events calling `Soomla.addHandler(eventName, handler, target)`, 
-where `handler` - is a function that will be called when event is fired, and `target` - is "thisArg" used in that call. 
+Subscribe to events calling `Soomla.addHandler(eventName, handler, target)`,
+where `handler` - is a function that will be called when event is fired, and `target` - is "thisArg" used in that call.
 
 ```js
 Soomla.addHandler(Soomla.ProfileConsts.EVENT_LOGIN_FINISHED, this.onLoginFinished, this);
@@ -99,7 +99,7 @@ Soomla.addHandler(Soomla.ProfileConsts.EVENT_LOGIN_STARTED, this.onLoginStarted,
 
 this.onLoginStarted = function (provider, autoLogin, payload) {
   //  provider - The provider on where the login has started
-  //  autoLogin - comes "true" if user login automatically
+  //  autoLogin - will be "true" if the user was logged in using the AutoLogin functionality
   //  payload - an identification String sent from the caller of the action
   // ... your game specific implementation here ...
 }
@@ -114,7 +114,7 @@ Soomla.addHandler(Soomla.ProfileConsts.EVENT_LOGIN_FINISHED, this.onLoginFinishe
 
 this.onLoginFinished = function (userProfile, autoLogin, payload) {
   // userProfile - The user's profile from the logged in provider
-  // autoLogin - comes "true" if user login automatically
+  // autoLogin - will be "true" if the user was logged in using the AutoLogin functionality
   // payload - an identification String sent from the caller of the action
   // ... your game specific implementation here ...
 }
@@ -129,7 +129,7 @@ Soomla.addHandler(Soomla.ProfileConsts.EVENT_LOGIN_CANCELLED, this.onLoginCancel
 
 this.onLoginCancelled = function (provider, autoLogin, payload) {
   //  provider - The provider on which the login has failed
-  //  autoLogin - comes "true" if user login automatically
+  //  autoLogin - will be "true" if the user was logged in using the AutoLogin functionality
   //  payload - an identification String sent from the caller of the action
   // ... your game specific implementation here ...
 }
@@ -144,7 +144,7 @@ Soomla.addHandler(Soomla.ProfileConsts.EVENT_LOGIN_FAILED, this.onLoginFailed, t
 
 this.onLoginFailed = function (provider, errorDescription, autoLogin, payload) {
   // provider - The provider on which the login has failed
-  // autoLogin - comes "true" if user login automatically
+  // autoLogin - will be "true" if the user was logged in using the AutoLogin functionality
   // errorDescription - a Description of the reason for failure
   // payload - an identification String sent from the caller of the action
   // ... your game specific implementation here ...
