@@ -79,6 +79,17 @@ platform: 'android'
 	SoomlaProfile.getInstance().initialize(providerParams);
 	```
 
+  d. **Common** - There are some settings you can define which applies in all social providers params:
+
+	 `autoLogin` - Setting autoLogin to true will tell Profile to try and login the user automatically to the provider, if the user has already logged in with it in the previous sessions. The default value is `false`.
+
+	``` java
+  // Example for FB
+  HashMap<String, String> facebookParams = new HashMap<String, String>();
+  facebookParams.put("autoLogin", Boolean.toString(true));
+  providerParams.put(IProvider.Provider.FACEBOOK, facebookParams);
+  ```
+
 6. If integrating a virtual economy with the store module, please see [android-store](/android/store/Store_GettingStarted) for store setup.
 
 <div class="info-box">The following steps should be done according to the target social network.</div>
