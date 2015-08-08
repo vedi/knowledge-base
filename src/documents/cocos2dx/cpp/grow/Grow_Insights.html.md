@@ -3,7 +3,7 @@ layout: "content"
 image: "Tutorial"
 title: "Soomla Insights"
 text: "Get started with Soomla Insights for Cocos2d-x. Here you can find initialization instructions, event handling and usage examples."
-position: 4
+position: 5
 theme: 'platforms'
 collection: 'cocos2dx_grow'
 module: 'grow'
