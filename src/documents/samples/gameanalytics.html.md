@@ -66,16 +66,16 @@ public class GA_Soomla : MonoBehaviour
         // Register SOOMLA Insights event handlers
         HighwayEvents.OnInsightsRefreshFinished += OnSoomlaInsightsRefreshFinished;
 
+        // Initialize SOOMLA Highway & Insights
+        // Assumes you've setup GROW
+        SoomlaHighway.Initialize();
+        SoomlaInsights.Initialize();
+
         // Initialize SOOMLA Store & LevelUp
         // Assumes you've implemented your store assets
         // and an initial world with levels and missions
         SoomlaStore.Initialize (new YourStoreAssetsImplementation ());
         SoomlaLevelUp.Initialize (WORLD);
-
-        // Initialize SOOMLA Highway & Insights
-        // Assumes you've setup GROW
-        SoomlaHighway.Initialize();
-        SoomlaInsights.Initialize();
     }
 
     #region StoreEvents
@@ -584,3 +584,4 @@ public class MainActivity extends ActionBarActivity
 
 4. Integrate SOOMLA Store and LevelUp. Follow all steps in the platform specific getting started guides: <a href="http://know.soom.la/unity/store/store_gettingstarted/" target="_blank">Unity Store</a> | <a href="http://know.soom.la/ios/store/store_gettingstarted/" target="_blank">iOS Store</a> | <a href="http://know.soom.la/android/store/store_gettingstarted/" target="_blank">Android Store</a> | <a href="http://know.soom.la/unity/levelup/levelup_gettingstarted/" target="_blank">Unity LevelUp</a>
 
+5. Integrate Grow Insights - follow the <a href="/unity/grow/grow_insights/" target="_blank">Grow Insights Unity Instructions</a>.
