@@ -9,6 +9,7 @@ collection: 'samples'
 navicon: "nav-icon-tune.png"
 backlink: "http://www.tune.com/"
 theme: 'samples'
+standalone: true
 ---
 
 # TUNE Integration
@@ -585,14 +586,16 @@ public class TuneSoomlaInsightsScript : MonoBehaviour {
 <div class="samples-title">Getting started</div>
 
 
-1. [Sign up](https://platform.mobileapptracking.com/#!/advertiser) with TUNE to get started on your home for attribution and analytics.
+1. <a href="https://platform.mobileapptracking.com/#!/advertiser" target="_blank">Sign up</a> with TUNE to get started on your home for attribution and analytics.
 
-2. Download and integrate the [TUNE SDK](https://developers.mobileapptracking.com/mobile-sdks/).
+2. Download and integrate the <a href="https://developers.mobileapptracking.com/mobile-sdks/" target="_blank">TUNE SDK</a>.
 
 3. Integrate SOOMLA Store and LevelUp.  Follow all steps in the platform specific getting started guides: <br>
     <a href="/unity/" target="_blank">Unity</a> |
     <a href="/ios/" target="_blank">iOS</a> |
     <a href="/android/" target="_blank">Android</a>
+    
+4. To use Grow Insights, follow the <a href="/unity/grow/grow_insights/" target="_blank">Grow Insights Unity Instructions</a>.
 
 
 <div class="samples-title">Sample projects</div>
