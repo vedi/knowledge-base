@@ -9,7 +9,6 @@ collection: 'samples'
 navicon: "nav-icon-tune.png"
 backlink: "http://www.tune.com/"
 theme: 'samples'
-standalone: true
 ---
 
 # TUNE Integration
@@ -579,7 +578,7 @@ public class TuneSoomlaInsightsScript : MonoBehaviour {
       </pre>
     </div>
 
-  </div>
+    </div>
 
 </div>
 
