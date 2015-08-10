@@ -202,7 +202,7 @@ ProfileEvents.OnSocialActionStarted += onSocialActionStarted;
 
 public void onSocialActionStarted(Provider provider, SocialActionType action, string payload) {
 	// provider is the social provider
-	// action is the social action (like, post status, etc..) that started
+	// action is the social action (post status, etc..) that started
 	// payload is an identification string that you can give when you initiate the social action operation and want to receive back upon starting
 
 	// ... your game specific implementation here ...

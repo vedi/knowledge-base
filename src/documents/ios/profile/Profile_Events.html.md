@@ -228,7 +228,7 @@ The event `EVENT_UP_LOGOUT_FAILED` is triggered when logging out of the social p
 
 ### SOCIAL ACTION STARTED
 
-The event `EVENT_UP_SOCIAL_ACTION_STARTED` is triggered when a social action (like, post status, etc..) has started.
+The event `EVENT_UP_SOCIAL_ACTION_STARTED` is triggered when a social action (post status, etc..) has started.
 
 ``` objectivec
 // observe the event:
