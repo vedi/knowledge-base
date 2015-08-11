@@ -13,7 +13,7 @@ platform: 'unity'
 
 ## About
 
-Soomla GROW is our flagship community-driven analytics dashboard. Developers using GROW can gain valuable insights about their games' performance and compare the data to benchmarks of other games in the GROW community.
+Soomla GROW is our flagship community-driven analytics dashboard. Developers using GROW can gain valuable <a href="http://blog.soom.la/2015/08/soomla-insights-know-users-better-real-time.html/" target="_blank">insights</a> about their games' performance and compare the data to benchmarks of other games in the GROW community.
 
 GROW analytics uses all of Soomla's modules: [Store](/unity/store/), [Profile](/unity/profile/) and [LevelUp](/unity/levelup/). You may choose to use only specific modules, however, to benefit from the full power of GROW analytics we recommend that you integrate all three.
 
