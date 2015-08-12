@@ -52,6 +52,7 @@ platform: 'cocos2dx'
 	 storeParams->setObject(__String::create("ExamplePublicKey"), "androidPublicKey");
 	 storeParams->setObject(__Bool::create(true), "testPurchases");
 	 storeParams->setObject(__Bool::create(true), "SSV");
+	 storeParams->setObject(__Bool::create(true), "verifyOnServerFailure");
 
 	soomla::CCSoomlaStore::initialize(assets, storeParams);
 	```
@@ -62,7 +63,10 @@ platform: 'cocos2dx'
 
 	- *Test Purchases* - allows testing IAP on Google Play. (iOS doesn't have this functionality).
 
-	- *SSV* - enables server-side receipt verification. (Android doesn't have this functionality).
+	- *SSV* - enables server-side receipt verification. (in order to activate it in Google Play see the related section below).
+	
+	- *verifyOnServerFailure* - if you use server-side receipt verification, optionally you set this param,
+	if you want to get purchases automatically verified in case of network failures during the verification process.
 
 	<div class="warning-box">Choose the secret wisely. You can't change it after you launch your game!
 	Initialize `CCSoomlaStore` ONLY ONCE when your application loads.</div>
@@ -224,11 +228,6 @@ SOOMLA's cocos2dx-store knows how to contact Google Play, Amazon Appstore, or Ap
 	storeParams->setObject(__String::create(<YOUR_CLIENT_SECRET>), "clientSecret");
 	storeParams->setObject(__String::create(<YOUR_REFRESH_TOKEN>), "refreshToken");
 	```
-	>  Optionally you can turn on `verifyOnServerFailure` if you want to get purchases automatically verified in case of network failures during the verification process:
-	>
-	> ``` java
-	> storeParams->setObject(__Bool::create(true), "verifyOnServerFailure");
-	> ```
 
 ###Amazon
 
