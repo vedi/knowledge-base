@@ -13,7 +13,7 @@ platform: 'unity'
 
 ## About
 
-Soomla GROW is our flagship community-driven analytics dashboard. Developers using GROW can gain valuable <a href="http://blog.soom.la/2015/08/soomla-insights-know-users-better-real-time.html/" target="_blank">insights</a> about their games' performance and compare the data to benchmarks of other games in the GROW community.
+Soomla GROW is our flagship community-driven analytics dashboard. Developers using GROW can gain valuable insights about their games' performance and compare the data to benchmarks of other games in the GROW community.
 
 GROW analytics uses all of Soomla's modules: [Store](/unity/store/), [Profile](/unity/profile/) and [LevelUp](/unity/levelup/). You may choose to use only specific modules, however, to benefit from the full power of GROW analytics we recommend that you integrate all three.
 
@@ -121,3 +121,7 @@ Hover over any country on the map and see what percentage of your users in that 
 ![alt text](/img/tutorial_img/unity_grow/devices.png "Devices")
 
 See the percentage of your users who performed the action you defined in the filter per device. For example, 4.5% of your iPhone users rated your game. 6.2% of the other games' iPhone users rated their games, so your game is a bit behind the benchmark.
+
+## **Soomla Insights**
+
+Soomla Insights brings you priceless insights about your users. You can use the provided insights to take actions on your users at real time during gameplay or when your users arrive in the game. <a href="http://blog.soom.la/2015/08/soomla-insights-know-users-better-real-time.html/" target="_blank">Read more...</a>
