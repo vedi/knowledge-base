@@ -99,17 +99,21 @@
 .nav-tabs.sample-tabs {
 	border:none;
 
+    > li a {
+	  	border-bottom-width: 6px;
+	}
+
 	> li.active  {
 		> a, > a:hover {
-			border-width: 0px 0px 6px 0px;
-  		border-bottom-color: #1676a6;
+			border-width: 0 0 6px 0;
+  			border-bottom-color: #1676a6;
 			background-color: transparent;
 		}
 	}
 
 	> li {
 		> a:hover {
-			border-width: 0px 0px 6px 0px;
+			border-width: 0 0 6px 0;
 			border-bottom-color: rgba(22, 118, 166, 0.3);
 			background-color: transparent;
 		}
