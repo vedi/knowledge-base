@@ -92,7 +92,10 @@ supported by SOOMLA's cocos2dx-store (the tag is the version).</div>
 
 	- *Test Purchases* - allows testing IAP on Google Play. (iOS doesn't have this functionality).
 
-	- *SSV* - enables server-side receipt verification. (Android doesn't have this functionality).
+	- *SSV* - enables server-side receipt verification. (in order to activate it in Google Play see the related section below).
+	
+	- *verifyOnServerFailure* - if you use server-side receipt verification, optionally you set this param,
+	if you want to get purchases automatically verified in case of network failures during the verification process.
 
 	<div class="warning-box">Choose the secret wisely. You can't change it after you launch your game!
 	Initialize `Soomla.soomlaStore` ONLY ONCE when your application loads.</div>
@@ -272,12 +275,7 @@ SOOMLA's cocos2dx-store knows how to contact Google Play, Amazon Appstore, or Ap
 		storeParams.clientSecret = <YOUR_CLIENT_SECRET>;
 		storeParams.refreshToken = <YOUR_REFRESH_TOKEN>;
 	```
-	>  Optionally you can turn on `verifyOnServerFailure` if you want to get purchases automatically verified in case of network failures during the verification process:
-	>
-	> ``` java
-	> storeParams.verifyOnServerFailure = true;
-	> ```
-
+	
 ###Amazon
 
 1. Add `in-app-purchasing-1.0.3.jar` and `AndroidStoreAmazon.jar` from `frameworks/runtime-src/Classes/cocos2dx-store/build/android/billing-services/amazon` to your classpath:
