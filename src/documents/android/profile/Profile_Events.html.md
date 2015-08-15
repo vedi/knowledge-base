@@ -213,7 +213,7 @@ This event is triggered when a social action has started.
 public void onSocialActionStarted(SocialActionStartedEvent socialActionStartedEvent) {
 	// A SocialActionStartedEvent contains the following:
 	// provider         = the provider on which the social action has started
-	// socialActionType = the social action (like, post status, etc..) that started
+	// socialActionType = the social action (post status, etc..) that started
 	// payload          = an identification string that you can give when you initiate
 	//                    the social action operation and want to receive back upon starting
 
@@ -231,7 +231,7 @@ This event is triggered when a social action has finished **successfully**.
 public void onSocialActionFinished(SocialActionFinishedEvent socialActionFinishedEvent) {
 	// A SocialActionFinishedEvent contains the following:
 	// provider         = the provider on which the social action has finished
-	// socialActionType = the social action (like, post status, etc..) that finished
+	// socialActionType = the social action (post status, etc..) that finished
 	// payload          = an identification string that you can give when you initiate
 	//                    the social action operation and want to receive back upon completion
 
@@ -248,7 +248,7 @@ This event is triggered when a social action has been cancelled.
 public void onSocialActionCancelled(SocialActionCancelledEvent socialActionCancelledEvent) {
 	// A SocialActionCancelledEvent contains the following:
 	// provider         = the provider on which a social action was cancelled
-	// socialActionType = the social action (like, post status, etc..) that has been cancelled
+	// socialActionType = the social action (post status, etc..) that has been cancelled
 	// payload          = an identification string that you can give when you initiate the
 	//                    social action operation and want to receive back upon cancellation
 
@@ -265,7 +265,7 @@ This event is triggered when a social action has failed.
 public void onSocialActionFailed(SocialActionFailedEvent socialActionFailedEvent) {
 	// A SocialActionFailedEvent contains the following:
 	// provider         = the provider on which the social action has failed
-	// socialActionType = the social action (like, post status, etc..) that failed
+	// socialActionType = the social action (post status, etc..) that failed
 	// errorDescription = description of the reason for failure
 	// payload          = an identification string that you can give when you initiate
 	//                    the social action operation and want to receive back upon failure

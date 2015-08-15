@@ -37,11 +37,12 @@ platform: 'unity'
   - **Soomla Secret** - This is an encryption secret you provide that will be used to secure your data. (If you used versions before v1.5.2 this secret MUST be the same as Custom Secret)
 
   - **Public Key** - If your billing service provider is Google Play, you'll need to insert the public key given to you from Google. (Learn more in step 4 [here](/android/store/Store_GooglePlayIAB)). **Choose both secrets wisely. You can't change them after you launch your game!**
+  
+  - **Receipt Validation** - If your billing service provider supports Server Side Verification, you can turn on this option and provide needed data.
+    Optionally, you can turn on `Verify On Server Failure` if you want to get purchases automatically verified in case of network failures during the verification process.
 
-    >In order to turn on Server Side Verification for purchases Google Play, check the checkbox **Receipt Validation**, and provide needed data. In order >to get clientId, clientSecret and refreshToken go over [Google Play Purchase Verification](/android/store/Store_GooglePlayVerification).
-    >
-    >Optionally, you can turn on `Verify On Server Failure` if you want to get purchases automatically verified in case of network failures during the verification process.
-
+    > In order to get clientId, clientSecret and refreshToken for Google Play go over [Google Play Purchase Verification](/android/store/Store_GooglePlayVerification).
+  
     ![alt text](/img/tutorial_img/unity_getting_started/soomlaSettings.png "Soomla Settings")
 
 4. Create your own implementation of `IStoreAssets` in order to describe your game's specific assets.

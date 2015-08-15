@@ -268,7 +268,7 @@ Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileC
 
 void Example::onSocialActionStarted(EventCustom *event) {
   // DICT_ELEMENT_PROVIDER            - the social provider
-  // DICT_ELEMENT_SOCIAL_ACTION_TYPE  - the social action (like, post status, etc..)
+  // DICT_ELEMENT_SOCIAL_ACTION_TYPE  - the social action (post status, etc..)
   //      that started
   // DICT_ELEMENT_PAYLOAD             - an identification string that you can give when you
   //      initiate the social action operation and want to receive back upon starting
@@ -291,7 +291,7 @@ Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileC
 
 void Example::onSocialActionFinished(EventCustom *event) {
   // DICT_ELEMENT_PROVIDER            - the social provider
-  // DICT_ELEMENT_SOCIAL_ACTION_TYPE  - the social action (like, post status, etc..)
+  // DICT_ELEMENT_SOCIAL_ACTION_TYPE  - the social action (post status, etc..)
   //      that finished
   // DICT_ELEMENT_PAYLOAD             - an identification string that you can give when you
   //      initiate the social action operation and want to receive back upon its completion
@@ -314,7 +314,7 @@ Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileC
 
 void Example::onSocialActionFailed(EventCustom *event) {
   // DICT_ELEMENT_PROVIDER            - the social provider
-  // DICT_ELEMENT_SOCIAL_ACTION_TYPE  - the social action (like, post status, etc..) that failed
+  // DICT_ELEMENT_SOCIAL_ACTION_TYPE  - the social action (post status, etc..) that failed
   // DICT_ELEMENT_MESSAGE             - the failure message
   // DICT_ELEMENT_PAYLOAD             - an identification string that you can give when you
   //      initiate the social action operation and want to receive back upon failure
