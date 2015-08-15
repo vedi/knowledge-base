@@ -1,17 +1,17 @@
 ---
 layout: "sample"
-image: "gameup_logo"
-title: "GameUp"
+image: "heroiclabs_logo"
+title: "Heroic Labs"
 text: "Use SOOMLA Profile & LevelUp events to update sessions, leaderboards and achievements"
 position: 4
 relates: ["gameanalytics", "onesignal"]
 collection: 'samples'
-navicon: "nav-icon-gameup.png"
-backlink: "http://gameup.io/"
+navicon: "nav-icon-heroiclabs.png"
+backlink: "https://heroiclabs.com/"
 theme: 'samples'
 ---
 
-# GameUp Integration
+# Heroic Labs Integration
 
 <div>
 
@@ -37,14 +37,14 @@ using Soomla;
 using Soomla.Profile;
 using Soomla.LevelUp;
 
-public class SoomlaGameUpBehaviour : MonoBehaviour
+public class SoomlaHeroicLabsBehaviour : MonoBehaviour
 {
   private static readonly String SESSION_KEY = "io.gameup.unity.session";
   private static GameUpSession session;
 
   void Start ()
   {
-    // Initialise the GameUp SDK.
+    // Initialise the Heroic Labs SDK.
     Client.ApiKey = "your-api-key-here";
 
     //
@@ -57,13 +57,13 @@ public class SoomlaGameUpBehaviour : MonoBehaviour
     ProfileEvents.OnLogoutFinished += onLogoutFinished;
 
     //
-    // Listener that submits a particular new Soomla record score to a GameUp
+    // Listener that submits a particular new Soomla record score to a Heroic Labs
     // leaderboard.
     //
     LevelUpEvents.OnScoreRecordChanged += onScoreRecordChanged;
 
     //
-    // An example of how a GameUp achievement might be triggered. This specific
+    // An example of how a Heroic Labs achievement might be triggered. This specific
     // example achievement is triggered by exactly matching any current high
     // score, but not beating it.
     //
@@ -78,8 +78,8 @@ public class SoomlaGameUpBehaviour : MonoBehaviour
     string id = userProfile.ProfileId;
 
     // Use the resulting social profile type and ID to request a new
-    // GameUp session for this user.
-    String acc = "io.gameup.accounts.com.soomla.profile." + type + "." + id;
+    // Heroic Labs session for this user.
+    String acc = "com.heroiclabs.accounts.com.soomla.profile." + type + "." + id;
     Client.LoginAnonymous(acc, (SessionClient sessionClient) => {
 
       // Store the session for future use.
@@ -94,19 +94,19 @@ public class SoomlaGameUpBehaviour : MonoBehaviour
   // Listener that handles logout events.
   //
   private void onLoginFinished(string message) {
-    // Drop the GameUp session when the user logs out.
+    // Drop the Heroic Labs session when the user logs out.
     session = null;
   }
 
 
   //
-  // Listener that submits a particular new Soomla record score to a GameUp
+  // Listener that submits a particular new Soomla record score to a Heroic Labs
   // leaderboard.
   //
   private void onScoreRecordChanged(Score score) {
     String scoreId = score.ID;
 
-    // See if we want to report this score. Each GameUp leaderboard is
+    // See if we want to report this score. Each Heroic Labs leaderboard is
     // usually only relevant to one score type, but we can have more than
     // one leaderboard and submit different scores to each one!
     if ("soomla-score-id-we-care-about".Equals(scoreId)) {
@@ -115,12 +115,12 @@ public class SoomlaGameUpBehaviour : MonoBehaviour
         // score.
         if (session != null) {
 
-            // Finally, report the score to GameUp!
-            // Note: GameUp prefers whole numbers as score values, but they
+            // Finally, report the score to Heroic Labs!
+            // Note: Heroic Labs prefers whole numbers as score values, but they
             // can represent anything. For example for a Soomla score of
-            // 10.25 you might submit to GameUp the value 1025.
+            // 10.25 you might submit to Heroic Labs the value 1025.
             long latestScore = (long) score.Latest;
-            session.UpdateLeaderboard("gameup-leaderboard-id", latestScore, (Rank rank) => {
+            session.UpdateLeaderboard("heroic-labs-leaderboard-id", latestScore, (Rank rank) => {
 
               // Now we might do something with the rank, such as notify the
               // user if they've got a new best rank.
@@ -132,7 +132,7 @@ public class SoomlaGameUpBehaviour : MonoBehaviour
   }
 
   //
-  // An example of how a GameUp achievement might be triggered. This specific
+  // An example of how a Heroic Labs achievement might be triggered. This specific
   // example achievement is triggered by exactly matching any current high
   // score, but not beating it.
   //
@@ -140,10 +140,10 @@ public class SoomlaGameUpBehaviour : MonoBehaviour
 
     // We can only trigger achievements if we have a session.
     if (session != null) {
-      session.Achievement("gameup-achievement-id", () => {
+      session.Achievement("heroic-labs-achievement-id", () => {
         session.Achievements ((AchievementList list) => {
         foreach (Achievement achievement : list) {
-          if (achievement.PublicId.Equals("gameup-public-achievement-id")) {
+          if (achievement.PublicId.Equals("heroic-labs-public-achievement-id")) {
             if (achievement.IsCompleted()) {
               // If this it means the achievement was just
               // unlocked, so we might congratulate the user.
@@ -164,7 +164,7 @@ public class SoomlaGameUpBehaviour : MonoBehaviour
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-android">
       <p>
-        First, let's create a static helper class to handle the GameUp session for us:
+        First, let's create a static helper class to handle the Heroic Labs session for us:
       </p>
 
       <pre>
@@ -217,7 +217,7 @@ public class GameUpSessionHelper {
       </pre>
 
       <p>
-        Finally, here's a complete example activity that catches Soomla events and triggers the correct GameUp actions:
+        Finally, here's a complete example activity that catches Soomla events and triggers the correct Heroic Labs actions:
       </p>
 
       <pre>
@@ -237,13 +237,13 @@ import io.gameup.android.GameUpSession;
 import io.gameup.android.entity.Achievement;
 import io.gameup.android.entity.Rank;
 
-public class SoomlaGameUpActivity extends Activity {
+public class SoomlaHeroicLabsActivity extends Activity {
 
     @Override
     public void onResume() {
         super.onResume();
 
-        // Initialise the GameUp SDK.
+        // Initialise the Heroic Labs SDK.
         GameUp.init(this, "your-api-key-here");
 
         // Register this instance to receive SOOMLA events.
@@ -267,8 +267,8 @@ public class SoomlaGameUpActivity extends Activity {
         String id = event.UserProfile.getProfileId();
 
         // Use the resulting social profile type and ID to request a new
-        // GameUp session for this user.
-        String acc = "io.gameup.accounts.com.soomla.profile." + type + "." + id;
+        // Heroic Labs session for this user.
+        String acc = "com.heroiclabs.accounts.com.soomla.profile." + type + "." + id;
         GameUpSession session = GameUp.loginAnonymous(acc);
 
         // Store the session for future use.
@@ -280,19 +280,19 @@ public class SoomlaGameUpActivity extends Activity {
     //
     @Subscribe
     public void onLogoutFinished(LogoutFinishedEvent event) {
-        // Drop the GameUp session when the user logs out.
+        // Drop the Heroic Labs session when the user logs out.
         GameUpSessionHelper.setSession(null);
     }
 
     //
-    // Listener that submits a particular new Soomla record score to a GameUp
+    // Listener that submits a particular new Soomla record score to a Heroic Labs
     // leaderboard.
     //
     @Subscribe
     public void onScoreRecordChanged(ScoreRecordChangedEvent event) {
         String scoreId = event.ScoreId;
 
-        // See if we want to report this score. Each GameUp leaderboard is
+        // See if we want to report this score. Each Heroic Labs leaderboard is
         // usually only relevant to one score type, but we can have more than
         // one leaderboard and submit different scores to each one!
         if ("soomla-score-id-we-care-about".equals(scoreId)) {
@@ -302,12 +302,12 @@ public class SoomlaGameUpActivity extends Activity {
             GameUpSession session = GameUpSessionHelper.getSession();
             if (session != null) {
 
-                // Finally, report the score to GameUp!
-                // Note: GameUp prefers whole numbers as score values, but they
+                // Finally, report the score to Heroic Labs!
+                // Note: Heroic Labs prefers whole numbers as score values, but they
                 // can represent anything. For example for a Soomla score of
-                // 10.25 you might submit to GameUp the value 1025.
+                // 10.25 you might submit to Heroic Labs the value 1025.
                 long score = (long) ScoreStorage.getLatestScore(scoreId);
-                Rank rank = session.leaderboard("gameup-leaderboard-id", score);
+                Rank rank = session.leaderboard("heroic-labs-leaderboard-id", score);
 
                 // Now we might do something with the rank, such as notify the
                 // user if they've got a new best rank.
@@ -316,7 +316,7 @@ public class SoomlaGameUpActivity extends Activity {
     }
 
     //
-    // An example of how a GameUp achievement might be triggered. This specific
+    // An example of how a Heroic Labs achievement might be triggered. This specific
     // example achievement is triggered by exactly matching any current high
     // score, but not beating it.
     //
@@ -328,7 +328,7 @@ public class SoomlaGameUpActivity extends Activity {
         if (session != null) {
             // This particular achievement just requires that any score is
             // matched, so we don't mind what the scoreId was.
-            Achievement ach = session.achievement("gameup-achievement-id");
+            Achievement ach = session.achievement("heroic-labs-achievement-id");
             if (ach != null) {
                 // If this is not null, it means the achievement was just
                 // unlocked, so we might congratulate the user.
@@ -345,9 +345,9 @@ public class SoomlaGameUpActivity extends Activity {
 
 <div class="samples-title">Getting Started</div>
 
-GameUp is a **free** BaaS (backend as a service) for game developers which offers a plethora of features: user accounts, social login, cloud storage, multiplayer, leaderboards, achievements and push notifications.
+Heroic Labs is a **free** game backend for developers which offers a plethora of features: user accounts, social login, cloud storage, multiplayer, leaderboards, achievements and much more...
 
-1. Go to the <a href="https://dashboard.gameup.io/#/signup" target="_blank">GameUp Dashboard</a> to sign up for free.
+1. Go to the <a href="https://dashboard.heroiclabs.com/#/signup" target="_blank">Heroic Labs Dashboard</a> to sign up for free.
 
 2. Get your API key and integrate the code samples above into your game.
 
@@ -356,13 +356,13 @@ GameUp is a **free** BaaS (backend as a service) for game developers which offer
     <a href="/unity/levelup/levelup_gettingstarted/" target="_blank">Unity LevelUp</a> |
     <a href="/android/profile/profile_gettingstarted/" target="_blank">Android Profile</a>
 
-4. Check out the <a href="https://gameup.io/" target="_blank">GameUp website</a> and <a href="https://gameup.io/docs/" target="_blank">documentation</a> for more details.
+4. Check out the <a href="https://heroiclabs.com/" target="_blank">Heroic Labs website</a> and <a href="https://heroiclabs.com/docs/" target="_blank">documentation</a> for more details.
 
-5. We're here for you, <a href="https://gameup.io/contact/" target="_blank">get in touch</a> and we can help you with integration, feature design, and more!
+5. We're here for you, <a href="https://heroiclabs.com/contact/" target="_blank">get in touch</a> and we can help you with integration, feature design, and more!
 
 
 <div class="samples-title">Downloads</div>
 
-* The <a href="https://github.com/gameup-io/gameup-unity-sdk" target="_blank">GameUp Unity SDK</a> is available to download on <a href="https://github.com/gameup-io/gameup-unity-sdk/releases" target="_blank">Github</a>.
+* The <a href="https://github.com/gameup-io/gameup-unity-sdk" target="_blank">Heroic Labs Unity SDK</a> is available to download on <a href="https://github.com/gameup-io/gameup-unity-sdk/releases" target="_blank">Github</a>.
 
-* The <a href="https://github.com/gameup-io/gameup-android-sdk" target="_blank">GameUp Android SDK</a> is available through <a href="http://search.maven.org/#search%7Cga%7C1%7Cio.gameup.android" target="_blank">Maven Central</a>.
+* The <a href="https://github.com/gameup-io/gameup-android-sdk" target="_blank">Heroic Labs Android SDK</a> is available through <a href="http://search.maven.org/#search%7Cga%7C1%7Cio.gameup.android" target="_blank">Maven Central</a>.
