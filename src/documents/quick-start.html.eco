@@ -1,0 +1,24 @@
+---
+layout: 'knowledge-base'
+title: 'Platforms'
+theme: 'platforms'
+---
+
+<div class="jumbotron" id="know-soomla">
+    <div id="jumbo-main-text">
+        <div id="hierarchy-nav"><%- @partial('nav-menu-l1', {current:'platforms'}) %></div>
+        CHOOSE YOUR PLATFORM
+    </div>
+    <div id="jumbo-small-text">
+        SOOMLA Store is available for native platforms and popular game engines.
+    </div>
+</div>
+
+<div class="nav-options">
+    <div class="container">
+        <%- @partial('platform-selection', {image:"/img/Level2-Unity.png",link:"/quick-start/unity3d",title: "Unity3d",text: "Quickly integrate Unity3d bundles into your game!"}) %>
+        <%- @partial('platform-selection', {image:"/img/Level2-Cocos2dx.png",link:"/quick-start/cocos2dx",title: "Cocos2d-x",text: "Quickly integrate Cocos2d-x bundles into your game!"}) %>
+        <%- @partial('platform-selection', {image:"/img/Level2-iOS.png",link:"/quick-start/ios",title: "iOS",text: "Quickly integrate iOS open source SDKs into your game!"}) %>
+        <%- @partial('platform-selection', {image:"/img/Level2-Android.png",link:"/quick-start/android",title: "Android",text: "Quickly integrate Android open source SDKs into your game!"}) %>
+    </div>
+</div>

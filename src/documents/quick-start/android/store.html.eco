@@ -1,0 +1,8 @@
+---
+title: 'Android'
+layout: 'l2-main'
+theme: 'platforms'
+collection: 'android_store'
+platform: 'android'
+module: 'store'
+---
