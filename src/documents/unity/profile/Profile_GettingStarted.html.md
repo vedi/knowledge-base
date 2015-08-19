@@ -18,9 +18,9 @@ platform: 'unity'
 
 1. Download and import:
 
-	a. [soomla-unity3d-core.unitypackage](https://github.com/soomla/unity3d-profile/blob/master/soomla-unity3d-core.unitypackage)
+	a. [soomla-unity3d-core.unitypackage](https://github.com/soomla/soomla-unity3d-core/raw/master/deploy/out/soomla-unity3d-core.unitypackage)
 
-	b. [unity3d-profile.unitypackage](http://bit.ly/1sUDdG0)
+	b. [unity3d-profile.unitypackage](https://github.com/soomla/unity3d-profile/raw/master/deploy/out/soomla-unity3d-profile.unitypackage)
 
 	If you want to use Store-related rewards you'll need to go over the instructions of [unity3d-store](https://github.com/soomla/unity3d-store).
 
