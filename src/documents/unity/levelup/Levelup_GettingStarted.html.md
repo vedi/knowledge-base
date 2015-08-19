@@ -10,17 +10,13 @@ module: 'levelup'
 platform: 'unity'
 ---
 
-#Getting Started
+# Getting Started
 
-##Getting Started
+## Getting Started
 
   <div class="info-box">LevelUp depends on SOOMLA's other modules: Core, Store, and Profile. This document assumes that you are new to SOOMLA and have not worked with any of the other SOOMLA modules. If this is not the case, and you already *have* some or all of the other modules, please follow these directions only for the modules you are missing and of course, for the **LevelUp** module.</div>
 
-1. Download the following unity-packages:
-    - [soomla-unity3d-core](https://github.com/soomla/unity3d-levelup/raw/master/soomla-unity3d-core.unitypackage)
-    - [unity3d-store](https://github.com/soomla/unity3d-levelup/raw/master/soomla-unity3d-store.unitypackage)
-    - [unity3d-profile](https://github.com/soomla/unity3d-levelup/raw/master/soomla-unity3d-profile.unitypackage)
-    - [unity3d-levelup](https://github.com/soomla/unity3d-levelup/raw/master/soomla-unity3d-levelup.unitypackage)
+1. Download and import [unity3d-levelup ADD ACTUAL LINK HERE](https://github.com/soomla/unity3d-levelup/raw/master/soomla-unity3d-levelup.unitypackage)
 
   **OR** if you would like to work with sources, you should **recursively** clone the repo (instead of downloading):
 
@@ -56,17 +52,17 @@ platform: 'unity'
 And that's it! You have game architecture capabilities at your fingertips.
 
 
-###SOOMLA's unity3d-store Integration
+### SOOMLA's unity3d-store Integration
 
 Please follow the steps in [unity3d-store](https://github.com/soomla/unity3d-store) for the _Store_ part of the setup.
 Then, you can use the **store-related _LevelUp_ classes**, such as `VirtualItemScore` or `VirtualItemReward` or `BalanceGate`.
 
-###SOOMLA's unity3d-profile Integration
+### SOOMLA's unity3d-profile Integration
 
 Please follow the steps in [unity3d-profile](https://github.com/soomla/unity3d-profile) for the _Profile_ part of the setup.
 Then, you can use the **profile-related _LevelUp_ classes**, such as `SocialLikeMission`.
 
-##Example Usages
+## Example Usages
 
 Examples using virtual items are dependent on unity3d-store module, with proper `SoomlaStore` initialization and `IStoreAssets` definitions. See the unity3d-store integration section above for more details.
 

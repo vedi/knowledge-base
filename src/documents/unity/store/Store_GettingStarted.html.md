@@ -10,13 +10,13 @@ module: 'store'
 platform: 'unity'
 ---
 
-#Getting Started
+# Getting Started
 
-##Integrate unity3d-store
+## Integrate unity3d-store
 
 1. First, you'll need to either download (RECOMMENDED) the unity3d-store pre-baked packages, or clone unity3d-store.
 
-  - RECOMMENDED: Download [soomla-unity3d-core](https://github.com/soomla/unity3d-store/blob/master/soomla-unity3d-core.unitypackage?raw=true) and [unity3d-store](https://github.com/soomla/unity3d-store/blob/master/soomla-unity3d-store.unitypackage)
+  - RECOMMENDED: Download [unity3d-store ADD ACTUAL LINK HERE](https://github.com/soomla/unity3d-store/blob/master/soomla-unity3d-store.unitypackage)
 
     OR, if you'd like to work with sources:
 
@@ -37,12 +37,12 @@ platform: 'unity'
   - **Soomla Secret** - This is an encryption secret you provide that will be used to secure your data. (If you used versions before v1.5.2 this secret MUST be the same as Custom Secret)
 
   - **Public Key** - If your billing service provider is Google Play, you'll need to insert the public key given to you from Google. (Learn more in step 4 [here](/android/store/Store_GooglePlayIAB)). **Choose both secrets wisely. You can't change them after you launch your game!**
-  
+
   - **Receipt Validation** - If your billing service provider supports Server Side Verification, you can turn on this option and provide needed data.
     Optionally, you can turn on `Verify On Server Failure` if you want to get purchases automatically verified in case of network failures during the verification process.
 
     > In order to get clientId, clientSecret and refreshToken for Google Play go over [Google Play Purchase Verification](/android/store/Store_GooglePlayVerification).
-  
+
     ![alt text](/img/tutorial_img/unity_getting_started/soomlaSettings.png "Soomla Settings")
 
 4. Create your own implementation of `IStoreAssets` in order to describe your game's specific assets.
@@ -65,7 +65,7 @@ platform: 'unity'
 
 That's it! You now have storage and in-app purchasing capabilities ALL-IN-ONE!
 
-###Unity & Android
+### Unity & Android
 
 **Starting IAB Service in background**
 
@@ -87,7 +87,7 @@ making purchases. You want the user experience to be fast and smooth and prevent
 latency and setup routines you could have done silently in the background.
 
 
-###Tips for running the app
+### Tips for running the app
 
 - In Build Settings, when switching between one platform to another, after clicking on "Switch platform" **WAIT** until the circular motion icon at the bottom right corner of the editor disappears! Only then, click on "Build". If you click on "Build" too early you will be likely to run into problems.
 
@@ -96,15 +96,15 @@ latency and setup routines you could have done silently in the background.
   ![alt text](/img/tutorial_img/unity_debugging/switchPlatform.png "Tip")
 
 
-##Example
+## Example
 
 Create your own implementation of `IStoreAssets`, and initialize `SoomlaStore`. See the article about [IStoreAssets](/unity/store/Store_IStoreAssets), which includes a code example and explanations.
 
-##In-app Billing
+## In-app Billing
 
 SOOMLA's unity3d-store knows how to contact Google Play, Amazon Appstore, or Apple App Store for you and will redirect your users to their purchasing system to complete the transaction.
 
-###Android
+### Android
 
 Define your economy in Google Play or Amazon Appstore.
 
@@ -113,7 +113,7 @@ See our tutorials:
 - [Google Play](/android/store/Store_GooglePlayIAB)
 - [Amazon Appstore](/android/store/Store_AmazonIAB)
 
-###iOS
+### iOS
 
 Define your economy in the App Store.
 
