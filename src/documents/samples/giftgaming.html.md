@@ -95,7 +95,7 @@ void OnGUI() {
 	}
 }
 
-
+// Determine if the player is a non-spender
 void OnSoomlaInsightsRefreshFinished (){
    if(SoomlaInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Action] == 0) {
        isPlayerNonSpender = true;
