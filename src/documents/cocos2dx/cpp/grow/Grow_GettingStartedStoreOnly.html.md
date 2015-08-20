@@ -58,7 +58,10 @@ Get started with SOOMLA's Grow. Go to the [GROW dashboard](http://dashboard.soom
 
     - *Test Purchases* - allows testing IAP on Google Play. (iOS doesn't have this functionality).
 
-    - *SSV* - enables server-side receipt verification. (Android doesn't have this functionality).
+	- *SSV* - enables _Fraud Protection_. (in order to activate it in Google Play see the related section below).
+	
+	- *verifyOnServerFailure* - if you use Fraud Protection, optionally you set this param, if you want to get purchases 
+	automatically verified in case of network failures during the verification process.
 
     <div class="warning-box">Choose the secret wisely. You can't change it after you launch your game!
   	Initialize `CCSoomlaStore` ONLY ONCE when your application loads.</div>
