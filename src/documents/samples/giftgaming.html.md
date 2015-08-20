@@ -24,7 +24,8 @@ theme: 'samples'
   <p>
   	Unlike competitors, giftgaming provides a better gaming experience by:
   	<ul>
-  	<li>Not asking players for credit card information, email address or phone number</li>
+  	<li>Not forcing players to watch video ads</li>
+  	<li>Not requiring credit card information, email address or phone number</li>
   	<li>Enabling developers to select the most appropriate brands for their games</li>
   	<li>Adapting to the look and feel of the game</li>
   	</ul>
