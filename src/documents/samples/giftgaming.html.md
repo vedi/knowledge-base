@@ -1,7 +1,7 @@
 ---
 layout: "sample"
 image: "giftgaming_logo"
-title: "giftgaming"
+title: "giftgaming®"
 text: "Give surprise in-game gifts containing currency and coupons"
 position: 9
 relates: ["supersonic", "unity_ads"]
