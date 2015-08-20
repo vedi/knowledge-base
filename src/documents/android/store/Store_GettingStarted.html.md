@@ -36,7 +36,7 @@ Before doing anything, SOOMLA recommends that you go through [Android In-app Bil
 
     ``` xml
     <application ...
-        android:name="com.soomla.store.SoomlaApp">
+        android:name="com.soomla.SoomlaApp">
     ```
 
 3. Initialize Soomla with a secret that you chose to encrypt the user data. (For those who came from older versions, this should be the same as the old "customSec"):
@@ -61,7 +61,7 @@ Before doing anything, SOOMLA recommends that you go through [Android In-app Bil
 
 And that's it! You have storage and in-app purchasing capabilities... ALL-IN-ONE.
 
-Refer to the next section for information on selecting your Billing Serviceprovider and setting it up.
+Refer to the next section for information on selecting your Billing Service provider and setting it up.
 
 ##Select a Billing Service
 
@@ -121,7 +121,7 @@ Once you complete the following steps, see the [Google Play IAB](/android/store/
   }
   ```
 
-5. In case you want to turn on purchase verification you need to get clientId, clientSecret and refreshToken as explained in [Google Play Purchase Verification](/android/store/Store_GooglePlayVerification) and use them like this:
+5. In case you want to turn on _Fraud Protection_ you need to get clientId, clientSecret and refreshToken as explained in [Google Play Purchase Verification](/android/store/Store_GooglePlayVerification) and use them like this:
 
   ``` java
       GooglePlayIabService.getInstance().configVerifyPurchases(new HashMap<String, Object>() {{
@@ -155,7 +155,7 @@ SoomlaStore.getInstance().stopIabServiceInBg();
 
 Once you complete the following steps, see the [Amazon IAB](/android/store/Store_AmazonIAB) tutorial for information about in-app-purchase setup, integration with SOOMLA, and how to define your in-app purchase items.
 
-1. Add `in-app-purchasing-1.0.3.jar` and `AndroidStoreAmazon.jar` from the folder `billing-services/amazon` to your project.
+1. Add `in-app-purchasing-2.0.1.jar` and `AndroidStoreAmazon.jar` from the folder `billing-services/amazon` to your project.
 
 2. Make the following changes in `AndroidManifest.xml`:
 

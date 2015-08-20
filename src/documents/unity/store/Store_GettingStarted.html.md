@@ -38,7 +38,7 @@ platform: 'unity'
 
   - **Public Key** - If your billing service provider is Google Play, you'll need to insert the public key given to you from Google. (Learn more in step 4 [here](/android/store/Store_GooglePlayIAB)). **Choose both secrets wisely. You can't change them after you launch your game!**
   
-  - **Receipt Validation** - If your billing service provider supports Server Side Verification, you can turn on this option and provide needed data.
+  - **Fraud Protection** - If your billing service provider supports Fraud Protection, you can turn on this option and provide needed data.
     Optionally, you can turn on `Verify On Server Failure` if you want to get purchases automatically verified in case of network failures during the verification process.
 
     > In order to get clientId, clientSecret and refreshToken for Google Play go over [Google Play Purchase Verification](/android/store/Store_GooglePlayVerification).

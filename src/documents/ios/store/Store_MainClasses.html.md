@@ -111,4 +111,4 @@ The configurations of your store will be kept in `StoreConfig`.
 
 - `METADATA_VERSION` - This value defines the version of the metadata located in your database. Never change the value of this variable!
 
-- `VERIFY_PURCHASES` - When set to `YES`, server side verification will be enabled.
+- `VERIFY_PURCHASES` - When set to `YES`, Fraud Protection will be enabled.

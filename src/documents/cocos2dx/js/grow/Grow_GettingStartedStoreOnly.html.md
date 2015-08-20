@@ -92,7 +92,7 @@ example, refer to the example below. For more details refer to the cocos2dx-stor
 
     - *Test Purchases* - allows testing IAP on Google Play. (iOS doesn't have this functionality).
 
-    - *SSV* - enables server-side receipt verification. (Android doesn't have this functionality).
+	- *SSV* - enables _Fraud Protection_. (in order to activate it in Google Play see the related section below).
 
     <div class="warning-box">Choose the secret wisely. You can't change it after you launch your game!
   	Initialize `SoomlaStore` ONLY ONCE when your application loads.</div>
