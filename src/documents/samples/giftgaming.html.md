@@ -117,21 +117,61 @@ public void giftClosed(string giftCode) {
      </pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-android">
+    <p>In your MainActivity, you'll want to setup SOOMLA and giftgaming like so:</p>
      <pre>
 ```
 import com.soomla.Soomla;
 import com.soomla.store.SoomlaStore;
 import com.soomla.store.StoreInventory;
 import com.soomla.store.exceptions.VirtualItemNotFoundException;
+import com.giftgaming.giftgamingandroid.Giftgaming;
 
-// giftCode is set from the giftgaming Dashboard and must correspond to your Soomla Store itemId
-public void giftClosed(string giftCode) {
-	try {
-		int AMOUNT = 1; // Amount of thing you want to gift
-		StoreInventory.GiveVirtualItem(giftCode, AMOUNT);
-	} catch(VirtualItemNotFoundException e) {
-    	// Currency not identified
+public class MainActivity extends ActionBarActivity {
+ 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+       // Initialize SOOMLA Store
+	   SoomlaStore.Initialize(new YourStoreAssetsImplementation());
+    
+       // Use regular Giftgaming() if you want to use sample API key
+       Giftgaming gg = new Giftgaming("-- MY API KEY --");
+ 
+       // Enable if you want to see example giftgaming Vault Button
+       gg.autoDrawMode = false;
+ 
+       // Pass in current activity and top level UI container
+       gg.setMainActivity(this, R.id.mainContainer);
+ 
+       // Pass in our own callbacks in just one function
+       gg.setGiftCallbacks(new MyGameGifts());
     }
+}
+```
+	</pre>
+	<p>Then in your <code>MyGameGifts</code> class call Soomla's <code>StoreInventory.GiveVirtualItem</code> in your <code>giftClosed</code> function:</p>
+	<pre>
+```
+import com.soomla.store.StoreInventory;
+import com.giftgaming.giftgamingandroid.GiftgamingGifts;
+import com.giftgaming.giftgamingandroid.Giftgaming;
+ 
+public class MyGameGifts implements GiftgamingGifts {
+ 
+    public MyGameGifts() {
+    }
+    
+    ...
+    
+	// The giftCode is set from giftgaming Dashboard
+	// Must correspond to your Soomla Store itemId
+	public void giftClosed(string giftCode) {
+		try {
+			int AMOUNT = 1; // Amount of thing you want to gift
+			StoreInventory.GiveVirtualItem(giftCode, AMOUNT);
+		} catch(VirtualItemNotFoundException e) {
+			// Currency not identified
+		}
+	}
 }
 ```
      </pre>
