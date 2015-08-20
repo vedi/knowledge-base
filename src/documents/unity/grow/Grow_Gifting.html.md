@@ -220,3 +220,7 @@ The associated virtual item ID to give as a part of the gifting process.
 **`ItemsAmount`**
 
 The amount of the associated virtual item that should be given as a part of the gifting process.
+
+## example
+
+Coming soon

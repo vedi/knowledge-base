@@ -115,3 +115,7 @@ A Map of worlds having levels completed in them by the user. It maps between the
 **`Records`**
 
 A Map of records made by the user. It maps between score ID and the highest record done by the user.
+
+## example
+
+Coming soon

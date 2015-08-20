@@ -35,7 +35,7 @@ With SYNC you can:
 
 * If PROFILE is integrated, once the player logs into a social network the game state will be synched across all of the player's devices, on which he/she is logged in with the same profile for that social provider.
 
-<div class="warning-box">Make sure to start gameplay or change local state only **after** `OnStateSyncFinished` event is triggered. </div>
+<div class="warning-box">Make sure to start gameplay or change local state only **after** [`OnStateSyncFinished`](/unity/grow/Grow_Sync#OnStateSyncFinished) event is triggered. </div>
 
 ## Events
 
@@ -103,8 +103,6 @@ public void onStateSyncStarted() {
 }
 ```
 
-<div class="info-box">`OnStateSyncFinished` event may be triggered not only when the game starts, but on other occasions as well. A sync process will start also after user login to a social network, or if the game goes back to foreground after being in the background for a while.</div>
-
 ### OnStateSyncFinished
 
 This event is triggered when metadata sync has finished.
@@ -117,6 +115,8 @@ public void onStateSyncFinished(IList<string> changedComponents, IList<string> f
 // ... your game specific implementation here ...
 }
 ```
+
+<div class="info-box">`OnStateSyncFinished` event may be triggered not only when the game starts, but on other occasions as well. A sync process will start also after user login to a social network, or if the game goes back to foreground after being in the background for a while.</div>
 
 ### OnStateSyncFailed
 
@@ -148,3 +148,7 @@ Params:
 
 - metaDataSync - should GROW Sync synchronize meta-data for integrated modules.
 - stateSync - should GROW Sync synchronize state for integrated modules.
+
+## example
+
+Coming soon
