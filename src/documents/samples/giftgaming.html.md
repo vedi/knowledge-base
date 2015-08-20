@@ -144,4 +144,6 @@ public void giftClosed(string giftCode) {
 
 1. <a href="http://dashboard.giftgaming.com">Get a giftgaming&reg; Account</a> to receive direct support.
 
-2. Use a unique gift icon for giftgaming so as to not confuse your players.
+2. Make periodic gifts a part of your game as <a href="http://www.ccsenet.org/journal/index.php/ijms/article/download/11547/8155">studies</a> show surprise gifts improve loyalty, spending and recommendations.
+
+3. Use a unique gift icon for giftgaming so as to not confuse your players.
