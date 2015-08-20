@@ -29,12 +29,6 @@ theme: 'samples'
   	<li>Adapting to the look and feel of the game</li>
   	</ul>
   </p>
- 
-  <div class="samples-title">Tap into the world's largest affiliate networks</div>
-  <p>
-  	giftgaming has affiliate programmes with brands that gamers love, such as Jelly Belly, Mattel, Loot Crate, Green Man Gaming, Scholastic, Zavvi, Netshoes and many more.
- 	<a href="https://www.giftgaming.com/publishers">Find out more</a>.
-  </p>
 </div>
 
 <div class="samples-title">Getting started with giftgaming + SOOMLA</div>
