@@ -55,18 +55,24 @@ theme: 'samples'
 ```
 using Soomla;
 using Soomla.Store;
+using Soomla.Highway;
+using Soomla.Insights;
 using giftgamingSDK;
 
 public Texture2D sampleGiftIcon;
+bool isPlayerNonSpender = false;
 
 void Start(){
-	// Register callback functions
-	giftgaming.setGiftClosedCallback(giftClosed);
+	// Register callback for Soomla Insights
+	HighwayEvents.OnInsightsRefreshFinished += OnSoomlaInsightsRefreshFinished;
 
-    // Initialize SOOMLA Store with your Store Assets
+    // Initialize SOOMLA Store, Highway and Insights
     SoomlaStore.Initialize(new YourStoreAssetsImplementation());
-    
+    SoomlaHighway.Initialize();
+    SoomlaInsights.Initialize();
+
     // Start Gift Service AFTER callbacks have been registered
+	giftgaming.setGiftClosedCallback(giftClosed);
 	giftgaming.startGiftService();
 }
 
@@ -87,11 +93,23 @@ void OnGUI() {
 	}
 }
 
-// giftCode is set from the giftgaming Dashboard
-// and must correspond to your Soomla Store itemId
+
+void OnSoomlaInsightsRefreshFinished (){
+   if(SoomlaInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Action] == 0) {
+       isPlayerNonSpender = true;
+   }
+}
+
+// The giftCode is set from giftgaming Dashboard
+// Must correspond to your Soomla Store itemId
 public void giftClosed(string giftCode) {
 	int AMOUNT = 1; // Amount of thing you want to gift
 	StoreInventory.GiveItem(giftCode, AMOUNT);
+	
+	// If player is non-spender then set gift timing to be 5-30 seconds
+	if(isPlayerNonSpender) {
+		giftgaming.overrideTimeBetweenGifts(5, 30);
+	}
 }
 ```
      </pre>
