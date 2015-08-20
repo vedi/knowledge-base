@@ -13,7 +13,7 @@ platform: 'cocos2dx'
 
 #Getting Started
 
-##Getting Started
+##General Instructions
 
 *If you want to develop with sources, refer to the "Working with Sources" section below.*
 
@@ -153,31 +153,6 @@ In your XCode project, perform the following steps:
     </application>
     ```
 
-
-##**Working with sources**
-
-To integrate cocos2dx-store into your game, follow these steps.
-
-1. **Recursively** clone cocos2dx-core and cocos2dx-store.
-
-    ```
-    $ git clone --recursive git@github.com:soomla/soomla-cocos2dx-core.git extensions/soomla-cocos2dx-core
-
-    $ git clone --recursive git@github.com:soomla/cocos2dx-store.git extensions/cocos2dx-store
-    ```
-
-	**OR:** If you have already cloned the repositories, to obtain the submodules, run this command in each repository:
-
-    ```
-    $ git submodule update --init --recursive
-    ```
-
-2. **For iOS:** Use sourced versions of Linked projects (`extensions/soomla-cocos2dx-core/development/Cocos2dxCoreFromSources.xcodeproj`, `extensions/cocos2dx-store/development/Cocos2dxStoreFromSources.xcodeproj`)
-
-3. **For Android:** You can use our "sourced" modules for Android Studio (or IntelliJ IDEA) (`extensions/soomla-cocos2dx-core/development/Cocos2dxCoreFromSources.iml`, `extensions/cocos2dx-store/development/Cocos2dxStoreFromSources.iml`), just include them in your project.
-
-
-
 ##**Select a Billing Service**
 
 SOOMLA's cocos2dx-store knows how to contact Google Play, Amazon Appstore, or Apple App Store for you and will redirect your users to their purchasing system to complete the transaction.
@@ -295,3 +270,26 @@ bool AppDelegate::applicationDidFinishLaunching() {
 ```
 
 And that's it! cocos2dx-store knows how to contact Google Play or the App Store for you and will redirect your users to the purchasing system to complete the transaction. Don't forget to subscribe to store events in order to get notified of successful or failed purchases - See [Event Handling](/cocos2dx/cpp/store/Store_Events).
+
+##**Working with sources**
+
+To integrate cocos2dx-store into your game, follow these steps.
+
+1. **Recursively** clone cocos2dx-core and cocos2dx-store.
+
+    ```
+    $ git clone --recursive git@github.com:soomla/soomla-cocos2dx-core.git extensions/soomla-cocos2dx-core
+
+    $ git clone --recursive git@github.com:soomla/cocos2dx-store.git extensions/cocos2dx-store
+    ```
+
+	**OR:** If you have already cloned the repositories, to obtain the submodules, run this command in each repository:
+
+    ```
+    $ git submodule update --init --recursive
+    ```
+
+2. **For iOS:** Use sourced versions of Linked projects (`extensions/soomla-cocos2dx-core/development/Cocos2dxCoreFromSources.xcodeproj`, `extensions/cocos2dx-store/development/Cocos2dxStoreFromSources.xcodeproj`)
+
+3. **For Android:** You can use our "sourced" modules for Android Studio (or IntelliJ IDEA) (`extensions/soomla-cocos2dx-core/development/Cocos2dxCoreFromSources.iml`, `extensions/cocos2dx-store/development/Cocos2dxStoreFromSources.iml`), just include them in your project.
+
