@@ -91,12 +91,12 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 		// Make sure to make this call AFTER initializing HIGHWAY,
 		// and BEFORE initializing STORE/PROFILE/LEVELUP
 		bool economySync = true; // Remote Economy Management - Synchronizes your game's
-                               // economy between the client and server - enables
-                                // you to remotely manage your economy.
+                                 // economy between the client and server - enables
+                                 // you to remotely manage your economy.
 
 		bool stateSync = true; // Synchronizes the users' balances data with the server
-                                // and across his other devices.
-								// Make sure you set this to TRUE in order to use LEADERBOARDS.
+                               // and across his other devices.
+							   // Must be TRUE in order to use LEADERBOARDS.
 
 		// State sync and Economy sync can be enabled/disabled separately.
 		SoomlaSync.Initialize(economySync, stateSync);
