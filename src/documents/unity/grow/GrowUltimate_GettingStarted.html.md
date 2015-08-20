@@ -65,49 +65,45 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	- Check the "Receipt Validation" option under the relevant platform (Android - Google Play / iOS).
 
-	- (Google Play only) Follow the instructions posted [here](/http://know.soom.la/android/store/store_googleplayverification/) to fill in the relevant fields.
+	- (Google Play only) Follow the instructions posted [here](/android/store/store_googleplayverification/) to fill in the relevant fields.
 
 * Initialize modules:
 
 	<div class="info-box">Make sure to initialize each module ONLY ONCE when your application loads, in the `Start()` function of a `MonoBehaviour` and **NOT** in the `Awake()` function. SOOMLA has its own `MonoBehaviour` and it needs to be "Awakened" before you initialize.</div>
 
-	* Initialize HIGHWAY:
+	* Initialize HIGHWAY, INSIGHTS, SYNC and GIFTING:
 
 		``` cs
 		using Soomla.Highway;
+		using Soomla.Insights;
+		using Soomla.Sync;
+		using Soomla.Gifting;
+		using Soomla.Query;
 
 		// Make sure to make this call in your earlieast loading scene,
 		// and before initializing any other SOOMLA components
 		// i.e. before SoomlaStore.Initialize(...)
 		SoomlaHighway.Initialize();
-		```
 
-	* Initialize [INSIGHTS](/unity/grow/Grow_Insights):
-
-		``` cs
 		// Make sure to make this call AFTER initializing HIGHWAY
 	    SoomlaInsights.Initialize();
-	    ```
 
-	* Initialize [SYNC and Remote Economy Management](/unity/grow/Grow_Sync):
-
-		``` cs
 		// Make sure to make this call AFTER initializing HIGHWAY,
 		// and BEFORE initializing STORE/PROFILE/LEVELUP
-		bool economySync = true;
-		bool stateSync = true;
+		bool economySync = true; // Remote Economy Management - Synchronizes your game's
+                               // economy between the client and server - enables
+                                // you to remotely manage your economy.
+
+		bool stateSync = true; // Synchronizes the users' balances data with the server
+                                // and across his other devices.
+								// Make sure you set this to TRUE in order to use LEADERBOARDS.
+
+		// State sync and Economy sync can be enabled/disabled separately.
 		SoomlaSync.Initialize(economySync, stateSync);
-		```
 
-		Soomla SYNC is divided into 2 parts, which can be enabled/disabled separately.
+		// LEADERBOARDS requires no initialization,
+		// but it depends on SYNC initialization with stateSync=true
 
-		- Economy SYNC (Remote Economy Management): Synchronizes your game's economy between the client and server - enables you to remotely manage your economy.
-
-		- State SYNC: This synchronizes the users' balances data with the server, and across his other devices.
-
-	* Initialize [GIFTING](/unity/grow/Grow_Gifting):
-
-		``` cs
 		// Make sure to make this call AFTER initializing SYNC,
 		// and BEFORE initializing STORE/PROFILE/LEVELUP
 		SoomlaGifting.Initialize();
@@ -115,13 +111,13 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	* Initialize the rest of the modules: STORE, PROFILE & LEVELUP (**AFTER** the initialization of HIGHWAY, SYNC and GIFTING).
 
-		a. **Initialize STORE:** Create your own implementation of `IStoreAssets` in order to describe your specific game's assets ([example](https://github.com/soomla/unity3d-store/blob/master/Soomla/Assets/Examples/MuffinRush/MuffinRushAssets.cs)). Initialize SoomlaStore with the class you just created:
+		* **Initialize STORE:** Create your own implementation of `IStoreAssets` in order to describe your specific game's assets ([example](https://github.com/soomla/unity3d-store/blob/master/Soomla/Assets/Examples/MuffinRush/MuffinRushAssets.cs)). Initialize SoomlaStore with the class you just created:
 
 		``` cs
 		SoomlaStore.Initialize(new YourStoreAssetsImplementation());
 		```
 
-		b. **Initialize PROFILE:**
+		* **Initialize PROFILE:**
 
 	    **NOTE:** SoomlaProfile will initialize the social providers for you. Do NOT initialize them on your own (for example, don't call `FB.Init()`).
 
@@ -129,26 +125,29 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 		SoomlaProfile.Initialize();
 		```
 
-		c. **Initialize LEVELUP:** Create your own _Initial World_ which should contain the entire 'blueprint' of the game (see [Model Overview](/unity/levelup/Levelup_Model)). Initialize _LevelUp_ with the world you just created:
+		* **Initialize LEVELUP:** Create your own _Initial World_ which should contain the entire 'blueprint' of the game (see [Model Overview](/unity/levelup/Levelup_Model)). Initialize _LevelUp_ with the world you just created:
 
-		  ``` cs
-		  SoomlaLevelUp.Initialize(initialWorld);
-		  ```
+		``` cs
+		SoomlaLevelUp.Initialize(initialWorld);
+		```
 
-* You'll need to create event handler functions in order to be notified about (and handle) SOOMLA-related events. Refer to the following sections for more information:
-	- [STORE Event Handling](/unity/store/Store_Events)
-	- [PROFILE Event Handling](/unity/profile/Profile_Events)
-	- [LEVELUP Event Handling](/unity/levelup/Levelup_Events)
-	- [INSIGHTS Event Handling](/unity/grow/Grow_Insights#Events)
-	- [SYNC Event Handling](/unity/grow/Grow_Sync#Events)
-	- [LEADERBOARDS Event Handling](/unity/grow/Grow_Leaderboards#Events)
-	- [GIFTING Event Handling](/unity/grow/Grow_Gifting#Events)
+## Module usage & event handling
 
-* Once your app is running, you can go back to the [GROW dashboard](http://dashboard.soom.la) to verify the integration. Just refresh the page, and the environments tab should appear (be patient, this step can take a few minutes).
+The next step is to create your game specific implementation for each of the modules. In order to be notified about (and handle) SOOMLA-related events, you will also need to create event handler functions. Refer to the following sections for more information:
 
-	![alt text](/img/tutorial_img/unity_grow/verifyIntegration.png "Verify Integration")
+- **STORE** [API](/unity/store/Store_Model), [Main classes](/unity/store/Store_MainClasses) & [Events](/unity/store/Store_Events)
 
-And that's it! You have in-app purchasing, social engagement, and game architecture capabilities at your fingertips.
+- **PROFILE** [API](/unity/profile/Profile_MainClasses) & [Events](/unity/profile/Profile_Events)
+
+- **LEVELUP** [API](/unity/levelup/Levelup_Model) & [Events](/unity/levelup/Levelup_Events)
+
+- **INSIGHTS** [API](/unity/grow/Grow_Insights#MainClasses&Methods) & [Events](/unity/grow/Grow_Insights#Events)
+
+- **SYNC** [Events](/unity/grow/Grow_Sync#Events)
+
+- **LEADERBOARDS** [API](/unity/grow/Grow_Leaderboards) & [Events](/unity/grow/Grow_Leaderboards#Events)
+
+- **GIFTING** [API](/unity/grow/Grow_Gifting) & [Events](/unity/grow/Grow_Gifting#Events)
 
 ## Example
 
@@ -213,6 +212,10 @@ using Soomla.Store;
 using Soomla.Profile;
 using Soomla.Levelup;
 using Soomla.Highway;
+using Soomla.Insights;
+using Soomla.Sync;
+using Soomla.Gifting;
+using Soomla.Query;
 ...
 
 
@@ -267,6 +270,14 @@ public class ExampleWindow : MonoBehaviour {
 	public void onLevelStarted(Level level) {
 		SoomlaUtils.LogDebug("TAG", "Level started: " + level.toJSONObject().print());
 	}
+	public void onSoomlaInsightsInitialized () {
+    	Debug.Log("Soomla insights has been initialized.");
+	}
+	public void onSoomlaInsightsRefreshFinished (){
+	    if (SoomlaInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Educational] > 3) {
+	        // ... Do stuff according to your business plan ...
+	    }
+	}
 
 
 	//
@@ -275,15 +286,45 @@ public class ExampleWindow : MonoBehaviour {
 	void Start () {
 		...
 
-		// Setup event handlers
+		// Setup event handlers - Make sure to set the event handlers before you initialize
 		StoreEvents.OnGoodBalanceChanged += onGoodBalanceChanged;
 		ProfileEvents.OnLoginFinished += onLoginFinished;
 		LevelUpEvents.OnLevelStarted += onLevelStarted;
 
-		SoomlaHighway.Initialize ();
+	    HighwayEvents.OnInsightsInitialized += onSoomlaInsightsInitialized;
+    	HighwayEvents.OnInsightsRefreshFinished += onSoomlaInsightsRefreshFinished;
+
+		//TODO add gifting Events
+		//TODO add query events
+
+		// Make sure to make this call in your earlieast loading scene,
+		// and before initializing any other SOOMLA components
+		// i.e. before SoomlaStore.Initialize(...)
+		SoomlaHighway.Initialize();
+
+		// Make sure to make this call AFTER initializing HIGHWAY
+	    SoomlaInsights.Initialize();
+
+		// Make sure to make this call AFTER initializing HIGHWAY,
+		// and BEFORE initializing STORE/PROFILE/LEVELUP
+		bool economySync = true; // Remote Economy Management - Synchronizes your game's
+                               // economy between the client and server - enables
+                                // you to remotely manage your economy.
+
+		bool stateSync = true; // Synchronizes the users' balances data with the server
+                                // and across his other devices.
+
+		// State sync and Economy sync can be enabled/disabled separately.
+		SoomlaSync.Initialize(economySync, stateSync);
+
+		// Make sure to make this call AFTER initializing SYNC,
+		// and BEFORE initializing STORE/PROFILE/LEVELUP
+		SoomlaGifting.Initialize();
+
 		SoomlaStore.Initialize(new ExampleAssets());
 		SoomlaProfile.Initialize();
 		SoomlaLevelup.Initialize(createMainWorld());
+
 	}
 }
 ```
