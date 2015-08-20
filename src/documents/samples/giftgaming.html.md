@@ -37,7 +37,7 @@ theme: 'samples'
 
 2. Integrate SOOMLA Store. See <a href="/unity/store/store_gettingstarted/" target="_blank">Full instructions</a>.
 
-3. In your callbacks script, replace the <code>giftClosed</code> callback:
+3. In your <code>giftClosed</code> callback call Soomla's <code>StoreInventory.GiveItem</code>
 
 <div>
   <!-- Nav tabs -->
