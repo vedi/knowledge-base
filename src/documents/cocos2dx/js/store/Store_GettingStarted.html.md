@@ -92,9 +92,9 @@ supported by SOOMLA's cocos2dx-store (the tag is the version).</div>
 
 	- *Test Purchases* - allows testing IAP on Google Play. (iOS doesn't have this functionality).
 
-	- *SSV* - enables server-side receipt verification. (in order to activate it in Google Play see the related section below).
+	- *SSV* - enables _Fraud Protection_. (in order to activate it in Google Play see the related section below).
 	
-	- *verifyOnServerFailure* - if you use server-side receipt verification, optionally you set this param,
+	- *verifyOnServerFailure* - if you use Fraud Protection, optionally you set this param,
 	if you want to get purchases automatically verified in case of network failures during the verification process.
 
 	<div class="warning-box">Choose the secret wisely. You can't change it after you launch your game!
@@ -268,7 +268,7 @@ SOOMLA's cocos2dx-store knows how to contact Google Play, Amazon Appstore, or Ap
 
     <div class="info-box">Don't forget to close the Iab Service when your store is closed.</div>
 
-5. In case you want to turn on purchase verification you need to get clientId, clientSecret and refreshToken as explained in [Google Play Purchase Verification](/android/store/Store_GooglePlayVerification) and use them like this:
+5. In case you want to turn on Fraud Protection you need to get clientId, clientSecret and refreshToken as explained in [Google Play Purchase Verification](/android/store/Store_GooglePlayVerification) and use them like this:
 
 	``` js
 		storeParams.clientId = <YOU_CLIENT_ID>;
@@ -298,11 +298,14 @@ SOOMLA's cocos2dx-store knows how to contact Google Play, Amazon Appstore, or Ap
 
 1. Read our [tutorial](/ios/store/Store_AppStoreIAB) on how to define your in-app products in the App Store.
 
-2. Use SOOMLA's iOS Server Side Verification **(Optional)**
+2. Use SOOMLA's Fraud Protection **(Optional)**
 
-	As you probably know, fraud on IAP is pretty common. Hackers can crack their smartphones to think that a purchase was made when the payment isn't actually transferred to you. To help game developers with this issue, we created a verification server that you can use instantly through the framework.
+	As you probably know, fraud on IAP is pretty common. Hackers can crack their smartphones to think that a purchase 
+	was made when the payment isn't actually transferred to you. To help game developers with this issue, we created 
+	a verification server that you can use instantly through the framework.
 
-	All you need to do is let cocos2dx-store know that you want to verify purchases. You can do this by passing an extra parameter to `Soomla.soomlaStore`:
+	All you need to do is let cocos2dx-store know that you want to verify purchases. You can do this by passing an extra 
+	parameter to `Soomla.soomlaStore`:
 
 	```js
     storeParams.SSV = true;
