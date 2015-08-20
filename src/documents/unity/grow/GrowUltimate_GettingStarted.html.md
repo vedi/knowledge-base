@@ -10,25 +10,38 @@ module: 'grow'
 platform: 'unity'
 ---
 
-# GrowUltimate
+# GrowUltimate - Bundle
 
 ## Overview
 
-GrowUltimate is a part of SoomlaGrow, which is our flagship community-driven analytics dashboard. Developers using GROW can gain valuable insights about their games' performance and compare the data to benchmarks of other games in the GROW community. [Read more...](/unity/grow/Grow_About)
+GrowUltimate is the most fully featuredof all bundles that connects you to GROW, SOOMLA's flagship, community-driven ,data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/unity/grow/Grow_About)
 
-**Note:** GrowUltimate uses all of SOOMLA's open source modules: STORE, PROFILE, LEVELUP. This document describes how to incorporate these modules as part of the setup. You may choose to use only specific modules, however, to benefit from the full power of GrowUltimate we recommend that you integrate STORE, PROFILE and LEVELUP.
+GrowUltimate includes:
 
-The HIGHWAY module is responsible for connecting your game to the GROW network, and includes features such as [SYNC](/unity/grow/Grow_Sync), [INSIGHTS](/unity/grow/Grow_Insights), [GIFTING](/unity/grow/Grow_Gifting) and [LEADERBOARDS](/unity/grow/Grow_Leaderboards).
+- All SOOMLA's open-source modules - Store, Profile and LevelUp
+- [Sync](/unity/grow/Grow_Sync)
+- [Gifting](/unity/grow/Grow_Gifting)
+- [IAP Fraud Protection]() **<-- @boris... put link here**
+- [Social Leaderboards](/unity/grow/Grow_Leaderboards)
+- [Analytics]() **<-- @boris... put link here**
 
-## Setup GrowUltimate
+**Note:** GrowUltimate uses all of SOOMLA's open source modules: Store, Profile and LevelUp. This document describes how to incorporate these modules as part of the setup. You may choose to use only specific modules, however, to benefit from the full power of GROW's products we recommend that you integrate all 3 modules.
 
-Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon logging in, you will be directed to the main page of the dashboard. On the left side panel, you can click on "Demo Game" in order to know what to expect once you start using GROW.
+Whenever you see GrowHighway below, just know that it's the module responsible for connecting your game to the GROW network. You'll just need to initialize it below and that's it.
+**<@boris ... consider removing this last paragraph about GrowHighway and move it to where you actually ask the user to initialize GrowHighway>**
+**<@boris ... we also need to actually change the call name from SoomlaHighway (and other classes as well)>**
 
-1. Click on the right pointing arrow next to "Demo Game" > "Add New App" and fill in the required fields.
+## Integrating GrowUltimate
+
+Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon logging in, you will be directed to the main page of the dashboard. You will need to create a new game in order to start your jurney with GROW.
+
+1. Click on the "+" button to add a new game. If it's your first time in the dashboard, you can just click the "Create your first game" button in the middle of the screen.
+  
+**<@boris replace image with an image from the new dashboard>**
 
 	  ![alt text](/img/tutorial_img/unity_grow/addNewApp.png "Add new app")
 
-* Go to the "Download" window on the left side-panel, or click [here](http://dashboard.soom.la/downloads), and choose "Unity". Download the **GROW Spend**.
+* Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You can also click "Downloads" on the top right corner of the screen). Click on **GrowUltimate**. You'll see an instructions screen, you can continue with that or stay here for the extended version.
 
 * Double-click on the downloaded Unity package, it'll import all the necessary files into your Unity project.
 
@@ -39,6 +52,8 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 	![alt text](/img/tutorial_img/unity_grow/prefabsUltimate.png "Prefabs")
 
 * In the menu bar go to **Window > Soomla > Edit Settings**:
+
+**<@boris I think this image is outdated>**
 
 	![alt text](/img/tutorial_img/unity_grow/soomlaSettingsAll.png "SOOMLA Settings")
 
