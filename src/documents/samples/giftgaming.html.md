@@ -54,6 +54,7 @@ theme: 'samples'
     
      <pre>
 ```
+using UnityEngine;
 using Soomla;
 using Soomla.Store;
 using Soomla.Highway;
