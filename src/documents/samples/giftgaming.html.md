@@ -55,8 +55,40 @@ theme: 'samples'
 ```
 using Soomla;
 using Soomla.Store;
+using giftgamingSDK;
 
-// giftCode is set from the giftgaming Dashboard and must correspond to your Soomla Store itemId
+public Texture2D sampleGiftIcon;
+
+void Start(){
+	// Register callback functions
+	giftgaming.setGiftClosedCallback(giftClosed);
+
+    // Initialize SOOMLA Store with your Store Assets
+    SoomlaStore.Initialize(new YourStoreAssetsImplementation());
+    
+    // Start Gift Service AFTER callbacks have been registered
+	giftgaming.startGiftService();
+}
+
+void OnGUI() {
+	// Example button for players to access their coupons
+	if(GUILayout.Button ("giftgaming® Vault")) {
+		giftgaming.openVault();
+	}
+	
+	// Example gift icon when gift is ready
+	if(giftgaming.isGiftReady()) {
+		Rect sampleGiftIconRect = 
+			new Rect(Screen.width - 100, Screen.height - 100, 100, 100);
+
+		if( GUI.Button(sampleGiftIconRect, sampleGiftIcon) ) {
+			giftgaming.openReceivedGift();
+		}
+	}
+}
+
+// giftCode is set from the giftgaming Dashboard
+// and must correspond to your Soomla Store itemId
 public void giftClosed(string giftCode) {
 	int AMOUNT = 1; // Amount of thing you want to gift
 	StoreInventory.GiveItem(giftCode, AMOUNT);
