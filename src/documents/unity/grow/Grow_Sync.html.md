@@ -1,8 +1,8 @@
 ---
 layout: "content"
 image: "Tutorial"
-title: "Sync"
-text: "Get started with GROW Sync for Unity. Here you can find initialization instructions, event handling and usage examples."
+title: "State & Economy Sync"
+text: "Get started with GROW State & Economy Sync for Unity. Here you can find initialization instructions, event handling and usage examples."
 position: 5
 theme: 'platforms'
 collection: 'unity_grow'
@@ -10,12 +10,12 @@ module: 'grow'
 platform: 'unity'
 ---
 
-# Sync
+# State & Economy Sync
 
 ## Overview
 
-GROW Sync brings you a complete solution for saving your game state in the cloud, cross device synching and remote economy (metadata) management.
-With SYNC you can:
+GROW's State & Economy Sync brings you a complete solution for saving your game state in the cloud, cross device synching and remote economy (metadata) management.
+With State & Economy Sync you can:
 
 - Save game progress & virtual items on the server.
 - Restore the state upon uninstalling and reinstalling the game.
@@ -24,16 +24,16 @@ With SYNC you can:
 
 ## Integration
 
-<div class="info-box">GROW Sync is included in [GrowSpend](/unity/grow/GrowSpend_GettingStarted#SetupGrowSpend), [GrowCompete](/unity/grow/GrowCompete_GettingStarted#SetupGrowCompete) and [GrowUltimate](/unity/grow/GrowUltimate_GettingStarted#SetupGrowUltimate) bundles. Please refer to the relevant bundle for initialization instructions.</div>
+<div class="info-box">GROW's State & Economy Sync is included in [GrowSpend](/unity/grow/GrowSpend_GettingStarted#SetupGrowSpend), [GrowCompete](/unity/grow/GrowCompete_GettingStarted#SetupGrowCompete) and [GrowUltimate](/unity/grow/GrowUltimate_GettingStarted#SetupGrowUltimate) bundles. Please refer to the relevant bundle for initialization instructions.</div>
 
 
-1. Initialize `SoomlaSync` according to the instructions of your relevant bundle.
+1. Initialize `GrowSync` according to the instructions of your relevant bundle.
 
 * Create event handler functions in order to be notified about (and handle) GROW Sync related events. See [Events](/unity/grow/Grow_Sync/#Events) for more information.
 
-* Once initialized, GROW Sync will start syncing the player's state and game meta-data, depending on the integrated modules. Synchronization is done with a unique identifier for every device.
+* Once initialized, Sync will start syncing the player's state and game meta-data, depending on the integrated modules. Synchronization is done with a unique identifier for every device.
 
-* If PROFILE is integrated, once the player logs into a social network the game state will be synched across all of the player's devices, on which he/she is logged in with the same profile for that social provider.
+* If [Profile]() is integrated, once the player logs into a social network the game state will be synched across all of the player's devices, on which he/she is logged in with the same profile for that social provider.
 
 <div class="warning-box">Make sure to start gameplay or change local state only **after** [`OnStateSyncFinished`](/unity/grow/Grow_Sync#OnStateSyncFinished) event is triggered. </div>
 
@@ -41,52 +41,52 @@ With SYNC you can:
 
 Following is a list of all the events in GROW Sync and an example of how to observe & handle them.
 
-### OnSoomlaSyncInitialized
+### OnGrowSyncInitialized
 
 This event is triggered when the GROW Sync feature is initialized and ready.
 
 ``` cs
-HighwayEvents.OnSoomlaSyncInitialized += onSoomlaSyncInitialized;
+HighwayEvents.OnGrowSyncInitialized += onGrowSyncInitialized;
 
-public void onSoomlaSyncInitialized() {
+public void onGrowSyncInitialized() {
 // ... your game specific implementation here ...
 }
 ```
 
-### OnMetaDataSyncStarted
+### OnEconomySyncStarted
 
-This event is triggered when metadata sync has started.
+This event is triggered when economy sync has started.
 
 ``` cs
-HighwayEvents.OnMetaDataSyncStarted += onMetaDataSyncStarted;
+HighwayEvents.OnEconomySyncStarted += onEconomySyncStarted;
 
-public void onMetaDataSyncStarted() {
+public void onEconomySyncStarted() {
 // ... your game specific implementation here ...
 }
 ```
 
-### OnMetaDataSyncFinished
+### OnEconomySyncFinished
 
-This event is triggered when metadata sync has finished.
+This event is triggered when economy sync has finished.
 Provides a list of modules which were synced.
 
 ``` cs
-HighwayEvents.OnMetaDataSyncFinished += onMetaDataSyncFinished;
+HighwayEvents.OnEconomySyncFinished += onEconomySyncFinished;
 
-public void onMetaDataSyncFinished(IList<string> modules) {
+public void onEconomySyncFinished(IList<string> modules) {
 // ... your game specific implementation here ...
 }
 ```
 
-### OnMetaDataSyncFailed
+### OnEconomySyncFailed
 
-This event is triggered when metadata sync has failed.
+This event is triggered when economy sync has failed.
 Provides the error code and reason of the failure.
 
 ``` cs
-HighwayEvents.OnMetaDataSyncFailed += onMetaDataSyncFailed;
+HighwayEvents.OnEconomySyncFailed += onEconomySyncFailed;
 
-public void onMetaDataSyncFailed(MetaDataSyncErrorCode errorCode, string failReason) {
+public void onEconomySyncFailed(MetaDataSyncErrorCode errorCode, string failReason) {
 // ... your game specific implementation here ...
 }
 ```
@@ -135,18 +135,18 @@ public void onStateSyncFailed(StateSyncErrorCode errorCode, string failReason) {
 
 Here you can find descriptions of the main classes of GROW Sync.
 
-### SoomlaSync
+### GrowSync
 
-`SoomlaGifting` sepresents a class which is in charge of syncing meta-data and state between the client and the server.
+`GrowSync` sepresents a class which is in charge of syncing meta-data and state between the client and the server.
 
 #### Functions
 
-**`Initialize(metaDataSync, stateSync)`**
+**`Initialize(economySync, stateSync)`**
 
-Initializes the GROW Sync feature. Once initialized, the `OnSoomlaSyncInitialized` event is triggered.
+Initializes the GROW Sync feature. Once initialized, the `OnGrowSyncInitialized` event is triggered.
 Params:
 
-- metaDataSync - should GROW Sync synchronize meta-data for integrated modules.
+- economySync - should GROW Sync synchronize meta-data for integrated modules.
 - stateSync - should GROW Sync synchronize state for integrated modules.
 
 ## example

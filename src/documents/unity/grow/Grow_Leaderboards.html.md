@@ -1,8 +1,8 @@
 ---
 layout: "content"
 image: "Tutorial"
-title: "Leaderboards"
-text: "Get started with GROW Leaderboards for Unity. Here you can find initialization instructions, event handling and usage examples."
+title: "Social Leaderboards"
+text: "Get started with GROW Social Leaderboards for Unity. Here you can find initialization instructions, event handling and usage examples."
 position: 6
 theme: 'platforms'
 collection: 'unity_grow'
