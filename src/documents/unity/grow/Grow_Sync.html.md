@@ -53,40 +53,40 @@ public void onGrowSyncInitialized() {
 }
 ```
 
-### OnEconomySyncStarted
+### OnMetadataSyncStarted
 
-This event is triggered when economy sync has started.
+This event is triggered when metadata sync has started.
 
 ``` cs
-HighwayEvents.OnEconomySyncStarted += onEconomySyncStarted;
+HighwayEvents.OnMetadataSyncStarted += OnMetadataSyncStarted;
 
-public void onEconomySyncStarted() {
+public void OnMetadataSyncStarted() {
 // ... your game specific implementation here ...
 }
 ```
 
-### OnEconomySyncFinished
+### OnMetadataSyncFinished
 
-This event is triggered when economy sync has finished.
+This event is triggered when metadata sync has finished.
 Provides a list of modules which were synced.
 
 ``` cs
-HighwayEvents.OnEconomySyncFinished += onEconomySyncFinished;
+HighwayEvents.OnMetadataSyncFinished += OnMetadataSyncFinished;
 
-public void onEconomySyncFinished(IList<string> modules) {
+public void OnMetadataSyncFinished(IList<string> modules) {
 // ... your game specific implementation here ...
 }
 ```
 
-### OnEconomySyncFailed
+### OnMetadataSyncFailed
 
-This event is triggered when economy sync has failed.
+This event is triggered when metadata sync has failed.
 Provides the error code and reason of the failure.
 
 ``` cs
-HighwayEvents.OnEconomySyncFailed += onEconomySyncFailed;
+HighwayEvents.OnMetadataSyncFailed += OnMetadataSyncFailed;
 
-public void onEconomySyncFailed(MetaDataSyncErrorCode errorCode, string failReason) {
+public void OnMetadataSyncFailed(MetaDataSyncErrorCode errorCode, string failReason) {
 // ... your game specific implementation here ...
 }
 ```
@@ -141,12 +141,12 @@ Here you can find descriptions of the main classes of GROW Sync.
 
 #### Functions
 
-**`Initialize(economySync, stateSync)`**
+**`Initialize(metaDataSync, stateSync)`**
 
-Initializes the GROW Sync feature. Once initialized, the `OnGrowSyncInitialized` event is triggered.
+Initializes the GROW Sync feature. Once initialized, the `OnSoomlaSyncInitialized` event is triggered.
 Params:
 
-- economySync - should GROW Sync synchronize meta-data for integrated modules.
+- metaDataSync - should GROW Sync synchronize meta-data for integrated modules.
 - stateSync - should GROW Sync synchronize state for integrated modules.
 
 ## example
