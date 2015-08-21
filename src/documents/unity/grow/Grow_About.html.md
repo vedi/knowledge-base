@@ -13,45 +13,39 @@ platform: 'unity'
 
 ## About
 
-Soomla GROW is our flagship community-driven analytics dashboard. Developers using GROW can gain valuable insights about their games' performance and compare the data to benchmarks of other games in the GROW community.
+Soomla GROW is SOOMLA's flagship, community-driven, data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization.
 
-GROW analytics uses all of Soomla's modules: [Store](/unity/store/), [Profile](/unity/profile/) and [LevelUp](/unity/levelup/). You may choose to use only specific modules, however, to benefit from the full power of GROW analytics we recommend that you integrate all three.
+GROW uses all of Soomla's modules: [Store](/unity/store/), [Profile](/unity/profile/) and [LevelUp](/unity/levelup/) to collect in-game data and render value for you. Studios may choose to use only specific modules, however, to benefit from the full power of GROW analytics we recommend that you integrate all three.
 
-To get started with GROW, please follow our [Getting Started tutorial](/unity/grow/Grow_GettingStarted) for Unity.
+To get started with GROW, you can follow each one of different GROW bundles' tutorials:
+
+- [GrowUltimate](/unity/grow/GrowUltimate_GettingStarted)
+- [GrowCompete](/unity/grow/GrowCompete_GettingStarted)
+- [GrowViral](/unity/grow/GrowViral_GettingStarted)
+- [GrowSpend](/unity/grow/GrowSpend_GettingStarted)
+- [GrowInsights](/unity/grow/GrowInsights_GettingStarted)
+
 
 ### Why use GROW?
 
-- With GROW, you can see how your app is doing in a number of different aspects, including average revenue, average session duration, what percentage of your users are social in your game, and more. These are all explained in detail in the section below.
+- With GROW, you can take better actions on your users in order to increase **retention** and **monetization**. GROW's [Insights]() module will allow you to take actions at real time and the [Whales Reports]() will float problems you might have with your payers so you know how you improve over time.
 
-- GROW is different than other analytics services because it allows data sharing. In the dashboard, you'll be able to see aggregative analytics about other developers' apps as well as your own. This feature makes it possible for you to **compare your game to other indie games** and see how you measure.
+- The Analytics dashboard will provide you with <u>free</u> data about your game when you join the GROW network. In the dashboard, you'll be able to see aggregative analytics about your games and investigate its performance. You will also see analytics about the different modules you incorporated in your game and be able to investigate fraudulent purchases.
+
+- SOOMLA has created some modules that will put your game on steroids and by that increases user experience and engagement. [Social Leaderboards](), [Gifting]() and [State & Economy Sync]() are the features every F2P game needs in order to increase its <u>virality</u> and <u>user engagement</u>
 
 
 ## GROW Dashboard
 
-The [GROW dashboard](http://dashboard.soom.la) consists of several screens where you can see different information.
+< need to explain the GROW Dashboard here. with screenshots. >
+< I left everything below here just in case we want to work with example. Needs to be changed >
 
-### **Main Page**
-
-![alt text](/img/tutorial_img/unity_grow/demoGame.png "Demo Game Main Screen")
-
-- **ACTIVE USERS** - See how many active users your game has and filter by time (today, last week, last month, or all time).
-
-- **GAME EVENTS** - See how many events have been fired in your game and filter by time (today, last week, last month, or all time).
+### **Screen 1**
 
 <br>
 
-<div class="info-box">In the following screens of the dashboard, each statistic represents some type of information about your game. Under each of these there's another statistic in blue, which represents the information about all the other games using GROW. Also notice the color coding: green means that your statistic is better than or equal to the others' statistic, yellow means that you're a bit behind, and red means you're far behind.</div>
+### **Screen 2**
 
-
-### **Overview**
-
-In this part of the dashboard, you can filter by Date, Country, and Device. At the time of writing this article, the Benchmark filter is not yet available, but once it comes out, you'll be able to compare how your users behave in other games.
-
-<br>
-
-#### **NUMBERS:**
-
-![alt text](/img/tutorial_img/unity_grow/overviewNumbers.png "Numbers")
 
 
 - **ARPU** - Average Revenue Per User
@@ -122,6 +116,4 @@ Hover over any country on the map and see what percentage of your users in that 
 
 See the percentage of your users who performed the action you defined in the filter per device. For example, 4.5% of your iPhone users rated your game. 6.2% of the other games' iPhone users rated their games, so your game is a bit behind the benchmark.
 
-## **Soomla Insights**
 
-Soomla Insights brings you priceless insights about your users. You can use the provided insights to take actions on your users at real time during gameplay or when your users arrive in the game. <a href="http://blog.soom.la/2015/08/soomla-insights-know-users-better-real-time.html/" target="_blank">Read more...</a>

@@ -19,7 +19,7 @@ GROW Gifting brings you the tools to make your game go viral, by letting users s
 - Send lives to your friend.
 - Share rare items between friends to progress faster.
 - Send coins to your loved one.
-- A lot more ... you can create your own use cases and even share them with others on http://answers.soom.la.
+- A lot more ... you can create your own use cases and even share them with others on SOOMLA's [Forums](http://answers.soom.la).
 
 ## Integration
 

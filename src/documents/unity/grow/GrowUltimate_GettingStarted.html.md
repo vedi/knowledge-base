@@ -14,7 +14,7 @@ platform: 'unity'
 
 ## Overview
 
-GrowUltimate is the most fully featuredof all bundles that connects you to GROW, SOOMLA's flagship, community-driven ,data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/unity/grow/Grow_About)
+GrowUltimate is the most fully featured of all bundles that connects you to GROW, SOOMLA's flagship, community-driven ,data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/unity/grow/Grow_About)
 
 GrowUltimate includes:
 
