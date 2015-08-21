@@ -14,75 +14,76 @@ platform: 'unity'
 
 ## Overview
 
-GROW Insights brings you priceless insights about your users. You can use the provided insights to take actions on your users at real time during gameplay or when your users arrive in the game. With INSIGHTS you can:  
+GROW Insights brings you priceless insights about your users at real-time and inside your code. You can use the provided insights to take actions on your users at real time during gameplay when your users actually arrive in your game. With Insights you can:  
 
 
 - Create special prices for paying users in your genre.
 - Adapt the game difficulty for the specific user.
 - Create push campaigns.
-- A lot more ... you can create your own personalization features and even share them with others on http://answers.soom.la.
+- Adapt Ads to your specific users.
+- A lot more ... you can create your own personalization features and even share them with others on the SOOMLA [Forums](http://answers.soom.la).
 
 Currently, Insights supports PayInsights which categorizes users according to their pay-rank. More about this below.
 
 ## Integration
 
-<div class="info-box">GROW Insights is included in [GrowSpend](/unity/grow/GrowSpend_GettingStarted#SetupGrowSpend), [GrowViral](/unity/grow/GrowViral_GettingStarted#SetupGrowViral), [GrowCompete](/unity/grow/GrowCompete_GettingStarted#SetupGrowCompete), [GrowInsights](/unity/grow/GrowInsights_GettingStarted#SetupGrowInsights) and [GrowUltimate](/unity/grow/GrowUltimate_GettingStarted#SetupGrowUltimate) bundles. Please refer to the relevant bundle for initialization instructions.</div>
+<div class="info-box">GROW Insights is included all GROW bundles: [GrowSpend](/unity/grow/GrowSpend_GettingStarted#SetupGrowSpend), [GrowViral](/unity/grow/GrowViral_GettingStarted#SetupGrowViral), [GrowCompete](/unity/grow/GrowCompete_GettingStarted#SetupGrowCompete), [GrowInsights](/unity/grow/GrowInsights_GettingStarted#SetupGrowInsights) and [GrowUltimate](/unity/grow/GrowUltimate_GettingStarted#SetupGrowUltimate) bundles. Please refer to the relevant bundle for initialization instructions.</div>
 
 
-1. Initialize `SoomlaInsights` according to the instructions of your relevant bundle.
+1. Initialize `GrowInsights` according to the instructions of your relevant bundle.
 
 * Create event handler functions in order to be notified about (and handle) GROW Insights related events. See [Events](/unity/grow/Grow_Insights/#Events) for more information.
 
-* Once initialized, GROW Insights will automatically retrieve relevant insights from the server. Once the insights are ready (see [`OnInsightsRefreshFinished`](/unity/grow/Grow_Insights/#OnInsightsRefreshFinished)) you can access them as explained below.
+* Once initialized, GROW Insights will automatically retrieve relevant insights from the server. Once the insights are ready (see [`OnGrowInsightsRefreshFinished`](/unity/grow/Grow_Insights/#OnInsightsRefreshFinished)) you can access them as explained below.
 
 ## Events
 
 Following is a list of all the events in GROW Insights and an example of how to observe & handle them.
 
-### OnInsightsInitialized
+### OnGrowInsightsInitialized
 
 This event is triggered when the GROW Insights feature is initialized and ready.
 
 ``` cs
-HighwayEvents.OnInsightsInitialized += onInsightsInitialized;
+HighwayEvents.OnGrowInsightsInitialized += onGrowInsightsInitialized;
 
-public void onInsightsInitialized() {
+public void onGrowInsightsInitialized() {
 // ... your game specific implementation here ...
 }
 ```
 
-### OnInsightsRefreshStarted
+### OnGrowInsightsRefreshStarted
 
 This event is triggered when fetching insights from the server has started.
 
 ``` cs
-HighwayEvents.OnInsightsRefreshStarted += onInsightsRefreshStarted;
+HighwayEvents.OnGrowInsightsRefreshStarted += onGrowInsightsRefreshStarted;
 
-public void onInsightsRefreshStarted() {
+public void onGrowInsightsRefreshStarted() {
 // ... your game specific implementation here ...
 }
 ```
 
-### OnInsightsRefreshFinished
+### OnGrowInsightsRefreshFinished
 
 This event is triggered when fetching insights from the server has finished.
 
 ``` cs
-HighwayEvents.OnInsightsRefreshFinished += onInsightsRefreshFinished;
+HighwayEvents.OnGrowInsightsRefreshFinished += onGrowInsightsRefreshFinished;
 
-public void onInsightsRefreshFinished() {
+public void onGrowInsightsRefreshFinished() {
 // ... your game specific implementation here ...
 }
 ```
 
-### OnInsightsRefreshFailed
+### OnGrowInsightsRefreshFailed
 
 This event is triggered when fetching insights from the server has failed.
 
 ``` cs
-HighwayEvents.OnInsightsRefreshFailed += onInsightsRefreshFailed;
+HighwayEvents.OnGrowInsightsRefreshFailed += onGrowInsightsRefreshFailed;
 
-public void onInsightsRefreshFailed() {
+public void onGrowInsightsRefreshFailed() {
 // ... your game specific implementation here ...
 }
 ```
@@ -91,9 +92,9 @@ public void onInsightsRefreshFailed() {
 
 Here you can find descriptions of the main classes of GROW Insights. These classes contain functionality for insights-related operations such as refreshing insights, retrieving and using them.
 
-### SoomlaInsights
+### GrowInsights
 
-`SoomlaInsights` is the main class of GROW Insights which is in charge of fetching insights.
+`GrowInsights` is the main class of GROW Insights which is in charge of fetching insights.
 
 #### Functions
 
@@ -127,7 +128,7 @@ The [Pay-Insights](/unity/grow/Grow_Insights/#PayInsights) received from the ser
 ### PayInsights
 
 `PayInsights` holds insights related to the user's payments.
-Located in `UserInsights` and can be accessed using `SoomlaInsights.UserInsights.PayInsights`.
+Located in `UserInsights` and can be accessed using `GrowInsights.UserInsights.PayInsights`.
 
 #### Members
 
@@ -154,7 +155,7 @@ A `Dictionary` providing the user's pay-rank by [Genre](/unity/grow/Grow_Insight
 
 #### Usage
 
-For example, in order to access a user's pay rank by the `Action` genre use `SoomlaInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Action]`
+For example, in order to access a user's pay rank by the `Action` genre use `GrowInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Action]`
 
 ### Example
 
@@ -163,23 +164,23 @@ For example, in order to access a user's pay rank by the `Action` genre use `Soo
 void Start () {
 
     // Add event listeners - Make sure to set the event handlers before you initialize
-    HighwayEvents.OnInsightsInitialized += OnSoomlaInsightsInitialized;
-    HighwayEvents.OnInsightsRefreshFinished += OnSoomlaInsightsRefreshFinished;
+    HighwayEvents.OnGrowInsightsInitialized += OnGrowInsightsInitialized;
+    HighwayEvents.OnGrowInsightsRefreshFinished += OnGrowInsightsRefreshFinished;
 
-    // Initialize SoomlaHighway
-    SoomlaHighway.Initialize();
+    // Initialize GrowHighway
+    GrowHighway.Initialize();
 
-    // Initialize SoomlaInsights
-    SoomlaInsights.Initialize();
+    // Initialize GrowInsights
+    GrowInsights.Initialize();
 
 }
 
-void OnSoomlaInsightsInitialized () {
-    Debug.Log("Soomla insights has been initialized.");
+void OnGrowInsightsInitialized () {
+    Debug.Log("GROW insights has been initialized.");
 }
 
-void OnSoomlaInsightsRefreshFinished (){
-    if (SoomlaInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Educational] > 3) {
+void OnGrowInsightsRefreshFinished (){
+    if (GrowInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Educational] > 3) {
         // ... Do stuff according to your business plan ...
     }
 }
