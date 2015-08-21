@@ -14,13 +14,13 @@ platform: 'unity'
 
 ## Overview
 
-GROW's State & Economy Sync brings you a complete solution for saving your game state in the cloud, cross device synching and remote economy (metadata) management.
+GROW's State & Economy Sync brings you a complete solution for saving your game state in the cloud, cross device synching and remote economy (model) management.
 With State & Economy Sync you can:
 
 - Save game progress & virtual items on the server.
 - Restore the state upon uninstalling and reinstalling the game.
 - Cross device synching - allow the player to have the same game state across all of his/her devices.
-- Remote Economy (MetaData) Management - manage your economy without changing any code in your game.
+- Remote Economy (model) Management - manage your economy without changing any code in your game.
 
 ## Integration
 
@@ -53,40 +53,40 @@ public void onGrowSyncInitialized() {
 }
 ```
 
-### OnMetadataSyncStarted
+### OnModelSyncStarted
 
-This event is triggered when metadata sync has started.
+This event is triggered when model sync has started.
 
 ``` cs
-HighwayEvents.OnMetadataSyncStarted += OnMetadataSyncStarted;
+HighwayEvents.OnModelSyncStarted += OnModelSyncStarted;
 
-public void OnMetadataSyncStarted() {
+public void OnModelSyncStarted() {
 // ... your game specific implementation here ...
 }
 ```
 
-### OnMetadataSyncFinished
+### OnModelSyncFinished
 
-This event is triggered when metadata sync has finished.
+This event is triggered when model sync has finished.
 Provides a list of modules which were synced.
 
 ``` cs
-HighwayEvents.OnMetadataSyncFinished += OnMetadataSyncFinished;
+HighwayEvents.OnModelSyncFinished += OnModelSyncFinished;
 
-public void OnMetadataSyncFinished(IList<string> modules) {
+public void OnModelSyncFinished(IList<string> modules) {
 // ... your game specific implementation here ...
 }
 ```
 
-### OnMetadataSyncFailed
+### OnModelSyncFailed
 
-This event is triggered when metadata sync has failed.
+This event is triggered when model sync has failed.
 Provides the error code and reason of the failure.
 
 ``` cs
-HighwayEvents.OnMetadataSyncFailed += OnMetadataSyncFailed;
+HighwayEvents.OnModelSyncFailed += OnModelSyncFailed;
 
-public void OnMetadataSyncFailed(MetaDataSyncErrorCode errorCode, string failReason) {
+public void OnModelSyncFailed(ModelSyncErrorCode errorCode, string failReason) {
 // ... your game specific implementation here ...
 }
 ```
@@ -105,7 +105,7 @@ public void onStateSyncStarted() {
 
 ### OnStateSyncFinished
 
-This event is triggered when metadata sync has finished.
+This event is triggered when model sync has finished.
 Provides a list of modules which had their state updated, and a list of modules which failed to update.
 
 ``` cs
@@ -120,7 +120,7 @@ public void onStateSyncFinished(IList<string> changedComponents, IList<string> f
 
 ### OnStateSyncFailed
 
-This event is triggered when metadata sync has failed.
+This event is triggered when model sync has failed.
 Provides the error code and reason of failure.
 
 ``` cs
@@ -141,12 +141,12 @@ Here you can find descriptions of the main classes of GROW Sync.
 
 #### Functions
 
-**`Initialize(metaDataSync, stateSync)`**
+**`Initialize(modelSync, stateSync)`**
 
-Initializes the GROW Sync feature. Once initialized, the `OnSoomlaSyncInitialized` event is triggered.
+Initializes the GROW Sync feature. Once initialized, the `OnGrowSyncInitialized` event is triggered.
 Params:
 
-- metaDataSync - should GROW Sync synchronize meta-data for integrated modules.
+- modelSync - should GROW Sync synchronize meta-data for integrated modules.
 - stateSync - should GROW Sync synchronize state for integrated modules.
 
 ## example
