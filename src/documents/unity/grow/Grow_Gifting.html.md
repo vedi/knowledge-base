@@ -28,9 +28,9 @@ GROW Gifting brings you the tools to make your game go viral, by letting users s
 
 1. Initialize `SoomlaGifting` according to the instructions of your relevant bundle.
 
-* Create event handler functions in order to be notified about (and handle) GROW Gifting related events. See [Events](/unity/grow/Grow_Gifting/#Events) for more information.
+2. Create event handler functions in order to be notified about (and handle) GROW Gifting related events. See [Events](/unity/grow/Grow_Gifting/#Events) for more information.
 
-* Once the user logs into any social provider, GROW Gifting will automatically start fetching gifts from the server. Once the gifts are ready (see [`OnGiftsRetrieveFinished`](/unity/grow/Grow_Gifting/#OnGiftsRetrieveFinished)) they will be handed out to the user as explained below.
+3. Once the user logs into any social provider, GROW Gifting will automatically start fetching gifts from the server. Once the gifts are ready (see [`OnGiftsRetrieveFinished`](/unity/grow/Grow_Gifting/#OnGiftsRetrieveFinished)) they will be handed out to the user as explained below.
 
 
 ## Events
@@ -155,21 +155,21 @@ public void onGiftHandOutFailed(Gift gift, string failReason) {
 
 ## Main Classes & Methods
 
-Here you can find descriptions of the main classes of GROW Gifting. These classes contain functionality for gifting-related operations such as initializing and sending gifts.
+Let's go through the main classes of GROW Gifting. These classes contain functionality for gifting-related operations such as initializing and sending gifts.
 
-### SoomlaGifting
+### GrowGifting
 
-`SoomlaGifting` is the main class of GROW Gifting which is in charge of sending and fetching gifts.
+`GrowGifting` is the main class of Gifting which is in charge of sending and fetching gifts.
 
 #### Functions
 
 **`Initialize()`**
 
-Initializes the GROW Gifting feature. Once initialized, the `OnSoomlaGiftingInitialized` event is triggered.
+Initializes the GROW Gifting feature. Once initialized, the `OnGrowGiftingInitialized` event is triggered.
 
 **`SendGift(toProvider, toProfileId, itemId, amount, <optional>deductFromUser)`**
 
-Sends a gift from the currently logged in user (with Profile) to the provided user. This method gives the gift from the game without affecting the player.
+Sends a gift from the currently logged in user (with [Profile]()) to the provided user. This method gives the gift from the game without affecting the player.
 Returns `false` if the operation cannot be started, `true` otherwise.
 Params:
 
