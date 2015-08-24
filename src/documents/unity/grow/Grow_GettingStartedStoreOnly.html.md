@@ -50,7 +50,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la). Upon signing up, you will 
 
 	c. If you're building for Android, click on the "Android Settings" option, and choose your billing provider. If you choose Google Play, you need to provide the Public Key, which is given to you from Google.
 
-	d. If you're building for iOS, it is highly recommended to enforce receipt validation which is done by our complimentary validation service. Just click the "Receipt Validation" option under "iOS Build Settings"
+	d. If you're building for iOS, it is highly recommended to enforce Fraud Protection which is done by our complimentary verification service. Just click the "Fraud Protection" option under "iOS Build Settings"
 
 5. Initialize Highway:
 
