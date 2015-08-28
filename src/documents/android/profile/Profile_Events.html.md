@@ -72,7 +72,7 @@ This event is triggered when the page for rating your app is opened.
 
 ``` java
 @Subscribe
-public void onUserRatingEvent(UserRatingEvent UserRating) {
+public void onUserRatingEvent(UserRatingEvent userRatingEvent) {
 	// ... your game specific implementation here ...
 }
 ```
@@ -85,7 +85,7 @@ This event is triggered when the user profile has been updated, after login.
 @Subscribe
 public void onUserProfileUpdated(UserProfileUpdatedEvent userProfileUpdatedEvent) {
 	// A UserProfileUpdatedEvent contains the following:
-	// userProfile = the user's profile from the logged in provider
+	// UserProfile = the user's profile from the logged in provider
 
 	// ... your game specific implementation here ...
 }
@@ -99,9 +99,9 @@ This event is triggered when logging into the social provider has started.
 @Subscribe
 public void onLoginStarted(LoginStartedEvent loginStartedEvent) {
 	// A LoginStartedEvent contains the following:
-	// provider = the provider where the login has started
-	// autoLogin = comes "true" if user login automatically
-	// payload  = an identification String that you can give when you initiate the login
+	// Provider = the provider where the login has started
+	// AutoLogin = comes "true" if user login automatically
+	// Payload  = an identification String that you can give when you initiate the login
 	//            operation and want to receive back upon starting
 
 	// ... your game specific implementation here ...
@@ -116,9 +116,9 @@ This event is triggered when logging into the social provider has finished **suc
 @Subscribe
 public void onLoginFinished(LoginFinishedEvent loginFinishedEvent) {
 	// A LoginFinishedEvent contains the following:
-	// userProfile = the user's profile from the logged in provider
-	// autoLogin = comes "true" if user login automatically
-	// payload     = an identification string that you can give when you initiate the
+	// UserProfile = the user's profile from the logged in provider
+	// AutoLogin = comes "true" if user login automatically
+	// Payload     = an identification string that you can give when you initiate the
 	//               login operation and want to receive back upon its completion
 
 	// ... your game specific implementation here ...
@@ -133,9 +133,9 @@ This event is triggered when logging into the social provider has been cancelled
 @Subscribe
 public void onLoginCancelled(LoginCancelledEvent loginCancelledEvent) {
 	// A LoginCancelledEvent contains the following:
-	// provider = the provider which the user has cancelled login to
-	// autoLogin = comes "true" if user login automatically
-	// payload  = an identification string that you can give when you initiate the
+	// Provider = the provider which the user has cancelled login to
+	// AutoLogin = comes "true" if user login automatically
+	// Payload  = an identification string that you can give when you initiate the
 	//            login operation and want to receive back upon cancellation
 
 	// ... your game specific implementation here ...
@@ -150,10 +150,10 @@ This event is triggered when logging into the social provider has failed.
 @Subscribe
 public void onLoginFailed(LoginFailedEvent loginFailedEvent) {
 	// A LoginFailedEvent contains the following:
-	// provider         = the provider on which the login has failed
-	// errorDescription = description of the reason for failure
-	// autoLogin 		= comes "true" if user login automatically
-	// payload          = an identification string that you can give when you initiate
+	// Provider         = the provider on which the login has failed
+	// ErrorDescription = description of the reason for failure
+	// AutoLogin 		    = comes "true" if user login automatically
+	// Payload          = an identification string that you can give when you initiate
 	//                    the login operation and want to receive back upon failure
 
 	// ... your game specific implementation here ...
@@ -168,7 +168,7 @@ This event is triggered when logging out of the social provider has started.
 @Subscribe
 public void onLogoutStarted(LogoutStartedEvent logoutStartedEvent) {
 	// A LogoutStartedEvent contains the following:
-	// provider = the provider on which the login has started
+	// Provider = the provider on which the login has started
 
 	// ... your game specific implementation here ...
 }
@@ -182,7 +182,7 @@ This event is triggered when logging out of the social provider has finished **s
 @Subscribe
 public void onLogoutFinished(LogoutFinishedEvent logoutFinishedEvent) {
 	// A LogoutFinishedEvent contains the following:
-	// provider = the provider on which the logout has finished
+	// Provider = the provider on which the logout has finished
 
 	// ... your game specific implementation here ...
 }
@@ -196,8 +196,8 @@ This event is triggered when logging out of the social provider has failed.
 @Subscribe
 public void onLogoutFailed(LogoutFailedEvent logoutFailedEvent) {
 	// A LogoutFailedEvent contains the following:
-	// provider         = the provider on which the logout has failed
-	// errorDescription = description of the reason for failure
+	// Provider         = the provider on which the logout has failed
+	// ErrorDescription = description of the reason for failure
 
 	// ... your game specific implementation here ...
 }
@@ -212,9 +212,9 @@ This event is triggered when a social action has started.
 @Subscribe
 public void onSocialActionStarted(SocialActionStartedEvent socialActionStartedEvent) {
 	// A SocialActionStartedEvent contains the following:
-	// provider         = the provider on which the social action has started
-	// socialActionType = the social action (like, post status, etc..) that started
-	// payload          = an identification string that you can give when you initiate
+	// Provider         = the provider on which the social action has started
+	// SocialActionType = the social action (like, post status, etc..) that started
+	// Payload          = an identification string that you can give when you initiate
 	//                    the social action operation and want to receive back upon starting
 
 	// ... your game specific implementation here ...
@@ -230,9 +230,9 @@ This event is triggered when a social action has finished **successfully**.
 @Subscribe
 public void onSocialActionFinished(SocialActionFinishedEvent socialActionFinishedEvent) {
 	// A SocialActionFinishedEvent contains the following:
-	// provider         = the provider on which the social action has finished
-	// socialActionType = the social action (like, post status, etc..) that finished
-	// payload          = an identification string that you can give when you initiate
+	// Provider         = the provider on which the social action has finished
+	// SocialActionType = the social action (like, post status, etc..) that finished
+	// Payload          = an identification string that you can give when you initiate
 	//                    the social action operation and want to receive back upon completion
 
 	// ... your game specific implementation here ...
@@ -247,9 +247,9 @@ This event is triggered when a social action has been cancelled.
 @Subscribe
 public void onSocialActionCancelled(SocialActionCancelledEvent socialActionCancelledEvent) {
 	// A SocialActionCancelledEvent contains the following:
-	// provider         = the provider on which a social action was cancelled
-	// socialActionType = the social action (like, post status, etc..) that has been cancelled
-	// payload          = an identification string that you can give when you initiate the
+	// Provider         = the provider on which a social action was cancelled
+	// SocialActionType = the social action (like, post status, etc..) that has been cancelled
+	// Payload          = an identification string that you can give when you initiate the
 	//                    social action operation and want to receive back upon cancellation
 
 	// ... your game specific implementation here ...
@@ -264,10 +264,10 @@ This event is triggered when a social action has failed.
 @Subscribe
 public void onSocialActionFailed(SocialActionFailedEvent socialActionFailedEvent) {
 	// A SocialActionFailedEvent contains the following:
-	// provider         = the provider on which the social action has failed
-	// socialActionType = the social action (like, post status, etc..) that failed
-	// errorDescription = description of the reason for failure
-	// payload          = an identification string that you can give when you initiate
+	// Provider         = the provider on which the social action has failed
+	// SocialActionType = the social action (like, post status, etc..) that failed
+	// ErrorDescription = description of the reason for failure
+	// Payload          = an identification string that you can give when you initiate
 	//                    the social action operation and want to receive back upon failure
 
 	// ... your game specific implementation here ...
@@ -283,10 +283,10 @@ This event is triggered when fetching the contacts from the social provider has 
 @Subscribe
 public void onGetContactsStarted(GetContactsStartedEvent getContactsStartedEvent) {
 	// A GetContactsStartedEvent contains the following:
-	// provider         = the provider on which the get contacts process started
-	// socialActionType = the social action performed
-	// fromStart        = should we reset pagination or request the next page
-	// payload          = an identification string that you can give when you initiate
+	// Provider         = the provider on which the get contacts process started
+	// SocialActionType = the social action performed
+	// FromStart        = should we reset pagination or request the next page
+	// Payload          = an identification string that you can give when you initiate
 	//                    the get contacts operation and want to receive back upon starting
 
 	// ... your game specific implementation here ...
@@ -301,12 +301,12 @@ This event is triggered when fetching the contacts from the social provider has 
 @Subscribe
 public void onGetContactsFinished(GetContactsFinishedEvent getContactsFinishedEvent) {
 	// A GetContactsFinishedEvent contains the following:
-	// provider         = the provider on which the get contacts process finished
-	// socialActionType = the social action performed
-	// contacts         = an Array of contacts represented by UserProfile
-	// payload          = an identification string that you can give when you initiate the
+	// Provider         = the provider on which the get contacts process finished
+	// SocialActionType = the social action performed
+	// Contacts         = an Array of contacts represented by UserProfile
+	// Payload          = an identification string that you can give when you initiate the
 	//                    get contacts operation and want to receive back upon its completion
-	// hasMore          = if there are more items in pagination
+	// HasMore          = if there are more items in pagination
 
 	// ... your game specific implementation here ...
 }
@@ -320,11 +320,11 @@ This event is triggered when fetching the contacts from the social provider has 
 @Subscribe
 public void onGetContactsFailed(GetContactsFailedEvent getContactsFailedEvent) {
 	// A GetContactsFailedEvent contains the following:
-	// provider         = the provider on which the get contacts process has failed
-	// socialActionType = the social action performed
-	// errorDescription = description of the reason for failure
-	// fromStart        = should we reset pagination or request the next page
-	// payload          = an identification string that you can give when you initiate
+	// Provider         = the provider on which the get contacts process has failed
+	// SocialActionType = the social action performed
+	// ErrorDescription = description of the reason for failure
+	// FromStart        = should we reset pagination or request the next page
+	// Payload          = an identification string that you can give when you initiate
 	//                    the get contacts operation and want to receive back upon failure
 
 	// ... your game specific implementation here ...
@@ -339,10 +339,10 @@ This event is triggered when fetching the feed from the social provider has star
 @Subscribe
 public void onGetFeedStarted(GetFeedStartedEvent getFeedStartedEvent) {
 	// A GetFeedStartedEvent contains the following:
-	// provider    = the provider on which the get feed process started
-	// getFeedType = the social action performed
-	// fromStart   = should we reset pagination or request the next page
-	// payload     = an identification string that you can give when you initiate
+	// Provider    = the provider on which the get feed process started
+	// GetFeedType = the social action performed
+	// FromStart   = should we reset pagination or request the next page
+	// Payload     = an identification string that you can give when you initiate
 	//               the get feed operation and want to receive back upon starting
 
 	// ... your game specific implementation here ...
@@ -357,12 +357,12 @@ This event is triggered when fetching the feed from the social provider has fini
 @Subscribe
 public void onGetFeedFinished(GetFeedFinishedEvent getFeedFinishedEvent) {
 	// A GetFeedFinishedEvent contains the following:
-	// provider    = the provider on which the get feed process finished
-	// getFeedType = the social action performed
-	// feedPosts   = an Array of feed entries represented by strings
-	// payload     = an identification string that you can give when you initiate
+	// Provider    = the provider on which the get feed process finished
+	// GetFeedType = the social action performed
+	// FeedPosts   = an Array of feed entries represented by strings
+	// Payload     = an identification string that you can give when you initiate
 	//               the get feed operation and want to receive back upon completion
-	// hasMore     = if there are more items in pagination
+	// HasMore     = if there are more items in pagination
 
 	// ... your game specific implementation here ...
 }
@@ -376,11 +376,11 @@ This event is triggered when fetching the feed from the social provider has fail
 @Subscribe
 public void onGetFeedFailed(GetFeedFailedEvent getFeedFailedEvent) {
 	// A GetFeedFailedEvent contains the following:
-	// provider         = the provider on which the get feed process has
-	// getFeedType      = the social action performed
-	// errorDescription = description of the reason for failure
-	// fromStart        = should we reset pagination or request the next page
-	// payload          = an identification string that you can give when you initiate
+	// Provider         = the provider on which the get feed process has
+	// GetFeedType      = the social action performed
+	// ErrorDescription = description of the reason for failure
+	// FromStart        = should we reset pagination or request the next page
+	// Payload          = an identification string that you can give when you initiate
 	//                    the get feed operation and want to receive back upon failure
 
 	// ... your game specific implementation here ...
