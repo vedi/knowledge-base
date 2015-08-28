@@ -336,6 +336,44 @@ public void onGetContactsFinished(Provider provider, SocialPageData<UserProfile>
 ```
 
 <br>
+###`GetFeed`
+
+This function Retrieves a list of the user's feed entries from the supplied provider. Upon a successful retrieval of
+feed entries the user will be granted the supplied reward.
+
+<div class="info-box">G+ does not support this.</div>
+
+```cs
+SoomlaProfile.GetFeed(Provider.FACEBOOK);
+```
+
+#### Pagination
+
+Note that the results will contain only part of the list. In order to get more items you should call the method again with `fromStart` param set to `false` (it's a default value for overloaded methods). You can use the following workflow:
+
+```cs
+public void GetFeed() {
+    ProfileEvents.OnGetFeedFinished += onGetFeedFinished;
+
+    // request for the 1st page
+    SoomlaProfile.GetFeed(Provider.FACEBOOK, true);
+}
+
+
+// your handler:
+public void onGetFeedFinished(Provider provider, SocialPageData<string> feedList, string payload) {
+
+    // ... handle page results ...
+    if (feedList.HasMore) {
+        SoomlaProfile.GetFeed(Provider.FACEBOOK, false);
+    } else {
+        // no pages anymore
+    }
+}
+
+```
+
+<br>
 ###`OpenAppRatingPage`
 
 `OpenAppRatingPage` conveniently opens your application's page on the platform store (for example on an iOS device it'll open your app's page in the App Store) so that it's simple to rate the app. You can offer your users to rate your app after they've completed a level successfully or have progressed significantly in your game.

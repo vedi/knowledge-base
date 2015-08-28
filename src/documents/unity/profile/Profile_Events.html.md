@@ -333,7 +333,7 @@ This event is triggered when fetching the feed from the social provider has fini
 ``` cs
 ProfileEvents.OnGetFeedFinished += onGetFeedFinished;
 
-public void onGetFeedFinished(Provider provider, List<string> feed) {
+public void onGetFeedFinished(Provider provider, SocialPageData<string> feed) {
 	// provider is the social provider
 	// feed is the user's feed that has been fetched in the get feed operation
 
