@@ -3,7 +3,7 @@ layout: "content"
 image: "Tutorial"
 title: "Gifting"
 text: "Get started with GROW Gifting for Unity. Here you can find initialization instructions, event handling and usage examples."
-position: 7
+position: 10
 theme: 'platforms'
 collection: 'unity_grow'
 module: 'grow'
@@ -26,7 +26,7 @@ GROW Gifting brings you the tools to make your game go viral, by letting users s
 <div class="info-box">GROW Gifting is included in [GrowViral](/unity/grow/GrowViral_GettingStarted#SetupGrowViral) and [GrowUltimate](/unity/grow/GrowUltimate_GettingStarted#SetupGrowUltimate) bundles. Please refer to the relevant bundle for initialization instructions.</div>
 
 
-1. Initialize `SoomlaGifting` according to the instructions of your relevant bundle.
+1. Initialize `GrowGifting` according to the instructions of your relevant bundle.
 
 2. Create event handler functions in order to be notified about (and handle) GROW Gifting related events. See [Events](/unity/grow/Grow_Gifting/#Events) for more information.
 
@@ -37,14 +37,14 @@ GROW Gifting brings you the tools to make your game go viral, by letting users s
 
 Following is a list of all the events in GROW Gifting and an example of how to observe & handle them.
 
-### OnSoomlaGiftingInitialized
+### OnGrowGiftingInitialized
 
 This event is triggered when the GROW Gifting feature is initialized and ready.
 
 ``` cs
-HighwayEvents.OnSoomlaGiftingInitialized += onSoomlaGiftingInitialized;
+HighwayEvents.OnGrowGiftingInitialized += onGrowGiftingInitialized;
 
-public void onSoomlaGiftingInitialized() {
+public void onGrowGiftingInitialized() {
 // ... your game specific implementation here ...
 }
 ```
@@ -221,6 +221,95 @@ The associated virtual item ID to give as a part of the gifting process.
 
 The amount of the associated virtual item that should be given as a part of the gifting process.
 
-## example
+### Example
 
-Coming soon
+Below is a short example of how to initialize GROW Gifting. We suggest you read about the different modules and their entities in SOOMLA's Knowledge Base: [STORE](/unity/store/Store_Model) and [PROFILE](/unity/profile/Profile_MainClasses).
+
+### IStoreAssets
+
+``` cs
+public class ExampleAssets : IStoreAssets {
+
+	/** Virtual Currencies **/
+	public static VirtualCurrency COIN_CURRENCY = new VirtualCurrency(
+	      "Coin currency",                  // Name
+	      "Collect coins to buy items",     // Description
+	      "currency_coin"                   // Item ID
+	 );
+
+    /** Virtual Currency Packs **/
+    public static VirtualCurrencyPack TEN_COIN_PACK = new VirtualCurrencyPack(
+        "10 Coins",                         // Name
+	    "This is a 10-coin pack",           // Description
+	    "coins_10",                         // Item ID
+        10,                                 // Number of currencies in the pack
+        "currency_coin",                    // The currency associated with this pack
+        new PurchaseWithMarket(             // Purchase type
+            TEN_COIN_PACK_PRODUCT_ID,       // Product ID
+            0.99)                           // Initial price
+    );
+
+    /** Virtual Goods **/
+
+    // Shield that can be purchased for 150 coins.
+    public static VirtualGood SHIELD_GOOD = new SingleUseVG(
+        "Shield",                           // Name
+	    "Shields you from monsters",        // Description
+	    "shield_good",                      // Item ID
+        new PurchaseWithVirtualItem(        // Purchase type
+            "currency_coin",                // Virtual item to pay with
+            150)                            // Payment amount
+    );
+
+    // Pack of 5 shields that can be purchased for $2.99.
+    public static VirtualGood 5_SHIELD_GOOD = new SingleUsePackVG(
+        "5 Shields",                        // Name
+	    "This is a 5-shield pack",          // Description
+	    "shield_5",                         // Item ID
+        new PurchaseWithMarket(             // Purchase type
+            SHIELD_PACK_PRODUCT_ID,         // Product ID
+            2.99)                           // Initial price
+    );
+
+    ...
+}
+```
+
+<br>
+### Initialization
+
+``` cs
+
+void Start () {
+
+    // Add event listeners - Make sure to set the event handlers before you initialize
+    HighwayEvents.OnGrowGiftingInitialized += OnGrowGiftingInitialized;
+    HighwayEvents.OnGiftHandOutSuccess += OnGiftHandOutSuccess;
+    HighwayEvents.OnGiftSendFinished += OnGiftSendFinished;
+
+    // Initialize GrowHighway
+    GrowHighway.Initialize();
+
+    // Initialize GrowGifting
+    GrowGifting.Initialize();
+
+    SoomlaStore.Initialize(new ExampleAssets());
+    SoomlaProfile.Initialize();
+
+}
+
+void OnGrowGiftingInitialized () {
+    Debug.Log("GROW Gifting has been initialized.");
+
+
+}
+
+void OnGiftHandOutSuccess (Gift gift){
+    // ... Show a nice animation of receiving the gift ...
+}
+
+void OnGiftSendFinished (Gift gift) {
+    Debug.Log("Successfully sent " + gift.Payload.AssociatedItemId);
+}
+
+```

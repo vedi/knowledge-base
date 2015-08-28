@@ -3,7 +3,7 @@ layout: "content"
 image: "Tutorial"
 title: "State & Economy Sync"
 text: "Get started with GROW State & Economy Sync for Unity. Here you can find initialization instructions, event handling and usage examples."
-position: 5
+position: 8
 theme: 'platforms'
 collection: 'unity_grow'
 module: 'grow'
@@ -31,9 +31,9 @@ With State & Economy Sync you can:
 
 * Create event handler functions in order to be notified about (and handle) GROW Sync related events. See [Events](/unity/grow/Grow_Sync/#Events) for more information.
 
-* Once initialized, Sync will start syncing the player's state and game meta-data, depending on the integrated modules. Synchronization is done with a unique identifier for every device.
+* Once initialized, Sync will start syncing the player's state and game model, depending on the integrated modules. Synchronization is done with a unique identifier for every device.
 
-* If [Profile]() is integrated, once the player logs into a social network the game state will be synched across all of the player's devices, on which he/she is logged in with the same profile for that social provider.
+* If [Profile](/unity/profile/Profile_GettingStarted) is integrated, once the player logs into a social network the game state will be synched across all of the player's devices, on which he/she is logged in with the same profile for that social provider.
 
 <div class="warning-box">Make sure to start gameplay or change local state only **after** [`OnStateSyncFinished`](/unity/grow/Grow_Sync#OnStateSyncFinished) event is triggered. </div>
 
@@ -105,7 +105,7 @@ public void onStateSyncStarted() {
 
 ### OnStateSyncFinished
 
-This event is triggered when model sync has finished.
+This event is triggered when state sync has finished.
 Provides a list of modules which had their state updated, and a list of modules which failed to update.
 
 ``` cs
@@ -120,7 +120,7 @@ public void onStateSyncFinished(IList<string> changedComponents, IList<string> f
 
 ### OnStateSyncFailed
 
-This event is triggered when model sync has failed.
+This event is triggered when state sync has failed.
 Provides the error code and reason of failure.
 
 ``` cs
@@ -137,7 +137,7 @@ Here you can find descriptions of the main classes of GROW Sync.
 
 ### GrowSync
 
-`GrowSync` sepresents a class which is in charge of syncing meta-data and state between the client and the server.
+`GrowSync` sepresents a class which is in charge of syncing model and state between the client and the server.
 
 #### Functions
 
@@ -146,7 +146,7 @@ Here you can find descriptions of the main classes of GROW Sync.
 Initializes the GROW Sync feature. Once initialized, the `OnGrowSyncInitialized` event is triggered.
 Params:
 
-- modelSync - should GROW Sync synchronize meta-data for integrated modules.
+- modelSync - should GROW Sync synchronize the model for integrated modules.
 - stateSync - should GROW Sync synchronize state for integrated modules.
 
 ## example

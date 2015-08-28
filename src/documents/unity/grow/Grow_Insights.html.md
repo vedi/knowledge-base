@@ -3,7 +3,7 @@ layout: "content"
 image: "Tutorial"
 title: "Insights"
 text: "Get started with GROW Insights for Unity. Here you can find initialization instructions, event handling and usage examples."
-position: 4
+position: 7
 theme: 'platforms'
 collection: 'unity_grow'
 module: 'grow'
@@ -117,7 +117,7 @@ The [User-Insights](/unity/grow/Grow_Insights/#UserInsights) received from the s
 ### UserInsights
 
 `UserInsights` holds insights related to the user currently playing the game.
-Located in `SoomlaInsights` and can be accessed using `SoomlaInsights.UserInsights`.
+Located in `GrowInsights` and can be accessed using `GrowInsights.UserInsights`.
 
 #### Members
 
@@ -147,7 +147,7 @@ A `Dictionary` providing the user's pay-rank by [Genre](/unity/grow/Grow_Insight
 - 5: The user has paid up to 100$
 - 6: The user has paid more than 100$
 
-<div class="info-box">NOTE: Pay rank is calculated according to the user's total revenue from ALL games using SOOMLA.</div>
+<div class="info-box">NOTE: Pay rank is calculated according to the user's total revenue from ALL games using GROW.</div>
 
 ### Genre
 
@@ -176,7 +176,7 @@ void Start () {
 }
 
 void OnGrowInsightsInitialized () {
-    Debug.Log("GROW insights has been initialized.");
+    Debug.Log("GROW Insights has been initialized.");
 }
 
 void OnGrowInsightsRefreshFinished (){

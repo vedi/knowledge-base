@@ -3,18 +3,18 @@ layout: "content"
 image: "Tutorial"
 title: "Social Leaderboards"
 text: "Get started with GROW Social Leaderboards for Unity. Here you can find initialization instructions, event handling and usage examples."
-position: 6
+position: 9
 theme: 'platforms'
 collection: 'unity_grow'
 module: 'grow'
 platform: 'unity'
 ---
 
-# Leaderboards
+# Social Leaderboards
 
 ## Overview
 
-GROW Leaderboards lets you turn your game into a competition, by showing users their friends' progress. This will keep your users engaged and informed of where they stand compared to others. Your users can use their favorite social network to login into Leaderboards. 
+GROW Leaderboards lets you turn your game into a competition, by showing users their friends' progress. This will keep your users engaged and informed of where they stand compared to others. Your users can use their favorite social network to login into Leaderboards.
 With Leaderboards you can:
 
 - Create a leaderboard of all the user's friends playing your game.

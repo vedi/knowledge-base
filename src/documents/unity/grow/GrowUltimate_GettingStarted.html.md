@@ -3,7 +3,7 @@ layout: "content"
 image: "Tutorial"
 title: "GrowUltimate"
 text: "Get started with GrowUltimate for Unity. Includes all of SOOMLA's modules: CORE, STORE, PROFILE, LEVELUP and HIGHWAY. Learn how to easily integrate everything SOOMLA has to offer into your game."
-position: 12
+position: 15
 theme: 'platforms'
 collection: 'unity_grow'
 module: 'grow'
@@ -14,22 +14,18 @@ platform: 'unity'
 
 ## Overview
 
-GrowUltimate is the most fully featured of all bundles that connects you to GROW, SOOMLA's flagship, community-driven ,data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/unity/grow/Grow_About)
+GrowUltimate is the most fully featured of all bundles that connects you to GROW, SOOMLA's flagship - a community-driven data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/unity/grow/Grow_About)
 
 GrowUltimate includes:
 
-- All SOOMLA's open-source modules - Store, Profile and LevelUp
+- All of SOOMLA's open-source modules - Store, Profile and LevelUp
 - [State & Economy Sync](/unity/grow/Grow_Sync)
 - [Gifting](/unity/grow/Grow_Gifting)
-- [IAP Fraud Protection]() **<-- @boris... put link here**
+- [IAP Fraud Protection](/unity/grow/Grow_FraudProtection)
 - [Social Leaderboards](/unity/grow/Grow_Leaderboards)
-- [Analytics]() **<-- @boris... put link here**
+- [Analytics](/unity/grow/Grow_Analytics)
 
 **Note:** GrowUltimate uses all of SOOMLA's open source modules: Store, Profile and LevelUp. This document describes how to incorporate these modules as part of the setup. You may choose to use only specific modules, however, to benefit from the full power of GROW's products we recommend that you integrate all 3 modules.
-
-Whenever you see GrowHighway below, just know that it's the module responsible for connecting your game to the GROW network. You'll just need to initialize it below and that's it.
-**<@boris ... consider removing this last paragraph about GrowHighway and move it to where you actually ask the user to initialize GrowHighway>**
-**<@boris ... we also need to actually change the call name from SoomlaHighway (and other classes as well)>**
 
 ## Integrating GrowUltimate
 
@@ -43,7 +39,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 	  ![alt text](/img/tutorial_img/unity_grow/addNewApp.png "Add new app")
 
 	* Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You can also click "Downloads" on the top right corner of the screen). Click on **GrowUltimate**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
-  
+
 2. Double-click on the downloaded Unity package, it'll import all the necessary files into your Unity project.
 
 	![alt text](/img/tutorial_img/unity_grow/importUltimate.png "import")
@@ -53,9 +49,8 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 	![alt text](/img/tutorial_img/unity_grow/prefabsUltimate.png "Prefabs")
 
 4. In the menu bar go to **Window > Soomla > Edit Settings**:
-** <@boris I think the image below is outdated>**
 
-	![alt text](/img/tutorial_img/unity_grow/soomlaSettingsAll.png "SOOMLA Settings")
+	![alt text](/img/tutorial_img/unity_grow/soomlaSettingsUltimate.png "SOOMLA Settings")
 
 	a. **Change the value for "Soomla Secret"**: "Soomla Secret" is an encryption secret you provide that will be used to secure your data on the device. **NOTE:** Choose this secret wisely, you can't change it after you launch your game!
 
@@ -87,47 +82,52 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 <div class="info-box">Make sure to initialize each module ONLY ONCE when your application loads, in the `Start()` function of a `MonoBehaviour` and **NOT** in the `Awake()` function. SOOMLA has its own `MonoBehaviour` and it needs to be "Awakened" before you initialize.</div>
 
-1. Initialize Highway, Insights, Sync and Gifting:
+
+1. Initialize _Highway_, _Insights_, _Sync_ and _Gifting_:
 
 	``` cs
-	using Soomla.Highway;
-	using Soomla.Insights;
-	using Soomla.Sync;
-	using Soomla.Gifting;
-	using Soomla.Query;
+	using Grow.Highway;
+	using Grow.Insights;
+	using Grow.Sync;
+	using Grow.Gifting;
+	using Grow.Query;
 
 	// Make sure to make this call in your earlieast loading scene,
-	// and before initializing any other SOOMLA components
+	// and before initializing any other SOOMLA/GROW components
 	// i.e. before SoomlaStore.Initialize(...)
-	SoomlaHighway.Initialize();
+	GrowHighway.Initialize();
 
 	// Make sure to make this call AFTER initializing HIGHWAY
-    SoomlaInsights.Initialize();
+    GrowInsights.Initialize();
 
 	// Make sure to make this call AFTER initializing HIGHWAY,
 	// and BEFORE initializing STORE/PROFILE/LEVELUP
-	bool economySync = true; // Remote Economy Management - Synchronizes your game's
-                             // economy between the client and server - enables
+	bool modelSync = true; 	// Remote Economy Management - Synchronizes your game's
+                             // economy modelbetween the client and server - enables
                              // you to remotely manage your economy.
 
 	bool stateSync = true; // Synchronizes the users' balances data with the server
                            // and across his other devices.
 						   // Must be TRUE in order to use LEADERBOARDS.
 
-	// State sync and Economy sync can be enabled/disabled separately.
-	SoomlaSync.Initialize(economySync, stateSync);
+	// State sync and Model sync can be enabled/disabled separately.
+	GrowSync.Initialize(modelSync, stateSync);
 
 	// LEADERBOARDS requires no initialization,
 	// but it depends on SYNC initialization with stateSync=true
 
 	// Make sure to make this call AFTER initializing SYNC,
 	// and BEFORE initializing STORE/PROFILE/LEVELUP
-	SoomlaGifting.Initialize();
+	GrowGifting.Initialize();
 	```
 
-2. Initialize the open-source modules: Store, Profile & LevelUp (**AFTER** the initialization of Highway, Sync and Gifting).
 
-	**Initialize Store:** Create your own implementation of `IStoreAssets` in order to describe your specific game's assets ([example](https://github.com/soomla/unity3d-store/blob/master/Soomla/Assets/Examples/MuffinRush/MuffinRushAssets.cs)). Initialize SoomlaStore with the class you just created:
+<div class="info-box">The _GrowHighway_ module is the module responsible for connecting your game to the GROW network. In order for it to operate it only needs to be initialized.</div>
+
+
+2. Initialize the open-source modules: _Store_, _Profile_ & _LevelUp_ (**AFTER** the initialization of _Highway_, _Sync_ and _Gifting_).
+
+	* **Initialize Store:** Create your own implementation of `IStoreAssets` in order to describe your specific game's assets ([example](https://github.com/soomla/unity3d-store/blob/master/Soomla/Assets/Examples/MuffinRush/MuffinRushAssets.cs)). Initialize SoomlaStore with the class you just created:
 
 	``` cs
 	SoomlaStore.Initialize(new YourStoreAssetsImplementation());
@@ -135,7 +135,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	* **Initialize Profile:**
 
-    **NOTE:** SoomlaProfile will initialize the social providers for you. Do NOT initialize them on your own (for example, don't call `FB.Init()`).
+    **NOTE:** `SoomlaProfile` will initialize the social providers for you. Do NOT initialize them on your own (for example, don't call `FB.Init()`).
 
 	``` cs
 	SoomlaProfile.Initialize();
@@ -158,13 +158,13 @@ In order to be notified about (and handle) SOOMLA-related events, you will also 
 - **Profile** - This module will make your life extremely easy when it comes to connecting your users to Social Networks.  
 [API](/unity/profile/Profile_MainClasses) | [Events](/unity/profile/Profile_Events)
 
-- **LevelUP** - When you want to easily create your game structure and handle your users' state, LevelUp is your guy.  
+- **LevelUp** - When you want to easily create your game structure and handle your users' state, LevelUp is your guy.  
 [API](/unity/levelup/Levelup_Model) | [Events](/unity/levelup/Levelup_Events)
 
-- **Insights** - Getting real-time, in-game, information about your users used to be a dream. Now it's here. Insights will tell you things about your users (as seen in other games) inside the code so you can take actions when it matters. This is the power of GROW data network.  
+- **Insights** - Getting in-game information about your users in real-time used to be a dream. Now it's here. Insights will tell you things about your users (as seen in other games) inside the code so you can take actions when it matters. This is the power of the GROW data network.  
 [API](/unity/grow/Grow_Insights#MainClasses&Methods) | [Events](/unity/grow/Grow_Insights#Events)
 
-- **State & Economy Sync** - Your users want to get their balances, levels and other game state parameters when they switch devices. Now you can give it to them.  
+- **State & Economy Sync** - Your users want to get their balances, levels and other game state parameters when they switch devices. Now you can let them do it.  
 [Events](/unity/grow/Grow_Sync#Events)
 
 - **Social Leaderboards** - Make your users compete with each other using their favorite social network. GROW's Social Leaderboards will let your users compete using their Facebook, Twitter or Google+ accounts.  
@@ -175,7 +175,7 @@ In order to be notified about (and handle) SOOMLA-related events, you will also 
 
 ## Example
 
-Below is a short example of how to initialize SOOMLA's modules. We suggest you read about the different modules and their entities in SOOMLA's Knowledge Base: [Store](/unity/store/Store_Model), [Profile](/unity/profile/Profile_MainClasses), [LevelUp](/unity/levelup/Levelup_Model), [Store & Economy Sync](/unity/grow/Grow_Sync), [Insights](/unity/grow/Grow_Insights), [Gifting](/unity/grow/Grow_Gifting) and [Social Leaderboards](/unity/grow/Grow_Leaderboards).
+Below is a short example of how to initialize SOOMLA's modules. We suggest you read about the different modules and their entities in SOOMLA's Knowledge Base: [Store](/unity/store/Store_Model), [Profile](/unity/profile/Profile_MainClasses), [LevelUp](/unity/levelup/Levelup_Model), [State & Economy Sync](/unity/grow/Grow_Sync), [Insights](/unity/grow/Grow_Insights), [Gifting](/unity/grow/Grow_Gifting) and [Social Leaderboards](/unity/grow/Grow_Leaderboards).
 
 ### IStoreAssets
 
@@ -235,11 +235,11 @@ using Soomla;
 using Soomla.Store;
 using Soomla.Profile;
 using Soomla.Levelup;
-using Soomla.Highway;
-using Soomla.Insights;
-using Soomla.Sync;
-using Soomla.Gifting;
-using Soomla.Query;
+using Grow.Highway;
+using Grow.Insights;
+using Grow.Sync;
+using Grow.Gifting;
+using Grow.Query;
 ...
 
 
@@ -294,11 +294,11 @@ public class ExampleWindow : MonoBehaviour {
 	public void onLevelStarted(Level level) {
 		SoomlaUtils.LogDebug("TAG", "Level started: " + level.toJSONObject().print());
 	}
-	public void onSoomlaInsightsInitialized () {
-    	Debug.Log("Soomla insights has been initialized.");
+	public void onGrowInsightsInitialized () {
+    	Debug.Log("Grow insights has been initialized.");
 	}
-	public void onSoomlaInsightsRefreshFinished (){
-	    if (SoomlaInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Educational] > 3) {
+	public void onGrowInsightsRefreshFinished (){
+	    if (GrowInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Educational] > 3) {
 	        // ... Do stuff according to your business plan ...
 	    }
 	}
@@ -315,35 +315,35 @@ public class ExampleWindow : MonoBehaviour {
 		ProfileEvents.OnLoginFinished += onLoginFinished;
 		LevelUpEvents.OnLevelStarted += onLevelStarted;
 
-	    HighwayEvents.OnInsightsInitialized += onSoomlaInsightsInitialized;
-    	HighwayEvents.OnInsightsRefreshFinished += onSoomlaInsightsRefreshFinished;
+	    HighwayEvents.OnInsightsInitialized += onGrowInsightsInitialized;
+    	HighwayEvents.OnInsightsRefreshFinished += onGrowInsightsRefreshFinished;
 
 		//TODO add gifting Events
 		//TODO add query events
 
 		// Make sure to make this call in your earlieast loading scene,
-		// and before initializing any other SOOMLA components
+		// and before initializing any other SOOMLA/GROW components
 		// i.e. before SoomlaStore.Initialize(...)
-		SoomlaHighway.Initialize();
+		GrowHighway.Initialize();
 
 		// Make sure to make this call AFTER initializing HIGHWAY
-	    SoomlaInsights.Initialize();
+	    GrowInsights.Initialize();
 
 		// Make sure to make this call AFTER initializing HIGHWAY,
 		// and BEFORE initializing STORE/PROFILE/LEVELUP
-		bool economySync = true; // Remote Economy Management - Synchronizes your game's
-                               // economy between the client and server - enables
+		bool modelSync = true; // Remote Economy Management - Synchronizes your game's
+                               // economy model between the client and server - enables
                                 // you to remotely manage your economy.
 
 		bool stateSync = true; // Synchronizes the users' balances data with the server
                                 // and across his other devices.
 
-		// State sync and Economy sync can be enabled/disabled separately.
-		SoomlaSync.Initialize(economySync, stateSync);
+		// State sync and Model sync can be enabled/disabled separately.
+		GrowSync.Initialize(modelSync, stateSync);
 
 		// Make sure to make this call AFTER initializing SYNC,
 		// and BEFORE initializing STORE/PROFILE/LEVELUP
-		SoomlaGifting.Initialize();
+		GrowGifting.Initialize();
 
 		SoomlaStore.Initialize(new ExampleAssets());
 		SoomlaProfile.Initialize();
