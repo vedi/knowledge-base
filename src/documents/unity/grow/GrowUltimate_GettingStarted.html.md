@@ -18,7 +18,7 @@ GrowUltimate is the most fully featured of all bundles that connects you to GROW
 
 GrowUltimate includes:
 
-- All of SOOMLA's open-source modules - _Store_, _Profile_ and _LevelUp_
+- All of SOOMLA's open-source modules - Store, Profile and LevelUp
 - [State & Economy Sync](/unity/grow/Grow_Sync)
 - [Gifting](/unity/grow/Grow_Gifting)
 - [IAP Fraud Protection](/unity/grow/Grow_FraudProtection)
@@ -31,7 +31,7 @@ GrowUltimate includes:
 
 Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon logging in, you will be directed to the main page of the dashboard. You will need to create a new game in order to start your jurney with GROW.
 
-1. Click on the SOOMBOT -> Click on the "+" button to add a new game. If it's your first time in the dashboard, just click on the "+" button underneath the "Create your first game" label in the middle of the screen.
+1. In the games screen click on the "+" button to add a new game. If it's your first time in the dashboard, just click on the "+" button underneath the "Create your first game" label in the middle of the screen.
 
 	  ![alt text](/img/tutorial_img/unity_grow/addNewApp.png "Add new app")
 
@@ -78,9 +78,9 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 <div class="info-box">Make sure to initialize each module ONLY ONCE when your application loads, in the `Start()` function of a `MonoBehaviour` and **NOT** in the `Awake()` function. SOOMLA has its own `MonoBehaviour` and it needs to be "Awakened" before you initialize.</div>
 <br>
-<div class="info-box">The _GrowHighway_ module is the module responsible for connecting your game to the GROW network. In order for it to operate it only needs to be initialized.</div>
+<div class="info-box">The GrowHighway module is the module responsible for connecting your game to the GROW network. In order for it to operate it only needs to be initialized.</div>
 
-1. Initialize _Highway_, _Insights_, _Sync_ and _Gifting_:
+1. Initialize Highway, Insights, Sync and Gifting:
 
 	``` cs
 	using Grow.Highway;
@@ -118,7 +118,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 	GrowGifting.Initialize();
 	```
 
-2. Initialize the open-source modules: _Store_, _Profile_ & _LevelUp_ (**AFTER** the initialization of _Highway_, _Sync_ and _Gifting_).
+2. Initialize the open-source modules: Store, Profile & LevelUp (**AFTER** the initialization of Highway, Sync and Gifting).
 
 	* **Initialize Store:** Create your own implementation of `IStoreAssets` in order to describe your specific game's assets ([example](https://github.com/soomla/unity3d-store/blob/master/Soomla/Assets/Examples/MuffinRush/MuffinRushAssets.cs)). Initialize SoomlaStore with the class you just created:
 
@@ -134,7 +134,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 	SoomlaProfile.Initialize();
 	```
 
-	* **Initialize LevelUp:** Create your own _Initial World_ which should contain the entire 'blueprint' of the game (see [Model Overview](/unity/levelup/Levelup_Model)). Initialize _LevelUp_ with the world you just created:
+	* **Initialize LevelUp:** Create your own Initial World which should contain the entire 'blueprint' of the game (see [Model Overview](/unity/levelup/Levelup_Model)). Initialize LevelUp with the world you just created:
 
 	``` cs
 	SoomlaLevelUp.Initialize(initialWorld);
