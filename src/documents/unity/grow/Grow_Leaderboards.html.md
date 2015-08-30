@@ -1,9 +1,9 @@
 ---
 layout: "content"
-image: "Tutorial"
+image: "Leaderboards"
 title: "Social Leaderboards"
 text: "Get started with GROW Social Leaderboards for Unity. Here you can find initialization instructions, event handling and usage examples."
-position: 9
+position: 8
 theme: 'platforms'
 collection: 'unity_grow'
 module: 'grow'
@@ -116,6 +116,60 @@ A Map of worlds having levels completed in them by the user. It maps between the
 
 A Map of records made by the user. It maps between score ID and the highest record done by the user.
 
-## example
+## Example
 
-Coming soon
+``` cs
+using Soomla;
+using Soomla.Store;
+using Soomla.Profile;
+using Soomla.Levelup;
+using Grow.Highway;
+using Grow.Sync;
+using Grow.Leaderboards;
+...
+
+void Start () {
+
+	HighwayEvents.OnFetchFriendsStatesFinished += onFetchFriendsStatesFinished;
+
+    // We can fetch friends states upon getting the player's friends list
+    ProfileEvents.OnGetContactsFinished +=
+        delegate(Provider provider,
+                 SocialPageData<UserProfile> userProfiles,
+                 string payload) {
+            Debug.Log ("OnGetContactsFinished");
+
+            // Extract a list of profile IDs from a list of friends
+            System.Collections.Generic.List<string> profileIdList =
+                userProfiles.PageData.ConvertAll(e => e.ProfileId);
+
+            // Fetch friends' states
+            GrowLeaderboards.FetchFriendsStates(provider.toInt(), profileIdList);
+
+            if (userProfiles.HasMore) {
+                SoomlaProfile.GetContacts(provider, false);
+            } else {
+                // no pages anymore
+            }
+        };
+
+    // Initialize GrowHighway
+    GrowHighway.Initialize();
+
+    // Make sure to make this call AFTER initializing HIGHWAY,
+    // and BEFORE initializing STORE/PROFILE/LEVELUP
+    GrowSync.Initialize(false, true); // Sync only state
+
+    SoomlaStore.Initialize(new ExampleAssets());
+    SoomlaProfile.Initialize();
+    SoomlaLevelup.Initialize(createMainWorld());
+
+}
+
+void onFetchFriendsStatesFinished(int providerId, IList<FriendState> friendStates) {
+    Debug.Log("Finished fetching friends states.");
+    // ... Display leaderboards to the user ...
+}
+
+
+```

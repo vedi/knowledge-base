@@ -1,9 +1,9 @@
 ---
 layout: "content"
-image: "Tutorial"
+image: "Insights"
 title: "Insights"
 text: "Get started with GROW Insights for Unity. Here you can find initialization instructions, event handling and usage examples."
-position: 7
+position: 8
 theme: 'platforms'
 collection: 'unity_grow'
 module: 'grow'
@@ -52,38 +52,38 @@ public void onGrowInsightsInitialized() {
 }
 ```
 
-### OnGrowInsightsRefreshStarted
+### OnInsightsRefreshStarted
 
 This event is triggered when fetching insights from the server has started.
 
 ``` cs
-HighwayEvents.OnGrowInsightsRefreshStarted += onGrowInsightsRefreshStarted;
+HighwayEvents.OnInsightsRefreshStarted += onInsightsRefreshStarted;
 
-public void onGrowInsightsRefreshStarted() {
+public void onInsightsRefreshStarted() {
 // ... your game specific implementation here ...
 }
 ```
 
-### OnGrowInsightsRefreshFinished
+### OnInsightsRefreshFinished
 
 This event is triggered when fetching insights from the server has finished.
 
 ``` cs
-HighwayEvents.OnGrowInsightsRefreshFinished += onGrowInsightsRefreshFinished;
+HighwayEvents.OnInsightsRefreshFinished += onInsightsRefreshFinished;
 
-public void onGrowInsightsRefreshFinished() {
+public void onInsightsRefreshFinished() {
 // ... your game specific implementation here ...
 }
 ```
 
-### OnGrowInsightsRefreshFailed
+### OnInsightsRefreshFailed
 
 This event is triggered when fetching insights from the server has failed.
 
 ``` cs
-HighwayEvents.OnGrowInsightsRefreshFailed += onGrowInsightsRefreshFailed;
+HighwayEvents.OnInsightsRefreshFailed += onInsightsRefreshFailed;
 
-public void onGrowInsightsRefreshFailed() {
+public void onInsightsRefreshFailed() {
 // ... your game specific implementation here ...
 }
 ```
@@ -165,7 +165,7 @@ void Start () {
 
     // Add event listeners - Make sure to set the event handlers before you initialize
     HighwayEvents.OnGrowInsightsInitialized += OnGrowInsightsInitialized;
-    HighwayEvents.OnGrowInsightsRefreshFinished += OnGrowInsightsRefreshFinished;
+    HighwayEvents.OnInsightsRefreshFinished += OnInsightsRefreshFinished;
 
     // Initialize GrowHighway
     GrowHighway.Initialize();
@@ -179,7 +179,7 @@ void OnGrowInsightsInitialized () {
     Debug.Log("GROW Insights has been initialized.");
 }
 
-void OnGrowInsightsRefreshFinished (){
+void OnInsightsRefreshFinished (){
     if (GrowInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Educational] > 3) {
         // ... Do stuff according to your business plan ...
     }

@@ -1,9 +1,9 @@
 ---
 layout: "content"
-image: "Tutorial"
+image: "Gifting"
 title: "Gifting"
 text: "Get started with GROW Gifting for Unity. Here you can find initialization instructions, event handling and usage examples."
-position: 10
+position: 9
 theme: 'platforms'
 collection: 'unity_grow'
 module: 'grow'
@@ -300,8 +300,6 @@ void Start () {
 
 void OnGrowGiftingInitialized () {
     Debug.Log("GROW Gifting has been initialized.");
-
-
 }
 
 void OnGiftHandOutSuccess (Gift gift){

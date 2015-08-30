@@ -1,6 +1,6 @@
 ---
 layout: "content"
-image: "Tutorial"
+image: "Question"
 title: "About GROW"
 text: "Learn about the power of GROW Analytics, how it can benefit game developers, and how to use the GROW dashboard."
 position: 1
@@ -115,5 +115,3 @@ Hover over any country on the map and see what percentage of your users in that 
 ![alt text](/img/tutorial_img/unity_grow/devices.png "Devices")
 
 See the percentage of your users who performed the action you defined in the filter per device. For example, 4.5% of your iPhone users rated your game. 6.2% of the other games' iPhone users rated their games, so your game is a bit behind the benchmark.
-
-

@@ -1,9 +1,9 @@
 ---
 layout: "content"
-image: "Tutorial"
+image: "Sync"
 title: "State & Economy Sync"
 text: "Get started with GROW State & Economy Sync for Unity. Here you can find initialization instructions, event handling and usage examples."
-position: 8
+position: 7
 theme: 'platforms'
 collection: 'unity_grow'
 module: 'grow'
@@ -58,9 +58,9 @@ public void onGrowSyncInitialized() {
 This event is triggered when model sync has started.
 
 ``` cs
-HighwayEvents.OnModelSyncStarted += OnModelSyncStarted;
+HighwayEvents.OnModelSyncStarted += onModelSyncStarted;
 
-public void OnModelSyncStarted() {
+public void onModelSyncStarted() {
 // ... your game specific implementation here ...
 }
 ```
@@ -71,9 +71,9 @@ This event is triggered when model sync has finished.
 Provides a list of modules which were synced.
 
 ``` cs
-HighwayEvents.OnModelSyncFinished += OnModelSyncFinished;
+HighwayEvents.OnModelSyncFinished += onModelSyncFinished;
 
-public void OnModelSyncFinished(IList<string> modules) {
+public void onModelSyncFinished(IList<string> modules) {
 // ... your game specific implementation here ...
 }
 ```
@@ -84,9 +84,9 @@ This event is triggered when model sync has failed.
 Provides the error code and reason of the failure.
 
 ``` cs
-HighwayEvents.OnModelSyncFailed += OnModelSyncFailed;
+HighwayEvents.OnModelSyncFailed += onModelSyncFailed;
 
-public void OnModelSyncFailed(ModelSyncErrorCode errorCode, string failReason) {
+public void onModelSyncFailed(ModelSyncErrorCode errorCode, string failReason) {
 // ... your game specific implementation here ...
 }
 ```
@@ -131,6 +131,43 @@ public void onStateSyncFailed(StateSyncErrorCode errorCode, string failReason) {
 }
 ```
 
+### OnStateResetStarted
+
+This event is triggered when state reset has started.
+
+``` cs
+HighwayEvents.OnStateResetStarted += onStateResetStarted;
+
+public void onStateResetStarted() {
+// ... your game specific implementation here ...
+}
+```
+
+### OnStateResetFinished
+
+This event is triggered when state reset has finished.
+
+``` cs
+HighwayEvents.OnStateResetFinished += onStateResetFinished;
+
+public void onStateResetFinished() {
+// ... your game specific implementation here ...
+}
+```
+
+### OnStateResetFailed
+
+This event is triggered when state reset has failed.
+Provides the error code and reason of failure.
+
+``` cs
+HighwayEvents.OnStateResetFailed += onStateResetFailed;
+
+public void onStateResetFailed(StateSyncErrorCode errorCode, string failReason) {
+// ... your game specific implementation here ...
+}
+```
+
 ## Main Classes & Methods
 
 Here you can find descriptions of the main classes of GROW Sync.
@@ -149,6 +186,65 @@ Params:
 - modelSync - should GROW Sync synchronize the model for integrated modules.
 - stateSync - should GROW Sync synchronize state for integrated modules.
 
-## example
+**`ResetState()`**
 
-Coming soon
+Resets the user's state both on his device and in GROW.
+
+## Example
+
+``` cs
+using Soomla;
+using Soomla.Store;
+using Grow.Highway;
+using Grow.Sync;
+...
+
+
+public class ExampleWindow : MonoBehaviour {
+
+	//
+	// Various event handling methods
+	//
+	public void onGrowSyncInitialized() {
+	    Debug.Log("GROW Sync has been initialized.");
+	}
+	public void onModelSyncFinished(IList<string> modules) {
+	    Debug.Log("Model Sync has finished.");
+	}
+	public void onStateSyncFinished(IList<string> changedComponents,
+                                    IList<string> failedComponents) {
+	    Debug.Log("State Sync has finished.");
+	}
+
+	//
+	// Initialize all of SOOMLA's modules
+	//
+	void Start () {
+		...
+
+		// Setup all event handlers - Make sure to set the event handlers before you initialize
+		HighwayEvents.OnGrowSyncInitialized += onGrowSyncInitialized;
+		HighwayEvents.OnModelSyncFinished += onModelSyncFinished;
+		HighwayEvents.OnStateSyncFinished += onStateSyncFinished;
+
+		// Make sure to make this call in your earlieast loading scene,
+		// and before initializing any other SOOMLA/GROW components
+		// i.e. before SoomlaStore.Initialize(...)
+		GrowHighway.Initialize();
+
+		// Make sure to make this call AFTER initializing HIGHWAY,
+		// and BEFORE initializing STORE/PROFILE/LEVELUP
+		bool modelSync = true; // Remote Economy Management - Synchronizes your game's
+                               // economy model between the client and server - enables
+                                // you to remotely manage your economy.
+
+		bool stateSync = true; // Synchronizes the users' balances data with the server
+                                // and across his other devices.
+
+		// State sync and Model sync can be enabled/disabled separately.
+		GrowSync.Initialize(modelSync, stateSync);
+
+		SoomlaStore.Initialize(new ExampleAssets());
+	}
+}
+```

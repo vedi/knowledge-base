@@ -1,9 +1,9 @@
 ---
 layout: "content"
-image: "Tutorial"
+image: "Bundle"
 title: "GrowUltimate"
 text: "Get started with GrowUltimate for Unity. Includes all of SOOMLA's modules: CORE, STORE, PROFILE, LEVELUP and HIGHWAY. Learn how to easily integrate everything SOOMLA has to offer into your game."
-position: 15
+position: 14
 theme: 'platforms'
 collection: 'unity_grow'
 module: 'grow'
@@ -18,14 +18,12 @@ GrowUltimate is the most fully featured of all bundles that connects you to GROW
 
 GrowUltimate includes:
 
-- All of SOOMLA's open-source modules - Store, Profile and LevelUp
+- All of SOOMLA's open-source modules - _Store_, _Profile_ and _LevelUp_
 - [State & Economy Sync](/unity/grow/Grow_Sync)
 - [Gifting](/unity/grow/Grow_Gifting)
 - [IAP Fraud Protection](/unity/grow/Grow_FraudProtection)
 - [Social Leaderboards](/unity/grow/Grow_Leaderboards)
 - [Analytics](/unity/grow/Grow_Analytics)
-
-**Note:** GrowUltimate uses all of SOOMLA's open source modules: Store, Profile and LevelUp. This document describes how to incorporate these modules as part of the setup. You may choose to use only specific modules, however, to benefit from the full power of GROW's products we recommend that you integrate all 3 modules.
 
 ## Integrating GrowUltimate
 
@@ -33,8 +31,7 @@ GrowUltimate includes:
 
 Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon logging in, you will be directed to the main page of the dashboard. You will need to create a new game in order to start your jurney with GROW.
 
-1. Click on the "+" button to add a new game. If it's your first time in the dashboard, you can just click the "Create your first game" button in the middle of the screen.
-**<@boris replace image with an image from the new dashboard>**
+1. Click on the SOOMBOT -> Click on the "+" button to add a new game. If it's your first time in the dashboard, just click on the "+" button underneath the "Create your first game" label in the middle of the screen.
 
 	  ![alt text](/img/tutorial_img/unity_grow/addNewApp.png "Add new app")
 
@@ -59,7 +56,6 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 	b. **Copy the "Game Key" and "Environment Key"** given to you from the [dashboard](http://dashboard.soom.la) into the fields in the settings pane of the Unity Editor. At this point, you're probably testing your integration and you want to use the **Sandbox** environment key.
 
 	<div class="info-box">The "game" and "environment" keys allow GROW to distinguish between multiple environments of your games. The dashboard pre-generates two fixed environments for your game: **Production** and **Sandbox**. When you decide to publish your game, **make sure to switch the environment key to <u>Production</u>**.  You can always generate more environments:  For example - you can choose to have a playground environment for your game's beta testers which will be isolated from your production environment and will thus prevent analytics data from being mixed between the two.  Another best practice might be to have a separate environment for each version of your game.</div>
-	** <@boris need to change image to new dashboard keys>**
 
 	![alt text](/img/tutorial_img/unity_grow/dashboardKeys.png "Game key and Env key")
 
@@ -81,7 +77,8 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 ### Initialize modules
 
 <div class="info-box">Make sure to initialize each module ONLY ONCE when your application loads, in the `Start()` function of a `MonoBehaviour` and **NOT** in the `Awake()` function. SOOMLA has its own `MonoBehaviour` and it needs to be "Awakened" before you initialize.</div>
-
+<br>
+<div class="info-box">The _GrowHighway_ module is the module responsible for connecting your game to the GROW network. In order for it to operate it only needs to be initialized.</div>
 
 1. Initialize _Highway_, _Insights_, _Sync_ and _Gifting_:
 
@@ -90,7 +87,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 	using Grow.Insights;
 	using Grow.Sync;
 	using Grow.Gifting;
-	using Grow.Query;
+	using Grow.Leaderboards;
 
 	// Make sure to make this call in your earlieast loading scene,
 	// and before initializing any other SOOMLA/GROW components
@@ -120,10 +117,6 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 	// and BEFORE initializing STORE/PROFILE/LEVELUP
 	GrowGifting.Initialize();
 	```
-
-
-<div class="info-box">The _GrowHighway_ module is the module responsible for connecting your game to the GROW network. In order for it to operate it only needs to be initialized.</div>
-
 
 2. Initialize the open-source modules: _Store_, _Profile_ & _LevelUp_ (**AFTER** the initialization of _Highway_, _Sync_ and _Gifting_).
 
@@ -239,7 +232,7 @@ using Grow.Highway;
 using Grow.Insights;
 using Grow.Sync;
 using Grow.Gifting;
-using Grow.Query;
+using Grow.Leaderboards;
 ...
 
 
@@ -297,12 +290,35 @@ public class ExampleWindow : MonoBehaviour {
 	public void onGrowInsightsInitialized () {
     	Debug.Log("Grow insights has been initialized.");
 	}
-	public void onGrowInsightsRefreshFinished (){
+	public void onInsightsRefreshFinished (){
 	    if (GrowInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Educational] > 3) {
 	        // ... Do stuff according to your business plan ...
 	    }
 	}
-
+	void OnGrowGiftingInitialized () {
+	    Debug.Log("GROW Gifting has been initialized.");
+	}
+	void OnGiftHandOutSuccess (Gift gift){
+	    // ... Show a nice animation of receiving the gift ...
+	}
+	void OnGiftSendFinished (Gift gift) {
+	    Debug.Log("Successfully sent " + gift.Payload.AssociatedItemId);
+	}
+	public void onGrowSyncInitialized() {
+	    Debug.Log("GROW Sync has been initialized.");
+	}
+	public void onModelSyncFinished(IList<string> modules) {
+	    Debug.Log("Model Sync has finished.");
+	}
+	public void onStateSyncFinished(IList<string> changedComponents,
+									IList<string> failedComponents) {
+	    Debug.Log("State Sync has finished.");
+	}
+	public void onFetchFriendsStatesFinished(int providerId,
+											 IList<FriendState> friendStates) {
+	    Debug.Log("Finished fetching friends states.");
+		// ... Display leaderboards to the user ...
+	}
 
 	//
 	// Initialize all of SOOMLA's modules
@@ -310,16 +326,44 @@ public class ExampleWindow : MonoBehaviour {
 	void Start () {
 		...
 
-		// Setup event handlers - Make sure to set the event handlers before you initialize
+		// Setup all event handlers - Make sure to set the event handlers before you initialize
 		StoreEvents.OnGoodBalanceChanged += onGoodBalanceChanged;
 		ProfileEvents.OnLoginFinished += onLoginFinished;
 		LevelUpEvents.OnLevelStarted += onLevelStarted;
 
-	    HighwayEvents.OnInsightsInitialized += onGrowInsightsInitialized;
-    	HighwayEvents.OnInsightsRefreshFinished += onGrowInsightsRefreshFinished;
+	    HighwayEvents.OnGrowInsightsInitialized += onGrowInsightsInitialized;
+    	HighwayEvents.OnInsightsRefreshFinished += onInsightsRefreshFinished;
 
-		//TODO add gifting Events
-		//TODO add query events
+		HighwayEvents.OnGrowGiftingInitialized += OnGrowGiftingInitialized;
+		HighwayEvents.OnGiftHandOutSuccess += OnGiftHandOutSuccess;
+		HighwayEvents.OnGiftSendFinished += OnGiftSendFinished;
+
+		HighwayEvents.OnGrowSyncInitialized += onGrowSyncInitialized;
+		HighwayEvents.OnModelSyncFinished += onModelSyncFinished;
+		HighwayEvents.OnStateSyncFinished += onStateSyncFinished;
+
+		HighwayEvents.OnFetchFriendsStatesFinished += onFetchFriendsStatesFinished;
+
+		// We can fetch friends states upon getting the player's friends list
+		ProfileEvents.OnGetContactsFinished +=
+				delegate(Provider provider,
+						 SocialPageData<UserProfile> userProfiles,
+						 string payload) {
+					Debug.Log ("OnGetContactsFinished");
+
+					// Extract a list of profile IDs from a list of friends
+					System.Collections.Generic.List<string> profileIdList =
+						userProfiles.PageData.ConvertAll(e => e.ProfileId);
+
+					// Fetch friends' states
+					GrowLeaderboards.FetchFriendsStates(provider.toInt(), profileIdList);
+
+					if (userProfiles.HasMore) {
+						SoomlaProfile.GetContacts(provider, false);
+					} else {
+						// no pages anymore
+					}
+				};
 
 		// Make sure to make this call in your earlieast loading scene,
 		// and before initializing any other SOOMLA/GROW components
