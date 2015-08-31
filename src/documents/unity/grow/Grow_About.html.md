@@ -1,6 +1,6 @@
 ---
 layout: "content"
-image: "Question"
+image: "About"
 title: "About GROW"
 text: "Learn about the power of GROW Analytics, how it can benefit game developers, and how to use the GROW dashboard."
 position: 1

@@ -15,16 +15,6 @@ title: 'Soomla Knowledge Base'
 
 <div id="platform-options">
 
-    <div class="container">
-      <div class="col-lg-4 col-md-4 menu-option">
-        <a href="/quick-start" class="link-container">
-          <div class="option-image" style="background-image: url('img/Level1-Soomla.png')"></div>
-          <div class="option-head-text">QUICK-START</div>
-          <div class="option-text">Start using SOOMLA now!</div>
-        </a>
-      </div>
-    </div>
-
   <div class="container">
     <%- @partial('platform-selection', {image:"img/Level2-Unity.png", link:"/unity", title: "Unity3D"}) %>
     <%- @partial('platform-selection', {image:"img/Level2-Cocos2dx.png", link:"/cocos2dx", title: "Cocos2d-x"}) %>
