@@ -1,6 +1,6 @@
 ---
 layout: "content"
-image: "WhalesReports"
+image: "Whales"
 title: "Whales Reports"
 text: "Get started with Grow Whales Reports."
 position: 3
