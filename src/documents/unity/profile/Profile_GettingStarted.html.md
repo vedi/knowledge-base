@@ -10,11 +10,11 @@ module: 'profile'
 platform: 'unity'
 ---
 
-#Getting Started
+# Getting Started
 
 <div class="info-box">Profile depends on SOOMLA's Core module. This document assumes that you are new to SOOMLA and have not worked with any of the other SOOMLA modules. If this is not the case, and you already have Core & Store, please follow these directions only for the Profile module.</div>
 
-##Getting Started
+## Getting Started
 
 1. Download and import:
 
@@ -56,7 +56,7 @@ And that's it! unity3d-profile knows how to contact the social provider (Faceboo
 
 <div class="info-box">The following steps should be done according to the target social network.</div>
 
-###Facebook
+### Facebook
 
 1. Download and import the official [Facebook SDK](https://developers.facebook.com/docs/unity/getting-started/canvas).
 
@@ -81,15 +81,15 @@ And that's it! unity3d-profile knows how to contact the social provider (Faceboo
   For instance, if you try to call `UpdateStory`, SoomlaProfile will ask for `publish_actions` permission, if your app has not got it.</div>
 
 
-###Google+
+### Google+
 
-####**Targeting iOS**:
+#### **Targeting iOS**:
 
 1. Follow [Step 1. Creating the Google Developers Console project](https://developers.google.com/+/mobile/ios/getting-started#step_1_creating_the_console_name_project) and create a Google+ app for iOS. Set the BUNDLE ID of your Google+ app to the Bundle Identifier of your Unity3d app.
 
 2. In the menu bar of the Unity editor go to **Window > Soomla > Edit Settings**, toggle the "google" check box and fill the "Client Id" text box with "CLIENT ID" value of your Google+ app.
 
-####**Targeting Android**:
+#### **Targeting Android**:
 1. Follow [Step 1: Enable the Google+ API](https://developers.google.com/+/mobile/android/getting-started#step_1_enable_the_google_api) and create a Google+ app for Android. Set the PACKAGE NAME of your Google+ app to the value of "Bundle Identifier" of your Unity3d app.
 
 	<div class="info-box">To create a custom keystore file with Unity3d, navigate to **Player Settings->Publishing Settings** and click "Create New Keystore". In your Google+ app page, navigate to **API & Auth->Credentials** and update the value of "CERTIFICATE FINGERPRINT (SHA1)" with the SHA-1 of your new keystore file.</div>
@@ -98,7 +98,7 @@ And that's it! unity3d-profile knows how to contact the social provider (Faceboo
 
 3. Navigate to "Publishing Settings" and browse for your keystore file (debug.keystore/custom keystore).
 
-###Twitter
+### Twitter
 
 Twitter is supported out-of-the-box, authentication is done either through the signed in Twitter account (iOS 5+) or through web browser (fallback). Follow the next steps to make it work:
 
@@ -108,34 +108,34 @@ Twitter is supported out-of-the-box, authentication is done either through the s
 
 	**NOTE:** "Consumer Key" and "Consumer Secret" are located under "Keys and Access Tokens" of your twitter app.
 
-###Common
+### Common
 There are some settings you can define which applies in all social providers params:
 
 `autoLogin` - Setting autoLogin to true will tell Profile to try and login the user automatically to the provider, if the user has already logged in with it in the previous sessions. The default value is `false`.
 
-##Caveats
+## Caveats
 
-###Facebook Caveats
+### Facebook Caveats
 
-####**iOS**
+#### **iOS**
 
 1. **Facebook Application** - You must create a Facebook application and use its details in your Profile-based application (with Facebook).
 
 2. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles.
 
-####**Android**
+#### **Android**
 
 1. **Facebook Application** - You must create a Facebook application and use its details in your Profile-based application (with Facebook).
 
 2. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
 
-###Twitter Caveats
+### Twitter Caveats
 
 1. Have you enabled twitter in **Widow->Soomla->Edit Settings**?
 
 2. Did you supply the correct Consumer Key and Secret?
 
-###Google Plus Caveats
+### Google Plus Caveats
 
 1. Have you enabled google in **Window > Soomla > Edit Settings**?
 
@@ -144,7 +144,7 @@ There are some settings you can define which applies in all social providers par
 3. Did you sign your Unity3d app with keystore file with SHA-1 identical to "CERTIFICATE FINGERPRINT (SHA1)" of your Google+ app?
 
 
-##Example
+## Example
 
 Below is a brief example of initializing Profile, logging the user into Facebook, and sharing a story on the user's Facebook wall. To see a full example, check out the [Muffin Rush Example](https://github.com/soomla/unity3d-profile/tree/master/Soomla/Assets/Examples/MuffinRush) that comes with unity3d-profile when you download it.
 
