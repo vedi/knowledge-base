@@ -18,12 +18,14 @@ GrowUltimate is the most fully featured of all bundles that connects you to GROW
 
 GrowUltimate includes:
 
-- All of SOOMLA's open-source modules - Store, Profile and LevelUp
+- All of SOOMLA's open-source modules - [Store](/unity/store/Store_GettingStarted), [Profile](/unity/profile/Profile_GettingStarted) and [LevelUp](/unity/levelup/Levelup_GettingStarted)
 - [State & Economy Sync](/unity/grow/Grow_Sync)
 - [Gifting](/unity/grow/Grow_Gifting)
 - [IAP Fraud Protection](/unity/grow/Grow_FraudProtection)
 - [Social Leaderboards](/unity/grow/Grow_Leaderboards)
 - [Analytics](/unity/grow/Grow_Analytics)
+- [Whales Reports](/unity/grow/Grow_WhalesReports)
+- [Insights](/unity/grow/Grow_Insights)
 
 ## Integrating GrowUltimate
 
@@ -43,7 +45,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 3. Open your earliest loading scene.  Drag the `CoreEvents`, `StoreEvents`, `ProfileEvents`, `LevelUpEvents`, and `HighwayEvents` Prefabs from `Assets/Soomla/Prefabs` into the scene. You should see them listed in the "Hierarchy" panel.
 
-	![alt text](/img/tutorial_img/unity_grow/prefabsUltimate.png "Prefabs")
+	![alt text](/img/tutorial_img/unity_grow/prefabsAll.png "Prefabs")
 
 4. In the menu bar go to **Window > Soomla > Edit Settings**:
 
@@ -100,7 +102,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 	// Make sure to make this call AFTER initializing HIGHWAY,
 	// and BEFORE initializing STORE/PROFILE/LEVELUP
 	bool modelSync = true; 	// Remote Economy Management - Synchronizes your game's
-                             // economy modelbetween the client and server - enables
+                             // economy model between the client and server - enables
                              // you to remotely manage your economy.
 
 	bool stateSync = true; // Synchronizes the users' balances data with the server

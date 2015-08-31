@@ -1,6 +1,6 @@
 ---
 layout: "content"
-image: "Tutorial"
+image: "FraudProtection"
 title: "IAP Fraud Protection"
 text: "Get started with Grow IAP Fraud Protection."
 position: 3
