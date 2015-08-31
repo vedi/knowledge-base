@@ -3,7 +3,7 @@ layout: "content"
 image: "FraudProtection"
 title: "IAP Fraud Protection"
 text: "Get started with Grow IAP Fraud Protection."
-position: 3
+position: 4
 theme: 'platforms'
 collection: 'unity_grow'
 module: 'grow'

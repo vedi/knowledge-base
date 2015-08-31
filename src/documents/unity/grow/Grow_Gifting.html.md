@@ -3,7 +3,7 @@ layout: "content"
 image: "Gifting"
 title: "Gifting"
 text: "Get started with GROW Gifting for Unity. Here you can find initialization instructions, event handling and usage examples."
-position: 9
+position: 10
 theme: 'platforms'
 collection: 'unity_grow'
 module: 'grow'

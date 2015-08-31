@@ -2,8 +2,8 @@
 layout: "content"
 image: "Bundle"
 title: "GrowSpend"
-text: "The perfect All In One solution for your game. If you want your **users to have the perfect experience in your game** then this bundle is for you."
-position: 10
+text: "The perfect virtual economy solution for your game. If you want Fraud Protection, cross-device balance SYNC and remote economy configurator then this bundle is for you."
+position: 11
 theme: 'platforms'
 collection: 'unity_grow'
 module: 'grow'
@@ -18,18 +18,22 @@ GrowSpend is the perfect virtual economy solution for your game. If you want Fra
 
 GrowSpend includes:
 
-- SOOMLA's open-source module - Store
+- SOOMLA's open-source module - [Store](/unity/store/Store_GettingStarted)
 - [State & Economy Sync](/unity/grow/Grow_Sync)
 - [IAP Fraud Protection](/unity/grow/Grow_FraudProtection)
 - [Analytics](/unity/grow/Grow_Analytics)
 - [Whales Reports](/unity/grow/Grow_WhalesReports)
 - [Insights](/unity/grow/Grow_Insights)
 
+**Note:** Cross-device SYNC is using the Profile module which allows your users to login with their social provider. If you want that, [integrate Profile](/unity/profile/Profile_GettingStarted) as well.
+
+**Note2:** In some games, SYNCing balances is useless without SYNCing progression as well. Using the LevelUp module will get you there. If you want that, [integrate LevelUp](/unity/levelup/Levelup_GettingStarted) as well.
+
 ## Integrating GrowSpend
 
 ### New Game & Configurations
 
-Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon logging in, you will be directed to the main page of the dashboard. You will need to create a new game in order to start your jurney with GROW.
+Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon logging in, you will be directed to the main page of the dashboard. You will need to create a new game in order to start your journey with GROW.
 
 1. In the games screen click on the "+" button to add a new game. If it's your first time in the dashboard, just click on the "+" button underneath the "Create your first game" label in the middle of the screen.
 
@@ -41,7 +45,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	![alt text](/img/tutorial_img/unity_grow/importStoreAndHighway.png "import")
 
-3. Open your earliest loading scene.  Drag the `CoreEvents`, `StoreEvents`, `ProfileEvents`, `LevelUpEvents`, and `HighwayEvents` Prefabs from `Assets/Soomla/Prefabs` into the scene. You should see them listed in the "Hierarchy" panel.
+3. Open your earliest loading scene.  Drag the `CoreEvents`, `StoreEvents` and `HighwayEvents` Prefabs from `Assets/Soomla/Prefabs` into the scene. You should see them listed in the "Hierarchy" panel.
 
 	![alt text](/img/tutorial_img/unity_grow/prefabsStoreAndHighway.png "Prefabs")
 
@@ -59,9 +63,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	![alt text](/img/tutorial_img/unity_grow/dashboardKeys.png "Game key and Env key")
 
-	c. **Choose your social platform** by toggling Facebook, twitter or Google in the settings. Follow the instructions for integrating [Facebook](/unity/profile/Profile_GettingStarted#facebook), [Twitter](/unity/profile/Profile_GettingStarted#twitter) or [Google+](/unity/profile/Profile_GettingStarted#google-).
-
-	d. If you're building for Android, click on the "Android Settings" option, and choose your billing provider. If you choose Google Play, you need to provide the Public Key, which is given to you from Google.
+	c. If you're building for Android, click on the "Android Settings" option, and choose your billing provider. If you choose Google Play, you need to provide the Public Key, which is given to you from Google.
 
 5. Fraud Protection (<u>RECOMMENDED</u>):
 
@@ -94,8 +96,8 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 	// Make sure to make this call AFTER initializing HIGHWAY,
 	// and BEFORE initializing STORE
 	bool modelSync = true; 	// Remote Economy Management - Synchronizes your game's
-                             // economy model between the client and server - enables
-                             // you to remotely manage your economy.
+                            // economy model between the client and server - enables
+                            // you to remotely manage your economy.
 
 	bool stateSync = true; // Synchronizes the users' balances data with the server
                            // and across his other devices.
@@ -115,7 +117,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 ## Module usage & event handling
 
-The next step is to create your game specific implementation for each of the modules. Use SOOOMLA's awesome products to create better in-game economy, game design and user experience.  
+The next step is to create your game specific implementation for each of the modules. Use SOOOMLA's awesome products to create better in-game economy and user experience.  
 In order to be notified about (and handle) SOOMLA-related events, you will also need to create event-handling functions. Refer to the following sections for more information:
 
 - **Store** - With Store you create your in-game virtual economy. It'll allow you to easily setup IAP and safely store your users' balances.  
@@ -236,7 +238,9 @@ public class ExampleWindow : MonoBehaviour {
 		Debug.Log("State Sync has finished.");
 	}
 
-	// Use this for initialization
+	//
+	// Initialize SOOMLA's modules
+	//
 	void Start () {
 
 		// Setup all event handlers - Make sure to set the event handlers before you initialize
@@ -252,13 +256,13 @@ public class ExampleWindow : MonoBehaviour {
 		GrowHighway.Initialize();
 
 		// Make sure to make this call AFTER initializing HIGHWAY,
-		// and BEFORE initializing STORE/PROFILE/LEVELUP
-		bool modelSync = true; // Remote Economy Management - Synchronizes your game's
-		// economy model between the client and server - enables
-		// you to remotely manage your economy.
+		// and BEFORE initializing STORE
+		bool modelSync = true; 	// Remote Economy Management - Synchronizes your game's
+								// economy model between the client and server - enables
+								// you to remotely manage your economy.
 
-		bool stateSync = true; // Synchronizes the users' balances data with the server
-		// and across his other devices.
+		bool stateSync = true; 	// Synchronizes the users' balances data with the server
+								// and across his other devices.
 
 		// State sync and Model sync can be enabled/disabled separately.
 		GrowSync.Initialize(modelSync, stateSync);

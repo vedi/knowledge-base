@@ -2,7 +2,7 @@
 layout: "content"
 image: "Bundle"
 title: "GrowUltimate"
-text: "Get started with GrowUltimate for Unity. Includes all of SOOMLA's modules: CORE, STORE, PROFILE, LEVELUP and HIGHWAY. Learn how to easily integrate everything SOOMLA has to offer into your game."
+text: "The perfect All In One solution for your game. If you want your users to have the perfect experience in your game then this bundle is for you."
 position: 14
 theme: 'platforms'
 collection: 'unity_grow'
@@ -31,7 +31,7 @@ GrowUltimate includes:
 
 ### New Game & Configurations
 
-Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon logging in, you will be directed to the main page of the dashboard. You will need to create a new game in order to start your jurney with GROW.
+Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon logging in, you will be directed to the main page of the dashboard. You will need to create a new game in order to start your journey with GROW.
 
 1. In the games screen click on the "+" button to add a new game. If it's your first time in the dashboard, just click on the "+" button underneath the "Create your first game" label in the middle of the screen.
 
@@ -43,7 +43,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	![alt text](/img/tutorial_img/unity_grow/importUltimate.png "import")
 
-3. Open your earliest loading scene.  Drag the `CoreEvents`, `StoreEvents`, `ProfileEvents`, `LevelUpEvents`, and `HighwayEvents` Prefabs from `Assets/Soomla/Prefabs` into the scene. You should see them listed in the "Hierarchy" panel.
+3. Open your earliest loading scene.  Drag the `CoreEvents`, `StoreEvents`, `ProfileEvents`, `LevelUpEvents` and `HighwayEvents` Prefabs from `Assets/Soomla/Prefabs` into the scene. You should see them listed in the "Hierarchy" panel.
 
 	![alt text](/img/tutorial_img/unity_grow/prefabsAll.png "Prefabs")
 
@@ -404,12 +404,12 @@ public class ExampleWindow : MonoBehaviour {
 
 		// Make sure to make this call AFTER initializing HIGHWAY,
 		// and BEFORE initializing STORE/PROFILE/LEVELUP
-		bool modelSync = true; // Remote Economy Management - Synchronizes your game's
-		// economy model between the client and server - enables
-		// you to remotely manage your economy.
+		bool modelSync = true; 	// Remote Economy Management - Synchronizes your game's
+								// economy model between the client and server - enables
+								// you to remotely manage your economy.
 
-		bool stateSync = true; // Synchronizes the users' balances data with the server
-		// and across his other devices.
+		bool stateSync = true; 	// Synchronizes the users' balances data with the server
+								// and across his other devices.
 
 		// State sync and Model sync can be enabled/disabled separately.
 		GrowSync.Initialize(modelSync, stateSync);
