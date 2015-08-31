@@ -175,48 +175,77 @@ Below is a short example of how to initialize SOOMLA's modules. We suggest you r
 ``` cs
 public class ExampleAssets : IStoreAssets {
 
+	public int GetVersion() {
+		return 0;
+	}
+
+	// NOTE: Even if you have no use in one of these functions, you still need to
+	// implement them all and just return an empty array.
+
+	public VirtualCurrency[] GetCurrencies() {
+		return new VirtualCurrency[]{COIN_CURRENCY};
+	}
+
+	public VirtualGood[] GetGoods() {
+		return new VirtualGood[] {SHIELD_GOOD, FIVE_SHIELD_GOOD};
+	}
+
+	public VirtualCurrencyPack[] GetCurrencyPacks() {
+		return new VirtualCurrencyPack[] {TEN_COIN_PACK};
+	}
+
+	public VirtualCategory[] GetCategories() {
+		return new VirtualCategory[]{GENERAL_CATEGORY};
+	}
+
 	/** Virtual Currencies **/
 	public static VirtualCurrency COIN_CURRENCY = new VirtualCurrency(
-	      "Coin currency",                  // Name
-	      "Collect coins to buy items",     // Description
-	      "currency_coin"                   // Item ID
-	 );
+		"Coin currency",                  // Name
+		"Collect coins to buy items",     // Description
+		"currency_coin"                   // Item ID
+		);
 
-    /** Virtual Currency Packs **/
-    public static VirtualCurrencyPack TEN_COIN_PACK = new VirtualCurrencyPack(
-        "10 Coins",                         // Name
-	    "This is a 10-coin pack",           // Description
-	    "coins_10",                         // Item ID
-        10,                                 // Number of currencies in the pack
-        "currency_coin",                    // The currency associated with this pack
-        new PurchaseWithMarket(             // Purchase type
-            TEN_COIN_PACK_PRODUCT_ID,       // Product ID
-            0.99)                           // Initial price
-    );
+	/** Virtual Currency Packs **/
+	public static VirtualCurrencyPack TEN_COIN_PACK = new VirtualCurrencyPack(
+		"10 Coins",                         // Name
+		"This is a 10-coin pack",           // Description
+		"coins_10",                         // Item ID
+		10,                                 // Number of currencies in the pack
+		COIN_CURRENCY.ID,                   // The currency associated with this pack
+		new PurchaseWithMarket(             // Purchase type
+	                       "[YOUR_COIN_PACK_MARKET_PRODUCT_ID]",    // Product ID
+	                       0.99)                           			// Initial price
+		);
 
-    /** Virtual Goods **/
+	/** Virtual Goods **/
 
-    // Shield that can be purchased for 150 coins.
-    public static VirtualGood SHIELD_GOOD = new SingleUseVG(
-        "Shield",                           // Name
-	    "Shields you from monsters",        // Description
-	    "shield_good",                      // Item ID
-        new PurchaseWithVirtualItem(        // Purchase type
-            "currency_coin",                // Virtual item to pay with
-            150)                            // Payment amount
-    );
+	// Shield that can be purchased for 150 coins.
+	public static VirtualGood SHIELD_GOOD = new SingleUseVG(
+		"Shield",                           // Name
+		"Shields you from monsters",        // Description
+		"shield_good",                      // Item ID
+		new PurchaseWithVirtualItem(        // Purchase type
+	                            COIN_CURRENCY.ID,               // Virtual item to pay with
+	                            150)                            // Payment amount
+		);
 
-    // Pack of 5 shields that can be purchased for $2.99.
-    public static VirtualGood 5_SHIELD_GOOD = new SingleUsePackVG(
-        "5 Shields",                        // Name
-	    "This is a 5-shield pack",          // Description
-	    "shield_5",                         // Item ID
-        new PurchaseWithMarket(             // Purchase type
-            SHIELD_PACK_PRODUCT_ID,         // Product ID
-            2.99)                           // Initial price
-    );
+	// Pack of 5 shields that can be purchased for $2.99.
+	public static VirtualGood FIVE_SHIELD_GOOD = new SingleUsePackVG(
+		SHIELD_GOOD.ID,
+		5,
+		"5 Shields",                        // Name
+		"This is a 5-shield pack",          // Description
+		"shield_5",                         // Item ID
+		new PurchaseWithMarket(             // Purchase type
+	                       "[YOUR_SHIELD_MARKET_PRODUCT_ID]",   // Product ID
+	                       2.99)                           		// Initial price
+		);
 
-    ...
+	/** Virtual Categories **/
+
+	public static VirtualCategory GENERAL_CATEGORY = new VirtualCategory(
+		"General", new List<string>(new string[] {SHIELD_GOOD.ID})
+	);
 }
 ```
 
@@ -233,8 +262,7 @@ using Grow.Insights;
 using Grow.Sync;
 using Grow.Gifting;
 using Grow.Leaderboards;
-...
-
+using System.Collections.Generic;
 
 public class ExampleWindow : MonoBehaviour {
 
@@ -249,23 +277,23 @@ public class ExampleWindow : MonoBehaviour {
 		Reward coinReward = new VirtualItemReward(
 			"coinReward",                       // ID
 			"100 Coins",                        // Name
-			COIN_CURRENCY.ID,                   // Associated item ID
+			ExampleAssets.COIN_CURRENCY.ID,     // Associated item ID
 			100                                 // Amount
-		);
+			);
 
 		Mission likeMission = new SocialLikeMission(
 			"likeMission",                      // ID
 			"Like Mission",                     // Name
 			new List<Reward>(){coinReward},     // Reward
-			Soomla.Profile.Provider.FACEBOOK,   // Social Provider
-			"[page name]"                       // Page to "Like"
+		Soomla.Profile.Provider.FACEBOOK,   // Social Provider
+		"[page name]"                       // Page to "Like"
 		);
 
 		// Add 10 levels to each world
 		worldA.BatchAddLevelsWithTemplates(10, null,
-			null, new List<Mission>(){likeMission});
+		                                   null, new List<Mission>(){likeMission});
 		worldB.BatchAddLevelsWithTemplates(10, null,
-			null, new List<Mission>(){likeMission});
+		                                   null, new List<Mission>(){likeMission});
 
 		// Create a world that will contain all worlds of the game
 		World mainWorld = new World("main_world");
@@ -281,42 +309,42 @@ public class ExampleWindow : MonoBehaviour {
 	public void onGoodBalanceChanged(VirtualGood good, int balance, int amountAdded) {
 		SoomlaUtils.LogDebug("TAG", good.ID + " now has a balance of " + balance);
 	}
-	public static void onLoginFinished(UserProfile userProfileJson, string payload){
-		SoomlaUtils.LogDebug("TAG", "Logged in as: " + UserProfile.toJSONObject().print());
+	public static void onLoginFinished(UserProfile userProfileJson, bool autoLogin, string payload){
+		SoomlaUtils.LogDebug("TAG", "Logged in as: " + userProfileJson.toJSONObject().print());
 	}
 	public void onLevelStarted(Level level) {
 		SoomlaUtils.LogDebug("TAG", "Level started: " + level.toJSONObject().print());
 	}
 	public void onGrowInsightsInitialized () {
-    	Debug.Log("Grow insights has been initialized.");
+		Debug.Log("Grow insights has been initialized.");
 	}
 	public void onInsightsRefreshFinished (){
-	    if (GrowInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Educational] > 3) {
-	        // ... Do stuff according to your business plan ...
-	    }
+		if (GrowInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Educational] > 3) {
+			// ... Do stuff according to your business plan ...
+		}
 	}
 	void OnGrowGiftingInitialized () {
-	    Debug.Log("GROW Gifting has been initialized.");
+		Debug.Log("GROW Gifting has been initialized.");
 	}
 	void OnGiftHandOutSuccess (Gift gift){
-	    // ... Show a nice animation of receiving the gift ...
+		// ... Show a nice animation of receiving the gift ...
 	}
 	void OnGiftSendFinished (Gift gift) {
-	    Debug.Log("Successfully sent " + gift.Payload.AssociatedItemId);
+		Debug.Log("Successfully sent " + gift.Payload.AssociatedItemId);
 	}
 	public void onGrowSyncInitialized() {
-	    Debug.Log("GROW Sync has been initialized.");
+		Debug.Log("GROW Sync has been initialized.");
 	}
 	public void onModelSyncFinished(IList<string> modules) {
-	    Debug.Log("Model Sync has finished.");
+		Debug.Log("Model Sync has finished.");
 	}
 	public void onStateSyncFinished(IList<string> changedComponents,
-									IList<string> failedComponents) {
-	    Debug.Log("State Sync has finished.");
+	                                IList<string> failedComponents) {
+		Debug.Log("State Sync has finished.");
 	}
 	public void onFetchFriendsStatesFinished(int providerId,
-											 IList<FriendState> friendStates) {
-	    Debug.Log("Finished fetching friends states.");
+	                                         IList<FriendState> friendStates) {
+		Debug.Log("Finished fetching friends states.");
 		// ... Display leaderboards to the user ...
 	}
 
@@ -324,15 +352,14 @@ public class ExampleWindow : MonoBehaviour {
 	// Initialize all of SOOMLA's modules
 	//
 	void Start () {
-		...
 
 		// Setup all event handlers - Make sure to set the event handlers before you initialize
 		StoreEvents.OnGoodBalanceChanged += onGoodBalanceChanged;
 		ProfileEvents.OnLoginFinished += onLoginFinished;
 		LevelUpEvents.OnLevelStarted += onLevelStarted;
 
-	    HighwayEvents.OnGrowInsightsInitialized += onGrowInsightsInitialized;
-    	HighwayEvents.OnInsightsRefreshFinished += onInsightsRefreshFinished;
+		HighwayEvents.OnGrowInsightsInitialized += onGrowInsightsInitialized;
+		HighwayEvents.OnInsightsRefreshFinished += onInsightsRefreshFinished;
 
 		HighwayEvents.OnGrowGiftingInitialized += OnGrowGiftingInitialized;
 		HighwayEvents.OnGiftHandOutSuccess += OnGiftHandOutSuccess;
@@ -346,24 +373,24 @@ public class ExampleWindow : MonoBehaviour {
 
 		// We can fetch friends states upon getting the player's friends list
 		ProfileEvents.OnGetContactsFinished +=
-				delegate(Provider provider,
-						 SocialPageData<UserProfile> userProfiles,
-						 string payload) {
-					Debug.Log ("OnGetContactsFinished");
+			delegate(Provider provider,
+			         SocialPageData<UserProfile> userProfiles,
+			        string payload) {
+			Debug.Log ("OnGetContactsFinished");
 
-					// Extract a list of profile IDs from a list of friends
-					System.Collections.Generic.List<string> profileIdList =
-						userProfiles.PageData.ConvertAll(e => e.ProfileId);
+			// Extract a list of profile IDs from a list of friends
+			System.Collections.Generic.List<string> profileIdList =
+				userProfiles.PageData.ConvertAll(e => e.ProfileId);
 
-					// Fetch friends' states
-					GrowLeaderboards.FetchFriendsStates(provider.toInt(), profileIdList);
+			// Fetch friends' states
+			GrowLeaderboards.FetchFriendsStates(provider.toInt(), profileIdList);
 
-					if (userProfiles.HasMore) {
-						SoomlaProfile.GetContacts(provider, false);
-					} else {
-						// no pages anymore
-					}
-				};
+			if (userProfiles.HasMore) {
+				SoomlaProfile.GetContacts(provider, false);
+			} else {
+				// no pages anymore
+			}
+		};
 
 		// Make sure to make this call in your earlieast loading scene,
 		// and before initializing any other SOOMLA/GROW components
@@ -371,16 +398,16 @@ public class ExampleWindow : MonoBehaviour {
 		GrowHighway.Initialize();
 
 		// Make sure to make this call AFTER initializing HIGHWAY
-	    GrowInsights.Initialize();
+		GrowInsights.Initialize();
 
 		// Make sure to make this call AFTER initializing HIGHWAY,
 		// and BEFORE initializing STORE/PROFILE/LEVELUP
 		bool modelSync = true; // Remote Economy Management - Synchronizes your game's
-                               // economy model between the client and server - enables
-                                // you to remotely manage your economy.
+		// economy model between the client and server - enables
+		// you to remotely manage your economy.
 
 		bool stateSync = true; // Synchronizes the users' balances data with the server
-                                // and across his other devices.
+		// and across his other devices.
 
 		// State sync and Model sync can be enabled/disabled separately.
 		GrowSync.Initialize(modelSync, stateSync);
@@ -391,7 +418,7 @@ public class ExampleWindow : MonoBehaviour {
 
 		SoomlaStore.Initialize(new ExampleAssets());
 		SoomlaProfile.Initialize();
-		SoomlaLevelup.Initialize(createMainWorld());
+		SoomlaLevelUp.Initialize(createMainWorld());
 
 	}
 }
