@@ -1,24 +1,25 @@
 ---
 layout: "content"
 image: "Tutorial"
-title: "Getting Started"
-text: "Get started with GROW open analytics for Unity. Includes all of SOOMLA's modules: Core, Store, Profile, LevelUp, and Highway. Learn how to easily integrate all that SOOMLA offers into your game."
-position: 2
+title: "GROW Spend"
+text: "Get started with GROW Spend for Cocos2d-x. Includes some of SOOMLA's modules: Core, Store, Profile, and Highway. Learn how to easily integrate Fraud Protection, Soomla SYNC and Remote Economy Management into your game."
+position: 9
 theme: 'platforms'
-collection: 'unity_grow'
+collection: 'cocos2dx_grow'
 module: 'grow'
-platform: 'unity'
+lang: 'cpp'
+platform: 'cocos2dx'
 ---
 
-#Getting Started
+# GROW Spend
 
-##Overview
+## Overview
 
-Soomla GROW is our flagship community-driven analytics dashboard. Developers using GROW can gain valuable insights about their games' performance and compare the data to benchmarks of other games in the GROW community. Read [more](/unity/grow/Grow_About).
+GROW Spend is a part of Soomla GROW, which is our flagship community-driven analytics dashboard. Developers using GROW can gain valuable insights about their games' performance and compare the data to benchmarks of other games in the GROW community. [Read more...](/unity/grow/Grow_About)
 
-**Note:** GROW analytics uses all of Soomla's modules: Store, Profile and LevelUp. This document describes how to incorporate all of these modules as part of the setup.  You may choose to use only specific modules, however, to benefit from the full power of GROW analytics we recommend that you integrate Store, Profile and LevelUp.
+**Note:** GROW Spend uses some of Soomla's modules: Store and Profile. This document describes how to incorporate these modules as part of the setup.  You may choose to use only specific modules, however, to benefit from the full power of GROW Spend we recommend that you integrate bot Store and Profile.
 
-##Setup GROW
+## Setup GROW Spend
 
 Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon logging in, you will be directed to the main page of the dashboard. On the left side panel, you can click on "Demo Game" in order to know what to expect to see once you start using Grow.
 
@@ -26,17 +27,17 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	  ![alt text](/img/tutorial_img/unity_grow/addNewApp.png "Add new app")
 
-2. Go to the "Download" window on the left side-panel, or click [here](http://dashboard.soom.la/downloads), and choose "Unity". Download the **GROW Bundle**. (NOTE: The "SOOMLA Bundle" contains the modules Store, Profile, & LevelUp, but does not contain Highway, meaning that it doesn't enable you to share data and participate in the data sharing community.)
+* Go to the "Download" window on the left side-panel, or click [here](http://dashboard.soom.la/downloads), and choose "Unity". Download the **GROW Spend**.
 
-3. Double-click on the downloaded Unity package, it'll import all the necessary files into your Unity project.
+* Double-click on the downloaded Unity package, it'll import all the necessary files into your Unity project.
 
 	![alt text](/img/tutorial_img/unity_grow/import.png "import")
 
-4. Open your earliest loading scene.  Drag the `CoreEvents`, `StoreEvents`, `ProfileEvents` and `LevelUpEvents` Prefabs from `Assets/Soomla/Prefabs` into the scene. You should see them listed in the "Hierarchy" panel.
+* Open your earliest loading scene.  Drag the `CoreEvents`, `StoreEvents` and `ProfileEvents` Prefabs from `Assets/Soomla/Prefabs` into the scene. You should see them listed in the "Hierarchy" panel.
 
 	![alt text](/img/tutorial_img/unity_grow/prefabs.png "Prefabs")
 
-5. In the menu bar go to **Window > Soomla > Edit Settings**:
+* In the menu bar go to **Window > Soomla > Edit Settings**:
 
 	![alt text](/img/tutorial_img/unity_grow/soomlaSettingsAll.png "SOOMLA Settings")
 
@@ -54,9 +55,22 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	d. If you're building for Android, click on the "Android Settings" option, and choose your billing provider. If you choose Google Play, you need to provide the Public Key, which is given to you from Google.
 
+<<<<<<< HEAD:src/documents/unity/grow/Grow_GettingStarted.html.md
 	e. If you're building for iOS, it is highly recommended to enforce Fraud Protection which is done by our complimentary verification service. Just click the "Fraud Protection" option under "iOS Build Settings"
+=======
+* **Fraud Protection (RECOMMENDED):**
+>>>>>>> new-bundles:src/documents/cocos2dx/cpp/grow/GrowSpend_GettingStarted.html.md
 
-6. Initialize Highway:
+	Fraud Protection is using SOOMLA's complimentary validation service to validate the receipt of every purchase made in your game. By using the GROW services you also get **Advanced Receipt Verification** to fully protect your game from fraudsters.
+	To activate Fraud Protection:
+
+	- In the menu bar go to **Window > Soomla > Edit Settings**.
+
+	- Check the "Receipt Validation" option under the relevant platform (Android - Google Play / iOS).
+
+	- Follow the instructions posted [here](/http://know.soom.la/android/store/store_googleplayverification/) to fill in the relevant fields (Google Play only).
+
+* Initialize Highway:
 
 	``` cs
 	using Soomla.Highway;
@@ -67,7 +81,25 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 	SoomlaHighway.Initialize();
 	```
 
-7. Initialize the rest of the modules: Store, Profile & LevelUp (**AFTER** the initialization of Highway).
+* Initialize [Soomla SYNC and Remote Economy Management ADD LINK HERE](/):
+
+	<div class="info-box">Make sure to initialize Soomla SYNC ONLY ONCE when your application loads, in the `Start()` function of a `MonoBehaviour` and **NOT** in the `Awake()` function. SOOMLA has its own `MonoBehaviour` and it needs to be "Awakened" before you initialize.</div>
+
+	``` cs
+	// Make sure to make this call AFTER initializing Highway,
+	// and BEFORE initializing Store/Profile
+	bool economySync = true;
+	bool stateSync = true;
+	SoomlaSync.Initialize(economySync, stateSync);
+	```
+
+	Soomla SYNC is divided into 2 parts, which can be enabled/disabled separately.
+
+	- Economy SYNC (Remote Economy Management): Synchronizes your game's economy between the client and server - enables you to remotely manage your economy.
+
+	- State SYNC: This synchronizes the users' balances data with the server, and across his other devices.
+
+* Initialize the rest of the modules: Store & Profile (**AFTER** the initialization of Highway).
 
 	<div class="info-box">Make sure to initialize each module ONLY ONCE when your application loads, in the `Start()` function of a `MonoBehaviour` and **NOT** in the `Awake()` function. SOOMLA has its own `MonoBehaviour` and it needs to be "Awakened" before you initialize.</div>
 
@@ -85,28 +117,27 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 	SoomlaProfile.Initialize();
 	```
 
-	c. **Initialize LEVELUP:** Create your own _Initial World_ which should contain the entire 'blueprint' of the game (see [Model Overview](/unity/levelup/Levelup_Model)). Initialize _LevelUp_ with the world you just created:
-
-  ``` cs
-  SoomlaLevelUp.Initialize(initialWorld);
-  ```
-
-8. You'll need to create event handler functions in order to be notified about (and handle) SOOMLA-related events. Refer to the following sections for more information:
+* You'll need to create event handler functions in order to be notified about (and handle) SOOMLA-related events. Refer to the following sections for more information:
 	- [Store Event Handling](/unity/store/Store_Events)
 	- [Profile Event Handling](/unity/profile/Profile_Events)
-	- [LevelUp Event Handling](/unity/levelup/Levelup_Events)
+	- [SYNC Event Handling ADD LINK HERE](/)
 
-9. Once your app is running, you can go back to the [GROW dashboard](http://dashboard.soom.la) to verify the integration. Just refresh the page, and the environments tab should appear (be patient, this step can take a few minutes).
+* Once your app is running, you can go back to the [GROW dashboard](http://dashboard.soom.la) to verify the integration. Just refresh the page, and the environments tab should appear (be patient, this step can take a few minutes).
 
 	![alt text](/img/tutorial_img/unity_grow/verifyIntegration.png "Verify Integration")
 
 And that's it! You have in-app purchasing, social engagement, and game architecture capabilities at your fingertips.
 
-##Example
+## Soomla SYNC
+
+Balance sync is being done automatically using the Store module. If you want to use Game progression sync go to [Grow Ultimate OR SOME OTHER NAME ADD LINK HERE](/).
+
+
+## Example
 
 Below is a short example of how to initialize SOOMLA's modules. We suggest you read about the different modules and their entities in SOOMLA's Knowledge Base: [Store](/unity/store/Store_Model), [Profile](/unity/profile/Profile_MainClasses), and [LevelUp](/unity/levelup/Levelup_Model).
 
-###IStoreAssets
+### IStoreAssets
 
 ``` cs
 public class ExampleAssets : IStoreAssets {
@@ -157,7 +188,7 @@ public class ExampleAssets : IStoreAssets {
 ```
 
 <br>
-###Initialization
+### Initialization
 
 ``` cs
 using Soomla;
