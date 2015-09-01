@@ -134,8 +134,8 @@ public void onMarketPurchase(PurchasableVirtualItem pvi, string payload,
     // payload - a text that you can give when you initiate the purchase operation and
     //    you want to receive back upon completion
     // extra - contains platform specific information about the market purchase
-    //    Android: The "extra" dictionary will contain "orderId" and "purchaseToken"
-    //    iOS: The "extra" dictionary will contain "receipt" and "token"
+    //    Android: The "extra" dictionary will contain: 'token', 'orderId', 'originalJson', 'signature', 'userId'
+    //    iOS: The "extra" dictionary will contain: 'receiptUrl', 'transactionIdentifier', 'receiptBase64', 'transactionDate', 'originalTransactionDate', 'originalTransactionIdentifier'
 
     // ... your game specific implementation here ...
 }
@@ -318,15 +318,14 @@ public void onBillingNotSupported() {
 }
 ```
 
-### OnUnexpectedErrorInStore
+### OnUnexpectedStoreError
 
-This event is triggered an unexpected error occurs in the Store.
 
 ``` cs
-StoreEvents.OnUnexpectedErrorInStore += onUnexpectedErrorInStore;
+StoreEvents.OnUnexpectedStoreError += onUnexpectedStoreError;
 
-public void onUnexpectedErrorInStore(string message) {
-    // message - the description of the error
+public void onUnexpectedStoreError(int errorCode) {
+    // errorCode - the code of the error
 
     // ... your game specific implementation here ...
 }

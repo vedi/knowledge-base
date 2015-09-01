@@ -7,6 +7,7 @@ position: 2
 theme: 'platforms'
 collection: 'cocos2dx_grow'
 module: 'grow'
+lang: 'cpp'
 platform: 'cocos2dx'
 ---
 
@@ -14,7 +15,9 @@ platform: 'cocos2dx'
 
 ##Overview
 
-Soomla GROW is our flagship community driven analytics dashboard.  Developers using GROW can gain valuable insights about their games' performance and compare the data to benchmarks of other games in the GROW community.
+Soomla GROW is our flagship community driven data network.  Developers using GROW can gain valuable insights about their games' performance and compare the data to benchmarks of other games in the GROW community.
+
+Whales Reports and SoomlaInsights are also provided to users of the GROW network. SoomlaInsights is an SDK provided with the GROW packages and Whales Reports are automatically sent to the emails of users with live & active games.
 
 **Note:** GROW analytics use all of Soomla's modules: Store, Profile and LevelUp. This document describes how to incorporate all of these modules as part of the setup.  You may choose to use only specific modules, however, to benefit from the full power of GROW analytics we recommend that you integrate Store, Profile and LevelUp.
 
@@ -105,7 +108,7 @@ In your XCode project, perform the following steps:
   - `Cocos2dXHighway.xcodeproj` (**extensions/cocos2dx-highway/**)
   - `Cocos2dXCore.xcodeproj` (**extensions/soomla-cocos2dx-core/**)  
   - `Cocos2dXStore.xcodeproj` (**extensions/cocos2dx-store/**)
-  - `Cocos2dXProfile.xcodeproj` (**extensions/soomla-cocos2dx-profile/**)  
+  - `Cocos2dXProfile.xcodeproj` (**extensions/cocos2dx-profile/**)  
   - `Cocos2dXLevelUp.xcodeproj` (**extensions/cocos2dx-levelup/**)
 
   perform the following:

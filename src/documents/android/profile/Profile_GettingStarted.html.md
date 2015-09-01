@@ -14,7 +14,7 @@ platform: 'android'
 
 ##Getting Started
 
-1. Download [android-profile](http://library.soom.la/fetch/android-profile/1.0.1?cf=github).
+1. Download [android-profile](http://library.soom.la/fetch/android-profile/latest?cf=github).
 
 2. From the downloaded zip, add the following jars to your project.
 
@@ -78,6 +78,17 @@ platform: 'android'
 
 	SoomlaProfile.getInstance().initialize(providerParams);
 	```
+
+  d. **Common** - There are some settings you can define which applies in all social providers params:
+
+	 `autoLogin` - Setting autoLogin to true will tell Profile to try and login the user automatically to the provider, if the user has already logged in with it in the previous sessions. The default value is `false`.
+
+	``` java
+  // Example for FB
+  HashMap<String, String> facebookParams = new HashMap<String, String>();
+  facebookParams.put("autoLogin", Boolean.toString(true));
+  providerParams.put(IProvider.Provider.FACEBOOK, facebookParams);
+  ```
 
 6. If integrating a virtual economy with the store module, please see [android-store](/android/store/Store_GettingStarted) for store setup.
 

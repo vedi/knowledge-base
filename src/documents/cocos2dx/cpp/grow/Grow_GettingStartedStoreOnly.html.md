@@ -3,10 +3,11 @@ layout: "content"
 image: "Tutorial"
 title: "Getting Started (Store only)"
 text: "Using cocos2dx-store already? Drop in one more package to seamlessly connect your game to GROW open analytics."
-position: 3
+position: 4
 theme: 'platforms'
 collection: 'cocos2dx_grow'
 module: 'grow'
+lang: 'cpp'
 platform: 'cocos2dx'
 ---
 
@@ -57,7 +58,10 @@ Get started with SOOMLA's Grow. Go to the [GROW dashboard](http://dashboard.soom
 
     - *Test Purchases* - allows testing IAP on Google Play. (iOS doesn't have this functionality).
 
-    - *SSV* - enables server-side receipt verification. (Android doesn't have this functionality).
+	- *SSV* - enables _Fraud Protection_. (in order to activate it in Google Play see the related section below).
+	
+	- *verifyOnServerFailure* - if you use Fraud Protection, optionally you set this param, if you want to get purchases 
+	automatically verified in case of network failures during the verification process.
 
     <div class="warning-box">Choose the secret wisely. You can't change it after you launch your game!
   	Initialize `CCSoomlaStore` ONLY ONCE when your application loads.</div>

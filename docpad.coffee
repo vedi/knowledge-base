@@ -86,6 +86,11 @@ docpadConfig = {
 				title: 'Download',
 				link: '/download'
 			}
+			{
+				id: 'integrations',
+				title: 'Integrations',
+				link: '/integrations'
+			}
 		]
 
 		soomlaModules: {
@@ -284,17 +289,8 @@ docpadConfig = {
 		soomla_storefront: ->
 			@getCollection('documents').findAllLive({relativeOutDirPath: path.join('docs','soomla', 'storefront')},[position:1])
 
-		university_articles: ->
-			@getCollection('documents').findAllLive({relativeOutDirPath: path.join('docs','university', 'articles')},[position:1])
-
-		university_datacommunity: ->
-			@getCollection('documents').findAllLive({relativeOutDirPath: path.join('docs','university', 'datacommunity')},[position:1])
-
-		university_realworldexamples: ->
-			@getCollection('documents').findAllLive({relativeOutDirPath: path.join('docs','university', 'realworldexamples')},[position:1])
-
-		university_videos: ->
-			@getCollection('documents').findAllLive({relativeOutDirPath: path.join('docs','university', 'videos')},[position:1])
+		samples: ->
+			@getCollection('documents').findAllLive({relativeOutDirPath: path.join('samples')},[position:1])
 
 # =================================
 # Environments

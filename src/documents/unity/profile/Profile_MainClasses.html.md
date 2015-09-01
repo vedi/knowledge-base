@@ -51,6 +51,17 @@ This class holds information about a user for a specific `Provider`.
 - `Gender`
 - `Language`
 - `Birthday`
+- `Extra` - a Dictionary contains additional info provided by social provider:
+  - `Facebook`
+    - **access_token** - *String*
+    - **permissions** - *JSONObject of Strings*
+    - **expiration_date** - *UNIX timestamp as Double*
+  - `Twitter`
+    - **access_token** - *String*
+  - `Google+`
+    - **access_token** - *String*
+    - **refresh_token** - *String* - `not available for Android`
+    - **expiration_date** - *UNIX timestamp as Double* - `not available for Android`
 
 ## SoomlaProfile <a href="https://github.com/soomla/unity3d-profile/blob/master/Soomla/Assets/Plugins/Soomla/Profile/SoomlaProfile.cs" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
@@ -183,7 +194,7 @@ SoomlaProfile.UpdateStatusWithConfirmation(
 	customMessage							// Message to show in the confirmation dialog
 );
 ```
-**NOTE:** This confirmation dialog is not supported in FB. 
+**NOTE:** This confirmation dialog is not supported in FB.
 <br>
 ###`UpdateStory`
 This function posts a story (which is a detailed status) on the user's wall in the supplied social provider. Upon a successful update, the user will receive the supplied reward.
@@ -246,7 +257,7 @@ SoomlaProfile.UpdateStoryWithConfirmation(
 	customMessage								// Message to show in the confirmation dialog
 );
 ```
-**NOTE:** This confirmation dialog is not supported in FB. 
+**NOTE:** This confirmation dialog is not supported in FB.
 
 <br>
 ###`UploadImage`
@@ -274,10 +285,10 @@ SoomlaProfile.UploadImage(
 );
 ```
 
-There is another function - `UploadImageWithConfirmation`. Works the same as `UploadImage` only here a confirmation 
-dialog will be shown before the operation is performed. 
+There is another function - `UploadImageWithConfirmation`. Works the same as `UploadImage` only here a confirmation
+dialog will be shown before the operation is performed.
 
-**NOTE:** This confirmation dialog is not supported in FB. 
+**NOTE:** This confirmation dialog is not supported in FB.
 
 ![alt text](/img/tutorial_img/unity-profile/socialUpload.png "Upload Image")
 
@@ -301,7 +312,7 @@ string firstName = userProf.FirstName;
 
 This function retrieves a list of the user's contacts from the supplied provider.
 
-<div class="info-box">Notice that some social providers (FB, G+, Twitter) supply all of the user's contacts and some supply only the contacts that use your app.</div>
+<div class="info-box">Notice that some social providers (G+, Twitter) supply all of the user's contacts and some (FB) supply only the contacts that use your app.</div>
 
 You could use `GetContacts` to show your users a personalized screen where they can see which of their friends are also playing your game, or you could offer the contacts that don't play your game to download your game and receive some free coins.
 
@@ -369,6 +380,8 @@ A `Reward` is an entity which can be earned by the user for meeting certain crit
 ### VirtualItemReward <a href="https://github.com/soomla/unity3d-store/blob/master/Soomla/Assets/Plugins/Soomla/Store/rewards/VirtualItemReward.cs" target="_blank"><img class="link-icon-small" src="/img/tutorial_img/linkImg.png"></a>
 
 A specific type of `Reward` that you can use to give your users some amount of a virtual item. **For example:** Give users 100 coins (virtual currency) for liking your page.
+
+<div class="info-box">`VirtualItemReward` is a part of `unity3d-store`. In case you want to use it, you'll need to import unity3d-store as well.</div>
 
 ``` cs
 VirtualCurrency coin = new VirtualCurrency("Coin", "", "coin_currency");

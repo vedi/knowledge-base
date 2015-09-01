@@ -7,6 +7,7 @@ position: 7
 theme: 'platforms'
 collection: 'cocos2djs_store'
 module: 'store'
+lang: 'js' 
 platform: 'cocos2dx'
 ---
 

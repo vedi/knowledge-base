@@ -4,5 +4,6 @@ layout: 'l2-main'
 theme: 'platforms'
 collection: 'cocos2djs_store'
 platform: 'cocos2dx'
+lang: 'js'
 module: 'store'
 ---
