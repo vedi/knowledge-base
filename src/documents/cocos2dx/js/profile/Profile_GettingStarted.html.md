@@ -345,7 +345,7 @@ Facebook is supported out-of-the-box, you just have to follow the next steps to 
 
 ###Google+ for Android
 
-1. Add the following jars from the [build](https://github.com/soomla/android-profile/tree/master/build) folder:
+1. Add the following jars from the [zip](http://library.soom.la/fetch/android-store/latest?cf=knowledge%20base):
 
   - `AndroidProfileGoogle.jar`
 
@@ -379,7 +379,7 @@ Twitter is supported out-of-the-box, authentication is done via web view. Follow
 
 <div class="info-box">SOOMLA uses the [Twitter4J](https://github.com/yusuke/twitter4j) library (v 4.0.2) to support Twitter integration.</div>
 
-1. Add the following jars from the [build](https://github.com/soomla/android-profile/tree/master/build) folder:
+1. Add the following jars from the [zip](http://library.soom.la/fetch/android-store/latest?cf=knowledge%20base):
 
   - `AndroidProfileTwitter.jar`
 
