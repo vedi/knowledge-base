@@ -227,7 +227,7 @@ public class ExampleWindow : MonoBehaviour {
 		HighwayEvents.OnModelSyncFinished += onModelSyncFinished;
 		HighwayEvents.OnStateSyncFinished += onStateSyncFinished;
 
-		// Make sure to make this call in your earlieast loading scene,
+		// Make sure to make this call in your earliest loading scene,
 		// and before initializing any other SOOMLA/GROW components
 		// i.e. before SoomlaStore.Initialize(...)
 		GrowHighway.Initialize();

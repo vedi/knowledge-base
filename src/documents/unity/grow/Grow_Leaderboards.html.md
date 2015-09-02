@@ -79,7 +79,7 @@ public void onFetchFriendsStatesFailed(int providerId, string failReason) {
 
 ## Main Classes & Methods
 
-Here you can find descriptions of the main classes of GROW Leaderboards. These classes contain functionality for leaderboards-related operations such as querying friends state.
+Here you can find descriptions of the main classes of GROW Leaderboards. These classes contain functionality for leaderboards-related operations such as fetching friends state.
 
 ### GrowLeaderboards
 

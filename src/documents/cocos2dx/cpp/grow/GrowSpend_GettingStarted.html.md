@@ -1,9 +1,9 @@
 ---
 layout: "content"
-image: "Tutorial"
-title: "GROW Spend"
-text: "Get started with GROW Spend for Cocos2d-x. Includes some of SOOMLA's modules: Core, Store, Profile, and Highway. Learn how to easily integrate Fraud Protection, Soomla SYNC and Remote Economy Management into your game."
-position: 9
+image: "Bundle"
+title: "GrowSpend"
+text: "The perfect virtual economy solution for your game. If you want Fraud Protection, cross-device balance SYNC and remote economy configurator then this bundle is for you."
+position: 11
 theme: 'platforms'
 collection: 'cocos2dx_grow'
 module: 'grow'
@@ -11,258 +11,322 @@ lang: 'cpp'
 platform: 'cocos2dx'
 ---
 
-# GROW Spend
+# GrowSpend - Bundle
 
 ## Overview
 
-GROW Spend is a part of Soomla GROW, which is our flagship community-driven analytics dashboard. Developers using GROW can gain valuable insights about their games' performance and compare the data to benchmarks of other games in the GROW community. [Read more...](/unity/grow/Grow_About)
+GrowSpend is the perfect virtual economy solution for your game. If you want Fraud Protection, cross-device balance SYNC and remote economy configurator then this bundle is for you. GrowSpend connects you to GROW, SOOMLA's flagship - a community-driven data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/cocos2dx/cpp/grow/Grow_About)
 
-**Note:** GROW Spend uses some of Soomla's modules: Store and Profile. This document describes how to incorporate these modules as part of the setup.  You may choose to use only specific modules, however, to benefit from the full power of GROW Spend we recommend that you integrate bot Store and Profile.
+GrowSpend includes:
 
-## Setup GROW Spend
+- SOOMLA's open-source module - [Store](/cocos2dx/cpp/store/Store_GettingStarted)
+- [State & Economy Sync](/cocos2dx/cpp/grow/Grow_Sync)
+- [IAP Fraud Protection](/cocos2dx/cpp/grow/Grow_FraudProtection)
+- [Analytics](/cocos2dx/cpp/grow/Grow_Analytics)
+- [Whales Report](/cocos2dx/cpp/grow/Grow_WhalesReport)
+- [Insights](/cocos2dx/cpp/grow/Grow_Insights)
 
-Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon logging in, you will be directed to the main page of the dashboard. On the left side panel, you can click on "Demo Game" in order to know what to expect to see once you start using Grow.
+**Note:** Cross-device SYNC is using the Profile module which allows your users to login with their social provider. If you want that, [integrate Profile](/cocos2dx/profile/Profile_GettingStarted) as well.
 
-1. Click on the right pointing arrow next to "Demo Game" > "Add New App" and fill in the required fields.
+**Note2:** In some games, SYNCing balances is useless without SYNCing progression as well. Using the LevelUp module will get you there. If you want that, [integrate LevelUp](/cocos2dx/levelup/Levelup_GettingStarted) as well.
+
+## Integrating GrowSpend
+
+### New Game & Configurations
+
+Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon logging in, you will be directed to the main page of the dashboard. You will need to create a new game in order to start your journey with GROW.
+
+<div class="info-box">If you didn't already, clone the Cocos2d-x framework from [here](https://github.com/cocos2d/cocos2d-x), or download it from the [Cocos2d-x website](http://www.cocos2d-x.org/download). Make sure the version you clone is supported by SOOMLA's modules (the tag is the version).</div>
+
+1. In the games screen click on the "+" button to add a new game. If it's your first time in the dashboard, just click on the "+" button underneath the "Create your first game" label in the middle of the screen.
 
 	  ![alt text](/img/tutorial_img/unity_grow/addNewApp.png "Add new app")
 
-* Go to the "Download" window on the left side-panel, or click [here](http://dashboard.soom.la/downloads), and choose "Unity". Download the **GROW Spend**.
+	* Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You can also click "Downloads" on the top right corner of the screen). Click on **GrowSpend**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
 
-* Double-click on the downloaded Unity package, it'll import all the necessary files into your Unity project.
+2. Unzip the downloaded file and copy its contents into the cocos2d directory located at the root of your Cocos2d-x project.
 
-	![alt text](/img/tutorial_img/unity_grow/import.png "import")
 
-* Open your earliest loading scene.  Drag the `CoreEvents`, `StoreEvents` and `ProfileEvents` Prefabs from `Assets/Soomla/Prefabs` into the scene. You should see them listed in the "Hierarchy" panel.
+### Initialize modules
 
-	![alt text](/img/tutorial_img/unity_grow/prefabs.png "Prefabs")
+<div class="info-box">Make sure to initialize each module ONLY ONCE when your application loads.</div>
+<br>
+<div class="info-box">The CCGrowHighway module is the module responsible for connecting your game to the GROW network. In order for it to operate it only needs to be initialized.</div>
 
-* In the menu bar go to **Window > Soomla > Edit Settings**:
+1. In your `AppDelegate.cpp` include `Cocos2dxHighway.h`:
 
-	![alt text](/img/tutorial_img/unity_grow/soomlaSettingsAll.png "SOOMLA Settings")
+  ```cpp
+  #include "Cocos2dxHighway.h"
+  ```
 
-	a. **Change the value for "Soomla Secret"**: "Soomla Secret" is an encryption secret you provide that will be used to secure your data. **NOTE:** Choose this secret wisely, you can't change it after you launch your game!
+2. Initialize `CCSoomla` with a custom secret of your choice (**Custom Secret** is an encryption secret you provide that will be used to secure your data.):
 
-	<div class="info-box">If you're already using earlier versions of SOOMLA, make sure that you use the same secret. Changing secrets can cause your users to lose their balances.</div>
+  ```cpp
+  soomla::CCSoomla::initialize("ExampleCustomSecret");
+  ```
 
-	b. **Copy the "Game Key" and "Environment Key"** given to you from the [dashboard](http://dashboard.soom.la) into the fields in the settings pane of the Unity Editor. At this point, you're probably testing your integration and you want to use the **Sandbox** environment key.
+  <div class="warning-box">Choose this secret wisely, you can't change it after you launch your game!</div>
 
-	Explanation: The "game" and "env" keys allow for your game to distinguish multiple environments for the same game. The dashboard pre-generates two fixed environments for your game: **Production** and **Sandbox**. When you decide to publish your game, make sure to switch the env key to **Production**.  You can always generate more environments.  For example - you can choose to have a playground environment for your game's beta testers which will be isolated from your production environment and will thus prevent analytics data from being mixed between the two.  Another best practice is to have a separate environment for each version of your game.
+3. Initialize `CCGrowHighway` with the "Game Key" and "Env Key" given to you in the [dashboard](http://dashboard.soom.la):
 
-	![alt text](/img/tutorial_img/unity_grow/dashboardKeys.png "Game key and Env key")
+  **Copy the "Game Key" and "Environment Key"** given to you from the [dashboard](http://dashboard.soom.la) and initialize `CCGrowHighway` with them. At this point, you're probably testing your integration and you want to use the **Sandbox** environment key.
 
-	c. **Choose your social platform** by toggling Facebook, twitter or Google in the settings. Follow the directions for integrating [Facebook](/unity/profile/Profile_GettingStarted#facebook), [Twitter](/unity/profile/Profile_GettingStarted#twitter) or [Google+](/unity/profile/Profile_GettingStarted#google-).
+  Explanation: The "game" and "env" keys allow for your game to distinguish multiple environments for the same game. The dashboard pre-generates two fixed environments for your game: **Production** and **Sandbox**. When you decide to publish your game, make sure to switch the env key to **Production**.  You can always generate more environments.  For example - you can choose to have a playground environment for your game's beta testers which will be isolated from your production environment and will thus prevent analytics data from being mixed between the two.  Another best practice is to have a separate environment for each version of your game.
 
-	d. If you're building for Android, click on the "Android Settings" option, and choose your billing provider. If you choose Google Play, you need to provide the Public Key, which is given to you from Google.
+  ``` cpp
+  // Make sure to make this call in your AppDelegate's
+  // applicationDidFinishLaunching method, and before
+  // initializing any other SOOMLA/GROW components
+  // i.e. before CCSoomlaStore::initialize(...)
+  grow::CCGrowHighway::initShared(
+      __String::create("yourGameKey"),
+      __String::create("yourEnvKey"));
+  ```
 
-* **Fraud Protection (RECOMMENDED):**
+  ![alt text](/img/tutorial_img/cocos_grow/dashboardKeys.png "Keys")
 
-	Fraud Protection is using SOOMLA's complimentary validation service to validate the receipt of every purchase made in your game. By using the GROW services you also get **Advanced Receipt Verification** to fully protect your game from fraudsters.
-	To activate Fraud Protection:
+4. Initialize Sync:
 
-	- In the menu bar go to **Window > Soomla > Edit Settings**.
+	``` cpp
+	// Make sure to make this call AFTER initializing HIGHWAY,
+	// and BEFORE initializing STORE/PROFILE/LEVELUP
+	bool modelSync = true; 	// Remote Economy Management - Synchronizes your game's
+                             // economy model between the client and server - enables
+                             // you to remotely manage your economy.
 
-	- Check the "Receipt Validation" option under the relevant platform (Android - Google Play / iOS).
+	bool stateSync = true; // Synchronizes the users' balances data with the server
+                           // and across his other devices.
+						   // Must be TRUE in order to use LEADERBOARDS.
 
-	- Follow the instructions posted [here](/http://know.soom.la/android/store/store_googleplayverification/) to fill in the relevant fields (Google Play only).
-
-* Initialize Highway:
-
-	``` cs
-	using Soomla.Highway;
-
-	// Make sure to make this call in your earlieast loading scene,
-	// and before initializing any other SOOMLA components
-	// i.e. before SoomlaStore.Initialize(...)
-	SoomlaHighway.Initialize();
+	// State sync and Model sync can be enabled/disabled separately.
+	grow::CCGrowSync::initShared(modelSync, stateSync);
 	```
 
-* Initialize [Soomla SYNC and Remote Economy Management ADD LINK HERE](/):
+5. Initialize `CCSoomlaStore`:s
 
-	<div class="info-box">Make sure to initialize Soomla SYNC ONLY ONCE when your application loads, in the `Start()` function of a `MonoBehaviour` and **NOT** in the `Awake()` function. SOOMLA has its own `MonoBehaviour` and it needs to be "Awakened" before you initialize.</div>
+    ```cpp
+    // `YourImplementationAssets` should implement the `CCStoreAssets` interface
+    // and should include your entire virtual economy
+    YourImplementationAssets *assets = YourImplementationAssets::create();
 
-	``` cs
-	// Make sure to make this call AFTER initializing Highway,
-	// and BEFORE initializing Store/Profile
-	bool economySync = true;
-	bool stateSync = true;
-	SoomlaSync.Initialize(economySync, stateSync);
-	```
+    __Dictionary *storeParams = __Dictionary::create();
+    soomla::CCSoomlaStore::initialize(assets, storeParams);
+    ```
 
-	Soomla SYNC is divided into 2 parts, which can be enabled/disabled separately.
+<br>
+<div class="info-box">The next steps are different according to which native platform you are building for.</div>
 
-	- Economy SYNC (Remote Economy Management): Synchronizes your game's economy between the client and server - enables you to remotely manage your economy.
+### **Instructions for iOS**
 
-	- State SYNC: This synchronizes the users' balances data with the server, and across his other devices.
+In your XCode project, perform the following steps:
 
-* Initialize the rest of the modules: Store & Profile (**AFTER** the initialization of Highway).
+1. Add `jansson` (**external/jansson/**) to your project (just add it as a source folder, make sure to check "create group").
 
-	<div class="info-box">Make sure to initialize each module ONLY ONCE when your application loads, in the `Start()` function of a `MonoBehaviour` and **NOT** in the `Awake()` function. SOOMLA has its own `MonoBehaviour` and it needs to be "Awakened" before you initialize.</div>
+2. For each of the following XCode projects:
 
-	a. **Initialize STORE:** Create your own implementation of `IStoreAssets` in order to describe your specific game's assets ([example](https://github.com/soomla/unity3d-store/blob/master/Soomla/Assets/Examples/MuffinRush/MuffinRushAssets.cs)). Initialize SoomlaStore with the class you just created:
+  - `Cocos2dXHighway.xcodeproj` (**extensions/cocos2dx-highway/**)
+  - `Cocos2dXCore.xcodeproj` (**extensions/soomla-cocos2dx-core/**)  
+  - `Cocos2dXStore.xcodeproj` (**extensions/cocos2dx-store/**)
 
-	``` cs
-	SoomlaStore.Initialize(new YourStoreAssetsImplementation());
-	```
+  perform the following:
 
-	b. **Initialize PROFILE:**
+  - Drag the project into your project
+  - Add its targets to your **Build Phases->Target Dependencies**
+  - Add the Products (\*.a) of the project to **Build Phases->Link Binary With Libraries**.
 
-    **NOTE:** SoomlaProfile will initialize the social providers for you. Do NOT initialize them on your own (for example, don't call `FB.Init()`).
+  ![alt text](/img/tutorial_img/cocos_grow/iosStep2.png "iOS Integration")
 
-	``` cs
-	SoomlaProfile.Initialize();
-	```
+3. Add the following directories to **Build Settings->Header Search Paths** (with the `recursive` option):
 
-* You'll need to create event handler functions in order to be notified about (and handle) SOOMLA-related events. Refer to the following sections for more information:
-	- [Store Event Handling](/unity/store/Store_Events)
-	- [Profile Event Handling](/unity/profile/Profile_Events)
-	- [SYNC Event Handling ADD LINK HERE](/)
+  NOTE: This article assumes you have a `cocos2d` folder under your project folder which either contains the Cocos2d-x framework, or links to to its root folder.
 
-* Once your app is running, you can go back to the [GROW dashboard](http://dashboard.soom.la) to verify the integration. Just refresh the page, and the environments tab should appear (be patient, this step can take a few minutes).
+ - `$(SRCROOT)/../cocos2d/extensions/soomla-cocos2dx-core/Soomla`
+ - `$(SRCROOT)/../cocos2d/extensions/soomla-cocos2dx-core/build/ios/headers`
+ - `$(SRCROOT)/../cocos2d/extensions/cocos2dx-store/Soomla`
+ - `$(SRCROOT)/../cocos2d/extensions/cocos2dx-highway/Soomla`
 
-	![alt text](/img/tutorial_img/unity_grow/verifyIntegration.png "Verify Integration")
+  ![alt text](/img/tutorial_img/cocos_grow/headerSP.png "Header search paths")
 
-And that's it! You have in-app purchasing, social engagement, and game architecture capabilities at your fingertips.
+5. Add the `-ObjC` to the **Build Setting->Other Linker Flags**
 
-## Soomla SYNC
+  ![alt text](/img/tutorial_img/ios_getting_started/linkerFlags.png "Linker Flags")
 
-Balance sync is being done automatically using the Store module. If you want to use Game progression sync go to [Grow Ultimate OR SOME OTHER NAME ADD LINK HERE](/).
+6. Make sure you have these 9 Frameworks linked to your XCode project:
 
+  - Security
+  - libsqlite3.0.dylib
+  - StoreKit
+  - CFNetwork
+  - libicucore
+  - SystemConfiguration
+  - AdSupport
+  - MediaPlayer
+  - GameController
+
+That's it! Now all you have to do is build your XCode project and run your game.
+
+### **Instructions for Android**
+
+1. Import cocos2dx-highway, cocos2dx-store, modules into your project's Android.mk by adding the following:
+
+    ```
+    LOCAL_STATIC_LIBRARIES += cocos2dx_store_static
+    LOCAL_STATIC_LIBRARIES += cocos2dx_highway_static
+    # add these lines along with your other LOCAL_STATIC_LIBRARIES
+
+    $(call import-module, extensions/cocos2dx-store)
+    $(call import-module, extensions/cocos2dx-highway)
+    # add these lines at the end of the file, along with the other import-module calls
+    ```
+
+2. Add the following jars to your android project's classpath (or into its libs dir):
+
+  From `extensions/cocos2dx-highway/build/android`
+
+    - AndroidViper.jar
+
+    - Cocos2dxAndroidHighway.jar
+
+    - google-play-services.jar
+
+  From `extensions/soomla-cocos2dx-core/build/android`
+
+    - SoomlaAndroidCore.jar
+
+    - Cocos2dxAndroidCore.jar
+
+    - square-otto-1.3.2.jar
+
+  From `extensions/cocos2dx-store/build/android`
+
+    - AndroidStore.jar
+
+    - Cocos2dxAndroidStore.jar
+
+4. Update your `AndroidManifest.xml`:
+
+  ``` xml
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="com.android.vending.BILLING"/>
+
+  <application
+            ...
+            android:name="com.soomla.SoomlaApp">
+  </application>
+  ```
+
+5. Connect the Store module to your desired billing service:
+
+  - [Google Play](/cocos2dx/cpp/store/Store_GettingStarted#google-play)
+
+  - [Amazon Appstore](/cocos2dx/cpp/store/Store_GettingStarted#amazon)
+
+That's it! Don't forget to run the **build_native.py** script so that SOOMLA sources will be built with cocos2d-x.
+
+## Module usage & event handling
+
+The next step is to create your game specific implementation for each of the modules. Use SOOMLA's awesome products to create better in-game economy and user experience.  
+In order to be notified about (and handle) SOOMLA-related events, you will also need to create event-handling functions. Refer to the following sections for more information:
+
+- **Store** - With Store you create your in-game virtual economy. It'll allow you to easily setup IAP and safely store your users' balances.  
+[API](/cocos2dx/cpp/store/Store_Model) | [Main classes](/cocos2dx/cpp/store/Store_MainClasses) | [Events](/cocos2dx/cpp/store/Store_Events)
+
+- **State & Economy Sync** - Your users want to get their balances, levels and other game state parameters when they switch devices. Now you can let them do it.  
+[Events](/cocos2dx/cpp/grow/Grow_Sync#Events)
 
 ## Example
 
-Below is a short example of how to initialize SOOMLA's modules. We suggest you read about the different modules and their entities in SOOMLA's Knowledge Base: [Store](/unity/store/Store_Model), [Profile](/unity/profile/Profile_MainClasses), and [LevelUp](/unity/levelup/Levelup_Model).
+Below is a short example of how to initialize SOOMLA's modules. We suggest you read about the different modules and their entities in SOOMLA's Knowledge Base: [Store](/cocos2dx/cpp/store/Store_Model) and [State & Economy Sync](/cocos2dx/cpp/grow/Grow_Sync).
 
-### IStoreAssets
+### CCStoreAssets
 
-``` cs
-public class ExampleAssets : IStoreAssets {
+```cpp
+/** ExampleAssets (your implementation of CCStoreAssets) **/
+CCVirtualCurrency *coinCurrency = CCVirtualCurrency::create(
+  CCString::create("Coins"),
+  CCString::create(""),
+  CCString::create("coin_currency_ID")
+);
 
-	/** Virtual Currencies **/
-	public static VirtualCurrency COIN_CURRENCY = new VirtualCurrency(
-	      "Coin currency",                  // Name
-	      "Collect coins to buy items",     // Description
-	      "currency_coin"                   // Item ID
-	 );
+CCVirtualCurrencyPack *tenmuffPack = CCVirtualCurrencyPack::create(
+  CCString::create("50 Coins"),                 // Name
+  CCString::create("50 Coin pack"),             // Description
+  CCString::create("coins_50"),                 // Item ID
+  CCInteger::create(50),                        // Number of currencies in the pack
+  CCString::create("coin_currency_ID"),         // Currency associated with this pack
+  CCPurchaseWithMarket::create(                 // Purchase type
+    CCString::create(50_COIN_PACK_PRODUCT_ID),
+    CCDouble::create(0.99))
+);
 
-    /** Virtual Currency Packs **/
-    public static VirtualCurrencyPack TEN_COIN_PACK = new VirtualCurrencyPack(
-        "10 Coins",                         // Name
-	    "This is a 10-coin pack",           // Description
-	    "coins_10",                         // Item ID
-        10,                                 // Number of currencies in the pack
-        "currency_coin",                    // The currency associated with this pack
-        new PurchaseWithMarket(             // Purchase type
-            TEN_COIN_PACK_PRODUCT_ID,       // Product ID
-            0.99)                           // Initial price
-    );
+CCVirtualGood *shieldGood = CCSingleUseVG::create(
+  CCString::create("Fruit Cake"),               // Name
+  CCString::create("Delicios fruit cake!"),     // Description
+  CCString::create("fruit_cake"),               // Item ID
+  CCPurchaseWithVirtualItem::create(            // Purchase type
+    CCString::create(MUFFIN_CURRENCY_ITEM_ID),
+    CCInteger::create(225))
+);
 
-    /** Virtual Goods **/
-
-    // Shield that can be purchased for 150 coins.
-    public static VirtualGood SHIELD_GOOD = new SingleUseVG(
-        "Shield",                           // Name
-	    "Shields you from monsters",        // Description
-	    "shield_good",                      // Item ID
-        new PurchaseWithVirtualItem(        // Purchase type
-            "currency_coin",                // Virtual item to pay with
-            150)                            // Payment amount
-    );
-
-    // Pack of 5 shields that can be purchased for $2.99.
-    public static VirtualGood 5_SHIELD_GOOD = new SingleUsePackVG(
-        "5 Shields",                        // Name
-	    "This is a 5-shield pack",          // Description
-	    "shield_5",                         // Item ID
-        new PurchaseWithMarket(             // Purchase type
-            SHIELD_PACK_PRODUCT_ID,         // Product ID
-            2.99)                           // Initial price
-    );
-
-    ...
-}
 ```
+ <br>
 
-<br>
 ### Initialization
 
-``` cs
-using Soomla;
-using Soomla.Store;
-using Soomla.Profile;
-using Soomla.Levelup;
-using Soomla.Highway;
-...
+```cpp
+using namespace grow;
 
+bool AppDelegate::applicationDidFinishLaunching() {
+	Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCHighwayConsts::EVENT_GROW_SYNC_INITIALIZED, CC_CALLBACK_1(Example::onGrowSyncInitialized, this));
+	Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCHighwayConsts::EVENT_STATE_SYNC_FINISHED, CC_CALLBACK_1(Example::onStateSyncFinished, this));
+	Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCHighwayConsts::EVENT_MODEL_SYNC_FINISHED, CC_CALLBACK_1(Example::onModelSyncFinished, this));
 
-public class ExampleWindow : MonoBehaviour {
+	soomla::CCSoomla::initialize("ExampleCustomSecret");
 
-	//
-	// Utility method for creating the game's worlds
-	// and levels hierarchy
-	//
-	private World createMainWorld() {
-		World worldA = new World("world_a");
-		World worldB = new World("world_b");
+	// Make sure to make this call in your AppDelegate's
+	// applicationDidFinishLaunching method, and before
+	// initializing any other SOOMLA/GROW components
+	// i.e. before CCSoomlaStore::initialize(...)
+	grow::CCGrowHighway::initShared(__String::create("yourGameKey"),
+									__String::create("yourEnvKey"));
 
-		Reward coinReward = new VirtualItemReward(
-			"coinReward",                       // ID
-			"100 Coins",                        // Name
-			COIN_CURRENCY.ID,                   // Associated item ID
-			100                                 // Amount
-		);
+	// Make sure to make this call AFTER initializing HIGHWAY,
+	// and BEFORE initializing STORE/PROFILE/LEVELUP
+	bool modelSync = true; 	// Remote Economy Management - Synchronizes your game's
+							 // economy model between the client and server - enables
+							 // you to remotely manage your economy.
 
-		Mission likeMission = new SocialLikeMission(
-			"likeMission",                      // ID
-			"Like Mission",                     // Name
-			new List<Reward>(){coinReward},     // Reward
-			Soomla.Profile.Provider.FACEBOOK,   // Social Provider
-			"[page name]"                       // Page to "Like"
-		);
+	bool stateSync = true; // Synchronizes the users' balances data with the server
+						   // and across his other devices.
+						   // Must be TRUE in order to use LEADERBOARDS.
 
-		// Add 10 levels to each world
-		worldA.BatchAddLevelsWithTemplates(10, null,
-			null, new List<Mission>(){likeMission});
-		worldB.BatchAddLevelsWithTemplates(10, null,
-			null, new List<Mission>(){likeMission});
+	// State sync and Model sync can be enabled/disabled separately.
+	grow::CCGrowSync::initShared(modelSync, stateSync);
 
-		// Create a world that will contain all worlds of the game
-		World mainWorld = new World("main_world");
-		mainWorld.InnerWorldsMap.Add(worldA.ID, worldA);
-		mainWorld.InnerWorldsMap.Add(worldB.ID, worldB);
+	/** Set up and initialize Store, Profile, and LevelUp **/
+	ExampleAssets *assets = ExampleAssets::create();
 
-		return mainWorld;
-	}
+	__Dictionary *storeParams = __Dictionary::create();
+	storeParams->setObject(__String::create("ExamplePublicKey"), "androidPublicKey");
 
-	//
-	// Various event handling methods
-	//
-	public void onGoodBalanceChanged(VirtualGood good, int balance, int amountAdded) {
-		SoomlaUtils.LogDebug("TAG", good.ID + " now has a balance of " + balance);
-	}
-	public static void onLoginFinished(UserProfile userProfileJson, string payload){
-		SoomlaUtils.LogDebug("TAG", "Logged in as: " + UserProfile.toJSONObject().print());
-	}
-	public void onLevelStarted(Level level) {
-		SoomlaUtils.LogDebug("TAG", "Level started: " + level.toJSONObject().print());
-	}
+	soomla::CCSoomlaStore::initialize(assets, storeParams);
+}
 
+void Example::onGrowSyncInitialized(EventCustom *event) {
+	cocos2d::log("GROW Sync has been initialized.");
+}
 
-	//
-	// Initialize all of SOOMLA's modules
-	//
-	void Start () {
-		...
+void Example::onModelSyncFinished(EventCustom *event) {
+    __Dictionary *eventData = (__Dictionary *)event->getUserData();
+    __Array *changedComponents = dynamic_cast<__Array *>(eventData->objectForKey(CCHighwayConsts::DICT_ELEMENT_MODEL_CHANGED_COMPONENTS));
+	cocos2d::log("Model Sync has finished.");
+}
 
-		// Setup event handlers
-		StoreEvents.OnGoodBalanceChanged += onGoodBalanceChanged;
-		ProfileEvents.OnLoginFinished += onLoginFinished;
-		LevelUpEvents.OnLevelStarted += onLevelStarted;
-
-		SoomlaHighway.Initialize ();
-		SoomlaStore.Initialize(new ExampleAssets());
-		SoomlaProfile.Initialize();
-		SoomlaLevelup.Initialize(createMainWorld());
-	}
+void Example::onStateSyncFinished(EventCustom *event) {
+    __Dictionary *eventData = (__Dictionary *)event->getUserData();
+    __Array *changedComponents = dynamic_cast<__Array *>(eventData->objectForKey(CCHighwayConsts::DICT_ELEMENT_STATE_CHANGED_COMPONENTS));
+    __Array *failedComponents = dynamic_cast<__Array *>(eventData->objectForKey(CCHighwayConsts::DICT_ELEMENT_STATE_FAILED_COMPONENTS));
+	cocos2d::log("State Sync has finished.");
 }
 ```

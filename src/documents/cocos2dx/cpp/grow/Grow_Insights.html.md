@@ -31,7 +31,7 @@ Currently, Insights supports PayInsights which categorizes users according to th
 <div class="info-box">GROW Insights is included all GROW bundles: [GrowSpend](/cocos2dx/cpp/grow/GrowSpend_GettingStarted#SetupGrowSpend), [GrowViral](/cocos2dx/cpp/grow/GrowViral_GettingStarted#SetupGrowViral), [GrowCompete](/cocos2dx/cpp/grow/GrowCompete_GettingStarted#SetupGrowCompete), [GrowInsights](/cocos2dx/cpp/grow/GrowInsights_GettingStarted#SetupGrowInsights) and [GrowUltimate](/cocos2dx/cpp/grow/GrowUltimate_GettingStarted#SetupGrowUltimate) bundles. Please refer to the relevant bundle for initialization instructions.</div>
 
 
-1. Initialize `GrowInsights` according to the instructions of your relevant bundle.
+1. Initialize `CCGrowInsights` according to the instructions of your relevant bundle.
 
 * Create event handler functions in order to be notified about (and handle) GROW Insights related events. See [Events](/cocos2dx/cpp/grow/Grow_Insights/#Events) for more information.
 
@@ -145,6 +145,10 @@ Here you can find descriptions of the main classes of GROW Insights. These class
 
 #### Functions
 
+**`CCGrowInsights::initShared()`**
+
+Initializes the GROW Insights feature. Once initialized, the `EVENT_GROW_INSIGHTS_INITIALIZED` event is triggered.
+
 **`CCGrowInsights::refreshInsights()`**
 
 Manually refresh the insights. The `EVENT_INSIGHTS_REFRESH_STARTED` event is triggered once the refresh process is started, and one of `EVENT_INSIGHTS_REFRESH_FINISHED` or `EVENT_INSIGHTS_REFRESH_FAILED` is triggered depending on the refresh outcome.
@@ -208,6 +212,8 @@ Director::getInstance()->getEventDispatcher()->addCustomEventListener(
             CCHighwayConsts::EVENT_GROW_INSIGHTS_INITIALIZED, CC_CALLBACK_1(Example::onGrowInsightsInitialized, this));
 Director::getInstance()->getEventDispatcher()->addCustomEventListener(
             CCHighwayConsts::EVENT_INSIGHTS_REFRESH_FINISHED, CC_CALLBACK_1(Example::onInsightsRefreshFinished, this));
+
+soomla::CCSoomla::initialize("ExampleCustomSecret");
 
 // Initialize GrowHighway
 CCGrowHighway::initShared(
