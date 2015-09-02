@@ -21,7 +21,7 @@ GrowViral includes:
 - SOOMLA's open-source modules - [Store](/unity/store/Store_GettingStarted) and [Profile](/unity/profile/Profile_GettingStarted)
 - [Gifting](/unity/grow/Grow_Gifting)
 - [Analytics](/unity/grow/Grow_Analytics)
-- [Whales Reports](/unity/grow/Grow_WhalesReports)
+- [Whales Report](/unity/grow/Grow_WhalesReport)
 - [Insights](/unity/grow/Grow_Insights)
 
 ## Integrating GrowViral
@@ -74,7 +74,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 	using Grow.Highway;
 	using Grow.Gifting;
 
-	// Make sure to make this call in your earlieast loading scene,
+	// Make sure to make this call in your earliest loading scene,
 	// and before initializing any other SOOMLA/GROW components
 	// i.e. before SoomlaStore.Initialize(...)
 	GrowHighway.Initialize();
@@ -101,7 +101,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 ## Module usage & event handling
 
-The next step is to create your game specific implementation for each of the modules. Use SOOOMLA's awesome products to create better in-game economy, social interactions and user experience.  
+The next step is to create your game specific implementation for each of the modules. Use SOOMLA's awesome products to create better in-game economy, social interactions and user experience.  
 In order to be notified about (and handle) SOOMLA-related events, you will also need to create event-handling functions. Refer to the following sections for more information:
 
 - **Store** - With Store you create your in-game virtual economy. It'll allow you to easily setup IAP and safely store your users' balances.  
@@ -241,7 +241,7 @@ public class ExampleWindow : MonoBehaviour {
 		HighwayEvents.OnGiftHandOutSuccess += OnGiftHandOutSuccess;
 		HighwayEvents.OnGiftSendFinished += OnGiftSendFinished;
 
-		// Make sure to make this call in your earlieast loading scene,
+		// Make sure to make this call in your earliest loading scene,
 		// and before initializing any other SOOMLA/GROW components
 		// i.e. before SoomlaStore.Initialize(...)
 		GrowHighway.Initialize();

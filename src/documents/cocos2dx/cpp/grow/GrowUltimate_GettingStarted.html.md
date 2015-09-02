@@ -38,7 +38,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 1. In the games screen click on the "+" button to add a new game. If it's your first time in the dashboard, just click on the "+" button underneath the "Create your first game" label in the middle of the screen.
 
-	  ![alt text](/img/tutorial_img/unity_grow/addNewApp.png "Add new app")
+	  ![alt text](/img/tutorial_img/cocos_grow/addNewApp.png "Add new app")
 
 	* Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You can also click "Downloads" on the top right corner of the screen). Click on **GrowUltimate**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
 
@@ -72,6 +72,10 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
   Explanation: The "game" and "env" keys allow for your game to distinguish multiple environments for the same game. The dashboard pre-generates two fixed environments for your game: **Production** and **Sandbox**. When you decide to publish your game, make sure to switch the env key to **Production**.  You can always generate more environments.  For example - you can choose to have a playground environment for your game's beta testers which will be isolated from your production environment and will thus prevent analytics data from being mixed between the two.  Another best practice is to have a separate environment for each version of your game.
 
   ``` cpp
+  // Make sure to make this call in your AppDelegate's
+  // applicationDidFinishLaunching method, and before
+  // initializing any other SOOMLA/GROW components
+  // i.e. before CCSoomlaStore::initialize(...)
   grow::CCGrowHighway::initShared(
       __String::create("yourGameKey"),
       __String::create("yourEnvKey"));
@@ -79,16 +83,9 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
   ![alt text](/img/tutorial_img/cocos_grow/dashboardKeys.png "Keys")
 
-4. Initialize Highway, Insights, Sync and Gifting:
+4. Initialize Insights, Sync and Gifting:
 
 	``` cpp
-	// Make sure to make this call in your AppDelegate's
-	// applicationDidFinishLaunching method, and before
-	// initializing any other SOOMLA/GROW components
-	// i.e. before CCSoomlaStore::initialize(...)
-	grow::CCGrowHighway::initShared(__String::create("yourGameKey"),
-                                    __String::create("yourEnvKey"),
-
 	// Make sure to make this call AFTER initializing HIGHWAY
     grow::CCGrowInsights::initShared();
 
@@ -197,7 +194,7 @@ That's it! Now all you have to do is build your XCode project and run your game.
 
 ### **Instructions for Android**
 
-1. Import cocos2dx-highway, cocos2dx-store, cocos2dx-profile, and cocos2dx-levelup module into your project's Android.mk by adding the following:
+1. Import cocos2dx-highway, cocos2dx-store, cocos2dx-profile and cocos2dx-levelup modules into your project's Android.mk by adding the following:
 
     ```
     LOCAL_STATIC_LIBRARIES += cocos2dx_store_static
@@ -210,7 +207,7 @@ That's it! Now all you have to do is build your XCode project and run your game.
     $(call import-module, extensions/cocos2dx-profile)
     $(call import-module, extensions/cocos2dx-levelup)
     $(call import-module, extensions/cocos2dx-highway)
-    # add these line at the end of the file, along with the other import-module calls
+    # add these lines at the end of the file, along with the other import-module calls
     ```
 
 2. Add the following jars to your android project's classpath (or into its libs dir):
@@ -377,12 +374,14 @@ CCMission *mission = CCBalanceMission::create(
 // Add 5 levels to the main world with the gate, score, and mission templates we just created.
 mainWorld->batchAddLevelsWithTemplates(5, gate, score, mission);
 
+soomla::CCSoomla::initialize("ExampleCustomSecret");
+
 // Make sure to make this call in your AppDelegate's
 // applicationDidFinishLaunching method, and before
 // initializing any other SOOMLA/GROW components
 // i.e. before CCSoomlaStore::initialize(...)
 grow::CCGrowHighway::initShared(__String::create("yourGameKey"),
-								__String::create("yourEnvKey"),
+								__String::create("yourEnvKey"));
 
 // Make sure to make this call AFTER initializing HIGHWAY
 grow::CCGrowInsights::initShared();
@@ -407,7 +406,7 @@ grow::CCGrowSync::initShared(modelSync, stateSync);
 // and BEFORE initializing STORE/PROFILE/LEVELUP
 grow::CCGrowGifting::initShared();
 
-/** Set up and initialize Core, Store, Profile, and LevelUp **/
+/** Set up and initialize Store, Profile, and LevelUp **/
 ExampleAssets *assets = ExampleAssets::create();
 
 __Dictionary *storeParams = __Dictionary::create();
