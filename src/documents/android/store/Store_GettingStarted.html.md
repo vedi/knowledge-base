@@ -18,7 +18,7 @@ Before doing anything, SOOMLA recommends that you go through [Android In-app Bil
 
 1. First, you'll need to either add the jars from the build folder to your project (RECOMMENDED), or clone android-store.
 
-  - RECOMMENDED: Add the jars from the [build](https://github.com/soomla/android-store/tree/master/build) folder to your project.
+  - RECOMMENDED: Add the jars from the [zip](http://library.soom.la/fetch/android-store/latest?cf=knowledge%20base).
 
     OR, if you'd like to work with sources:
 

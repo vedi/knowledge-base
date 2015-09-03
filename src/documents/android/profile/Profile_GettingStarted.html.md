@@ -14,7 +14,7 @@ platform: 'android'
 
 ##Getting Started
 
-1. Download [android-profile](http://library.soom.la/fetch/android-profile/latest?cf=github).
+1. Download [android-profile](http://library.soom.la/fetch/android-profile/latest?cf=knowledge%20base).
 
 2. From the downloaded zip, add the following jars to your project.
 
@@ -154,7 +154,8 @@ Twitter is supported out-of-the-box, authentication is done via web view. Follow
 
 3. Import `google-play-services_lib` project as module dependency to your project.
 
-    > **Note:** You can either download/copy the existing `google-play-services_lib` project located under [google social provider libs](https://github.com/soomla/android-profile/tree/master/social-providers/android-profile-google/libs) folder or [create one yourself](https://developers.google.com/+/mobile/android/getting-started#step_2_configure_your_eclipse_project).
+    > **Note:** You can either download/copy the existing `google-play-services_lib` project located under 
+    [google social provider libs](https://github.com/soomla/android-profile/tree/master/social-providers/android-profile-google/libs) folder or [create one yourself](https://developers.google.com/+/mobile/android/getting-started#step_2_configure_your_eclipse_project).
 
 4. Add `SoomlaGooglePlusActivity` to `AndroidManifest.xml` as following:
 

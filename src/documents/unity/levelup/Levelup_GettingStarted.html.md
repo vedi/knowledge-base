@@ -10,17 +10,17 @@ module: 'levelup'
 platform: 'unity'
 ---
 
-#Getting Started
+# Getting Started
 
-##Getting Started
+## Getting Started
 
   <div class="info-box">LevelUp depends on SOOMLA's other modules: Core, Store, and Profile. This document assumes that you are new to SOOMLA and have not worked with any of the other SOOMLA modules. If this is not the case, and you already *have* some or all of the other modules, please follow these directions only for the modules you are missing and of course, for the **LevelUp** module.</div>
 
 1. Download the following unity-packages:
-    - [soomla-unity3d-core](https://github.com/soomla/unity3d-levelup/raw/master/deploy/out/soomla-unity3d-core.unitypackage)
-    - [unity3d-store](https://github.com/soomla/unity3d-levelup/raw/master/deploy/out/soomla-unity3d-store.unitypackage)
-    - [unity3d-profile](https://github.com/soomla/unity3d-levelup/raw/master/deploy/out/soomla-unity3d-profile.unitypackage)
-    - [unity3d-levelup](https://github.com/soomla/unity3d-levelup/raw/master/deploy/out/soomla-unity3d-levelup.unitypackage)
+    - [soomla-unity3d-core](http://library.soom.la/fetch/unity3d-core/latest?cf=knowledge%20base)
+    - [unity3d-store](http://library.soom.la/fetch/unity3d-store/latest?cf=knowledge%20base)
+    - [unity3d-profile](http://library.soom.la/fetch/unity3d-profile/latest?cf=knowledge%20base)
+    - [unity3d-levelup](http://library.soom.la/fetch/unity3d-levelup/latest?cf=knowledge%20base)
 
   **OR** if you would like to work with sources, you should **recursively** clone the repo (instead of downloading):
 
@@ -30,7 +30,7 @@ platform: 'unity'
 
 2. Double-click on them following the order they appear above. It'll import all the necessary files into your project.
 
-  <div class="info-box">If you are completely new to SOOMLA you can use the [All-in-One](https://github.com/soomla/unity3d-levelup/raw/master/soomla-unity3d-all-in-one.unitypackage) unitypackage which contains all the above packages in one package. Importing it is equivalent to preforming the above steps.</div>
+  <div class="info-box">If you are completely new to SOOMLA you can use the [All-in-One](http://library.soom.la/fetch/unity3d-allinone/latest?cf=knowledge%20base) unitypackage which contains all the above packages in one package. Importing it is equivalent to preforming the above steps.</div>
 
 3. Drag the "CoreEvents", "StoreEvents", "ProfileEvents" and "LevelUpEvents" Prefabs from `Assets/Soomla/Prefabs` into your scene. You should see it listed in the "Hierarchy" panel. [This step MUST be done for unity3d-levelup to work properly]
 
@@ -56,17 +56,17 @@ platform: 'unity'
 And that's it! You have game architecture capabilities at your fingertips.
 
 
-###SOOMLA's unity3d-store Integration
+### SOOMLA's unity3d-store Integration
 
 Please follow the steps in [unity3d-store](https://github.com/soomla/unity3d-store) for the _Store_ part of the setup.
 Then, you can use the **store-related _LevelUp_ classes**, such as `VirtualItemScore` or `VirtualItemReward` or `BalanceGate`.
 
-###SOOMLA's unity3d-profile Integration
+### SOOMLA's unity3d-profile Integration
 
 Please follow the steps in [unity3d-profile](https://github.com/soomla/unity3d-profile) for the _Profile_ part of the setup.
 Then, you can use the **profile-related _LevelUp_ classes**, such as `SocialLikeMission`.
 
-##Example Usages
+## Example Usages
 
 Examples using virtual items are dependent on unity3d-store module, with proper `SoomlaStore` initialization and `IStoreAssets` definitions. See the unity3d-store integration section above for more details.
 
