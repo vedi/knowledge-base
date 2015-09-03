@@ -20,9 +20,16 @@ There are dozens of ways for hacking games, and they can be generally divided in
   balance, and level progression. And change values to their benefit.
 * Fake in-game purchases - Special hacking applications perform fake communications with the game server.
 
+IAP Fraud in mobile games is a serious issue. If you release your game without any mechanism to detect and prevent IAP fraud then you probably don't really care about your game enough to make it a good one. There are many reasons Fraud can hurt your game, for example:
+
+* Fraudulent players can mess up your analytics.
+* Fraudulent players can make other (paying or viral) users leave b/c they can never go up on the leaderboard.
+
+And more ...
+
 ## Encrypted Storage
 
-Developers very often save their game data in plain text files. Such files are easily found by hackers, who then can change
+Developers very often save their game data in plain text files. Such files are easily found by hackers, who can then change
 their contents to their liking, and control the game data as they wish.
 
 There is a simple and robust solution for this - encryption. Using a good encryption algorithm to encrypt your data
