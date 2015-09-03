@@ -2,7 +2,7 @@
 layout: "content"
 image: "Tutorial"
 title: "Getting Started (SDKBOX)"
-text: "Get started with GROW open analytics (and Whales Report) for Cocos2d-x with SDKBOX. Doesn't Include any of SOOMLA's opensource modules, only Highway and SoomlaInsights."
+text: "Get started with GROW open analytics (and Whales Report) for Cocos2d-x with SDKBOX. Doesn't Include any of SOOMLA's opensource modules, only Highway and GrowInsights."
 position: 30
 theme: 'platforms'
 collection: 'cocos2dx_grow'
@@ -17,7 +17,7 @@ platform: 'cocos2dx'
 
 Soomla GROW is our flagship, community driven, data network. Developers using GROW can gain valuable insights about their games' performance and compare the data to benchmarks of other games in the GROW community.
 
-Whales Report and SoomlaInsights are also provided to users of the GROW network. SoomlaInsights is an SDK provided with the GROW packages and Whales Report are automatically sent to the emails of users with live & active games.
+Whales Report and GrowInsights are also provided to users of the GROW network. GrowInsights is an SDK provided with the GROW packages and Whales Report are automatically sent to the emails of users with live & active games.
 
 **Note:** This document is for users of SDKBOX who don't want to integrate SOOMLA's opensource modules into their game.
 
@@ -130,4 +130,4 @@ Once your app is running, you can go back to the [GROW dashboard](http://dashboa
 
 ![alt text](/img/tutorial_img/unity_grow/verifyIntegration.png "Verify Integration")
 
-And that's it! Whales Report, SoomlaInsights and GROW Analytics.
+And that's it! Whales Report, GrowInsights and GROW Analytics.

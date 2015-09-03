@@ -68,8 +68,8 @@ public class GA_Soomla : MonoBehaviour
 
         // Initialize SOOMLA Highway & Insights
         // Assumes you've setup GROW
-        SoomlaHighway.Initialize();
-        SoomlaInsights.Initialize();
+        GrowHighway.Initialize();
+        GrowInsights.Initialize();
 
         // Initialize SOOMLA Store & LevelUp
         // Assumes you've implemented your store assets
@@ -197,7 +197,7 @@ public class GA_Soomla : MonoBehaviour
 
     private static void OnSoomlaInsightsRefreshFinished()
     {
-        int payRank = SoomlaInsights.UserInsights.PayInsights.PayRankByGenre[Genre.<YOUR_GENRE>];
+        int payRank = GrowInsights.UserInsights.PayInsights.PayRankByGenre[Genre.<YOUR_GENRE>];
 
         if (payRank >= 0)
         {
