@@ -22,7 +22,7 @@ GrowCompete includes:
 - [State Sync](/unity/grow/Grow_Sync)
 - [Social Leaderboards](/unity/grow/Grow_Leaderboards)
 - [Analytics](/unity/grow/Grow_Analytics)
-- [Whales Reports](/unity/grow/Grow_WhalesReports)
+- [Whales Report](/unity/grow/Grow_WhalesReport)
 - [Insights](/unity/grow/Grow_Insights)
 
 ## Integrating GrowCompete
@@ -76,7 +76,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 	using Grow.Sync;
 	using Grow.Leaderboards;
 
-	// Make sure to make this call in your earlieast loading scene,
+	// Make sure to make this call in your earliest loading scene,
 	// and before initializing any other SOOMLA/GROW components
 	// i.e. before SoomlaStore.Initialize(...)
 	GrowHighway.Initialize();
@@ -118,7 +118,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 ## Module usage & event handling
 
-The next step is to create your game specific implementation for each of the modules. Use SOOOMLA's awesome products to create better in-game economy, social interactions, game design and user experience.  
+The next step is to create your game specific implementation for each of the modules. Use SOOMLA's awesome products to create better in-game economy, social interactions, game design and user experience.  
 In order to be notified about (and handle) SOOMLA-related events, you will also need to create event-handling functions. Refer to the following sections for more information:
 
 - **Store** - With Store you create your in-game virtual economy. It'll allow you to easily setup IAP and safely store your users' balances.  
@@ -135,9 +135,6 @@ In order to be notified about (and handle) SOOMLA-related events, you will also 
 
 - **Social Leaderboards** - Make your users compete with each other using their favorite social network. GROW's Social Leaderboards will let your users compete using their Facebook, Twitter or Google+ accounts.  
 [API](/unity/grow/Grow_Leaderboards) | [Events](/unity/grow/Grow_Leaderboards#Events)
-
-- **Gifting** - Increase the virality of your game by letting your users gift each other with any virtual item in your game.  
-[API](/unity/grow/Grow_Gifting) | [Events](/unity/grow/Grow_Gifting#Events)
 
 ## Example
 
@@ -335,7 +332,7 @@ public class ExampleWindow : MonoBehaviour {
 			}
 		};
 
-        // Make sure to make this call in your earlieast loading scene,
+        // Make sure to make this call in your earliest loading scene,
     	// and before initializing any other SOOMLA/GROW components
     	// i.e. before SoomlaStore.Initialize(...)
     	GrowHighway.Initialize();

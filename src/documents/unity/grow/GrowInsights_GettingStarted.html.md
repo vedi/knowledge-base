@@ -2,7 +2,7 @@
 layout: "content"
 image: "Bundle"
 title: "GrowInsights"
-text: "The perfect solution for your game if you have already integrated any of the SOOMLA open-source modules into it. If you just want to get Analytics, Whales Reports and Grow Insights then this bundle is for you."
+text: "The perfect solution for your game if you have already integrated any of the SOOMLA open-source modules into it. If you just want to get Analytics, Whales Report and Grow Insights then this bundle is for you."
 position: 15
 theme: 'platforms'
 collection: 'unity_grow'
@@ -14,12 +14,12 @@ platform: 'unity'
 
 ## Overview
 
-GrowInsights is the perfect solution for your game if you have already integrated any of the SOOMLA open-source modules into it. If you just want to get Analytics Whales Reports and Grow Insights then this bundle is for you. GrowInsights connects you to GROW, SOOMLA's flagship - a community-driven data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/unity/grow/Grow_About)
+GrowInsights is the perfect solution for your game if you have already integrated any of the SOOMLA open-source modules into it. If you just want to get Analytics Whales Report and Grow Insights then this bundle is for you. GrowInsights connects you to GROW, SOOMLA's flagship - a community-driven data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/unity/grow/Grow_About)
 
 GrowInsights includes:
 
 - [Analytics](/unity/grow/Grow_Analytics)
-- [Whales Reports](/unity/grow/Grow_WhalesReports)
+- [Whales Report](/unity/grow/Grow_WhalesReport)
 - [Insights](/unity/grow/Grow_Insights)
 
 ## Integrating GrowInsights
@@ -64,7 +64,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 	using Grow.Highway;
 	using Grow.Insights;
 
-	// Make sure to make this call in your earlieast loading scene,
+	// Make sure to make this call in your earliest loading scene,
 	// and before initializing any other SOOMLA/GROW components
 	// i.e. before SoomlaStore.Initialize(...)
 	GrowHighway.Initialize();
@@ -77,7 +77,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 ## Module usage & event handling
 
-The next step is to create your game specific implementation for each of the modules. Use SOOOMLA's awesome products to create better in-game economy, social interactions, game design and user experience.  
+The next step is to create your game specific implementation for each of the modules. Use SOOMLA's awesome products to create better in-game economy, social interactions, game design and user experience.  
 In order to be notified about (and handle) SOOMLA-related events, you will also need to create event-handling functions. Refer to the following sections for more information:
 
 - **Insights** - Getting in-game information about your users in real-time used to be a dream. Now it's here. Insights will tell you things about your users (as seen in other games) inside the code so you can take actions when it matters. This is the power of the GROW data network.  
@@ -117,7 +117,7 @@ public class ExampleWindow : MonoBehaviour {
 		HighwayEvents.OnGrowInsightsInitialized += onGrowInsightsInitialized;
 		HighwayEvents.OnInsightsRefreshFinished += onInsightsRefreshFinished;
 
-		// Make sure to make this call in your earlieast loading scene,
+		// Make sure to make this call in your earliest loading scene,
 		// and before initializing any other SOOMLA/GROW components
 		// i.e. before SoomlaStore.Initialize(...)
 		GrowHighway.Initialize();

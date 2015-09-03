@@ -22,7 +22,7 @@ GrowSpend includes:
 - [State & Economy Sync](/unity/grow/Grow_Sync)
 - [IAP Fraud Protection](/unity/grow/Grow_FraudProtection)
 - [Analytics](/unity/grow/Grow_Analytics)
-- [Whales Reports](/unity/grow/Grow_WhalesReports)
+- [Whales Report](/unity/grow/Grow_WhalesReport)
 - [Insights](/unity/grow/Grow_Insights)
 
 **Note:** Cross-device SYNC is using the Profile module which allows your users to login with their social provider. If you want that, [integrate Profile](/unity/profile/Profile_GettingStarted) as well.
@@ -88,7 +88,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 	using Grow.Highway;
 	using Grow.Sync;
 
-	// Make sure to make this call in your earlieast loading scene,
+	// Make sure to make this call in your earliest loading scene,
 	// and before initializing any other SOOMLA/GROW components
 	// i.e. before SoomlaStore.Initialize(...)
 	GrowHighway.Initialize();
@@ -117,7 +117,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 ## Module usage & event handling
 
-The next step is to create your game specific implementation for each of the modules. Use SOOOMLA's awesome products to create better in-game economy and user experience.  
+The next step is to create your game specific implementation for each of the modules. Use SOOMLA's awesome products to create better in-game economy and user experience.  
 In order to be notified about (and handle) SOOMLA-related events, you will also need to create event-handling functions. Refer to the following sections for more information:
 
 - **Store** - With Store you create your in-game virtual economy. It'll allow you to easily setup IAP and safely store your users' balances.  
@@ -250,7 +250,7 @@ public class ExampleWindow : MonoBehaviour {
 		HighwayEvents.OnModelSyncFinished += onModelSyncFinished;
 		HighwayEvents.OnStateSyncFinished += onStateSyncFinished;
 
-		// Make sure to make this call in your earlieast loading scene,
+		// Make sure to make this call in your earliest loading scene,
 		// and before initializing any other SOOMLA/GROW components
 		// i.e. before SoomlaStore.Initialize(...)
 		GrowHighway.Initialize();

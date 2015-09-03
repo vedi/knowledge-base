@@ -1,9 +1,9 @@
 ---
 layout: "content"
 image: "Bundle"
-title: "GrowCompete"
-text: "The perfect competition stimulation solution for your game. If you want your users to compete with their friends in order to increase engagement then this bundle is for you."
-position: 13
+title: "GrowUltimate"
+text: "The perfect All In One solution for your game. If you want your users to have the perfect experience in your game then this bundle is for you."
+position: 14
 theme: 'platforms'
 collection: 'cocos2dx_grow'
 module: 'grow'
@@ -11,22 +11,24 @@ lang: 'cpp'
 platform: 'cocos2dx'
 ---
 
-# GrowCompete - Bundle
+# GrowUltimate - Bundle
 
 ## Overview
 
-GrowCompete is the perfect competition stimulation solution for your game. If you want your users to compete with their friends in order to increase engagement then this bundle is for you. GrowCompete connects you to GROW, SOOMLA's flagship - a community-driven data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/cocos2dx/cpp/grow/Grow_About)
+GrowUltimate is the perfect All In One solution for your game. If you want your users to have the perfect experience in your game then this bundle is for you. GrowUltimate connects you to GROW, SOOMLA's flagship - a community-driven data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/cocos2dx/cpp/grow/Grow_About)
 
-GrowCompete includes:
+GrowUltimate includes:
 
 - All of SOOMLA's open-source modules - [Store](/cocos2dx/cpp/store/Store_GettingStarted), [Profile](/cocos2dx/cpp/profile/Profile_GettingStarted) and [LevelUp](/cocos2dx/cpp/levelup/Levelup_GettingStarted)
-- [State Sync](/cocos2dx/cpp/grow/Grow_Sync)
+- [State & Economy Sync](/cocos2dx/cpp/grow/Grow_Sync)
+- [Gifting](/cocos2dx/cpp/grow/Grow_Gifting)
+- [IAP Fraud Protection](/cocos2dx/cpp/grow/Grow_FraudProtection)
 - [Social Leaderboards](/cocos2dx/cpp/grow/Grow_Leaderboards)
 - [Analytics](/cocos2dx/cpp/grow/Grow_Analytics)
 - [Whales Report](/cocos2dx/cpp/grow/Grow_WhalesReport)
 - [Insights](/cocos2dx/cpp/grow/Grow_Insights)
 
-## Integrating GrowCompete
+## Integrating GrowUltimate
 
 ### New Game & Configurations
 
@@ -38,7 +40,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	  ![alt text](/img/tutorial_img/cocos_grow/addNewApp.png "Add new app")
 
-	* Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You can also click "Downloads" on the top right corner of the screen). Click on **GrowCompete**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
+	* Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You can also click "Downloads" on the top right corner of the screen). Click on **GrowUltimate**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
 
 2. Unzip the downloaded file and copy its contents into the cocos2d directory located at the root of your Cocos2d-x project.
 
@@ -81,17 +83,20 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
   ![alt text](/img/tutorial_img/cocos_grow/dashboardKeys.png "Keys")
 
-4. Initialize Sync:
+4. Initialize Insights, Sync and Gifting:
 
 	``` cpp
+	// Make sure to make this call AFTER initializing HIGHWAY
+    grow::CCGrowInsights::initShared();
+
 	// Make sure to make this call AFTER initializing HIGHWAY,
 	// and BEFORE initializing STORE/PROFILE/LEVELUP
 	bool modelSync = true; 	// Remote Economy Management - Synchronizes your game's
-							 // economy model between the client and server - enables
-							 // you to remotely manage your economy.
+                             // economy model between the client and server - enables
+                             // you to remotely manage your economy.
 
 	bool stateSync = true; // Synchronizes the users' balances data with the server
-						   // and across his other devices.
+                           // and across his other devices.
 						   // Must be TRUE in order to use LEADERBOARDS.
 
 	// State sync and Model sync can be enabled/disabled separately.
@@ -99,6 +104,10 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	// LEADERBOARDS requires no initialization,
 	// but it depends on SYNC initialization with stateSync=true
+
+	// Make sure to make this call AFTER initializing SYNC,
+	// and BEFORE initializing STORE/PROFILE/LEVELUP
+	grow::CCGrowGifting::initShared();
 	```
 
 2. Initialize the rest of the SOOMLA modules: `CCSoomlaStore`, `CCSoomlaProfile` and `CCSoomlaLevelUp`.
@@ -283,15 +292,21 @@ In order to be notified about (and handle) SOOMLA-related events, you will also 
 - **LevelUp** - When you want to easily create your game structure and handle your users' state, LevelUp is your guy.  
 [API](/cocos2dx/cpp/levelup/Levelup_Model) | [Events](/cocos2dx/cpp/levelup/Levelup_Events)
 
+- **Insights** - Getting in-game information about your users in real-time used to be a dream. Now it's here. Insights will tell you things about your users (as seen in other games) inside the code so you can take actions when it matters. This is the power of the GROW data network.  
+[API](/cocos2dx/cpp/grow/Grow_Insights#MainClasses&Methods) | [Events](/cocos2dx/cpp/grow/Grow_Insights#Events)
+
 - **State & Economy Sync** - Your users want to get their balances, levels and other game state parameters when they switch devices. Now you can let them do it.  
 [Events](/cocos2dx/cpp/grow/Grow_Sync#Events)
 
 - **Social Leaderboards** - Make your users compete with each other using their favorite social network. GROW's Social Leaderboards will let your users compete using their Facebook, Twitter or Google+ accounts.  
 [API](/cocos2dx/cpp/grow/Grow_Leaderboards) | [Events](/cocos2dx/cpp/grow/Grow_Leaderboards#Events)
 
+- **Gifting** - Increase the virality of your game by letting your users gift each other with any virtual item in your game.  
+[API](/cocos2dx/cpp/grow/Grow_Gifting) | [Events](/cocos2dx/cpp/grow/Grow_Gifting#Events)
+
 ## Example
 
-Below is a short example of how to initialize SOOMLA's modules. We suggest you read about the different modules and their entities in SOOMLA's Knowledge Base: [Store](/cocos2dx/cpp/store/Store_Model), [Profile](/cocos2dx/cpp/profile/Profile_MainClasses), [LevelUp](/cocos2dx/cpp/levelup/Levelup_Model), [State & Economy Sync](/cocos2dx/cpp/grow/Grow_Sync) and [Social Leaderboards](/cocos2dx/cpp/grow/Grow_Leaderboards).
+Below is a short example of how to initialize SOOMLA's modules. We suggest you read about the different modules and their entities in SOOMLA's Knowledge Base: [Store](/cocos2dx/cpp/store/Store_Model), [Profile](/cocos2dx/cpp/profile/Profile_MainClasses), [LevelUp](/cocos2dx/cpp/levelup/Levelup_Model), [State & Economy Sync](/cocos2dx/cpp/grow/Grow_Sync), [Insights](/cocos2dx/cpp/grow/Grow_Insights), [Gifting](/cocos2dx/cpp/grow/Grow_Gifting) and [Social Leaderboards](/cocos2dx/cpp/grow/Grow_Leaderboards).
 
 ### CCStoreAssets
 
@@ -326,116 +341,81 @@ CCVirtualGood *shieldGood = CCSingleUseVG::create(
 ```
  <br>
 
+### Initialization
+
 ```cpp
-bool AppDelegate::applicationDidFinishLaunching() {
+/** World **/
+CCWorld* mainWorld = CCWorld::create(
+  CCString::create("mainWorld_ID")
+);
 
-	// Add event listeners - Make sure to set the event handlers before you initialize
-	Director::getInstance()->getEventDispatcher()->addCustomEventListener(grow::CCHighwayConsts::EVENT_FETCH_FRIENDS_STATES_FINISHED, CC_CALLBACK_1(AppDelegate::onFetchFriendsStatesFinished, this));
-	Director::getInstance()->getEventDispatcher()->addCustomEventListener(soomla::CCProfileConsts::EVENT_GET_CONTACTS_FINISHED,                                                          CC_CALLBACK_1(AppDelegate::onGetContactsFinished, this));
+/** Score **/
+CCScore *coinScore = CCVirtualItemScore::create(
+  CCString::create("coinScore_ID"),
+  CCString::create("coin_currency_ID")
+);
 
-	/** World **/
-	CCWorld* mainWorld = CCWorld::create(
-	CCString::create("mainWorld_ID")
-	);
+/** Gate **/
+CCGate *gate = CCScheduleGate::create(
+  CCString::create("gate_ID"),
+  CCSchedule::createAnyTimeUnLimited()
+);
 
-	/** Score **/
-	CCScore *coinScore = CCVirtualItemScore::create(
-	CCString::create("coinScore_ID"),
-	CCString::create("coin_currency_ID")
-	);
+/** Mission **/
+CCMission *mission = CCBalanceMission::create(
+  CCString::create("mission_ID"),
+  CCString::create("Collect 100 coins"),
+  rewardsList,
+  CCString::create("coinScore_ID"),
+  CCInteger::create(100)
+);
 
-	/** Gate **/
-	CCGate *gate = CCScheduleGate::create(
-	CCString::create("gate_ID"),
-	CCSchedule::createAnyTimeUnLimited()
-	);
+/** Levels **/
+// Add 5 levels to the main world with the gate, score, and mission templates we just created.
+mainWorld->batchAddLevelsWithTemplates(5, gate, score, mission);
 
-	/** Mission **/
-	CCMission *mission = CCBalanceMission::create(
-	CCString::create("mission_ID"),
-	CCString::create("Collect 100 coins"),
-	rewardsList,
-	CCString::create("coinScore_ID"),
-	CCInteger::create(100)
-	);
+soomla::CCSoomla::initialize("ExampleCustomSecret");
 
-	/** Levels **/
-	// Add 5 levels to the main world with the gate, score, and mission templates we just created.
-	mainWorld->batchAddLevelsWithTemplates(5, gate, score, mission);
+// Make sure to make this call in your AppDelegate's
+// applicationDidFinishLaunching method, and before
+// initializing any other SOOMLA/GROW components
+// i.e. before CCSoomlaStore::initialize(...)
+grow::CCGrowHighway::initShared(__String::create("yourGameKey"),
+								__String::create("yourEnvKey"));
 
-	soomla::CCSoomla::initialize("ExampleCustomSecret");
+// Make sure to make this call AFTER initializing HIGHWAY
+grow::CCGrowInsights::initShared();
 
-	// Make sure to make this call in your AppDelegate's
-	// applicationDidFinishLaunching method, and before
-	// initializing any other SOOMLA/GROW components
-	// i.e. before CCSoomlaStore::initialize(...)
-	grow::CCGrowHighway::initShared(__String::create("yourGameKey"),
-									__String::create("yourEnvKey"));
+// Make sure to make this call AFTER initializing HIGHWAY,
+// and BEFORE initializing STORE/PROFILE/LEVELUP
+bool modelSync = true; 	// Remote Economy Management - Synchronizes your game's
+						 // economy model between the client and server - enables
+						 // you to remotely manage your economy.
 
-	// Make sure to make this call AFTER initializing HIGHWAY,
-	// and BEFORE initializing STORE/PROFILE/LEVELUP
-	bool modelSync = true; 	// Remote Economy Management - Synchronizes your game's
-							 // economy model between the client and server - enables
-							 // you to remotely manage your economy.
+bool stateSync = true; // Synchronizes the users' balances data with the server
+					   // and across his other devices.
+					   // Must be TRUE in order to use LEADERBOARDS.
 
-	bool stateSync = true; // Synchronizes the users' balances data with the server
-						   // and across his other devices.
-						   // Must be TRUE in order to use LEADERBOARDS.
+// State sync and Model sync can be enabled/disabled separately.
+grow::CCGrowSync::initShared(modelSync, stateSync);
 
-	// State sync and Model sync can be enabled/disabled separately.
-	grow::CCGrowSync::initShared(modelSync, stateSync);
+// LEADERBOARDS requires no initialization,
+// but it depends on SYNC initialization with stateSync=true
 
-	// LEADERBOARDS requires no initialization,
-	// but it depends on SYNC initialization with stateSync=true
+// Make sure to make this call AFTER initializing SYNC,
+// and BEFORE initializing STORE/PROFILE/LEVELUP
+grow::CCGrowGifting::initShared();
 
-	/** Set up and initialize Store, Profile, and LevelUp **/
-	ExampleAssets *assets = ExampleAssets::create();
+/** Set up and initialize Store, Profile, and LevelUp **/
+ExampleAssets *assets = ExampleAssets::create();
 
-	__Dictionary *storeParams = __Dictionary::create();
-	storeParams->setObject(__String::create("ExamplePublicKey"), "androidPublicKey");
+__Dictionary *storeParams = __Dictionary::create();
+storeParams->setObject(__String::create("ExamplePublicKey"), "androidPublicKey");
 
-	soomla::CCSoomlaStore::initialize(assets, storeParams);
+soomla::CCSoomlaStore::initialize(assets, storeParams);
 
-	__Dictionary *profileParams = __Dictionary::create();
-	soomla::CCSoomlaProfile::initialize(profileParams);
+__Dictionary *profileParams = __Dictionary::create();
+soomla::CCSoomlaProfile::initialize(profileParams);
 
-	soomla::CCSoomlaLevelUp::getInstance()->initialize(mainWorld);
-}
-
-void AppDelegate::onFetchFriendsStatesFinished(EventCustom *event) {
-    __Dictionary *eventData = (__Dictionary *)event->getUserData();
-    __Integer *providerId = dynamic_cast<__Integer *>(eventData->objectForKey(CCHighwayConsts::DICT_ELEMENT_LEADERBOARDS_PROVIDER_ID));
-    __Array *friendsStates = dynamic_cast<__Array *>(eventData->objectForKey(CCHighwayConsts::DICT_ELEMENT_LEADERBOARDS_FRIENDS_STATES));
-	cocos2d::log("Finished fetching friends states.");
-    // ... Display leaderboards to the user ...
-}
-
-void AppDelegate::onGetContactsFinished(EventCustom *event) {
-    __Dictionary *eventData = (__Dictionary *)event->getUserData();
-    __Integer *providerId = dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PROVIDER));
-    __Bool *hasMore = dynamic_cast<__Bool *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_HAS_MORE));
-    __Array *contactsArray = dynamic_cast<__Array *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_CONTACTS));
-
-
-    // ... handle page results ...
-    __Array *friendsProfileIds = CCArray::create();
-    for (Ref* userProfileRef : *contactsArray) {
-        CCUserProfile *userProfile = (CCUserProfile*)userProfileRef;
-        friendsProfileIds->addObject(userProfile->getProfileId());
-    }
-
-    CCGrowLeaderboards::fetchFriendsStates(providerId->getValue(), friendsProfileIds);
-
-    if (hasMore != nullptr && hasMore->getValue()) {
-        soomla::CCSoomlaProfile::getInstance()->getContacts(
-                                                            soomla::FACEBOOK,
-                                                            false,                              // going on with the pagination
-                                                            NULL,                               // no reward
-                                                            NULL                                // no error handling, to keep example simple
-                                                            );
-    } else {
-        // no pages anymore
-    }
-
-}
+soomla::CCSoomlaLevelUp::getInstance()->initialize(mainWorld);
 ```

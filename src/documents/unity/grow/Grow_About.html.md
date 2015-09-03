@@ -28,7 +28,7 @@ To get started with GROW, you can follow each one of different GROW bundles' tut
 
 ### Why use GROW?
 
-- With GROW, you can take better actions on your users in order to increase **retention** and **monetization**. GROW's [Insights]() module will allow you to take actions at real time and the [Whales Reports]() will float problems you might have with your payers so you know how you improve over time.
+- With GROW, you can take better actions on your users in order to increase **retention** and **monetization**. GROW's [Insights]() module will allow you to take actions at real time and the [Whales Report]() will float problems you might have with your payers so you know how you improve over time.
 
 - The Analytics dashboard will provide you with <u>free</u> data about your game when you join the GROW network. In the dashboard, you'll be able to see aggregative analytics about your games and investigate its performance. You will also see analytics about the different modules you incorporated in your game and be able to investigate fraudulent purchases.
 

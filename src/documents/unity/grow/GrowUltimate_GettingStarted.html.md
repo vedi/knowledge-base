@@ -14,7 +14,7 @@ platform: 'unity'
 
 ## Overview
 
-GrowUltimate is the most fully featured of all bundles that connects you to GROW, SOOMLA's flagship - a community-driven data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/unity/grow/Grow_About)
+GrowUltimate is the perfect All In One solution for your game. If you want your users to have the perfect experience in your game then this bundle is for you. GrowUltimate connects you to GROW, SOOMLA's flagship - a community-driven data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/unity/grow/Grow_About)
 
 GrowUltimate includes:
 
@@ -24,7 +24,7 @@ GrowUltimate includes:
 - [IAP Fraud Protection](/unity/grow/Grow_FraudProtection)
 - [Social Leaderboards](/unity/grow/Grow_Leaderboards)
 - [Analytics](/unity/grow/Grow_Analytics)
-- [Whales Reports](/unity/grow/Grow_WhalesReports)
+- [Whales Report](/unity/grow/Grow_WhalesReport)
 - [Insights](/unity/grow/Grow_Insights)
 
 ## Integrating GrowUltimate
@@ -91,7 +91,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 	using Grow.Gifting;
 	using Grow.Leaderboards;
 
-	// Make sure to make this call in your earlieast loading scene,
+	// Make sure to make this call in your earliest loading scene,
 	// and before initializing any other SOOMLA/GROW components
 	// i.e. before SoomlaStore.Initialize(...)
 	GrowHighway.Initialize();
@@ -144,7 +144,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 ## Module usage & event handling
 
-The next step is to create your game specific implementation for each of the modules. Use SOOOMLA's awesome products to create better in-game economy, social interactions, game design and user experience.  
+The next step is to create your game specific implementation for each of the modules. Use SOOMLA's awesome products to create better in-game economy, social interactions, game design and user experience.  
 In order to be notified about (and handle) SOOMLA-related events, you will also need to create event-handling functions. Refer to the following sections for more information:
 
 - **Store** - With Store you create your in-game virtual economy. It'll allow you to easily setup IAP and safely store your users' balances.  
@@ -394,7 +394,7 @@ public class ExampleWindow : MonoBehaviour {
 			}
 		};
 
-		// Make sure to make this call in your earlieast loading scene,
+		// Make sure to make this call in your earliest loading scene,
 		// and before initializing any other SOOMLA/GROW components
 		// i.e. before SoomlaStore.Initialize(...)
 		GrowHighway.Initialize();
