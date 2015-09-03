@@ -34,7 +34,7 @@ public class Initializer : MonoBehaviour {
 
 	void Awake () {
 		// Initialize SOOMLA Highway and Heyzap
-		SoomlaHighway.Initialize();
+		GrowHighway.Initialize();
 		HeyzapAds.start("<PUBLISHER ID>", HeyzapAds.FLAG_NO_OPTIONS);
 	}
 
