@@ -14,7 +14,7 @@ platform: 'ios'
 
 ## Getting Started
 
-1. Download [ios-profile](http://library.soom.la/fetch/ios-profile/1.0.1?cf=github).
+1. Download [ios-profile](http://library.soom.la/fetch/ios-profile/latest?cf=knowledge%20base).
 
 2. The static libs and headers you need are in the zip you downloaded from the link above.
 
@@ -186,7 +186,7 @@ The callback to this process is `openURL` which should be defined in your `AppDe
 
   - See [Browser-based Authentication](#browser-based-authentication)
 
-4. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
+4. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles.
 
 ### Twitter Caveats
 

@@ -16,7 +16,11 @@ platform: 'unity'
 
 ## Getting Started
 
-1. Download and import [unity3d-profile.unitypackage ADD ACTUAL LINK HERE](http://bit.ly/1sUDdG0)
+1. Download and import:
+
+	a. [soomla-unity3d-core](http://library.soom.la/fetch/unity3d-core/latest?cf=knowledge%20base)
+
+	b. [unity3d-profile](http://library.soom.la/fetch/unity3d-profile/latest?cf=knowledge%20base)
 
 	If you want to use Store-related rewards you'll need to go over the instructions of [unity3d-store](https://github.com/soomla/unity3d-store).
 
@@ -69,7 +73,7 @@ And that's it! unity3d-profile knows how to contact the social provider (Faceboo
   1. Edit the file `Assets/Facebook/Editor/iOS/fixup.projmods`<br>
 
   2. Under `headerpaths` change `Facebook/Scripts` to `Plugins/Facebook/Scripts`</div>
-
+  
 5. In the menu bar of the Unity editor go to **Window > Soomla > Edit Settings** and set up "Login Permissions" you want to request from FB on login.
 
   <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app,

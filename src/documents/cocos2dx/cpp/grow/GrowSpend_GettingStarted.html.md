@@ -65,7 +65,9 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
   soomla::CCSoomla::initialize("ExampleCustomSecret");
   ```
 
-  <div class="warning-box">Choose this secret wisely, you can't change it after you launch your game!</div>
+<div class="warning-box">Choose this secret wisely, you can't change it after you launch your game!</div>
+
+* **Fraud Protection (RECOMMENDED):**
 
 3. Initialize `CCGrowHighway` with the "Game Key" and "Env Key" given to you in the [dashboard](http://dashboard.soom.la):
 
