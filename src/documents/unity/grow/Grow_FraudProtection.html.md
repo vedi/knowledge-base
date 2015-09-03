@@ -14,50 +14,48 @@ platform: 'unity'
 
 ## Introduction
 
-There are dozens ways to hack the games. In general we can divide them into 2 categories: 
+There are dozens of ways for hacking games, and they can be generally divided into 2 categories:
 
-* File Overwriting - Hackers search games for important files and variables containing the current game score, currency 
+* File Overwriting - Hackers search games for important files and variables containing the current game score, currency
   balance, and level progression. And change values to their benefit.
-* Fake in game purchases - Special hacking applications perform the faking communications with the game server. 
+* Fake in-game purchases - Special hacking applications perform fake communications with the game server.
 
 ## Encrypted Storage
 
-Very often the developers save game data in plain text formats that makes it possible to hackers to find and to recognize these data.
-After that they can replace values and get benefits in the game.
+Developers very often save their game data in plain text files. Such files are easily found by hackers, who then can change
+their contents to their liking, and control the game data as they wish.
 
-There is a robust solution for this issue. It's an encrypting. If you use strong algorithms and keys to encrypt your data,
-it makes almost impossible to hackers to decrypt them.
+There is a simple and robust solution for this - encryption. Using a good encryption algorithm to encrypt your data
+will make it almost impossible for a hacker to decrypt it.
 
-Soomla's solutions use the encrypted storage and do the best to prevent your games from such kind of hacking. 
-Definitely you already noticed the "Soomla Secret" setting, when you set up Soomla libraries. It's up to you to define 
-as strong key as it's possible, and keep it in secret to prevent hacking of your games.
+SOOMLA's solutions use encrypted storage and keep your games safe from this kind of hacking.
+You have probably already noticed the "Soomla Secret" setting, when you set up SOOMLA libraries. It is up to you to define a key
+as strong as possible, and keep it secret to prevent hacking of your games.
 
 ## Server Side Verification
 
-When your games perform in-app purchasing, they communicate with App Store or Google Play server asking whether a transaction
-was completed successfully, and after that your game gives purchased virtual goods to the user. 
+When an in-app purchase is made in your game, the game connects to the App Store or Google Play server in order to confirm that the transaction
+was completed successfully. After getting confirmation from the server the user is given the purchased virtual goods.
 
-Hacking software intercepts requests to the App Store or Google Play and emulates their behaviour. As result your games
-will give virtual goods to a hacker for free.
- 
-The best way to prevent it to use a private server to do the verifications. When an user buys something from an app 
-they are sent an electronic receipt. The game sends the receipt to your server. And the server performs a request to 
-Google or Apple server to prove the receipt is valid. After that the server sends a respond to your game with result of 
-verification. And only after that your game gives virtual goods to the user.
+Hacking tools intercept such requests to the App Store or Google Play and emulate their behavior, send a confirmation back for every request made
+by your game. As result the hacker would get virtual goods for free.
 
-The most games do not have a server, because the gameplay happens on the client side. Implementing and maintenance of 
-a server it's just additional article in your budget, and it's not evident for your investors to pay for it. That's why 
- some games skip the server side verification, and this hole in security extensively used by the hackers.
+The best way to handle this type of hacking tools is by using a private server to verify these transactions. When a user makes an in-app purchase
+an electronic receipt is generated, saved and sent back to the game. The game then sends the receipt to the private server and the server verifies
+this receipt with Google or Apple servers to confirm that the receipt is valid. The response is sent back to the game and only then will the user get the purchased virtual goods.
 
-Good news! Today you do not need such server at all. Soomla provides this receipt validation server. After verifying a 
-receipt, it performs an extra step and checks for suspicious activities.
+Most games do not use a server, because the gameplay happens on the client side and there is no need for it.
+Implementing and maintaining a server takes a lot of effort, and creating one solely for the purpose of receipt verification seems a bit excessive.
+That's why some games skip the server side verification, and this hole in security is extensively used by hackers.
+
+Good news! Today you do not need such server at all. SOOMLA provides such a receipt verification service with the added value of checking for suspicious activity.
 
 ## Fraud protection in Unity3d
 
-In order to turn on Fraud Protection in Unity3d, you just need to click on `Fraud Protection` check box in Soomla Settings.
-Optionally, you can turn on `Verify On Server Failure` if you want to get purchases automatically verified in case of 
+In order to turn on Fraud Protection in Unity3d, all you need to do is click on the `Fraud Protection` check box in Soomla Settings.
+Optionally, you can turn on `Verify On Server Failure` if you want to get purchases automatically verified in case of
 network failures during the verification process.
 
 Additionally you need to provide specific params needed for your billing service provider.
 
-* For Google Play go over [Google Play Purchase Verification](/android/store/Store_GooglePlayVerification).
+* For Google Play go over to [Google Play Purchase Verification](/android/store/Store_GooglePlayVerification).
