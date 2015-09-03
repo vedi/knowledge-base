@@ -18,7 +18,7 @@ Before doing anything, SOOMLA recommends that you go through Apple's [Selling wi
 
 <div class="info-box">We use ARC! Read about ARC [here](http://www.google.com/url?q=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FAutomatic_Reference_Counting&sa=D&sntz=1&usg=AFQjCNHaQBd32glc8dP7HSzlvW1RhjInQA).</div>
 
-1. The static libs and headers you need are in the [build](https://github.com/soomla/ios-store/tree/master/build) folder.
+1. The static libs and headers you need are in the [zip](http://library.soom.la/fetch/ios-store/latest?cf=knowledge%20base) folder.
 
     - Set your project's "Library Search Paths" and "Header Search Paths" to that folder.
 

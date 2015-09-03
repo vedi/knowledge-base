@@ -548,11 +548,11 @@ public class TuneSoomlaInsightsScript : MonoBehaviour {
         HighwayEvents.OnInsightsInitialized += OnSoomlaInsightsInitialized;
         HighwayEvents.OnInsightsRefreshFinished += OnSoomlaInsightsRefreshFinished;
         
-        // Initialize SoomlaHighway
-        SoomlaHighway.Initialize();
+        // Initialize GrowHighway
+        GrowHighway.Initialize();
         
-        // Initialize SoomlaInsights
-        SoomlaInsights.Initialize();
+        // Initialize GrowInsights
+        GrowInsights.Initialize();
     }
 
     void OnApplicationPause(bool pauseStatus) {
@@ -567,7 +567,7 @@ public class TuneSoomlaInsightsScript : MonoBehaviour {
     }
     
     void OnSoomlaInsightsRefreshFinished (){
-        if (SoomlaInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Educational] > 0) {
+        if (GrowInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Educational] > 0) {
             // Set in TUNE SDK that user is a paying user for a given genre
             // which will be sent with future events
             MATBinding.SetPayingUser(true);
