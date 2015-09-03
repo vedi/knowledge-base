@@ -82,15 +82,15 @@ the root of your Cocos2d-x framework.
 1. Initialize `CCSoomla` with a custom secret of your choice (**Custom Secret** is an encryption secret you provide that will be used to secure your data.):
 
   ```js
-  soomla::CCSoomla::initialize("ExampleCustomSecret");
+  Soomla.initialize('ExampleCustomSecret');
   ```
 
   <div class="warning-box">Choose this secret wisely, you can't change it after you launch your game!</div>
 
-1. Initialize `SoomlaHighway` with the "Game Key" and "Env Key" given to you in the [dashboard](http://dashboard.soom.la):
+1. Initialize `GrowHighway` with the "Game Key" and "Env Key" given to you in the [dashboard](http://dashboard.soom.la):
 
   **Copy the "Game Key" and "Environment Key"** given to you from the [dashboard](http://dashboard.soom.la) and 
-  initialize `SoomlaHighway` with them. At this point, you're probably testing your integration and you want to use the 
+  initialize `GrowHighway` with them. At this point, you're probably testing your integration and you want to use the 
   **Sandbox** environment key.
 
   Explanation: The "game" and "env" keys allow for your game to distinguish multiple environments for the same game. 
@@ -98,12 +98,12 @@ the root of your Cocos2d-x framework.
   publish your game, make sure to switch the env key to **Production**.  You can always generate more environments.  For example - you can choose to have a playground environment for your game's beta testers which will be isolated from your production environment and will thus prevent analytics data from being mixed between the two.  Another best practice is to have a separate environment for each version of your game.
 
   ```js
-  Soomla.Cocos2dXSoomlaHighway.createShared('yourGameKey', 'yourEnvKey');
+  Soomla.GrowHighway.createShared('yourGameKey', 'yourEnvKey');
   ```
 
   ![alt text](/img/tutorial_img/cocos_grow/dashboardKeys.png "Keys")
 
-  <div class="warning-box">Initialize `SoomlaHighway` ONLY ONCE when your application loads.</div>
+  <div class="warning-box">Initialize `GrowHighway` ONLY ONCE when your application loads.</div>
 1. Initialize the rest of the SOOMLA modules: `SoomlaStore`, `SoomlaProfile`, and `SoomlaLevelUp`.
 
     ```js
@@ -363,7 +363,7 @@ mainWorld.batchAddLevelsWithTemplates(5, gate, score, mission);
 Soomla.initialize("ExampleCustomSecret");
 
 /** Initialize Highway **/
-Soomla.Cocos2dXSoomlaHighway.createShared('yourGameKey', 'yourEnvKey');
+Soomla.GrowHighway.createShared('yourGameKey', 'yourEnvKey');
 
 /** Set up and initialize Store, Profile, and LevelUp **/
 var assets = ExampleAssets.create();

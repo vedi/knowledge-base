@@ -74,7 +74,8 @@ example, refer to the example below. For more details refer to the cocos2dx-stor
 [Event Handling](/cocos2dx/js/store/Store_Events) section for more information:
 
     ``` js
-  soomla::CCSoomla::initialize("ExampleCustomSecret");
+    
+    Soomla.initialize('ExampleCustomSecret');
 
     var assets = YourImplementationAssets.create();
 
@@ -97,16 +98,16 @@ example, refer to the example below. For more details refer to the cocos2dx-stor
     <div class="warning-box">Choose the secret wisely. You can't change it after you launch your game!
   	Initialize `SoomlaStore` ONLY ONCE when your application loads.</div>
 
-7. Initialize `CCSoomlaHighway` with the "Game Key" and "Env Key" given to you in the [dashboard](http://dashboard.soom.la).
+7. Initialize `GrowHighway` with the "Game Key" and "Env Key" given to you in the [dashboard](http://dashboard.soom.la).
 
   ``` js
-  Soomla.Cocos2dXSoomlaHighway.createShared('yourGameKey', 'yourEnvKey');
+  Soomla.GrowHighway.createShared('yourGameKey', 'yourEnvKey');
   ```
 
   ![alt text](/img/tutorial_img/cocos_grow/dashboardKeys.png "Keys")
 
   <div class="info-box">Note: SOOMLA modules should be initialized in this order: core, highway, store
-  <br>Or in other words - `Soomla`, `SoomlaHighway` `SoomlaStore`</div>
+  <br>Or in other words - `Soomla`, `GrowHighway` `SoomlaStore`</div>
 
 8. According to your target platform (iOS or Android) go over the platform specific instructions below.  Once your app 
 is running, you can go back to the [GROW dashboard](http://dashboard.soom.la) to verify the integration. Just refresh 
@@ -277,7 +278,7 @@ Below is a short example of how to initialize SOOMLA's modules. We suggest you r
 Soomla.initialize("ExampleCustomSecret");
 
 /** Initialize Highway **/
-Soomla.Cocos2dXSoomlaHighway.createShared('yourGameKey', 'yourEnvKey');
+Soomla.GrowHighway.createShared('yourGameKey', 'yourEnvKey');
 
 /** Set up and initialize Store **/
 var assets = ExampleAssets.create();
