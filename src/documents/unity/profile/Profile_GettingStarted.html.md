@@ -149,6 +149,8 @@ There are some settings you can define which applies in all social providers par
 
 1. If you are building your app under Windows, you have to have iTunes installed since the SOOMLA postprocessing is expecting a utility that exists in OS X and is installed with iTunes in Windows.
 
+2. If you are using Google Cardboard SDK in your app, you should remove the `-ObjC` flag from the link flags in Xcode.
+
 
 ## Example
 
