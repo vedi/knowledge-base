@@ -78,7 +78,7 @@ And that's it! unity3d-profile knows how to contact the social provider (Faceboo
 
   <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app,
   just request the reasonable minimum. Other permissions will be requested, when they will be needed.
-  For instance, if you try to call `UpdateStory`, SoomlaProfile will ask for `publish_actions` permission, if your app has not got it.</div>
+  For instance, if you try to call `UpdateStatus`, SoomlaProfile will ask for `publish_actions` permission, if your app has not got it.</div>
 
 
 ### Google+
