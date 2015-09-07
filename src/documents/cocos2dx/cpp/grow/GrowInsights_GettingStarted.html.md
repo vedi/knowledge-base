@@ -76,7 +76,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
       __String::create("yourEnvKey"));
   ```
 
-  ![alt text](/img/tutorial_img/cocos_grow/dashboardKeys.png "Keys")
+  <img src="/img/tutorial_img/cocos_grow/dashboardKeys.png" alt="Game key and Env key" style="border:0;">
 
 4. Initialize Insights:
 
