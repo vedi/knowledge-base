@@ -11,7 +11,9 @@ collection: 'soomla_grow'
 
 #Whales Report - Explained
 
-The Whales Report is a weekly report sent to studios with games participating in the Grow network with more than 50 weekly players. It is meant to give studios insights about their performance week-over-week such as conversion, payers retention and more.
+The Whales Report is a weekly report sent to studios with games participating in the GROW network. The report will be sent to games what has more than 50 weekly players on their non-testing environments. The Whales Report gives you insights about paying users' week-over-week metrics such as conversion, retention and more.
+
+The data provided in the Whales Report is generated based on the amazing power of the GROW network. Using aggregated data from many games in the network, your report will show you a clear view of how your game performs with the paying users from GROW.
 
 ####Whales report metrics explained:
 
