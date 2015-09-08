@@ -27,7 +27,7 @@ title: 'Soomla Knowledge Base'
 
   <div class="container">
     <div class="col-lg-4 col-md-4 menu-option">
-      <a href="//soom.la/getting-started/" class="link-container">
+      <a href="http://dashboard.soom.la/downloads" class="link-container">
         <div class="option-image" style="background-image: url('img/Level1-Downloads.png')"></div>
         <div class="option-head-text">DOWNLOADS</div>
         <div class="option-text">All of SOOMLA's SDKs bundled and packaged for getting started. Come and get'em!</div>
