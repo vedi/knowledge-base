@@ -5,7 +5,7 @@ title: "GrowSpend"
 text: "The perfect virtual economy solution for your game. If you want Fraud Protection, cross-device balance SYNC and remote economy configurator then this bundle is for you."
 position: 11
 theme: 'platforms'
-collection: 'cocos2dx_grow'
+collection: 'cocos2djs_grow'
 module: 'grow'
 lang: 'js'
 platform: 'cocos2dx'

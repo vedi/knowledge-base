@@ -5,7 +5,7 @@ title: "GrowUltimate"
 text: "The perfect All In One solution for your game. If you want your users to have the perfect experience in your game then this bundle is for you."
 position: 14
 theme: 'platforms'
-collection: 'cocos2dx_grow'
+collection: 'cocos2djs_grow'
 module: 'grow'
 lang: 'js'
 platform: 'cocos2dx'

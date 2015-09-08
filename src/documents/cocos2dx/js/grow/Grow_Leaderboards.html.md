@@ -5,7 +5,7 @@ title: "Social Leaderboards"
 text: "Get started with GROW Social Leaderboards for Unity. Here you can find initialization instructions, event handling and usage examples."
 position: 9
 theme: 'platforms'
-collection: 'cocos2dx_grow'
+collection: 'cocos2djs_grow'
 module: 'grow'
 lang: 'js'
 platform: 'cocos2dx'

@@ -5,7 +5,7 @@ title: "About GROW"
 text: "Learn about the power of GROW Analytics, how it can benefit game developers, and how to use the GROW dashboard."
 position: 1
 theme: 'platforms'
-collection: 'cocos2dx_grow'
+collection: 'cocos2djs_grow'
 module: 'grow'
 lang: 'js'
 platform: 'cocos2dx'

@@ -5,7 +5,7 @@ title: "GrowViral"
 text: "The perfect social engagement solution for your game. If you want your users to gift their friends in order to increase virality then this bundle is for you."
 position: 12
 theme: 'platforms'
-collection: 'cocos2dx_grow'
+collection: 'cocos2djs_grow'
 module: 'grow'
 lang: 'js'
 platform: 'cocos2dx'
