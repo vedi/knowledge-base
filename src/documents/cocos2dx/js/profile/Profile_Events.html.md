@@ -261,7 +261,7 @@ Soomla.addHandler(Soomla.ProfileConsts.EVENT_GET_CONTACTS_FINISHED, this.onGetCo
 
 this.onGetContactsFinished = function (provider, contacts, payload, hasMore) {
   // provider - The provider on which the get contacts process finished
-  // contactsDict - an Array of contacts represented by CCUserProfile
+  // contactsDict - an Array of contacts represented by UserProfile
   // payload - an identification String sent from the caller of the action
   // hasMore - if it has more in pagination
   // ... your game specific implementation here ...

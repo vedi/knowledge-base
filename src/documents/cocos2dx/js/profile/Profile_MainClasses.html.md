@@ -51,7 +51,7 @@ This class represents a profile of a user from a social network (provider).
 - `Gender`
 - `Language`
 - `Birthday`
-- `Extra` - a cocos2dx::__Dictionary contains additional info provided by social provider:
+- `Extra` - a dictionary contains additional info provided by social provider:
   - `Facebook`
     - **access_token** - *string*
     - **permissions** - *array of strings*
@@ -70,7 +70,7 @@ authentication operations for users. After Profile initialized the instance of t
 `Soomla.soomlaProfile`. The Profile module will work with the social and authentication plugins of the integrated social
 provider (FB, G+, Twitter, etc..).
 
-<div class="info-box">Most of the functions in this class call relevant functions from the social provider's SDK, and do NOT return a value, but rather fire appropriate events that contain the return values. Read more about [Event Handling](/cocos2dx/cpp/profile/Profile_Events).</div>
+<div class="info-box">Most of the functions in this class call relevant functions from the social provider's SDK, and do NOT return a value, but rather fire appropriate events that contain the return values. Read more about [Event Handling](/cocos2dx/js/profile/Profile_Events).</div>
 
 <br>
 The diagram below depicts the flow that takes place when a `SoomlaProfile` function is called. In the diagram, the example function shown is `login`, but this principle holds for all functions.
@@ -313,8 +313,7 @@ Soomla.soomlaProfile.getContacts(
 	Soomla.Models.Provider.FACEBOOK,      // Provider
 	contactsReward,                       // Reward upon success of getting contacts
 	fromStart,                            // Should we reset pagination or request the next page
-	payload,                              // a String to receive when the function returns.
-	&profileError                         // Used for error handling
+	payload
 );
 ```
 

@@ -183,7 +183,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 	// Add event listeners - Make sure to set the event handlers before you initialize
 	Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCHighwayConsts::EVENT_FETCH_FRIENDS_STATES_FINISHED, CC_CALLBACK_1(AppDelegate::onFetchFriendsStatesFinished, this));
-	Director::getInstance()->getEventDispatcher()->addCustomEventListener(soomla::CCProfileConsts::EVENT_GET_CONTACTS_FINISHED,                                                          CC_CALLBACK_1(AppDelegate::onGetContactsFinished, this));
+	Director::getInstance()->getEventDispatcher()->addCustomEventListener(soomla::CCProfileConsts::EVENT_GET_CONTACTS_FINISHED, CC_CALLBACK_1(AppDelegate::onGetContactsFinished, this));
 
 	soomla::CCSoomla::initialize("ExampleCustomSecret");
 
