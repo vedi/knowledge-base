@@ -26,9 +26,9 @@ GrowSpend includes:
 - [Whales Report](/cocos2dx/cpp/grow/Grow_WhalesReport)
 - [Insights](/cocos2dx/cpp/grow/Grow_Insights)
 
-**Note:** Cross-device SYNC is using the Profile module which allows your users to login with their social provider. If you want that, [integrate Profile](/cocos2dx/profile/Profile_GettingStarted) as well.
+**Note:** Cross-device SYNC is using the Profile module which allows your users to login with their social provider. If you want that, [integrate Profile](/cocos2dx/cpp/profile/Profile_GettingStarted) as well.
 
-**Note2:** In some games, SYNCing balances is useless without SYNCing progression as well. Using the LevelUp module will get you there. If you want that, [integrate LevelUp](/cocos2dx/levelup/Levelup_GettingStarted) as well.
+**Note2:** In some games, SYNCing balances is useless without SYNCing progression as well. Using the LevelUp module will get you there. If you want that, [integrate LevelUp](/cocos2dx/cpp/levelup/Levelup_GettingStarted) as well.
 
 ## Integrating GrowSpend
 
@@ -104,7 +104,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 	grow::CCGrowSync::initShared(modelSync, stateSync);
 	```
 
-5. Initialize `CCSoomlaStore`:s
+5. Initialize `CCSoomlaStore`:
 
     ```cpp
     // `YourImplementationAssets` should implement the `CCStoreAssets` interface

@@ -40,7 +40,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 2. Unzip the downloaded file and copy its contents into the cocos2d directory located at the root of your Cocos2d-x project.
 
 
-### Initialize moduless
+### Initialize modules
 
 <<div class="info-box">Make sure to initialize each module ONLY ONCE when your application loads.</div>
 <br>

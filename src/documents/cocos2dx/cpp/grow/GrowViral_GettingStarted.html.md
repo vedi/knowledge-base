@@ -167,7 +167,7 @@ That's it! Now all you have to do is build your XCode project and run your game.
 
 ### **Instructions for Android**
 
-1. Import cocos2dx-highway, cocos2dx-store, cocos2dx-profile and cocos2dx-levelup modules into your project's Android.mk by adding the following:
+1. Import cocos2dx-highway, cocos2dx-store, and cocos2dx-profile modules into your project's Android.mk by adding the following:
 
     ```
     LOCAL_STATIC_LIBRARIES += cocos2dx_store_static
@@ -318,7 +318,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	// and BEFORE initializing STORE/PROFILE/LEVELUP
 	grow::CCGrowGifting::initShared();
 
-	/** Set up and initialize Store, Profile, and LevelUp **/
+	/** Set up and initialize Store, and Profile **/
 	ExampleAssets *assets = ExampleAssets::create();
 
 	__Dictionary *storeParams = __Dictionary::create();

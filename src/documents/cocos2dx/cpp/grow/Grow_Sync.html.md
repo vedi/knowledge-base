@@ -240,7 +240,7 @@ Here you can find descriptions of the main classes of GROW Sync.
 
 ### CCGrowSync
 
-`CCGrowSync` sepresents a class which is in charge of syncing model and state between the client and the server.
+`CCGrowSync` represents a class which is in charge of syncing model and state between the client and the server.
 
 #### Functions
 
