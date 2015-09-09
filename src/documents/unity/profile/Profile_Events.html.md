@@ -95,9 +95,9 @@ This event is triggered when logging into the social provider has started.
 ``` cs
 ProfileEvents.OnLoginStarted += onLoginStarted;
 
-public void onLoginStarted(Provider provider, bool autoStart, string payload) {
+public void onLoginStarted(Provider provider, bool autoLogin, string payload) {
 	// provider is the social provider
-	// autoStart comes "true" if user login automatically
+	// autoLogin will be "true" if the user was logged in using the AutoLogin functionality
 	// payload is an identification string that you can give when you initiate the login operation and want to receive back upon starting
 
 	// ... your game specific implementation here ...
@@ -111,9 +111,9 @@ This event is triggered when logging into the social provider has finished **suc
 ``` cs
 ProfileEvents.OnLoginFinished += onLoginFinished;
 
-public void onLoginFinished(UserProfile userProfileJson, bool autoStart, string payload) {
+public void onLoginFinished(UserProfile userProfileJson, bool autoLogin, string payload) {
 	// userProfileJson is the user's profile from the logged in provider
-	// autoStart comes "true" if user login automatically
+	// autoLogin will be "true" if the user was logged in using the AutoLogin functionality
 	// payload is an identification string that you can give when you initiate the login operation and want to receive back upon its completion
 
 	// ... your game specific implementation here ...
@@ -127,9 +127,9 @@ This event is triggered when logging into the social provider has been cancelled
 ``` cs
 ProfileEvents.OnLoginCancelled += onLoginCancelled;
 
-public void onLoginCancelled(Provider provider, bool autoStart, string payload) {
+public void onLoginCancelled(Provider provider, bool autoLogin, string payload) {
 	// provider is the social provider
-	// autoStart comes "true" if user login automatically
+	// autoLogin will be "true" if the user was logged in using the AutoLogin functionality
 	// payload is an identification string that you can give when you initiate the login operation and want to receive back upon cancellation
 
 	// ... your game specific implementation here ...
@@ -143,10 +143,10 @@ This event is triggered when logging into the social provider has failed.
 ``` cs
 ProfileEvents.OnLoginFailed += onLoginFailed;
 
-public void onLoginFailed(Provider provider, string message, bool autoStart, string payload) {
+public void onLoginFailed(Provider provider, string message, bool autoLogin, string payload) {
 	// provider is the social provider
 	// message is the failure message
-	// autoStart comes "true" if user login automatically
+	// autoLogin will be "true" if the user was logged in using the AutoLogin functionality
 	// payload is an identification string that you can give when you initiate the login operation and want to receive back upon failure
 
 	// ... your game specific implementation here ...
@@ -206,7 +206,7 @@ ProfileEvents.OnSocialActionStarted += onSocialActionStarted;
 
 public void onSocialActionStarted(Provider provider, SocialActionType action, string payload) {
 	// provider is the social provider
-	// action is the social action (like, post status, etc..) that started
+	// action is the social action (post status, etc..) that started
 	// payload is an identification string that you can give when you initiate the social action operation and want to receive back upon starting
 
 	// ... your game specific implementation here ...
@@ -333,7 +333,7 @@ This event is triggered when fetching the feed from the social provider has fini
 ``` cs
 ProfileEvents.OnGetFeedFinished += onGetFeedFinished;
 
-public void onGetFeedFinished(Provider provider, List<string> feed) {
+public void onGetFeedFinished(Provider provider, SocialPageData<string> feed) {
 	// provider is the social provider
 	// feed is the user's feed that has been fetched in the get feed operation
 

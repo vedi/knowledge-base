@@ -13,7 +13,7 @@ platform: 'cocos2dx'
 
 #Getting Started
 
-##Getting Started
+##General Instructions
 
 *If you want to develop with C++ sources, refer to the "Working with Sources" section below.*
 
@@ -92,7 +92,10 @@ supported by SOOMLA's cocos2dx-store (the tag is the version).</div>
 
 	- *Test Purchases* - allows testing IAP on Google Play. (iOS doesn't have this functionality).
 
-	- *SSV* - enables server-side receipt verification. (Android doesn't have this functionality).
+	- *SSV* - enables _Fraud Protection_. (in order to activate it in Google Play see the related section below).
+	
+	- *verifyOnServerFailure* - if you use Fraud Protection, optionally you set this param,
+	if you want to get purchases automatically verified in case of network failures during the verification process.
 
 	<div class="warning-box">Choose the secret wisely. You can't change it after you launch your game!
 	Initialize `Soomla.soomlaStore` ONLY ONCE when your application loads.</div>
@@ -200,32 +203,6 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
 
 > Don't forget to `Build Custom Simulator` for Android, if you use Cocos IDE.
 
-
-
-##**Working with sources**
-
-To integrate cocos2dx-store into your game, follow these steps.
-
-1. **Recursively** clone cocos2dx-core and cocos2dx-store.
-
-    ```
-    $ git clone --recursive git@github.com:soomla/soomla-cocos2dx-core.git frameworks/runtime-src/Classes/soomla-cocos2dx-core
-
-    $ git clone --recursive git@github.com:soomla/cocos2dx-store.git frameworks/runtime-src/Classes/cocos2dx-store
-    ```
-
-	**OR:** If you have already cloned the repositories, to obtain the submodules, run this command in each repository:
-
-    ```
-    $ git submodule update --init --recursive
-    ```
-
-2. **For iOS:** Use sourced versions of Linked projects (`frameworks/runtime-src/Classes/soomla-cocos2dx-core/development/Cocos2dxCoreFromSources.xcodeproj`, `frameworks/runtime-src/Classes/cocos2dx-store/development/Cocos2dxStoreFromSources.xcodeproj`)
-
-3. **For Android:** You can use our "sourced" modules for Android Studio (or IntelliJ IDEA) (`frameworks/runtime-src/Classes/soomla-cocos2dx-core/development/Cocos2dxCoreFromSources.iml`, `frameworks/runtime-src/Classes/cocos2dx-store/development/Cocos2dxStoreFromSources.iml`), just include them in your project.
-
-
-
 ##**Select a Billing Service**
 
 SOOMLA's cocos2dx-store knows how to contact Google Play, Amazon Appstore, or Apple App Store for you and will redirect your users to their purchasing system to complete the transaction.
@@ -265,19 +242,14 @@ SOOMLA's cocos2dx-store knows how to contact Google Play, Amazon Appstore, or Ap
 
     <div class="info-box">Don't forget to close the Iab Service when your store is closed.</div>
 
-5. In case you want to turn on purchase verification you need to get clientId, clientSecret and refreshToken as explained in [Google Play Purchase Verification](/android/store/Store_GooglePlayVerification) and use them like this:
+5. In case you want to turn on Fraud Protection you need to get clientId, clientSecret and refreshToken as explained in [Google Play Purchase Verification](/android/store/Store_GooglePlayVerification) and use them like this:
 
 	``` js
 		storeParams.clientId = <YOU_CLIENT_ID>;
 		storeParams.clientSecret = <YOUR_CLIENT_SECRET>;
 		storeParams.refreshToken = <YOUR_REFRESH_TOKEN>;
 	```
-	>  Optionally you can turn on `verifyOnServerFailure` if you want to get purchases automatically verified in case of network failures during the verification process:
-	>
-	> ``` java
-	> storeParams.verifyOnServerFailure = true;
-	> ```
-
+	
 ###Amazon
 
 1. Add `in-app-purchasing-1.0.3.jar` and `AndroidStoreAmazon.jar` from `frameworks/runtime-src/Classes/cocos2dx-store/build/android/billing-services/amazon` to your classpath:
@@ -300,11 +272,14 @@ SOOMLA's cocos2dx-store knows how to contact Google Play, Amazon Appstore, or Ap
 
 1. Read our [tutorial](/ios/store/Store_AppStoreIAB) on how to define your in-app products in the App Store.
 
-2. Use SOOMLA's iOS Server Side Verification **(Optional)**
+2. Use SOOMLA's Fraud Protection **(Optional)**
 
-	As you probably know, fraud on IAP is pretty common. Hackers can crack their smartphones to think that a purchase was made when the payment isn't actually transferred to you. To help game developers with this issue, we created a verification server that you can use instantly through the framework.
+	As you probably know, fraud on IAP is pretty common. Hackers can crack their smartphones to think that a purchase 
+	was made when the payment isn't actually transferred to you. To help game developers with this issue, we created 
+	a verification server that you can use instantly through the framework.
 
-	All you need to do is let cocos2dx-store know that you want to verify purchases. You can do this by passing an extra parameter to `Soomla.soomlaStore`:
+	All you need to do is let cocos2dx-store know that you want to verify purchases. You can do this by passing an extra 
+	parameter to `Soomla.soomlaStore`:
 
 	```js
     storeParams.SSV = true;
@@ -333,3 +308,26 @@ Then, initialize `Soomla.soomlaStore` with your implementation of `Soomla.IStore
 ```
 
 And that's it! cocos2dx-store knows how to contact Google Play or the App Store for you and will redirect your users to the purchasing system to complete the transaction. Don't forget to subscribe to store events in order to get notified of successful or failed purchases - See [Event Handling](/cocos2dx/js/store/Store_Events).
+
+##**Working with sources**
+
+To integrate cocos2dx-store into your game, follow these steps.
+
+1. **Recursively** clone cocos2dx-core and cocos2dx-store.
+
+    ```
+    $ git clone --recursive git@github.com:soomla/soomla-cocos2dx-core.git frameworks/runtime-src/Classes/soomla-cocos2dx-core
+
+    $ git clone --recursive git@github.com:soomla/cocos2dx-store.git frameworks/runtime-src/Classes/cocos2dx-store
+    ```
+
+	**OR:** If you have already cloned the repositories, to obtain the submodules, run this command in each repository:
+
+    ```
+    $ git submodule update --init --recursive
+    ```
+
+2. **For iOS:** Use sourced versions of Linked projects (`frameworks/runtime-src/Classes/soomla-cocos2dx-core/development/Cocos2dxCoreFromSources.xcodeproj`, `frameworks/runtime-src/Classes/cocos2dx-store/development/Cocos2dxStoreFromSources.xcodeproj`)
+
+3. **For Android:** You can use our "sourced" modules for Android Studio (or IntelliJ IDEA) (`frameworks/runtime-src/Classes/soomla-cocos2dx-core/development/Cocos2dxCoreFromSources.iml`, `frameworks/runtime-src/Classes/cocos2dx-store/development/Cocos2dxStoreFromSources.iml`), just include them in your project.
+

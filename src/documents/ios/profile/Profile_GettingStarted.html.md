@@ -14,7 +14,7 @@ platform: 'ios'
 
 ## Getting Started
 
-1. Download [ios-profile](http://library.soom.la/fetch/ios-profile/1.0.1?cf=github).
+1. Download [ios-profile](http://library.soom.la/fetch/ios-profile/latest?cf=knowledge%20base).
 
 2. The static libs and headers you need are in the zip you downloaded from the link above.
 
@@ -52,8 +52,8 @@ platform: 'ios'
     @(FACEBOOK) : @{ @"permissions": @"public_profile,user_friends" }
 	```
 
-  <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app, 
-  just request the reasonable minimum. Other permissions will be requested, when they will be needed. 
+  <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app,
+  just request the reasonable minimum. Other permissions will be requested, when they will be needed.
   For instance, if you try to call `updateStory`, SoomlaProfile will ask for `publish_actions` permission, if your app has not got it.</div>
 
   2. **Google+** - Please provide **CLIENT ID** from the "API&Auth" -> "Credentials" -> "Client ID for iOS applicatio" section in [Google Developer Console Projects](https://console.developers.google.com/project/), like so:
@@ -73,14 +73,14 @@ platform: 'ios'
   @(TWITTER): @{ ..., @"forceWeb": @(YES) },
   ```
 
-  4. **Common** - There is a common param, supported with all providers: `autoLogin`. Setting this param to `YES` makes 
-    Soomla to try to log in automatically to this provider, if an user already logged in with it in the previous sessions. 
-    The default value is `NO`.
-  
+  4. **Common** - There are some settings you can define which applies in all social providers params:
+
+	 `autoLogin` - Setting autoLogin to true will tell Profile to try and login the user automatically to the provider, if the user has already logged in with it in the previous sessions. The default value is `false`.
+
 	``` objectivec
-  	// For instance for FB
-  	@(FACEBOOK) : @{ @"autoLogin": @(YES) }
-  	```
+	// Example for FB
+	@(FACEBOOK) : @{ @"autoLogin": @(YES) }
+	```
 
 <div class="info-box">The following steps should be done according to the target social network.</div>
 
@@ -186,7 +186,7 @@ The callback to this process is `openURL` which should be defined in your `AppDe
 
   - See [Browser-based Authentication](#browser-based-authentication)
 
-4. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
+4. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles.
 
 ### Twitter Caveats
 

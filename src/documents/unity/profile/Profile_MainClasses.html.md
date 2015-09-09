@@ -51,6 +51,17 @@ This class holds information about a user for a specific `Provider`.
 - `Gender`
 - `Language`
 - `Birthday`
+- `Extra` - a Dictionary contains additional info provided by social provider:
+  - `Facebook`
+    - **access_token** - *String*
+    - **permissions** - *JSONObject of Strings*
+    - **expiration_date** - *UNIX timestamp as Double*
+  - `Twitter`
+    - **access_token** - *String*
+  - `Google+`
+    - **access_token** - *String*
+    - **refresh_token** - *String* - `not available for Android`
+    - **expiration_date** - *UNIX timestamp as Double* - `not available for Android`
 
 ## SoomlaProfile <a href="https://github.com/soomla/unity3d-profile/blob/master/Soomla/Assets/Plugins/Soomla/Profile/SoomlaProfile.cs" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
@@ -328,6 +339,44 @@ public void onGetContactsFinished(Provider provider, SocialPageData<UserProfile>
     // ... handle page results ...
     if (userProfiles.HasMore) {
         SoomlaProfile.GetContacts(Provider.FACEBOOK, false);
+    } else {
+        // no pages anymore
+    }
+}
+
+```
+
+<br>
+###`GetFeed`
+
+This function Retrieves a list of the user's feed entries from the supplied provider. Upon a successful retrieval of
+feed entries the user will be granted the supplied reward.
+
+<div class="info-box">G+ does not support this.</div>
+
+```cs
+SoomlaProfile.GetFeed(Provider.FACEBOOK);
+```
+
+#### Pagination
+
+Note that the results will contain only part of the list. In order to get more items you should call the method again with `fromStart` param set to `false` (it's a default value for overloaded methods). You can use the following workflow:
+
+```cs
+public void GetFeed() {
+    ProfileEvents.OnGetFeedFinished += onGetFeedFinished;
+
+    // request for the 1st page
+    SoomlaProfile.GetFeed(Provider.FACEBOOK, true);
+}
+
+
+// your handler:
+public void onGetFeedFinished(Provider provider, SocialPageData<string> feedList, string payload) {
+
+    // ... handle page results ...
+    if (feedList.HasMore) {
+        SoomlaProfile.GetFeed(Provider.FACEBOOK, false);
     } else {
         // no pages anymore
     }

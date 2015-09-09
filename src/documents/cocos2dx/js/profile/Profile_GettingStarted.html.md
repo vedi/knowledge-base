@@ -7,7 +7,7 @@ position: 1
 theme: 'platforms'
 collection: 'cocos2djs_profile'
 module: 'profile'
-lang: 'js' 
+lang: 'js'
 platform: 'cocos2dx'
 ---
 
@@ -15,12 +15,12 @@ platform: 'cocos2dx'
 
 *If you want to develop with C++ sources, refer to the [Working with sources](#working-with-sources) section below.*
 
-<div class="info-box">If you didn't already, clone the Cocos2d-js framework from [here](https://github.com/cocos2d/cocos2d-js), 
-or download it from the [Cocos2d-x website](http://www.cocos2d-x.org/download). Make sure the version you clone is 
+<div class="info-box">If you didn't already, clone the Cocos2d-js framework from [here](https://github.com/cocos2d/cocos2d-js),
+or download it from the [Cocos2d-x website](http://www.cocos2d-x.org/download). Make sure the version you clone is
 supported by SOOMLA's cocos2dx-profile (the tag is the version).</div>
 
-<div class="info-box">Profile depends on SOOMLA's Core module. This document assumes that you are new to SOOMLA and have 
-not worked with any of the other SOOMLA modules. If this is not the case, and you already have Core & Store, please 
+<div class="info-box">Profile depends on SOOMLA's Core module. This document assumes that you are new to SOOMLA and have
+not worked with any of the other SOOMLA modules. If this is not the case, and you already have Core & Store, please
 follow these directions only for the Profile module.</div>
 
 ##General Instructions
@@ -104,12 +104,12 @@ follow these directions only for the Profile module.</div>
           }
         };
 	```
-  <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app, 
-  just request the reasonable minimum. Other permissions will be requested, when they will be needed. 
+  <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app,
+  just request the reasonable minimum. Other permissions will be requested, when they will be needed.
   For instance, if you try to call `updateStory`, SoomlaProfile will ask for `publish_actions` permission, if your app has not got it.
   </div>
-  
-  <div class="info-box">**NOTE:** Currently the Android implementation does not work in this way, 
+
+  <div class="info-box">**NOTE:** Currently the Android implementation does not work in this way,
   and you should provide all the needed permissions there. We are working on fixing that.</div>
 
 
@@ -134,18 +134,18 @@ follow these directions only for the Profile module.</div>
     };
   ```
 
-  d. **Common** - There is a common param, supported with all providers: `autoLogin`. Setting this param to `true` makes 
-    Soomla to try to log in automatically to this provider, if an user already logged in with it in the previous sessions. 
-    The default value is `false`.
-  
+  d. **Common** - There are some settings you can define which applies in all social providers params:
+
+   `autoLogin` - Setting autoLogin to true will tell Profile to try and login the user automatically to the provider, if the user has already logged in with it in the previous sessions. The default value is `false`.
+
 	``` js
-  	    // For instance for FB
-	    var profileParams = {
-          facebook: {
-            autoLogin: true
-          }
-        };
-  	```
+	  // For instance for FB
+    var profileParams = {
+      facebook: {
+        autoLogin: true
+      }
+    };
+	```
 
 1. You'll need to subscribe to profile events to get notified about social network related events. refer to the [Event Handling](/cocos2dx/js/profile/Profile_Events) section for more information.
 
@@ -211,7 +211,7 @@ Facebook is supported out-of-the-box, you just have to follow the next steps to 
 
 ###Google+ for iOS
 
-Google+ is supported out-of-the-box, authentication is done either through the signed in Google+ account or through the 
+Google+ is supported out-of-the-box, authentication is done either through the signed in Google+ account or through the
 web browser (fallback). Follow the next steps to make it work:
 
 1. Click [here](https://console.developers.google.com/project) to create your Google Plus app.
@@ -242,7 +242,7 @@ web browser (fallback). Follow the next steps to make it work:
 
 ###Twitter for iOS
 
-Twitter is supported out-of-the-box, authentication is done either through the signed in **native** Twitter account 
+Twitter is supported out-of-the-box, authentication is done either through the signed in **native** Twitter account
 (iOS 5+) or through web browser (fallback). Follow the next steps to make it work:
 
 1. Click [here](https://apps.twitter.com/) to create your Twitter app.
@@ -345,7 +345,7 @@ Facebook is supported out-of-the-box, you just have to follow the next steps to 
 
 ###Google+ for Android
 
-1. Add the following jars from the [build](https://github.com/soomla/android-profile/tree/master/build) folder:
+1. Add the following jars from the [zip](http://library.soom.la/fetch/android-store/latest?cf=knowledge%20base):
 
   - `AndroidProfileGoogle.jar`
 
@@ -379,7 +379,7 @@ Twitter is supported out-of-the-box, authentication is done via web view. Follow
 
 <div class="info-box">SOOMLA uses the [Twitter4J](https://github.com/yusuke/twitter4j) library (v 4.0.2) to support Twitter integration.</div>
 
-1. Add the following jars from the [build](https://github.com/soomla/android-profile/tree/master/build) folder:
+1. Add the following jars from the [zip](http://library.soom.la/fetch/android-store/latest?cf=knowledge%20base):
 
   - `AndroidProfileTwitter.jar`
 

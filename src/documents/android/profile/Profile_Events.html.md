@@ -100,7 +100,7 @@ This event is triggered when logging into the social provider has started.
 public void onLoginStarted(LoginStartedEvent loginStartedEvent) {
 	// A LoginStartedEvent contains the following:
 	// Provider = the provider where the login has started
-	// AutoLogin = comes "true" if user login automatically
+	// AutoLogin = will be "true" if the user was logged in using the AutoLogin functionality
 	// Payload  = an identification String that you can give when you initiate the login
 	//            operation and want to receive back upon starting
 
@@ -117,7 +117,7 @@ This event is triggered when logging into the social provider has finished **suc
 public void onLoginFinished(LoginFinishedEvent loginFinishedEvent) {
 	// A LoginFinishedEvent contains the following:
 	// UserProfile = the user's profile from the logged in provider
-	// AutoLogin = comes "true" if user login automatically
+	// AutoLogin = will be "true" if the user was logged in using the AutoLogin functionality
 	// Payload     = an identification string that you can give when you initiate the
 	//               login operation and want to receive back upon its completion
 
@@ -134,7 +134,7 @@ This event is triggered when logging into the social provider has been cancelled
 public void onLoginCancelled(LoginCancelledEvent loginCancelledEvent) {
 	// A LoginCancelledEvent contains the following:
 	// Provider = the provider which the user has cancelled login to
-	// AutoLogin = comes "true" if user login automatically
+	// AutoLogin = will be "true" if the user was logged in using the AutoLogin functionality
 	// Payload  = an identification string that you can give when you initiate the
 	//            login operation and want to receive back upon cancellation
 
@@ -152,7 +152,7 @@ public void onLoginFailed(LoginFailedEvent loginFailedEvent) {
 	// A LoginFailedEvent contains the following:
 	// Provider         = the provider on which the login has failed
 	// ErrorDescription = description of the reason for failure
-	// AutoLogin 		    = comes "true" if user login automatically
+	// AutoLogin 		    = will be "true" if the user was logged in using the AutoLogin functionality
 	// Payload          = an identification string that you can give when you initiate
 	//                    the login operation and want to receive back upon failure
 
@@ -213,7 +213,7 @@ This event is triggered when a social action has started.
 public void onSocialActionStarted(SocialActionStartedEvent socialActionStartedEvent) {
 	// A SocialActionStartedEvent contains the following:
 	// Provider         = the provider on which the social action has started
-	// SocialActionType = the social action (like, post status, etc..) that started
+	// SocialActionType = the social action (post status, etc..) that started
 	// Payload          = an identification string that you can give when you initiate
 	//                    the social action operation and want to receive back upon starting
 
@@ -231,7 +231,7 @@ This event is triggered when a social action has finished **successfully**.
 public void onSocialActionFinished(SocialActionFinishedEvent socialActionFinishedEvent) {
 	// A SocialActionFinishedEvent contains the following:
 	// Provider         = the provider on which the social action has finished
-	// SocialActionType = the social action (like, post status, etc..) that finished
+	// SocialActionType = the social action (post status, etc..) that finished
 	// Payload          = an identification string that you can give when you initiate
 	//                    the social action operation and want to receive back upon completion
 
@@ -248,7 +248,7 @@ This event is triggered when a social action has been cancelled.
 public void onSocialActionCancelled(SocialActionCancelledEvent socialActionCancelledEvent) {
 	// A SocialActionCancelledEvent contains the following:
 	// Provider         = the provider on which a social action was cancelled
-	// SocialActionType = the social action (like, post status, etc..) that has been cancelled
+	// SocialActionType = the social action (post status, etc..) that has been cancelled
 	// Payload          = an identification string that you can give when you initiate the
 	//                    social action operation and want to receive back upon cancellation
 
@@ -265,7 +265,7 @@ This event is triggered when a social action has failed.
 public void onSocialActionFailed(SocialActionFailedEvent socialActionFailedEvent) {
 	// A SocialActionFailedEvent contains the following:
 	// Provider         = the provider on which the social action has failed
-	// SocialActionType = the social action (like, post status, etc..) that failed
+	// SocialActionType = the social action (post status, etc..) that failed
 	// ErrorDescription = description of the reason for failure
 	// Payload          = an identification string that you can give when you initiate
 	//                    the social action operation and want to receive back upon failure

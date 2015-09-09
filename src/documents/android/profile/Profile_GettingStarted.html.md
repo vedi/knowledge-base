@@ -14,7 +14,7 @@ platform: 'android'
 
 ##Getting Started
 
-1. Download [android-profile](http://library.soom.la/fetch/android-profile/1.0.1?cf=github).
+1. Download [android-profile](http://library.soom.la/fetch/android-profile/latest?cf=knowledge%20base).
 
 2. From the downloaded zip, add the following jars to your project.
 
@@ -44,7 +44,7 @@ platform: 'android'
 	``` java
 	SoomlaProfile.getInstance().initialize();
 	```
-	
+
   **NOTE** that some social providers need special parameters in initialization - supply them like so:
 
 	``` java
@@ -78,16 +78,17 @@ platform: 'android'
 
 	SoomlaProfile.getInstance().initialize(providerParams);
 	```
-  d. **Common** - There is a common param, supported with all providers: `autoLogin`. Setting this param to `true` makes 
-    Soomla to try to log in automatically to this provider, if an user already logged in with it in the previous sessions. 
-    The default value is `false`.
-  
+
+  d. **Common** - There are some settings you can define which applies in all social providers params:
+
+	 `autoLogin` - Setting autoLogin to true will tell Profile to try and login the user automatically to the provider, if the user has already logged in with it in the previous sessions. The default value is `false`.
+
 	``` java
-  	// For instance for FB
-  	HashMap<String, String> facebookParams = new HashMap<String, String>();
-  	facebookParams.put("autoLogin", Boolean.toString(true));
-  	providerParams.put(IProvider.Provider.FACEBOOK, facebookParams);
-  	```
+  // Example for FB
+  HashMap<String, String> facebookParams = new HashMap<String, String>();
+  facebookParams.put("autoLogin", Boolean.toString(true));
+  providerParams.put(IProvider.Provider.FACEBOOK, facebookParams);
+  ```
 
 6. If integrating a virtual economy with the store module, please see [android-store](/android/store/Store_GettingStarted) for store setup.
 
@@ -153,7 +154,8 @@ Twitter is supported out-of-the-box, authentication is done via web view. Follow
 
 3. Import `google-play-services_lib` project as module dependency to your project.
 
-    > **Note:** You can either download/copy the existing `google-play-services_lib` project located under [google social provider libs](https://github.com/soomla/android-profile/tree/master/social-providers/android-profile-google/libs) folder or [create one yourself](https://developers.google.com/+/mobile/android/getting-started#step_2_configure_your_eclipse_project).
+    > **Note:** You can either download/copy the existing `google-play-services_lib` project located under 
+    [google social provider libs](https://github.com/soomla/android-profile/tree/master/social-providers/android-profile-google/libs) folder or [create one yourself](https://developers.google.com/+/mobile/android/getting-started#step_2_configure_your_eclipse_project).
 
 4. Add `SoomlaGooglePlusActivity` to `AndroidManifest.xml` as following:
 

@@ -7,7 +7,7 @@ position: 1
 theme: 'platforms'
 collection: 'cocos2dx_profile'
 module: 'profile'
-lang: 'cpp' 
+lang: 'cpp'
 platform: 'cocos2dx'
 ---
 
@@ -63,12 +63,12 @@ platform: 'cocos2dx'
 
     profileParams->setObject(facebookParams, soomla::CCUserProfileUtils::providerEnumToString(soomla::FACEBOOK)->getCString());
 	```
-  <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app, 
-  just request the reasonable minimum. Other permissions will be requested, when they will be needed. 
+  <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app,
+  just request the reasonable minimum. Other permissions will be requested, when they will be needed.
   For instance, if you try to call `updateStory`, SoomlaProfile will ask for `publish_actions` permission, if your app has not got it.
   </div>
-  
-  <div class="info-box">**NOTE:** Currently the Android implementation does not work in this way, 
+
+  <div class="info-box">**NOTE:** Currently the Android implementation does not work in this way,
   and you should provide all the needed permissions there. We are working on fixing that.</div>
 
 
@@ -91,16 +91,15 @@ platform: 'cocos2dx'
   profileParams->setObject(twitterParams, soomla::CCUserProfileUtils::providerEnumToString(soomla::TWITTER)->getCString());
   ```
 
-  d. **Common** - There is a common param, supported with all providers: `autoLogin`. Setting this param to `true` makes 
-    Soomla to try to log in automatically to this provider, if an user already logged in with it in the previous sessions. 
-    The default value is `false`.
-  
-	``` cpp
-  	// For instance for FB
-    __Dictionary *facebookParams = __Dictionary::create();
-	facebookParams->setObject(__Bool::create(true), "autoLogin");
-    profileParams->setObject(facebookParams, soomla::CCUserProfileUtils::providerEnumToString(soomla::FACEBOOK)->getCString());
-  	```
+  d. **Common** - There are some settings you can define which applies in all social providers params:
+	- `autoLogin` - Setting autoLogin to true will tell Profile to try and login the user automatically to the provider, if the user has already logged in with it in the previous sessions. The default value is `false`.
+
+    ``` cpp
+      // For instance for FB
+      __Dictionary *facebookParams = __Dictionary::create();
+    	facebookParams->setObject(__Bool::create(true), "autoLogin");
+      profileParams->setObject(facebookParams, soomla::CCUserProfileUtils::providerEnumToString(soomla::FACEBOOK)->getCString());
+    ```
 
 7. You'll need to subscribe to profile events to get notified about social network related events. refer to the [Event Handling](/cocos2dx/cpp/profile/Profile_Events) section for more information.
 
@@ -275,7 +274,7 @@ Facebook is supported out-of-the-box, you just have to follow the next steps to 
 
 ###Google+ for Android
 
-1. Add the following jars from the [build](https://github.com/soomla/android-profile/tree/master/build) folder:
+1. Add the following jars from the [zip](http://library.soom.la/fetch/android-store/latest?cf=knowledge%20base):
 
   - `AndroidProfileGoogle.jar`
 
@@ -309,7 +308,7 @@ Twitter is supported out-of-the-box, authentication is done via web view. Follow
 
 <div class="info-box">SOOMLA uses the [Twitter4J](https://github.com/yusuke/twitter4j) library (v 4.0.2) to support Twitter integration.</div>
 
-1. Add the following jars from the [build](https://github.com/soomla/android-profile/tree/master/build) folder:
+1. Add the following jars from the [zip](http://library.soom.la/fetch/android-store/latest?cf=knowledge%20base) folder:
 
   - `AndroidProfileTwitter.jar`
 

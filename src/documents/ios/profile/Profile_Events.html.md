@@ -103,7 +103,7 @@ The event `EVENT_UP_LOGIN_STARTED` is triggered when logging into the social pro
 - (void)loginStarted:(NSNotification*)notification {
   // notification's userInfo contains the following keys:
   // DICT_ELEMENT_PROVIDER = The provider (NSNumber*) where the login has started
-  // DICT_ELEMENT_AUTO_LOGIN = Comes "true" if user login automatically
+  // DICT_ELEMENT_AUTO_LOGIN = will be "true" if the user was logged in using the AutoLogin functionality
   // DICT_ELEMENT_PAYLOAD  = An identification string (NSString*) that you can give when you
   //                     initiate the login operation and want to receive back upon starting
 
@@ -124,7 +124,7 @@ The event `EVENT_UP_LOGIN_FINISHED` is triggered when logging into the social pr
 - (void)loginFinished:(NSNotification*)notification {
   // notification's userInfo contains the following keys:
   // DICT_ELEMENT_USER_PROFILE = The user's profile (UserProfile*) from the logged in provider
-  // DICT_ELEMENT_AUTO_LOGIN = Comes "true" if user login automatically
+  // DICT_ELEMENT_AUTO_LOGIN = will be "true" if the user was logged in using the AutoLogin functionality
   // DICT_ELEMENT_PAYLOAD      = An identification string (NSString*) that you can give when
   //           you initiate the login operation and want to receive back upon its completion
 
@@ -145,7 +145,7 @@ The event `EVENT_UP_LOGIN_CANCELLED` is triggered when logging into the social p
 - (void)loginCancelled:(NSNotification*)notification {
   // notification's userInfo contains the following keys:
   // DICT_ELEMENT_PROVIDER = The provider (NSNumber*) which the user has cancelled login to
-  // DICT_ELEMENT_AUTO_LOGIN = Comes "true" if user login automatically
+  // DICT_ELEMENT_AUTO_LOGIN = will be "true" if the user was logged in using the AutoLogin functionality
   // DICT_ELEMENT_PAYLOAD  = An identification string (NSString*) that you can give when you
   //                 initiate the login operation and want to receive back upon cancellation
 
@@ -167,7 +167,7 @@ The event `EVENT_UP_LOGIN_FAILED` is triggered when logging into the social prov
   // notification's userInfo contains the following keys:
   // DICT_ELEMENT_PROVIDER = The provider (NSNumber*) on which the login has failed
   // DICT_ELEMENT_MESSAGE  = Description (NSString*) of the reason for failure
-  // DICT_ELEMENT_AUTO_LOGIN = Comes "true" if user login automatically
+  // DICT_ELEMENT_AUTO_LOGIN = will be "true" if the user was logged in using the AutoLogin functionality
   // DICT_ELEMENT_PAYLOAD  = An identification string (NSString*) that you can give when
   //              you initiate the login operation and want to receive back upon failure
 
@@ -232,7 +232,7 @@ The event `EVENT_UP_LOGOUT_FAILED` is triggered when logging out of the social p
 
 ### SOCIAL ACTION STARTED
 
-The event `EVENT_UP_SOCIAL_ACTION_STARTED` is triggered when a social action (like, post status, etc..) has started.
+The event `EVENT_UP_SOCIAL_ACTION_STARTED` is triggered when a social action (post status, etc..) has started.
 
 ``` objectivec
 // observe the event:
