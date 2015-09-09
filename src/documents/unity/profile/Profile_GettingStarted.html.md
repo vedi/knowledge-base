@@ -143,6 +143,12 @@ There are some settings you can define which applies in all social providers par
 
 3. Did you sign your Unity3d app with keystore file with SHA-1 identical to "CERTIFICATE FINGERPRINT (SHA1)" of your Google+ app?
 
+### Common Caveats
+
+#### **iOS**
+
+1. If you are building your app under Windows, you have to have iTunes installed since the SOOMLA postprocessing is expecting a utility that exists in OS X and is installed with iTunes in Windows.
+
 
 ## Example
 

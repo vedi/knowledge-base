@@ -93,6 +93,8 @@ latency and setup routines you could have done silently in the background.
 
 - Click on "**Build**", NOT "Build & Run". SOOMLA has a post-build script that needs to run, and clicking on "Build & Run" doesn't give that script a chance.
 
+- If you are building your app under Windows, you have to have iTunes installed since the SOOMLA postprocessing is expecting a utility that exists in OS X and is installed with iTunes in Windows.
+
   ![alt text](/img/tutorial_img/unity_debugging/switchPlatform.png "Tip")
 
 
