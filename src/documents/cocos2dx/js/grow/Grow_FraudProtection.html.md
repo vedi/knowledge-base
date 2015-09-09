@@ -5,7 +5,7 @@ title: "IAP Fraud Protection"
 text: "Get started with Grow IAP Fraud Protection."
 position: 4
 theme: 'platforms'
-collection: 'cocos2dx_grow'
+collection: 'cocos2djs_grow'
 module: 'grow'
 lang: 'js'
 platform: 'cocos2dx'
