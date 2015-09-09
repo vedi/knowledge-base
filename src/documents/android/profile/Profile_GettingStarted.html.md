@@ -188,7 +188,7 @@ Twitter is supported out-of-the-box, authentication is done via web view. Follow
 	</application>
 	```
 
-3. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
+3. **Facebook Permissions** - Profile will request `publish_actions`, `user_location`, `user_likes` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
 
 ## Twitter Caveats
 

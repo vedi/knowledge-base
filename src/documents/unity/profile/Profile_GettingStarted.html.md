@@ -121,13 +121,13 @@ There are some settings you can define which applies in all social providers par
 
 1. **Facebook Application** - You must create a Facebook application and use its details in your Profile-based application (with Facebook).
 
-2. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles.
+2. **Facebook Permissions** - Profile will request `publish_actions`, `user_location`, `user_likes` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles.
 
 #### **Android**
 
 1. **Facebook Application** - You must create a Facebook application and use its details in your Profile-based application (with Facebook).
 
-2. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
+2. **Facebook Permissions** - Profile will request `publish_actions`, `user_location`, `user_likes` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
 
 ### Twitter Caveats
 
