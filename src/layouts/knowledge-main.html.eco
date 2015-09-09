@@ -34,7 +34,7 @@ title: 'Soomla Knowledge Base'
       </a>
     </div>
     <div class="col-lg-4 col-md-4 menu-option">
-      <a href="/docs/university/videos" class="link-container">
+      <a href="/university" class="link-container">
         <div class="option-image" style="background-image: url('img/Level1-University-green.png')"></div>
         <div class="option-head-text">UNIVERSITY</div>
         <div class="option-text">Watch our new video tutorials to get started with SOOMLA. More videos coming soon!</div>
