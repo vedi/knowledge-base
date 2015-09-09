@@ -95,7 +95,7 @@ latency and setup routines you could have done silently in the background.
 
 - If you are building your app under Windows, you have to have iTunes installed since the SOOMLA postprocessing is expecting a utility that exists in OS X and is installed with iTunes in Windows.
 
-- If you are using Google Cardboard SDK in your app, you should remove the `-ObjC` flag from the link flags in Xcode.
+- If you are using Google Cardboard SDK in your app, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/libSoomlaiOSCore.a` and `-force_load $(BUILT_PRODUCTS_DIR)/libSoomlaiOSStore.a` to `Other Linker Flags`.                                                                                                                             
 
   ![alt text](/img/tutorial_img/unity_debugging/switchPlatform.png "Tip")
 
