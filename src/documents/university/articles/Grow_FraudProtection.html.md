@@ -6,8 +6,8 @@ text: "Get started with Grow Fraud Protection."
 position: 4
 theme: 'platforms'
 collection: 'unity_grow'
-module: 'grow'
-platform: 'unity'
+module: 'articles'
+platform: 'university'
 ---
 
 # Fraud Protection

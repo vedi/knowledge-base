@@ -5,17 +5,18 @@ title: "About GROW"
 text: "Learn about the power of GROW Analytics, how it can benefit game developers, and how to use the GROW dashboard."
 position: 1
 theme: 'platforms'
-collection: 'unity_grow'
-module: 'grow'
-platform: 'unity'
+collection: 'university_articles'
+module: 'articles'
+platform: 'university'
 ---
-# GROW
 
-## About
+# About GROW
 
-Soomla GROW is SOOMLA's flagship, community-driven, data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization.
+## GROW - Data is for everyone!
 
-GROW uses all of Soomla's modules: [Store](/unity/store/), [Profile](/unity/profile/) and [LevelUp](/unity/levelup/) to collect in-game data and render value for you. Studios may choose to use only specific modules, however, to benefit from the full power of GROW analytics we recommend that you integrate all three.
+GROW is SOOMLA's flagship, community-driven, data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization.
+
+GROW uses all of SOOMLA's modules: [Store](/unity/store/), [Profile](/unity/profile/) and [LevelUp](/unity/levelup/) to collect in-game data and render value for you. Studios may choose to use only specific modules, however, to benefit from the full power of GROW analytics we recommend that you integrate all three.
 
 To get started with GROW, you can follow each one of different GROW bundles' tutorials:
 
