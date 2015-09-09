@@ -1,7 +1,10 @@
 ---
 layout: 'knowledge-base'
 title: 'Soomla University'
-theme: 'university'
+theme: 'platforms'
+module: 'videos'
+platform: 'university'
+collection: 'university_articles'
 ---
 
 
@@ -11,7 +14,10 @@ theme: 'university'
 <!-- VIDEO LIST TITLE -->
 <div id="know-soomla">
   <div id="jumbo-small-text">
-    <div id="university-hierarchy-nav"><%- @partial('nav-menu-l1', {current:'university'}) %></div>
+    <div id="university-hierarchy-nav">
+      <%- @partial('nav-menu-l1', {current: @document.platform}) %>
+      <%- @partial('nav-menu-l2', {collection:@document.collection, platform: @document.platform, lang: @document.lang, module: @document.module, theme: @document.theme}) %>
+    </div>
     Learn how to get started with SOOMLA, integrate SOOMLA into your projects, and more!
   </div>
 </div>

@@ -16,7 +16,7 @@ platform: 'cocos2dx'
 
 Soomla GROW is SOOMLA's flagship, community-driven, data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization.
 
-GROW uses all of Soomla's modules: [Store](/cocos2dx/store/), [Profile](/cocos2dx/profile/) and [LevelUp](/cocos2dx/levelup/) to collect in-game data and render value for you. Studios may choose to use only specific modules, however, to benefit from the full power of GROW analytics we recommend that you integrate all three.
+GROW uses all of Soomla's modules: [Store](/cocos2dx/cpp/store/), [Profile](/cocos2dx/cpp/profile/) and [LevelUp](/cocos2dx/cpp/levelup/) to collect in-game data and render value for you. Studios may choose to use only specific modules, however, to benefit from the full power of GROW analytics we recommend that you integrate all three.
 
 To get started with GROW, you can follow each one of different GROW bundles' tutorials:
 

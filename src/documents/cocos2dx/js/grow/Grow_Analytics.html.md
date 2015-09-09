@@ -5,9 +5,10 @@ title: "Analytics Dashboard"
 text: "Get started with Grow Analytics Dashboard."
 position: 2
 theme: 'platforms'
-collection: 'unity_grow'
+collection: 'cocos2djs_grow'
 module: 'grow'
-platform: 'unity'
+lang: 'js'
+platform: 'cocos2dx'
 ---
 
 # Analytics Dashboard

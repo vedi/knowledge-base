@@ -26,9 +26,9 @@ GrowSpend includes:
 - [Whales Report](/cocos2dx/cpp/grow/Grow_WhalesReport)
 - [Insights](/cocos2dx/cpp/grow/Grow_Insights)
 
-**Note:** Cross-device SYNC is using the Profile module which allows your users to login with their social provider. If you want that, [integrate Profile](/cocos2dx/profile/Profile_GettingStarted) as well.
+**Note:** Cross-device SYNC is using the Profile module which allows your users to login with their social provider. If you want that, [integrate Profile](/cocos2dx/cpp/profile/Profile_GettingStarted) as well.
 
-**Note2:** In some games, SYNCing balances is useless without SYNCing progression as well. Using the LevelUp module will get you there. If you want that, [integrate LevelUp](/cocos2dx/levelup/Levelup_GettingStarted) as well.
+**Note2:** In some games, SYNCing balances is useless without SYNCing progression as well. Using the LevelUp module will get you there. If you want that, [integrate LevelUp](/cocos2dx/cpp/levelup/Levelup_GettingStarted) as well.
 
 ## Integrating GrowSpend
 
@@ -40,7 +40,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 1. In the games screen click on the "+" button to add a new game. If it's your first time in the dashboard, just click on the "+" button underneath the "Create your first game" label in the middle of the screen.
 
-	  ![alt text](/img/tutorial_img/unity_grow/addNewApp.png "Add new app")
+	  ![alt text](/img/tutorial_img/cocos_grow/addNewApp.png "Add new app")
 
 	* Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You can also click "Downloads" on the top right corner of the screen). Click on **GrowSpend**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
 

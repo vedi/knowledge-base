@@ -393,7 +393,7 @@ var diamondScore = Soomla.Models.VirtualItemScore.create({
 	associatedItemId: 'diamond_ID'          // Associated item ID
 });
 
-var coin = Soomla.Models.CCVirtualCurrency.create(...);
+var coin = Soomla.Models.VirtualCurrency.create(...);
 var coinScore = Soomla.Models.VirtualItemScore.create({
 	itemId: 'coinScore',                    // ID
 	name: 'Coin Score',                     // Name
@@ -1049,7 +1049,7 @@ the `like()` function is called.</div>
 **HOW TO DEFINE**
 
 ``` js
-var likeMission = SocialLikeMission::create({
+var likeMission = Soomla.Models.SocialLikeMission.create({
 	itemId: 'likeMission",                      // ID
 	name: 'Like Mission',                       // Name
 	rewards: [likeReward],                      // Optional reward(s)
@@ -1076,7 +1076,6 @@ var statusMission = Soomla.Models.SocialStatusMission.create({
 	name: 'Status Mission',                     // Name
 	rewards: [statusReward],                    // Optional reward(s)
     provider: Soomla.Models.Provider.FACEBOOK,  // Social Provider
-	soomla::FACEBOOK,                           // Social Provider
 	status: 'status'                            // Status to post
 });
 ```
@@ -1145,9 +1144,7 @@ complete all these missions in order to earn the reward associated with the chal
 // To complete this challenge, the user must complete both missions.
 // Once the challenge is complete, he/she will receive the reward(s).
 // Note that wMission and rMission are defined in the examples above.
-var missions = cocos2d::__Array::create();
-missions.addObject(wMission);
-missions.addObject(rMission);
+var missions = [wMission, rMission];
 
 // To complete this challenge, the user must complete both missions.
 Challenge *challenge = Soomla.Models.Challenge.create({
@@ -1202,7 +1199,7 @@ A `Schedule` defines any time restrictions that an entity may have.
 <div class="info-box">Note that `Reward` is a part of soomla-cocos2dx-core, and not part of the LevelUp module. However, 
 because `Reward`s are used very often throughout Levelup, it's important that you are familiar with the different `Reward` types.</div>
 
-A `Reward` is an entity which can be earned by the user for meeting certain criteria in game progress. For example - a user can earn a badge for completing a `Mission`. Dealing with `Reward`s is very similar to dealing with `CCVirtualItem`s: grant a `Reward` by giving it, and recall a `Reward` by taking it.
+A `Reward` is an entity which can be earned by the user for meeting certain criteria in game progress. For example - a user can earn a badge for completing a `Mission`. Dealing with `Reward`s is very similar to dealing with `VirtualItem`s: grant a `Reward` by giving it, and recall a `Reward` by taking it.
 
 `Reward` itself cannot be instantiated, but there are many types of rewards, all explained below, and those will have the functionality that `Reward` provides.
 
