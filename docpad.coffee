@@ -81,7 +81,7 @@ docpadConfig = {
 			{
 				id: 'university',
 				title: 'University',
-				link: '/docs/university/videos'
+				link: '/university'
 			}
 			{
 				id: 'download',
@@ -150,6 +150,16 @@ docpadConfig = {
 				{
 					id: 'profile',
 					title: 'Profile'
+				}
+			],
+			'university': [
+				{
+					id: 'articles',
+					title: 'Articles'
+				},
+				{
+					id: 'videos',
+					title: 'Videos'
 				}
 			]
 		}
@@ -292,6 +302,9 @@ docpadConfig = {
 
 		soomla_storefront: ->
 			@getCollection('documents').findAllLive({relativeOutDirPath: path.join('docs','soomla', 'storefront')},[position:1])
+
+		university_articles: ->
+			@getCollection('documents').findAllLive({relativeOutDirPath: path.join('university','articles')},[position:1])
 
 		samples: ->
 			@getCollection('documents').findAllLive({relativeOutDirPath: path.join('samples')},[position:1])

@@ -5,26 +5,26 @@ title: "About GROW"
 text: "Learn about the power of GROW Analytics, how it can benefit game developers, and how to use the GROW dashboard."
 position: 1
 theme: 'platforms'
-collection: 'cocos2dx_grow'
-module: 'grow'
-lang: 'cpp'
-platform: 'cocos2dx'
+collection: 'university_articles'
+module: 'articles'
+platform: 'university'
 ---
-# GROW
 
-## About
+# About GROW
 
-Soomla GROW is SOOMLA's flagship, community-driven, data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization.
+## GROW - Data is for everyone!
 
-GROW uses all of Soomla's modules: [Store](/cocos2dx/store/), [Profile](/cocos2dx/profile/) and [LevelUp](/cocos2dx/levelup/) to collect in-game data and render value for you. Studios may choose to use only specific modules, however, to benefit from the full power of GROW analytics we recommend that you integrate all three.
+GROW is SOOMLA's flagship, community-driven, data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization.
+
+GROW uses all of SOOMLA's modules: [Store](/unity/store/), [Profile](/unity/profile/) and [LevelUp](/unity/levelup/) to collect in-game data and render value for you. Studios may choose to use only specific modules, however, to benefit from the full power of GROW analytics we recommend that you integrate all three.
 
 To get started with GROW, you can follow each one of different GROW bundles' tutorials:
 
-- [GrowUltimate](/cocos2dx/cpp/grow/GrowUltimate_GettingStarted)
-- [GrowCompete](/cocos2dx/cpp/grow/GrowCompete_GettingStarted)
-- [GrowViral](/cocos2dx/cpp/grow/GrowViral_GettingStarted)
-- [GrowSpend](/cocos2dx/cpp/grow/GrowSpend_GettingStarted)
-- [GrowInsights](/cocos2dx/cpp/grow/GrowInsights_GettingStarted)
+- [GrowUltimate](/unity/grow/GrowUltimate_GettingStarted)
+- [GrowCompete](/unity/grow/GrowCompete_GettingStarted)
+- [GrowViral](/unity/grow/GrowViral_GettingStarted)
+- [GrowSpend](/unity/grow/GrowSpend_GettingStarted)
+- [GrowInsights](/unity/grow/GrowInsights_GettingStarted)
 
 
 ### Why use GROW?

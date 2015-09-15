@@ -3,7 +3,7 @@ layout: "content"
 image: "Bundle"
 title: "GrowInsights"
 text: "The perfect solution for your game if you have already integrated any of the SOOMLA open-source modules into it. If you just want to get Analytics, Whales Report and Grow Insights then this bundle is for you."
-position: 15
+position: 6
 theme: 'platforms'
 collection: 'cocos2dx_grow'
 module: 'grow'
@@ -33,14 +33,14 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 1. In the games screen click on the "+" button to add a new game. If it's your first time in the dashboard, just click on the "+" button underneath the "Create your first game" label in the middle of the screen.
 
-	  ![alt text](/img/tutorial_img/unity_grow/addNewApp.png "Add new app")
+	  ![alt text](/img/tutorial_img/cocos_grow/addNewApp.png "Add new app")
 
 	* Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You can also click "Downloads" on the top right corner of the screen). Click on **GrowInsights**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
 
 2. Unzip the downloaded file and copy its contents into the cocos2d directory located at the root of your Cocos2d-x project.
 
 
-### Initialize moduless
+### Initialize modules
 
 <<div class="info-box">Make sure to initialize each module ONLY ONCE when your application loads.</div>
 <br>
@@ -76,7 +76,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
       __String::create("yourEnvKey"));
   ```
 
-  ![alt text](/img/tutorial_img/cocos_grow/dashboardKeys.png "Keys")
+  <img src="/img/tutorial_img/cocos_grow/dashboardKeys.png" alt="Game key and Env key" style="border:0;">
 
 4. Initialize Insights:
 

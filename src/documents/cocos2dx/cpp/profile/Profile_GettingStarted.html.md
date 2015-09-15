@@ -92,14 +92,14 @@ platform: 'cocos2dx'
   ```
 
   d. **Common** - There are some settings you can define which applies in all social providers params:
-		- `autoLogin` - Setting autoLogin to true will tell Profile to try and login the user automatically to the provider, if the user has already logged in with it in the previous sessions. The default value is `false`.
+	- `autoLogin` - Setting autoLogin to true will tell Profile to try and login the user automatically to the provider, if the user has already logged in with it in the previous sessions. The default value is `false`.
 
-	``` cpp
-  // For instance for FB
-  __Dictionary *facebookParams = __Dictionary::create();
-	facebookParams->setObject(__Bool::create(true), "autoLogin");
-  profileParams->setObject(facebookParams, soomla::CCUserProfileUtils::providerEnumToString(soomla::FACEBOOK)->getCString());
-  ```
+    ``` cpp
+      // For instance for FB
+      __Dictionary *facebookParams = __Dictionary::create();
+    	facebookParams->setObject(__Bool::create(true), "autoLogin");
+      profileParams->setObject(facebookParams, soomla::CCUserProfileUtils::providerEnumToString(soomla::FACEBOOK)->getCString());
+    ```
 
 7. You'll need to subscribe to profile events to get notified about social network related events. refer to the [Event Handling](/cocos2dx/cpp/profile/Profile_Events) section for more information.
 

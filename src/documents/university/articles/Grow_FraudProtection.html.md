@@ -1,16 +1,16 @@
 ---
 layout: "content"
 image: "FraudProtection"
-title: "IAP Fraud Protection"
-text: "Get started with Grow IAP Fraud Protection."
+title: "Fraud Protection"
+text: "Get started with Grow Fraud Protection."
 position: 4
 theme: 'platforms'
-collection: 'unity_grow'
-module: 'grow'
-platform: 'unity'
+collection: 'university_articles'
+module: 'articles'
+platform: 'university'
 ---
 
-# IAP Fraud Protection
+# Fraud Protection
 
 ## Introduction
 
@@ -37,7 +37,7 @@ will make it almost impossible for a hacker to decrypt it.
 
 SOOMLA's solutions use encrypted storage and keep your games safe from this kind of hacking.
 You have probably already noticed the "Soomla Secret" setting, when you set up SOOMLA libraries. It is up to you to define a key
-as strong as possible, and keep it secret to prevent hacking of your games.
+as strong as possible, and keep it secret to prevent your games from being hacked.
 
 ## Server Side Verification
 
@@ -48,14 +48,14 @@ Hacking tools intercept such requests to the App Store or Google Play and emulat
 by your game. As result the hacker would get virtual goods for free.
 
 The best way to handle this type of hacking tools is by using a private server to verify these transactions. When a user makes an in-app purchase
-an electronic receipt is generated, saved and sent back to the game. The game then sends the receipt to the private server and the server verifies
+an electronic receipt is generated, saved and sent back to the game. The game can then send the receipt to the private server and the server can verify
 this receipt with Google or Apple servers to confirm that the receipt is valid. The response is sent back to the game and only then will the user get the purchased virtual goods.
 
 Most games do not use a server, because the gameplay happens on the client side and there is no need for it.
 Implementing and maintaining a server takes a lot of effort, and creating one solely for the purpose of receipt verification seems a bit excessive.
 That's why some games skip the server side verification, and this hole in security is extensively used by hackers.
 
-Good news! Today you do not need such server at all. SOOMLA provides such a receipt verification service with the added value of checking for suspicious activity.
+Good news! Today you do not need such server at all. SOOMLA provides a receipt verification service with the added value of checking for suspicious activity.
 
 ## Fraud protection in Unity3d
 

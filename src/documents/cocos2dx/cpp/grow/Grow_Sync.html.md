@@ -3,7 +3,7 @@ layout: "content"
 image: "Sync"
 title: "State & Economy Sync"
 text: "Get started with GROW State & Economy Sync for Unity. Here you can find initialization instructions, event handling and usage examples."
-position: 8
+position: 1
 theme: 'platforms'
 collection: 'cocos2dx_grow'
 module: 'grow'
@@ -240,7 +240,7 @@ Here you can find descriptions of the main classes of GROW Sync.
 
 ### CCGrowSync
 
-`CCGrowSync` sepresents a class which is in charge of syncing model and state between the client and the server.
+`CCGrowSync` represents a class which is in charge of syncing model and state between the client and the server.
 
 #### Functions
 

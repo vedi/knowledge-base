@@ -3,7 +3,7 @@ layout: "content"
 image: "Bundle"
 title: "GrowCompete"
 text: "The perfect competition stimulation solution for your game. If you want your users to compete with their friends in order to increase engagement then this bundle is for you."
-position: 13
+position: 5
 theme: 'platforms'
 collection: 'cocos2dx_grow'
 module: 'grow'
@@ -79,7 +79,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
       __String::create("yourEnvKey"));
   ```
 
-  ![alt text](/img/tutorial_img/cocos_grow/dashboardKeys.png "Keys")
+  <img src="/img/tutorial_img/cocos_grow/dashboardKeys.png" alt="Game key and Env key" style="border:0;">
 
 4. Initialize Sync:
 

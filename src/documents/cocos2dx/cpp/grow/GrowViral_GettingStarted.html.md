@@ -3,7 +3,7 @@ layout: "content"
 image: "Bundle"
 title: "GrowViral"
 text: "The perfect social engagement solution for your game. If you want your users to gift their friends in order to increase virality then this bundle is for you."
-position: 12
+position: 9
 theme: 'platforms'
 collection: 'cocos2dx_grow'
 module: 'grow'
@@ -35,7 +35,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 1. In the games screen click on the "+" button to add a new game. If it's your first time in the dashboard, just click on the "+" button underneath the "Create your first game" label in the middle of the screen.
 
-	  ![alt text](/img/tutorial_img/unity_grow/addNewApp.png "Add new app")
+	  ![alt text](/img/tutorial_img/cocos_grow/addNewApp.png "Add new app")
 
 	* Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You can also click "Downloads" on the top right corner of the screen). Click on **GrowViral**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
 
@@ -78,7 +78,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
       __String::create("yourEnvKey"));
   ```
 
-  ![alt text](/img/tutorial_img/cocos_grow/dashboardKeys.png "Keys")
+  <img src="/img/tutorial_img/cocos_grow/dashboardKeys.png" alt="Game key and Env key" style="border:0;">
 
 4. Initialize Gifting:
 
@@ -167,7 +167,7 @@ That's it! Now all you have to do is build your XCode project and run your game.
 
 ### **Instructions for Android**
 
-1. Import cocos2dx-highway, cocos2dx-store, cocos2dx-profile and cocos2dx-levelup modules into your project's Android.mk by adding the following:
+1. Import cocos2dx-highway, cocos2dx-store, and cocos2dx-profile modules into your project's Android.mk by adding the following:
 
     ```
     LOCAL_STATIC_LIBRARIES += cocos2dx_store_static
@@ -318,7 +318,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	// and BEFORE initializing STORE/PROFILE/LEVELUP
 	grow::CCGrowGifting::initShared();
 
-	/** Set up and initialize Store, Profile, and LevelUp **/
+	/** Set up and initialize Store, and Profile **/
 	ExampleAssets *assets = ExampleAssets::create();
 
 	__Dictionary *storeParams = __Dictionary::create();
