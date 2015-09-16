@@ -5,7 +5,7 @@ title: "Fraud Protection"
 text: "Get started with Grow Fraud Protection."
 position: 4
 theme: 'platforms'
-collection: 'unity_grow'
+collection: 'university_articles'
 module: 'articles'
 platform: 'university'
 ---

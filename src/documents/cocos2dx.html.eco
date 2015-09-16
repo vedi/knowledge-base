@@ -20,5 +20,3 @@ theme: 'platforms'
     <%- @partial('platform-selection', {image:"/img/Level2-Cocos2dx.png",link:"/cocos2dx/js",title: "JS",text: "Cocos2d-js"}) %>
   </div>
 </div>
-
-

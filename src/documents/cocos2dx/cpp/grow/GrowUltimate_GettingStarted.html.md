@@ -3,7 +3,7 @@ layout: "content"
 image: "Bundle"
 title: "GrowUltimate"
 text: "The perfect All In One solution for your game. If you want your users to have the perfect experience in your game then this bundle is for you."
-position: 14
+position: 8
 theme: 'platforms'
 collection: 'cocos2dx_grow'
 module: 'grow'
