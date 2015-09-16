@@ -25,19 +25,23 @@ The whales report includes many metrics, some measured across the past week and 
 
    <img src="/img/docs/university/whales-report/WR-1_2.png">
 
-1. **New paying users:** players who are new to your game this week and have paid in the game. Shows also how many new paying users were in your game last week and the trend.
-1. **New paying users graph:** this graph shows your historical count of new paying users going 12 weeks back. You can see how well your game's doing at acquiring new paying users week over week.
+1 - **New paying users:** players who are new to your game this week and have paid in the game. Shows also how many new paying users were in your game last week and the trend.  
+2 - **New paying users graph:** this graph shows your historical count of new paying users going 12 weeks back. You can see how well your game's doing at acquiring new paying users week over week.  
 
 
+<br><br><br>
 
-   <img src="/img/docs/university/whales-report/WR-3_7.png">
 
-1. **New users:** players that played your game for the first time during this week. Out of these new users:
-1. **Seen in GROW:** players that were seen (have played) in the the Grow network before they played your game. These are players you could find out more about using the Insights API.
-1. **Paid in GROW:** players that paid before in other games in the Grow network. These are the whales that have entered your game. Focus on these paying users to get them to pay in your game as well.
-1. **Paid in your game:** players that have paid exclusively in your game and didn’t pay in other games in the Grow network.
-1. **Missed potential sales:** this section shows your game’s conversion from the Grow network. It shows how many of the whales from Grow that played in your game didn't pay this week in your game. The missed potential sales figure comes from multiplying number of whales not paying in your game with the Weekly ARPPU (= Weekly Average Revenue Per Paying User = Weekly Revenue divided by Weekly Paying Users Count).
+  <img src="/img/docs/university/whales-report/WR-3_7.png">  
 
+3 - **New users:** players that played your game for the first time during this week.  
+4 - **Seen in GROW:** <u>new users</u> that were seen (have played) in the the Grow network before they played your game. These are players you could find out more about using the Insights API.  
+5 - **Paid in GROW:** <u>new users</u> that paid before in other games in the Grow network. These are the whales that have entered your game. Focus on these paying users to get them to pay in your game as well.  
+6 - **Paid in your game:** <u>new users</u> that have paid exclusively in your game and didn’t pay in other games in the Grow network.  
+7 - **Missed potential sales:** this section shows your game’s conversion from the Grow network. It shows how many of the whales from Grow that played in your game didn't pay this week in your game. The missed potential sales figure comes from multiplying number of whales not paying in your game with the Weekly ARPPU (= Weekly Average Revenue Per Paying User = Weekly Revenue divided by Weekly Paying Users Count).
+
+
+<br><br><br>
 
 
    <img src="/img/docs/university/whales-report/WR-8_14.png">
@@ -59,4 +63,4 @@ The whales report includes many metrics, some measured across the past week and 
   Use the Whales Report to track your game's growth and see how well it does in relation to the GROW network week over week.
 
   ### How to get it?
-You can get in the GROW network and start receiving the Whales Report weekly by integrating any of the GROW bundles on the [Soomla dashboard's downloads page](http://dashboard.soom.la/downloads)
+You can get in the GROW network and start receiving the Whales Report weekly by integrating any of the GROW bundles on the [Soomla dashboard's downloads page](http://dashboard.soom.la/downloads).
