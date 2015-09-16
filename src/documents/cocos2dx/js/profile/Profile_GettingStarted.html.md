@@ -106,7 +106,7 @@ follow these directions only for the Profile module.</div>
 	```
   <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app,
   just request the reasonable minimum. Other permissions will be requested, when they will be needed.
-  For instance, if you try to call `updateStory`, SoomlaProfile will ask for `publish_actions` permission, if your app has not got it.
+  For instance, if you try to call `updateStatus`, SoomlaProfile will ask for `publish_actions` permission, if your app has not got it.
   </div>
 
   <div class="info-box">**NOTE:** Currently the Android implementation does not work in this way,
@@ -443,7 +443,7 @@ For those of you who want to contribute code, please use our "sources environmen
 
   b. See [Browser-based Authentication](#browser-based-authentication)
 
-4. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
+4. **Facebook Permissions** - Profile will request `publish_actions`, `user_location`, `user_likes` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
 
 ####**Android**
 
@@ -457,7 +457,7 @@ For those of you who want to contribute code, please use our "sources environmen
         </application>
     ```
 
-3. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
+3. **Facebook Permissions** - Profile will request `publish_actions`, `user_location`, `user_likes` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
 
 ###Google+ Caveats
 

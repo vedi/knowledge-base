@@ -66,6 +66,12 @@ Then, you can use the **store-related _LevelUp_ classes**, such as `VirtualItemS
 Please follow the steps in [unity3d-profile](https://github.com/soomla/unity3d-profile) for the _Profile_ part of the setup.
 Then, you can use the **profile-related _LevelUp_ classes**, such as `SocialLikeMission`.
 
+### Caveats
+
+#### iOS Caveats
+
+1. If you are building your app under Windows, you have to have iTunes installed since the SOOMLA postprocessing is expecting a utility that exists in OS X and is installed with iTunes in Windows.
+
 ## Example Usages
 
 Examples using virtual items are dependent on unity3d-store module, with proper `SoomlaStore` initialization and `IStoreAssets` definitions. See the unity3d-store integration section above for more details.
