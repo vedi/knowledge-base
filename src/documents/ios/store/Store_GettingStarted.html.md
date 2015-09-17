@@ -50,7 +50,7 @@ Before doing anything, SOOMLA recommends that you go through Apple's [Selling wi
 
 And that's it! You have Storage and in-app purchasing capabilities... ALL-IN-ONE.
 
-<div class="info-box">**NOTE:**If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/libSoomlaiOSCore.a` and do the same for all SOOMLA libraries (just replacing library name) to `Other Linker Flags`.
+<div class="info-box">**NOTE:** If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/libSoomlaiOSCore.a` for the next SOOMLA libraries: `libSoomlaiOSStore.a` (just replacing library name) to `Other Linker Flags`.
  </div>
 
 ##In App Purchasing

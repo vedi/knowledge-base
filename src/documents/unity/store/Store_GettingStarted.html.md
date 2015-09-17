@@ -95,7 +95,7 @@ latency and setup routines you could have done silently in the background.
 
 - If you are building your app under Windows, you have to have iTunes installed since the SOOMLA postprocessing is expecting a utility that exists in OS X and is installed with iTunes in Windows.
 
-- If -ObjC flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/libSoomlaiOSCore.a` and do the same for all SOOMLA libraries (just replacing library name) to `Other Linker Flags`.                                                                                                                             
+- If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/libSoomlaiOSCore.a` for the next SOOMLA libraries: `libSoomlaiOSStore.a` (just replacing library name) to `Other Linker Flags`.                                                                                                                             
 
   ![alt text](/img/tutorial_img/unity_debugging/switchPlatform.png "Tip")
 

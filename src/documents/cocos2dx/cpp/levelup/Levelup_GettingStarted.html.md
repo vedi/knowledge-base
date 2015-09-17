@@ -132,10 +132,10 @@ In your XCode project, perform the following steps:
 
 That's it! Now all you have to do is build your XCode project and run your game with cocos2dx-levelup.
 
-	<div class="info-box">**FOR CORRECT iOS USAGE:**<br/>
+<div class="info-box">**FOR CORRECT iOS USAGE:** <br/>
 	**1.** If you are building your app under Windows, you have to have iTunes installed since the SOOMLA postprocessing is expecting a utility that exists in OS X and is installed with iTunes in Windows.                                          
-  **2.** If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/libSoomlaiOSCore.a` and do the same for all SOOMLA libraries (just replacing library name) to `Other Linker Flags`.
-	</div>
+  **2.** If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/libSoomlaiOSCore.a` for the next SOOMLA libraries: `libSoomlaiOSStore.a`, `libSoomlaiOSProfile.a`, `libSoomlaiOSProfileFacebook.a` (if you use Facebook), `libSoomlaiOSProfileTwitter.a` (if you use Twitter) and `libSoomlaiOSProfileGoogle.a` (if you use Google+) (just replacing library name) to `Other Linker Flags`.
+</div>
 
 
 ###**Instructions for Android**
