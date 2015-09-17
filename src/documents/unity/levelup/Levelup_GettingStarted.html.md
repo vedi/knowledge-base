@@ -61,8 +61,7 @@ And that's it! You have game architecture capabilities at your fingertips.
     **2.** If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/<LIBRARY_NAME>` to `Other Linker Flags` for the following SOOMLA libraries:
     <ul>
       <li>`libSoomlaiOSCore.a`</li>
-      <li>`libSoomlaiOSLevelUp.a`</li>
-      <li>`libSoomlaiOSProfile.a`</li>
+      <li>`libSoomlaiOSLevelUp.a`</li>      
       <li>`libSoomlaiOSProfile.a`</li>
       <li>`libSoomlaiOSStore.a`</li>
       <li>`libUnitySoomlaiOSCore.a`</li>

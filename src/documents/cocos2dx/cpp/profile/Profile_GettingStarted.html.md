@@ -214,7 +214,7 @@ That's it! Now all you have to do is build your XCode project and run your game 
     <li>`libCocos2dXiOSProfile.a`</li>    
     <li>`libSoomlaiOSSProfileFacebook.a` (if you use Facebook)</li>
     <li>`libSoomlaiOSSProfileTwitter.a` (if you use Twitter)</li>
-    <li>`libSoomlaiOSSProfileGoogle.a`(if you use Google+)</li>      
+    <li>`libSoomlaiOSSProfileGoogle.a` (if you use Google+)</li>      
   </ul>
 </div>
 

@@ -42,9 +42,7 @@ platform: 'ios'
   If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/<LIBRARY_NAME>` to `Other Linker Flags` for the following SOOMLA libraries:    
     <ul>
       <li>`libSoomlaiOSCore.a`</li>
-      <li>`libSoomlaiOSSProfile.a`</li>
-      <li>`libUnitySoomlaiOSCore.a`</li>
-      <li>`libUnityiOSProfile.a`</li>
+      <li>`libSoomlaiOSSProfile.a`</li>      
       <li>`libSoomlaiOSSProfileFacebook.a` (if you use Facebook)</li>
       <li>`libSoomlaiOSSProfileTwitter.a` (if you use Twitter)</li>
       <li>`libSoomlaiOSSProfileGoogle.a` (if you use Google+)</li>
