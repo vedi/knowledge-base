@@ -29,7 +29,7 @@ To get started with GROW, you can follow each one of different GROW bundles' tut
 
 ### Why use GROW?
 
-GROW's Insights module brings you powerful information about your users in real-time. This information ranges from the user’s purchasing habits to his social behavior in the same game genre or in all other genres. You can use these insights to take actions on your users during gameplay, when it really matters. Some of the actions you can take are:
+- GROW's Insights module brings you powerful information about your users in real-time. This information ranges from the user’s purchasing habits to his social behavior in the same game genre or in all other genres. You can use these insights to take actions on your users during gameplay, when it really matters. Some of the actions you can take are:
   - Create special prices / discounted bundles for paying users in your genre
   - Adapt the game difficulty for specific users
   - Display ads for non-payers only
