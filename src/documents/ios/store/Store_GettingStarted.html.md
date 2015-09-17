@@ -60,6 +60,12 @@ SOOMLA provides two ways in which you can let your users purchase items in your 
 
 In order to define the way your various virtual items (Coins, swords, hats...) are purchased, you'll need to create your implementation of `IStoreAssets` (described above in step 5 of [Getting Started](#getting-started)).
 
+## Caveats
+
+### Common Caveats
+
+1. If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/libSoomlaiOSCore.a` and do the same for all SOOMLA libraries (just replacing library name) to `Other Linker Flags`.
+
 ##Example
 
 Create your own implementation of `IStoreAssets`; See the article about [IStoreAssets](/ios/store/Store_IStoreAssets), which includes a code example and explanations.
