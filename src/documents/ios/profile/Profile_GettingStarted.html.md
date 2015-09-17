@@ -38,8 +38,18 @@ platform: 'ios'
   [[SoomlaProfile getInstance] initialize];
   ```
   
-  <div class="info-box">**NOTE:** If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/libSoomlaiOSCore.a` for the next SOOMLA libraries: `libSoomlaiOSProfile.a`, `libSoomlaiOSProfileFacebook.a` (if you use Facebook), `libSoomlaiOSProfileTwitter.a` (if you use Twitter) and `libSoomlaiOSProfileGoogle.a` (if you use Google+) (just replacing library name) to `Other Linker Flags`.
-   </div>
+<div class="info-box">**NOTE:** 
+  If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/<LIBRARY_NAME>` to `Other Linker Flags` for the following SOOMLA libraries:    
+    <ul>
+      <li>`libSoomlaiOSCore.a`</li>
+      <li>`libSoomlaiOSSProfile.a`</li>
+      <li>`libUnitySoomlaiOSCore.a`</li>
+      <li>`libUnityiOSProfile.a`</li>
+      <li>`libSoomlaiOSSProfileFacebook.a` (if you use Facebook)</li>
+      <li>`libSoomlaiOSSProfileTwitter.a` (if you use Twitter)</li>
+      <li>`libSoomlaiOSSProfileGoogle.a` (if you use Google+)</li>
+    </ul>
+</div>
 
   Note that some providers will need initialization parameters (see their sections below), in that case you'll need to supply their parameters here, each with its dictionary:
 
