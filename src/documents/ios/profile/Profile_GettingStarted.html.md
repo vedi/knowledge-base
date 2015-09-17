@@ -37,6 +37,9 @@ platform: 'ios'
   ``` objectivec
   [[SoomlaProfile getInstance] initialize];
   ```
+  
+  <div class="info-box">**NOTE:** If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/libSoomlaiOSCore.a` and do the same for all SOOMLA libraries (just replacing library name) to `Other Linker Flags`.
+   </div>
 
   Note that some providers will need initialization parameters (see their sections below), in that case you'll need to supply their parameters here, each with its dictionary:
 
@@ -172,11 +175,6 @@ The callback to this process is `openURL` which should be defined in your `AppDe
 ```
 
 ## Caveats
-
-### Common Caveats
-
-1. If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/libSoomlaiOSCore.a` and do the same for all SOOMLA libraries (just replacing library name) to `Other Linker Flags`.
-
 
 ### Facebook Caveats
 

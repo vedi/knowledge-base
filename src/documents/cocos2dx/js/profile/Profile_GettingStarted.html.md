@@ -259,8 +259,13 @@ Twitter is supported out-of-the-box, authentication is done either through the s
 
   NOTE: **ios-profile** uses the [STTWitter](https://github.com/nst/STTwitter) library (v 0.1.5) to support Twitter integration.  
 
-
 **That's it! Now all you have to do is build your XCode project and run your game with cocos2dx-profile.**
+
+	<div class="info-box">**FOR CORRECT iOS USAGE:**<br/>
+	**1.** If you are building your app under Windows, you have to have iTunes installed since the SOOMLA postprocessing is expecting a utility that exists in OS X and is installed with iTunes in Windows.                                          
+  	**2.** If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/libSoomlaiOSCore.a` and do the same for all SOOMLA libraries (just replacing library name) to `Other Linker Flags`.
+	</div>
+
 
 > If you use Cocos IDE you'll need to `Build Custom Simulator` for iOS there.
 

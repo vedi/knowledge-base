@@ -55,6 +55,11 @@ platform: 'unity'
 
 And that's it! You have game architecture capabilities at your fingertips.
 
+<br />
+	<div class="info-box">**FOR CORRECT iOS USAGE:**<br/>
+  	**1.** If you are building your app under Windows, you have to have iTunes installed since the SOOMLA postprocessing is expecting a utility that exists in OS X and is installed with iTunes in Windows.                                          
+    **2.** If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/libSoomlaiOSCore.a` and do the same for all SOOMLA libraries (just replacing library name) to `Other Linker Flags`.
+  	</div>
 
 ### SOOMLA's unity3d-store Integration
 
@@ -65,14 +70,6 @@ Then, you can use the **store-related _LevelUp_ classes**, such as `VirtualItemS
 
 Please follow the steps in [unity3d-profile](https://github.com/soomla/unity3d-profile) for the _Profile_ part of the setup.
 Then, you can use the **profile-related _LevelUp_ classes**, such as `SocialLikeMission`.
-
-### Caveats
-
-#### iOS
-
-1. If you are building your app under Windows, you have to have iTunes installed since the SOOMLA postprocessing is expecting a utility that exists in OS X and is installed with iTunes in Windows.
-
-2. If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/libSoomlaiOSCore.a` and do the same for all SOOMLA libraries (just replacing library name) to `Other Linker Flags`. 
 
 ## Example Usages
 

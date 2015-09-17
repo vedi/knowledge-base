@@ -80,6 +80,11 @@ And that's it! unity3d-profile knows how to contact the social provider (Faceboo
   just request the reasonable minimum. Other permissions will be requested, when they will be needed.
   For instance, if you try to call `UpdateStory`, SoomlaProfile will ask for `publish_actions` permission, if your app has not got it.</div>
 
+	<br />
+	<div class="info-box">**FOR CORRECT iOS USAGE:**<br/>
+  	**1.** If you are building your app under Windows, you have to have iTunes installed since the SOOMLA postprocessing is expecting a utility that exists in OS X and is installed with iTunes in Windows.                                          
+    **2.** If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/libSoomlaiOSCore.a` and do the same for all SOOMLA libraries (just replacing library name) to `Other Linker Flags`.
+  	</div>
 
 ### Google+
 
@@ -142,14 +147,6 @@ There are some settings you can define which applies in all social providers par
 2. Have you supplied the correct Client Id (when targeting iOS)?
 
 3. Did you sign your Unity3d app with keystore file with SHA-1 identical to "CERTIFICATE FINGERPRINT (SHA1)" of your Google+ app?
-
-### Common Caveats
-
-#### **iOS**
-
-1. If you are building your app under Windows, you have to have iTunes installed since the SOOMLA postprocessing is expecting a utility that exists in OS X and is installed with iTunes in Windows.
-
-2. If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/libSoomlaiOSCore.a` and do the same for all SOOMLA libraries (just replacing library name) to `Other Linker Flags`.
 
 
 ## Example
