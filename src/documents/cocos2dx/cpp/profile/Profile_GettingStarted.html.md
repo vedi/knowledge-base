@@ -204,6 +204,20 @@ Twitter is supported out-of-the-box, authentication is done either through the s
 
 That's it! Now all you have to do is build your XCode project and run your game with cocos2dx-profile.
 
+<div class="info-box">**FOR CORRECT iOS USAGE:** <br/>
+	**1.** If you are building your app under Windows, you have to have iTunes installed since the SOOMLA postprocessing is expecting a utility that exists in OS X and is installed with iTunes in Windows.                                          
+  **2.** If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/<LIBRARY_NAME>` to `Other Linker Flags` for the following SOOMLA libraries:
+  <ul>
+    <li>`libSoomlaiOSCore.a`</li>    
+    <li>`libSoomlaiOSSProfile.a`</li>
+    <li>`libCocos2dXiOSCore.a`</li>
+    <li>`libCocos2dXiOSProfile.a`</li>    
+    <li>`libSoomlaiOSSProfileFacebook.a` (if you use Facebook)</li>
+    <li>`libSoomlaiOSSProfileTwitter.a` (if you use Twitter)</li>
+    <li>`libSoomlaiOSSProfileGoogle.a` (if you use Google+)</li>      
+  </ul>
+</div>
+
 
 ##Instructions for Android
 
@@ -356,8 +370,6 @@ For those of you who want to contribute code, please use our "sources environmen
 2. For iOS: Use a sourced versions of linked projects (`extensions/soomla-cocos2dx-core/development/Cocos2dxCoreFromSources.xcodeproj`, `extensions/cocos2dx-profile/development/Cocos2dxProfileFromSources.xcodeproj`)
 
 3. For Android: You can use our "sourced" modules for Android Studio (or IntelliJ IDEA) (`extensions/soomla-cocos2dx-core/development/Cocos2dxCoreFromSources.iml`, `extensions/cocos2dx-profile/development/Cocos2dxProfileFromSources.iml`), just include them in your project.
-
-##Caveats
 
 ###Facebook Caveats
 
