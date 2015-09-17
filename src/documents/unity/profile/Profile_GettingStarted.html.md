@@ -80,11 +80,21 @@ And that's it! unity3d-profile knows how to contact the social provider (Faceboo
   just request the reasonable minimum. Other permissions will be requested, when they will be needed.
   For instance, if you try to call `UpdateStory`, SoomlaProfile will ask for `publish_actions` permission, if your app has not got it.</div>
 
-	<br />
-	<div class="info-box">**FOR CORRECT iOS USAGE:**<br/>
+<br />
+<div class="info-box">**FOR CORRECT iOS USAGE:**<br/>
   	**1.** If you are building your app under Windows, you have to have iTunes installed since the SOOMLA postprocessing is expecting a utility that exists in OS X and is installed with iTunes in Windows.                                          
-    **2.** If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/libSoomlaiOSCore.a` for the next SOOMLA libraries: `libSoomlaiOSProfile.a`, `libSoomlaiOSProfileFacebook.a` (if you use Facebook), `libSoomlaiOSProfileTwitter.a` (if you use Twitter) and `libSoomlaiOSProfileGoogle.a` (if you use Google+) (just replacing library name) to `Other Linker Flags`.
-  	</div>
+
+    **2.** If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/<LIBRARY_NAME>` to `Other Linker Flags` for the following SOOMLA libraries:    
+		<ul>
+			<li>`libSoomlaiOSCore.a`</li>
+			<li>`libSoomlaiOSSProfile.a`</li>
+			<li>`libUnitySoomlaiOSCore.a`</li>
+			<li>`libUnityiOSProfile.a`</li>
+			<li>`libSoomlaiOSSProfileFacebook.a` (if you use Facebook)</li>
+			<li>`libSoomlaiOSSProfileTwitter.a` (if you use Twitter)</li>
+			<li>`libSoomlaiOSSProfileGoogle.a`(if you use Google+)</li>
+		</ul>  
+</div>
 
 ### Google+
 
