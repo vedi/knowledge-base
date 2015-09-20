@@ -28,9 +28,9 @@ The main Dashboard also has widgets that show you a summary of your [Whales Repo
 
 Other widgets show you data of the Social Leaderboard, Sync - how many users play on more than one device, Fraud - how many players and orders were identified as fraud and blocked. There’s also a Gifting widget which shows you how many gifts were given by your users and which gift is the most popular.
 
-![alt text](/img/docs/university/10_Grow_Analytics_Dashboard_Widgets.png "Dashboard Widgets")
+![alt text](/img/docs/university/10_Grow_Analytics_Dashboard_Widgtets.png "Dashboard Widgets")
 
-### ACTIVITY
+#### ACTIVITY
 
 In Activity you can see your user’s activities - the number of Active Users you have, DAU (Daily Active Users) and how many *new users* you have. You can also see upon how many sessions you have all these users and what’s the average time a user is in your game (Avg. Session Duration). All this information can be filtered by dates, device types and countries.
 
@@ -48,7 +48,7 @@ The widgets you get in the Activity section are:
 
 ![alt text](/img/docs/university/12_Grow_Analytics_Activity_Widgets.png "Activity Widgets")
 
-### MONEY
+#### MONEY
 In the Money section you can analyse your game revenue and your paying users. You can see see how many payers you actually have and also specifically how many new / returning payers. You can see your Average Revenue Per User (ARPU), Average Revenue Per Daily Active User (ARPDAU) and Average Revenue Per Paying User (ARPPU). You can also see the Avg. Time to Payment which is some very interesting info about your game and its payers.
 
 ![alt text](/img/docs/university/13_Grow_Analytics_Money.png "Money")
