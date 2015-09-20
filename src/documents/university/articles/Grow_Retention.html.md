@@ -30,6 +30,8 @@ The report displays the percentage or actual number of players still active N da
 This retention is different than the previous two since it shows which proportion of the players come back to the game at least once within N days.
 It accounts for all active users on a certain date and shows you their return rate from that day on. This report lets you identify weaker and stronger days of gameplay over time.
 
-![alt text](/img/docs/university/15_Grow_Retention.png "Retention")
+![alt text](/img/docs/university/15_Grow_Retention.png "Retention Section")
 
 Retention is a **very** important metric for F2P games. It's a direct factor in the computation of the LTV of the players. It also expresses how much (or little) players like your game and if it's entertaining enough for them to keep coming back for more.
+
+You can get started with *your* Retention reports [here](http://dashboard.soom.la/).
