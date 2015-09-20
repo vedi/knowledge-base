@@ -1,7 +1,7 @@
 ---
 layout: "content"
 image: "Analytics"
-title: "Analytics Dashboard"
+title: "Dashboard - Analytics"
 text: "Get started with Grow Analytics Dashboard."
 position: 2
 theme: 'platforms'
@@ -10,6 +10,6 @@ module: 'articles'
 platform: 'university'
 ---
 
-# Analytics Dashboard
+# Dashboard - Analytics
 
-## Coming soon!
+## Coming soon! test...
