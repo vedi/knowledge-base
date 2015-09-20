@@ -1,6 +1,6 @@
 ---
 layout: "content"
-image: "Analytics"
+image: "Retention"
 title: "Dashboard - Retention"
 text: "Get started with Grow Analytics Dashboard."
 position: 2
