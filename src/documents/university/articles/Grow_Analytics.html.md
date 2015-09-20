@@ -22,4 +22,4 @@ In the main Dashboard you can see the number of Active Users your game has, you 
 
 This is sort of a high-level insight to your data and you can drill down by looking at the other sections such as Activity and Money.
 
-![alt text](/img/docs/university/9_Grow_Analytics_Dashboard.png) "Dashboard")
+![alt text](/img/docs/university/9_Grow_Analytics_Dashboard.png "Dashboard")
