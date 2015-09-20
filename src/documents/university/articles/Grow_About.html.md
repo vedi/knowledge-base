@@ -14,7 +14,7 @@ platform: 'university'
 
 ## GROW - Data is for everyone!
 
-GROW is SOOMLA's flagship, community-driven, data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization.
+GROW is a new and innovative data network. You can use Grow to gain valuable insights about your users  and enrich your in-game experience through an amazing set of backend services that completes the client side open-source framework into a perfect solution every F2P game needs.  At the end, GROW provides you with tools to increase monetization and engagement of VIP users and easily get your in-game experience to a next level.
 
 GROW uses all of SOOMLA's modules: [Store](/unity/store/), [Profile](/unity/profile/) and [LevelUp](/unity/levelup/) to collect in-game data and render value for you. Studios may choose to use only specific modules, however, to benefit from the full power of GROW analytics we recommend that you integrate all three.
 
@@ -29,11 +29,21 @@ To get started with GROW, you can follow each one of different GROW bundles' tut
 
 ### Why use GROW?
 
-- With GROW, you can take better actions on your users in order to increase **retention** and **monetization**. GROW's [Insights]() module will allow you to take actions at real time and the [Whales Report]() will float problems you might have with your payers so you know how you improve over time.
+- GROW's Insights module brings you powerful information about your users in real-time. This information ranges from the user’s purchasing habits to his social behavior in the same game genre or in all other genres. You can use these insights to take actions on your users during gameplay, when it really matters. Some of the actions you can take are:
+  - Create special prices / discounted bundles for paying users in your genre
+  - Adapt the game difficulty for specific users
+  - Display ads for non-payers only
+  - Create push campaigns
+  - Identify the time of the day the player is likely to purchase and send him offers accordingly
 
-- The Analytics dashboard will provide you with <u>free</u> data about your game when you join the GROW network. In the dashboard, you'll be able to see aggregative analytics about your games and investigate its performance. You will also see analytics about the different modules you incorporated in your game and be able to investigate fraudulent purchases.
 
-- SOOMLA has created some modules that will put your game on steroids and by that increases user experience and engagement. [Social Leaderboards](), [Gifting]() and [State & Economy Sync]() are the features every F2P game needs in order to increase its <u>virality</u> and <u>user engagement</u>
+- If you use SOOMLA Store and you join GROW, you’ll receive a weekly [Whales Report](/university/articles/grow_whalesreport/) to your inbox, this report identifies the paying players in your game from the grow data network and tells you how many payers from other games you’ve managed to convert and how much money you left on the table
 
+- The [Analytics dashboard](/university/articles/grow_analytics/) will provide you with free useful information about your game when you join the GROW network. In the dashboard, you'll be able to see aggregative analytics about your games and investigate its performance, analyze revenue, retention and a lot more
 
-More coming soon here ...
+- SOOMLA has created some Backend Services that will put your game on steroids and by that increases user experience and engagement:
+  - Social Leaderboards lets your players compete with their friends
+  - Gifting lets your players help their friends by sending them coins, lives and upgrades
+  - Sync lets your players pick up where they left off regardless of the device they’re using
+  - Economy Management lets you save your users' in-game balances of soft purchases and currencies and then restore them on fresh installs to keep players engaged
+  - Fraud Protection lets you secure your in-app purchases by marking and blocking fraud suspects, receipt validation and identifying abnormal purchase behavior. This feature takes the receipt validation from the SOOMLA Store module and adds a sophisticated layer for advanced verification
