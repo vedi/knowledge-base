@@ -57,12 +57,12 @@ That's why some games skip the server side verification, and this hole in securi
 
 Good news! Today you do not need such server at all. SOOMLA provides a receipt verification service with the added value of checking for suspicious activity.
 
-## Fraud protection in Unity3d
+## Fraud protection on our platform
 
-In order to turn on Fraud Protection in Unity3d, all you need to do is click on the `Fraud Protection` check box in Soomla Settings.
-Optionally, you can turn on `Verify On Server Failure` if you want to get purchases automatically verified in case of
-network failures during the verification process.
+The way to configure Fraud protection depends on a platform you use:
+* [Unity3d](/unity/grow/Grow_FraudProtection.html)
+* [coocs2d-x](/cocos2dx/cpp/grow/Grow_FraudProtection.html)
+* [coocs2d-js](/cocos2dx/js/grow/Grow_FraudProtection.html)
+* [android](/android/store/Grow_FraudProtection.html)
+* [ios](/ios/store/Grow_FraudProtection.html)
 
-Additionally you need to provide specific params needed for your billing service provider.
-
-* For Google Play go over to [Google Play Purchase Verification](/android/store/Store_GooglePlayVerification).

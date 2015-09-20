@@ -78,8 +78,23 @@ And that's it! unity3d-profile knows how to contact the social provider (Faceboo
 
   <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app,
   just request the reasonable minimum. Other permissions will be requested, when they will be needed.
-  For instance, if you try to call `UpdateStory`, SoomlaProfile will ask for `publish_actions` permission, if your app has not got it.</div>
+  For instance, if you try to call `UpdateStatus`, SoomlaProfile will ask for `publish_actions` permission, if your app has not got it.</div>
 
+<br />
+<div class="info-box">**FOR CORRECT iOS USAGE:**<br/>
+  	**1.** If you are building your app under Windows, you have to have iTunes installed since the SOOMLA postprocessing is expecting a utility that exists in OS X and is installed with iTunes in Windows.                                          
+
+    **2.** If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/<LIBRARY_NAME>` to `Other Linker Flags` for the following SOOMLA libraries:    
+		<ul>
+			<li>`libSoomlaiOSCore.a`</li>
+			<li>`libSoomlaiOSSProfile.a`</li>
+			<li>`libUnitySoomlaiOSCore.a`</li>
+			<li>`libUnityiOSProfile.a`</li>
+			<li>`libSoomlaiOSSProfileFacebook.a` (if you use Facebook)</li>
+			<li>`libSoomlaiOSSProfileTwitter.a` (if you use Twitter)</li>
+			<li>`libSoomlaiOSSProfileGoogle.a`(if you use Google+)</li>
+		</ul>  
+</div>
 
 ### Google+
 
@@ -121,13 +136,13 @@ There are some settings you can define which applies in all social providers par
 
 1. **Facebook Application** - You must create a Facebook application and use its details in your Profile-based application (with Facebook).
 
-2. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles.
+2. **Facebook Permissions** - Profile will request `publish_actions`, `user_location`, `user_likes` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles.
 
 #### **Android**
 
 1. **Facebook Application** - You must create a Facebook application and use its details in your Profile-based application (with Facebook).
 
-2. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
+2. **Facebook Permissions** - Profile will request `publish_actions`, `user_location`, `user_likes` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
 
 ### Twitter Caveats
 

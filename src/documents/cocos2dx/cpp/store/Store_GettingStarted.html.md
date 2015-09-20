@@ -115,6 +115,18 @@ In your XCode project, perform the following steps:
 
 **That's it! Now all you have to do is build your XCode project and run your game with cocos2dx-store.**
 
+<div class="info-box">**FOR CORRECT iOS USAGE:** <br/>
+	**1.** If you are building your app under Windows, you have to have iTunes installed since the SOOMLA postprocessing is expecting a utility that exists in OS X and is installed with iTunes in Windows.                                          
+  **2.** If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/<LIBRARY_NAME>` to `Other Linker Flags` for the following SOOMLA libraries:
+	<ul>
+		<li>`libSoomlaiOSCore.a`</li>
+		<li>`libSoomlaiOSSStore.a`</li>		
+		<li>`libCocos2dXiOSCore.a`</li>
+		<li>`libCocos2dXiOSStore.a`</li>				      
+	</ul>
+</div>
+
+
 <br>
 ###**Instructions for Android**
 

@@ -101,7 +101,8 @@ Facebook is supported out-of-the-box, you just have to follow the next steps to 
 1. From the downloaded zip, Add the following jars to your project.
 
 	- `AndroidProfileFacebook.jar`
-	- `simple.facebook-2.1.jar`
+	- `simple-fb-4.0.3.jar`
+	- `gson-1.7.2.jar`
 
 2. Import the Facebook SDK for Android into your project and setup all the relevant information (Application ID, etc).
 
@@ -188,7 +189,7 @@ Twitter is supported out-of-the-box, authentication is done via web view. Follow
 	</application>
 	```
 
-3. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
+3. **Facebook Permissions** - Profile will request `publish_actions`, `user_location`, `user_likes` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
 
 ## Twitter Caveats
 
