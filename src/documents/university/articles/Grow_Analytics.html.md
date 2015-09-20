@@ -16,7 +16,7 @@ platform: 'university'
 
 The [Analytics Dashboard](http://dashboard.soom.la/) provides you with useful information about your game. You can gain insights about your games' performance, analyze revenue, [retention](/university/articles/Grow_Retention) and a lot more.
 
-#### DASHBOARD
+### DASHBOARD
 
 In the main Dashboard you can see the number of Active Users your game has, you can also see the number of Paying Users, New Users, Revenue, number of Purchases and even what your users purchase the most.
 
@@ -31,7 +31,7 @@ Other widgets show you data of the Social Leaderboard, Sync - how many users pla
 
 ![alt text](/img/docs/university/10_Grow_Analytics_Dashboard_Widgtets.png "Dashboard Widgets")
 
-#### ACTIVITY
+### ACTIVITY
 
 In the Activity section you can see your user’s activities - the number of Active Users you have, DAU (Daily Active Users) and how many *new users* you have. You can also see upon how many sessions you have all these users and what’s the average time a user is in your game (Avg. Session Duration). All this information can be filtered by dates, device types and countries.
 
@@ -49,7 +49,7 @@ The widgets you get in the Activity section are:
 
 ![alt text](/img/docs/university/12_Grow_Analytics_Activity_Widgets.png "Activity Widgets")
 
-#### MONEY
+### MONEY
 
 In the Money section you can analyze your game revenue and your paying users. You can see see how many payers you actually have and specifically how many new / returning payers. You can see your Average Revenue Per User (ARPU), Average Revenue Per Daily Active User (ARPDAU) and Average Revenue Per Paying User (ARPPU). You can also see the Avg. Time to Payment which is some very interesting info about your game and its payers.
 
