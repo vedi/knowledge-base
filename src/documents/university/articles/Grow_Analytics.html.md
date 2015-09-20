@@ -14,7 +14,7 @@ platform: 'university'
 
 ## Get to know your players
 
-The [Analytics Dashboard](http://dashboard.soom.la/) provides you with useful informationabout your games. You can gain insights about your games' performance, analyze revenue, [retention](/university/articles/Grow_Retention) and a lot more.
+The [Analytics Dashboard](http://dashboard.soom.la/) provides you with useful information about your game. You can gain insights about your games' performance, analyze revenue, [retention](/university/articles/Grow_Retention) and a lot more.
 
 #### DASHBOARD
 
@@ -26,13 +26,14 @@ This is sort of a high-level insight to your data and you can drill down by look
 
 The main Dashboard also has widgets that show you a summary of your [Whales Report](/university/articles/Grow_WhalesReport) and Insights.
 
+
 Other widgets show you data of the Social Leaderboard, Sync - how many users play on more than one device, Fraud - how many players and orders were identified as fraud and blocked. There’s also a Gifting widget which shows you how many gifts were given by your users and which gift is the most popular.
 
 ![alt text](/img/docs/university/10_Grow_Analytics_Dashboard_Widgtets.png "Dashboard Widgets")
 
 #### ACTIVITY
 
-In Activity you can see your user’s activities - the number of Active Users you have, DAU (Daily Active Users) and how many *new users* you have. You can also see upon how many sessions you have all these users and what’s the average time a user is in your game (Avg. Session Duration). All this information can be filtered by dates, device types and countries.
+In the Activity section you can see your user’s activities - the number of Active Users you have, DAU (Daily Active Users) and how many *new users* you have. You can also see upon how many sessions you have all these users and what’s the average time a user is in your game (Avg. Session Duration). All this information can be filtered by dates, device types and countries.
 
 An example of using this data -> If you’ve just uploaded a new feature you can use this data to see if this feature keeps your users in the game for a longer period of time (Avg. Session Duration) and if your DAU has increased - this means this feature is working and you did something right!
 
@@ -49,15 +50,13 @@ The widgets you get in the Activity section are:
 ![alt text](/img/docs/university/12_Grow_Analytics_Activity_Widgets.png "Activity Widgets")
 
 #### MONEY
-In the Money section you can analyse your game revenue and your paying users. You can see see how many payers you actually have and also specifically how many new / returning payers. You can see your Average Revenue Per User (ARPU), Average Revenue Per Daily Active User (ARPDAU) and Average Revenue Per Paying User (ARPPU). You can also see the Avg. Time to Payment which is some very interesting info about your game and its payers.
+
+In the Money section you can analyze your game revenue and your paying users. You can see see how many payers you actually have and specifically how many new / returning payers. You can see your Average Revenue Per User (ARPU), Average Revenue Per Daily Active User (ARPDAU) and Average Revenue Per Paying User (ARPPU). You can also see the Avg. Time to Payment which is some very interesting info about your game and its payers.
 
 ![alt text](/img/docs/university/13_Grow_Analytics_Money.png "Money")
 
-The widgets you have in the Money section are like the widgets you have in the previous sections:
-* *Conversion* - you get a quick view of the number of new users you have and how many you’ve managed to convert > how many users rated your game and how many users connected to a social network within your game, you get all this also with breakdown to the device types!
-
-* *Conversion by Country* - you get to see your users spread out on a map with additional indication of how many raters and how many connected to a social platform
-
-A new widget you get here is the *Items* widget where you can see a list of the items your game offers with the number of purchases and revenue per item.
+There are two widgets in the Money section: *Conversion* and *Conversion by Country* that are the same as in the Activity section, in addition to those there's the *Items* widget where you can see a list of the items your game offers with the number of purchases and revenue per item.
 
 ![alt text](/img/docs/university/14_Grow_Analytics_Money_Widgets.png "Money Widgets")
+
+As you can see there's a lot of great information available for you in order to know your players and understand them better. Go [here](http://dashboard.soom.la) to get started.
