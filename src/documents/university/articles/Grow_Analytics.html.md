@@ -24,7 +24,7 @@ This is sort of a high-level insight to your data and you can drill down by look
 
 ![alt text](/img/docs/university/9_Grow_Analytics_Dashboard.png "Dashboard")
 
-The main Dashboard also has widgets that show you a summary of your [Whales Report](/university/articles/grow_whalesreport) and Insights.
+The main Dashboard also has widgets that show you a summary of your [Whales Report](/university/articles/Grow_WhalesReport) and Insights.
 
 Other widgets show you data of the Social Leaderboard, Sync - how many users play on more than one device, Fraud - how many players and orders were identified as fraud and blocked. There’s also a Gifting widget which shows you how many gifts were given by your users and which gift is the most popular.
 
