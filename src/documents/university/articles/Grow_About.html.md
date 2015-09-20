@@ -45,7 +45,7 @@ To get started with GROW, you can follow each one of different GROW bundles' tut
   - Social Leaderboards lets your players compete with their friends.
   - Gifting lets your players help their friends by sending them coins, lives, upgrades or any other virtual item.
   - Sync lets your players pick up where they left off regardless of the device they’re using.
-  - Economy Management lets you save your users' in-game balances of soft purchases and currencies and then restore them on fresh installs to keep players engaged.
+  - Economy Management lets you make changes to your virtual economy at real time. Every change you'll do will automatically be sent to all devices playing your game.
   - Fraud Protection helps you secure your in-app purchases by marking and blocking fraud suspects, validating receipts and identifying abnormal purchase behavior. This solution takes spices SOOMLA Store's receipt validation with a sophisticated layer for advanced verification.
 
 
