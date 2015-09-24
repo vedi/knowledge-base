@@ -65,6 +65,10 @@ platform: 'android'
 
 	SoomlaProfile.getInstance().initialize(providerParams);
 	```
+  <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app,
+  just request the reasonable minimum. Other permissions will be requested, when they will be needed.
+  For instance, if you try to call `updateStatus`, SoomlaProfile will ask for `publish_actions` permission, 
+  if your app has not got it.</div>
 
   b. **Google+** - No special parameters needed
 
