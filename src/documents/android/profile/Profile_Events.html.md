@@ -386,3 +386,75 @@ public void onGetFeedFailed(GetFeedFailedEvent getFeedFailedEvent) {
 	// ... your game specific implementation here ...
 }
 ```
+
+### InviteStartedEvent
+
+This event is triggered when an invitation has started.
+
+``` java
+@Subscribe
+public void onInviteStarted(InviteStartedEvent inviteStartedEvent) {
+	// A SocialActionStartedEvent contains the following:
+	// Provider         = the provider on which the invite has started
+	// SocialActionType = the social action type (INVITE) that started
+	// Payload          = an identification string that you can give when you initiate
+	//                    the social action operation and want to receive back upon starting
+
+	// ... your game specific implementation here ...
+}
+```
+
+
+### InviteFinishedEvent
+
+This event is triggered when an invitation has finished **successfully**.
+
+``` java
+@Subscribe
+public void onInviteFinished(InviteFinishedEvent inviteFinishedEvent) {
+	// A SocialActionFinishedEvent contains the following:
+	// Provider         = the provider on which the social action has finished
+	// SocialActionType = the social action (post status, etc..) that finished
+	// RequestId			  = An identifier of created invite request
+	// InvitedIds				= A list of invited user's identifiers
+	// Payload          = an identification string that you can give when you initiate
+	//                    the social action operation and want to receive back upon completion
+
+	// ... your game specific implementation here ...
+}
+```
+
+### InviteCancelledEvent
+
+This event is triggered when an invitation has been cancelled.
+
+``` java
+@Subscribe
+public void onInviteCancelled(InviteCancelledEvent inviteCancelledEvent) {
+	// A SocialActionCancelledEvent contains the following:
+	// Provider         = the provider on which a social action was cancelled
+	// SocialActionType = the social action (post status, etc..) that has been cancelled
+	// Payload          = an identification string that you can give when you initiate the
+	//                    social action operation and want to receive back upon cancellation
+
+	// ... your game specific implementation here ...
+}
+```
+
+### InviteFailedEvent
+
+This event is triggered when an invitation has failed.
+
+``` java
+@Subscribe
+public void onInviteFailed(InviteFailedEvent inviteFailedEvent) {
+	// A SocialActionFailedEvent contains the following:
+	// Provider         = the provider on which the social action has failed
+	// SocialActionType = the social action (post status, etc..) that failed
+	// ErrorDescription = description of the reason for failure
+	// Payload          = an identification string that you can give when you initiate
+	//                    the social action operation and want to receive back upon failure
+
+	// ... your game specific implementation here ...
+}
+```

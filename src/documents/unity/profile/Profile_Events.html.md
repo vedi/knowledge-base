@@ -355,3 +355,71 @@ public void onGetFeedFailed(Provider provider, string payload) {
 	// ... your game specific implementation here ...
 }
 ```
+
+###OnInviteStarted
+
+This event is triggered when an invitation has started.
+
+``` cs
+ProfileEvents.OnInviteStarted += onInviteStarted;
+
+public void onInviteStarted(Provider provider, SocialActionType action, string payload) {
+	// provider is the social provider
+	// action is the social action (post status, etc..) that started
+	// payload is an identification string that you can give when you initiate the social action operation and want to receive back upon starting
+
+	// ... your game specific implementation here ...
+}
+```
+
+
+###OnInviteFinished
+
+This event is triggered when an invitation has finished **successfully**.
+
+``` cs
+ProfileEvents.OnInviteFinished += onInviteFinished;
+
+public void onInviteFinished(Provider provider, SocialActionType action, string requestId, List<string> invitedIds, string payload) {
+	// provider is the social provider
+	// action is the social action (like, post status, etc..) that finished
+	// requestId is an identifier of created invite request
+  // invitedIds is a list of invited user's identifiers
+	// payload is an identification string that you can give when you initiate the social action operation and want to receive back upon its completion
+
+	// ... your game specific implementation here ...
+}
+```
+
+###OnInviteCancelled
+
+This event is triggered when an invitation has been cancelled.
+
+``` cs
+ProfileEvents.OnInviteCancelled += onInviteCancelled;
+
+public void onInviteCancelled(Provider provider, SocialActionType action, string payload) {
+	// provider is the social provider
+	// action is the social action (like, post status, etc..) that has been cancelled
+	// payload is an identification string that you can give when you initiate the social action operation and want to receive back upon cancellation
+
+	// ... your game specific implementation here ...
+}
+```
+
+###OnInviteFailed
+
+This event is triggered when an invitation has failed.
+
+``` cs
+ProfileEvents.OnInviteFailed += onInviteFailed;
+
+public void onInviteFailed(Provider provider, SocialActionType action, string message, string payload) {
+	// provider is the social provider
+	// action is the social action (like, post status, etc..) that failed
+	// message is the failure message
+	// payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+
+	// ... your game specific implementation here ...
+}
+```
