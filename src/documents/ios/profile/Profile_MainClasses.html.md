@@ -143,6 +143,20 @@ This function updates the user's status, which is simply a message, on the suppl
 ![alt text](/img/tutorial_img/profile/socialStatus.png "Update Status")
 
 <br>
+###`updateStatusDialog`
+
+Shares the given status to the user's feed and grants the user a reward.
+Using the provider's native dialog (when available).
+
+``` objectivec
+[[SoomlaProfile getInstance] updateStatusWithProviderDialog:FACEBOOK
+	   andLink:@"http://www.soom.la"
+	andPayload:@""
+	 andReward:appDelegate.updateStatusReward
+];
+```
+
+<br>
 ###`updateStory`
 This function posts a story (which is a detailed status) on the user's wall in the supplied social provider. Upon a successful update, the user will receive the supplied reward.
 
@@ -163,6 +177,24 @@ For example, once your user reaches a high score, you could display a popup that
 ```
 
 ![alt text](/img/tutorial_img/profile/socialStory.png "Post Story")
+
+<br>
+###`updateStoryDialog`
+
+Shares a story to the user's feed and grants the user a reward.
+Using the provider's native dialog (when available).
+
+``` objectivec
+[[SoomlaProfile getInstance] updateStoryWithProviderDialog:TARGET_PROVIDER	
+	andName:@"The story of SOOMBOT (Profile Test App)"
+	andCaption:@"SOOMBOT Story"
+	andDescription:@"DESCRIPTION"
+	andLink:@"http://about.soom.la/soombots"
+	andPicture:@"http://about.soom.la/.../spockbot.png"
+	andPayload:@""
+	andReward:appDelegate.updateStoryReward
+];
+```
 
 <br>
 ###`uploadImage`
@@ -257,8 +289,6 @@ Note that the results will contain only part of the list. In order to get more i
 This function Retrieves a list of the user's feed entries from the supplied provider. Upon a successful retrieval of
 feed entries the user will be granted the supplied reward.
 
-<div class="info-box">G+ does not support this.</div>
-
 ``` objectivec
 [[SoomlaProfile getInstance] getFeedWithProvider:FACEBOOK
     andFromStart: false     // Should we reset pagination or request the next page
@@ -301,6 +331,34 @@ Note that the results will contain only part of the list. In order to get more i
     }
 }
 
+```
+
+<br>
+### `invite`
+
+`invite` sends an invitation to join your app.
+
+**NOTE:** Supported only by Facebook.
+
+``` objectivec
+[[SoomlaProfile getInstance] inviteWithProvider:FACEBOOK
+                                  inviteMessage:@"Let's use SOOMLA together!" 
+                                    dialogTitle:@"Invitation"
+                                        payload:@""
+                                      andReward:nil];
+```
+
+<br>
+### `uploadCurrentScreenshot`
+
+`uploadCurrentScreenshot` uploads the current screen shot image to the user's social page on the given Provider.
+
+``` objectivec
+[[SoomlaProfile getInstance] uploadCurrentScreenshot:FACEBOOK 
+                                               title:@"Sharing title"
+                                             message:@"Let's use SOOMLA together!"
+                                             payload:@""
+                                           andReward:nil];
 ```
 
 <br>
