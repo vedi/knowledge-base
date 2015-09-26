@@ -24,25 +24,34 @@ Analytics, Whales Report and GrowInsights are provided for free to users of the 
 
 Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon logging in, you will be directed to the main page of the dashboard. You will need to create a new game in order to start your journey with GROW.
 
-> This integration work with Prime31's IAP Plugin version **[[[[[PRIME SDK VERSION]]]]]** and above.
+> This integration works with Prime31's IAP Plugin v2.8+ on Android OR v2.6+ on iOS.
 
 1. In the games screen click on the "+" button to add a new game. If it's your first time in the dashboard, just click on the "+" button underneath the "Create your first game" label in the middle of the screen.
 
-	  ![alt text](/img/tutorial_img/cocos_grow/addNewApp.png "Add new app")
+	  ![alt text](/img/tutorial_img/unity_grow/addNewApp.png "Add new app")
 
 	<div class="info-box">Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles. Click on any bundle to see your game's envKey and gameKey (You can ignore other installation instructions on the dashboard as you're only using Prime31).</div>
 
 2. Download and Import the GROW Lite unitypackage from [here](http://library.soom.la/fetch/unity3d-soomla-grow-lite/latest?cf=kb).
 
-3. Once you finished installation, add "Game Key" and "Env Key" from the GROW dashboard to Prime31's configuration screen in Unity:
+3. Once you finished installation, add "Game Key" and "Env Key" from the GROW dashboard to your Unity3d Project:
 
-  ![alt text](/img/tutorial_img/cocos_grow/dashboardKeys.png "Keys")
+  ![alt text](/img/tutorial_img/unity_grow/dashboardKeys.png "Keys")
 
   > You can always find the keys in the Game Settings Screens on the `environments` section.
 
-	**[[[[[SCREENSHOT OF THE PRIME CONFIGURATION SCREEN WITH ENVKEY AND GAMEKEY HERE]]]]]**
+	Add gameKey and envKey in the info.plist editor screen so it'll be applied to your **iOS** configuration:  
+  ![alt text](/img/tutorial_img/unity_grow/info_plist_editor.png "Keys")
 
-  > you're probably testing your integration and you want to use the **Sandbox** environment key for starters.
+	Also, Add gameKey and envKey in AndroidManifest.xml so it'll be applied to your **Android** configuration:  
+  ```
+	<meta-data android:name="SoomlaGameKey" android:value="[YOUR gameKey]" />
+	<meta-data android:name="SoomlaEnvKey" android:value="[YOUR envKey]" />
+	```
+
+	> **You should use the same envKey and gameKey for Android and iOS**  
+	<br>
+  > You're probably testing your integration and you want to use the **Sandbox** environment key for starters.
 
   <div class="info-box">The *game* and *environment* keys allow for your game to distinguish multiple environments for the same game. The dashboard pre-generates two fixed environments for your game: **Production** and **Sandbox**. When you decide to publish your game, make sure to switch the env key to **Production**.  You can always generate more environments.  For example - you can choose to have a playground environment for your game's beta testers which will be isolated from your production environment and will thus prevent analytics data from being mixed between the two.  Another best practice is to have a separate environment for each version of your game.</div>
 
