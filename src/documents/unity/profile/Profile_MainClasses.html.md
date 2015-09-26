@@ -352,7 +352,7 @@ public void onGetContactsFinished(Provider provider, SocialPageData<UserProfile>
 This function Retrieves a list of the user's feed entries from the supplied provider. Upon a successful retrieval of
 feed entries the user will be granted the supplied reward.
 
-<div class="info-box">G+ does not support this.</div>
+<div class="info-box">Currently G+ is supported by iOS only.</div>
 
 ```cs
 SoomlaProfile.GetFeed(Provider.FACEBOOK);
