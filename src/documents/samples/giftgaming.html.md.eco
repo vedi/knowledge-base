@@ -75,7 +75,7 @@ theme: 'samples'
 
 1. Download a <a href="https://www.giftgaming.com/publishers#getPlugin?referrer=soomla">giftgaming Plugin</a> and follow the integration instructions.
 
-2. Integrate the SOOMLA GrowSpend bundle - see <a href="/unity/grow/growspend_gettingstarted/" target="_blank">Full instructions</a>.
+2. Integrate the SOOMLA <a href="/unity/grow/growspend_gettingstarted/" target="_blank">GrowSpend bundle</a>.
 
 3. The Unity code sample also makes use of <a href="/unity/grow/grow_insights/" target="_blank">GrowInsigts</a> to detect non-spending users. 
 

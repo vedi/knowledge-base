@@ -12,7 +12,7 @@ public class SampleGifts : MonoBehaviour {
     bool isInsightsRefreshed = false;
 
     void Start(){
-        // Register callback for Soomla Insights before initialization
+        // Register callback for Grow Insights before initialization
         HighwayEvents.OnInsightsRefreshFinished += OnInsightsRefreshFinished;
 
         // Make sure to make this call in your earliest loading scene,
