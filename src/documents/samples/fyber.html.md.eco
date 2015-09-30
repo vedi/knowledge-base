@@ -3,7 +3,7 @@ layout: "sample"
 image: "fyber_logo"
 title: "Fyber"
 text: "Show rewarded video / offer wall to earn coins"
-position: 2
+position: 4
 relates: ["giftgaming", "supersonic", "unity_ads"]
 collection: 'samples'
 navicon: "nav-icon-fyber.png"
