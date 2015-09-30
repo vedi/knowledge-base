@@ -14,6 +14,7 @@ title: 'Soomla Knowledge Base'
 </div>
 
 <div id="platform-options">
+
   <div class="container">
     <%- @partial('platform-selection', {image:"img/Level2-Unity.png", link:"/unity", title: "Unity3D"}) %>
     <%- @partial('platform-selection', {image:"img/Level2-Cocos2dx.png", link:"/cocos2dx", title: "Cocos2d-x"}) %>
@@ -26,14 +27,14 @@ title: 'Soomla Knowledge Base'
 
   <div class="container">
     <div class="col-lg-4 col-md-4 menu-option">
-      <a href="//soom.la/getting-started/" class="link-container">
+      <a href="http://dashboard.soom.la/downloads" class="link-container">
         <div class="option-image" style="background-image: url('img/Level1-Downloads.png')"></div>
         <div class="option-head-text">DOWNLOADS</div>
         <div class="option-text">All of SOOMLA's SDKs bundled and packaged for getting started. Come and get'em!</div>
       </a>
     </div>
     <div class="col-lg-4 col-md-4 menu-option">
-      <a href="/docs/university/videos" class="link-container">
+      <a href="/university" class="link-container">
         <div class="option-image" style="background-image: url('img/Level1-University-green.png')"></div>
         <div class="option-head-text">UNIVERSITY</div>
         <div class="option-text">Watch our new video tutorials to get started with SOOMLA. More videos coming soon!</div>

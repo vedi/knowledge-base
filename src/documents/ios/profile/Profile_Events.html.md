@@ -103,6 +103,7 @@ The event `EVENT_UP_LOGIN_STARTED` is triggered when logging into the social pro
 - (void)loginStarted:(NSNotification*)notification {
   // notification's userInfo contains the following keys:
   // DICT_ELEMENT_PROVIDER = The provider (NSNumber*) where the login has started
+  // DICT_ELEMENT_AUTO_LOGIN = will be "true" if the user was logged in using the AutoLogin functionality
   // DICT_ELEMENT_PAYLOAD  = An identification string (NSString*) that you can give when you
   //                     initiate the login operation and want to receive back upon starting
 
@@ -123,6 +124,7 @@ The event `EVENT_UP_LOGIN_FINISHED` is triggered when logging into the social pr
 - (void)loginFinished:(NSNotification*)notification {
   // notification's userInfo contains the following keys:
   // DICT_ELEMENT_USER_PROFILE = The user's profile (UserProfile*) from the logged in provider
+  // DICT_ELEMENT_AUTO_LOGIN = will be "true" if the user was logged in using the AutoLogin functionality
   // DICT_ELEMENT_PAYLOAD      = An identification string (NSString*) that you can give when
   //           you initiate the login operation and want to receive back upon its completion
 
@@ -143,6 +145,7 @@ The event `EVENT_UP_LOGIN_CANCELLED` is triggered when logging into the social p
 - (void)loginCancelled:(NSNotification*)notification {
   // notification's userInfo contains the following keys:
   // DICT_ELEMENT_PROVIDER = The provider (NSNumber*) which the user has cancelled login to
+  // DICT_ELEMENT_AUTO_LOGIN = will be "true" if the user was logged in using the AutoLogin functionality
   // DICT_ELEMENT_PAYLOAD  = An identification string (NSString*) that you can give when you
   //                 initiate the login operation and want to receive back upon cancellation
 
@@ -164,6 +167,7 @@ The event `EVENT_UP_LOGIN_FAILED` is triggered when logging into the social prov
   // notification's userInfo contains the following keys:
   // DICT_ELEMENT_PROVIDER = The provider (NSNumber*) on which the login has failed
   // DICT_ELEMENT_MESSAGE  = Description (NSString*) of the reason for failure
+  // DICT_ELEMENT_AUTO_LOGIN = will be "true" if the user was logged in using the AutoLogin functionality
   // DICT_ELEMENT_PAYLOAD  = An identification string (NSString*) that you can give when
   //              you initiate the login operation and want to receive back upon failure
 
@@ -228,7 +232,7 @@ The event `EVENT_UP_LOGOUT_FAILED` is triggered when logging out of the social p
 
 ### SOCIAL ACTION STARTED
 
-The event `EVENT_UP_SOCIAL_ACTION_STARTED` is triggered when a social action (like, post status, etc..) has started.
+The event `EVENT_UP_SOCIAL_ACTION_STARTED` is triggered when a social action (post status, etc..) has started.
 
 ``` objectivec
 // observe the event:
@@ -454,6 +458,98 @@ The event `EVENT_UP_GET_FEED_FAILED` is triggered when fetching the feed from th
   // DICT_ELEMENT_FROM_START         = Should we reset pagination or request the next page
   // DICT_ELEMENT_PAYLOAD            = An identification string (NSString*) that you can give  
   //           when you initiate the get feed operation and want to receive back upon failure
+
+  // ... your game specific implementation here ...
+}
+```
+
+### INVITE STARTED
+
+The event `EVENT_UP_INVITE_STARTED` is triggered when an invitation process has started.
+
+``` objectivec
+// observe the event:
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(inviteStarted:)
+  name:EVENT_UP_INVITE_STARTED object:nil];
+
+// your handler:
+- (void)inviteStarted:(NSNotification*)notification {
+  // notification's userInfo contains the following keys:
+  // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) on which the social action
+  //                                   has started
+  // DICT_ELEMENT_SOCIAL_ACTION_TYPE = The social action (NSNumber*) that started
+  // DICT_ELEMENT_PAYLOAD            = An identification string (NSString*) that you can give
+  //     when you initiate the social action operation and want to receive back upon starting
+
+  // ... your game specific implementation here ...
+}
+```
+
+### INVITE FINISHED
+
+The event `EVENT_UP_INVITE_FINISHED` is triggered when an invitation has finished successfully.
+
+``` objectivec
+// observe the event:
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(inviteFinished:)
+  name:EVENT_UP_INVITE_FINISHED object:nil];
+
+// your handler:
+- (void)inviteFinished:(NSNotification*)notification {
+  // notification's userInfo contains the following keys:
+  // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) on which the social action
+  //                                   has finished
+  // DICT_ELEMENT_SOCIAL_ACTION_TYPE = The social action (NSNumber*) that finished
+  // DICT_ELEMENT_REQUEST_ID         = An identifier of created invite request
+  // DICT_ELEMENT_INVITED_LIST       = A list of invited user's identifiers
+  // DICT_ELEMENT_PAYLOAD            = An identification string (NSString*) that you can give
+  //   when you initiate the social action operation and want to receive back upon completion
+
+  // ... your game specific implementation here ...
+}
+```
+
+### INVITE CANCELLED
+
+The event `EVENT_UP_INVITE_CANCELLED` is triggered when an invitation has been cancelled.
+
+``` objectivec
+// observe the event:
+[[NSNotificationCenter defaultCenter] addObserver:self
+  selector:@selector(inviteCancelled:) name:EVENT_UP_INVITE_CANCELLED object:nil];
+
+// your handler:
+- (void)inviteCancelled:(NSNotification*)notification {
+  // notification's userInfo contains the following keys:
+  // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) on which a social action was
+  //                                   cancelled
+  // DICT_ELEMENT_SOCIAL_ACTION_TYPE = The social action (NSNumber*) that was cancelled
+  // DICT_ELEMENT_PAYLOAD            = An identification string (NSString*) that you can give
+  // when you initiate the social action operation and want to receive back upon cancellation
+
+
+  // ... your game specific implementation here ...
+}
+```
+
+### INVITE FAILED
+
+The event `EVENT_UP_INVITE_FAILED` is triggered when a social action has failed.
+
+``` objectivec
+// observe the event:
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(inviteFailed:)
+  name:EVENT_UP_INVITE_FAILED object:nil];
+
+// your handler:
+- (void)inviteFailed:(NSNotification*)notification {
+  // notification's userInfo contains the following keys:
+  // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) on which the social action
+  //                                   has failed
+  // DICT_ELEMENT_SOCIAL_ACTION_TYPE = The social action (NSNumber*) that failed
+  // DICT_ELEMENT_MESSAGE            = Description (NSString*) of the reason for failure
+  // DICT_ELEMENT_PAYLOAD            = An identification string (NSString*) that you can give
+  //      when you initiate the social action operation and want to receive back upon failure
 
   // ... your game specific implementation here ...
 }

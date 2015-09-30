@@ -1,0 +1,8 @@
+---
+title: 'Articles'
+layout: 'l2-main'
+theme: 'platforms'
+collection: 'university_articles'
+platform: 'university'
+module: 'articles'
+---
