@@ -187,6 +187,22 @@ soomla::CCSoomlaProfile::getInstance()->updateStatusWithConfirmation(
 ```
 
 <br>
+### `updateStatusDialog`
+
+Shares the given status to the user's feed and grants the user a reward.
+Using the provider's native dialog (when available).
+
+``` cpp
+soomla::CCSoomlaProfile::getInstance()->updateStatusDialog(
+	soomla::FACEBOOK,                         // Provider
+  	"I LOVE SOOMLA!  http://www.soom.la",   // Message to post as status
+  	"",                                     // Payload
+  	nullptr,                                // Reward  	
+  	&profileError                           // Used for error handling	
+);
+```
+
+<br>
 ### `updateStory`
 This function posts a story (which is a detailed status) on the user's wall in the supplied social provider. Upon a successful update, the user will receive the supplied reward.
 
@@ -241,6 +257,25 @@ soomla::CCSoomlaProfile::getInstance()->updateStoryWithConfirmation(
 );
 ```
 
+<br>
+### `updateStoryDialog`
+
+Shares a story to the user's feed and grants the user a reward.
+Using the provider's native dialog (when available).
+
+``` java
+soomla::CCSoomlaProfile::getInstance()->updateStoryDialog(
+	soomla::FACEBOOK,                           // Provider	
+	"The story of SOOMBOT (Profile Test App)",  // Name
+	"SOOMBOT Story",                            // Caption
+	"Hey! It's SOOMBOT Story",                  // Description
+	"http://about.soom.la/soombots",            // Link to post
+	"http://about.soom.la/.../spockbot.png",    // Image URL
+	"",                                         // Payload
+	nullptr,                                    // Reward	
+	&profileError                               // Used for error handling
+);
+```
 
 <br>
 ### `uploadImage`
@@ -297,6 +332,22 @@ soomla::CCSoomlaProfile::getInstance()->uploadImageWithConfirmation(
 	nullptr,                          		// Reward
 	customMessage,							// Message to show in the confirmation dialog
 	&profileError                           // Used for error handling
+);
+```
+
+<br>
+### `uploadCurrentScreenshot`
+
+`uploadCurrentScreenshot` uploads the current screen shot image to the user's social page on the given Provider.
+
+``` cpp
+soomla::CCSoomlaProfile::getInstance()->uploadCurrentScreenshot(
+	soomla::FACEBOOK,               // Provider
+	"Sharing title",                // Story title
+	"Let's use SOOMLA together!",   // Story message
+	"",                             // Payload
+	nullptr,                        // Reward	
+	&profileError                   // Used for error handling	
 );
 ```
 
@@ -470,6 +521,25 @@ void Example::onGetFeedFinished(EventCustom *event) {
     }
 }
 
+```
+
+<br>
+### `invite`
+
+`invite` sends an invitation to join your app.
+
+<div class="info-box">**NOTE:** Supported only by Facebook.</div>
+
+``` cpp
+void invite(CCProvider provider, const char * inviteMessage, const char * dialogTitle, const char * payload, CCReward * reward, CCError **soomlaError);
+soomla::CCSoomlaProfile::getInstance()->invite(
+	soomla::FACEBOOK,     // Provider
+	inviteMessage,        // Invitation message
+	dialogTitle,          // Dialog title
+	payload,              // A string to receive when the function returns.
+	reward,               // Reward upon success of getting of feed
+	&profileError         // Used for error handling
+);
 ```
 
 <br>
