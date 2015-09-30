@@ -1,7 +1,7 @@
 ---
 layout: "sample"
 image: "giftgaming_logo"
-title: "giftgaming"
+title: "giftgaming®"
 text: "Give surprise in-game gifts containing currency and coupons"
 position: 9
 relates: ["supersonic", "unity_ads"]
@@ -24,16 +24,11 @@ theme: 'samples'
   <p>
   	Unlike competitors, giftgaming provides a better gaming experience by:
   	<ul>
-  	<li>Not asking players for credit card information, email address or phone number</li>
+  	<li>Not forcing players to watch video ads</li>
+  	<li>Not requiring credit card information, email address or phone number</li>
   	<li>Enabling developers to select the most appropriate brands for their games</li>
   	<li>Adapting to the look and feel of the game</li>
   	</ul>
-  </p>
- 
-  <div class="samples-title">Tap into the world's largest affiliate networks</div>
-  <p>
-  	giftgaming has affiliate programmes with brands that gamers love, such as Jelly Belly, Mattel, Loot Crate, Green Man Gaming, Scholastic, Zavvi, Netshoes and many more.
- 	<a href="https://www.giftgaming.com/publishers">Find out more</a>.
   </p>
 </div>
 
@@ -43,7 +38,7 @@ theme: 'samples'
 
 2. Integrate SOOMLA Store. See <a href="/unity/store/store_gettingstarted/" target="_blank">Full instructions</a>.
 
-3. In your callbacks script, replace the <code>giftClosed</code> callback:
+3. In your <code>giftClosed</code> callback call Soomla's <code>StoreInventory.GiveItem</code>
 
 <div>
   <!-- Nav tabs -->
@@ -59,33 +54,124 @@ theme: 'samples'
     
      <pre>
 ```
+using UnityEngine;
 using Soomla;
 using Soomla.Store;
+using Soomla.Highway;
+using Soomla.Insights;
+using giftgamingSDK;
 
-// giftCode is set from the giftgaming Dashboard and must correspond to your Soomla Store itemId
+public Texture2D sampleGiftIcon;
+bool isPlayerNonSpender = false;
+
+void Start(){
+	// Register callback for Soomla Insights
+	HighwayEvents.OnInsightsRefreshFinished += OnSoomlaInsightsRefreshFinished;
+
+    // Initialize SOOMLA Store, Highway and Insights
+    SoomlaStore.Initialize(new YourStoreAssetsImplementation());
+    SoomlaHighway.Initialize();
+    SoomlaInsights.Initialize();
+
+    // Start Gift Service AFTER callbacks have been registered
+	giftgaming.setGiftClosedCallback(giftClosed);
+	giftgaming.startGiftService();
+}
+
+void OnGUI() {
+	// Example button for players to access their coupons
+	if(GUILayout.Button ("giftgaming® Vault")) {
+		giftgaming.openVault();
+	}
+	
+	// Example gift icon when gift is ready
+	if(giftgaming.isGiftReady()) {
+		Rect sampleGiftIconRect = 
+			new Rect(Screen.width - 100, Screen.height - 100, 100, 100);
+
+		if( GUI.Button(sampleGiftIconRect, sampleGiftIcon) ) {
+			giftgaming.openReceivedGift();
+		}
+	}
+}
+
+// Determine if the player is a non-spender
+void OnSoomlaInsightsRefreshFinished (){
+   if(SoomlaInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Action] == 0) {
+       isPlayerNonSpender = true;
+   }
+}
+
+// The giftCode is set from giftgaming Dashboard
+// Must correspond to your Soomla Store itemId
 public void giftClosed(string giftCode) {
 	int AMOUNT = 1; // Amount of thing you want to gift
 	StoreInventory.GiveItem(giftCode, AMOUNT);
+	
+	// If player is non-spender then set gift timing to be 5-30 seconds
+	if(isPlayerNonSpender) {
+		giftgaming.overrideTimeBetweenGifts(5, 30);
+	}
 }
 ```
      </pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="sample-android">
+    <p>In your MainActivity, you'll want to setup SOOMLA and giftgaming like so:</p>
      <pre>
 ```
 import com.soomla.Soomla;
 import com.soomla.store.SoomlaStore;
 import com.soomla.store.StoreInventory;
 import com.soomla.store.exceptions.VirtualItemNotFoundException;
+import com.giftgaming.giftgamingandroid.Giftgaming;
 
-// giftCode is set from the giftgaming Dashboard and must correspond to your Soomla Store itemId
-public void giftClosed(string giftCode) {
-	try {
-		int AMOUNT = 1; // Amount of thing you want to gift
-		StoreInventory.GiveVirtualItem(giftCode, AMOUNT);
-	} catch(VirtualItemNotFoundException e) {
-    	// Currency not identified
+public class MainActivity extends ActionBarActivity {
+ 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+       // Initialize SOOMLA Store
+	   SoomlaStore.Initialize(new YourStoreAssetsImplementation());
+    
+       // Use regular Giftgaming() if you want to use sample API key
+       Giftgaming gg = new Giftgaming("-- MY API KEY --");
+ 
+       // Enable if you want to see example giftgaming Vault Button
+       gg.autoDrawMode = false;
+ 
+       // Pass in current activity and top level UI container
+       gg.setMainActivity(this, R.id.mainContainer);
+ 
+       // Pass in our own callbacks in just one function
+       gg.setGiftCallbacks(new MyGameGifts());
     }
+}
+```
+	</pre>
+	<p>Then in your <code>MyGameGifts</code> class call Soomla's <code>StoreInventory.GiveVirtualItem</code> in your <code>giftClosed</code> function:</p>
+	<pre>
+```
+import com.soomla.store.StoreInventory;
+import com.giftgaming.giftgamingandroid.GiftgamingGifts;
+import com.giftgaming.giftgamingandroid.Giftgaming;
+ 
+public class MyGameGifts implements GiftgamingGifts {
+ 
+    public MyGameGifts() {
+    }
+    
+    ...
+    
+	// The giftCode is set from giftgaming Dashboard
+	// Must correspond to your Soomla Store itemId
+	public void giftClosed(string giftCode) {
+		try {
+			int AMOUNT = 1; // Amount of thing you want to gift
+			StoreInventory.GiveVirtualItem(giftCode, AMOUNT);
+		} catch(VirtualItemNotFoundException e) {
+			// Currency not identified
+		}
+	}
 }
 ```
      </pre>
@@ -100,4 +186,6 @@ public void giftClosed(string giftCode) {
 
 1. <a href="http://dashboard.giftgaming.com">Get a giftgaming&reg; Account</a> to receive direct support.
 
-2. Use a unique gift icon for giftgaming so as to not confuse your players.
+2. Make periodic gifts a part of your game as <a href="http://www.ccsenet.org/journal/index.php/ijms/article/download/11547/8155">studies</a> show surprise gifts improve loyalty, spending and recommendations.
+
+3. Use a unique gift icon for giftgaming so as to not confuse your players.
