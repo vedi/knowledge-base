@@ -7,7 +7,6 @@ position: 10
 relates: ["giftgaming", "fyber", "unity_ads"]
 collection: 'samples'
 navicon: "nav-icon-supersonic.png"
-featured: true
 backlink: "http://www.supersonic.com/"
 theme: 'samples'
 ---
