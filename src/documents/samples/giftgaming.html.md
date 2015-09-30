@@ -2,7 +2,7 @@
 layout: "sample"
 image: "giftgaming_logo"
 title: "giftgaming®"
-text: "Give surprise in-game gifts containing currency and coupons"
+text: "Monetize non-spenders by giving surprise in-game gifts containing currency and coupons"
 position: 9
 relates: ["supersonic", "unity_ads"]
 collection: 'samples'
@@ -32,13 +32,7 @@ theme: 'samples'
   </p>
 </div>
 
-<div class="samples-title">Getting started with giftgaming + SOOMLA</div>
-
-1. Download a <a href="https://www.giftgaming.com/publishers#getPlugin?referrer=soomla">giftgaming Plugin</a> and follow the integration instructions.
-
-2. Integrate SOOMLA Store. See <a href="/unity/store/store_gettingstarted/" target="_blank">Full instructions</a>.
-
-3. In your <code>giftClosed</code> callback call Soomla's <code>StoreInventory.GiveItem</code>
+<div class="samples-title">Code Sample</div>
 
 <div>
   <!-- Nav tabs -->
@@ -50,68 +44,78 @@ theme: 'samples'
   <!-- Tab panes -->
   <div class="tab-content tab-content-use-case-code">
     <div role="tabpanel" class="tab-pane active" id="sample-unity">
-    <p>In Unity, this would be in your copy of <code>SampleGifts.cs</code>:</p>
+    <p>In Unity, this would be in your copy of `SampleGifts.cs`:</p>
     
      <pre>
 ```
 using UnityEngine;
 using Soomla;
 using Soomla.Store;
-using Soomla.Highway;
-using Soomla.Insights;
+using Grow.Highway;
+using Grow.Insights;
 using giftgamingSDK;
 
-public Texture2D sampleGiftIcon;
-bool isPlayerNonSpender = false;
+public class SampleGifts : MonoBehaviour {
 
-void Start(){
-	// Register callback for Soomla Insights
-	HighwayEvents.OnInsightsRefreshFinished += OnSoomlaInsightsRefreshFinished;
-
-    // Initialize SOOMLA Store, Highway and Insights
-    SoomlaStore.Initialize(new YourStoreAssetsImplementation());
-    SoomlaHighway.Initialize();
-    SoomlaInsights.Initialize();
-
-    // Start Gift Service AFTER callbacks have been registered
-	giftgaming.setGiftClosedCallback(giftClosed);
-	giftgaming.startGiftService();
-}
-
-void OnGUI() {
-	// Example button for players to access their coupons
-	if(GUILayout.Button ("giftgaming® Vault")) {
-		giftgaming.openVault();
-	}
-	
-	// Example gift icon when gift is ready
-	if(giftgaming.isGiftReady()) {
-		Rect sampleGiftIconRect = 
-			new Rect(Screen.width - 100, Screen.height - 100, 100, 100);
-
-		if( GUI.Button(sampleGiftIconRect, sampleGiftIcon) ) {
-			giftgaming.openReceivedGift();
-		}
-	}
-}
-
-// Determine if the player is a non-spender
-void OnSoomlaInsightsRefreshFinished (){
-   if(SoomlaInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Action] == 0) {
-       isPlayerNonSpender = true;
-   }
-}
-
-// The giftCode is set from giftgaming Dashboard
-// Must correspond to your Soomla Store itemId
-public void giftClosed(string giftCode) {
-	int AMOUNT = 1; // Amount of thing you want to gift
-	StoreInventory.GiveItem(giftCode, AMOUNT);
-	
-	// If player is non-spender then set gift timing to be 5-30 seconds
-	if(isPlayerNonSpender) {
-		giftgaming.overrideTimeBetweenGifts(5, 30);
-	}
+    public Texture2D sampleGiftIcon;
+    bool isPlayerNonSpender = false;
+    bool isInsightsRefreshed = false;
+    
+    void Start(){
+        // Register callback for Soomla Insights before initialization
+        HighwayEvents.OnInsightsRefreshFinished += OnInsightsRefreshFinished;
+        
+        // Make sure to make this call in your earliest loading scene,
+        // and before initializing any other SOOMLA/GROW components
+        // i.e. before SoomlaStore.Initialize(...)
+        GrowHighway.Initialize();
+        
+        
+        // Initialize Grow Insights and SOOMLA Store
+        GrowInsights.Initialize();
+        SoomlaStore.Initialize(new YourStoreAssetsImplementation());
+        
+        // Start Gift Servicae AFTER callbacks have been registered
+        giftgaming.setGiftClosedCallback(giftClosed);
+        giftgaming.startGiftService();
+    }
+    
+    void OnGUI() {
+        // Example button for players to access their coupons
+        if(GUILayout.Button ("giftgaming® Vault")) {
+            giftgaming.openVault();
+        }
+        
+        // Example gift icon when gift is ready and insights were loaded
+        if(giftgaming.isGiftReady() && isInsightsRefreshed) {
+            Rect sampleGiftIconRect = 
+                new Rect(Screen.width - 100, Screen.height - 100, 100, 100);
+            
+            if( GUI.Button(sampleGiftIconRect, sampleGiftIcon) ) {
+                giftgaming.openReceivedGift();
+            }
+        }
+    }
+    
+    // Determine if the player is a non-spender
+    void OnInsightsRefreshFinished (){
+        isInsightsRefreshed = true;
+        if(GrowInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Action] == 0) {
+            isPlayerNonSpender = true;
+        }
+    }
+    
+    // The giftCode is set from giftgaming Dashboard
+    // Must correspond to your Soomla Store itemId
+    public void giftClosed(string giftCode) {
+        int AMOUNT = 1; // Amount of thing you want to gift
+        StoreInventory.GiveItem(giftCode, AMOUNT);
+        
+        // If player is non-spender then set gift timing to be 5-30 seconds
+        if(isPlayerNonSpender) {
+            giftgaming.overrideTimeBetweenGifts(5, 30);
+        }
+    }
 }
 ```
      </pre>
@@ -130,25 +134,25 @@ public class MainActivity extends ActionBarActivity {
  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-       // Initialize SOOMLA Store
-	   SoomlaStore.Initialize(new YourStoreAssetsImplementation());
-    
-       // Use regular Giftgaming() if you want to use sample API key
-       Giftgaming gg = new Giftgaming("-- MY API KEY --");
- 
-       // Enable if you want to see example giftgaming Vault Button
-       gg.autoDrawMode = false;
- 
-       // Pass in current activity and top level UI container
-       gg.setMainActivity(this, R.id.mainContainer);
- 
-       // Pass in our own callbacks in just one function
-       gg.setGiftCallbacks(new MyGameGifts());
+        // Initialize SOOMLA Store
+        SoomlaStore.Initialize(new YourStoreAssetsImplementation());
+        
+        // Use regular Giftgaming() if you want to use sample API key
+        Giftgaming gg = new Giftgaming("-- MY API KEY --");
+        
+        // Enable if you want to see example giftgaming Vault Button
+        gg.autoDrawMode = false;
+        
+        // Pass in current activity and top level UI container
+        gg.setMainActivity(this, R.id.mainContainer);
+        
+        // Pass in our own callbacks in just one function
+        gg.setGiftCallbacks(new MyGameGifts());
     }
 }
 ```
 	</pre>
-	<p>Then in your <code>MyGameGifts</code> class call Soomla's <code>StoreInventory.GiveVirtualItem</code> in your <code>giftClosed</code> function:</p>
+	<p>Then in your `MyGameGifts` class call Soomla's `StoreInventory.GiveVirtualItem` in your `giftClosed` function:</p>
 	<pre>
 ```
 import com.soomla.store.StoreInventory;
@@ -162,16 +166,16 @@ public class MyGameGifts implements GiftgamingGifts {
     
     ...
     
-	// The giftCode is set from giftgaming Dashboard
-	// Must correspond to your Soomla Store itemId
-	public void giftClosed(string giftCode) {
-		try {
-			int AMOUNT = 1; // Amount of thing you want to gift
-			StoreInventory.GiveVirtualItem(giftCode, AMOUNT);
-		} catch(VirtualItemNotFoundException e) {
-			// Currency not identified
-		}
-	}
+    // The giftCode is set from giftgaming Dashboard
+    // Must correspond to your Soomla Store itemId
+    public void giftClosed(string giftCode) {
+        try {
+            int AMOUNT = 1; // Amount of thing you want to gift
+            StoreInventory.GiveVirtualItem(giftCode, AMOUNT);
+        } catch(VirtualItemNotFoundException e) {
+            // Currency not identified
+        }
+    }
 }
 ```
      </pre>
@@ -181,6 +185,15 @@ public class MyGameGifts implements GiftgamingGifts {
   
 </div>
 
+<div class="samples-title">Getting started</div>
+
+1. Download a <a href="https://www.giftgaming.com/publishers#getPlugin?referrer=soomla">giftgaming Plugin</a> and follow the integration instructions.
+
+2. Integrate the SOOMLA GrowSpend bundle - see <a href="/unity/grow/growspend_gettingstarted/" target="_blank">Full instructions</a>.
+
+3. The Unity code sample also makes use of <a href="/unity/grow/grow_insights/" target="_blank">GrowInsigts</a> to detect non-spending users. 
+
+4. In your `giftClosed` callback call Soomla's `StoreInventory.GiveItem`
 
 <div class="samples-title">Additional tips and recommendations</div>
 
