@@ -399,6 +399,8 @@ this.onGetFeedFinished = function (provider, contacts, payload, hasMore) {
 
 `openAppRatingPage` conveniently opens your application's page on the platform store (for example on an iOS device it'll open your app's page in the App Store) so that it's simple to rate the app. You can offer your users to rate your app after they've completed a level successfully or have progressed significantly in your game.
 
+<div class="info-box">To use this feature, please add your iTunes App ID (taken from iTunes Connect for your application) in your app `Info.plist` at `iTinesAppID` key.</div>
+
 ``` js
 Soomla.soomlaProfile.openAppRatingPage();
 ```
