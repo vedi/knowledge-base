@@ -16,7 +16,7 @@ platform: 'android'
 
 1. Download [android-profile](http://library.soom.la/fetch/android-profile/latest?cf=knowledge%20base).
 
-2. From the downloaded zip, add the following jars to your project.
+2. After running `build_all.sh` script add the following jars to your project.
 
 	- `SoomlaAndroidCore.jar`
 
@@ -102,7 +102,7 @@ platform: 'android'
 
 Facebook is supported out-of-the-box, you just have to follow the next steps to make it work:
 
-1. From the downloaded zip, Add the following jars to your project.
+1. After running `build_all.sh` script add the following jars to your project.
 
 	- `AndroidProfileFacebook.jar`
 	- `simple-fb-4.0.3.jar`
@@ -129,7 +129,7 @@ Twitter is supported out-of-the-box, authentication is done via web view. Follow
 
 > **android-profile** uses the [Twitter4J](https://github.com/yusuke/twitter4j) library (v 4.0.2) to support Twitter integration
 
-1. From the downloaded zip, Add the following jars to your project.
+1. After running `build_all.sh` script add the following jars to your project.
 
 	- `AndroidProfileTwitter.jar`
 
@@ -151,7 +151,7 @@ Twitter is supported out-of-the-box, authentication is done via web view. Follow
 
 ### Google Plus
 
-1. From the downloaded zip, Add the `AndroidProfileGoogle.jar` jar to your project.
+1. After running `build_all.sh` script add the `AndroidProfileGoogle.jar` jar to your project.
 
 2. Follow [Step 1: Enable the Google+ API](https://developers.google.com/+/mobile/android/getting-started#step_1_enable_the_google_api) and create a google+ app for Android.
 
