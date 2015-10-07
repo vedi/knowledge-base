@@ -204,7 +204,7 @@ public class ExampleAssets : IStoreAssets {
 	/** Virtual Categories **/
 
 	public static VirtualCategory GENERAL_CATEGORY = new VirtualCategory(
-		"General", new List<string>(new string[] {SHIELD_GOOD.ID})
+		"General", new List<string>(new string[] {SHIELD_GOOD.ItemId})
 	);
 }
 ```
