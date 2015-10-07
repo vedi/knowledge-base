@@ -28,7 +28,7 @@ collection: 'university_articles'
   <%- *'test3' %>
   <hr>
   <%- *'test4' %>
-
+testttt
   <%- @partial('video-item', {idbuttonnum:"playButton2", idnum:"video2", iframe:"//www.youtube.com/embed/59aTzSNoJbQ?enablejsapi=1",title: "UNITY3D-STORE GETTING STARTED TUTORIAL WITH ANDROID",text: "Learn how to get started with SOOMLA's unity3d-store and run SOOMLA's example app on an Android device.",published: "Published on Aug 11, 2014",vurl:"http://youtu.be/59aTzSNoJbQ"}) %>
   <hr>
   <%- @partial('video-item', {idbuttonnum:"playButton3", idnum:"video3", iframe:"//www.youtube.com/embed/OjCqvWogLtg?enablejsapi=1",title: "UNITY3D-STORE GETTING STARTED TUTORIAL WITH IOS",text: "Learn how to get started with SOOMLA's unity3d-store and run SOOMLA's example app on an iOS device.",published: "Published on Aug 11, 2014",vurl:"http://youtu.be/OjCqvWogLtg"}) %>
