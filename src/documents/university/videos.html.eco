@@ -25,7 +25,8 @@ collection: 'university_articles'
 <!-- VIDEOS LIST-->
 <div class="videos-library container">
   <%- @partial('video-item', {idbuttonnum:"playButton1", idnum:"video1", iframe:"//www.youtube.com/embed/IspEhF7Erdc?enablejsapi=1",title: "ABOUT GROW",text: "GROW is SOOMLA's community-driven analytics dashboard that allows developers to compare their games' performance to other games in the GROW community.", published: "Published on Jan 21, 2015",vurl:"http://youtu.be/IspEhF7Erdc"}) %>
-  <%- *'test3'  <hr>   *'test4' %>
+  test 1 <%- *'test3'  <hr>   *'test4' %>
+
   <%- @partial('video-item', {idbuttonnum:"playButton2", idnum:"video2", iframe:"//www.youtube.com/embed/59aTzSNoJbQ?enablejsapi=1",title: "UNITY3D-STORE GETTING STARTED TUTORIAL WITH ANDROID",text: "Learn how to get started with SOOMLA's unity3d-store and run SOOMLA's example app on an Android device.",published: "Published on Aug 11, 2014",vurl:"http://youtu.be/59aTzSNoJbQ"}) %>
   <hr>
   <%- @partial('video-item', {idbuttonnum:"playButton3", idnum:"video3", iframe:"//www.youtube.com/embed/OjCqvWogLtg?enablejsapi=1",title: "UNITY3D-STORE GETTING STARTED TUTORIAL WITH IOS",text: "Learn how to get started with SOOMLA's unity3d-store and run SOOMLA's example app on an iOS device.",published: "Published on Aug 11, 2014",vurl:"http://youtu.be/OjCqvWogLtg"}) %>
