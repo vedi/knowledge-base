@@ -110,7 +110,7 @@ public class ExampleAssets implements IStoreAssets{
   /** Virtual Categories **/
 
   public static VirtualCategory GENERAL_CATEGORY = new VirtualCategory (
-    "GENERAL", new ArrayList<String>(Arrays.asList(new String[] { SHIELD_GOOD.getItemId() }))
+    "GENERAL", new ArrayList<String>(Arrays.asList(SHIELD_GOOD.getItemId()))
   );
 
 ```
