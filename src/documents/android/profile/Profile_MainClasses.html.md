@@ -334,7 +334,7 @@ There is also an overloaded version without `customMessage`. In this case defaul
 
 ``` java
 SoomlaProfile.getInstance().uploadCurrentScreenshot(
-    (Activity)this,                             // Attached activity
+  this,                                       // Activity
 	IProvider.Provider.FACEBOOK,                // Provider
 	"Sharing title",                            // Story title
 	"Let's use SOOMLA together!",               // Story message
