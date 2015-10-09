@@ -319,6 +319,11 @@ public void onBillingNotSupported() {
 
 ### OnUnexpectedStoreError
 
+Available error codes:
+ - VERIFICATION_TIMEOUT(1) - app didn't receive validation response from server in time. Please, try again later.
+ - VERIFICATION_FAIL(2) - something is going wrong while SOOMLA tried to verify purchase.  
+ - PURCHASE_FAIL(3) - something is going wrong while SOOMLA tried to make purchase.
+ - GENERAL(0) - other types of error. See details in app logs.
 
 ``` cs
 StoreEvents.OnUnexpectedStoreError += onUnexpectedStoreError;

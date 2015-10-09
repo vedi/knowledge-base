@@ -387,6 +387,10 @@ The event `EVENT_UNEXPECTED_ERROR_IN_STORE` is triggered an unexpected error occ
 - (void)unexpectedStoreError:(NSNotification*)notification {
   // notification's userInfo contains the following keys:
   // DICT_ELEMENT_ERROR_CODE = Numeric error code
+  //    ERR_VERIFICATION_FAIL - something is going wrong while SOOMLA tried to verify purchase.
+  //    ERR_VERIFICATION_TIMEOUT - app didn't receive validation response from server in time. Please, try again later. 
+  //    ERR_PURCHASE_FAIL - something is going wrong while SOOMLA tried to make purchase.
+  //    ERR_GENERAL - other types of error. See details in app logs.
 
   // ... your game specific implementation here ...
 }
