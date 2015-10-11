@@ -36,7 +36,7 @@ The [Social Leaderboard](http://know.soom.la/unity/grow/grow_leaderboards/) widg
 
 [State Economy & Sync](http://know.soom.la/unity/grow/grow_sync/) requires one of the following bundles: Grow Spend, Grow Compete or Grow Ultimate.
 
-[Fraud Protection](http://know.soom.la/unity/grow/grow_fraudprotection/) requires Grow Spend or Grow Ultimate and [Gifting](http://know.soom.la/unity/grow/grow_gifting/) requires Grow Viral or Grow Ultimate installed in your game.
+[Fraud Protection](/university/articles/Grow_FraudProtection) requires Grow Spend or Grow Ultimate and [Gifting](http://know.soom.la/unity/grow/grow_gifting/) requires Grow Viral or Grow Ultimate installed in your game.
 
 ### ACTIVITY
 
@@ -49,10 +49,10 @@ An example of using this data -> If you’ve just uploaded a new feature you can
 The widgets you can see on the Activity screen are:
 
 *Level Up* - displays data about the number of users you have in each level and the avg time users spend in each level.  
-> will only show up if you have [LevelUp]() installed
+> will only show up if you have [LevelUp](http://know.soom.la/unity/levelup/) installed
 
 *Conversion* - you get a quick view of the number of new users you have and how many you’ve managed to convert > how many users rated your game and how many users connected to a social network within your game, you get all this also with breakdown to the device types!  
-> will only show up if you have [Profile]() installed
+> will only show up if you have [Profile](http://know.soom.la/unity/profile/) installed
 
 *Conversion by Country* - you get to see your users spread out on a map with additional indication of how many raters and how many connected to a social platform
 
@@ -66,7 +66,7 @@ Some of the metrics you can see are your Average Revenue Per User (ARPU) and you
 
 ![alt text](/img/docs/university/13_Grow_Analytics_Money.png "Money")
 
-There are two widgets in the Money section: *Conversion* and *Conversion by Country* that are the same as in the Activity section, in addition to those there's the *Items* widget where you can see a list of the items your game offers with the number of purchases and revenue per item (this widget requires that you have [Store](http://know.soom.la/unity/store/) installed in your game).
+There are two widgets in the Money section: *Conversion* and *Conversion by Country* that are the same as in the Activity screen, in addition to those there's the *Items* widget where you can see a list of the items your game offers with the number of purchases and revenue per item (this widget requires that you have [Store](http://know.soom.la/unity/store/) installed in your game).
 
 ![alt text](/img/docs/university/14_Grow_Analytics_Money_Widgets.png "Money Widgets")
 
