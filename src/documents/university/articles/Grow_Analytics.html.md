@@ -40,9 +40,9 @@ The [Social Leaderboard](http://know.soom.la/unity/grow/grow_leaderboards/) widg
 
 ### ACTIVITY
 
-In the Activity screen you can get information about your users’ activity - the number of Active Users, DAU (Daily Active Users) and how many *new users* you have. You can also see upon how many sessions you have all these users and what’s the average time a user is in your game (Avg. Session Duration). All this information can be filtered by dates, device types and countries.
+In the Activity screen you can get information about your active users and their sessions.
 
-An example of using this data -> If you’ve just uploaded a new feature you can use this data to see if this feature keeps your users in the game for a longer period of time (Avg. Session Duration) and if your DAU has increased - this means this feature is working and you did something right!
+For example, if you’ve just uploaded a new feature to your game you can use the Activity screen to see if this feature keeps your users in the game for a longer period of time (Avg. Session Duration) and if your DAU has increased - if the answer is yes to both - this means this feature is working and you did something right!
 
 ![alt text](/img/docs/university/11_Grow_Analytics_Activity.png "Activity")
 
@@ -62,7 +62,7 @@ The widgets you can see on the Activity screen are:
 
 In the Money screen you can analyze your game revenue and your paying users. You can see see how many payers you actually have and specifically how many new / returning payers.
 
-Some of the metrics you can see are your Average Revenue Per User (ARPU) and you can also see the Avg. Time to Payment which is some very interesting info about your game and its payers.
+Some of the metrics you can see are your Average Revenue Per User (ARPU) and you can also see the Avg. Time to Payment which is very interesting info about your payers.
 
 ![alt text](/img/docs/university/13_Grow_Analytics_Money.png "Money")
 
