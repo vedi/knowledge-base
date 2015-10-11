@@ -3,7 +3,7 @@ layout: "content"
 image: "Gifting"
 title: "Gifting"
 text: "Get started with GROW Gifting for Unity. Here you can find initialization instructions, event handling and usage examples."
-position: 10
+position: 5
 theme: 'platforms'
 collection: 'cocos2djs_grow'
 module: 'grow'
@@ -15,7 +15,7 @@ platform: 'cocos2dx'
 
 ## Overview
 
-GROW Gifting brings you the tools to make your game go viral, by letting users send little surprises to one another. 
+GROW Gifting brings you the tools to make your game go viral, by letting users send little surprises to one another.
 With GIFTING you can:  
 
 - Send lives to your friend.
@@ -25,25 +25,25 @@ With GIFTING you can:
 
 ## Integration
 
-<div class="info-box">GROW Gifting is included in [GrowViral](/cocos2dx/js/grow/GrowViral_GettingStarted#SetupGrowViral) 
-and [GrowUltimate](/cocos2dx/js/grow/GrowUltimate_GettingStarted#SetupGrowUltimate) bundles. Please refer to the relevant 
+<div class="info-box">GROW Gifting is included in [GrowViral](/cocos2dx/js/grow/GrowViral_GettingStarted#SetupGrowViral)
+and [GrowUltimate](/cocos2dx/js/grow/GrowUltimate_GettingStarted#SetupGrowUltimate) bundles. Please refer to the relevant
 bundle for initialization instructions.</div>
 
 
 1. Initialize `GrowGifting` according to the instructions of your relevant bundle.
 
-2. Create event handler functions in order to be notified about (and handle) GROW Gifting related events. See 
+2. Create event handler functions in order to be notified about (and handle) GROW Gifting related events. See
 [Events](/cocos2dx/js/grow/Grow_Gifting/#Events) for more information.
 
-3. Once the user logs into any social provider, GROW Gifting will automatically start fetching gifts from the server. 
-Once the gifts are ready (see [`EVENT_GIFTS_RETRIEVE_FINISHED`](/cocos2dx/js/grow/Grow_Gifting/#EVENT_GIFTS_RETRIEVE_FINISHED)) 
+3. Once the user logs into any social provider, GROW Gifting will automatically start fetching gifts from the server.
+Once the gifts are ready (see [`EVENT_GIFTS_RETRIEVE_FINISHED`](/cocos2dx/js/grow/Grow_Gifting/#EVENT_GIFTS_RETRIEVE_FINISHED))
 they will be handed out to the user as explained below.
 
 ## Observing & Handling Events
 
 ### Subscribing
 
-The names of events are defined in `Soomla.Models.HighwayConsts`. 
+The names of events are defined in `Soomla.Models.HighwayConsts`.
 Subscribe to events in the following way:
 
 ```js
@@ -182,7 +182,7 @@ this.onGiftHandOutFailed = function (gift, errorMessage) {
 
 ## Main Classes & Methods
 
-Let's go through the main classes of GROW Gifting. These classes contain functionality for gifting-related operations 
+Let's go through the main classes of GROW Gifting. These classes contain functionality for gifting-related operations
 such as initializing and sending gifts.
 
 ### GrowGifting
@@ -197,7 +197,7 @@ Initializes the GROW Gifting feature. Once initialized, the `EVENT_GROW_GIFTING_
 
 **`GrowGifting.sendGift(toProvider, toProfileId, itemId, amount, deductFromUser)`**
 
-Sends a gift from the currently logged in user (with [Profile]()) to the provided user. This method gives the gift from 
+Sends a gift from the currently logged in user (with [Profile]()) to the provided user. This method gives the gift from
 the game without affecting the player.
 Returns `false` if the operation cannot be started, `true` otherwise.
 Params:
@@ -208,7 +208,7 @@ Params:
 - amount - The amount of virtual items to gift.
 - deductFromUser (optional) - Should the virtual items be deducted from the player upon sending the gift.
 
-The `EVENT_GIFT_SEND_STARTED` event is triggered once the sending process is started, and one of `EVENT_GIFT_SEND_FINISHED` 
+The `EVENT_GIFT_SEND_STARTED` event is triggered once the sending process is started, and one of `EVENT_GIFT_SEND_FINISHED`
 or `EVENT_GIFT_SEND_FAILED` is triggered depending on the operation outcome.
 
 ### Gift
@@ -266,24 +266,24 @@ var coinCurrency = Soomla.Models.VirtualCurrency.create({
 });
 
 var tenmuffPack = Soomla.Models.VirtualCurrencyPack.create({
-    name: "50 Coins",                           // Name                    
-    description: "50 Coin pac",                 // Description             
-    itemId: "coins_50",                         // Item ID                 
+    name: "50 Coins",                           // Name
+    description: "50 Coin pac",                 // Description
+    itemId: "coins_50",                         // Item ID
     currency_amount: 50,                        // Number of currency units
-    currency_itemId: coin_currency_ID,          // Associated currency     
-    purchasableItem: Soomla.Models.PurchaseWithMarket.createWithMarketItem(           
-        50_COIN_PACK_PRODUCT_ID,                // Product ID              
-        0.99)                                   // Initial price           
+    currency_itemId: coin_currency_ID,          // Associated currency
+    purchasableItem: Soomla.Models.PurchaseWithMarket.createWithMarketItem(
+        50_COIN_PACK_PRODUCT_ID,                // Product ID
+        0.99)                                   // Initial price
   });
 );
 
 var shieldGood = Soomla.Models.SingleUseVG.create({
-    name: "Fruit Cake",                         // Name          
-    description: "Delicious fruit cake!",       // Description   
-    itemId: "fruit_cake",                       // Item id       
-    purchasableItem: Soomla.Models.PurchaseWithVirtualItem.create({ 
+    name: "Fruit Cake",                         // Name
+    description: "Delicious fruit cake!",       // Description
+    itemId: "fruit_cake",                       // Item id
+    purchasableItem: Soomla.Models.PurchaseWithVirtualItem.create({
       pvi_itemId: MUFFIN_CURRENCY_ITEM_ID,      // Target item ID
-      pvi_amount: 225                           // Initial price 
+      pvi_amount: 225                           // Initial price
     })
   });
 

@@ -55,14 +55,13 @@ Most games do not use a server, because the gameplay happens on the client side 
 Implementing and maintaining a server takes a lot of effort, and creating one solely for the purpose of receipt verification seems a bit excessive.
 That's why some games skip the server side verification, and this hole in security is extensively used by hackers.
 
-Good news! Today you do not need such server at all. SOOMLA provides a receipt verification service with the added value of checking for suspicious activity.
+Good news! Today you do not need such a server at all. SOOMLA provides a receipt verification service with the added value of checking for suspicious activity.
 
 ## Fraud protection on our platform
 
 The way to configure Fraud protection depends on a platform you use:
 * [Unity3d](/unity/grow/Grow_FraudProtection.html)
-* [coocs2d-x](/cocos2dx/cpp/grow/Grow_FraudProtection.html)
-* [coocs2d-js](/cocos2dx/js/grow/Grow_FraudProtection.html)
-* [android](/android/store/Grow_FraudProtection.html)
-* [ios](/ios/store/Grow_FraudProtection.html)
-
+* [Cocos2d-x](/cocos2dx/cpp/grow/Grow_FraudProtection.html)
+* [Cocos2d-js](/cocos2dx/js/grow/Grow_FraudProtection.html)
+* [Android](/android/store/Grow_FraudProtection.html)
+* [iOS](/ios/store/Grow_FraudProtection.html)
