@@ -14,36 +14,41 @@ platform: 'university'
 
 ## Get to know your players
 
-The [Analytics Dashboard](http://dashboard.soom.la/) provides you with useful information about your game. You can gain insights about your games' performance, analyze revenue, [retention](/university/articles/Grow_Retention) and a lot more.
+The [Analytics Dashboard](http://dashboard.soom.la/) provides you with useful information about your game. It allows you to investigate your games' performance, analyze revenue, [retention](/university/articles/Grow_Retention) and a lot more.
 
 ### DASHBOARD
 
-In the main Dashboard you can see the number of Active Users your game has, you can also see the number of Paying Users, New Users, Revenue, number of Purchases and even what your users purchase the most.
+In the main Dashboard screen you can get general information about the activity in your game as well as information about the operations of the different GROW services you integrated. The general game information includes the number of Active Users your game has, you can also see the number of Paying Users, New Users, Revenue, number of Purchases and even what your users purchase the most.
 
 This is sort of a high-level insight to your data and you can drill down by looking at the other sections such as Activity and Money.
 
 ![alt text](/img/docs/university/9_Grow_Analytics_Dashboard.png "Dashboard")
 
-The main Dashboard also has widgets that show you a summary of your [Whales Report](/university/articles/Grow_WhalesReport) and Insights.
+"Top Product" requires that you have [Store]() installed in your game.
 
+[Whales Report](/university/articles/Grow_WhalesReport) and Insights widgets will provide you with relevant high-level information about those services. Other widgets show you data about the Social Leaderboard, Sync - how many users play on more than one device, Fraud - how many players and orders were identified as fraud and blocked. There’s also a Gifting widget which shows you how many gifts were given by your users and which gift is the most popular.
 
-Other widgets show you data of the Social Leaderboard, Sync - how many users play on more than one device, Fraud - how many players and orders were identified as fraud and blocked. There’s also a Gifting widget which shows you how many gifts were given by your users and which gift is the most popular.
+**@@@dafi** which widget requires which SOOMLA module??
 
 ![alt text](/img/docs/university/10_Grow_Analytics_Dashboard_Widgtets.png "Dashboard Widgets")
 
 ### ACTIVITY
 
-In the Activity section you can see your user’s activities - the number of Active Users you have, DAU (Daily Active Users) and how many *new users* you have. You can also see upon how many sessions you have all these users and what’s the average time a user is in your game (Avg. Session Duration). All this information can be filtered by dates, device types and countries.
+In the Activity screen you can see your users’ activity - the number of Active Users you have, DAU (Daily Active Users) and how many *new users* you have. You can also see upon how many sessions you have all these users and what’s the average time a user is in your game (Avg. Session Duration). All this information can be filtered by dates, device types and countries.
 
 An example of using this data -> If you’ve just uploaded a new feature you can use this data to see if this feature keeps your users in the game for a longer period of time (Avg. Session Duration) and if your DAU has increased - this means this feature is working and you did something right!
 
 ![alt text](/img/docs/university/11_Grow_Analytics_Activity.png "Activity")
 
-The widgets you get in the Activity section are:
+Some of the metrics, like ""
 
-*Level Up* - displays data about the number of users you have in each level and the avg time users spend in each level
+The widgets you on the Activity screen are:
 
-*Conversion* - you get a quick view of the number of new users you have and how many you’ve managed to convert > how many users rated your game and how many users connected to a social network within your game, you get all this also with breakdown to the device types!
+*Level Up* - displays data about the number of users you have in each level and the avg time users spend in each level.  
+> will only show up if you have [LevelUp]() installed
+
+*Conversion* - you get a quick view of the number of new users you have and how many you’ve managed to convert > how many users rated your game and how many users connected to a social network within your game, you get all this also with breakdown to the device types!  
+> will only show up if you have [Profile]() installed
 
 *Conversion by Country* - you get to see your users spread out on a map with additional indication of how many raters and how many connected to a social platform
 
