@@ -24,25 +24,29 @@ This is sort of a high-level insight to your data and you can drill down by look
 
 ![alt text](/img/docs/university/9_Grow_Analytics_Dashboard.png "Dashboard")
 
-"Top Product" requires that you have [Store]() installed in your game.
+"Top Product" requires that you have [Store](http://know.soom.la/unity/store/) installed in your game.
 
 [Whales Report](/university/articles/Grow_WhalesReport) and Insights widgets will provide you with relevant high-level information about those services. Other widgets show you data about the Social Leaderboard, Sync - how many users play on more than one device, Fraud - how many players and orders were identified as fraud and blocked. There’s also a Gifting widget which shows you how many gifts were given by your users and which gift is the most popular.
 
-**@@@dafi** which widget requires which SOOMLA module??
-
 ![alt text](/img/docs/university/10_Grow_Analytics_Dashboard_Widgtets.png "Dashboard Widgets")
+
+The [Whales Report](/university/articles/Grow_WhalesReport) and Insights widgets require that you have any one of our [Grow Bundles](http://dashboard.soom.la/games//quickStart) installed in your game.
+
+The [Social Leaderboard](http://know.soom.la/unity/grow/grow_leaderboards/) widget requires the Grow Compete or Grow Ultimate bundles installed in your game.
+
+[State Economy & Sync](http://know.soom.la/unity/grow/grow_sync/) requires one of the following bundles: Grow Spend, Grow Compete or Grow Ultimate.
+
+[Fraud Protection](http://know.soom.la/unity/grow/grow_fraudprotection/) requires Grow Spend or Grow Ultimate and [Gifting](http://know.soom.la/unity/grow/grow_gifting/) requires Grow Viral or Grow Ultimate installed in your game.
 
 ### ACTIVITY
 
-In the Activity screen you can see your users’ activity - the number of Active Users you have, DAU (Daily Active Users) and how many *new users* you have. You can also see upon how many sessions you have all these users and what’s the average time a user is in your game (Avg. Session Duration). All this information can be filtered by dates, device types and countries.
+In the Activity screen you can get information about your users’ activity - the number of Active Users, DAU (Daily Active Users) and how many *new users* you have. You can also see upon how many sessions you have all these users and what’s the average time a user is in your game (Avg. Session Duration). All this information can be filtered by dates, device types and countries.
 
 An example of using this data -> If you’ve just uploaded a new feature you can use this data to see if this feature keeps your users in the game for a longer period of time (Avg. Session Duration) and if your DAU has increased - this means this feature is working and you did something right!
 
 ![alt text](/img/docs/university/11_Grow_Analytics_Activity.png "Activity")
 
-Some of the metrics, like ""
-
-The widgets you on the Activity screen are:
+The widgets you can see on the Activity screen are:
 
 *Level Up* - displays data about the number of users you have in each level and the avg time users spend in each level.  
 > will only show up if you have [LevelUp]() installed
@@ -56,11 +60,13 @@ The widgets you on the Activity screen are:
 
 ### MONEY
 
-In the Money section you can analyze your game revenue and your paying users. You can see see how many payers you actually have and specifically how many new / returning payers. You can see your Average Revenue Per User (ARPU), Average Revenue Per Daily Active User (ARPDAU) and Average Revenue Per Paying User (ARPPU). You can also see the Avg. Time to Payment which is some very interesting info about your game and its payers.
+In the Money screen you can analyze your game revenue and your paying users. You can see see how many payers you actually have and specifically how many new / returning payers.
+
+Some of the metrics you can see are your Average Revenue Per User (ARPU) and you can also see the Avg. Time to Payment which is some very interesting info about your game and its payers.
 
 ![alt text](/img/docs/university/13_Grow_Analytics_Money.png "Money")
 
-There are two widgets in the Money section: *Conversion* and *Conversion by Country* that are the same as in the Activity section, in addition to those there's the *Items* widget where you can see a list of the items your game offers with the number of purchases and revenue per item.
+There are two widgets in the Money section: *Conversion* and *Conversion by Country* that are the same as in the Activity section, in addition to those there's the *Items* widget where you can see a list of the items your game offers with the number of purchases and revenue per item (this widget requires that you have [Store](http://know.soom.la/unity/store/) installed in your game).
 
 ![alt text](/img/docs/university/14_Grow_Analytics_Money_Widgets.png "Money Widgets")
 
