@@ -3,7 +3,7 @@ layout: "content"
 image: "Bundle"
 title: "GrowInsights"
 text: "The perfect solution for your game if you have already integrated any of the SOOMLA open-source modules into it. If you just want to get Analytics, Whales Report and Grow Insights then this bundle is for you."
-position: 6
+position: 15
 theme: 'platforms'
 collection: 'cocos2dx_grow'
 module: 'grow'

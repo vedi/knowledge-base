@@ -3,7 +3,7 @@ layout: "content"
 image: "FraudProtection"
 title: "Fraud Protection"
 text: "Get started with Grow Fraud Protection."
-position: 18
+position: 7
 theme: 'platforms'
 collection: 'unity_grow'
 module: 'grow'

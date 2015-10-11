@@ -3,7 +3,7 @@ layout: "content"
 image: "Tutorial"
 title: "SDKBOX"
 text: "Get started with integrating GROW Analytics, Whales Report and Insights for Cocos2d-x with SDKBOX. Doesn't Include any of SOOMLA's opensource modules, only Highway and GrowInsights."
-position: 10
+position: 1
 theme: 'platforms'
 collection: 'cocos2dx_grow'
 module: 'grow'
@@ -35,7 +35,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 3. Once you finished installation, add "Game Key" and "Env Key" from the GROW dashboard to SDKBOX's configuration json:
 
-  ![alt text](/img/tutorial_img/cocos_grow/dashboardKeys.png "Keys")
+  <img src="/img/tutorial_img/cocos_grow/dashboardKeys.png" alt="Game key and Env key" style="border:0;">
 
   > You can always find the keys in the Game Settings Screens on the `environments` section.
 

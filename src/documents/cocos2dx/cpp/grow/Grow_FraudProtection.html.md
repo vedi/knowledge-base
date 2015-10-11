@@ -3,7 +3,7 @@ layout: "content"
 image: "FraudProtection"
 title: "Fraud Protection"
 text: "Get started with Grow Fraud Protection."
-position: 18
+position: 7
 theme: 'platforms'
 collection: 'cocos2dx_grow'
 module: 'grow'
@@ -15,14 +15,14 @@ platform: 'cocos2dx'
 
 <div class="info-box">General information about Fraud Protection available in this [article](/university/articles/Grow_FraudProtection).</div>
 
-In order to turn on Fraud Protection in cocos2d-x, you need to pass additional params to `storeParams` depending on a 
+In order to turn on Fraud Protection in cocos2d-x, you need to pass additional params to `storeParams` depending on a
 billing provider.
 
 *iOS*
 
 - *SSV* - enables _Fraud Protection_ for iOS.
-- *verifyOnServerFailure* - if you use Fraud Protection, optionally you set this param, if you want to get purchases 
-automatically verified in case of network failures during the verification process. Default value is `false`. 
+- *verifyOnServerFailure* - if you use Fraud Protection, optionally you set this param, if you want to get purchases
+automatically verified in case of network failures during the verification process. Default value is `false`.
 
     ``` cpp
     storeParams->setObject(__Bool::create(true), "SSV");
@@ -32,7 +32,7 @@ automatically verified in case of network failures during the verification proce
 
 *Google Play*
 
-For Google Play you need to get clientId, clientSecret and refreshToken as explained in 
+For Google Play you need to get clientId, clientSecret and refreshToken as explained in
 [Google Play Purchase Verification](/android/store/Store_GooglePlayVerification) and use them like this:
 
 	``` cpp
@@ -42,4 +42,3 @@ For Google Play you need to get clientId, clientSecret and refreshToken as expla
 	storeParams->setObject(__Bool::create(true), "verifyOnServerFailure");
 	soomla::CCStoreService::initShared(assets, storeParams);
 	```
-
