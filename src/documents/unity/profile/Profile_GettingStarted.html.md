@@ -24,11 +24,7 @@ platform: 'unity'
 
 	If you want to use Store-related rewards you'll need to go over the instructions of [unity3d-store](https://github.com/soomla/unity3d-store).
 
-2. Drag the `CoreEvents` and `ProfileEvents` Prefabs from `Assets/Soomla/Prefabs` into your scene. You should see them listed in the "Hierarchy" panel. **IMPORTANT:** This step MUST be done for unity3d-profile to work properly!
-
-	![alt text](/img/tutorial_img/unity-profile/prefabs.png "Prefabs")
-
-3. Go to the menu bar, under **Window > Soomla > Edit Settings**:
+2. Go to the menu bar, under **Window > Soomla > Edit Settings**:
 
 	a. Change the value for **Soomla Secret**. "Soomla Secret" is an encryption secret you provide that will be used to secure your data. Choose this secret wisely, you can't change it after you launch your game! (NOTE: If you used unity3d-store versions before v1.5.2 this secret MUST be the same as "Custom Secret".)
 
@@ -36,7 +32,7 @@ platform: 'unity'
 
 	![alt text](/img/tutorial_img/unity-profile/soomlaSettings.png "Soomla Settings")
 
-4. Initialize `SoomlaProfile`:
+3. Initialize `SoomlaProfile`:
 
 	``` cs
 	SoomlaProfile.Initialize();
@@ -48,9 +44,9 @@ platform: 'unity'
 
 	Initialize `SoomlaProfile` in the `Start()` function of a `MonoBehaviour` and **NOT** in the `Awake()` function. SOOMLA has its own `MonoBehaviour` and it needs to be "Awakened" before you initialize.<br>
 
-5. Call all the social functions you can from the `SoomlaProfile` class (not from the social provider class). Otherwise, you won't be able to work with SOOMLA correctly. You can still call functions from the social provider, such as the `FB` class, but only those that are not provided by `SoomlaProfile`.
+4. Call all the social functions you can from the `SoomlaProfile` class (not from the social provider class). Otherwise, you won't be able to work with SOOMLA correctly. You can still call functions from the social provider, such as the `FB` class, but only those that are not provided by `SoomlaProfile`.
 
-6. You'll need event handlers in order to be notified about in-app purchasing-related events and social-related events. Refer to the [Event Handling](/unity/profile/Profile_Events) document for more information.
+5. You'll need event handlers in order to be notified about in-app purchasing-related events and social-related events. Refer to the [Event Handling](/unity/profile/Profile_Events) document for more information.
 
 And that's it! unity3d-profile knows how to contact the social provider (Facebook, Twitter, Google+ etc.) and perform social actions with the information you provide.
 
