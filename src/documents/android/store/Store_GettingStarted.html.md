@@ -106,7 +106,8 @@ Once you complete the following steps, see the [Google Play IAB](/android/store/
       ...
       protected void onCreate(Bundle savedInstanceState) {
           ...
-          GooglePlayIabService.getInstance().setPublicKey("[YOUR KEY FROM GOOGLE PLAY]");
+          String publicKey = "[YOUR PUBLIC KEY FROM GOOGLE PLAY]";
+          GooglePlayIabService.getInstance().setPublicKey(publicKey);
       }
   }
   ```
