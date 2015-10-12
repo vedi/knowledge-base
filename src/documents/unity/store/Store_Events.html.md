@@ -318,15 +318,14 @@ public void onBillingNotSupported() {
 }
 ```
 
-### OnUnexpectedErrorInStore
+### OnUnexpectedStoreError
 
-This event is triggered an unexpected error occurs in the Store.
 
 ``` cs
-StoreEvents.OnUnexpectedErrorInStore += onUnexpectedErrorInStore;
+StoreEvents.OnUnexpectedStoreError += onUnexpectedStoreError;
 
-public void onUnexpectedErrorInStore(string message) {
-    // message - the description of the error
+public void onUnexpectedStoreError(int errorCode) {
+    // errorCode - the code of the error
 
     // ... your game specific implementation here ...
 }

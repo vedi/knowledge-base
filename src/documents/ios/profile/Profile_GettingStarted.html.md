@@ -14,7 +14,7 @@ platform: 'ios'
 
 ## Getting Started
 
-1. Download [ios-profile](http://library.soom.la/fetch/ios-profile/1.0.1?cf=github).
+1. Download [ios-profile](http://library.soom.la/fetch/ios-profile/latest?cf=knowledge%20base).
 
 2. The static libs and headers you need are in the zip you downloaded from the link above.
 
@@ -37,6 +37,17 @@ platform: 'ios'
   ``` objectivec
   [[SoomlaProfile getInstance] initialize];
   ```
+  
+<div class="info-box">**NOTE:** 
+  If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/<LIBRARY_NAME>` to `Other Linker Flags` for the following SOOMLA libraries:    
+    <ul>
+      <li>`libSoomlaiOSCore.a`</li>
+      <li>`libSoomlaiOSSProfile.a`</li>      
+      <li>`libSoomlaiOSSProfileFacebook.a` (if you use Facebook)</li>
+      <li>`libSoomlaiOSSProfileTwitter.a` (if you use Twitter)</li>
+      <li>`libSoomlaiOSSProfileGoogle.a` (if you use Google+)</li>
+    </ul>
+</div>
 
   Note that some providers will need initialization parameters (see their sections below), in that case you'll need to supply their parameters here, each with its dictionary:
 
@@ -52,9 +63,9 @@ platform: 'ios'
     @(FACEBOOK) : @{ @"permissions": @"public_profile,user_friends" }
 	```
 
-  <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app, 
-  just request the reasonable minimum. Other permissions will be requested, when they will be needed. 
-  For instance, if you try to call `updateStory`, SoomlaProfile will ask for `publish_actions` permission, if your app has not got it.</div>
+  <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app,
+  just request the reasonable minimum. Other permissions will be requested, when they will be needed.
+  For instance, if you try to call `updateStatus`, SoomlaProfile will ask for `publish_actions` permission, if your app has not got it.</div>
 
   2. **Google+** - Please provide **CLIENT ID** from the "API&Auth" -> "Credentials" -> "Client ID for iOS applicatio" section in [Google Developer Console Projects](https://console.developers.google.com/project/), like so:
     ```objectivec
@@ -72,6 +83,15 @@ platform: 'ios'
   ```objectivec
   @(TWITTER): @{ ..., @"forceWeb": @(YES) },
   ```
+
+  4. **Common** - There are some settings you can define which applies in all social providers params:
+
+	 `autoLogin` - Setting autoLogin to true will tell Profile to try and login the user automatically to the provider, if the user has already logged in with it in the previous sessions. The default value is `false`.
+
+	``` objectivec
+	// Example for FB
+	@(FACEBOOK) : @{ @"autoLogin": @(YES) }
+	```
 
 <div class="info-box">The following steps should be done according to the target social network.</div>
 
@@ -164,7 +184,6 @@ The callback to this process is `openURL` which should be defined in your `AppDe
 
 ## Caveats
 
-
 ### Facebook Caveats
 
 1. **Facebook Application** - You must create a Facebook application and use its details in your Profile-based application (with Facebook)
@@ -177,7 +196,7 @@ The callback to this process is `openURL` which should be defined in your `AppDe
 
   - See [Browser-based Authentication](#browser-based-authentication)
 
-4. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
+4. **Facebook Permissions** - Profile will request `publish_actions`, `user_location`, `user_likes` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles.
 
 ### Twitter Caveats
 

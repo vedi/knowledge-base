@@ -43,6 +43,14 @@ This class holds information about a user for a specific `IProvider`.
 - `Username`
 - `FirstName`
 - `LastName`
+- `Extra` - a map contains additional info provided by social provider:
+  - `Facebook`
+    - **access_token** - *String*
+    - **permissions** - *JSONArray of Strings*
+  - `Twitter`
+    - **access_token** - *String*
+  - `Google+`
+    - **access_token** - *String*
 
 ## SoomlaProfile <a href="https://github.com/soomla/android-profile/blob/master/SoomlaAndroidProfile/src/com/soomla/profile/SoomlaProfile.java" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
@@ -173,6 +181,20 @@ SoomlaProfile.getInstance().updateStatusWithConfirmation(
 
 There is also an overloaded version without `customMessage`. In this case default message will be used.  
 
+<br>
+### `updateStatusDialog`
+
+Shares the given status to the user's feed and grants the user a reward.
+Using the provider's native dialog (when available).
+
+``` java
+SoomlaProfile.getInstance().updateStatusDialog(
+	IProvider.Provider.FACEBOOK,            // Provider
+	" http://www.soom.la",                  // Link to post as status
+	"",                                     // Payload
+	null                              		  // Reward	
+);
+```
 
 <br>
 ### `updateStory`
@@ -239,6 +261,24 @@ SoomlaProfile.getInstance().updateStoryWithConfirmation(
 
 There is also an overloaded version without `customMessage`. In this case default message will be used.  
 
+<br>
+### `updateStoryDialog`
+
+Shares a story to the user's feed and grants the user a reward.
+Using the provider's native dialog (when available).
+
+``` java
+SoomlaProfile.getInstance().updateStoryDialog(
+	IProvider.Provider.FACEBOOK,                // Provider
+	"The story of SOOMBOT (Profile Test App)",  // Name
+  "SOOMBOT Story",                            // Caption
+  "Hey! It's SOOMBOT Story",                 	// Description
+  "http://about.soom.la/soombots",            // Link to post
+  "http://about.soom.la/.../spockbot.png",    // Image URL					
+	"",                                         // Payload
+	null                                        // Reward	
+);
+```
 
 <br>
 ### `uploadImage`
@@ -405,6 +445,39 @@ public void onGetFeedFinished(GetFeedFinishedEvent getFeedFinishedEvent) {
         // no pages anymore
     }
 }
+```
+
+<br>
+### `invite`
+
+`invite` sends an invitation to join your app.
+
+**NOTE:** Supported only by Facebook.
+
+``` java
+SoomlaProfile.getInstance().invite(
+	IProvider.Provider.FACEBOOK,                // Provider
+	"Let's use SOOMLA together!",               // Invitation message
+	"SOOMLA Invitation",                        // Dialog title
+	"",                                         // Payload
+	null                                        // Reward
+);
+```
+
+<br>
+### `uploadCurrentScreenshot`
+
+`uploadCurrentScreenshot` uploads the current screen shot image to the user's social page on the given Provider.
+
+``` java
+SoomlaProfile.getInstance().uploadCurrentScreenshot(
+    (Activity)this,                             // Attached activity
+	IProvider.Provider.FACEBOOK,                // Provider
+	"Sharing title",                            // Story title
+	"Let's use SOOMLA together!",               // Story message
+	"",                                         // Payload
+	null                                        // Reward
+);
 ```
 
 <br>

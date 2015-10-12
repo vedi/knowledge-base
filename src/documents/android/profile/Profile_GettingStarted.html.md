@@ -14,7 +14,7 @@ platform: 'android'
 
 ##Getting Started
 
-1. Download [android-profile](http://library.soom.la/fetch/android-profile/1.0.1?cf=github).
+1. Download [android-profile](http://library.soom.la/fetch/android-profile/latest?cf=knowledge%20base).
 
 2. From the downloaded zip, add the following jars to your project.
 
@@ -65,6 +65,10 @@ platform: 'android'
 
 	SoomlaProfile.getInstance().initialize(providerParams);
 	```
+  <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app,
+  just request the reasonable minimum. Other permissions will be requested, when they will be needed.
+  For instance, if you try to call `updateStatus`, SoomlaProfile will ask for `publish_actions` permission, 
+  if your app has not got it.</div>
 
   b. **Google+** - No special parameters needed
 
@@ -79,6 +83,17 @@ platform: 'android'
 	SoomlaProfile.getInstance().initialize(providerParams);
 	```
 
+  d. **Common** - There are some settings you can define which applies in all social providers params:
+
+	 `autoLogin` - Setting autoLogin to true will tell Profile to try and login the user automatically to the provider, if the user has already logged in with it in the previous sessions. The default value is `false`.
+
+	``` java
+  // Example for FB
+  HashMap<String, String> facebookParams = new HashMap<String, String>();
+  facebookParams.put("autoLogin", Boolean.toString(true));
+  providerParams.put(IProvider.Provider.FACEBOOK, facebookParams);
+  ```
+
 6. If integrating a virtual economy with the store module, please see [android-store](/android/store/Store_GettingStarted) for store setup.
 
 <div class="info-box">The following steps should be done according to the target social network.</div>
@@ -90,7 +105,8 @@ Facebook is supported out-of-the-box, you just have to follow the next steps to 
 1. From the downloaded zip, Add the following jars to your project.
 
 	- `AndroidProfileFacebook.jar`
-	- `simple.facebook-2.1.jar`
+	- `simple-fb-4.0.3.jar`
+	- `gson-1.7.2.jar`
 
 2. Import the Facebook SDK for Android into your project and setup all the relevant information (Application ID, etc).
 
@@ -143,7 +159,8 @@ Twitter is supported out-of-the-box, authentication is done via web view. Follow
 
 3. Import `google-play-services_lib` project as module dependency to your project.
 
-    > **Note:** You can either download/copy the existing `google-play-services_lib` project located under [google social provider libs](https://github.com/soomla/android-profile/tree/master/social-providers/android-profile-google/libs) folder or [create one yourself](https://developers.google.com/+/mobile/android/getting-started#step_2_configure_your_eclipse_project).
+    > **Note:** You can either download/copy the existing `google-play-services_lib` project located under 
+    [google social provider libs](https://github.com/soomla/android-profile/tree/master/social-providers/android-profile-google/libs) folder or [create one yourself](https://developers.google.com/+/mobile/android/getting-started#step_2_configure_your_eclipse_project).
 
 4. Add `SoomlaGooglePlusActivity` to `AndroidManifest.xml` as following:
 
@@ -176,7 +193,7 @@ Twitter is supported out-of-the-box, authentication is done via web view. Follow
 	</application>
 	```
 
-3. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
+3. **Facebook Permissions** - Profile will request `publish_actions`, `user_location`, `user_likes` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
 
 ## Twitter Caveats
 

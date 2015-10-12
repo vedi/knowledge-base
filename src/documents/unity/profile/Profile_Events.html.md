@@ -95,8 +95,9 @@ This event is triggered when logging into the social provider has started.
 ``` cs
 ProfileEvents.OnLoginStarted += onLoginStarted;
 
-public void onLoginStarted(Provider provider, string payload) {
+public void onLoginStarted(Provider provider, bool autoLogin, string payload) {
 	// provider is the social provider
+	// autoLogin will be "true" if the user was logged in using the AutoLogin functionality
 	// payload is an identification string that you can give when you initiate the login operation and want to receive back upon starting
 
 	// ... your game specific implementation here ...
@@ -110,8 +111,9 @@ This event is triggered when logging into the social provider has finished **suc
 ``` cs
 ProfileEvents.OnLoginFinished += onLoginFinished;
 
-public void onLoginFinished(UserProfile userProfileJson, string payload) {
+public void onLoginFinished(UserProfile userProfileJson, bool autoLogin, string payload) {
 	// userProfileJson is the user's profile from the logged in provider
+	// autoLogin will be "true" if the user was logged in using the AutoLogin functionality
 	// payload is an identification string that you can give when you initiate the login operation and want to receive back upon its completion
 
 	// ... your game specific implementation here ...
@@ -125,8 +127,9 @@ This event is triggered when logging into the social provider has been cancelled
 ``` cs
 ProfileEvents.OnLoginCancelled += onLoginCancelled;
 
-public void onLoginCancelled(Provider provider, string payload) {
+public void onLoginCancelled(Provider provider, bool autoLogin, string payload) {
 	// provider is the social provider
+	// autoLogin will be "true" if the user was logged in using the AutoLogin functionality
 	// payload is an identification string that you can give when you initiate the login operation and want to receive back upon cancellation
 
 	// ... your game specific implementation here ...
@@ -140,9 +143,10 @@ This event is triggered when logging into the social provider has failed.
 ``` cs
 ProfileEvents.OnLoginFailed += onLoginFailed;
 
-public void onLoginFailed(Provider provider, string message, string payload) {
+public void onLoginFailed(Provider provider, string message, bool autoLogin, string payload) {
 	// provider is the social provider
 	// message is the failure message
+	// autoLogin will be "true" if the user was logged in using the AutoLogin functionality
 	// payload is an identification string that you can give when you initiate the login operation and want to receive back upon failure
 
 	// ... your game specific implementation here ...
@@ -202,7 +206,7 @@ ProfileEvents.OnSocialActionStarted += onSocialActionStarted;
 
 public void onSocialActionStarted(Provider provider, SocialActionType action, string payload) {
 	// provider is the social provider
-	// action is the social action (like, post status, etc..) that started
+	// action is the social action (post status, etc..) that started
 	// payload is an identification string that you can give when you initiate the social action operation and want to receive back upon starting
 
 	// ... your game specific implementation here ...
@@ -329,7 +333,7 @@ This event is triggered when fetching the feed from the social provider has fini
 ``` cs
 ProfileEvents.OnGetFeedFinished += onGetFeedFinished;
 
-public void onGetFeedFinished(Provider provider, List<string> feed) {
+public void onGetFeedFinished(Provider provider, SocialPageData<string> feed) {
 	// provider is the social provider
 	// feed is the user's feed that has been fetched in the get feed operation
 
@@ -347,6 +351,74 @@ ProfileEvents.OnGetFeedFailed += onGetFeedFailed;
 public void onGetFeedFailed(Provider provider, string payload) {
 	// provider is the social provider
 	// payload is an identification string that you can give when you initiate the get feed operation and want to receive back upon failure
+
+	// ... your game specific implementation here ...
+}
+```
+
+###OnInviteStarted
+
+This event is triggered when an invitation has started.
+
+``` cs
+ProfileEvents.OnInviteStarted += onInviteStarted;
+
+public void onInviteStarted(Provider provider, SocialActionType action, string payload) {
+	// provider is the social provider
+	// action is the social action (post status, etc..) that started
+	// payload is an identification string that you can give when you initiate the social action operation and want to receive back upon starting
+
+	// ... your game specific implementation here ...
+}
+```
+
+
+###OnInviteFinished
+
+This event is triggered when an invitation has finished **successfully**.
+
+``` cs
+ProfileEvents.OnInviteFinished += onInviteFinished;
+
+public void onInviteFinished(Provider provider, SocialActionType action, string requestId, List<string> invitedIds, string payload) {
+	// provider is the social provider
+	// action is the social action (like, post status, etc..) that finished
+	// requestId is an identifier of created invite request
+  // invitedIds is a list of invited user's identifiers
+	// payload is an identification string that you can give when you initiate the social action operation and want to receive back upon its completion
+
+	// ... your game specific implementation here ...
+}
+```
+
+###OnInviteCancelled
+
+This event is triggered when an invitation has been cancelled.
+
+``` cs
+ProfileEvents.OnInviteCancelled += onInviteCancelled;
+
+public void onInviteCancelled(Provider provider, SocialActionType action, string payload) {
+	// provider is the social provider
+	// action is the social action (like, post status, etc..) that has been cancelled
+	// payload is an identification string that you can give when you initiate the social action operation and want to receive back upon cancellation
+
+	// ... your game specific implementation here ...
+}
+```
+
+###OnInviteFailed
+
+This event is triggered when an invitation has failed.
+
+``` cs
+ProfileEvents.OnInviteFailed += onInviteFailed;
+
+public void onInviteFailed(Provider provider, SocialActionType action, string message, string payload) {
+	// provider is the social provider
+	// action is the social action (like, post status, etc..) that failed
+	// message is the failure message
+	// payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
 
 	// ... your game specific implementation here ...
 }

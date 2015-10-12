@@ -67,6 +67,10 @@ int totalLevels = SoomlaLevelUp.GetLevelCount();
 
 // Retrieve the number of completed `Level`s:
 int completedLevels = SoomlaLevelUp.GetCompletedWorldCount();
+
+// Clears all current progress of LevelUp:
+SoomlaLevelUp.ClearCurrentState();
+
 ```
 
 <br>
