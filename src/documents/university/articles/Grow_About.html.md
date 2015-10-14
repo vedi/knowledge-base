@@ -41,14 +41,13 @@ To get started with GROW, you can follow each one of different GROW bundles' tut
 
 - The [Analytics dashboard](/university/articles/Grow_Analytics/) will provide you with free useful information about your game when you join the GROW network. In the dashboard, you'll be able to see aggregative analytics about your games and investigate its performance, analyze revenue, retention and a lot more
 
-- SOOMLA has created some Backend Services that will put your game on steroids and by that increase your users' experience and engagement:
+- SOOMLA has created some Backend Services that will put your game on steroids and by that increases user experience and engagement:
   - Social Leaderboards lets your players compete with their friends.
-  - Gifting lets your players help their friends by sending them coins, lives, upgrades or any other virtual item.
+  - Gifting lets your players help their friends by sending them coins, lives and upgrades.
   - Sync lets your players pick up where they left off regardless of the device they’re using.
   - Economy Management lets you make changes to your virtual economy at real time. Every change you'll do will automatically be sent to all devices playing your game.
-  - Fraud Protection helps you secure your in-app purchases by marking and blocking fraud suspects, validating receipts and identifying abnormal purchase behavior. This solution takes spices SOOMLA Store's receipt validation with a sophisticated layer for advanced verification.
+  - Fraud Protection lets you secure your in-app purchases by marking and blocking fraud suspects, receipt validation and identifying abnormal purchase behavior. This feature takes the receipt validation from the SOOMLA Store module and adds a sophisticated layer for advanced verification.
 
+  GROW is free for studios who join and share their in-game data in it. The main goal is to help mobile game studios create better, more engaging games, that anyone can enjoy.
 
-GROW is free for studios who join and share their in-game data in it. The main goal is to help mobile game studios create better, more engaging games, that anyone can enjoy.
-
-So go ahead and join GROW. The best place to start is [here](http://dashboard.soom.la).
+So go ahead and join GROW. The best place to start is [here](http://dashboard.soom.la/)

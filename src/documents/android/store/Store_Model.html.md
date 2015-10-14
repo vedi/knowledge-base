@@ -118,12 +118,12 @@ Use `VirtualCurrency` when defining `VirtualCurrencyPack`s:
 
 ``` java
 public static final VirtualCurrencyPack TENMUFF_PACK = new VirtualCurrencyPack(
-    "10 Muffins",                                          // Name
-    "A currency pack of 10 muffins",                       // Description
-    "muffins_10",                                          // Item ID
-    10,                                                    // Number of currency units in this pack
-    "currency_muffin",                                     // The currency associated with this pack
-    new PurchaseWithMarket(TENMUFF_PACK_PRODUCT_ID, 0.99)  // Purchase type
+    "10 Muffins",                                      // Name
+    "A currency pack of 10 muffins",                   // Description
+    "muffins_10",                                      // Item ID
+    10,                                                // Number of currency units in this pack
+    "currency_muffin",                                 // The currency associated with this pack
+    new PurchaseWithMarket(TENMUFF_PACK_PRODUCT_ID, 0.99) // Purchase type
 );
 ```
 
@@ -152,12 +152,12 @@ As mentioned above, in game stores you never buy just a "Gold Coin" or a "Muffin
 
 ``` java
 public static final VirtualCurrencyPack FIFTYMUFF_PACK = new VirtualCurrencyPack(
-    "50 Muffins",                                              // Name
-    "A currency pack of 50 muffins",                           // Description
-    "muffins_50",                                              // Item ID
-    50,                                                        // Number of currency units in this pack
-    MUFFIN_CURRENCY_ITEM_ID,                                   // The currency associated with this pack
-    new PurchaseWithMarket(FIFTYMUFF_PACK_PRODUCT_ID, 1.99)    // Purchase type
+    "50 Muffins",                                      // Name
+    "A currency pack of 50 muffins",                   // Description
+    "muffins_50",                                      // Item ID
+    50,                                                // Number of currency units in this pack
+    MUFFIN_CURRENCY_ITEM_ID,                           // The currency associated with this pack
+    new PurchaseWithMarket(FIFTYMUFF_PACK_PRODUCT_ID, 1.99) // Purchase type
 );
 ```
 
@@ -218,7 +218,7 @@ Below are detailed descriptions of each category.
 
 ### SingleUseVG <a href="https://github.com/soomla/android-store/blob/master/SoomlaAndroidStore/src/com/soomla/store/domain/virtualGoods/SingleUseVG.java" target="_blank"><img class="link-icon-small" src="/img/tutorial_img/linkImg.png"></a>
 
-The most basic and common kind of a `VirtualGood` is a `SingleUseVG`. `SingleUseVG`s can be purchase by your users multiple times. No limits!
+The most basic and common kind of a `VirtualGood` is a `SingleUseVG`. `SingleUseVG`s can be purchased by your users multiple times. No limits!
 
 **The SingleUseVG's characteristics are:**
 
@@ -656,9 +656,10 @@ Let’s suppose your game has the following categories of virtual goods: "Power 
 ``` java
 // Assume that MUFFINCAKE_ITEM_ID, PAVLOVA_ITEM_ID, etc.. are item ids of virtual goods that have been declared.
 public static final VirtualCategory SWEETS_CATEGORY = new VirtualCategory(
-    "Cakes and Sweets",                                                                     // Name
+    "Cakes and Sweets",                                // Name
     new ArrayList<String>(Arrays.asList(new String[]
-        {MUFFINCAKE_ITEM_ID, PAVLOVA_ITEM_ID, CHOCOLATECAKE_ITEM_ID, CREAMCUP_ITEM_ID}))    // List of good IDs
+        {MUFFINCAKE_ITEM_ID, PAVLOVA_ITEM_ID,
+         CHOCOLATECAKE_ITEM_ID, CREAMCUP_ITEM_ID}))    // List of good IDs
 );
 ```
 

@@ -15,10 +15,10 @@ platform: 'cocos2dx'
 
 ## Overview
 
-GrowInsights is the perfect solution for your game if you have already integrated any of the SOOMLA open-source modules 
-into it. If you just want to get Analytics Whales Report and Grow Insights then this bundle is for you. GrowInsights 
-connects you to GROW, SOOMLA's flagship - a community-driven data network. Mobile game studios can take advantage of 
-the different GROW products in order to get valuable insights about their games' performance and increase retention and 
+GrowInsights is the perfect solution for your game if you have already integrated any of the SOOMLA open-source modules
+into it. If you just want to get Analytics Whales Report and Grow Insights then this bundle is for you. GrowInsights
+connects you to GROW, SOOMLA's flagship - a community-driven data network. Mobile game studios can take advantage of
+the different GROW products in order to get valuable insights about their games' performance and increase retention and
 monetization. [Read more...](/cocos2dx/js/grow/Grow_About)
 
 GrowInsights includes:
@@ -31,20 +31,20 @@ GrowInsights includes:
 
 ### New Game & Configurations
 
-Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon logging in, you will be directed to the 
+Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon logging in, you will be directed to the
 main page of the dashboard. You will need to create a new game in order to start your journey with GROW.
 
-<div class="info-box">If you didn't already, clone the Cocos2d-x framework from [here](https://github.com/cocos2d/cocos2d-x), 
-or download it from the [Cocos2d-x website](http://www.cocos2d-x.org/download). Make sure the version you clone is 
+<div class="info-box">If you didn't already, clone the Cocos2d-x framework from [here](https://github.com/cocos2d/cocos2d-x),
+or download it from the [Cocos2d-x website](http://www.cocos2d-x.org/download). Make sure the version you clone is
 supported by SOOMLA's modules (the tag is the version).</div>
 
-1. In the games screen click on the "+" button to add a new game. If it's your first time in the dashboard, just click on 
+1. In the games screen click on the "+" button to add a new game. If it's your first time in the dashboard, just click on
 the "+" button underneath the "Create your first game" label in the middle of the screen.
 
 	  ![alt text](/img/tutorial_img/unity_grow/addNewApp.png "Add new app")
 
-	* Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You 
-	can also click "Downloads" on the top right corner of the screen). Click on **GrowInsights**. You'll see an 
+	* Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You
+	can also click "Downloads" on the top right corner of the screen). Click on **GrowInsights**. You'll see an
 	instructions screen, you can continue with that or stay here for the extended version.  
 
 2. Unzip the downloaded file and copy its contents into the cocos2d directory located at the root of your Cocos2d-x project.
@@ -54,7 +54,7 @@ the "+" button underneath the "Create your first game" label in the middle of th
 
 <div class="info-box">Make sure to initialize each module ONLY ONCE when your application loads.</div>
 <br>
-<div class="info-box">The GrowHighway module is the module responsible for connecting your game to the GROW network. 
+<div class="info-box">The GrowHighway module is the module responsible for connecting your game to the GROW network.
 In order for it to operate it only needs to be initialized.</div>
 
 1. Register soomla js-bindings in your `js_module_register.h`:
@@ -80,7 +80,7 @@ In order for it to operate it only needs to be initialized.</div>
     ```
 
 
-2. Initialize `Soomla` with a custom secret of your choice (**Custom Secret** is an encryption secret you provide that 
+2. Initialize `Soomla` with a custom secret of your choice (**Custom Secret** is an encryption secret you provide that
 will be used to secure your data.):
 
   ```js
@@ -91,15 +91,15 @@ will be used to secure your data.):
 
 3. Initialize `GrowHighway` with the "Game Key" and "Env Key" given to you in the [dashboard](http://dashboard.soom.la):
 
-  **Copy the "Game Key" and "Environment Key"** given to you from the [dashboard](http://dashboard.soom.la) and initialize 
-  `GrowHighway` with them. At this point, you're probably testing your integration and you want to use the **Sandbox** 
+  **Copy the "Game Key" and "Environment Key"** given to you from the [dashboard](http://dashboard.soom.la) and initialize
+  `GrowHighway` with them. At this point, you're probably testing your integration and you want to use the **Sandbox**
   environment key.
 
-  Explanation: The "game" and "env" keys allow for your game to distinguish multiple environments for the same game. 
+  Explanation: The "game" and "env" keys allow for your game to distinguish multiple environments for the same game.
   The dashboard pre-generates two fixed environments for your game: **Production** and **Sandbox**. When you decide to
    publish your game, make sure to switch the env key to **Production**.  You can always generate more environments.  
-   For example - you can choose to have a playground environment for your game's beta testers which will be isolated 
-   from your production environment and will thus prevent analytics data from being mixed between the two.  Another best 
+   For example - you can choose to have a playground environment for your game's beta testers which will be isolated
+   from your production environment and will thus prevent analytics data from being mixed between the two.  Another best
    practice is to have a separate environment for each version of your game.
 
   ```js
@@ -118,7 +118,7 @@ will be used to secure your data.):
     Soomla.GrowInsights.createShared();
   	```
 
-4. Make sure that in your current implementation you initialize the open-source modules (Store/Profile/LevelUp) 
+4. Make sure that in your current implementation you initialize the open-source modules (Store/Profile/LevelUp)
 **AFTER** the initialization of Highway.
 
 <br>
@@ -209,19 +209,19 @@ That's it! Don't forget to run the **build_native.py** script so that SOOMLA sou
 
 ## Module usage & event handling
 
-The next step is to create your game specific implementation for each of the modules. Use SOOMLA's awesome products to 
+The next step is to create your game specific implementation for each of the modules. Use SOOMLA's awesome products to
 create better in-game economy, social interactions, game design and user experience.  
-In order to be notified about (and handle) SOOMLA-related events, you will also need to create event-handling functions. 
+In order to be notified about (and handle) SOOMLA-related events, you will also need to create event-handling functions.
 Refer to the following sections for more information:
 
-- **Insights** - Getting in-game information about your users in real-time used to be a dream. Now it's here. Insights 
-will tell you things about your users (as seen in other games) inside the code so you can take actions when it matters. 
+- **Insights** - Getting in-game information about your users in real-time used to be a dream. Now it's here. Insights
+will tell you things about your users (as seen in other games) inside the code so you can take actions when it matters.
 This is the power of the GROW data network.  
 [API](/cocos2dx/js/grow/Grow_Insights#MainClasses&Methods) | [Events](/cocos2dx/js/grow/Grow_Insights#Events)
 
 ## Example
 
-Below is a short example of how to initialize SOOMLA's modules. We suggest you read about the different modules and their 
+Below is a short example of how to initialize SOOMLA's modules. We suggest you read about the different modules and their
 entities in SOOMLA's Knowledge Base:  [Insights](/cocos2dx/js/grow/Grow_Insights).
 
 ### Initialization
@@ -245,7 +245,7 @@ this.onGrowInsightsInitialized: function() {
 this.onInsightsRefreshFinished: function() {
     if (Soomla.growInsights.getUserInsights().
                 getPayInsights().getPayRankForGenre(Soomla.Models.Genre.Educational) > 3) {
-                
+
         // ... Do stuff according to your business plan ...
     }
 }

@@ -3,7 +3,7 @@ layout: "content"
 image: "Sync"
 title: "State & Economy Sync"
 text: "Get started with GROW State & Economy Sync for Unity. Here you can find initialization instructions, event handling and usage examples."
-position: 8
+position: 3
 theme: 'platforms'
 collection: 'cocos2djs_grow'
 module: 'grow'
@@ -15,7 +15,7 @@ platform: 'cocos2dx'
 
 ## Overview
 
-GROW's State & Economy Sync brings you a complete solution for saving your game state in the cloud, cross device synching 
+GROW's State & Economy Sync brings you a complete solution for saving your game state in the cloud, cross device synching
 and remote economy (model) management.
 With State & Economy Sync you can:
 
@@ -26,32 +26,32 @@ With State & Economy Sync you can:
 
 ## Integration
 
-<div class="info-box">GROW's State & Economy Sync is included in [GrowSpend](/cocos2dx/js/grow/GrowSpend_GettingStarted#SetupGrowSpend), 
-[GrowCompete](/cocos2dx/js/grow/GrowCompete_GettingStarted#SetupGrowCompete) and 
-[GrowUltimate](/cocos2dx/js/grow/GrowUltimate_GettingStarted#SetupGrowUltimate) bundles. Please refer to the relevant 
+<div class="info-box">GROW's State & Economy Sync is included in [GrowSpend](/cocos2dx/js/grow/GrowSpend_GettingStarted#SetupGrowSpend),
+[GrowCompete](/cocos2dx/js/grow/GrowCompete_GettingStarted#SetupGrowCompete) and
+[GrowUltimate](/cocos2dx/js/grow/GrowUltimate_GettingStarted#SetupGrowUltimate) bundles. Please refer to the relevant
 bundle for initialization instructions.</div>
 
 
 1. Initialize `GrowSync` according to the instructions of your relevant bundle.
 
-* Create event handler functions in order to be notified about (and handle) GROW Sync related events. See 
+* Create event handler functions in order to be notified about (and handle) GROW Sync related events. See
 [Events](/cocos2dx/js/grow/Grow_Sync/#Events) for more information.
 
-* Once initialized, Sync will start syncing the player's state and game model, depending on the integrated modules. 
+* Once initialized, Sync will start syncing the player's state and game model, depending on the integrated modules.
 Synchronization is done with a unique identifier for every device.
 
-* If [Profile](/cocos2dx/js/profile/Profile_GettingStarted) is integrated, once the player logs into a social network 
-the game state will be synched across all of the player's devices, on which he/she is logged in with the same profile 
+* If [Profile](/cocos2dx/js/profile/Profile_GettingStarted) is integrated, once the player logs into a social network
+the game state will be synched across all of the player's devices, on which he/she is logged in with the same profile
 for that social provider.
 
-<div class="warning-box">Make sure to start gameplay or change local state only **after** 
+<div class="warning-box">Make sure to start gameplay or change local state only **after**
 [`EVENT_STATE_SYNC_FINISHED`](/cocos2dx/js/grow/Grow_Sync#OnStateSyncFinished) event is triggered. </div>
 
 ## Observing & Handling Events
 
 ### Subscribing
 
-The names of events are defined in `Soomla.Models.HighwayConsts`. 
+The names of events are defined in `Soomla.Models.HighwayConsts`.
 Subscribe to events in the following way:
 
 ```js
@@ -268,7 +268,7 @@ this.onModelSyncFinished = function (changedComponents) {
 }
 
 this.onStateSyncFinished = function (changedComponents, failedComponents) {
-  // State Sync has finished. 
+  // State Sync has finished.
   // ... your game specific implementation here ...
 }
 ```

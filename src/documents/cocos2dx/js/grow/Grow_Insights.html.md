@@ -3,7 +3,7 @@ layout: "content"
 image: "Insights"
 title: "Insights"
 text: "Get started with GROW Insights for Unity. Here you can find initialization instructions, event handling and usage examples."
-position: 9
+position: 6
 theme: 'platforms'
 collection: 'cocos2djs_grow'
 module: 'grow'
@@ -15,8 +15,8 @@ platform: 'cocos2dx'
 
 ## Overview
 
-GROW Insights brings you priceless insights about your users at real-time and inside your code. You can use the provided 
-insights to take actions on your users at real time during gameplay when your users actually arrive in your game. With 
+GROW Insights brings you priceless insights about your users at real-time and inside your code. You can use the provided
+insights to take actions on your users at real time during gameplay when your users actually arrive in your game. With
 Insights you can:  
 
 
@@ -30,21 +30,21 @@ Currently, Insights supports PayInsights which categorizes users according to th
 
 ## Integration
 
-<div class="info-box">GROW Insights is included all GROW bundles: [GrowSpend](/cocos2dx/js/grow/GrowSpend_GettingStarted#SetupGrowSpend), 
-[GrowViral](/cocos2dx/js/grow/GrowViral_GettingStarted#SetupGrowViral), 
-[GrowCompete](/cocos2dx/js/grow/GrowCompete_GettingStarted#SetupGrowCompete), 
-[GrowInsights](/cocos2dx/js/grow/GrowInsights_GettingStarted#SetupGrowInsights) and 
-[GrowUltimate](/cocos2dx/js/grow/GrowUltimate_GettingStarted#SetupGrowUltimate) bundles. Please refer to the relevant 
+<div class="info-box">GROW Insights is included all GROW bundles: [GrowSpend](/cocos2dx/js/grow/GrowSpend_GettingStarted#SetupGrowSpend),
+[GrowViral](/cocos2dx/js/grow/GrowViral_GettingStarted#SetupGrowViral),
+[GrowCompete](/cocos2dx/js/grow/GrowCompete_GettingStarted#SetupGrowCompete),
+[GrowInsights](/cocos2dx/js/grow/GrowInsights_GettingStarted#SetupGrowInsights) and
+[GrowUltimate](/cocos2dx/js/grow/GrowUltimate_GettingStarted#SetupGrowUltimate) bundles. Please refer to the relevant
 bundle for initialization instructions.</div>
 
 
 1. Initialize `GrowInsights` according to the instructions of your relevant bundle.
 
-* Create event handler functions in order to be notified about (and handle) GROW Insights related events. See 
+* Create event handler functions in order to be notified about (and handle) GROW Insights related events. See
 [Events](/cocos2dx/js/grow/Grow_Insights/#Events) for more information.
 
-3. Once initialized, GROW Insights will automatically retrieve relevant insights from the server. Once the insights are 
-ready (see [`EVENT_INSIGHTS_REFRESH_FINISHED`](/cocos2dx/js/grow/Grow_Insights/#EVENT_INSIGHTS_REFRESH_FINISHED)) you 
+3. Once initialized, GROW Insights will automatically retrieve relevant insights from the server. Once the insights are
+ready (see [`EVENT_INSIGHTS_REFRESH_FINISHED`](/cocos2dx/js/grow/Grow_Insights/#EVENT_INSIGHTS_REFRESH_FINISHED)) you
 can access them as explained below.
 
 ## Observing & Handling Events
@@ -69,7 +69,7 @@ this.onInsightsRefreshFinished = function () {
 
 ## Events
 
-Following is a list of all the events in GROW Insights and an example of how to observe & handle them. The events' 
+Following is a list of all the events in GROW Insights and an example of how to observe & handle them. The events'
 handling examples are written for v3, but it's easy to convert them to v2 dialect, see how above.
 
 ### EVENT_GROW_INSIGHTS_INITIALIZED
@@ -122,7 +122,7 @@ this.onInsightsRefreshFailed = function () {
 
 ## Main Classes & Methods
 
-Here you can find descriptions of the main classes of GROW Insights. These classes contain functionality for 
+Here you can find descriptions of the main classes of GROW Insights. These classes contain functionality for
 insights-related operations such as refreshing insights, retrieving and using them.
 
 ### GrowInsights
@@ -137,15 +137,15 @@ Initializes the GROW Insights feature. Once initialized, the `EVENT_GROW_INSIGHT
 
 **`GrowInsights.refreshInsights()`**
 
-Manually refresh the insights. The `EVENT_INSIGHTS_REFRESH_STARTED` event is triggered once the refresh process is 
-started, and one of `EVENT_INSIGHTS_REFRESH_FINISHED` or `EVENT_INSIGHTS_REFRESH_FAILED` is triggered depending on the 
+Manually refresh the insights. The `EVENT_INSIGHTS_REFRESH_STARTED` event is triggered once the refresh process is
+started, and one of `EVENT_INSIGHTS_REFRESH_FINISHED` or `EVENT_INSIGHTS_REFRESH_FAILED` is triggered depending on the
 refresh outcome.
 
 **`GrowInsights.getUserInsights()`**
 
 Returns the [User-Insights](/cocos2dx/js/grow/Grow_Insights/#UserInsights) received from the server.
 
-<div class="info-box">GROW Insights caches its data on the device so that it's accessible even when there is no internet 
+<div class="info-box">GROW Insights caches its data on the device so that it's accessible even when there is no internet
 connection.</div>
 
 ### UserInsights
