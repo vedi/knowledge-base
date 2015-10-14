@@ -2,7 +2,7 @@
 layout: "content"
 image: "Analytics"
 title: "Dashboard - Analytics"
-text: "Get started with Grow Analytics Dashboard."
+text: "Get started with Grow Analytics Dashboard. Learn about the different metrics we're showing and how to use them."
 position: 2
 theme: 'platforms'
 collection: 'university_articles'

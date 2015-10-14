@@ -2,7 +2,7 @@
 layout: "content"
 image: "FraudProtection"
 title: "Fraud Protection"
-text: "Get started with Grow Fraud Protection."
+text: "SOOMLA's Fraud Protection service is protecting you from IAP fraudsters. This document will explain how to integrate the service into your game and how it works."
 position: 4
 theme: 'platforms'
 collection: 'university_articles'

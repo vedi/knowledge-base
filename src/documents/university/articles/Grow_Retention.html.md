@@ -2,7 +2,7 @@
 layout: "content"
 image: "Guide"
 title: "Dashboard - Retention"
-text: "Get started with Grow Analytics Dashboard."
+text: "Learn all about how we think retention should be investigated. On the dashboard, GROW's retention screen is the perfect way to learn when your users come back."
 position: 2
 theme: 'platforms'
 collection: 'university_articles'
