@@ -10,6 +10,8 @@ docpadConfig = {
 # To access one of these within our templates, refer to the FAQ: https://github.com/bevry/docpad/wiki/FAQ
 	prompts: false,
 
+	renderPasses: 2,
+
 	templateData:
 
 	# Specify some site properties
