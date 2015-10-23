@@ -48,13 +48,18 @@ platform: 'cocos2dx'
 
 	YourImplementationAssets *assets = YourImplementationAssets::create();
 
-	__Dictionary *storeParams = __Dictionary::create();
-	 storeParams->setObject(__String::create("ExamplePublicKey"), "androidPublicKey");
-	 storeParams->setObject(__Bool::create(true), "testPurchases");
-	 storeParams->setObject(__Bool::create(true), "SSV");
-	 storeParams->setObject(__Bool::create(true), "verifyOnServerFailure");
-
-	soomla::CCSoomlaStore::initialize(assets, storeParams);
+	bool verifyOnFailure = true;
+  soomla::CCSoomlaStoreConfigBuilder *storeConfig 
+      = soomla::CCSoomlaStoreConfigBuilder::create();
+  storeConfig
+    ->setGpConfiguration(soomla::CCSoomlaStoreGpConfigBuilder::create()
+      ->setAndroidPublicKey("ExamplePublicKey")
+      ->setTestPurchases(true)
+      ->activateFraudProtection("clientId", "clientSecret", "refreshToken", verifyOnFailure))
+    ->setIosConfiguration(soomla::CCSoomlaStoreIosConfigBuilder::create()
+      ->activateFraudProtection(verifyOnFailure));
+  
+  soomla::CCSoomlaStore::initialize(assets, storeConfig->build());
 	```
 
 	- *Custom Secret* - is an encryption secret you provide that will be used to secure your data.
