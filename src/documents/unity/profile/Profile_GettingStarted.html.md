@@ -23,6 +23,27 @@ platform: 'unity'
 	b. [unity3d-profile](http://library.soom.la/fetch/unity3d-profile/latest?cf=knowledge%20base)
 
 	If you want to use Store-related rewards you'll need to go over the instructions of [unity3d-store](https://github.com/soomla/unity3d-store).
+	
+	<div class="info-box">Starting from `SOOMLA Unity3D Profile 2.1.9`, SOOMLA changed the location of binaries in `Plugins` directory. If you're upgrading from version lower than 2.1.9 to version higher than 2.1.9, please remove the following binaries manually:
+        <ul>
+        		<li>`Assets/Plugins/iOS/libSoomlaiOSCore.a`</li>
+						<li>`Assets/Plugins/iOS/libSoomlaiOSSProfile.a`</li>
+            <li>`Assets/Plugins/iOS/libUnitySoomlaiOSCore.a`</li>
+            <li>`Assets/Plugins/iOS/libUnityiOSProfile.a`</li>            
+            <li>`Assets/Plugins/iOS/libSoomlaiOSSProfileTwitter.a` (if you're using Twitter)</li>
+            <li>`Assets/Plugins/iOS/libSoomlaiOSSProfileGoogle.a`(if you're using Google+)</li>
+            <li>`Assets/Plugins/Android/AndroidProfile.jar`</li>
+            <li>`Assets/Plugins/Android/SoomlaAndroidCore.jar`</li>
+            <li>`Assets/Plugins/Android/UnityAndroidProfile.jar`</li>
+            <li>`Assets/Plugins/Android/UnitySoomlaAndroidCore.jar`</li>
+            <li>`Assets/Plugins/Android/square-otto-1.3.2.jar`</li>
+            <li>`Assets/Plugins/Android/AndroidProfileTwitter.jar` (if you're using Twitter)</li>
+            <li>`Assets/Plugins/Android/twitter4j-asyc-4.0.2.jar` (if you're using Twitter)</li>
+            <li>`Assets/Plugins/Android/twitter4j-core-4.0.2.jar` (if you're using Twitter)</li>
+            <li>`Assets/Plugins/Android/AndroidProfileGoogle.jar` (if you're using Google+)</li>
+            <li>`Assets/Plugins/Android/google-play-services_lib` (if you're using Google+)</li>
+      	</ul>
+  </div>
 
 2. Go to the menu bar, under **Window > Soomla > Edit Settings**:
 

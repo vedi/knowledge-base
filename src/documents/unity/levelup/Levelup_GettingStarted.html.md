@@ -27,6 +27,45 @@ platform: 'unity'
   ``` cs
   git clone --recursive https://github.com/soomla/unity3d-levelup.git
   ```
+  
+  <div class="info-box">Starting from `SOOMLA Unity3D LevelUp 1.0.19`, SOOMLA changed the location of binaries in `Plugins` directory. If you're upgrading from version lower than 1.0.19 to version higher than 1.0.19, please remove the following binaries manually:
+    <ul>
+      <li>`Assets/Plugins/iOS/libSoomlaiOSCore.a`</li>
+      <li>`Assets/Plugins/iOS/libSoomlaiOSSLevelUp.a`</li>
+      <li>`Assets/Plugins/iOS/libUnitySoomlaiOSCore.a`</li>
+      <li>`Assets/Plugins/iOS/libUnityiOSLevelUp.a`</li>
+      <li>`Assets/Plugins/Android/AndroidLevelUp.jar`</li>
+      <li>`Assets/Plugins/Android/SoomlaAndroidCore.jar`</li>
+      <li>`Assets/Plugins/Android/UnityAndroidLevelUp.jar`</li>
+      <li>`Assets/Plugins/Android/UnitySoomlaAndroidCore.jar`</li>
+      <li>`Assets/Plugins/Android/square-otto-1.3.2.jar`</li>
+    </ul>
+    Also, if your're using SOOMLA Unity3D Profile, remove the following binaries:
+    <ul>      
+      <li>`Assets/Plugins/iOS/libSoomlaiOSSProfile.a`</li>      
+      <li>`Assets/Plugins/iOS/libUnityiOSProfile.a`</li>            
+      <li>`Assets/Plugins/iOS/libSoomlaiOSSProfileTwitter.a` (if you're using Twitter)</li>
+      <li>`Assets/Plugins/iOS/libSoomlaiOSSProfileGoogle.a`(if you're using Google+)</li>
+      <li>`Assets/Plugins/Android/AndroidProfile.jar`</li>      
+      <li>`Assets/Plugins/Android/UnityAndroidProfile.jar`</li>            
+      <li>`Assets/Plugins/Android/AndroidProfileTwitter.jar` (if you're using Twitter)</li>
+      <li>`Assets/Plugins/Android/twitter4j-asyc-4.0.2.jar` (if you're using Twitter)</li>
+      <li>`Assets/Plugins/Android/twitter4j-core-4.0.2.jar` (if you're using Twitter)</li>
+      <li>`Assets/Plugins/Android/AndroidProfileGoogle.jar` (if you're using Google+)</li>
+      <li>`Assets/Plugins/Android/google-play-services_lib` (if you're using Google+)</li>
+    </ul>
+    Also, if your're using SOOMLA Unity3D Store, remove the following binaries:
+    <ul>      
+      <li>`Assets/Plugins/iOS/libSoomlaiOSSStore.a`</li>      
+      <li>`Assets/Plugins/iOS/libUnityiOSStore.a`</li>
+      <li>`Assets/Plugins/Android/AndroidStore.jar`</li>      
+      <li>`Assets/Plugins/Android/UnityAndroidStore.jar`</li>      
+      <li>`Assets/Plugins/Android/square-otto-1.3.2.jar`</li>
+      <li>`Assets/Plugins/Android/AndroidStoreAmazon.jar` (if you're using Amazon as billing service)</li>
+      <li>`Assets/Plugins/Android/in-app-purchasing-2.0.1.jar` (if you're using Amazon as billing service)</li>
+      <li>`Assets/Plugins/Android/AndroidStoreGooglePlay.jar` (if you're using Google Play as billing service)</li>
+    </ul>
+  </div>
 
 2. Double-click on them following the order they appear above. It'll import all the necessary files into your project.
 
