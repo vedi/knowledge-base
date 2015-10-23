@@ -3,8 +3,8 @@ layout: "sample"
 image: "unityads_logo"
 title: "Unity Ads"
 text: "Show rewarded ad to earn coins"
-position: 9
-relates: ["supersonic", "tune"]
+position: 12
+relates: ["giftgaming", "supersonic", "tune"]
 collection: 'samples'
 navicon: "nav-icon-unityads.png"
 backlink: "http://unityads.unity3d.com/"

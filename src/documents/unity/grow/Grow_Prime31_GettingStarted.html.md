@@ -36,7 +36,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 3. Once you finished installation, add "Game Key" and "Env Key" from the GROW dashboard to your Unity3d Project:
 
-  ![alt text](/img/tutorial_img/unity_grow/dashboardKeys.png "Keys")
+  <img src="/img/tutorial_img/unity_grow/dashboardKeys.png" alt="Game key and Env key" style="border:0;">
 
   > You can always find the keys in the Game Settings Screens on the `environments` section.
 
