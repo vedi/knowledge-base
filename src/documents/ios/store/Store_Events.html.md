@@ -163,23 +163,27 @@ The event `EVENT_MARKET_PURCHASE_VERIF` is triggered when a market purchase oper
 }
 ```
 
-### MARKET PURCHASE CANCELLED
+### MARKET PURCHASE DEFERRED
 
-The event `EVENT_MARKET_PURCHASE_CANCELLED` is triggered when a market purchase operation has been cancelled by the user.
+The event `EVENT_MARKET_PURCHASE_DEFERRED` is triggered when a market purchase operation has been deferred using "Ask To Buy" feature.
 
 ``` objectivec
 // observe the event:
 [[NSNotificationCenter defaultCenter] addObserver:self
-  selector:@selector(marketPurchaseCancelled:) name:EVENT_MARKET_PURCHASE_CANCELLED object:nil];
+  selector:@selector(marketPurchaseDeferred:) name:EVENT_MARKET_PURCHASE_DEFERRED object:nil];
 
 // your handler:
-- (void)marketPurchaseCancelled:(NSNotification*)notification {
+- (void)marketPurchaseDeferred:(NSNotification*)notification {
   // notification's userInfo contains the following keys:
-  // DICT_ELEMENT_PURCHASABLE = The item whose purchase is being cancelled
+  // DICT_ELEMENT_PURCHASABLE = The item whose purchase is being deferred
+  // DICT_ELEMENT_DEVELOPERPAYLOAD = Text that you can provide when the item is purchased and
+  //                                 receive back upon purchase completion
 
   // ... your game specific implementation here ...
 }
 ```
+
+
 
 ### MARKET ITEMS REFRESH STARTED
 

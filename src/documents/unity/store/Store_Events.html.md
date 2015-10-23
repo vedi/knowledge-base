@@ -154,6 +154,22 @@ public void onMarketPurchaseCancelled(PurchasableVirtualItem pvi) {
 }
 ```
 
+### OnMarketPurchaseDeferred
+
+This event is triggered when a market purchase operation has been deferred using "Ask To Buy" feature (iOS only).
+
+``` cs
+StoreEvents.OnMarketPurchaseDeferred += onMarketPurchaseDeferred;
+
+public void onMarketPurchaseDeferred(PurchasableVirtualItem pvi, string payload) {
+    // pvi - the PurchasableVirtualItem whose purchase operation was deferred
+    // payload - a text that you can give when you initiate the purchase operation and
+    //    you want to receive back upon completion
+    
+    // ... your game specific implementation here ...
+}
+```
+
 ### OnMarketRefund
 
 This event is triggered when a market refund operation has been completed successfully.

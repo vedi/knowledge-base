@@ -162,6 +162,21 @@ this.onMarketPurchaseCancelled = function (purchasableVirtualItem) {
 }
 ```
 
+### EVENT_MARKET_PURCHASE_DEFERRED
+
+This event is triggered when a market purchase operation has been deferred using "Ask To Buy" feature (iOS only).
+
+```js
+Soomla.addHandler(Soomla.StoreConsts.EVENT_MARKET_PURCHASE_DEFERRED, this.onMarketPurchaseDeferred, this);
+
+this.onMarketPurchaseDeferred = function (purchasableVirtualItem, payload) {
+    // purchasableVirtualItem   - the PurchasableVirtualItem whose purchase operation was deferred
+    // payload                  - a text that you can give when you initiate the purchase operation and you want to receive back upon completion
+    
+    // ... your game specific implementation here ...
+}
+```
+
 ### EVENT_MARKET_PURCHASE_VERIFICATION
 
 This event is triggered when a market purchase verification process has started.
