@@ -223,6 +223,27 @@ void Example::onMarketPurchaseCancelled(EventCustom *event) {
 }
 ```
 
+### EVENT_MARKET_PURCHASE_DEFERRED
+
+This event is triggered when a market purchase operation has been deferred using "Ask To Buy" feature (iOS only).
+
+```cpp
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCStoreConsts::EVENT_MARKET_PURCHASE_DEFERRED, CC_CALLBACK_1(Example::onMarketPurchaseDeferred, this));
+
+void Example::onMarketPurchaseDeferred(EventCustom *event) {
+  // DICT_ELEMENT_PURCHASABLE - the PurchasableVirtualItem whose purchase operation
+  //                            was deferred
+  // DICT_ELEMENT_DEVELOPERPAYLOAD  - a text that you can give when you initiate the
+  //    purchase operation and you want to receive back upon completion
+
+  __Dictionary *eventData = (__Dictionary *)event->getUserData();
+  CCPurchasableVirtualItem *purchasable = dynamic_cast<CCPurchasableVirtualItem *>(eventData->objectForKey(CCStoreConsts::DICT_ELEMENT_PURCHASABLE));
+  __String *payload = dynamic_cast<__String *>(eventData->objectForKey(CCStoreConsts::DICT_ELEMENT_DEVELOPERPAYLOAD));
+
+  // ... your game specific implementation here ...
+}
+```
+
 ### EVENT_MARKET_PURCHASE_VERIFICATION
 
 This event is triggered when a market purchase verification process has started.
@@ -434,6 +455,12 @@ void Example::onBillingNotSupported(EventCustom *event) {
 ### EVENT_UNEXPECTED_STORE_ERROR
 
 This event is triggered an unexpected error occurs in the Store.
+
+Available error codes:
+ - VERIFICATION_TIMEOUT(1) - app didn't receive validation response from server in time. Please, try again later.
+ - VERIFICATION_FAIL(2) - something is going wrong while SOOMLA tried to verify purchase.  
+ - PURCHASE_FAIL(3) - something is going wrong while SOOMLA tried to make purchase.
+ - GENERAL(0) - other types of error. See details in app logs.
 
 ```cpp
 Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCStoreConsts::EVENT_UNEXPECTED_STORE_ERROR, CC_CALLBACK_1(Example::onUnexpectedErrorInStore, this));
