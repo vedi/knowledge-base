@@ -2,7 +2,7 @@
 layout: "sample"
 image: "adience_logo"
 title: "Adience Mediation"
-text: "Report SOOMLA Store purchase events to Adience Mediation"
+text: "Get demographic insights / cluster your in-app purchasers & target ads according to in-app purchasing behavior and personas"
 position: 13
 relates: []
 collection: 'samples'
@@ -12,6 +12,12 @@ theme: 'samples'
 ---
 
 # Adience Mediation Integration
+
+Adience Mediation aggregates campaigns from multiple ad networks, mediating ads according to the demographic data and persona behind each impression. The end result is a significant ad revenue uplift and optimized fill-rates.  Also included is our 'Insights Dashboard' which displays demographic data on your users and specifically in-app purchasers.
+
+This article shows an example of how to report Soomla Store in-game events to Adience. This will provide two main benefits:
+1. Enables us to display the demographic parameters and personas of your in-app purchasers in our 'Insights Dashboard'. 
+2. Allows Adience Mediation to add 'in-app purchasing behavior' as additional parameters in its targeting algorithm. 
 
 <br>
 
