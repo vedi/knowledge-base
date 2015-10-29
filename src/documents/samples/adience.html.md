@@ -137,7 +137,7 @@ public class MainActivity extends Activity
 
 <div class="samples-title">Getting started</div>
 
-1. Sign up to <a href="http://www.adience.com/" target="_blank">Adience Mediation</a> for free.
+1. Please contact Adience <mailto:business@adience.com> to get your unique app key, Adience SDK and integration documentation.
 
 2. Create your account, studio and game.
 
