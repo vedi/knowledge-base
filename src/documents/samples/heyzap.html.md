@@ -3,8 +3,8 @@ layout: "sample"
 image: "heyzap_logo"
 title: "Heyzap"
 text: "Show rewarded video ad to earn coins"
-position: 8
-relates: ["supersonic", "unity_ads"]
+position: 9
+relates: ["supersonic", "adience", "unity_ads"]
 collection: 'samples'
 navicon: "nav-icon-heyzap.png"
 backlink: "https://www.heyzap.com/"
