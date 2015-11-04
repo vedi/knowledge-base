@@ -4,7 +4,7 @@ image: "supersonic_logo"
 title: "Supersonic"
 text: "Show rewarded video / offer wall to earn coins"
 position: 10
-relates: ["giftgaming", "fyber", "unity_ads"]
+relates: ["fyber", "adience", "giftgaming"]
 collection: 'samples'
 navicon: "nav-icon-supersonic.png"
 backlink: "http://www.supersonic.com/"
