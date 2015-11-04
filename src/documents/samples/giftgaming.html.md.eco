@@ -3,7 +3,7 @@ layout: "sample"
 image: "giftgaming_logo"
 title: "giftgaming®"
 text: "Monetize non-spenders by giving surprise in-game gifts containing currency and coupons"
-position: 6
+position: 7
 relates: ["supersonic", "unity_ads"]
 collection: 'samples'
 navicon: "nav-icon-giftgaming.png"
