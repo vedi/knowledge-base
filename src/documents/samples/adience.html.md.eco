@@ -2,7 +2,7 @@
 layout: "sample"
 image: "adience_logo"
 title: "Adience Mediation"
-text: "Get demographic insights / cluster your in-app purchasers & target ads according to in-app purchasing behavior and personas"
+text: "Target ads according to in-app purchasing behavior and personas"
 position: 2
 relates: ["fyber", "supersonic", "heyzap"]
 collection: 'samples'
