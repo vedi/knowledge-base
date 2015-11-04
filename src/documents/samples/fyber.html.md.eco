@@ -3,8 +3,8 @@ layout: "sample"
 image: "fyber_logo"
 title: "Fyber"
 text: "Show rewarded video / offer wall to earn coins"
-position: 4
-relates: ["supersonic", "adience", "giftgaming"]
+position: 5
+relates: ["supersonic", "adience", "heyzap"]
 collection: 'samples'
 navicon: "nav-icon-fyber.png"
 backlink: "http://www.fyber.com/"

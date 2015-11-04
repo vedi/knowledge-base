@@ -3,10 +3,10 @@ layout: "sample"
 image: "adience_logo"
 title: "Adience Mediation"
 text: "Get demographic insights / cluster your in-app purchasers & target ads according to in-app purchasing behavior and personas"
-position: 13
-relates: ["fyber", "supersonic", "admob"]
+position: 2
+relates: ["fyber", "supersonic", "heyzap"]
 collection: 'samples'
-navicon: ""
+navicon: "nav-icon-adience.png"
 backlink: "http://www.adience.com/"
 theme: 'samples'
 ---
