@@ -10,9 +10,9 @@ module: 'store'
 platform: 'android'
 ---
 
-#Google Play Purchase Verification
+# Google Play Purchase Verification
 
-##Getting Started
+## Getting Started
 
 Google Play purchase verification is a way for you to prevent fraud in your game (_Fraud Protection_). SOOMLA provides support for verifying purchases through the Google Play Billing Service (AndroidStoreGooglePlay.jar). The way it works in that your app connects to SOOMLA's verification server in order to make sure the purchase was actually genuine and not a hack of someone who installed an IAP hacking tool.
 
@@ -67,7 +67,7 @@ In order for the verification to work, you need to follow Google's guidelines an
 <br>
 **That's it!** :) Now you have a refresh token you can use to initialize _Fraud Protection_ on SOOMLA's GooglePlay billing service.
 
-##Useful links
+## Useful links
 
 - [Quick definition of Google Play Developer API](http://developer.android.com/google/play/developer-api.html#subscriptions_api_overview)
 

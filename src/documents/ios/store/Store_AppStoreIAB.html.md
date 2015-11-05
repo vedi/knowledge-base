@@ -10,10 +10,10 @@ module: 'store'
 platform: 'ios'
 ---
 
-#App Store IAB
+# App Store IAB
 
 
-##Define your IAP products
+## Define your IAP products
 
 1. Create your app in Apple’s IAP for Developers. If you’re not sure how to do this, please read Apple's [In-App Purchase for Developers](https://developer.apple.com/in-app-purchase/) before continuing.
 
@@ -37,9 +37,9 @@ platform: 'ios'
 
   <div class="info-box">SOOMLA is all about free-to-play mobile games, we recommend you choose the “Free” option in the "Rights and Pricing" tab.</div>
 
-##Newbie?
+## Newbie?
 
-###Useful links
+### Useful links
 
 - Make sure to be using the correct type of user account. While your game is in development mode you'll need to use a test user. Read more about that [here](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SettingUpUserAccounts.html).
 

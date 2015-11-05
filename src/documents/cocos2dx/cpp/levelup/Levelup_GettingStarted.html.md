@@ -11,9 +11,9 @@ lang: 'cpp'
 platform: 'cocos2dx'
 ---
 
-#Getting Started
+# Getting Started
 
-##Getting Started
+## Getting Started
 
 <div class="info-box">LevelUp depends on SOOMLA's other modules: [Core & Store](/cocos2dx/cpp/store), and [Profile](/cocos2dx/cpp/profile). This document assumes that you are new to SOOMLA and have not worked with any of the other SOOMLA modules. If this is not the case, and you already have some or all of the other modules, please follow these directions only for the modules you are missing and, of course, for the LevelUp module.</div>
 
@@ -79,7 +79,7 @@ supported by SOOMLA's cocos2dx-store (the tag is the version).</div>
 
 <div class="info-box">The next steps are different according to which platform you are using.</div>
 
-###**Instructions for iOS**
+### **Instructions for iOS**
 
 In your XCode project, perform the following steps:
 
@@ -132,7 +132,7 @@ In your XCode project, perform the following steps:
 
 That's it! Now all you have to do is build your XCode project and run your game with cocos2dx-levelup.
 
-###**Instructions for Android**
+### **Instructions for Android**
 
 1. Import cocos2dx-store, cocos2dx-profile, and cocos2dx-levelup into your project's Android.mk by adding the following:
 
@@ -212,7 +212,7 @@ That's it! Now all you have to do is build your XCode project and run your game 
 
 That's it! Don't forget to run the **build_native.py** script so cocos2dx-levelup sources will be built with cocos2d-x.
 
-##Working with sources
+## Working with sources
 
 **To integrate cocos2dx-levelup into your game, follow these steps:**
 
@@ -248,7 +248,7 @@ That's it! Don't forget to run the **build_native.py** script so cocos2dx-levelu
   - `extensions/cocos2dx-profile/development/Cocos2dxProfileFromSources.iml`
   - `extensions/cocos2dx-levelup/development/Cocos2dxLevelUpFromSources.iml`
 
-##Example Usages
+## Example Usages
 
 **NOTE:** Examples using virtual items are dependent on cocos2dx-store module, with proper `CCSoomlaStore` initialization and `CCStoreAssets` definitions. See the cocos2dx-store integration section for more details.
 

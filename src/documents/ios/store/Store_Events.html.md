@@ -10,7 +10,7 @@ module: 'store'
 platform: 'ios'
 ---
 
-#Event Handling
+# Event Handling
 
 ## About
 

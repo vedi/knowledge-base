@@ -22,7 +22,7 @@ Social actions allow you to entice social engagement by offering your users rewa
 
 <div class="info-box">`CCReward`s are a part of SOOMLA's core module and are used in many methods of Profile. Read about the different types of `CCReward`s below.</div>
 
-##CCUserProfileUtils <a href="https://github.com/soomla/cocos2dx-profile/blob/master/Soomla/CCUserProfileUtils.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+## CCUserProfileUtils <a href="https://github.com/soomla/cocos2dx-profile/blob/master/Soomla/CCUserProfileUtils.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
 This class lists the different social networks that exist today. Currently, SOOMLA supports Facebook, Twitter, and Google+.
 

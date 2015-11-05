@@ -21,7 +21,7 @@ Social actions allow you to entice social engagement by offering your users rewa
 
 <div class="info-box">`Reward`s are a part of SOOMLA's core module and are used in many functions of Profile. Read about the different types of `Reward`s [below](#auxiliary-model-reward).</div>
 
-##Provider <a href="https://github.com/soomla/unity3d-profile/blob/master/Soomla/Assets/Plugins/Soomla/Profile/Domain/Provider.cs" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+## Provider <a href="https://github.com/soomla/unity3d-profile/blob/master/Soomla/Assets/Plugins/Soomla/Profile/Domain/Provider.cs" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
 This class represents the different social networks that exist today. Currently, SOOMLA supports Facebook, Twitter, and Google+.
 
@@ -74,7 +74,7 @@ The diagram below depicts the flow that takes place when a `SoomlaProfile` funct
 ![alt text](/img/tutorial_img/unity-profile/functionFlow.png "Function Flow")
 
 <br>
-###`Initialize`
+### `Initialize`
 
 `SoomlaProfile` is the class that needs to be initialized in order to begin using Profile. This is covered in unity3d-profile's [Getting Started](/unity/profile/Profile_GettingStarted) tutorial.
 
@@ -82,7 +82,7 @@ The diagram below depicts the flow that takes place when a `SoomlaProfile` funct
 SoomlaProfile.Initialize();
 ```
 
-###`Login / Logout`
+### `Login / Logout`
 
 The `Login` function will log the user into the specified provider, and will give the user a reward if one was provided.
 
@@ -110,7 +110,7 @@ SoomlaProfile.Logout(
 ```
 
 <br>
-###`IsLoggedIn`
+### `IsLoggedIn`
 
 Checks if the user is logged in and returns a boolean value.
 
@@ -124,7 +124,7 @@ if (SoomlaProfile.IsLoggedIn(Provider.FACEBOOK)) {
 <div class="info-box">If the user is not logged in, please notice that `IsLoggedIn` will not log the user in, you'll need to call the `Login` function yourself. </div>
 
 <br>
-###`Like`
+### `Like`
 
 This function opens up the provider page to "like" (a web page in a browser), and grants the user the supplied reward. For example, give the user 100 coins for liking your page.
 
@@ -147,7 +147,7 @@ SoomlaProfile.Like(
 
 The 2nd parameter received by the `like` function is a pageId. This can either be a page-id or page-name.
 
-######For iOS Applications:
+###### For iOS Applications:
 When using the `like` function, you should pass the page-id in most cases. There reason for that is that the page-name will only work correctly when the Facebook App is not installed on the device. In which case, SOOMLA tries to open the "like" page in the browser.
 
 Page-id can be fetched from sites like http://findmyfacebookid.com/ , or Services like https://graph.facebook.com/requested_page_name, which once queried with a valid pageName will return a JsonString that contains the pageId value under the key "id".
@@ -155,7 +155,7 @@ Page-id can be fetched from sites like http://findmyfacebookid.com/ , or Service
 <div class="info-box">Note that the user is given the reward just for clicking `Like` from the application. The `Like` function opens the page to like, but does not track if the user *actually* liked the page or not.</div>
 
 <br>
-###`UpdateStatus`
+### `UpdateStatus`
 
 This function updates the user's status, which is simply a message, on the supplied social provider. Upon a successful update, the user will receive the supplied reward. For example, reward users that post a specific status with a `SingleUseVG`, such as a sword.
 
@@ -196,7 +196,7 @@ SoomlaProfile.UpdateStatusWithConfirmation(
 ```
 **NOTE:** This confirmation dialog is not supported in FB.
 <br>
-###`UpdateStory`
+### `UpdateStory`
 This function posts a story (which is a detailed status) on the user's wall in the supplied social provider. Upon a successful update, the user will receive the supplied reward.
 
 For example, once your user reaches a high score, you could display a popup that allows them to share their high score on Facebook with a click of a button. Once he/she shares the story, you can give them a reward such as a free character.
@@ -260,7 +260,7 @@ SoomlaProfile.UpdateStoryWithConfirmation(
 **NOTE:** This confirmation dialog is not supported in FB.
 
 <br>
-###`UploadImage`
+### `UploadImage`
 
 This function uploads an image to the user's wall in the social provider. Upon a successful upload, the user will receive the supplied reward.
 
@@ -293,7 +293,7 @@ dialog will be shown before the operation is performed.
 ![alt text](/img/tutorial_img/unity-profile/socialUpload.png "Upload Image")
 
 <br>
-###`GetStoredUserProfile`
+### `GetStoredUserProfile`
 
 This function retrieves the user's page for the given social provider from the **local device storage** (`GetStoredUserProfile` does not call any social provider function, it retrieves and returns its information from the storage, contrary to what is depicted in the diagram at the beginning of this section). This function allows you to get user information even if the user is offline.
 
@@ -308,7 +308,7 @@ string firstName = userProf.FirstName;
 <div class="info-box">This functionality is only available if the user has already logged into the provider once.</div>
 
 <br>
-###`GetContacts`
+### `GetContacts`
 
 This function retrieves a list of the user's contacts from the supplied provider.
 
@@ -347,7 +347,7 @@ public void onGetContactsFinished(Provider provider, SocialPageData<UserProfile>
 ```
 
 <br>
-###`OpenAppRatingPage`
+### `OpenAppRatingPage`
 
 `OpenAppRatingPage` conveniently opens your application's page on the platform store (for example on an iOS device it'll open your app's page in the App Store) so that it's simple to rate the app. You can offer your users to rate your app after they've completed a level successfully or have progressed significantly in your game.
 
@@ -369,7 +369,7 @@ SoomlaProfile.MultiShare(
 ```
 
 <br>
-##Auxiliary Model: Reward <a href="https://github.com/soomla/soomla-unity3d-core/blob/master/Soomla/Assets/Plugins/Soomla/Core/rewards/Reward.cs" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+## Auxiliary Model: Reward <a href="https://github.com/soomla/soomla-unity3d-core/blob/master/Soomla/Assets/Plugins/Soomla/Core/rewards/Reward.cs" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
 A `Reward` is an entity which can be earned by the user for meeting certain criteria in game progress.
 

@@ -10,9 +10,9 @@ module: 'store'
 platform: 'unity'
 ---
 
-#Make your In App Billing Service available on unity3d-store
+# Make your In App Billing Service available on unity3d-store
 
-##About this document
+## About this document
 
 This article is related to [Creating a billing service for android-store](/android/store/Store_CreateBillingPlugins). Please go over that document first and then come back to read this one.
 
@@ -20,7 +20,7 @@ Writing a billing service is nice but if you don't make it available to develope
 
 We created a mechanism which makes it easy to extend SOOMLA on Unity. unity3d-store uses that mechanism so the SOOMLA Store module will be easily available to developers through the Settings panel and background configurations. To add your billing service to unity3d-store, you'll need to just plug into the existing configuration through unity3d-store's existing code.
 
-##Directions
+## Directions
 
 **Fork** unity3d-store and clone it to your local machine. Open the unity.scene from Assets folder and start making the necessary changes for your billing service:
 

@@ -10,11 +10,11 @@ module: 'store'
 platform: 'ios'
 ---
 
-#Getting Started
+# Getting Started
 
 Before doing anything, SOOMLA recommends that you go through Apple's [Selling with In-App Purchase](https://developer.apple.com/appstore/in-app-purchase/index.html).
 
-##Integrate iOS-store (sources)
+## Integrate iOS-store (sources)
 
 <div class="info-box">We use ARC! Read about ARC [here](http://www.google.com/url?q=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FAutomatic_Reference_Counting&sa=D&sntz=1&usg=AFQjCNHaQBd32glc8dP7HSzlvW1RhjInQA).</div>
 
@@ -50,7 +50,7 @@ Before doing anything, SOOMLA recommends that you go through Apple's [Selling wi
 
 And that's it! You have Storage and in-app purchasing capabilities... ALL-IN-ONE.
 
-##In App Purchasing
+## In App Purchasing
 
 SOOMLA provides two ways in which you can let your users purchase items in your game:
 
@@ -58,9 +58,9 @@ SOOMLA provides two ways in which you can let your users purchase items in your 
 
  2. **PurchaseWithVirtualItem** is a `PurchaseType` that lets your users purchase a `VirtualItem` with some amount of a different `VirtualItem`. *For Example:* Buying 1 Sword with 100 Gems.
 
-In order to define the way your various virtual items (Coins, swords, hats...) are purchased, you'll need to create your implementation of `IStoreAssets` (described above in step 5 of [Getting Started](#getting-started)).
+In order to define the way your various virtual items (Coins, swords, hats...) are purchased, you'll need to create your implementation of `IStoreAssets` (described above in step 5 of [Getting Started](# getting-started)).
 
-##Example
+## Example
 
 Create your own implementation of `IStoreAssets`; See the article about [IStoreAssets](/ios/store/Store_IStoreAssets), which includes a code example and explanations.
 

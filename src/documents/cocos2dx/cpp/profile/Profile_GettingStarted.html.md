@@ -11,13 +11,13 @@ lang: 'cpp'
 platform: 'cocos2dx'
 ---
 
-#Getting Started
+# Getting Started
 
 *If you want to develop with sources, refer to the [Working with sources](#working-with-sources) section below*.
 
 <div class="info-box">Profile depends on SOOMLA's Core module. This document assumes that you are new to SOOMLA and have not worked with any of the other SOOMLA modules. If this is not the case, and you already have Core & Store, please follow these directions only for the Profile module.</div>
 
-##General Instructions
+## General Instructions
 
 1. If you didn't already, clone the Cocos2d-x framework from [here](https://github.com/cocos2d/cocos2d-x), or download it from the [Cocos2d-x website](http://www.cocos2d-x.org/download). Make sure the version you clone is supported by cocos2dx-profile (the tag is the version).
 
@@ -106,7 +106,7 @@ platform: 'cocos2dx'
 <br>
 <div class="info-box">The next steps are different according to which platform you're using.</div>
 
-##Instructions for iOS
+## Instructions for iOS
 
 In your XCode project, perform the following steps:
 
@@ -144,7 +144,7 @@ In your XCode project, perform the following steps:
 
 <div class="info-box">The following steps should be done according to the target social network.</div>
 
-###Facebook for iOS
+### Facebook for iOS
 
 Facebook is supported out-of-the-box, you just have to follow the next steps to make it work:
 
@@ -154,7 +154,7 @@ Facebook is supported out-of-the-box, you just have to follow the next steps to 
 
 3. Add `-lSoomlaiOSProfileFacebook` to your project's **Build Settings->Other Linker Flags**
 
-###Google+ for iOS
+### Google+ for iOS
 
 Google+ is supported out-of-the-box, authentication is done either through the signed in Google+ account or through the web browser (fallback). Follow the next steps to make it work:
 
@@ -184,7 +184,7 @@ Google+ is supported out-of-the-box, authentication is done either through the s
 
 6. Add `-lSoomlaiOSProfileGoogle` to your project's **Build Settings->Other Linker Flags**.
 
-###Twitter for iOS
+### Twitter for iOS
 
 Twitter is supported out-of-the-box, authentication is done either through the signed in **native** Twitter account (iOS 5+) or through web browser (fallback). Follow the next steps to make it work:
 
@@ -205,7 +205,7 @@ Twitter is supported out-of-the-box, authentication is done either through the s
 That's it! Now all you have to do is build your XCode project and run your game with cocos2dx-profile.
 
 
-##Instructions for Android
+## Instructions for Android
 
 1. Import cocos2dx-profile module into your project's Android.mk by adding the following:
 
@@ -245,7 +245,7 @@ That's it! Now all you have to do is build your XCode project and run your game 
 
 <br>NOTE: All jars for social providers are located at the following path: `extensions/cocos2dx-profile/build/android`</div>
 
-###Facebook for Android
+### Facebook for Android
 
 Facebook is supported out-of-the-box, you just have to follow the next steps to make it work:
 
@@ -272,7 +272,7 @@ Facebook is supported out-of-the-box, you just have to follow the next steps to 
       </application>
       ```
 
-###Google+ for Android
+### Google+ for Android
 
 1. Add the following jars from the [zip](http://library.soom.la/fetch/android-store/latest?cf=knowledge%20base):
 
@@ -302,7 +302,7 @@ Facebook is supported out-of-the-box, you just have to follow the next steps to 
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     ```
 
-###Twitter for Android
+### Twitter for Android
 
 Twitter is supported out-of-the-box, authentication is done via web view. Follow the next steps to make it work:
 
@@ -331,7 +331,7 @@ Twitter is supported out-of-the-box, authentication is done via web view. Follow
 
 That's it! Don't forget to run the **build_native.sh** script so cocos2dx-profile sources will be built with cocos2d-x.
 
-##Working with sources
+## Working with sources
 
 For those of you who want to contribute code, please use our "sources environment".
 
@@ -355,11 +355,11 @@ For those of you who want to contribute code, please use our "sources environmen
 
 3. For Android: You can use our "sourced" modules for Android Studio (or IntelliJ IDEA) (`extensions/soomla-cocos2dx-core/development/Cocos2dxCoreFromSources.iml`, `extensions/cocos2dx-profile/development/Cocos2dxProfileFromSources.iml`), just include them in your project.
 
-##Caveats
+## Caveats
 
-###Facebook Caveats
+### Facebook Caveats
 
-####**iOS**
+#### **iOS**
 
 1. **Facebook Application** - You must create a Facebook application and use its details in your Profile-based application (with Facebook)
 
@@ -373,7 +373,7 @@ For those of you who want to contribute code, please use our "sources environmen
 
 4. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
 
-####**Android**
+#### **Android**
 
 1. **Facebook Application** - You must create a Facebook application and use its details in your Profile-based application (with Facebook)
 
@@ -387,17 +387,17 @@ For those of you who want to contribute code, please use our "sources environmen
 
 3. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
 
-###Google+ Caveats
+### Google+ Caveats
 
-####**iOS**
+#### **iOS**
 
 1. You get the error: **401. That's an error. Error:invalid_client** - this could be the result of:
 
   a. Have you supplied the correct client ID?
 
-###Twitter Caveats
+### Twitter Caveats
 
-####**iOS/Android**
+#### **iOS/Android**
 
 1. **Login method returns 401 error** - this could be the result of a few issues:
 
@@ -405,14 +405,14 @@ For those of you who want to contribute code, please use our "sources environmen
 
   b. Have you supplied a `Callback URL` in your Twitter application settings?
 
-##Browser-based Authentication
+## Browser-based Authentication
 
 Most social framework SDKs support authentication through your web browser, when the user finishes authenticating through the browser your application will be called dependent on the URL schemes you have defined.
 
 The callback to this process is `openURL` which should be defined in your `AppController`, **ios-profile** provides you with a helper method to handle the `openURL` callback through its providers. Add the following code to your `AppController` to handle this properly:
 
 ``` objectivec
-#import "SoomlaProfile.h"
+# import "SoomlaProfile.h"
 
 ...
 
@@ -432,7 +432,7 @@ The callback to this process is `openURL` which should be defined in your `AppCo
 }
 ```
 
-##Example
+## Example
 
 Below is an example of initializing Profile, logging the user into Facebook, and sharing a story on the user's Facebook wall. To see a full example, please see [cocos2dx-profile-example](https://github.com/soomla/cocos2dx-profile-example). To learn about the different entities and functionality of Profile, see [Main Classes & Operations](/cocos2dx/cpp/profile/Profile_MainClasses).
 
