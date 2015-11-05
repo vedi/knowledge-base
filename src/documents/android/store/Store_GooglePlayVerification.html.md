@@ -22,7 +22,12 @@ In order for the verification to work, you need to follow Google's guidelines an
 
 2. Link your API Project to your game in Google Play Developer Console, follow [this](https://developers.google.com/android-publisher/getting_started#linking_your_api_project) section.
 
-3. Create A Web Application OAuth 2.0 ID in the [Google APIs Console](https://console.developers.google.com): go to `APIs & Auth -> Credentials` and press `Add credentials -> OAuth 2.0 Client ID`. Fill the values of: `Redirect URIs` and `Authorized JavaScript origins`.  
+3. Create A Web Application OAuth 2.0 ID in the [Google APIs Console](https://console.developers.google.com). 
+  Go to `APIs & Auth -> Credentials` and press `Add credentials -> OAuth 2.0 Client ID`:
+   
+  ![alt text](/img/tutorial_img/google_play_verification/create_oauth_client.png "Creating OAuth Client")
+   
+  Fill the values of: `Redirect URIs` and `Authorized JavaScript origins`:
 
   ![alt text](/img/tutorial_img/google_play_verification/create_web_application.png "Creating Web App")
 
@@ -31,15 +36,15 @@ In order for the verification to work, you need to follow Google's guidelines an
   From the created client id, take `clientId` and `clientSecret`.
 
   ![alt text](/img/tutorial_img/google_play_verification/get_client_id_secret.png "Get your Client ID and Client Secret")
+
+4. Open in your [Google APIs Console](https://console.developers.google.com) `APIs` section and then open `Google Play Android Developer API` 
+
+  ![alt text](/img/tutorial_img/google_play_verification/find_developer_api.png "Open your APIs page")
+
+  and enable it, if it isn't enabled yet:
   
-4. Make sure that in your [Google APIs Console](https://console.developers.google.com) `Google Play Android Developer API` is enabled
-  
-  ![alt text](/img/tutorial_img/google_play_verification/check_developer_api.png "Check that your Google Play Android Developer API is enabled")
-  
-  and enable it, if not: go to `APIs -> Mobile APIs -> Google Play Developer API` and click on `Enable API` button:
-  
-  ![alt text](/img/tutorial_img/google_play_verification/enable_developer_api.png "Enable your Google Play Android Developer API")
-    
+  ![alt text](/img/tutorial_img/google_play_verification/enable_developer_api.png "Enable your Google Play Android Developer API")  
+      
 
 5. Get `refreshToken`:
 
