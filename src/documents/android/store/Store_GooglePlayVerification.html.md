@@ -26,14 +26,22 @@ In order for the verification to work, you need to follow Google's guidelines an
 
   ![alt text](/img/tutorial_img/google_play_verification/create_web_application.png "Creating Web App")
 
-  - You can use default values.  
-  - A new record for "Client ID for web application" will be created.
+  <div class="info-box">You can use default values (just leave empty values and defaults will be used).</div>  
 
   From the created client id, take `clientId` and `clientSecret`.
 
   ![alt text](/img/tutorial_img/google_play_verification/get_client_id_secret.png "Get your Client ID and Client Secret")
+  
+4. Make sure that in your [Google APIs Console](https://console.developers.google.com) `Google Play Android Developer API` is enabled
+  
+  ![alt text](/img/tutorial_img/google_play_verification/check_developer_api.png "Check that your Google Play Android Developer API is enabled")
+  
+  and enable it, if not: go to `APIs -> Mobile APIs -> Google Play Developer API` and click on `Enable API` button:
+  
+  ![alt text](/img/tutorial_img/google_play_verification/enable_developer_api.png "Enable your Google Play Android Developer API")
+    
 
-4. Get `refreshToken`:
+5. Get `refreshToken`:
 
   <a name="refresh_token_step_1"></a>
   
@@ -59,14 +67,14 @@ In order for the verification to work, you need to follow Google's guidelines an
    
    ![alt text](/img/tutorial_img/google_play_verification/get_refresh_token.png "Get Refresh Token")
 
-<div class="info-box">**NOTE:** If you got a success response but there was no refresh token, you can try to force it: just add `approval_prompt=force` to the URL at the [1st step](#refresh_token_step_1).</div>   
+    <div class="info-box">**NOTE:** If you got a success response but there was no refresh token, you can try to force it: just add `approval_prompt=force` to the URL at the [1st step](#refresh_token_step_1).</div>   
 
 <br>
 <br>
 <br>
 **That's it!** :) Now you have a refresh token you can use to initialize _Fraud Protection_ on SOOMLA's GooglePlay billing service.
 
-##Useful links
+## Useful links
 
 - [Quick definition of Google Play Developer API](http://developer.android.com/google/play/developer-api.html#subscriptions_api_overview)
 
