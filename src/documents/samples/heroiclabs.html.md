@@ -3,7 +3,7 @@ layout: "sample"
 image: "heroiclabs_logo"
 title: "Heroic Labs"
 text: "Use SOOMLA Profile & LevelUp events to update sessions, leaderboards and achievements"
-position: 7
+position: 8
 relates: ["gameanalytics", "onesignal"]
 collection: 'samples'
 navicon: "nav-icon-heroiclabs.png"

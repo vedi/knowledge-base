@@ -162,6 +162,21 @@ this.onMarketPurchaseCancelled = function (purchasableVirtualItem) {
 }
 ```
 
+### EVENT_MARKET_PURCHASE_DEFERRED
+
+This event is triggered when a market purchase operation has been deferred using "Ask To Buy" feature (iOS only).
+
+```js
+Soomla.addHandler(Soomla.StoreConsts.EVENT_MARKET_PURCHASE_DEFERRED, this.onMarketPurchaseDeferred, this);
+
+this.onMarketPurchaseDeferred = function (purchasableVirtualItem, payload) {
+    // purchasableVirtualItem   - the PurchasableVirtualItem whose purchase operation was deferred
+    // payload                  - a text that you can give when you initiate the purchase operation and you want to receive back upon completion
+    
+    // ... your game specific implementation here ...
+}
+```
+
 ### EVENT_MARKET_PURCHASE_VERIFICATION
 
 This event is triggered when a market purchase verification process has started.
@@ -340,6 +355,12 @@ this.onBillingNotSupported = function () {
 ### EVENT_UNEXPECTED_STORE_ERROR
 
 This event is triggered an unexpected error occurs in the Store.
+
+Available error codes:
+ - VERIFICATION_TIMEOUT(1) - app didn't receive validation response from server in time. Please, try again later.
+ - VERIFICATION_FAIL(2) - something is going wrong while SOOMLA tried to verify purchase.  
+ - PURCHASE_FAIL(3) - something is going wrong while SOOMLA tried to make purchase.
+ - GENERAL(0) - other types of error. See details in app logs.
 
 ```js
 Soomla.addHandler(Soomla.StoreConsts.EVENT_UNEXPECTED_STORE_ERROR, this.onUnexpectedErrorInStore, this);

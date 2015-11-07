@@ -3,7 +3,7 @@ layout: "sample"
 image: "admob_logo"
 title: "Google AdMob"
 text: "Purchase \"Remove Ads\" to block banners and interstitials"
-position: 2
+position: 3
 relates: ["chartboost", "unity_ads", "heyzap"]
 collection: 'samples'
 navicon: "nav-icon-admob.png"

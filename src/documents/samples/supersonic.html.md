@@ -3,8 +3,8 @@ layout: "sample"
 image: "supersonic_logo"
 title: "Supersonic"
 text: "Show rewarded video / offer wall to earn coins"
-position: 10
-relates: ["giftgaming", "fyber", "unity_ads"]
+position: 11
+relates: ["fyber", "adience", "heyzap"]
 collection: 'samples'
 navicon: "nav-icon-supersonic.png"
 backlink: "http://www.supersonic.com/"

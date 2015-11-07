@@ -94,7 +94,7 @@ This is a brief example of `IStoreAssets`, our [MuffinRush Example](https://gith
 
   GENERAL_CATEGORY  = [[VirtualCategory alloc]
     initWithName:@"Muffins"
-    andGoodsItemIds:@[SHIELD_GOOD]];
+    andGoodsItemIds:@[SHIELD_GOOD.itemId]];
 
 }
 
