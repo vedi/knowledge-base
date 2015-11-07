@@ -46,9 +46,11 @@ platform: 'cocos2dx'
   soomla::CCSoomla::initialize("customSecret");
   ```
 
-  ``` cpp
-  __Dictionary *profileParams = __Dictionary::create();
-  soomla::CCSoomlaProfile::initialize(profileParams);
+  ``` cpp      
+  soomla::CCSoomlaProfileConfigBuilder *profileConfig 
+      = soomla::CCSoomlaProfileConfigBuilder::create();
+  
+  soomla::CCSoomlaProfile::initialize(profileConfig->build());  
   ```
 
     <div class="warning-box">Initialize `CCSoomlaProfile` ONLY ONCE when your application loads.</div>
@@ -58,10 +60,9 @@ platform: 'cocos2dx'
   a. **Facebook** - You can provide your custom permission set here, these permissions will be requested from the user on login.
 
 	``` cpp
-    __Dictionary *facebookParams = __Dictionary::create();
-    facebookParams->setObject(__String::create("public_profile,user_friends"), "permissions");
-
-    profileParams->setObject(facebookParams, soomla::CCUserProfileUtils::providerEnumToString(soomla::FACEBOOK)->getCString());
+	profileConfig
+	  ->addSocialProviderConfiguration(soomla::CCSoomlaFacebookConfigBuilder::create()
+      ->setPermissions("public_profile,user_friends"));    
 	```
   <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app,
   just request the reasonable minimum. Other permissions will be requested, when they will be needed.
@@ -75,31 +76,28 @@ platform: 'cocos2dx'
   b. **Google+** - Please provide Client ID from the "API & Auth, credentials" section like so:
 
   ``` cpp
-  __Dictionary *googleParams = __Dictionary::create();
-  googleParams->setObject(__String::create("[YOUR CLIENT ID]"), "clientId");
-
-  profileParams->setObject(googleParams, soomla::CCUserProfileUtils::providerEnumToString(soomla::GOOGLE)->getCString());
+  profileConfig
+    ->addSocialProviderConfiguration(soomla::CCSoomlaGooglePlusConfigBuilder::create()
+      ->setClientId("[YOUR CLIENT ID]"));  
   ```
 
   c. **Twitter** - Please provide a "Consumer Key" and a "Consumer Secret" from the "Keys and Access Tokens" section in [Twitter Apps](https://apps.twitter.com/), like so:
 
   ``` cpp
-  __Dictionary *twitterParams = __Dictionary::create();
-  twitterParams->setObject(__String::create("[YOUR CONSUMER KEY]"), "consumerKey");
-  twitterParams->setObject(__String::create("[YOUR CONSUMER SECRET]"), "consumerSecret");
-
-  profileParams->setObject(twitterParams, soomla::CCUserProfileUtils::providerEnumToString(soomla::TWITTER)->getCString());
+  profileConfig
+    ->addSocialProviderConfiguration(soomla::CCSoomlaTwitterConfigBuilder::create()
+      ->setConsumerKey("[YOUR CONSUMER KEY]")
+      ->setConsumerSecret("[YOUR CONSUMER SECRET]"));   
   ```
 
   d. **Common** - There are some settings you can define which applies in all social providers params:
 	- `autoLogin` - Setting autoLogin to true will tell Profile to try and login the user automatically to the provider, if the user has already logged in with it in the previous sessions. The default value is `false`.
 
-    ``` cpp
-      // For instance for FB
-      __Dictionary *facebookParams = __Dictionary::create();
-    	facebookParams->setObject(__Bool::create(true), "autoLogin");
-      profileParams->setObject(facebookParams, soomla::CCUserProfileUtils::providerEnumToString(soomla::FACEBOOK)->getCString());
-    ```
+  ``` cpp
+  // For instance for FB
+  profileConfig->addSocialProviderConfiguration(soomla::CCSoomlaFacebookConfigBuilder::create()             
+      ->enableAutoLogin(true));
+  ```
 
 7. You'll need to subscribe to profile events to get notified about social network related events. refer to the [Event Handling](/cocos2dx/cpp/profile/Profile_Events) section for more information.
 

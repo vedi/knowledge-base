@@ -3,7 +3,7 @@ layout: "sample"
 image: "chartboost_logo"
 title: "Chartboost"
 text: "Adapt ad exposure to paying vs. non-paying users"
-position: 3
+position: 4
 relates: ["unity_ads", "adcolony", "heyzap"]
 collection: 'samples'
 navicon: "nav-icon-chartboost.png"

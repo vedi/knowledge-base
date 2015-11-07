@@ -325,7 +325,11 @@ This event is triggered an unexpected error occurs in the Store.
 @Subscribe
 public void onUnexpectedStoreError(UnexpectedStoreErrorEvent unexpectedStoreErrorEvent) {
   // unexpectedStoreErrorEvent contains:
-  //   errorCode - code of the error
+  // errorCode - code of the error:  
+  //    VERIFICATION_FAIL - something is going wrong while SOOMLA tried to verify purchase.
+  //    VERIFICATION_TIMEOUT - app didn't receive validation response from server in time. Please, try again later. 
+  //    PURCHASE_FAIL - something is going wrong while SOOMLA tried to make purchase.
+  //    GENERAL - other types of error. See details in app logs.
 
   // ... your game specific implementation here ...
 }
