@@ -10,9 +10,9 @@ module: 'store'
 platform: 'android'
 ---
 
-#Amazon IAB
+# Amazon IAB
 
-##Follow these steps
+## Follow these steps
 
  1. Create your app in Amazon Appstore Developer Console. If you're not sure how to do this, please read [Amazon In-app Billing](https://developer.amazon.com/public/support/submitting-your-app/tech-docs/submitting-your-app) before continuing.
 
@@ -37,9 +37,9 @@ platform: 'android'
     <div class="info-box">SOOMLA is all about free-to-play mobile games, so we recommend you set your app's "Base list price" to 0.00 in the “Availability & Pricing” tab.</div>
 
 
-##Newbie?
+## Newbie?
 
-###Useful links
+### Useful links
 
 - Learn how to [test your app](https://developer.amazon.com/appsandservices/apis/earn/mobile-associates/docs/testing-your-app).
 

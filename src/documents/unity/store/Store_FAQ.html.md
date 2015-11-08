@@ -10,9 +10,9 @@ module: 'store'
 platform: 'unity'
 ---
 
-#**FAQ**
+# **FAQ**
 
-##Integration
+## Integration
 
 **iOS: What libraries do I need in my project?**
 
@@ -70,7 +70,7 @@ In testing mode, you should use [Google's test product IDs](http://developer.and
 
 ---
 
-##General
+## General
 
 **What's the difference between "item IDs" and "product IDs" that Soomla requires and can they have the same value?**
 
@@ -113,7 +113,7 @@ Use the function `RefreshMarketItemDetails` to see the current details of your I
 ---
 
 
-##Common Errors
+## Common Errors
 
 **After cloning unity3d-store from Github, I get the following error: "The type or namespace name "name" could not be found. Are you missing a using directive or an assembly reference?"**
 

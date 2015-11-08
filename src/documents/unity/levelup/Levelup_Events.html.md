@@ -10,26 +10,26 @@ module: 'levelup'
 platform: 'unity'
 ---
 
-#Event Handling
+# Event Handling
 
-##About
+## About
 
 LevelUp allows you to subscribe to events, be notified when they occur, and implement your own application-specific behavior to handle them once they occur.
 
 <div class="info-box">Your game-specific behavior is an addition to the default behavior implemented by SOOMLA. You don't replace SOOMLA's behavior.</div>
 
-###Tips & Reminders
+### Tips & Reminders
 
 - As mentioned in [Getting Started](/unity/levelup/Levelup_GettingStarted), make sure you add the event prefabs (LevelUpEvents, ProfileEvents, StoreEvents, CoreEvents) to your earliest loading scene.
 
 
-##How it works
+## How it works
 
 Events are triggered when SOOMLA wants to notify you about different things that happen involving LevelUp operations.
 
 For example, when a user completes a `World`, an `OnWorldCompleted` event is fired as a result.
 
-##Observing & Handling Events
+## Observing & Handling Events
 
 The `LevelUpEvents` class is where all events go through. To handle various events, just add your game-specific behavior to the delegates in the `LevelUpEvents` class.
 
@@ -45,11 +45,11 @@ public void onWorldCompleted(World world) {
 }
 ```
 
-##LevelUp Events
+## LevelUp Events
 
 This is a list of all events of SOOMLA LevelUp and an example of how to listen to them:
 
-###OnLevelUpInitialized
+### OnLevelUpInitialized
 
 This event is triggered when the Soomla LevelUp module is initialized and ready.
 
@@ -61,7 +61,7 @@ public void onLevelUpInitialized() {
 }
 ```  
 
-###OnWorldCompleted
+### OnWorldCompleted
 
 This event is triggered when a `World` has been completed.
 
@@ -75,7 +75,7 @@ public void onWorldCompleted(World world) {
 }
 ```
 
-###OnWorldAssignedReward
+### OnWorldAssignedReward
 
 This event is triggered when a `Reward` is assigned to a `World`.
 
@@ -89,7 +89,7 @@ public void onWorldAssignedReward(World world) {
 }
 ```  
 
-###OnLevelStarted
+### OnLevelStarted
 
 This event is triggered when a `Level` has started.
 
@@ -103,7 +103,7 @@ public void onLevelStarted(Level level) {
 }
 ```
 
-###OnLevelEnded
+### OnLevelEnded
 
 This event is triggered when a `Level` has been completed.
 
@@ -117,7 +117,7 @@ public void onLevelEnded(Level level) {
 }
 ```
 
-###OnScoreRecordReached
+### OnScoreRecordReached
 
 This event is triggered when a `Score`'s record has been reached.
 
@@ -131,7 +131,7 @@ public void onScoreRecordReached(Score score) {
 }
 ```
 
-###OnScoreRecordChanged
+### OnScoreRecordChanged
 
 This event is triggered when a `Score`'s record has changed.
 
@@ -145,7 +145,7 @@ public void onScoreRecordChanged(Score score) {
 }
 ```
 
-###OnGateOpened
+### OnGateOpened
 
 This event is triggered when a `Gate` has opened.
 
@@ -159,7 +159,7 @@ public void onGateOpened(Gate gate) {
 }
 ```
 
-###OnMissionCompleted
+### OnMissionCompleted
 
 This event is triggered when a `Mission` has been completed.
 
@@ -173,7 +173,7 @@ public void onMissionCompleted(Mission mission) {
 }
 ```
 
-###OnMissionCompletionRevoked
+### OnMissionCompletionRevoked
 
 This event is triggered when a `Mission` has been revoked.
 
