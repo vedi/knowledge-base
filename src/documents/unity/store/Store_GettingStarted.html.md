@@ -28,6 +28,23 @@ platform: 'unity'
 
     <div class="info-box">There are some necessary files in submodules linked with symbolic links. If you're cloning the project make sure to include the `--recursive` flag.</div>
 
+    <div class="info-box">Starting from `SOOMLA Unity3D Store 1.8.7`, SOOMLA changed the location of binaries in `Plugins` directory. If you're upgrading from version lower than 1.8.7 to version higher than 1.8.7, please remove the following binaries manually:
+      <ul>
+    			<li>`Assets/Plugins/iOS/libSoomlaiOSCore.a`</li>
+    			<li>`Assets/Plugins/iOS/libSoomlaiOSSStore.a`</li>
+    			<li>`Assets/Plugins/iOS/libUnitySoomlaiOSCore.a`</li>
+    			<li>`Assets/Plugins/iOS/libUnityiOSStore.a`</li>
+          <li>`Assets/Plugins/Android/AndroidStore.jar`</li>
+          <li>`Assets/Plugins/Android/SoomlaAndroidCore.jar`</li>
+          <li>`Assets/Plugins/Android/UnityAndroidStore.jar`</li>
+          <li>`Assets/Plugins/Android/UnitySoomlaAndroidCore.jar`</li>
+          <li>`Assets/Plugins/Android/square-otto-1.3.2.jar`</li>
+          <li>`Assets/Plugins/Android/AndroidStoreAmazon.jar` (if you're using Amazon as billing service)</li>
+          <li>`Assets/Plugins/Android/in-app-purchasing-2.0.1.jar` (if you're using Amazon as billing service)</li>
+          <li>`Assets/Plugins/Android/AndroidStoreGooglePlay.jar` (if you're using Google Play as billing service)</li>
+    	</ul>
+    </div>
+
 2. ~~Drag the "StoreEvents" and "CoreEvents" Prefabs from `Assets/Soomla/Prefabs` into your scene. You should see them listed in the "Hierarchy" panel.~~
 
     <div class="info-box">This step is no longer required starting from: <br>
