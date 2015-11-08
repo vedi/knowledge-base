@@ -8,11 +8,11 @@ theme: 'soomla'
 collection: 'soomla_store'
 ---
 
-#**Event Handling**
+# **Event Handling**
 
 SOOMLA uses a [publish-subscribe](http://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) pattern for event handling. In order to be notified of store-related events, you can register for events, get notifications on various events, and create your game-specific behavior to handle them, as an addition to the behavior already defined by SOOMLA.
 
-##Android
+## Android
 
 android-store supplies a package of Events, which contains many classes that represent  store-related events. Some of these are `MarketPurchaseEvent`, `MarketRefundEvent`, `CurrencyBalanceChangeEvent`, and many more. You can see the full list of events [here](https://github.com/soomla/android-store/tree/master/SoomlaAndroidStore/src/com/soomla/store/events).
 
@@ -24,7 +24,7 @@ In addition, android-store provides a singleton class called `BusProvider`, whic
 
 [Learn more...](/docs/platforms/android/Events)
 
-##iOS
+## iOS
 
 iOS-store uses Apple Developer’s NSNotificationCenter to handle events across the SDK. iOS-store contains classes `EventHandling.h` and `EventHandling.m`.
 

@@ -11,9 +11,9 @@ lang: 'js'
 platform: 'cocos2dx'
 ---
 
-#Getting Started
+# Getting Started
 
-##Overview
+## Overview
 
 Soomla GROW is our flagship, community driven, data network. Developers using GROW can gain valuable insights about their 
 games' performance and compare the data to benchmarks of other games in the GROW community.
@@ -23,7 +23,7 @@ GROW packages and Whales Report are automatically sent to the emails of users wi
 
 **Note:** This document is for users of SDKBOX who don't want to integrate SOOMLA's opensource modules into their game.
 
-##Getting Started
+## Getting Started
 
 Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon logging in, you will be directed to the 
 main page of the dashboard. On the left side panel, you can click on "Demo Game" in order to know what to expect to see 
@@ -55,7 +55,7 @@ can ignore other installation instructions on the dashboard as you're only using
 
 
 
-###**Instructions for iOS**
+### **Instructions for iOS**
 
 In your XCode project, perform the following steps:
 
@@ -113,7 +113,7 @@ That's it!
 > Don't forget to `Build Custom Simulator` for iOS, if you use Cocos IDE.
 
 
-###**Instructions for Android**
+### **Instructions for Android**
 
 1. Import cocos2dx-highway module into your project's Android.mk by adding the following:
 
@@ -147,7 +147,7 @@ That's it!
 
 
 
-##Back to the Dashboard
+## Back to the Dashboard
 
 Once your app is running, you can go back to the [GROW dashboard](http://dashboard.soom.la) to verify the integration. 
 Just refresh the page, and the environments tab should appear (be patient, this step can take a few minutes).

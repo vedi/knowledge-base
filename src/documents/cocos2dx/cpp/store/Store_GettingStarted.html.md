@@ -253,7 +253,7 @@ Then, initialize `CCSoomlaStore` with your implementation of `CCStoreAssets`:
 ``` cpp
 //In `AppDelegate.cpp`:
 
-# include "YourImplementationAssets.h"
+#include "YourImplementationAssets.h"
 
 bool AppDelegate::applicationDidFinishLaunching() {
 	soomla::CCSoomla::initialize("ExampleCustomSecret");

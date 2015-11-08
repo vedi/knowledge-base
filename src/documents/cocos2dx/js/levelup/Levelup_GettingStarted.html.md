@@ -11,9 +11,9 @@ lang: 'js'
 platform: 'cocos2dx'
 ---
 
-#Getting Started
+# Getting Started
 
-##Getting Started
+## Getting Started
 
 <div class="info-box">LevelUp depends on SOOMLA's other modules: [Core & Store](/cocos2dx/js/store), and 
 [Profile](/cocos2dx/js/profile). This document assumes that you are new to SOOMLA and have not worked with any of the 
@@ -121,7 +121,7 @@ supported by SOOMLA's cocos2dx-store (the tag is the version).</div>
 
 <div class="info-box">The next steps are different according to which platform you are using.</div>
 
-###**Instructions for iOS**
+### **Instructions for iOS**
 
 In your XCode project, perform the following steps:
 
@@ -187,7 +187,7 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
 
 That's it! Now all you have to do is build your XCode project and run your game with cocos2dx-levelup.
 
-###**Instructions for Android**
+### **Instructions for Android**
 
 1. Set COCOS2D_JAVASCRIPT flag for your project changing your `frameworks/runtime-src/proj.android/jni/Application.mk`:
     ```
@@ -271,7 +271,7 @@ That's it!
 
 > Don't forget to `Build Custom Simulator` for Android, if you use Cocos IDE.
 
-##Working with sources
+## Working with sources
 
 **To integrate cocos2dx-levelup into your game, follow these steps:**
 
@@ -309,7 +309,7 @@ That's it!
 `frameworks/runtime-src/Classes/cocos2dx-levelup/development/Cocos2dxLevelUpFromSources.iml`
 ), just include them in your project.
 
-##Example Usages
+## Example Usages
 
 **NOTE:** Examples using virtual items are dependent on cocos2dx-store module, with proper `Soomla.soomlaStore` 
 initialization and `Soomla.IStoreAssets` definitions. See the cocos2dx-store integration section for more details.
