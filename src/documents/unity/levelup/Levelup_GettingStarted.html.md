@@ -32,7 +32,13 @@ platform: 'unity'
 
   <div class="info-box">If you are completely new to SOOMLA you can use the [All-in-One](http://library.soom.la/fetch/unity3d-allinone/latest?cf=knowledge%20base) unitypackage which contains all the above packages in one package. Importing it is equivalent to preforming the above steps.</div>
 
-3. Drag the "CoreEvents", "StoreEvents", "ProfileEvents" and "LevelUpEvents" Prefabs from `Assets/Soomla/Prefabs` into your scene. You should see it listed in the "Hierarchy" panel. [This step MUST be done for unity3d-levelup to work properly]
+3. ~~Drag the "CoreEvents", "StoreEvents", "ProfileEvents" and "LevelUpEvents" Prefabs from `Assets/Soomla/Prefabs` into your scene. You should see it listed in the "Hierarchy" panel. [This step MUST be done for unity3d-levelup to work properly]~~
+
+    <div class="info-box">This step is no longer required starting from: <br>
+    Core    v1.2.0 <br>
+    Store   v1.9.0 <br>
+    Profile v2.2.0 <br>
+    LevelUp v1.1.0 </div>
 
   ![alt text](/img/tutorial_img/unity_levelup/prefabs.png "Hierarchy")
 
