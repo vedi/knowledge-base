@@ -8,14 +8,14 @@ theme: 'soomla'
 collection: 'soomla_store'
 ---
 
-#**IStoreAssets**
+# **IStoreAssets**
 
 
-##What is IStoreAssets?
+## What is IStoreAssets?
 
 `IStoreAssets` is an interface that represents a single game’s economy. When you use SOOMLA to create your game economy, one of the first steps to take is to create your own implementation of `IStoreAssets`. This is where you declare all of your virtual currencies, virtual currency packs, and virtual goods of all kinds.
 
-###Android Example
+### Android Example
 
 This brief example (taken from our [MuffinRush](https://github.com/soomla/android-store/blob/master/SoomlaAndroidExample/src/com/soomla/example/MuffinRushAssets.java) example) contains only a few of the in-game economy items available.
 
@@ -68,7 +68,7 @@ public class MuffinRushAssets implements IStoreAssets {
 }
 ```
 
-###iOS Example
+### iOS Example
 This brief example (taken from our [MuffinRush](https://github.com/soomla/ios-store/blob/master/SoomlaiOSStoreExample/SoomlaiOSStoreExample/MuffinRushAssets.m) example) contains only a few of the in-game economy items available.
 
 ```objectivec
@@ -128,32 +128,32 @@ After you’ve implemented your version of `IStoreAssets`, you’ll need to init
 `IStoreAssets` is transformed into metadata in JSON format and saved in a local SQLite database on the device. After that, the economy is always loaded from the database.
 
 
-##Functions
+## Functions
 <div class="info-box">The names of the functions may vary across the different platforms, but their descriptions are the same.</div>
 
-###getVersion
+### getVersion
 
 This value will determine if the saved data in the database will be deleted or not. Bump the version every time you want to delete the old data in the DB. If you don't bump this value, you won't be able to see changes you've made to the objects in your implementation of `IStoreAssets`.
 
 For example: If you previously created a `VirtualGood` with the name "Hat" and you published your application, the name "Hat” will be saved in all of your users' databases. If you want to change the name to "Green_hat" then you'll also have to bump the version (from 0 to 1). Now the new "Green_hat" name will replace the old one.
 
 
-###getCurrencies
+### getCurrencies
 
 Create an instance of all your desired virtual currencies. For every `VirtualCurrency`, you'll have to provide: name, description and item Id. Use this functions to access your game's currencies.
 
 
-###getCurrencyPacks
+### getCurrencyPacks
 
 Create an instance of all your desired `VirtualCurrencyPack`s. For every `VirtualCurrencyPack`, you'll have to provide: name, description, item Id, purchase type, currency amount (the amount of currencies in the pack), and currency item ID (the item ID of the associated currency). Use this functions to access your game's currency packs.
 
 
-###getGoods
+### getGoods
 
 Create an instance of all your desired `VirtualGood`s. For every good, you'll have to provide: name, description, item ID and purchase type. Use this functions to access your game's virtual goods.
 
 
-###getCategories
+### getCategories
 
 Create an instance of all your desired virtual categories. For every `VirtualCategory`, you'll have to provide: name and goods item Ids (list of item Ids of the `VirtualGood`s in this category). Use this functions to access your game's categories.
 
