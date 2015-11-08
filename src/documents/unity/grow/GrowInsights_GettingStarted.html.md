@@ -38,7 +38,11 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	![alt text](/img/tutorial_img/unity_grow/importHighway.png "import")
 
-3. Open your earliest loading scene.  Drag the `HighwayEvents` Prefab from `Assets/Soomla/Prefabs` into the scene. You should see it listed in the "Hierarchy" panel.
+3. ~~Open your earliest loading scene.  Drag the `HighwayEvents` Prefab from `Assets/Soomla/Prefabs` into the scene. You should see it listed in the "Hierarchy" panel.~~
+
+	<div class="info-box">This step is no longer required starting from: <br>
+	Core    v1.2.0 <br>
+	Highway v2.1.0</div>
 
 	![alt text](/img/tutorial_img/unity_grow/prefabsStoreAndHighway.png "Prefabs")
 
