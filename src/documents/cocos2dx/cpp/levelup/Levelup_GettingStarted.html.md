@@ -132,6 +132,25 @@ In your XCode project, perform the following steps:
 
 That's it! Now all you have to do is build your XCode project and run your game with cocos2dx-levelup.
 
+<div class="info-box">**FOR CORRECT iOS USAGE:** <br/>
+	**1.** If you are building your app under Windows, you have to have iTunes installed since the SOOMLA postprocessing is expecting a utility that exists in OS X and is installed with iTunes in Windows.                                          
+  **2.** If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/<LIBRARY_NAME>` to `Other Linker Flags` for the following SOOMLA libraries:
+  <ul>
+    <li>`libSoomlaiOSCore.a`</li>
+    <li>`libSoomlaiOSLevelUp.a`</li>
+    <li>`libSoomlaiOSProfile.a`</li>
+    <li>`libSoomlaiOSStore.a`</li>
+    <li>`libCocos2dXiOSCore.a`</li>
+    <li>`libCocos2dXiOSLevelUp.a`</li>
+    <li>`libCocos2dXiOSProfile.a`</li>    
+    <li>`libCocos2dXiOSStore.a`</li>
+    <li>`libSoomlaiOSSProfileFacebook.a` (if you use Facebook)</li>
+    <li>`libSoomlaiOSSProfileTwitter.a` (if you use Twitter)</li>
+    <li>`libSoomlaiOSSProfileGoogle.a`(if you use Google+)</li>      
+  </ul>
+</div>
+
+
 ### **Instructions for Android**
 
 1. Import cocos2dx-store, cocos2dx-profile, and cocos2dx-levelup into your project's Android.mk by adding the following:

@@ -27,23 +27,58 @@ platform: 'unity'
   ``` cs
   git clone --recursive https://github.com/soomla/unity3d-levelup.git
   ```
+  
+  <div class="info-box">Starting from `SOOMLA Unity3D LevelUp 1.0.19`, SOOMLA changed the location of binaries in `Plugins` directory. If you're upgrading from version lower than 1.0.19 to version higher than 1.0.19, please remove the following binaries manually:
+    <ul>
+      <li>`Assets/Plugins/iOS/libSoomlaiOSCore.a`</li>
+      <li>`Assets/Plugins/iOS/libSoomlaiOSSLevelUp.a`</li>
+      <li>`Assets/Plugins/iOS/libUnitySoomlaiOSCore.a`</li>
+      <li>`Assets/Plugins/iOS/libUnityiOSLevelUp.a`</li>
+      <li>`Assets/Plugins/Android/AndroidLevelUp.jar`</li>
+      <li>`Assets/Plugins/Android/SoomlaAndroidCore.jar`</li>
+      <li>`Assets/Plugins/Android/UnityAndroidLevelUp.jar`</li>
+      <li>`Assets/Plugins/Android/UnitySoomlaAndroidCore.jar`</li>
+      <li>`Assets/Plugins/Android/square-otto-1.3.2.jar`</li>
+    </ul>
+    Also, if your're using SOOMLA Unity3D Profile, remove the following binaries:
+    <ul>      
+      <li>`Assets/Plugins/iOS/libSoomlaiOSSProfile.a`</li>      
+      <li>`Assets/Plugins/iOS/libUnityiOSProfile.a`</li>            
+      <li>`Assets/Plugins/iOS/libSoomlaiOSSProfileTwitter.a` (if you're using Twitter)</li>
+      <li>`Assets/Plugins/iOS/libSoomlaiOSSProfileGoogle.a`(if you're using Google+)</li>
+      <li>`Assets/Plugins/Android/AndroidProfile.jar`</li>      
+      <li>`Assets/Plugins/Android/UnityAndroidProfile.jar`</li>            
+      <li>`Assets/Plugins/Android/AndroidProfileTwitter.jar` (if you're using Twitter)</li>
+      <li>`Assets/Plugins/Android/twitter4j-asyc-4.0.2.jar` (if you're using Twitter)</li>
+      <li>`Assets/Plugins/Android/twitter4j-core-4.0.2.jar` (if you're using Twitter)</li>
+      <li>`Assets/Plugins/Android/AndroidProfileGoogle.jar` (if you're using Google+)</li>
+      <li>`Assets/Plugins/Android/google-play-services_lib` (if you're using Google+)</li>
+    </ul>
+    Also, if your're using SOOMLA Unity3D Store, remove the following binaries:
+    <ul>      
+      <li>`Assets/Plugins/iOS/libSoomlaiOSSStore.a`</li>      
+      <li>`Assets/Plugins/iOS/libUnityiOSStore.a`</li>
+      <li>`Assets/Plugins/Android/AndroidStore.jar`</li>      
+      <li>`Assets/Plugins/Android/UnityAndroidStore.jar`</li>      
+      <li>`Assets/Plugins/Android/square-otto-1.3.2.jar`</li>
+      <li>`Assets/Plugins/Android/AndroidStoreAmazon.jar` (if you're using Amazon as billing service)</li>
+      <li>`Assets/Plugins/Android/in-app-purchasing-2.0.1.jar` (if you're using Amazon as billing service)</li>
+      <li>`Assets/Plugins/Android/AndroidStoreGooglePlay.jar` (if you're using Google Play as billing service)</li>
+    </ul>
+  </div>
 
 2. Double-click on them following the order they appear above. It'll import all the necessary files into your project.
 
   <div class="info-box">If you are completely new to SOOMLA you can use the [All-in-One](http://library.soom.la/fetch/unity3d-allinone/latest?cf=knowledge%20base) unitypackage which contains all the above packages in one package. Importing it is equivalent to preforming the above steps.</div>
 
-3. Drag the "CoreEvents", "StoreEvents", "ProfileEvents" and "LevelUpEvents" Prefabs from `Assets/Soomla/Prefabs` into your scene. You should see it listed in the "Hierarchy" panel. [This step MUST be done for unity3d-levelup to work properly]
-
-  ![alt text](/img/tutorial_img/unity_levelup/prefabs.png "Hierarchy")
-
-4. In the menu bar go to **Window > Soomla > Edit Settings** and change the value for "Soomla Secret" (also setup Public Key if you're building for Google Play):
+3. In the menu bar go to **Window > Soomla > Edit Settings** and change the value for "Soomla Secret" (also setup Public Key if you're building for Google Play):
 
     - _Soomla Secret_ - is an encryption secret you provide that will be used to secure your data. (If you used versions before v1.5.2 this secret MUST be the same as Custom Secret)  
     **Choose this secret wisely, you can't change it after you launch your game!**
 
     - _Public Key_ - is the public key given to you from Google (iOS doesn't have a public key).
 
-5. Create your own _Initial World_ which should contain the entire 'blueprint' of the game (see [Model Overview](/unity/levelup/Levelup_Model)). Initialize _LevelUp_ with the class you just created:
+4. Create your own _Initial World_ which should contain the entire 'blueprint' of the game (see [Model Overview](/unity/levelup/Levelup_Model)). Initialize _LevelUp_ with the class you just created:
 
     ```cs
     SoomlaLevelUp.Initialize (initialWorld);
@@ -51,10 +86,28 @@ platform: 'unity'
 
   <div class="warning-box">Initialize _LevelUp_ ONLY ONCE when your application loads, in the `Start()` function of a `MonoBehaviour` and **NOT** in the `Awake()` function. SOOMLA has its own `MonoBehaviour` and it needs to be "Awakened" before you initialize.</div>
 
-6. You'll need to create event handler functions in order to be notified about (and handle) _LevelUp_ related events. Refer to the [Event Handling](/unity/levelup/LevelUp_Events) section for more information.
+5. You'll need to create event handler functions in order to be notified about (and handle) _LevelUp_ related events. Refer to the [Event Handling](/unity/levelup/LevelUp_Events) section for more information.
 
 And that's it! You have game architecture capabilities at your fingertips.
 
+<br />
+<div class="info-box">**FOR CORRECT iOS USAGE:**<br/>
+  	**1.** If you are building your app under Windows, you have to have iTunes installed since the SOOMLA postprocessing is expecting a utility that exists in OS X and is installed with iTunes in Windows.                                          
+    **2.** If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/<LIBRARY_NAME>` to `Other Linker Flags` for the following SOOMLA libraries:
+    <ul>
+      <li>`libSoomlaiOSCore.a`</li>
+      <li>`libSoomlaiOSLevelUp.a`</li>      
+      <li>`libSoomlaiOSProfile.a`</li>
+      <li>`libSoomlaiOSStore.a`</li>
+      <li>`libUnitySoomlaiOSCore.a`</li>
+      <li>`libUnityiOSProfile.a`</li>
+      <li>`libUnityiOSLevelUp.a`</li>
+      <li>`libUnityiOSStore.a`</li>
+      <li>`libSoomlaiOSSProfileFacebook.a` (if you use Facebook)</li>
+      <li>`libSoomlaiOSSProfileTwitter.a` (if you use Twitter)</li>
+      <li>`libSoomlaiOSSProfileGoogle.a`(if you use Google+)</li>      
+    </ul>                                                      
+</div>
 
 ### SOOMLA's unity3d-store Integration
 

@@ -50,6 +50,14 @@ Before doing anything, SOOMLA recommends that you go through Apple's [Selling wi
 
 And that's it! You have Storage and in-app purchasing capabilities... ALL-IN-ONE.
 
+<div class="info-box">**NOTE:** 
+    If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/<LIBRARY_NAME>` to `Other Linker Flags` for the following SOOMLA libraries:
+    <ul>
+        <li>`libSoomlaiOSCore.a`</li>
+        <li>`libSoomlaiOSStore.a`</li>        
+    </ul>                                                                                                                                                                                                                                                                     
+</div>
+
 ## In App Purchasing
 
 SOOMLA provides two ways in which you can let your users purchase items in your game:
@@ -58,7 +66,7 @@ SOOMLA provides two ways in which you can let your users purchase items in your 
 
  2. **PurchaseWithVirtualItem** is a `PurchaseType` that lets your users purchase a `VirtualItem` with some amount of a different `VirtualItem`. *For Example:* Buying 1 Sword with 100 Gems.
 
-In order to define the way your various virtual items (Coins, swords, hats...) are purchased, you'll need to create your implementation of `IStoreAssets` (described above in step 5 of [Getting Started](# getting-started)).
+In order to define the way your various virtual items (Coins, swords, hats...) are purchased, you'll need to create your implementation of `IStoreAssets` (described above in step 5 of [Getting Started](#getting-started)).
 
 ## Example
 

@@ -23,12 +23,29 @@ platform: 'unity'
 	b. [unity3d-profile](http://library.soom.la/fetch/unity3d-profile/latest?cf=knowledge%20base)
 
 	If you want to use Store-related rewards you'll need to go over the instructions of [unity3d-store](https://github.com/soomla/unity3d-store).
+	
+	<div class="info-box">Starting from `SOOMLA Unity3D Profile 2.1.9`, SOOMLA changed the location of binaries in `Plugins` directory. If you're upgrading from version lower than 2.1.9 to version higher than 2.1.9, please remove the following binaries manually:
+        <ul>
+        		<li>`Assets/Plugins/iOS/libSoomlaiOSCore.a`</li>
+						<li>`Assets/Plugins/iOS/libSoomlaiOSSProfile.a`</li>
+            <li>`Assets/Plugins/iOS/libUnitySoomlaiOSCore.a`</li>
+            <li>`Assets/Plugins/iOS/libUnityiOSProfile.a`</li>            
+            <li>`Assets/Plugins/iOS/libSoomlaiOSSProfileTwitter.a` (if you're using Twitter)</li>
+            <li>`Assets/Plugins/iOS/libSoomlaiOSSProfileGoogle.a`(if you're using Google+)</li>
+            <li>`Assets/Plugins/Android/AndroidProfile.jar`</li>
+            <li>`Assets/Plugins/Android/SoomlaAndroidCore.jar`</li>
+            <li>`Assets/Plugins/Android/UnityAndroidProfile.jar`</li>
+            <li>`Assets/Plugins/Android/UnitySoomlaAndroidCore.jar`</li>
+            <li>`Assets/Plugins/Android/square-otto-1.3.2.jar`</li>
+            <li>`Assets/Plugins/Android/AndroidProfileTwitter.jar` (if you're using Twitter)</li>
+            <li>`Assets/Plugins/Android/twitter4j-asyc-4.0.2.jar` (if you're using Twitter)</li>
+            <li>`Assets/Plugins/Android/twitter4j-core-4.0.2.jar` (if you're using Twitter)</li>
+            <li>`Assets/Plugins/Android/AndroidProfileGoogle.jar` (if you're using Google+)</li>
+            <li>`Assets/Plugins/Android/google-play-services_lib` (if you're using Google+)</li>
+      	</ul>
+  </div>
 
-2. Drag the `CoreEvents` and `ProfileEvents` Prefabs from `Assets/Soomla/Prefabs` into your scene. You should see them listed in the "Hierarchy" panel. **IMPORTANT:** This step MUST be done for unity3d-profile to work properly!
-
-	![alt text](/img/tutorial_img/unity-profile/prefabs.png "Prefabs")
-
-3. Go to the menu bar, under **Window > Soomla > Edit Settings**:
+2. Go to the menu bar, under **Window > Soomla > Edit Settings**:
 
 	a. Change the value for **Soomla Secret**. "Soomla Secret" is an encryption secret you provide that will be used to secure your data. Choose this secret wisely, you can't change it after you launch your game! (NOTE: If you used unity3d-store versions before v1.5.2 this secret MUST be the same as "Custom Secret".)
 
@@ -36,7 +53,7 @@ platform: 'unity'
 
 	![alt text](/img/tutorial_img/unity-profile/soomlaSettings.png "Soomla Settings")
 
-4. Initialize `SoomlaProfile`:
+3. Initialize `SoomlaProfile`:
 
 	``` cs
 	SoomlaProfile.Initialize();
@@ -48,9 +65,9 @@ platform: 'unity'
 
 	Initialize `SoomlaProfile` in the `Start()` function of a `MonoBehaviour` and **NOT** in the `Awake()` function. SOOMLA has its own `MonoBehaviour` and it needs to be "Awakened" before you initialize.<br>
 
-5. Call all the social functions you can from the `SoomlaProfile` class (not from the social provider class). Otherwise, you won't be able to work with SOOMLA correctly. You can still call functions from the social provider, such as the `FB` class, but only those that are not provided by `SoomlaProfile`.
+4. Call all the social functions you can from the `SoomlaProfile` class (not from the social provider class). Otherwise, you won't be able to work with SOOMLA correctly. You can still call functions from the social provider, such as the `FB` class, but only those that are not provided by `SoomlaProfile`.
 
-6. You'll need event handlers in order to be notified about in-app purchasing-related events and social-related events. Refer to the [Event Handling](/unity/profile/Profile_Events) document for more information.
+5. You'll need event handlers in order to be notified about in-app purchasing-related events and social-related events. Refer to the [Event Handling](/unity/profile/Profile_Events) document for more information.
 
 And that's it! unity3d-profile knows how to contact the social provider (Facebook, Twitter, Google+ etc.) and perform social actions with the information you provide.
 
@@ -78,8 +95,23 @@ And that's it! unity3d-profile knows how to contact the social provider (Faceboo
 
   <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app,
   just request the reasonable minimum. Other permissions will be requested, when they will be needed.
-  For instance, if you try to call `UpdateStory`, SoomlaProfile will ask for `publish_actions` permission, if your app has not got it.</div>
+  For instance, if you try to call `UpdateStatus`, SoomlaProfile will ask for `publish_actions` permission, if your app has not got it.</div>
 
+<br />
+<div class="info-box">**FOR CORRECT iOS USAGE:**<br/>
+  	**1.** If you are building your app under Windows, you have to have iTunes installed since the SOOMLA postprocessing is expecting a utility that exists in OS X and is installed with iTunes in Windows.                                          
+
+    **2.** If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/<LIBRARY_NAME>` to `Other Linker Flags` for the following SOOMLA libraries:    
+		<ul>
+			<li>`libSoomlaiOSCore.a`</li>
+			<li>`libSoomlaiOSSProfile.a`</li>
+			<li>`libUnitySoomlaiOSCore.a`</li>
+			<li>`libUnityiOSProfile.a`</li>
+			<li>`libSoomlaiOSSProfileFacebook.a` (if you use Facebook)</li>
+			<li>`libSoomlaiOSSProfileTwitter.a` (if you use Twitter)</li>
+			<li>`libSoomlaiOSSProfileGoogle.a`(if you use Google+)</li>
+		</ul>  
+</div>
 
 ### Google+
 
@@ -121,13 +153,13 @@ There are some settings you can define which applies in all social providers par
 
 1. **Facebook Application** - You must create a Facebook application and use its details in your Profile-based application (with Facebook).
 
-2. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles.
+2. **Facebook Permissions** - Profile will request `publish_actions`, `user_location`, `user_likes` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles.
 
 #### **Android**
 
 1. **Facebook Application** - You must create a Facebook application and use its details in your Profile-based application (with Facebook).
 
-2. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
+2. **Facebook Permissions** - Profile will request `publish_actions`, `user_location`, `user_likes` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
 
 ### Twitter Caveats
 

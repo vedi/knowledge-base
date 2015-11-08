@@ -3,7 +3,7 @@ layout: "content"
 image: "Leaderboards"
 title: "Social Leaderboards"
 text: "Get started with GROW Social Leaderboards for Unity. Here you can find initialization instructions, event handling and usage examples."
-position: 9
+position: 4
 theme: 'platforms'
 collection: 'cocos2djs_grow'
 module: 'grow'
@@ -15,8 +15,8 @@ platform: 'cocos2dx'
 
 ## Overview
 
-GROW Leaderboards lets you turn your game into a competition, by showing users their friends' progress. This will keep 
-your users engaged and informed of where they stand compared to others. Your users can use their favorite social network 
+GROW Leaderboards lets you turn your game into a competition, by showing users their friends' progress. This will keep
+your users engaged and informed of where they stand compared to others. Your users can use their favorite social network
 to login into Leaderboards.
 With Leaderboards you can:
 
@@ -26,14 +26,14 @@ With Leaderboards you can:
 
 ## Integration
 
-<div class="info-box">GROW Leaderboards is included in [GrowCompete](/cocos2dx/js/grow/GrowCompete_GettingStarted#SetupGrowCompete) 
-and [GrowUltimate](/cocos2dx/js/grow/GrowUltimate_GettingStarted#SetupGrowUltimate) bundles. Please follow the relevant 
+<div class="info-box">GROW Leaderboards is included in [GrowCompete](/cocos2dx/js/grow/GrowCompete_GettingStarted#SetupGrowCompete)
+and [GrowUltimate](/cocos2dx/js/grow/GrowUltimate_GettingStarted#SetupGrowUltimate) bundles. Please follow the relevant
 bundle instruction first to properly integrate and initialize GROW Leaderboards.</div>
 
 
 1. Initialize all necessary modules according to the instructions of your relevant bundle.
 
-* Create event handler functions in order to be notified about (and handle) GROW Leaderboards related events. See 
+* Create event handler functions in order to be notified about (and handle) GROW Leaderboards related events. See
 [Events](/cocos2dx/js/grow/Grow_Leaderboards/#Events) for more information.
 
 * Once the user logs into a social provider it will be possible to start retrieving his friends' states, as explained below.
@@ -106,7 +106,7 @@ this.onFetchFriendsStatesFailed = function (providerId, errorMessage) {
 
 ## Main Classes & Methods
 
-Here you can find descriptions of the main classes of GROW Leaderboards. These classes contain functionality for 
+Here you can find descriptions of the main classes of GROW Leaderboards. These classes contain functionality for
 leaderboards-related operations such as fetching friends state.
 
 ### GrowLeaderboards
@@ -117,21 +117,21 @@ leaderboards-related operations such as fetching friends state.
 
 **`GrowLeaderboards.fetchFriendsStates(providerId, friendsProfileIds)`**
 
-Fetches the friends' state from the server. The friends' state contains relevant information on completed levels and 
+Fetches the friends' state from the server. The friends' state contains relevant information on completed levels and
 highscores for the provided list of users.
 Returns `false` if the operation cannot be started, `true` otherwise.
 Params:
 
 - providerId - The social provider ID for which to get the friends' state.
-- friendsProfileIds - a List of friends' profile IDs in the network provided. Can be obtained by calling 
+- friendsProfileIds - a List of friends' profile IDs in the network provided. Can be obtained by calling
 [`Soomla.soomlaProfile.getContacts()`](/cocos2dx/js/profile/Profile_MainClasses#getContacts).
 
-The `EVENT_FETCH_FRIENDS_STATES_STARTED` event is triggered once the sending process is started, and one of 
+The `EVENT_FETCH_FRIENDS_STATES_STARTED` event is triggered once the sending process is started, and one of
 `EVENT_FETCH_FRIENDS_STATES_FINISHED` or `EVENT_FETCH_FRIENDS_STATES_FAILED` is triggered depending on the operation outcome.
 
 ### FriendState
 
-`FriendState` represents a friend's state in the game. It contains all relevant information to create a leaderboard 
+`FriendState` represents a friend's state in the game. It contains all relevant information to create a leaderboard
 between a player and his friends.
 
 #### Fields

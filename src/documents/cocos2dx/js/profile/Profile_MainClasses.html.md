@@ -179,6 +179,21 @@ Soomla.soomlaProfile.updateStatusWithConfirmation(
 ```
 
 <br>
+### `updateStatusDialog`
+
+Shares the given status to the user's feed and grants the user a reward.
+Using the provider's native dialog (when available).
+
+``` js
+Soomla.soomlaProfile.updateStatusDialog(
+	Soomla.Models.Provider.FACEBOOK,      // Provider
+	'I LOVE SOOMLA!  http://www.soom.la', // Message to post as status
+	'',                                   // Payload
+	null,                                 // Reward	
+);
+```
+
+<br>
 ### `updateStory`
 This function posts a story (which is a detailed status) on the user's wall in the supplied social provider. Upon a successful update, the user will receive the supplied reward.
 
@@ -218,19 +233,37 @@ Works the same as `updateStory` only here a confirmation dialog will be shown be
 
 ``` js
 Soomla.soomlaProfile.updateStoryWithConfirmation(
-	Soomla.Models.Provider.FACEBOOK,           // Provider
+	Soomla.Models.Provider.FACEBOOK,            // Provider
 	'This is the story.',                       // Text of the story to post
 	'The story of SOOMBOT (Profile Test App)',  // Name
 	'SOOMBOT Story',                            // Caption
-	'Hey! It's SOOMBOT Story',                 	// Description
+	'Hey! It's SOOMBOT Story',                  // Description
 	'http://about.soom.la/soombots',            // Link to post
 	'http://about.soom.la/.../spockbot.png',    // Image URL
 	'',                                         // Payload
 	null,                                       // Reward
-	customMessage 								// Message to show in the confirmation dialog
+	customMessage                               // Message to show in the confirmation dialog
 );
 ```
 
+<br>
+### `updateStoryDialog`
+
+Shares a story to the user's feed and grants the user a reward.
+Using the provider's native dialog (when available).
+
+``` js
+Soomla.soomlaProfile.updateStoryDialog(
+	Soomla.Models.Provider.FACEBOOK,            // Provider	
+	'The story of SOOMBOT (Profile Test App)',  // Name
+	'SOOMBOT Story',                            // Caption
+	'Hey! It's SOOMBOT Story',                  // Description
+	'http://about.soom.la/soombots',            // Link to post
+	'http://about.soom.la/.../spockbot.png',    // Image URL
+	'',                                         // Payload
+	null                                        // Reward	
+);
+```
 
 <br>
 ### `uploadImage`
@@ -278,6 +311,21 @@ Soomla.soomlaProfile.uploadImageWithConfirmation(
 	'',                                   	// Payload
 	null,                          		    // Reward
 	customMessage 							// Message to show in the confirmation dialog
+);
+```
+
+<br>
+### `uploadCurrentScreenshot`
+
+`uploadCurrentScreenshot` uploads the current screen shot image to the user's social page on the given Provider.
+
+``` js
+Soomla.soomlaProfile.uploadCurrentScreenshot(
+  Soomla.Models.Provider.FACEBOOK, // Provider
+  'Sharing title',                 // Story title
+  'Let's use SOOMLA together!',    // Story message
+  '',                              // Payload
+  null                             // Reward	
 );
 ```
 
@@ -353,7 +401,7 @@ this.onGetContactsFinished = function (provider, contacts, payload, hasMore) {
 This function Retrieves a list of the user's feed entries from the supplied provider. Upon a successful retrieval of
 feed entries the user will be granted the supplied reward.
 
-<div class="info-box">G+ does not support this.</div>
+<div class="info-box">Currently G+ is supported by iOS only.</div>
 
 ```js
 Soomla.soomlaProfile.getFeed(
@@ -395,9 +443,28 @@ this.onGetFeedFinished = function (provider, contacts, payload, hasMore) {
 ```
 
 <br>
+### `invite`
+
+`invite` sends an invitation to join your app.
+
+<div class="info-box">**NOTE:** Supported only by Facebook.</div>
+
+```js
+Soomla.soomlaProfile.invite(
+  Soomla.Models.Provider.FACEBOOK,        // Provider
+  inviteMessage,                          // Invitation message
+  dialogTitle,                            // Dialog title
+  payload,                                // a String to receive when the function returns.
+  reward                                  // Reward upon success of getting of feed
+);
+```
+
+<br>
 ### `openAppRatingPage`
 
 `openAppRatingPage` conveniently opens your application's page on the platform store (for example on an iOS device it'll open your app's page in the App Store) so that it's simple to rate the app. You can offer your users to rate your app after they've completed a level successfully or have progressed significantly in your game.
+
+<div class="info-box">To use this feature, please add your iTunes App ID (taken from iTunes Connect for your application) in your app `Info.plist` at `iTinesAppID` key.</div>
 
 ``` js
 Soomla.soomlaProfile.openAppRatingPage();

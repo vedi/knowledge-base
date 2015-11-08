@@ -69,6 +69,9 @@ var totalLevels = Soomla.soomlaLevelUp.getLevelCount();
 
 // Retrieve the number of completed `Level`s:
 var completedLevels = Soomla.soomlaLevelUp.getCompletedWorldCount();
+
+// Clears all current progress of LevelUp:
+Soomla.soomlaLevelUp.clearCurrentState();
 ```
 
 <br>

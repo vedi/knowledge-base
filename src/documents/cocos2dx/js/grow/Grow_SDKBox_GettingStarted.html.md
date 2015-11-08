@@ -3,7 +3,7 @@ layout: "content"
 image: "Tutorial"
 title: "Getting Started (SDKBOX)"
 text: "Get started with GROW open analytics (and Whales Report) for Cocos2d-x with SDKBOX. Doesn't Include any of SOOMLA's opensource modules, only Highway and GrowInsights."
-position: 30
+position: 1
 theme: 'platforms'
 collection: 'cocos2djs_grow'
 module: 'grow'
@@ -15,41 +15,41 @@ platform: 'cocos2dx'
 
 ## Overview
 
-Soomla GROW is our flagship, community driven, data network. Developers using GROW can gain valuable insights about their 
+Soomla GROW is our flagship, community driven, data network. Developers using GROW can gain valuable insights about their
 games' performance and compare the data to benchmarks of other games in the GROW community.
 
-Whales Report and GrowInsights are also provided to users of the GROW network. GrowInsights is an SDK provided with the 
+Whales Report and GrowInsights are also provided to users of the GROW network. GrowInsights is an SDK provided with the
 GROW packages and Whales Report are automatically sent to the emails of users with live & active games.
 
 **Note:** This document is for users of SDKBOX who don't want to integrate SOOMLA's opensource modules into their game.
 
 ## Getting Started
 
-Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon logging in, you will be directed to the 
-main page of the dashboard. On the left side panel, you can click on "Demo Game" in order to know what to expect to see 
+Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon logging in, you will be directed to the
+main page of the dashboard. On the left side panel, you can click on "Demo Game" in order to know what to expect to see
 once you start using Grow.
 
 1. Click on the right pointing arrow next to "Demo Game" > "Add New App" and fill in the required fields.
 
   ![alt text](/img/tutorial_img/unity_grow/addNewApp.png "Add new app")
 
-> Once you created a new App, you'll see your game and environment keys. Use them in the following instructions. (You 
+> Once you created a new App, you'll see your game and environment keys. Use them in the following instructions. (You
 can ignore other installation instructions on the dashboard as you're only using SDKBOX).
 
 2. Install `soomla-grow` package on SDKBOX as explained [here](http://soom.la).
 
 3. Once you finished installation, add "Game Key" and "Env Key" from the GROW dashboard to SDKBOX's configuration json:
 
-  ![alt text](/img/tutorial_img/cocos_grow/dashboardKeys.png "Keys")
+  <img src="/img/tutorial_img/cocos_grow/dashboardKeys.png" alt="Game key and Env key" style="border:0;">
 
 [ADD JSON EXAMPLE HERE]
 
 > you're probably testing your integration and you want to use the **Sandbox** environment key for starters.
 
-  <div class="info-box">The *game* and *environment* keys allow for your game to distinguish multiple environments for 
-  the same game. The dashboard pre-generates two fixed environments for your game: **Production** and **Sandbox**. When 
-  you decide to publish your game, make sure to switch the env key to **Production**.  You can always generate more 
-  environments.  For example - you can choose to have a playground environment for your game's beta testers which will 
+  <div class="info-box">The *game* and *environment* keys allow for your game to distinguish multiple environments for
+  the same game. The dashboard pre-generates two fixed environments for your game: **Production** and **Sandbox**. When
+  you decide to publish your game, make sure to switch the env key to **Production**.  You can always generate more
+  environments.  For example - you can choose to have a playground environment for your game's beta testers which will
   be isolated from your production environment and will thus prevent analytics data from being mixed between the two.  
   Another best practice is to have a separate environment for each version of your game.</div>
 
@@ -59,14 +59,14 @@ can ignore other installation instructions on the dashboard as you're only using
 
 In your XCode project, perform the following steps:
 
-1. In order to proceed Soomla needs to know, where your cocos2d-x is. Please, create a symlink with cocos2d-x at the 
+1. In order to proceed Soomla needs to know, where your cocos2d-x is. Please, create a symlink with cocos2d-x at the
 path `frameworks/runtime-src` of the project, which looks at cocos2d-x. It can be something like that:
 
     ```bash
 ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime-src/cocos2d-x
     ````
 
-1. Add `jansson` (**frameworks/runtime-src/Classes/jansson/**) to your project (just add it as a source folder, make 
+1. Add `jansson` (**frameworks/runtime-src/Classes/jansson/**) to your project (just add it as a source folder, make
 sure to check "create group").
 
 1. For the following XCode projects:
@@ -149,7 +149,7 @@ That's it!
 
 ## Back to the Dashboard
 
-Once your app is running, you can go back to the [GROW dashboard](http://dashboard.soom.la) to verify the integration. 
+Once your app is running, you can go back to the [GROW dashboard](http://dashboard.soom.la) to verify the integration.
 Just refresh the page, and the environments tab should appear (be patient, this step can take a few minutes).
 
 ![alt text](/img/tutorial_img/unity_grow/verifyIntegration.png "Verify Integration")

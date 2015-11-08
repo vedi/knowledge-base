@@ -330,3 +330,65 @@ this.onGetFeedFailed = function (provider, errorDescription, fromStart, payload)
   // ... your game specific implementation here ...
 }
 ```
+### EVENT_INVITE_STARTED
+
+This event is triggered when an invitation has started.
+
+```js
+Soomla.addHandler(Soomla.ProfileConsts.EVENT_INVITE_STARTED, this.onInviteStarted, this);
+
+this.onInviteStarted = function (provider, socialActionType, payload) {
+  // provider - The provider on which the invitation has started
+  // socialActionType - The social action which started (INVITE)
+  // payload - an identification String sent from the caller of the action
+  // ... your game specific implementation here ...
+}
+```
+
+### EVENT_INVITE_FINISHED
+
+This event is triggered when an invitation has finished **successfully**.
+
+```js
+Soomla.addHandler(Soomla.ProfileConsts.EVENT_INVITE_FINISHED, this.onInviteFinished, this);
+
+this.onInviteFinished = function (provider, socialActionType, requestId, invitedIds, payload) {
+  // provider - The provider on which the invitation has finished
+  // socialActionType - The social action which finished (INVITE)
+  // requestId - an identifier of created invite request
+  // invitedIds - a list of invited user's identifiers
+  // payload - an identification String sent from the caller of the action
+  // ... your game specific implementation here ...
+}
+```
+
+### EVENT_INVITE_FAILED
+
+This event is triggered when an invitation has failed.
+
+```js
+Soomla.addHandler(Soomla.ProfileConsts.EVENT_INVITE_FAILED, this.onInviteFailed, this);
+
+this.onInviteFailed = function (provider, socialActionType, errorDescription, payload) {
+  // provider - The provider on which the invitation has failed
+  // socialActionType - The social action which failed (INVITE)
+  // errorDescription - a Description of the reason for failure
+  // payload - an identification String sent from the caller of the action
+  // ... your game specific implementation here ...
+}
+```
+
+### EVENT_INVITE_CANCELLED
+
+This event is triggered when an invitation has cancelled.
+
+```js
+Soomla.addHandler(Soomla.ProfileConsts.EVENT_INVITE_CANCELLED, this.onInviteCancelled, this);
+
+this.onInviteCancelled = function (provider, socialActionType, payload) {
+  // provider - The provider on which the invitation has cancelled
+  // socialActionType - The social action which cancelled (INVITE)  
+  // payload - an identification String sent from the caller of the action
+  // ... your game specific implementation here ...
+}
+```

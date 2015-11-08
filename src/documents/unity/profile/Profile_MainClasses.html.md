@@ -195,6 +195,22 @@ SoomlaProfile.UpdateStatusWithConfirmation(
 );
 ```
 **NOTE:** This confirmation dialog is not supported in FB.
+
+<br>
+### `UpdateStatusDialog`
+
+Shares the given status to the user's feed and grants the user a reward.
+Using the provider's native dialog (when available).
+
+``` cs
+SoomlaProfile.UpdateStatusDialog(
+	Provider.FACEBOOK,                      // Provider
+	"http://www.soom.la",                   // Link to post as status
+	"",                                     // Payload
+	null                                    // Reward	
+);
+```
+
 <br>
 ### `UpdateStory`
 This function posts a story (which is a detailed status) on the user's wall in the supplied social provider. Upon a successful update, the user will receive the supplied reward.
@@ -258,6 +274,25 @@ SoomlaProfile.UpdateStoryWithConfirmation(
 );
 ```
 **NOTE:** This confirmation dialog is not supported in FB.
+
+<br>
+### `UpdateStoryDialogUpdateStoryDialog`
+
+Shares a story to the user's feed and grants the user a reward.
+Using the provider's native dialog (when available).
+
+``` cs
+SoomlaProfile.UpdateStoryDialog(
+	Provider.FACEBOOK,                          // Provider	
+	"The story of SOOMBOT (Profile Test App)",  // Name
+	"SOOMBOT Story",                            // Caption
+	"Hey! It's SOOMBOT Story",                 	// Description
+	"http://about.soom.la/soombots",            // Link to post
+	"http://about.soom.la/.../spockbot.png",    // Image URL
+	"",                                         // Payload
+	null                                        // Reward	
+);
+```
 
 <br>
 ### `UploadImage`
@@ -347,9 +382,82 @@ public void onGetContactsFinished(Provider provider, SocialPageData<UserProfile>
 ```
 
 <br>
+### `GetFeed`
+
+This function Retrieves a list of the user's feed entries from the supplied provider. Upon a successful retrieval of
+feed entries the user will be granted the supplied reward.
+
+<div class="info-box">Currently G+ is supported by iOS only.</div>
+
+```cs
+SoomlaProfile.GetFeed(Provider.FACEBOOK);
+```
+
+#### Pagination
+
+Note that the results will contain only part of the list. In order to get more items you should call the method again with `fromStart` param set to `false` (it's a default value for overloaded methods). You can use the following workflow:
+
+```cs
+public void GetFeed() {
+    ProfileEvents.OnGetFeedFinished += onGetFeedFinished;
+
+    // request for the 1st page
+    SoomlaProfile.GetFeed(Provider.FACEBOOK, true);
+}
+
+
+// your handler:
+public void onGetFeedFinished(Provider provider, SocialPageData<string> feedList, string payload) {
+
+    // ... handle page results ...
+    if (feedList.HasMore) {
+        SoomlaProfile.GetFeed(Provider.FACEBOOK, false);
+    } else {
+        // no pages anymore
+    }
+}
+
+```
+
+<br>
+### `Invite`
+
+`Invite` sends an invitation to join your app.
+
+**NOTE:** Supported only by Facebook.
+
+``` cs
+SoomlaProfile.Invite(
+	Provider.FACEBOOK,                          // Provider
+	"Let's use SOOMLA together!",               // Invitation message
+	"SOOMLA Invitation",                        // Dialog title
+	"",                                         // Payload
+	null                                        // Reward
+);
+```
+
+<br>
+### `UploadCurrentScreenShot`
+
+`UploadCurrentScreenShot` uploads the current screen shot image to the user's social page on the given Provider.
+
+``` cs
+SoomlaProfile.UploadCurrentScreenShot(
+  (MonoBehaviour)this,            // Attached MonoBehaviour to make screenshot 
+	Provider.FACEBOOK,              // Provider
+	"Sharing title",                // Story title
+	"Let's use SOOMLA together!",   // Story message
+	"",                             // Payload
+	null                            // Reward
+);
+```
+
+<br>
 ### `OpenAppRatingPage`
 
 `OpenAppRatingPage` conveniently opens your application's page on the platform store (for example on an iOS device it'll open your app's page in the App Store) so that it's simple to rate the app. You can offer your users to rate your app after they've completed a level successfully or have progressed significantly in your game.
+
+<div class="info-box">To use this feature on iOS, please set your iTunes App ID (taken from iTunes Connect for your application) at **Window->Soomla->Edit Settings**.</div>
 
 ``` cs
 SoomlaProfile.OpenAppRatingPage();

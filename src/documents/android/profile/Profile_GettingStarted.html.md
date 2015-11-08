@@ -33,13 +33,13 @@ platform: 'android'
 	             android:name="com.soomla.SoomlaApp">
 	```
 
-4. Initialize `Soomla` with a "Soomla Secret", a secret of your choice used to encrypt your users' data. (If you used an older version of android-store, this should be the same as the old "custom secret"):
+4. In the `onCreate()` method of your main activity, initialize `Soomla` with a "Soomla Secret", a secret of your choice used to encrypt your users' data. (If you used an older version of android-store, this should be the same as the old "custom secret"):
 
 	``` java
 	Soomla.initialize("[YOUR CUSTOM GAME SECRET HERE]");
 	```
 
-5. Initialize `SoomlaProfile`:
+5. In the `onCreate()` method of your main activity, initialize `SoomlaProfile`:
 
 	``` java
 	SoomlaProfile.getInstance().initialize();
@@ -65,6 +65,10 @@ platform: 'android'
 
 	SoomlaProfile.getInstance().initialize(providerParams);
 	```
+  <div class="info-box">**NOTE:** You should not request all the possible permissions you'll ever need in your app,
+  just request the reasonable minimum. Other permissions will be requested, when they will be needed.
+  For instance, if you try to call `updateStatus`, SoomlaProfile will ask for `publish_actions` permission, 
+  if your app has not got it.</div>
 
   b. **Google+** - No special parameters needed
 
@@ -101,7 +105,8 @@ Facebook is supported out-of-the-box, you just have to follow the next steps to 
 1. From the downloaded zip, Add the following jars to your project.
 
 	- `AndroidProfileFacebook.jar`
-	- `simple.facebook-2.1.jar`
+	- `simple-fb-4.0.3.jar`
+	- `gson-1.7.2.jar`
 
 2. Import the Facebook SDK for Android into your project and setup all the relevant information (Application ID, etc).
 
@@ -188,7 +193,7 @@ Twitter is supported out-of-the-box, authentication is done via web view. Follow
 	</application>
 	```
 
-3. **Facebook Permissions** - Profile will request `publish_actions` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
+3. **Facebook Permissions** - Profile will request `publish_actions`, `user_location`, `user_likes` from the user of the application, to test the application please make sure you test with either Admin, Developer or Tester roles
 
 ## Twitter Caveats
 

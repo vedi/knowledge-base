@@ -3,7 +3,7 @@ layout: "sample"
 image: "heyzap_logo"
 title: "Heyzap"
 text: "Show rewarded video ad to earn coins"
-position: 5
+position: 8
 relates: ["supersonic", "unity_ads"]
 collection: 'samples'
 navicon: "nav-icon-heyzap.png"

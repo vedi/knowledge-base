@@ -48,13 +48,18 @@ platform: 'cocos2dx'
 
 	YourImplementationAssets *assets = YourImplementationAssets::create();
 
-	__Dictionary *storeParams = __Dictionary::create();
-	 storeParams->setObject(__String::create("ExamplePublicKey"), "androidPublicKey");
-	 storeParams->setObject(__Bool::create(true), "testPurchases");
-	 storeParams->setObject(__Bool::create(true), "SSV");
-	 storeParams->setObject(__Bool::create(true), "verifyOnServerFailure");
-
-	soomla::CCSoomlaStore::initialize(assets, storeParams);
+	bool verifyOnFailure = true;
+  soomla::CCSoomlaStoreConfigBuilder *storeConfig 
+      = soomla::CCSoomlaStoreConfigBuilder::create();
+  storeConfig
+    ->setGpConfiguration(soomla::CCSoomlaStoreGpConfigBuilder::create()
+      ->setAndroidPublicKey("ExamplePublicKey")
+      ->setTestPurchases(true)
+      ->activateFraudProtection("clientId", "clientSecret", "refreshToken", verifyOnFailure))
+    ->setIosConfiguration(soomla::CCSoomlaStoreIosConfigBuilder::create()
+      ->activateFraudProtection(verifyOnFailure));
+  
+  soomla::CCSoomlaStore::initialize(assets, storeConfig->build());
 	```
 
 	- *Custom Secret* - is an encryption secret you provide that will be used to secure your data.
@@ -114,6 +119,18 @@ In your XCode project, perform the following steps:
 5. Make sure you have these 3 Frameworks linked to your XCode project: **Security, libsqlite3.0.dylib, StoreKit**.
 
 **That's it! Now all you have to do is build your XCode project and run your game with cocos2dx-store.**
+
+<div class="info-box">**FOR CORRECT iOS USAGE:** <br/>
+	**1.** If you are building your app under Windows, you have to have iTunes installed since the SOOMLA postprocessing is expecting a utility that exists in OS X and is installed with iTunes in Windows.                                          
+  **2.** If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/<LIBRARY_NAME>` to `Other Linker Flags` for the following SOOMLA libraries:
+	<ul>
+		<li>`libSoomlaiOSCore.a`</li>
+		<li>`libSoomlaiOSSStore.a`</li>		
+		<li>`libCocos2dXiOSCore.a`</li>
+		<li>`libCocos2dXiOSStore.a`</li>				      
+	</ul>
+</div>
+
 
 <br>
 ### **Instructions for Android**

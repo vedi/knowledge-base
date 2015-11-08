@@ -68,6 +68,9 @@ int totalLevels = CCSoomlaLevelUp::getInstance()->getLevelCount();
 
 // Retrieve the number of completed `CCLevel`s:
 int completedLevels = CCSoomlaLevelUp::getInstance()->getCompletedWorldCount();
+
+// Clears all current progress of LevelUp:
+CCSoomlaLevelUp::getInstance()->clearCurrentState();
 ```
 
 <br>
