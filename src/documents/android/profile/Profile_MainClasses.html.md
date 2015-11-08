@@ -328,6 +328,22 @@ SoomlaProfile.getInstance().uploadImageWithConfirmation(
 There is also an overloaded version without `customMessage`. In this case default message will be used.  
 
 <br>
+### `uploadCurrentScreenshot`
+
+`uploadCurrentScreenshot` uploads the current screen shot image to the user's social page on the given Provider.
+
+``` java
+SoomlaProfile.getInstance().uploadCurrentScreenshot(
+  this,                                       // Activity
+	IProvider.Provider.FACEBOOK,                // Provider
+	"Sharing title",                            // Story title
+	"Let's use SOOMLA together!",               // Story message
+	"",                                         // Payload
+	null                                        // Reward
+);
+```
+
+<br>
 ### `getStoredUserProfile`
 
 This function retrieves the user's page for the given social provider from the **local device storage** (`getStoredUserProfile` does not call any social provider function, it retrieves and returns its information from the storage, contrary to what is depicted in the diagram at the beginning of this section). This function allows you to get user information even if the user is offline.
@@ -459,22 +475,6 @@ SoomlaProfile.getInstance().invite(
 	IProvider.Provider.FACEBOOK,                // Provider
 	"Let's use SOOMLA together!",               // Invitation message
 	"SOOMLA Invitation",                        // Dialog title
-	"",                                         // Payload
-	null                                        // Reward
-);
-```
-
-<br>
-### `uploadCurrentScreenshot`
-
-`uploadCurrentScreenshot` uploads the current screen shot image to the user's social page on the given Provider.
-
-``` java
-SoomlaProfile.getInstance().uploadCurrentScreenshot(
-    (Activity)this,                             // Attached activity
-	IProvider.Provider.FACEBOOK,                // Provider
-	"Sharing title",                            // Story title
-	"Let's use SOOMLA together!",               // Story message
 	"",                                         // Payload
 	null                                        // Reward
 );

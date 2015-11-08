@@ -27,12 +27,25 @@ platform: 'unity'
     ```
 
     <div class="info-box">There are some necessary files in submodules linked with symbolic links. If you're cloning the project make sure to include the `--recursive` flag.</div>
+    
+    <div class="info-box">Starting from `SOOMLA Unity3D Store 1.8.7`, SOOMLA changed the location of binaries in `Plugins` directory. If you're upgrading from version lower than 1.8.7 to version higher than 1.8.7, please remove the following binaries manually:
+      <ul>
+    			<li>`Assets/Plugins/iOS/libSoomlaiOSCore.a`</li>
+    			<li>`Assets/Plugins/iOS/libSoomlaiOSSStore.a`</li>
+    			<li>`Assets/Plugins/iOS/libUnitySoomlaiOSCore.a`</li>
+    			<li>`Assets/Plugins/iOS/libUnityiOSStore.a`</li>
+          <li>`Assets/Plugins/Android/AndroidStore.jar`</li>
+          <li>`Assets/Plugins/Android/SoomlaAndroidCore.jar`</li>
+          <li>`Assets/Plugins/Android/UnityAndroidStore.jar`</li>
+          <li>`Assets/Plugins/Android/UnitySoomlaAndroidCore.jar`</li>
+          <li>`Assets/Plugins/Android/square-otto-1.3.2.jar`</li>
+          <li>`Assets/Plugins/Android/AndroidStoreAmazon.jar` (if you're using Amazon as billing service)</li>
+          <li>`Assets/Plugins/Android/in-app-purchasing-2.0.1.jar` (if you're using Amazon as billing service)</li>
+          <li>`Assets/Plugins/Android/AndroidStoreGooglePlay.jar` (if you're using Google Play as billing service)</li>
+    	</ul>
+    </div>
 
-2. Drag the "StoreEvents" and "CoreEvents" Prefabs from `Assets/Soomla/Prefabs` into your scene. You should see them listed in the "Hierarchy" panel.
-
-  ![alt text](/img/tutorial_img/unity_getting_started/prefabs.png "Prefabs")
-
-3. On the menu bar click **Window > Soomla > Edit Settings** and change the values for "Soomla Secret" and "Public Key":
+2. On the menu bar click **Window > Soomla > Edit Settings** and change the values for "Soomla Secret" and "Public Key":
 
   - **Soomla Secret** - This is an encryption secret you provide that will be used to secure your data. (If you used versions before v1.5.2 this secret MUST be the same as Custom Secret)
 
@@ -45,13 +58,13 @@ platform: 'unity'
 
     ![alt text](/img/tutorial_img/unity_getting_started/soomlaSettings.png "Soomla Settings")
 
-4. Create your own implementation of `IStoreAssets` in order to describe your game's specific assets.
+3. Create your own implementation of `IStoreAssets` in order to describe your game's specific assets.
 
   - For a brief example, see the [example](#example) at the bottom.
 
   - For a more detailed example, see our MuffinRush [example](https://github.com/soomla/unity3d-store/blob/master/Soomla/Assets/Examples/MuffinRush/MuffinRushAssets.cs).
 
-5. Initialize `SoomlaStore` with the class you just created:
+4. Initialize `SoomlaStore` with the class you just created:
 
     ``` cs
     SoomlaStore.Initialize(new YourStoreAssetsImplementation());
@@ -61,7 +74,7 @@ platform: 'unity'
 
     <div class="warning-box">Initialize SoomlaStore ONLY ONCE when your application loads.</div>
 
-6. You'll need an event handler in order to be notified about in-app purchasing related events. Refer to the document about [Event Handling](/unity/store/Store_Events) for more information.
+5. You'll need an event handler in order to be notified about in-app purchasing related events. Refer to the document about [Event Handling](/unity/store/Store_Events) for more information.
 
 That's it! You now have storage and in-app purchasing capabilities ALL-IN-ONE!
 

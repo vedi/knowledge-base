@@ -463,3 +463,98 @@ void Example::onGetFeedFailed(EventCustom *event) {
   // ... your game specific implementation here ...
 }
 ```
+
+### EVENT_INVITE_STARTED
+
+This event is triggered when an invitation has started.
+
+```cpp
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_INVITE_STARTED, CC_CALLBACK_1(Example::onInviteStarted, this));
+
+void Example::onInviteStarted(EventCustom *event) {
+  // DICT_ELEMENT_PROVIDER            - the social provider
+  // DICT_ELEMENT_SOCIAL_ACTION_TYPE  - the social action (invitation) that started
+  // DICT_ELEMENT_PAYLOAD             - an identification string that you can give when you
+  //      initiate the social action operation and want to receive back upon starting
+
+  __Dictionary *eventData = (__Dictionary *)event->getUserData();
+  CCProvider provider = CCProvider((dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PROVIDER)))->getValue());
+  CCSocialActionType socialActionType = CCSocialActionType((dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_SOCIAL_ACTION_TYPE)))->getValue());
+  __String *payload = dynamic_cast<__String *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PAYLOAD));
+
+  // ... your game specific implementation here ...
+}
+```
+
+### EVENT_INVITE_FINISHED
+
+This event is triggered when an invitation has finished **successfully**.
+
+```cpp
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_INVITE_FINISHED, CC_CALLBACK_1(Example::onInviteFinished, this));
+
+void Example::onInviteFinished(EventCustom *event) {
+  // DICT_ELEMENT_PROVIDER            - the social provider
+  // DICT_ELEMENT_SOCIAL_ACTION_TYPE  - the social action (invite)
+  //      that finished
+  // DICT_ELEMENT_REQUEST_ID          - an identifier of created invite request
+  // DICT_ELEMENT_INVITED_IDS         - a list of invited user's identifiers
+  // DICT_ELEMENT_PAYLOAD             - an identification string that you can give when you
+  //      initiate the social action operation and want to receive back upon its completion
+
+  __Dictionary *eventData = (__Dictionary *)event->getUserData();
+  CCProvider provider = CCProvider((dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PROVIDER)))->getValue());
+  CCSocialActionType socialActionType = CCSocialActionType((dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_SOCIAL_ACTION_TYPE)))->getValue());
+  __String *requestId = dynamic_cast<__String *>(parameters->objectForKey("requestId"));;
+  __Array *invitedIds = dynamic_cast<__Array *>(parameters->objectForKey("invitedIds"));
+  __String *payload = dynamic_cast<__String *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PAYLOAD));
+
+  // ... your game specific implementation here ...
+}
+```
+
+### EVENT_INVITE_FAILED
+
+This event is triggered when an invitation has failed.
+
+```cpp
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_INVITE_FAILED, CC_CALLBACK_1(Example::onInviteFailed, this));
+
+void Example::onInviteFailed(EventCustom *event) {
+  // DICT_ELEMENT_PROVIDER            - the social provider
+  // DICT_ELEMENT_SOCIAL_ACTION_TYPE  - the social action (invite) that failed
+  // DICT_ELEMENT_MESSAGE             - the failure message
+  // DICT_ELEMENT_PAYLOAD             - an identification string that you can give when you
+  //      initiate the social action operation and want to receive back upon failure
+
+  __Dictionary *eventData = (__Dictionary *)event->getUserData();
+  CCProvider provider = CCProvider((dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PROVIDER)))->getValue());
+  CCSocialActionType socialActionType = CCSocialActionType((dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_SOCIAL_ACTION_TYPE)))->getValue());
+  __String *errorDescription = dynamic_cast<__String *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_MESSAGE));
+  __String *payload = dynamic_cast<__String *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PAYLOAD));
+
+  // ... your game specific implementation here ...
+}
+```
+
+### EVENT_INVITE_CANCELLED
+
+This event is triggered when an invitation has cancelled.
+
+```cpp
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_INVITE_CANCELLED, CC_CALLBACK_1(Example::EVENT_INVITE_CANCELLED, this));
+
+void Example::EVENT_INVITE_CANCELLED(EventCustom *event) {
+  // DICT_ELEMENT_PROVIDER            - the social provider
+  // DICT_ELEMENT_SOCIAL_ACTION_TYPE  - the social action (invite) that failed  
+  // DICT_ELEMENT_PAYLOAD             - an identification string that you can give when you
+  //      initiate the social action operation and want to receive back upon failure
+
+  __Dictionary *eventData = (__Dictionary *)event->getUserData();
+  CCProvider provider = CCProvider((dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PROVIDER)))->getValue());
+  CCSocialActionType socialActionType = CCSocialActionType((dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_SOCIAL_ACTION_TYPE)))->getValue());  
+  __String *payload = dynamic_cast<__String *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PAYLOAD));
+
+  // ... your game specific implementation here ...
+}
+```
