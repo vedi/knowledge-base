@@ -374,7 +374,7 @@ their entities in SOOMLA's Knowledge Base: [Store](/cocos2dx/js/store/Store_Mode
 [Insights](/cocos2dx/js/grow/Grow_Insights), [Gifting](/cocos2dx/js/grow/Grow_Gifting) and 
 [Social Leaderboards](/cocos2dx/js/grow/Grow_Leaderboards).
 
-###IStoreAssets
+### IStoreAssets
 
 ```js
 /** ExampleAssets (your implementation of IStoreAssets) **/

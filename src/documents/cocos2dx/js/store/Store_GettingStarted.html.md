@@ -11,9 +11,9 @@ lang: 'js'
 platform: 'cocos2dx'
 ---
 
-#Getting Started
+# Getting Started
 
-##General Instructions
+## General Instructions
 
 *If you want to develop with C++ sources, refer to the "Working with Sources" section below.*
 
@@ -106,7 +106,7 @@ supported by SOOMLA's cocos2dx-store (the tag is the version).</div>
 
 <br>
 
-###**Instructions for iOS**
+### **Instructions for iOS**
 
 In your XCode project, perform the following steps:
 
@@ -167,7 +167,7 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
 </div>
 
 <br>
-###**Instructions for Android**
+### **Instructions for Android**
 
 1. Set COCOS2D_JAVASCRIPT flag for your project changing your `frameworks/runtime-src/proj.android/jni/Application.mk`:
     ```
@@ -215,11 +215,11 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
 
 > Don't forget to `Build Custom Simulator` for Android, if you use Cocos IDE.
 
-##**Select a Billing Service**
+## **Select a Billing Service**
 
 SOOMLA's cocos2dx-store knows how to contact Google Play, Amazon Appstore, or Apple App Store for you and will redirect your users to their purchasing system to complete the transaction.
 
-###Google Play
+### Google Play
 
 1. Add `AndroidStoreGooglePlay.jar` from `frameworks/runtime-src/Classes/cocos2dx-store/build/android/billing-services/google-play` to your classpath:
 
@@ -262,7 +262,7 @@ SOOMLA's cocos2dx-store knows how to contact Google Play, Amazon Appstore, or Ap
 		storeParams.refreshToken = <YOUR_REFRESH_TOKEN>;
 	```
 	
-###Amazon
+### Amazon
 
 1. Add `in-app-purchasing-1.0.3.jar` and `AndroidStoreAmazon.jar` from `frameworks/runtime-src/Classes/cocos2dx-store/build/android/billing-services/amazon` to your classpath:
 
@@ -280,7 +280,7 @@ SOOMLA's cocos2dx-store knows how to contact Google Play, Amazon Appstore, or Ap
 
 3. Read our [tutorial](/android/store/Store_AmazonIAB) on how to define your in-app products in the Amazon Appstore.
 
-###Apple App Store
+### Apple App Store
 
 1. Read our [tutorial](/ios/store/Store_AppStoreIAB) on how to define your in-app products in the App Store.
 
@@ -321,7 +321,7 @@ Then, initialize `Soomla.soomlaStore` with your implementation of `Soomla.IStore
 
 And that's it! cocos2dx-store knows how to contact Google Play or the App Store for you and will redirect your users to the purchasing system to complete the transaction. Don't forget to subscribe to store events in order to get notified of successful or failed purchases - See [Event Handling](/cocos2dx/js/store/Store_Events).
 
-##**Working with sources**
+## **Working with sources**
 
 To integrate cocos2dx-store into your game, follow these steps.
 

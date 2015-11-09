@@ -10,11 +10,11 @@ module: 'store'
 platform: 'ios'
 ---
 
-#Main Classes
+# Main Classes
 
 Here you can find descriptions of some of the main classes and interfaces of iOS-store. These classes contain functionality for store-related operations such as purchasing, billing, inventory querying and storage.
 
-##SoomlaStore <a href="https://github.com/soomla/ios-store/blob/master/SoomlaiOSStore/SoomlaStore.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+## SoomlaStore <a href="https://github.com/soomla/ios-store/blob/master/SoomlaiOSStore/SoomlaStore.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
 SoomlaStore holds the basic assets needed to operate the Store. You can use it to purchase products from the App Store. It provides you with functionality such as starting/stopping the in-app billing service in the background, querying the inventory for information, or starting a purchase process in the App Store.
 
@@ -28,7 +28,7 @@ id<IStoreAssets> storeAssets = [[MuffinRushAssets alloc] init];
 [[SoomlaStore getInstance] initializeWithStoreAssets:storeAssets andCustomSecret:@"ChangeMe!!!"];
 ```
 
-###Important Functions
+### Important Functions
 
 **`public void refreshInventory(final boolean refreshMarketItemsDetails)`**
 
@@ -62,7 +62,7 @@ int greenHatsBalance = [[[StorageManager getInstance] virtualGoodStorage] balanc
 
 `StoreInventory` is a utility class that provides you with functions that perform store-related operations. With `StoreInventory` you can give or take items from your users. You can buy items or upgrade them. You can also check their equipping status and change it.
 
-###Important Functions
+### Important Functions
 
 **`+ (void)buyItemWithItemId:(NSString*)itemId`**
 

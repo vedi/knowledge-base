@@ -8,9 +8,9 @@ theme: 'soomla'
 collection: 'soomla_store'
 ---
 
-#**Storage & Metadata**
+# **Storage & Metadata**
 
-##How SOOMLA storage works
+## How SOOMLA storage works
 
 Every user that downloads your game will have local, on-device storage that is encrypted and kept in an SQLite database. `SoomlaStore` is the only class you need to initialize in order to use the SOOMLA SDK.
 
@@ -20,7 +20,7 @@ If at some point you want to change the metadata, you will have to bump up the v
 
 <div class="info-box">In case you are using the SOOMLA Highway or Storefront, you do NOT need to bump the version after changes, because they allow updating the economy remotely without re-distributing your game.</div>
 
-##Security
+## Security
 
 SOOMLA keeps the game's data in an encrypted database, and uses the AES (Advanced Encryption Standard) algorithm for encryption. This algorithm is a standard symmetric encryption algorithm used to secure the user's data on the device. AES is a common approach to solve this kind of problem. To learn more about AES read [here](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard).
 
@@ -32,10 +32,10 @@ If you want to protect your game from 'bad people' (and who doesn't?!), you migh
 
 - Following Google's recommendation, SOOMLA also recommends that you split your public key and construct it on runtime or even use bit manipulation on it in order to hide it. The key itself is not secret information but if someone replaces it, your application might receive fake messages that might harm it.
 
-##**Useful Classes**
+## **Useful Classes**
 To further understand how SOOMLA handles storage, below are descriptions about each of the relevant classes.
 
-###StoreInventory
+### StoreInventory
 `StoreInventory` is a utility class that provides you with functions that perform store-related operations. With `StoreInventory` you can give or take items from your users, buy items or upgrade them, and also check their equipping status and change it.
 
 **Some of StoreInventory’s useful functions are:**
@@ -60,7 +60,7 @@ To further understand how SOOMLA handles storage, below are descriptions about e
 
   Equips the given virtual good with the given `goodItemId`. Equipping means that your user decides to currently use a specific virtual good. To understand more about equipping see [EquippableVG](/docs/soomla/store/EconomyModel#equippablevg).
 
-###StoreInfo
+### StoreInfo
 This class holds all of the metadata information about your specific game. It is initialized with your implementation of `IStoreAssets` and you can use it to retrieve information about your specific game. `StoreInfo` holds your store's:
 
 - Virtual currencies
@@ -71,11 +71,11 @@ This class holds all of the metadata information about your specific game. It is
 `StoreInfo` can be questioned about the existence of `VirtualItem`s and the associations between them.
 `StoreInfo` is always initialized from the database, except for the first time the game is loaded - in that case it is initialized with your implementation of `IStoreAssets`. When your game loads for the first time, the virtual economy's metadata is saved, and from that moment on it'll be loaded from the database.
 
-##**Storage Internals**
+## **Storage Internals**
 
 This section describes the internal classes that make up the storage. We highly recommend that you avoid accessing these storage mechanisms directly (except for `KeyValueStorage` - see below), and instead use `StoreInventory`’s convenient functions.
 
-###StorageManager
+### StorageManager
 Here all the storage-related instances of your game are created. These include the following (all of which are described below):
 
 - `KeyValueStorage`
@@ -84,7 +84,7 @@ Here all the storage-related instances of your game are created. These include t
 
 You use the `StorageManager`’s getter functions to access these different storages. Then you will be able to use the different storages’ available functions to perform actions such as set/get an item’s balance, add/remove an item from the storage, etc…
 
-####**For Example**
+#### **For Example**
 Get the current balance of a virtual good with item ID "green_hat":
 
 **Android:**
@@ -101,7 +101,7 @@ VirtualGood* greenHat = (VirtualGood*)[[StoreInfo getInstance] virtualItemWithId
 int greenHatsBalance = [[[StorageManager getInstance] virtualGoodStorage] balanceForItem:greenHat];
 ```
 
-###KeyValueStorage
+### KeyValueStorage
 
 `KeyValStorage` represents a simple key-value store, and contains functions to manipulate the key-value database. These are mostly simple functions that perform operations such as get (or set) the value of a key-val pair, or delete a key-val pair.
 

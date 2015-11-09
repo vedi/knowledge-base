@@ -30,7 +30,7 @@ This document assumes that you have a good understanding of SOOMLA's Store modul
 
 The `Schedule` and `Reward` entities are widely used in the examples of this document. You can read about them [here](#auxiliary-models).
 
-##SoomlaLevelUp <a href="https://github.com/soomla/unity3d-levelup/blob/master/Soomla/Assets/Plugins/Soomla/Levelup/SoomlaLevelUp.cs" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+## SoomlaLevelUp <a href="https://github.com/soomla/unity3d-levelup/blob/master/Soomla/Assets/Plugins/Soomla/Levelup/SoomlaLevelUp.cs" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
 
 This class is the top level container for the unity3d-levelup model and definitions. It stores the configurations of the game's world-hierarchy and provides lookup functions for `LevelUp` model elements.
@@ -89,7 +89,7 @@ A game can have multiple `World`s or a single one, and `World`s can also contain
 - `Missions` - A list of `Mission`s that this `World` contains. In the class `World` you can add more `Mission`s.
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 For your convenience, there are multiple ways to define a `World`.
 
@@ -109,7 +109,7 @@ World lakeWorld = new World(
 ```
 
 <br>
-####**COMMON USE**
+#### **COMMON USE**
 
 **Add `World`s or `Levels` to a `World`**:
 
@@ -309,7 +309,7 @@ Represents a score in the game. A simple game usually has one generic numeric sc
 - `_tempScore` - The *current* value of this score.
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 There are multiple ways to define a `Score`.
 
@@ -325,7 +325,7 @@ Score numberScore = new Score(
 ```
 
 <br>
-####**COMMON USE**
+#### **COMMON USE**
 
 **Check if the `Score` in the current game session has reached a certain value:**
 
@@ -368,7 +368,7 @@ numberScore.Dec(100); // numberScore = 150
 A specific type of `Score` that has an associated range. The `Score`'s  value can be only inside that range of values. **For example:** A puzzle or quiz can measure the user's success on a scale of 1 - 10, or a shooting `Score` can be on a scale of 10 to 100 according to the user's performance in the game.
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` cs
 Score quizScore = new RangeScore(
@@ -392,7 +392,7 @@ A specific type of `Score` that has an associated virtual item, whose balance is
 **For example:** In a game that has diamonds that the user needs to collect, you would define a `VirtualCurrency` "diamond" and a `VirtualItemScore` "diamondScore". The balance of "diamond" changes according to "diamondScore".  
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 There are multiple ways to define a `VirtualItemScore`.
 
@@ -420,7 +420,7 @@ A `Gate` is an object that defines certain criteria for progressing between the 
 <div class="info-box">`Gate` is an abstract class. Below are explanations of several types of `Gate`s that implement `Gate` and examples of how to use them.</div>
 
 <br>
-####**HOW TO OPEN**
+#### **HOW TO OPEN**
 
 All `Gate`s share the same definition, as explained above, but each `Gate` opens in a different way. Some `Gate`s need to be opened manually by the developer, and others will open automatically when a specific event is thrown. You'll find below an explanation of each type of `Gate` including how it opens.
 
@@ -432,7 +432,7 @@ A specific type of `Gate` that has an associated virtual item and a desired bala
 This type of gate encourages the user to collect more of some virtual item, such as coins or diamonds, and therefore creates motivation for the user to keep playing.  
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` cs
 VirtualCurrency muffin = new ...
@@ -446,7 +446,7 @@ Gate bGate = new BalanceGate(
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` cs
 int balance;
@@ -474,7 +474,7 @@ A specific type of `Gate` that has an associated Virtual item. This `Gate` is us
 <div class="info-box">**IMPORTANT:** This `Gate` does not open automatically when the relevant item has been purchased, but rather the developer has to *manually* open it. Once the `Gate` is opened (by calling `Open()`), the purchase process of the associated virtual item begins. See "Use Case" below.</div>
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` cs
 VirtualGood shield = new SingleUseVG(
@@ -490,7 +490,7 @@ Gate pGate = new PurchasableGate(
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` cs
 bool isOpen;
@@ -510,7 +510,7 @@ A RecordGate has an associated score and a desired record. The `Gate` opens **au
 `RecordGate` can be used to highly promote game progression. For example, if there is `RecordGate` for each level in the game, the user will be encouraged to continuously beat his/her own score.
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` cs
 Score numberScore = new Score("numberScore", "Score", true);
@@ -524,7 +524,7 @@ Gate rGate = new RecordGate(
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` cs
 bool isOpen;
@@ -552,7 +552,7 @@ A specific type of `Gate` that has a schedule that defines when the `Gate` can b
 `ScheduleGate` can be used to create suspense and reel in the user to play at specific times that you define. For example, you can define a `ScheduleGate` that unlocks a bonus level on Friday at 5pm. Chances are that the exclusivity of the bonus level (that can only be unlocked once a week), will cause the user to make himself/herself available for play on the time you specified.
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` cs
 // Note that there are multiple ways to declare a schedule.
@@ -570,7 +570,7 @@ Gate sGate = new ScheduleGate("ID", schedule);
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` cs
 bool isOpen;
@@ -590,7 +590,7 @@ A `WorldCompletionGate` has an associated `World` that. Once the `World` is comp
 This gate is perhaps, the simplest of the gates, in that its only requirement is that the user finish the previous World in order to move on to the next.
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` cs
 World worldA = new World("worldA");
@@ -603,7 +603,7 @@ Gate wGate = new WorldCompletionGate(
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` cs
 bool isOpen;
@@ -633,7 +633,7 @@ A specific type of `GatesList` that can be opened only if ALL `Gate`s in its lis
 This gate is very demanding since it requires multiple criteria in order to be opened. Once the gate is opened, you can allow the user to skip one `World` and continue on to the next.
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` cs
 // NOTE: wGate and rGate are defined in the sections above.
@@ -644,7 +644,7 @@ Gate wGateANDrGate = new GatesListAND(
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` cs
 // The user needs to meet the criteria of wGate AND of rGate
@@ -683,7 +683,7 @@ A specific type of `GatesList` that can be opened if AT LEAST ONE `Gate` in its 
 `GatesListOR` gives the user more than one option to unlock some Level or World, by opening at least one of the specified gates.
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` cs
 // NOTE: wGate and rGate are defined in the sections above.
@@ -694,7 +694,7 @@ Gate wGateORpGate = new GatesListOR(
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` cs
 // The user needs to meet the criteria of wGate OR of rGate
@@ -739,7 +739,7 @@ A specific type of `Gate` that has an associated page name.
 <div class="info-box">**IMPORTANT:** This `Gate` does not open automatically when the relevant page has been liked, but rather the developer has to *manually* open it. Once the `Gate` is opened (by calling `Open()`), the `Like()` function is called.</div>
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` cs
 SocialActionGate likeGate = new SocialLikeGate(
@@ -757,7 +757,7 @@ A specific type of `Gate` that has an associated status.
 <div class="info-box">**IMPORTANT:** This `Gate` does not open automatically when the relevant status has been posted, but rather the developer has to *manually* open it. Once the `Gate` is opened (by calling `Open()`), the `UpdateStatus()` function is called.</div>
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` cs
 SocialActionGate statusGate = new SocialStatusGate(
@@ -775,7 +775,7 @@ A specific type of `Gate` that has an associated story.
 <div class="info-box">**IMPORTANT:** This `Gate` does not open automatically when the relevant story has been posted, but rather the developer has to *manually* open it. Once the `Gate` is opened (by calling `Open()`), the `UpdateStory()` function is called.</div>
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` cs
 SocialActionGate storyGate = new SocialStoryGate(
@@ -797,7 +797,7 @@ A specific type of `Gate` that has an associated image.
 <div class="info-box">**IMPORTANT:** This `Gate` does not open automatically when the relevant image has been uploaded, but rather the developer has to *manually* open it. Once the `Gate` is opened (by calling `Open()`), the `UploadImage()` function is called.</div>
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` cs
 SocialActionGate uploadGate = new SocialUploadGate(
@@ -823,14 +823,14 @@ A `Mission` is a task your users need to complete in your game. `Mission`s are t
 - `Gate` - A `Gate` that needs to be opened in order to complete this `Mission`.
 
 <br>
-####**HOW TO COMPLETE**
+#### **HOW TO COMPLETE**
 
 All `Mission`s share the same definition, as explained above, but each `Mission` is completed in a different way. Some `Mission`s need to be completed manually by the developer (by calling `Complete()`), and others will automatically be completed when a specific event is thrown. You'll find below an explanation of each type of `Mission` including how it's completed.
 
 <div class="info-box">NOTICE: `Mission` is an abstract class. Below are several types of missions that implement `Mission`.</div>
 
 <br>
-####**COMMON USE**
+#### **COMMON USE**
 
 All missions have the same functionality.
 
@@ -860,7 +860,7 @@ if (someMission.IsCompleted()) {
 A specific type of `Mission` that has an associated virtual item and a desired balance. The `Mission` is **automatically** complete once the item's balance reaches the desired balance.
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` cs
 Reward reward = new ...
@@ -878,7 +878,7 @@ Mission bMission = new BalanceMission(
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` cs
 int balance;
@@ -903,7 +903,7 @@ isCompleted = bMission.IsCompleted(); // True because the balance has reached
 A specific type of `Mission` that has an associated score and a desired record. The `Mission` is **automatically** complete once the player achieves the desired record for the given score.
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` cs
 
@@ -919,7 +919,7 @@ Mission rMission = new RecordMission(
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` cs
 bool isCompleted;
@@ -949,7 +949,7 @@ A specific type of `Mission` that has an associated market item.
 <div class="info-box">**IMPORTANT:** This `Mission` is not completed automatically when the relevant item has been purchased, but rather the developer has to *manually* complete it. Once the `Mission` is complete (by calling `Complete()`), the purchase process of the associated virtual item begins. See "Use Case" below.</div>
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` cs
 VirtualGood itemToBuy = new SingleUseVG("name", "description", "ID", new PurchaseWithMarket("product_ID", 1.99));
@@ -966,7 +966,7 @@ Mission pMission = new PurchasingMission(
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` cs
 bool isCompleted;
@@ -984,7 +984,7 @@ isCompleted = pMission.IsCompleted();  // True because the item has been purchas
 A specific type of `Mission` that has an associated `World`. The `Mission` is **automatically** complete once the `World` has been completed.
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` cs
 World worldA = new World("worldA");
@@ -1000,7 +1000,7 @@ Mission wMission = new WorldCompletionMission(
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` cs
 bool isMissionComplete;
@@ -1026,7 +1026,7 @@ A specific type of `Mission` that has an associated page name.
 <div class="info-box">**IMPORTANT:** This `Mission` is not completed automatically when the relevant page has been liked, but rather the developer has to *manually* complete it. Once the `Mission` is complete (by calling `Complete()`), the `Like()` function is called.</div>
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` cs
 Mission likeMission = new SocialLikeMission(
@@ -1048,7 +1048,7 @@ A specific type of `Mission` that has an associated status.
 <div class="info-box">**IMPORTANT:** This `Mission` is not completed automatically when the relevant status has been posted, but rather the developer has to *manually* complete it. Once the `Mission` is complete (by calling `Complete()`), the `UpdateStatus()` function is called.</div>
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` cs
 Mission statusMission = new SocialStatusMission(
@@ -1092,7 +1092,7 @@ A specific type of `Mission` that has an associated filename and message.
 <div class="info-box">**IMPORTANT:** This `Mission` is not completed automatically when the relevant image has been uploaded, but rather the developer has to *manually* complete it. Once the `Mission` is complete (by calling `Complete()`), the `UploadImage()` function is called.</div>
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` cs
 Mission uploadMission = new SocialUploadMission(
@@ -1112,7 +1112,7 @@ Mission uploadMission = new SocialUploadMission(
 Missions can be aggregated into challenges which can contain a single mission or multiple ones. The user is required to complete all these missions in order to earn the reward associated with the challenge.
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` cs
 // To complete this challenge, the user must complete both missions.
@@ -1127,7 +1127,7 @@ Challenge challenge = new Challenge(
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` cs
 bool isCompleted;
@@ -1145,7 +1145,7 @@ numberScore.Inc(2000.0); // Now numberScore = 2000
 isCompleted = challenge.IsCompleted(); // TRUE! Both missions have been completed
 ```
 
-##Auxiliary Models
+## Auxiliary Models
 
 ### Schedule <a href="https://github.com/soomla/soomla-unity3d-core/blob/master/Soomla/Assets/Plugins/Soomla/Core/Schedule.cs" target="_blank"><img class="link-icon-small" src="/img/tutorial_img/linkImg.png"></a>
 

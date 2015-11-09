@@ -298,7 +298,7 @@ Below is a short example of how to initialize SOOMLA's modules. We suggest you r
 their entities in SOOMLA's Knowledge Base: [Store](/cocos2dx/js/store/Store_Model) and 
 [State & Economy Sync](/cocos2dx/js/grow/Grow_Sync).
 
-###IStoreAssets
+### IStoreAssets
 
 ```js
 /** ExampleAssets (your implementation of IStoreAssets) **/

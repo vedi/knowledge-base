@@ -10,28 +10,28 @@ module: 'profile'
 platform: 'unity'
 ---
 
-#Event Handling
+# Event Handling
 
-##About
+## About
 
 Profile allows you to subscribe to events, be notified when they occur, and implement your own application-specific behavior to handle them once they occur.
 
 <div class="info-box">Your game-specific behavior is an addition to the default behavior implemented by SOOMLA. You don't replace SOOMLA's behavior.</div>
 
-###Tips & Reminders
+### Tips & Reminders
 
 - As mentioned in [Getting Started](/unity/profile/Profile_GettingStarted), make sure you add the event prefabs (ProfileEvents and CoreEvents) to your earliest loading scene.
 
 
 
-##How it Works
+## How it Works
 
 Events are triggered when SOOMLA wants to notify you about different things that happen involving Profile operations.
 
 For example, when a user posts a status, an `OnSocialActionStartedEvent` is fired as a result.
 
 
-##Observing & Handling Events
+## Observing & Handling Events
 
 The `ProfileEvents` class is where all events go through. To handle various events, just add your game-specific behavior to the delegates in the `ProfileEvents` class.
 
@@ -47,9 +47,9 @@ public static void onLoginFinished(UserProfile userProfileJson, string payload){
 }
 ```
 
-##Profile Events
+## Profile Events
 
-###OnSoomlaProfileInitialized
+### OnSoomlaProfileInitialized
 
 This event is triggered when Soomla Profile has been initialized.
 
@@ -61,7 +61,7 @@ public void onSoomlaProfileInitialized() {
 }
 ```
 
-###OnUserRatingEvent
+### OnUserRatingEvent
 
 This event is triggered when the page for rating your app is opened.
 
@@ -73,7 +73,7 @@ public void onUserRatingEvent() {
 }
 ```
 
-###OnUserProfileUpdated
+### OnUserProfileUpdated
 
 This event is triggered when the user profile has been updated, after login.
 
@@ -87,7 +87,7 @@ public void onUserProfileUpdated(UserProfile userProfileJson) {
 }
 ```
 
-###OnLoginStarted
+### OnLoginStarted
 
 This event is triggered when logging into the social provider has started.
 
@@ -103,7 +103,7 @@ public void onLoginStarted(Provider provider, bool autoLogin, string payload) {
 }
 ```
 
-###OnLoginFinished
+### OnLoginFinished
 
 This event is triggered when logging into the social provider has finished **successfully**.
 
@@ -119,7 +119,7 @@ public void onLoginFinished(UserProfile userProfileJson, bool autoLogin, string 
 }
 ```
 
-###OnLoginCancelled
+### OnLoginCancelled
 
 This event is triggered when logging into the social provider has been cancelled.
 
@@ -135,7 +135,7 @@ public void onLoginCancelled(Provider provider, bool autoLogin, string payload) 
 }
 ```
 
-###OnLoginFailed
+### OnLoginFailed
 
 This event is triggered when logging into the social provider has failed.
 
@@ -152,7 +152,7 @@ public void onLoginFailed(Provider provider, string message, bool autoLogin, str
 }
 ```
 
-###OnLogoutStarted
+### OnLogoutStarted
 
 This event is triggered when logging out of the social provider has started.
 
@@ -166,7 +166,7 @@ public void onLogoutStarted(Provider provider) {
 }
 ```
 
-###OnLogoutFinished
+### OnLogoutFinished
 
 This event is triggered when logging out of the social provider has finished **successfully**.
 
@@ -180,7 +180,7 @@ public void onLogoutFinished(Provider provider) {
 }
 ```
 
-###OnLogoutFailed
+### OnLogoutFailed
 
 This event is triggered when logging out of the social provider has failed.
 
@@ -196,7 +196,7 @@ public void onLogoutFailed(Provider provider, string message) {
 ```
 
 
-###OnSocialActionStarted
+### OnSocialActionStarted
 
 This event is triggered when a social action has started.
 
@@ -213,7 +213,7 @@ public void onSocialActionStarted(Provider provider, SocialActionType action, st
 ```
 
 
-###OnSocialActionFinished
+### OnSocialActionFinished
 
 This event is triggered when a social action has finished **successfully**.
 
@@ -229,7 +229,7 @@ public void onSocialActionFinished(Provider provider, SocialActionType action, s
 }
 ```
 
-###OnSocialActionCancelled
+### OnSocialActionCancelled
 
 This event is triggered when a social action has been cancelled.
 
@@ -245,7 +245,7 @@ public void onSocialActionCancelled(Provider provider, SocialActionType action, 
 }
 ```
 
-###OnSocialActionFailed
+### OnSocialActionFailed
 
 This event is triggered when a social action has failed.
 
@@ -262,7 +262,7 @@ public void onSocialActionFailed(Provider provider, SocialActionType action, str
 }
 ```
 
-###OnGetContactsStarted
+### OnGetContactsStarted
 
 This event is triggered when fetching the contacts from the social provider has started.
 
@@ -278,7 +278,7 @@ public void onGetContactsStarted(Provider provider, bool fromStart, string paylo
 }
 ```
 
-###OnGetContactsFinished
+### OnGetContactsFinished
 
 This event is triggered when fetching the contacts from the social provider has finished **successfully**.
 
@@ -294,7 +294,7 @@ public void onGetContactsFinished(Provider provider, SocialPageData<UserProfile>
 }
 ```
 
-###OnGetContactsFailed
+### OnGetContactsFailed
 
 This event is triggered when fetching the contacts from the social provider has failed.
 
@@ -311,7 +311,7 @@ public void onGetContactsFailed(Provider provider, string message, bool fromStar
 }
 ```
 
-###OnGetFeedStarted
+### OnGetFeedStarted
 
 This event is triggered when fetching the feed from the social provider has started.
 
@@ -325,7 +325,7 @@ public void onGetFeedStarted(Provider provider) {
 }
 ```
 
-###OnGetFeedFinished
+### OnGetFeedFinished
 
 This event is triggered when fetching the feed from the social provider has finished **successfully**.
 
@@ -340,7 +340,7 @@ public void onGetFeedFinished(Provider provider, SocialPageData<string> feed) {
 }
 ```
 
-###OnGetFeedFailed
+### OnGetFeedFailed
 
 This event is triggered when fetching the feed from the social provider has failed.
 
