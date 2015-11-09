@@ -418,7 +418,7 @@ on Facebook.
 `Gate` and how to instantiate them.</div>
 
 <br>
-####**HOW TO OPEN**
+#### **HOW TO OPEN**
 
 All `Gate`s share the same definition, as explained above, but each `Gate` opens in a different way. Some `Gate`s need 
 to be opened manually by the developer, and others will open automatically when a specific event is thrown. You'll find 
@@ -446,7 +446,7 @@ var bGate = Soomla.Models.BalanceGate.create({
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` js
 int balance;
@@ -569,7 +569,7 @@ var sGate = Soomla.Models.ScheduleGate.create({
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` js
 // The schedule defines this gate to be open all the time.
@@ -584,7 +584,7 @@ A `WorldCompletionGate` has an associated `World` that. Once the `World` is comp
 This gate is perhaps, the simplest of the gates, in that its only requirement is that the user finish the previous World in order to move on to the next.
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` js
 var worldA = Soomla.Models.World.create({itemId: 'worldA'});
@@ -596,7 +596,7 @@ var wGate = Soomla.Models.WorldCompletionGate.create({
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` js
 var isOpen;
@@ -641,7 +641,7 @@ var wGateANDrGate = Soomla.Models.GatesListAnd.create({
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` js
 // The user needs to meet the criteria of wGate AND of rGate
@@ -692,7 +692,7 @@ var wGateORrGate = Soomla.Models.GatesListOr.create({
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` js
 // The user needs to meet the criteria of wGate OR of rGate
@@ -832,7 +832,7 @@ to handle several `Mission`s and monitor their completion. Some `Mission`s may b
 - `gate` - A `Gate` that needs to be opened in order to complete this `Mission`.
 
 <br>
-####**HOW TO COMPLETE**
+#### **HOW TO COMPLETE**
 
 All `Mission`s share the same definition, as explained above, but each `Mission` is completed in a different way. Some 
 `Mission`s need to be completed manually by the developer (by calling `Complete()`), and others will automatically be 
@@ -840,7 +840,7 @@ completed when a specific event is thrown. You'll find below an explanation of e
 completed.
 
 <br>
-####**COMMON USE**
+#### **COMMON USE**
 
 All missions have the same functionality.
 
@@ -890,7 +890,7 @@ var bMission = Soomla.Models.BalanceMission.create({
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` js
 int balance;
@@ -931,7 +931,7 @@ var rMission = Soomla.Models.RecordMission.create({
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` js
 var isCompleted;
@@ -988,7 +988,7 @@ var pMission = Soomla.Models.PurchasingMission.create({
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` js
 var isCompleted;
@@ -1019,7 +1019,7 @@ var wMission = Soomla.Models.WorldCompletionMission.create({
 });
 ```
 
-####**USE CASE**
+#### **USE CASE**
 
 ``` js
 var isMissionComplete;
@@ -1159,7 +1159,7 @@ Challenge *challenge = Soomla.Models.Challenge.create({
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` js
 var isCompleted;
@@ -1177,7 +1177,7 @@ numberScore.inc(2000.0); // Now numberScore = 2000
 isCompleted = challenge.isCompleted(); // TRUE! Both missions have been completed
 ```
 
-##Auxiliary Models
+## Auxiliary Models
 
 ### Schedule
 

@@ -316,7 +316,7 @@ Below is a short example of how to initialize SOOMLA's modules. We suggest you r
 entities in SOOMLA's Knowledge Base: [Store](/cocos2dx/js/store/Store_Model), [Profile](/cocos2dx/js/profile/Profile_MainClasses) 
 and [Gifting](/cocos2dx/js/grow/Grow_Gifting).
 
-###IStoreAssets
+### IStoreAssets
 
 ```js
 /** ExampleAssets (your implementation of IStoreAssets) **/

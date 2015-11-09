@@ -10,11 +10,11 @@ module: 'store'
 platform: 'android'
 ---
 
-#Main Classes
+# Main Classes
 
 Here you can find descriptions of some of the main classes and interfaces of android-store. These classes contain functionality for store-related operations such as purchasing, billing, inventory querying and storage.
 
-##SoomlaStore <a href="https://github.com/soomla/android-store/blob/master/SoomlaAndroidStore/src/com/soomla/store/SoomlaStore.java" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+## SoomlaStore <a href="https://github.com/soomla/android-store/blob/master/SoomlaAndroidStore/src/com/soomla/store/SoomlaStore.java" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
 SoomlaStore holds the basic assets needed to operate the Store. You can use it to purchase products from the Market. It provides you with functionality such as querying the inventory for information, and starting a purchase process with the market (Google Play, Amazon Appstore, etc…).
 
@@ -29,7 +29,7 @@ SoomlaStore.getInstance().initialize(storeAssets, "MIIBIjANBgkqhkiG9w...");
 
 <br>
 
-###Important Functions
+### Important Functions
 
 **`refreshInventory(final boolean refreshMarketItemsDetails)`**
 
@@ -64,7 +64,7 @@ int greenHatsBalance = StorageManager.getVirtualGoodsStorage().getBalance(greenH
 
 `StoreInventory` is a utility class that provides you with functions that perform store-related operations. With `StoreInventory` you can give or take items from your users. You can buy items or upgrade them. You can also check their equipping status and change it.
 
-###Important Functions
+### Important Functions
 
 **`buy(String itemId)`**
 
