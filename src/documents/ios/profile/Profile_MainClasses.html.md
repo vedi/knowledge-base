@@ -21,7 +21,7 @@ Social actions allow you to entice social engagement by offering your users rewa
 
 <div class="info-box">`Reward`s are a part of SOOMLA's core module and are used in many methods of Profile. Read about the different types of `Reward`s [below](#auxiliary-model-reward).</div>
 
-##UserProfileUtils <a href="https://github.com/soomla/ios-profile/blob/master/SoomlaiOSProfile/UserProfileUtils.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+## UserProfileUtils <a href="https://github.com/soomla/ios-profile/blob/master/SoomlaiOSProfile/UserProfileUtils.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
 This class lists the different social networks that exist today. Currently, SOOMLA supports Facebook, Twitter, and Google+.
 
@@ -74,7 +74,7 @@ The diagram below depicts the flow that takes place when a `CCSoomlaProfile` fun
 ![alt text](/img/tutorial_img/profile/functionFlowiOS.png "Method Flow")
 
 <br>
-###`login / logout`
+### `login / logout`
 
 The `login` function will log the user into the specified provider, and will give the user a reward if one was provided.
 
@@ -95,7 +95,7 @@ Most of the social actions provided in Profile depend on the user being logged i
 ```
 
 <br>
-###`isLoggedIn`
+### `isLoggedIn`
 
 As its name implies, this method checks if the user is logged in and returns a boolean value.
 
@@ -109,7 +109,7 @@ if ([[SoomlaProfile getInstance] isLoggedInWithProvider:FACEBOOK]) {
 <div class="info-box">If the user is not logged in, please notice that `isLoggedIn` will not log the user in, you'll need to call the `login` method yourself. </div>
 
 <br>
-###`like`
+### `like`
 
 This function opens up the provider page to "like" (a web page in a browser), and grants the user the supplied reward. For example, give the user 100 coins for liking your page.
 
@@ -129,7 +129,7 @@ Page ID can be fetched from sites like http://findmyfacebookid.com/ , or Service
 <div class="info-box">Note that the user is given the reward just for clicking `Like` from the application. The `Like` function opens the page to like, but does not track if the user *actually* liked the page or not.</div>
 
 <br>
-###`updateStatus`
+### `updateStatus`
 
 This function updates the user's status, which is simply a message, on the supplied social provider. Upon a successful update, the user will receive the supplied reward. For example, reward users that post a specific status with a `CCSingleUseVG`, such as a sword.
 
@@ -143,7 +143,7 @@ This function updates the user's status, which is simply a message, on the suppl
 ![alt text](/img/tutorial_img/profile/socialStatus.png "Update Status")
 
 <br>
-###`updateStatusDialog`
+### `updateStatusDialog`
 
 Shares the given status to the user's feed and grants the user a reward.
 Using the provider's native dialog (when available).
@@ -157,7 +157,7 @@ Using the provider's native dialog (when available).
 ```
 
 <br>
-###`updateStory`
+### `updateStory`
 This function posts a story (which is a detailed status) on the user's wall in the supplied social provider. Upon a successful update, the user will receive the supplied reward.
 
 For example, once your user reaches a high score, you could display a popup that allows them to share their high score on Facebook with a click of a button. Once he/she shares the story, you can give them a reward such as a free character.
@@ -179,7 +179,7 @@ For example, once your user reaches a high score, you could display a popup that
 ![alt text](/img/tutorial_img/profile/socialStory.png "Post Story")
 
 <br>
-###`updateStoryDialog`
+### `updateStoryDialog`
 
 Shares a story to the user's feed and grants the user a reward.
 Using the provider's native dialog (when available).
@@ -197,7 +197,7 @@ Using the provider's native dialog (when available).
 ```
 
 <br>
-###`uploadImage`
+### `uploadImage`
 
 This function uploads an image on the user's wall in the supplied social provider. Upon a successful upload, the user will receive the supplied reward.
 
@@ -218,7 +218,7 @@ For example, when your user finishes a level in your game, you can offer him/her
 <div class="info-box">The image to upload should be on the device already; the path supplied needs to be a full path to the image on the device.</div>
 
 <br>
-###`getStoredUserProfile`
+### `getStoredUserProfile`
 
 This function retrieves the user's page for the given social provider from the **local device storage** (`GetStoredUserProfile` does not call any social provider function, it retrieves and returns its information from the storage, contrary to what is depicted in the diagram at the beginning of this section). This function allows you to get user information even if the user is offline.
 
@@ -231,7 +231,7 @@ For example, you could use `GetStoredUserProfile` to get the user's `FirstName`,
 <div class="info-box">This functionality is only available if the user has already logged into the provider.</div>
 
 <br>
-###`getContacts`
+### `getContacts`
 
 This function retrieves a list of the user's contacts from the supplied provider.
 
@@ -284,7 +284,7 @@ Note that the results will contain only part of the list. In order to get more i
 ```
 
 <br>
-###`getFeed`
+### `getFeed`
 
 This function Retrieves a list of the user's feed entries from the supplied provider. Upon a successful retrieval of
 feed entries the user will be granted the supplied reward.
@@ -362,7 +362,7 @@ Note that the results will contain only part of the list. In order to get more i
 ```
 
 <br>
-###`openAppRatingPage`
+### `openAppRatingPage`
 
 `openAppRatingPage` conveniently opens your application's page in the App Store so that it's simple to rate the app. You can offer your users to rate your app after they've completed a level successfully or have progressed significantly in your game.
 
@@ -373,7 +373,7 @@ Note that the results will contain only part of the list. In order to get more i
 ```
 
 <br>
-###`multiShare`
+### `multiShare`
 
 
 `multiShare` Shares text and/or image using native sharing functionality of your target platform.
@@ -385,7 +385,7 @@ The user will be shown a screen where he selects where he wants to share.
 
 ```
 
-##Auxiliary Model: Reward
+## Auxiliary Model: Reward
 
 A `Reward` is an entity which can be earned by the user for meeting certain criteria in game progress.
 
@@ -394,7 +394,7 @@ A `Reward` is an entity which can be earned by the user for meeting certain crit
 `Reward` itself cannot be instantiated, but there are many types of rewards, all explained below.
 
 <br>
-###**VirtualItemReward**
+### **VirtualItemReward**
 
 A specific type of `Reward` that you can use to give your users some amount of a virtual item. **For example:** Give users 100 coins (virtual currency) for liking your page.
 
@@ -412,7 +412,7 @@ self.coinReward = [[VirtualItemReward alloc] initWithRewardId:@"coin_reward"
 ```
 
 <br>
-###**BadgeReward**
+### **BadgeReward**
 
 A specific type of `Reward` that represents a badge with an icon. **For example:** Give the user a badge reward for posting a status on his/her wall.
 
@@ -427,7 +427,7 @@ self.badgeReward = [[BadgeReward alloc] initWithRewardId:@"badge_reward"
 ```
 
 <br>
-###**SequenceReward**
+### **SequenceReward**
 
 A specific type of `Reward` that holds a list of other `Reward`s in a certain sequence. The rewards are given in ascending order. **For example:** In a Karate game the user can progress between belts and can be rewarded a sequence of: blue belt, yellow belt, green belt, brown belt, and lastly, black belt.
 
@@ -446,7 +446,7 @@ self.badgeReward = [[BadgeReward alloc] initWithRewardId:@"belt_reward"
 
 
 <br>
-###**RandomReward**
+### **RandomReward**
 
 A specific type of `Reward` that holds a list of other `Reward`s. When this `Reward` is given, it randomly chooses a `Reward` from the list of `Reward`s it internally holds. **For example:** Give users a mystery box `Reward` for uploading an image, that grants him/her a random `Reward`.
 

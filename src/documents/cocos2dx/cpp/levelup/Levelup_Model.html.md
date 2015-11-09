@@ -32,7 +32,7 @@ This document assumes that you have a good understanding of SOOMLA's Store modul
 The `CCSchedule` and `CCReward` entities are widely used in the examples of this document. You can read about them [here](#auxiliary-models).
 
 
-##CCSoomlaLevelUp <a href="https://github.com/soomla/cocos2dx-levelup/blob/master/Soomla/CCSoomlaLevelUp.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+## CCSoomlaLevelUp <a href="https://github.com/soomla/cocos2dx-levelup/blob/master/Soomla/CCSoomlaLevelUp.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
 This class is the top level container for the cocos2dx-levelup model and definitions. It stores the configurations of the game's world-hierarchy and provides lookup methods for *LevelUp* model elements.
 
@@ -397,7 +397,7 @@ A `CCGate` is an object that defines certain criteria for progressing between th
 <div class="info-box">`CCGate` is an abstract class. Below are explanations of several types of `CCGate`s that implement `CCGate` and how to instantiate them.</div>
 
 <br>
-####**HOW TO OPEN**
+#### **HOW TO OPEN**
 
 All `CCGate`s share the same definition, as explained above, but each `CCGate` opens in a different way. Some `CCGate`s need to be opened manually by the developer, and others will open automatically when a specific event is thrown. You'll find below an explanation of each type of `CCGate` including how it opens.
 
@@ -423,7 +423,7 @@ CCGate *bGate = CCBalanceGate::create(
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` cpp
 int balance;
@@ -553,7 +553,7 @@ CCGate *sGate = CCScheduleGate::create(
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` cpp
 // The schedule defines this gate to be open all the time.
@@ -568,7 +568,7 @@ A `CCWorldCompletionGate` has an associated `CCWorld` that. Once the `CCWorld` i
 This gate is perhaps, the simplest of the gates, in that its only requirement is that the user finish the previous World in order to move on to the next.
 
 <br>
-####**HOW TO DEFINE**
+#### **HOW TO DEFINE**
 
 ``` cpp
 CCWorld *worldA = CCWorld::create(__String::create("worldA"));
@@ -580,7 +580,7 @@ CCGate *wGate = CCWorldCompletionGate::create(
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` cpp
 bool isOpen;
@@ -624,7 +624,7 @@ CCGatesList *wGateANDrGate = CCGatesListAnd::create(
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` cpp
 // The user needs to meet the criteria of wGate AND of rGate
@@ -675,7 +675,7 @@ CCGatesList *wGateORrGate = CCGatesListOr::create(
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` cpp
 // The user needs to meet the criteria of wGate OR of rGate
@@ -803,12 +803,12 @@ A `CCMission` is a task your users need to complete in your game. `CCMission`s a
 - `mGate` - A `CCGate` that needs to be opened in order to complete this `CCMission`.
 
 <br>
-####**HOW TO COMPLETE**
+#### **HOW TO COMPLETE**
 
 All `CCMission`s share the same definition, as explained above, but each `CCMission` is completed in a different way. Some `CCMission`s need to be completed manually by the developer (by calling `Complete()`), and others will automatically be completed when a specific event is thrown. You'll find below an explanation of each type of `CCMission` including how it's completed.
 
 <br>
-####**COMMON USE**
+#### **COMMON USE**
 
 All missions have the same functionality.
 
@@ -853,7 +853,7 @@ CCMission *bMission = CCBalanceMission::create(
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` cpp
 int balance;
@@ -895,7 +895,7 @@ CCMission *rMission = CCRecordMission::create(
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` cpp
 bool isCompleted;
@@ -947,7 +947,7 @@ CCMission *pMission = CCPurchasingMission::create(
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` cpp
 bool isCompleted;
@@ -978,7 +978,7 @@ CCMission *wMission = CCWorldCompletionMission::create(
 );
 ```
 
-####**USE CASE**
+#### **USE CASE**
 
 ``` cpp
 bool isMissionComplete;
@@ -1016,7 +1016,7 @@ CCMission *likeMission = CCSocialLikeMission::create(
 ```
 
 <br>
-###**CCSocialStatusMission**
+### **CCSocialStatusMission**
 
 A specific type of `CCMission` that has an associated status.
 
@@ -1108,7 +1108,7 @@ CCChallenge *challenge = CCChallenge::create(
 ```
 
 <br>
-####**USE CASE**
+#### **USE CASE**
 
 ``` cpp
 bool isCompleted;
@@ -1126,7 +1126,7 @@ numberScore->inc(2000.0); // Now numberScore = 2000
 isCompleted = challenge->isCompleted(); // TRUE! Both missions have been completed
 ```
 
-##Auxiliary Models
+## Auxiliary Models
 
 ### CCSchedule <a href="https://github.com/soomla/soomla-cocos2dx-core/blob/master/Soomla/CCSchedule.h" target="_blank"><img class="link-icon-small" src="/img/tutorial_img/linkImg.png"></a>
 

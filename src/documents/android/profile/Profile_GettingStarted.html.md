@@ -10,9 +10,9 @@ module: 'profile'
 platform: 'android'
 ---
 
-#Getting Started
+# Getting Started
 
-##Getting Started
+## Getting Started
 
 1. Download [android-profile](http://library.soom.la/fetch/android-profile/latest?cf=knowledge%20base).
 

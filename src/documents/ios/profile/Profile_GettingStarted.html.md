@@ -218,7 +218,7 @@ The callback to this process is `openURL` which should be defined in your `AppDe
 
 2. Did you add all required the frameworks?
 
-##Example
+## Example
 
 Below is a brief example of initializing Profile, logging the user into Facebook, and sharing a story on the user's Facebook wall. To see a full example, check out the [iOS Profile Example](https://github.com/soomla/ios-profile/tree/master/SoomlaiOSProfileExample).
 

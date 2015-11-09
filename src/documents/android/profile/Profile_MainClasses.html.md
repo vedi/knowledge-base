@@ -21,7 +21,7 @@ Social actions allow you to entice social engagement by offering your users rewa
 
 <div class="info-box">`Reward`s are a part of SOOMLA's core module and are used in many functions of Profile. Read about the different types of `Reward`s [below](#auxiliary-model-reward).</div>
 
-##IProvider <a href="https://github.com/soomla/android-profile/blob/master/SoomlaAndroidProfile/src/com/soomla/profile/domain/IProvider.java" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+## IProvider <a href="https://github.com/soomla/android-profile/blob/master/SoomlaAndroidProfile/src/com/soomla/profile/domain/IProvider.java" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
 This class represents the different social networks that exist today. Currently, SOOMLA supports Facebook, Twitter, and Google+.
 

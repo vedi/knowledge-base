@@ -10,9 +10,9 @@ module: 'store'
 platform: 'android'
 ---
 
-#Debugging
+# Debugging
 
-##Debug Messages
+## Debug Messages
 
 Allow SOOMLA android-store's debugging messages to be printed to Logcat:
 
@@ -20,9 +20,9 @@ Allow SOOMLA android-store's debugging messages to be printed to Logcat:
 StoreConfig.logDebug = true;
 ```
 
-##Newbie?
+## Newbie?
 
-###Debug in Android Studio
+### Debug in Android Studio
 
 - You can read [here](https://developer.android.com/sdk/installing/studio-debug.html) to learn how to debug in Android Studio.
 
@@ -32,7 +32,7 @@ StoreConfig.logDebug = true;
 
 - SOOMLA provides a Tag for almost every class in android-store. You can use these tags to filter the log messages according to your needs.
 
-###Debug in the command line
+### Debug in the command line
 
 Go to your AndroidSDK/platform-tools directory.
 
