@@ -11,7 +11,7 @@ lang: 'js'
 platform: 'cocos2dx'
 ---
 
-#Economy Model & API
+# Economy Model & API
 
 SOOMLA's cocos2dx-store provides a complete data model implementation for virtual economies. Every game economy has 
 currencies, packs of currencies that can be sold, and items that can be sold either for money or in exchange for other 
@@ -57,7 +57,7 @@ the associated `VirtualItem` in the Market.
 **NOTE:** The product ID you define in your implementation of `IStoreAssets` should be the same as you define in the 
 Market.
 
-####**For Example**
+#### **For Example**
 Suppose that in your game, you offer a “No-Ads” feature for $1.99 in the Market. The code below shows how you need to 
 declare the `PurchaseType` parameter of your “No-Ads” item.
 
@@ -97,7 +97,7 @@ Any item with purchase type `PurchaseWithVirtualItem` can be purchased with any 
 When creating an instance of `PurchaseWithVirtualItem`, you need to provide the ID of the virtual item that you want to 
 be paid with and the amount of that virtual item.
 
-####**For Example**
+#### **For Example**
 Suppose that in your game, you offer a chocolate cake that can be bought by paying 250 “Muffins”. The item being 
 purchased is a `chocolateCakeGood`, the item (virtual currency) to pay with is “Muffin”, and the amount is 250.
 
@@ -122,7 +122,7 @@ Your users will be able to buy packs of your game’s `VirtualCurrency` by using
 this document). If for some reason you *do* want to sell a single currency you can do so by providing a 
 `VirtualCurrencyPack` with an amount of 1.
 
-####**How to define**
+#### **How to define**
 
 ``` js
 var muffinCurrency = Soomla.Models.VirtualCurrency.create({
@@ -132,7 +132,7 @@ var muffinCurrency = Soomla.Models.VirtualCurrency.create({
 });
 ```
 
-####How to use
+#### How to use
 
 A `VirtualCurrency` by itself is not very useful, because it cannot be sold individually. To sell currency, you need to 
 use a VirtualCurrencyPack (see section below).
@@ -163,7 +163,7 @@ This is useful if you’d like to give your users some amount of currency to beg
 Soomla.storeInventory.giveItem('currency_coin', 1000);
 ```
 
-####**Get the balance**
+#### **Get the balance**
 
 Get the balance of a specific VirtualCurrency.
 
@@ -192,7 +192,7 @@ var fiftymuffPack = Soomla.Models.VirtualCurrencyPack.create({
 });
 ```
 
-####**How to use**
+#### **How to use**
 
 **Buy:**
 
@@ -223,7 +223,7 @@ Take back the 50-muffin pack that the user owns:
 Soomla.storeInventory.takeItem('muffins_50', 1);
 ```
 
-####**Get the balance**
+#### **Get the balance**
 
 VirtualCurrencyPacks do not have a balance of their own in the database. When a user purchases a VirtualCurrencyPack, 
 the balance of the associated VirtualCurrency is increased.
@@ -266,7 +266,7 @@ multiple times. No limits!
 - Has a balance that is saved in the database. Its balance goes up when you "give" it or "buy" it. The balance goes 
 down when you “take” it (for example in the case of a refund).
 
-####**How to define**
+#### **How to define**
 
 ``` js
 var fruitCakeGood = Soomla.Models.SingleUseVG.create({
@@ -280,7 +280,7 @@ var fruitCakeGood = Soomla.Models.SingleUseVG.create({
   });
 ```
 
-####**How to use**
+#### **How to use**
 
 **Buy:**
 
@@ -309,7 +309,7 @@ user back whatever he/she paid.
 Soomla.storeInventory.takeItem("fruit_cake", 1);
 ```
 
-####**Get the balance**
+#### **Get the balance**
 
 Get the balance of a specific `SingleUseVG`.
 
@@ -333,7 +333,7 @@ the pack.
 Suppose you offer a `SingleUsePackVG` of “5 fruit cakes”. The `SingleUseVG` that’s associated with this Pack is 
 "fruit_cake". When your user buys a “5 fruit cake" Pack, the balance of fruit_cake is increased by 5 in the storage.
 
-####**How to define**
+#### **How to define**
 
 ``` js
   var fiveFruitcakeGoods = Soomla.Models.SingleUsePackVG.create({
@@ -349,7 +349,7 @@ Suppose you offer a `SingleUsePackVG` of “5 fruit cakes”. The `SingleUseVG` 
    });
 ```
 
-####**How to use**
+#### **How to use**
 
 The explanations for buying, giving, and taking are the same as those in SingleUseVG.
 
@@ -371,7 +371,7 @@ Soomla.storeInventory.giveItem("fruitcake_5", 1);
 Soomla.storeInventory.takeItem("fruitcake_5", 1);
 ```
 
-####**Get the balance**
+#### **Get the balance**
 
 SingleUsePackVGs do not have a balance of their own in the database. When a user buys a SingleUsePackVG, the balance of 
 the associated `SingleUseVG` is increased. After buying a pack of 5 fruit cakes, your user’s fruit cake balance should 
@@ -401,7 +401,7 @@ However, notice that if you declare a `LifetimeVG` with a purchase type of `Purc
 the `LifetimeVG` **as long as the local storage of the game has NOT been deleted** (i.e. the version has been updated, 
 or the game was deleted and re-downloaded, etc..).
 
-####**For Example**
+#### **For Example**
 
 ``` js
   // A blue car that is purchased with virtual coins.
@@ -438,7 +438,7 @@ Non-Consumable! For more information see our guide for [defining IAP products in
 
 <br>
 
-####**How to define**
+#### **How to define**
 
 ``` js
   var marriageGood = Soomla.Models.LifetimeVG.create({
@@ -452,7 +452,7 @@ Non-Consumable! For more information see our guide for [defining IAP products in
   });
 ```
 
-####**How to use**
+#### **How to use**
 
 **Buy:**
 
@@ -481,7 +481,7 @@ back whatever he/she paid.
 Soomla.storeInventory.takeItem("marriage", 1);
 ```
 
-####**Check ownership**
+#### **Check ownership**
 
 ``` js
 //If the balance is greater than 0, the user owns this LifetimeVG.
@@ -510,7 +510,7 @@ once, it can also be equipped by your users. Equipping means that the user decid
 
 - `GLOBAL` - In the whole game, if this `EquippableVG` is equipped, all other `EquippableVG`s are unequipped.
 
-####**How to define**
+#### **How to define**
 
 In this example we're defining 2 characters, George and Kramer as `CATEGORY` equippable goods. This means the user can 
 own both characters but can play only as one at a time.
@@ -540,7 +540,7 @@ own both characters but can play only as one at a time.
     })
   });
 ```
-####**How to use**
+#### **How to use**
 
 **Buy:**
 
@@ -583,7 +583,7 @@ Soomla.storeInventory.equipVirtualGood("kramer");
 Soomla.storeInventory.unEquipVirtualGood("kramer");
 ```
 
-####**Check ownership**
+#### **Check ownership**
 
 ``` js
 //Check if user owns Kramer:
@@ -621,7 +621,7 @@ scale then this value is null.
 - `nextItemId` - the itemId of the `UpgradeVG` that comes after this one, or if this is the last `UpgradeVG` in the 
 scale then the value is null.
 
-####**How to define**
+#### **How to define**
 
 Say you have a strength attribute in your game and that strength is upgradeable on a scale of 1-3.  This is what you'll 
 need to create:
@@ -678,7 +678,7 @@ In the following example there is a `SingleUseVG` for "Strength" and 3 upgrade l
 // UpgradeVG for strength level 3...
 ```
 
-####**How to use**
+#### **How to use**
 
 **Buy:**
 
@@ -721,7 +721,7 @@ This function simply deducts the user’s balance. In case of a refund request, 
 Soomla.storeInventory.takeItem("strength_upgrade2_ID", 1);
 ```
 
-####**Get current upgrade**
+#### **Get current upgrade**
 
 To get the current upgrade of a virtual good use getGoodCurrentUpgrade. If the good has no upgrades, the method will return null.
 
@@ -729,7 +729,7 @@ To get the current upgrade of a virtual good use getGoodCurrentUpgrade. If the g
 Soomla.storeInventory.getGoodCurrentUpgrade("strength_ID");
 ```
 
-####**Get current upgrade level**
+#### **Get current upgrade level**
 
 To find out the upgrade level of a virtual good use getGoodUpgradeLevel. If the good has no upgrades, the method returns 0.
 
@@ -745,13 +745,13 @@ especially come in handy when you have Equippable Virtual Goods.
 <div class="info-box">If you don’t have any need for categories, you can just define all of your virtual goods in one 
 category and call it something like “General”.</div>
 
-####**Real Game Examples:**
+#### **Real Game Examples:**
 
 Let’s suppose your game has the following categories of virtual goods: "Power Ups", "Weapons", and  "Hats". 
 Say you decide to make “Weapons” and “Hats” `CATEGORY` `EquippableVG`s. You can easily implement this functionality once 
 the goods are divided into virtual categories.
 
-####How to define
+#### How to define
 
 ``` js
   var cakes = Soomla.Models.VirtualCategory.create({
@@ -767,7 +767,7 @@ the goods are divided into virtual categories.
   });
 ```
 
-####Get category
+#### Get category
 
 **Check which category an item belongs to:**
 

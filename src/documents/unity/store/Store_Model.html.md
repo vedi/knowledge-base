@@ -32,13 +32,13 @@ As stated above, almost all Virtual Items are purchasable, or as we call them, `
 
 <div class="info-box">In the examples below the declarations of purchase types are shown as a part of `PurchasableVirtualItem` declarations, because this is the most common use of purchase types.</div>
 
-###PurchaseWithMarket <a href="https://github.com/soomla/unity3d-store/blob/master/Soomla/Assets/Plugins/Soomla/Store/purchaseTypes/PurchaseWithMarket.cs" target="_blank"><img class="link-icon-small" src="/img/tutorial_img/linkImg.png"></a>
+### PurchaseWithMarket <a href="https://github.com/soomla/unity3d-store/blob/master/Soomla/Assets/Plugins/Soomla/Store/purchaseTypes/PurchaseWithMarket.cs" target="_blank"><img class="link-icon-small" src="/img/tutorial_img/linkImg.png"></a>
 
 This kind of `PurchaseType` should be attached to items that you want to make available for purchase in the Market (App Store, Google Play Store, etc..) for real money. When you create an instance of `PurchaseWithMarket`, you need to define the associated `VirtualItem` in the Market.
 
 **NOTE:** The product ID you define in your implementation of `IStoreAssets` should be the same as you define in the Market.
 
-####**For Example**
+#### **For Example**
 Suppose that in your game, you offer a “No-Ads” feature for $1.99 in the Market. The code below shows how you need to declare the `PurchaseType` parameter of your “No-Ads” item.
 
 ``` cs
@@ -76,7 +76,7 @@ For more info on how to declare your items in the Market, see one of our tutoria
 
 Any item with purchase type `PurchaseWithVirtualItem` can be purchased with any `VirtualItem`, like a sort of trade. When creating an instance of `PurchaseWithVirtualItem`, you need to provide the ID of the virtual item that you want to be paid with and the amount of that virtual item.
 
-####**For Example**
+#### **For Example**
 Suppose that in your game, you offer a PAVLOVA_GOOD that can be bought by paying 175 “Muffins”. The item being purchased is a PAVLOVA_GOOD, the item (virtual currency) to pay with is “Muffin”, and the amount is 175.
 
 ``` cs
@@ -89,13 +89,13 @@ public static VirtualGood PAVLOVA_GOOD = new SingleUseVG(
         175));                                  // Initial price
 ```
 
-##Virtual Currencies
+## Virtual Currencies
 
 ### VirtualCurrency <a href="https://github.com/soomla/unity3d-store/blob/master/Soomla/Assets/Plugins/Soomla/Store/domain/virtualCurrencies/VirtualCurrency.cs" target="_blank"><img class="link-icon-small" src="/img/tutorial_img/linkImg.png"></a>
 
 Every game that has an economy has at least one `VirtualCurrency`. `VirtualCurrency` is NOT a `PurchasableVirtualItem`. This is because in game stores, you never buy just a single "Gold Coin" or a "Muffin", but rather you buy a pack of them. Your users will be able to buy packs of your game’s `VirtualCurrency` by using `VirtualCurrencyPack` (explained later in this document). If for some reason you *do* want to sell a single currency you can do so by providing a `VirtualCurrencyPack` with an amount of 1.
 
-####**How to define**
+#### **How to define**
 
 ``` cs
 public static final String MUFFIN_CURRENCY_ITEM_ID = "currency_muffin";
@@ -107,7 +107,7 @@ public static final VirtualCurrency MUFFIN_CURRENCY = new VirtualCurrency(
 );
 ```
 
-####**How to use**
+#### **How to use**
 
 As explained above, `VirtualCurrency` by itself is not very useful - in this example it is used when declaring a `VirtualCurrencyPack`.
 
@@ -136,7 +136,7 @@ This is useful if you'd like to give your users some amount of currency to begin
 StoreInventory.GiveItem("currency_muffin", 1000);
 ```
 
-####**Get the balance**
+#### **Get the balance**
 Get the balance of a specific `VirtualCurrency`.
 
 ``` cs
@@ -147,7 +147,7 @@ StoreInventory.GetItemBalance("currency_muffin");
 
 As mentioned above, in game stores you never buy just a "Gold Coin" or a "Muffin", you always buy a pack of the game's `VirtualCurrency`. This class represents exactly that: a pack of `VirtualCurrency`. Use this class to define various currency packs in your game.
 
-####**How to define**
+#### **How to define**
 
 ``` cs
 public static VirtualCurrencyPack FIFTYMUFF_PACK = new VirtualCurrencyPack(
@@ -162,7 +162,7 @@ public static VirtualCurrencyPack FIFTYMUFF_PACK = new VirtualCurrencyPack(
 );
 ```
 
-####**How to use**
+#### **How to use**
 
 **Buy:**
 
@@ -187,7 +187,7 @@ This function simply deducts the user's balance. In case of a refund request, it
 StoreInventory.TakeItem("muffins_50", 1);
 ```
 
-####**Get the balance**
+#### **Get the balance**
 
 `VirtualCurrencyPack`s do not have a balance of their own in the database. When a user purchases a `VirtualCurrencyPack`, the balance of the associated `VirtualCurrency` is increased.
 
@@ -217,7 +217,7 @@ Below are detailed descriptions of each category.
 
 ### SingleUseVG <a href="https://github.com/soomla/unity3d-store/blob/master/Soomla/Assets/Plugins/Soomla/Store/domain/virtualGoods/SingleUseVG.cs" target="_blank"><img class="link-icon-small" src="/img/tutorial_img/linkImg.png"></a>
 
-####**How to define**
+#### **How to define**
 
 The most basic and common kind of a `VirtualGood` is a `SingleUseVG`. `SingleUseVG`s can be purchase by your users multiple times. No limits!
 
@@ -237,7 +237,7 @@ public static VirtualGood MUFFINCAKE_GOOD = new SingleUseVG(
       225));
 ```
 
-####**How to use**
+#### **How to use**
 
 **Buy:**
 
@@ -263,7 +263,7 @@ This function simply deducts the user's balance. In case of a refund request, it
 StoreInventory.TakeItem("fruit_cake", 1);
 ```
 
-####**Get the balance**
+#### **Get the balance**
 Get the balance of a specific `SingleUseVG`.
 
 ``` cs
@@ -283,7 +283,7 @@ Sometimes, you'll want to to sell packs of `SingleUseVG`s. To support these case
 **For Example:**
 Suppose you offer a `SingleUsePackVG` of “5 fruit cakes”. The `SingleUseVG` that’s associated with this Pack is "fruit_cake". When your user buys a “5 fruit cake" Pack, the balance of fruit_cake is increased by 5 in the storage.
 
-####**How to define**
+#### **How to define**
 
 ``` cs
 public const string FRUITCAKE_PACK_PRODUCT_ID = "fruitcake_5pack";
@@ -301,7 +301,7 @@ public static VirtualGood FRUITCAKE_GOOD_PACK = new SingleUsePackVG(
 );
 ```
 
-####**How to use**
+#### **How to use**
 The explanations for buying, giving, and taking are the same as those in [SingleUseVG](#singleusevg).
 
 **Buy:**
@@ -322,7 +322,7 @@ StoreInventory.GiveItem("fruit_cake_5pack", 1);
 StoreInventory.TakeItem("fruit_cake_5pack", 1);
 ```
 
-####**Get the balance**
+#### **Get the balance**
 `SingleUsePackVG`s do not have a balance of their own in the database. When a user buys a `SingleUsePackVG`, the balance of the associated `SingleUseVG` is increased. After buying a pack of 5 cream cup goods, your user's cream cup balance should be increased by 5.
 
 Query the balance of the virtual good with item ID "cream_cup":
@@ -345,7 +345,7 @@ If you declare a `LifetimeVG` with a purchase type of `PurchaseWithMarket`, it r
 
 However, notice that if you declare a `LifetimeVG` with a purchase type of `PurchaseWithVirtualItem`, the user will own the `LifetimeVG` **as long as the local storage of the game has NOT been deleted** (i.e. the version has been updated, or the game was deleted and re-downloaded, etc..).
 
-####**For Example**
+#### **For Example**
 
 ``` cs
 // A blue car that is purchased with virtual coins.
@@ -371,7 +371,7 @@ Let's say a user purchases both cars. Even if the game's local storage is delete
 
 <br>
 
-####**How to define**
+#### **How to define**
 
 ``` cs
 public static VirtualGood MARRIAGE_GOOD = new LifetimeVG(
@@ -384,7 +384,7 @@ public static VirtualGood MARRIAGE_GOOD = new LifetimeVG(
 );
 ```
 
-####**How to use**
+#### **How to use**
 
 **Buy:**
 
@@ -411,7 +411,7 @@ This function simply deducts the user's balance. In case of a refund request, it
 StoreInventory.TakeItem("marriage", 1);
 ```
 
-####**Check ownership**
+#### **Check ownership**
 Check the ownership of a lifetime good:
 
 ``` cs
@@ -443,7 +443,7 @@ An `EquippableVG` is a special type of `LifetimeVG`. In addition to the fact tha
 
 - `GLOBAL` - In the whole game, if this `EquippableVG` is equipped, all other `EquippableVG`s are unequipped.
 
-####**How to define**
+#### **How to define**
 
 In this example we're defining 2 characters, George and Kramer as `CATEGORY` equippable goods. This means the user can own both characters but can play only as one at a time.
 
@@ -467,7 +467,7 @@ public static final VirtualGood KRAMER_GOOD = new EquippableVG(
 );
 ```
 
-####**How to use**
+#### **How to use**
 
 **Buy:**
 
@@ -508,7 +508,7 @@ StoreInventory.EquipVirtualGood("kramer");
 StoreInventory.UnEquipVirtualGood("kramer");
 ```
 
-####**Check ownership**
+#### **Check ownership**
 
 Check if user owns Kramer:
 
@@ -521,7 +521,7 @@ if (balance > 0) {
 }
 ```
 
-####**Check equipping status**
+#### **Check equipping status**
 
 Check if Kramer is currently equipped:
 
@@ -549,7 +549,7 @@ When the user buys an`UpgradeVG`, a check is performed to make sure the appropri
 
 - `nextItemId` - the itemId of the `UpgradeVG` that comes after this one, or if this is the last `UpgradeVG` in the scale then the value is null.
 
-####**How to define**
+#### **How to define**
 
 Say you have a strength attribute in your game and that strength is upgradeable on a scale of 1-3.  This is what you'll need to create:
 
@@ -596,7 +596,7 @@ public static VirtualGood STRENGTH_UPGRADE_2 = new UpgradeVG(
 // UpgradeVG for strength level 3...
 ```
 
-####**How to use**
+#### **How to use**
 
 **Buy:**
 
@@ -639,7 +639,7 @@ This function simply deducts the user's balance. In case of a refund request, it
 StoreInventory.TakeItem("strength_upgrade_2", 1);
 ```
 
-####**Get current upgrade**
+#### **Get current upgrade**
 
 To get the current upgrade of a virtual good use `GetGoodCurrentUpgrade`. If our Strength attribute is currently upgraded to level 2, this method will return "strength_upgrade_2". (If the good has no upgrades, the method returns null).
 
@@ -647,7 +647,7 @@ To get the current upgrade of a virtual good use `GetGoodCurrentUpgrade`. If our
 StoreInventory.GetGoodCurrentUpgrade("strength");
 ```
 
-####**Get current upgrade level**
+#### **Get current upgrade level**
 
 To find out the upgrade level of a virtual good use `GetGoodUpgradeLevel`. If our Strength attribute is currently upgraded to level 2, this method will return 2. (If the good has no upgrades, the method returns 0).
 
@@ -661,10 +661,10 @@ A `VirtualCategory` is used to categorize `VirtualGood`s. Categories are helpful
 
 <div class="info-box">If you don’t have any need for categories, you can just define all of your virtual goods in one category and call it something like “General”.</div>
 
-####**Real Game Examples:**
+#### **Real Game Examples:**
 Let’s suppose your game has the following categories of virtual goods: "Power Ups", "Weapons", and  "Hats". Say you decide to make “Weapons” and “Hats” `CATEGORY` `EquippableVG`s. You can easily implement this functionality once the goods are divided into virtual categories.
 
-####**How to define**
+#### **How to define**
 
 ``` cs
 // Assume that MUFFINCAKE_ITEM_ID, PAVLOVA_ITEM_ID, etc.. are item ids of virtual goods that have been declared.
@@ -678,7 +678,7 @@ public static VirtualCategory SWEETS_CATEGORY = new VirtualCategory(
 );
 ```
 
-####**Get category**
+#### **Get category**
 
 Check which category an item belongs to:
 

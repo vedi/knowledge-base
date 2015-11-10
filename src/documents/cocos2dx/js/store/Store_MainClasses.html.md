@@ -16,12 +16,12 @@ platform: 'cocos2dx'
 Here you can find descriptions of some of the main classes and interfaces of cocos2dx-store. These classes contain functionality for store-related operations, provide you with various storages, and hold the basic assets needed to operate the store. 
 All the classes are implemented in [soomla-store.js](https://github.com/soomla/cocos2dx-store/blob/master/js/soomla-store.js). 
 
-##Soomla.SoomlaStore
+## Soomla.SoomlaStore
 
 `SoomlaStore` holds the basic assets needed to operate the store. You can use it to purchase products from the Market. It provides you with functionality such as querying the inventory for information, and starting a purchase process with the market (Google Play, App Store, etc…).
 After Store initialized the instance of this class is available through `Soomla.soomlaStore`. 
 
-###Important Functions
+### Important Functions
 
 `SoomlaStore#refreshInventory`
 
@@ -58,7 +58,7 @@ the virtual economy’s metadata is saved, and from that moment on it’ll be lo
 `StoreInventory` is a utility class that provides you with functions that perform store-related operations. With `StoreInventory` you can give or take items from your users. You can buy items or upgrade them. You can also check their equipping status and change it.
 The instance of this class is available through `Soomla.storeInventory`. 
 
-###Important Functions
+### Important Functions
 
 `StoreInventory#buyItem(itemId)`
 

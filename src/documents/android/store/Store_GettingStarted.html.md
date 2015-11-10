@@ -10,11 +10,11 @@ module: 'store'
 platform: 'android'
 ---
 
-#STORE: Getting Started
+# STORE: Getting Started
 
 Before doing anything, SOOMLA recommends that you go through [Android In-app Billing](http://developer.android.com/guide/google/play/billing/index.html) or [Amazon In App Purchasing](https://developer.amazon.com/public/apis/earn/in-app-purchasing) according to the billing service provider you choose.
 
-##Integrate android-store
+## Integrate android-store
 
 1. First, you'll need to either add the jars from the build folder to your project (RECOMMENDED), or clone android-store.
 
@@ -65,7 +65,7 @@ And that's it! You have storage and in-app purchasing capabilities... ALL-IN-ONE
 
 Refer to the next section for information on selecting your Billing Service provider and setting it up.
 
-##Select a Billing Service
+## Select a Billing Service
 
 SOOMLA's android-store can be used on all Android based devices meaning that you might want to use IAP with different billing services.
 
@@ -140,7 +140,7 @@ Once you complete the following steps, see the [Google Play IAB](/android/store/
   > GooglePlayIabService.getInstance().verifyOnServerFailure = true;
   > ```
 
-####**If you have an in-game storefront**
+#### **If you have an in-game storefront**
 
 We recommend that you open the IAB Service and keep it open in the background. This how to do that:
 
@@ -174,7 +174,7 @@ Once you complete the following steps, see the [Amazon IAB](/android/store/Store
   <meta-data android:name="billing.service" android:value="amazon.AmazonIabService" />
   ```
 
-##Example
+## Example
 
 Create your own implementation of `IStoreAssets`; See the article about [IStoreAssets](/android/store/Store_IStoreAssets), which includes a code example and explanations.
 

@@ -11,7 +11,7 @@ lang: 'cpp'
 platform: 'cocos2dx'
 ---
 
-#Economy Model & API
+# Economy Model & API
 
 SOOMLA's cocos2dx-store provides a complete data model implementation for virtual economies. Every game economy has currencies, packs of currencies that can be sold, and items that can be sold either for money or in exchange for other items. And these are just the very basics, of course. This tutorial contains descriptions of each entity in the economy model, along with examples.
 
@@ -33,13 +33,13 @@ As stated above, almost all Virtual Items are purchasable, or as we call them, `
 
 <div class="info-box">In the examples below the declarations of purchase types are shown as a part of `PurchasableVirtualItem` declarations, because this is the most common use of purchase types.</div>
 
-###PurchaseWithMarket <a href="https://github.com/soomla/cocos2dx-store/blob/master/Soomla/PurchaseTypes/CCPurchaseWithMarket.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+### PurchaseWithMarket <a href="https://github.com/soomla/cocos2dx-store/blob/master/Soomla/PurchaseTypes/CCPurchaseWithMarket.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
 This kind of `PurchaseType` should be attached to items that you want to make available for purchase in the Market (App Store, Google Play Store, etc..) for real money. When you create an instance of `PurchaseWithMarket`, you need to define the associated `VirtualItem` in the Market.
 
 **NOTE:** The product ID you define in your implementation of `CCStoreAssets` should be the same as you define in the Market.
 
-####**For Example**
+#### **For Example**
 Suppose that in your game, you offer a “No-Ads” feature for $1.99 in the Market. The code below shows how you need to declare the `PurchaseType` parameter of your “No-Ads” item.
 
 ``` cpp
@@ -74,7 +74,7 @@ For more info on how to declare your items in the Market, see one of our tutoria
 
 Any item with purchase type `PurchaseWithVirtualItem` can be purchased with any `VirtualItem`, like a sort of trade. When creating an instance of `PurchaseWithVirtualItem`, you need to provide the ID of the virtual item that you want to be paid with and the amount of that virtual item.
 
-####**For Example**
+#### **For Example**
 Suppose that in your game, you offer a chocolate cake that can be bought by paying 250 “Muffins”. The item being purchased is a `chocolateCakeGood`, the item (virtual currency) to pay with is “Muffin”, and the amount is 250.
 
 ``` cpp
@@ -93,7 +93,7 @@ CCVirtualGood *chocolateCakeGood = CCSingleUseVG::create(
 
 Every game that has an economy has at least one `VirtualCurrency`. `VirtualCurrency` is NOT a `PurchasableVirtualItem`. This is because in game stores, you never buy just a single "Gold Coin" or a "Muffin", but rather you buy a pack of them. Your users will be able to buy packs of your game’s `VirtualCurrency` by using `VirtualCurrencyPack` (explained later in this document). If for some reason you *do* want to sell a single currency you can do so by providing a `VirtualCurrencyPack` with an amount of 1.
 
-####**How to define**
+#### **How to define**
 
 ``` cpp
 
@@ -104,7 +104,7 @@ CCVirtualCurrency *muffinCurrency = CCVirtualCurrency::create(
 );
 ```
 
-####How to use
+#### How to use
 
 A `VirtualCurrency` by itself is not very useful, because it cannot be sold individually. To sell currency, you need to use a VirtualCurrencyPack (see section below).
 
@@ -135,7 +135,7 @@ CCError *soomlaError = NULL;
 CCStoreInventory::sharedStoreInventory()->giveItem("currency_coin", 1000, &soomlaError);
 ```
 
-####**Get the balance**
+#### **Get the balance**
 
 Get the balance of a specific VirtualCurrency.
 
@@ -149,7 +149,7 @@ CCStoreInventory::sharedStoreInventory()->getItemBalance("currency_muffin", &soo
 
 As mentioned above, in game stores you never buy just a "Gold Coin" or a "Muffin", you always buy a pack of the game's `VirtualCurrency`. This class represents exactly that: a pack of `VirtualCurrency`. Use this class to define various currency packs in your game.
 
-####**How to define**
+#### **How to define**
 
 ``` cpp
 CCVirtualCurrencyPack *fiftymuffPack = CCVirtualCurrencyPack::create(
@@ -164,7 +164,7 @@ CCVirtualCurrencyPack *fiftymuffPack = CCVirtualCurrencyPack::create(
 );
 ```
 
-####**How to use**
+#### **How to use**
 
 **Buy:**
 
@@ -198,7 +198,7 @@ CCError *soomlaError = NULL;
 CCStoreInventory::sharedStoreInventory()->takeItem("muffins_50", 1, &soomlaError);
 ```
 
-####**Get the balance**
+#### **Get the balance**
 
 VirtualCurrencyPacks do not have a balance of their own in the database. When a user purchases a VirtualCurrencyPack, the balance of the associated VirtualCurrency is increased.
 
@@ -238,7 +238,7 @@ The most basic and common kind of a `VirtualGood` is a `SingleUseVG`. `SingleUse
 
 - Has a balance that is saved in the database. Its balance goes up when you "give" it or "buy" it. The balance goes down when you “take” it (for example in the case of a refund).
 
-####**How to define**
+#### **How to define**
 
 ``` cpp
 CCVirtualGood *fruitCakeGood = CCSingleUseVG::create(
@@ -251,7 +251,7 @@ CCVirtualGood *fruitCakeGood = CCSingleUseVG::create(
 );
 ```
 
-####**How to use**
+#### **How to use**
 
 **Buy:**
 
@@ -283,7 +283,7 @@ CCError *soomlaError = NULL;
 CCStoreInventory::sharedStoreInventory()->takeItem("fruit_cake", 1, &soomlaError);
 ```
 
-####**Get the balance**
+#### **Get the balance**
 
 Get the balance of a specific `SingleUseVG`.
 
@@ -306,7 +306,7 @@ Sometimes, you'll want to to sell packs of `SingleUseVG`s. To support these case
 **For Example:**
 Suppose you offer a `SingleUsePackVG` of “5 fruit cakes”. The `SingleUseVG` that’s associated with this Pack is "fruit_cake". When your user buys a “5 fruit cake" Pack, the balance of fruit_cake is increased by 5 in the storage.
 
-####**How to define**
+#### **How to define**
 
 ``` cpp
 CCVirtualGood *fiveFruitcakeGoods = CCSingleUsePackVG::create(
@@ -320,7 +320,7 @@ CCVirtualGood *fiveFruitcakeGoods = CCSingleUsePackVG::create(
         __Integer::create(1750)));
 ```
 
-####**How to use**
+#### **How to use**
 
 The explanations for buying, giving, and taking are the same as those in SingleUseVG.
 
@@ -348,7 +348,7 @@ CCError *soomlaError = NULL;
 CCStoreInventory::sharedStoreInventory()->takeItem("fruitcake_5", 1, &soomlaError);
 ```
 
-####**Get the balance**
+#### **Get the balance**
 
 SingleUsePackVGs do not have a balance of their own in the database. When a user buys a SingleUsePackVG, the balance of the associated `SingleUseVG` is increased. After buying a pack of 5 fruit cakes, your user’s fruit cake balance should be increased by 5.
 
@@ -374,7 +374,7 @@ If you declare a `LifetimeVG` with a purchase type of `PurchaseWithMarket`, it r
 
 However, notice that if you declare a `LifetimeVG` with a purchase type of `PurchaseWithVirtualItem`, the user will own the `LifetimeVG` **as long as the local storage of the game has NOT been deleted** (i.e. the version has been updated, or the game was deleted and re-downloaded, etc..).
 
-####**For Example**
+#### **For Example**
 
 ``` cpp
 // A blue car that is purchased with virtual coins.
@@ -402,7 +402,7 @@ Let's say a user purchases both cars. Even if the game's local storage is delete
 
 <br>
 
-####**How to define**
+#### **How to define**
 
 ``` cpp
 CCVirtualGood *marriageGood =
@@ -414,7 +414,7 @@ CCVirtualGood *marriageGood =
         __Integer::create(100)));
 ```
 
-####**How to use**
+#### **How to use**
 
 **Buy:**
 
@@ -446,7 +446,7 @@ CCError *soomlaError = NULL;
 CCStoreInventory::sharedStoreInventory()->takeItem("marriage", 1, &soomlaError);
 ```
 
-####**Check ownership**
+#### **Check ownership**
 
 ``` cpp
 //If the balance is greater than 0, the user owns this LifetimeVG.
@@ -476,7 +476,7 @@ An `EquippableVG` is a special type of `LifetimeVG`. In addition to the fact tha
 
 - `GLOBAL` - In the whole game, if this `EquippableVG` is equipped, all other `EquippableVG`s are unequipped.
 
-####**How to define**
+#### **How to define**
 
 In this example we're defining 2 characters, George and Kramer as `CATEGORY` equippable goods. This means the user can own both characters but can play only as one at a time.
 
@@ -501,7 +501,7 @@ CCVirtualGood *kramerGood = CCEquippableVG::create(
         __String::create("muffinCurrency_ID"),
         __Integer::create(500)));
 ```
-####**How to use**
+#### **How to use**
 
 **Buy:**
 
@@ -550,7 +550,7 @@ CCStoreInventory::sharedStoreInventory()->equipVirtualGood("kramer", &soomlaErro
 CCStoreInventory::sharedStoreInventory()->unEquipVirtualGood("kramer", &soomlaError);
 ```
 
-####**Check ownership**
+#### **Check ownership**
 
 ``` cpp
 //Check if user owns Kramer:
@@ -589,7 +589,7 @@ When the user buys an`UpgradeVG`, a check is performed to make sure the appropri
 
 - `nextItemId` - the itemId of the `UpgradeVG` that comes after this one, or if this is the last `UpgradeVG` in the scale then the value is null.
 
-####**How to define**
+#### **How to define**
 
 Say you have a strength attribute in your game and that strength is upgradeable on a scale of 1-3.  This is what you'll need to create:
 
@@ -640,7 +640,7 @@ CCVirtualGood *strength_upgrade2 = CCUpgradeVG::create(
 // UpgradeVG for strength level 3...
 ```
 
-####**How to use**
+#### **How to use**
 
 **Buy:**
 
@@ -693,7 +693,7 @@ CCError *soomlaError = NULL;
 CCStoreInventory::sharedStoreInventory()->takeItem("strength_upgrade2_ID", 1, &soomlaError);
 ```
 
-####**Get current upgrade**
+#### **Get current upgrade**
 
 To get the current upgrade of a virtual good use getGoodCurrentUpgrade. If the good has no upgrades, the method will return null.
 
@@ -703,7 +703,7 @@ CCError *soomlaError = NULL;
 CCStoreInventory::sharedStoreInventory()->getGoodCurrentUpgrade("strength_ID", &soomlaError);
 ```
 
-####**Get current upgrade level**
+#### **Get current upgrade level**
 
 To find out the upgrade level of a virtual good use getGoodUpgradeLevel. If the good has no upgrades, the method returns 0.
 
@@ -719,11 +719,11 @@ A `VirtualCategory` is used to categorize `VirtualGood`s. Categories are helpful
 
 <div class="info-box">If you don’t have any need for categories, you can just define all of your virtual goods in one category and call it something like “General”.</div>
 
-####**Real Game Examples:**
+#### **Real Game Examples:**
 
 Let’s suppose your game has the following categories of virtual goods: "Power Ups", "Weapons", and  "Hats". Say you decide to make “Weapons” and “Hats” `CATEGORY` `EquippableVG`s. You can easily implement this functionality once the goods are divided into virtual categories.
 
-####How to define
+#### How to define
 
 ``` cpp
 CCVirtualCategory *cakes = CCVirtualCategory::create(
@@ -738,7 +738,7 @@ CCVirtualCategory *cakes = CCVirtualCategory::create(
         NULL));
 ```
 
-####Get category
+#### Get category
 
 **Check which category an item belongs to:**
 

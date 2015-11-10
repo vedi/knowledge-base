@@ -11,7 +11,7 @@ lang: 'cpp'
 platform: 'cocos2dx'
 ---
 
-#LevelUp Game Example
+# LevelUp Game Example
 
 LevelUp models out worlds, levels, scores, missions, and more, all in one framework that allows game developers to build their game structure and progression behavior easily and effectively. The sense of progress that users feel in a game is what creates retention and long-term use, which usually lead to monetization.
 
@@ -19,15 +19,15 @@ In this document, you will find a game example that demonstrates the use of Leve
 
 <div class="info-box">**NOTE:** If you haven't already, we suggest reading about the [LevelUp Model](/cocos2dx/cpp/levelup/Levelup_Model) and [LevelUp Event Handling](/cocos2dx/cpp/levelup/Levelup_Events).</div>
 
-##The Game Example
+## The Game Example
 
 **NOTE:** This document focuses on the game logic. Any wiring of the code examples to the user interface is only explained textually and is left for the developer to do.
 
-###**Chimpo's Journey**
+### **Chimpo's Journey**
 
 Chimpo is a smart, ambitious monkey, who embarks on a journey to reach the magical realms of Soomland. Players need to guide Chimpo through several lands (each land is a collection of levels), and need to avoid numerous predators and other obstacles on the dangerous way to Soomland.
 
-###**Rules of the Game**
+### **Rules of the Game**
 
 ![alt text](/img/tutorial_img/levelup_game/levelStart.png "Start Level")
 
@@ -41,11 +41,11 @@ Chimpo is a smart, ambitious monkey, who embarks on a journey to reach the magic
 
 - The player can earn coins throughout the game and use them to buy cool stuff in the store (see [CCStoreAssets](#-ccstoreassets-code-) below). Coins can be accumulated by either buying them in the store for real money, or by earning them as rewards in the different missions of the game (see [Missions](#-missions-) below).
 
-##Setup Code Example
+## Setup Code Example
 
 We start by presenting the complete examples of the economy (`CCStoreAssets` implementation) and the LevelUp model.  In the following section we will breakdown the LevelUp code to explain it in more detail.
 
-###**CCStoreAssets Code**
+### **CCStoreAssets Code**
 
 ``` cpp
 using namespace soomla;
@@ -162,7 +162,7 @@ cocos2d::__Array *ExampleAssets::getCategories() {
 ```
 
 <br>
-###**LevelUp Code**
+### **LevelUp Code**
 
 **`ChimposJourney.cpp`**
 
@@ -363,7 +363,7 @@ void addGatesToWorld(soomla::CCWorld *world) {
 }
 ```
 
-###**Event Handling**
+### **Event Handling**
 
 Adding event handling to the main scene
 
@@ -384,7 +384,7 @@ void MainScene::onMissionCompleted(EventCustom *event) {
 }
 ```
 
-###**Initialization Code**
+### **Initialization Code**
 
 Read more in our [Getting Started](/cocos2dx/cpp/levelup/Levelup_GettingStarted) tutorial.
 
@@ -411,11 +411,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
 }
 ```
 
-##Code Explained
+## Code Explained
 
 Below are explanations of the different LevelUp entities used throughout Chimpo's Journey.
 
-###**Worlds & Levels**
+### **Worlds & Levels**
 
 Our game has 2 worlds, with 3 levels each. We used the function `batchAddLevelsWithTemplates`  from the class `CCWorld`, in order to add 3 levels to each world in a convenient way.
 
@@ -457,12 +457,12 @@ mainWorld->addInnerWorld(jungleWorld);
 mainWorld->addInnerWorld(desertWorld);
 ```
 
-###**Scores**
+### **Scores**
 
 Each level has 2 scores, a point score and a banana score:
 
 <br>
-####`pointScore`
+#### `pointScore`
 
 This score can be based on any function you choose. In our example, `pointScore` (relevant only to the first level of the game) is calculated based on how long it took the player to complete the level. Our example score-calculation function is as follows:
 
@@ -485,23 +485,23 @@ At the end of each level, we draw the `pointScore` as stars.
 One of the missions of the game is based on this point score, but more about that later in [Missions](#-missions-).
 
 <br>
-####`bananaScore`
+#### `bananaScore`
 
 This score is for collecting the 2 bananas in order to move on to the the next level. You'll read more about `bananaGate` in [Gates](#-gates-).
 
 `bananaScore` is also individual to each level. Why? If we were to declare this score globally, then all the levels would share the same `bananaScore`. This means that after collecting the 2 bananas in the first level of the first world, that level's gate would open, as well as all the other banana gates. The banana gates of all the next levels would also open because 2 bananas (overall in the game) have been collected. To avoid this situation, we declare such a banana score for EACH level. Then each level's banana gate will open only after *its* 2 bananas have been collected.
 
-###**Gates**
+### **Gates**
 
 The first level in the first world, `jungleWorld` has no gate that needs to be opened in order to unlock the level, because it is the starting point of the game. The rest of the levels and worlds have gates, explained below.
 
 <br>
-####**Gates between Worlds**
+#### **Gates between Worlds**
 
 In order to create an order of play among the worlds in our game, we need to add a `CCWorldCompletionGate` to each world, except for the first one. The first one is `jungleWorld` and it has no `Gate` because it's open for initial play. The second (and last) world is `desertWorld`. In order to be able to start `desertWorld`, `jungleWorld` must be completed.
 
 <br>
-####**Gates between Levels**
+#### **Gates between Levels**
 
 To finish a level, the player needs to have completed the previous level AND to collect 2 bananas in the current level.
 
@@ -511,17 +511,17 @@ To finish a level, the player needs to have completed the previous level AND to 
 
 Gates are logical conditions.  To stipulate that a level's gate will be opened when both `bananaGate` AND `previousLevelCompletionGate` are opened, we create a gates list composed of both of these gates.  In the private function `addGatesToWorld`, a `CCGatesListAND` that includes a `bananaGate` and a `previousLevelCompletionGate` is added to all levels (except for the very first one because it needs to be open for initial play.)
 
-###**Missions**
+### **Missions**
 
 There are various missions throughout the game that can be completed for rewards. Some are individual to each level and others are per world or per the entire game.
 
 <br>
-####`pointMission`
+#### `pointMission`
 
 `pointMission` is of type `CCRecordMission`, which is a mission that has an associated score and a desired record. In Chimpo's Journey, `pointMission` is available in the first level of the game. The mission's associated score is `pointScore`, and the desired record is 3 (see the `pointScore` calculation described in [Scores](#-scores-) above). If the user reaches the desired record, he/she will receive a medal badge as a reward.
 
 <br>
-####`coconutMission`
+#### `coconutMission`
 
 This mission is of type `CCBalanceMission`, which is a mission that has an associated virtual item and a desired balance. In `coconutMission`, the associated virtual item is a `CCSingleUseVG` named `COCONUT`, and the desired balance is 5.
 
@@ -538,12 +538,12 @@ coconutMission->setSchedule(soomla::CCSchedule::createAnyTimeOnce());
 ```
 
 <br>
-####`likeMission`
+#### `likeMission`
 
 This is a `CCSocialLikeMission` that is offered in the main menu of the game and can be performed once anytime the user chooses. All the player has to do is like the given Facebook page, and in return he/she will receive free coins.
 
 <br>
-####`statusMission`s
+#### `statusMission`s
 
 `statusMissionJungle` and `statusMissionDesert` are of type `CCSocialStatusMission` and are offered each at the end of the world it is associated with. In these missions the user can post a specific status on Facebook and in return he/she will receive free coins. Upon world completion, an `onWorldCompleted` event is thrown - we created an event handler that displays a screen like in the image below, and allows the user to share the specific status.
 
@@ -555,9 +555,9 @@ void MainScene::onWorldCompleted(CCWorld *world) {
 
 ![alt text](/img/tutorial_img/levelup_game/share.png "Share status mission")
 
-##Gameplay Code
+## Gameplay Code
 
-###**Check if level can start**
+### **Check if level can start**
 
 Chimpo's Journey has a menu that displays the worlds of the game and their levels. When the user clicks on a level the next screen is the game screen of the level. In order to render the relevant UI according to if a world/level is locked or not, we call `canStart()` of the `CCWorld` class.
 
@@ -577,7 +577,7 @@ for (int i=0; i < numLevels; i++) {
 }
 ```
 
-###**Start level**
+### **Start level**
 
 ``` cpp
 level->start();
@@ -591,9 +591,9 @@ if (mission->isAvailable()) {
 }
 ```
 
-###**Level progression**
+### **Level progression**
 
-####**Collecting Bananas**
+#### **Collecting Bananas**
 During gameplay, the user will collect bananas in each level. Every time he/she collects a banana, we'll need to increase the `bananaScore`. We'll also need to check if the user's `bananaScore` has reached the desired balance of 2, and if so we'll open the exit so that Chimpo can finish the level. Once the level will end, the record score (2) will be saved and the next level's `CCRecordGate` (`bananaGate`) will open at this point (remember that the record for banana gate is 2).
 
 ``` cpp
@@ -616,7 +616,7 @@ if (numOfBananas == 2) {
 ```
 
 <br>
-####**Collecting Coconuts**
+#### **Collecting Coconuts**
 
 As mentioned above, Chimpo can collect coconuts in various levels throughout the game. When he collects a coconut, we need to make sure to increase the coconut balance, by calling `CCStoreInventory`'s function `giveItem`.
 
@@ -640,7 +640,7 @@ void MainScene::onMissionCompleted(CCMission *mission) {
 ```
 
 <br>
-####**Throwing Coconuts**
+#### **Throwing Coconuts**
 
 If the user uses one of the coconuts he/she collected for knocking out enemies, we need to deduct his/her coconut balance.
 
@@ -652,9 +652,9 @@ soomla::CCStoreInventory::sharedStoreInventory()->takeItem("coconut_ID", 1, &lev
 <br>
 **For the curious:** What's going on behind the scenes is that every time we increase or decrease the user's coconut balance, an `onGoodBalanceChanged` event is thrown. Our `CCBalanceMission`, (`coconutMission`) is registered to such an event so every time this event is thrown, the coconut's balance is checked to determine if it reached the desired balance of 5. Once the user collects 5 coconuts (i.e. his/her coconut balance is 5), the `coconutMission` will be marked as complete and the user will receive his/her reward.
 
-###**End level**
+### **End level**
 
-####**Case 1:**
+#### **Case 1:**
 
 If Chimpo is attacked by a predator, we'll need to end the level unsuccessfully:
 
@@ -676,7 +676,7 @@ bool isLevelComplete = level1->isCompleted();
 ```
 
 <br>
-####**Case 2:**
+#### **Case 2:**
 
 The user successfully escapes all predators and reaches the exit on the screen.
 

@@ -15,11 +15,11 @@ platform: 'cocos2dx'
 
 Here you can find descriptions of some of the main classes and interfaces of cocos2dx-store. These classes contain functionality for store-related operations, provide you with various storages, and hold the basic assets needed to operate the store.
 
-##CCSoomlaStore <a href="https://github.com/soomla/cocos2dx-store/blob/master/Soomla/CCSoomlaStore.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+## CCSoomlaStore <a href="https://github.com/soomla/cocos2dx-store/blob/master/Soomla/CCSoomlaStore.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
 `SoomlaStore` holds the basic assets needed to operate the store. You can use it to purchase products from the Market. It provides you with functionality such as querying the inventory for information, and starting a purchase process with the market (Google Play, App Store, etc…).
 
-###Important Functions
+### Important Functions
 
 `CCSoomlaStore::refreshInventory()`
 
@@ -52,7 +52,7 @@ CCUpgradeVG *firstUpgrade = soomla::CCStoreInfo::sharedStoreInfo()->getFirstUpgr
 
 `StoreInventory` is a utility class that provides you with functions that perform store-related operations. With `StoreInventory` you can give or take items from your users. You can buy items or upgrade them. You can also check their equipping status and change it.
 
-###Important Functions
+### Important Functions
 
 `buyItem(const char *itemId, CCError **soomlaError)`
 
