@@ -25,7 +25,7 @@ theme: 'samples'
     <div role="tabpanel" class="tab-pane active" id="sample-unity">
       <pre>
 ```
-<%- @include('./adcolony/adcolony_example.cs') %>
+<%- @include('./adcolony/adcolony_example.cs') or {} %>
 ```
       </pre>
     </div>
