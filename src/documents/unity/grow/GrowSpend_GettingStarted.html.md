@@ -105,7 +105,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	- Check the "Receipt Validation" option under the relevant platform (Android - Google Play / iOS).
 
-	- (Google Play only) Follow the instructions posted [here](/android/store/store_googleplayverification/) to fill in the relevant fields.
+	- (Google Play only) Fill in the clientId, clientSecret and refreshToken fields by following the instructions posted [here](/android/store/Store_GooglePlayVerification).
 
 ### Initialize modules
 
