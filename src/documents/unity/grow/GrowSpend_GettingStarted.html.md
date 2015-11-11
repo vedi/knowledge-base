@@ -45,6 +45,32 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	![alt text](/img/tutorial_img/unity_grow/importStoreAndHighway.png "import")
 
+	<div class="info-box">Starting from `SOOMLA Unity3D Highway 2.1.0`, SOOMLA changed the location of binaries in `Plugins` directory. If you're updating from a version lower than 2.1.0, please remove the following binaries manually:
+        <ul>
+          <li>`Assets/Plugins/iOS/libAFNetworking.a`</li>
+          <li>`Assets/Plugins/iOS/libSoomlaiOSRoadster.a`</li>
+          <li>`Assets/Plugins/iOS/libUnityiOSHighway.a`</li>
+	      <li>`Assets/Plugins/iOS/libSoomlaiOSCore.a`</li>
+          <li>`Assets/Plugins/iOS/libUnitySoomlaiOSCore.a`</li>
+          <li>`Assets/Plugins/Android/UnityAndroidHighway.jar`</li>
+          <li>`Assets/Plugins/Android/AndroidViper.jar`</li>          
+          <li>`Assets/Plugins/Android/SoomlaAndroidCore.jar`</li>
+          <li>`Assets/Plugins/Android/UnitySoomlaAndroidCore.jar`</li>
+          <li>`Assets/Plugins/Android/square-otto-1.3.2.jar`</li>
+        </ul>		    
+        Also, if you're using SOOMLA Unity3D Store, remove the following binaries:
+        <ul>      
+          <li>`Assets/Plugins/iOS/libSoomlaiOSSStore.a`</li>      
+          <li>`Assets/Plugins/iOS/libUnityiOSStore.a`</li>
+          <li>`Assets/Plugins/Android/AndroidStore.jar`</li>      
+          <li>`Assets/Plugins/Android/UnityAndroidStore.jar`</li>    
+          <li>`Assets/Plugins/Android/AndroidStoreAmazon.jar` (if you're using Amazon as billing service)</li>
+          <li>`Assets/Plugins/Android/in-app-purchasing-2.0.1.jar` (if you're using Amazon as billing service)</li>
+          <li>`Assets/Plugins/Android/AndroidStoreGooglePlay.jar` (if you're using Google Play as billing service)</li>
+        </ul>
+      </div>
+
+
 3. ~~Open your earliest loading scene.  Drag the `CoreEvents`, `StoreEvents` and `HighwayEvents` Prefabs from `Assets/Soomla/Prefabs` into the scene. You should see them listed in the "Hierarchy" panel.~~
 
 	<div class="info-box">This step is no longer required starting from: <br>
@@ -79,7 +105,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	- Check the "Receipt Validation" option under the relevant platform (Android - Google Play / iOS).
 
-	- (Google Play only) Follow the instructions posted [here](/android/store/store_googleplayverification/) to fill in the relevant fields.
+	- (Google Play only) Fill in the clientId, clientSecret and refreshToken fields by following the instructions posted [here](/android/store/Store_GooglePlayVerification).
 
 ### Initialize modules
 

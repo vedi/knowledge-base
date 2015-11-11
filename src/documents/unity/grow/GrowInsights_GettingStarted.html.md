@@ -38,6 +38,17 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	![alt text](/img/tutorial_img/unity_grow/importHighway.png "import")
 
+	<div class="info-box">Starting from `SOOMLA Unity3D Highway 2.1.0`, SOOMLA changed the location of binaries in `Plugins` directory. If you're updating from a version lower than 2.1.0, please remove the following binaries manually:
+        <ul>
+          <li>`Assets/Plugins/iOS/libAFNetworking.a`</li>
+          <li>`Assets/Plugins/iOS/libSoomlaiOSRoadster.a`</li>
+          <li>`Assets/Plugins/iOS/libUnityiOSHighway.a`</li>
+          <li>`Assets/Plugins/Android/UnityAndroidHighway.jar`</li>
+          <li>`Assets/Plugins/Android/AndroidViper.jar`</li>          
+        </ul>		    
+      </div>
+
+
 3. ~~Open your earliest loading scene.  Drag the `HighwayEvents` Prefab from `Assets/Soomla/Prefabs` into the scene. You should see it listed in the "Hierarchy" panel.~~
 
 	<div class="info-box">This step is no longer required starting from: <br>

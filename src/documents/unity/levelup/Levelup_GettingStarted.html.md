@@ -28,7 +28,7 @@ platform: 'unity'
   git clone --recursive https://github.com/soomla/unity3d-levelup.git
   ```
 
-  <div class="info-box">Starting from `SOOMLA Unity3D LevelUp 1.0.19`, SOOMLA changed the location of binaries in `Plugins` directory. If you're upgrading from version lower than 1.0.19 to version higher than 1.0.19, please remove the following binaries manually:
+  <div class="info-box">Starting from `SOOMLA Unity3D LevelUp 1.1.0`, SOOMLA changed the location of binaries in `Plugins` directory. If you're updating from a version lower than 1.1.0, please remove the following binaries manually:
     <ul>
       <li>`Assets/Plugins/iOS/libSoomlaiOSCore.a`</li>
       <li>`Assets/Plugins/iOS/libSoomlaiOSSLevelUp.a`</li>
@@ -40,7 +40,7 @@ platform: 'unity'
       <li>`Assets/Plugins/Android/UnitySoomlaAndroidCore.jar`</li>
       <li>`Assets/Plugins/Android/square-otto-1.3.2.jar`</li>
     </ul>
-    Also, if your're using SOOMLA Unity3D Profile, remove the following binaries:
+    Also, if you're using SOOMLA Unity3D Profile, remove the following binaries:
     <ul>      
       <li>`Assets/Plugins/iOS/libSoomlaiOSSProfile.a`</li>      
       <li>`Assets/Plugins/iOS/libUnityiOSProfile.a`</li>            
@@ -54,7 +54,7 @@ platform: 'unity'
       <li>`Assets/Plugins/Android/AndroidProfileGoogle.jar` (if you're using Google+)</li>
       <li>`Assets/Plugins/Android/google-play-services_lib` (if you're using Google+)</li>
     </ul>
-    Also, if your're using SOOMLA Unity3D Store, remove the following binaries:
+    Also, if you're using SOOMLA Unity3D Store, remove the following binaries:
     <ul>      
       <li>`Assets/Plugins/iOS/libSoomlaiOSSStore.a`</li>      
       <li>`Assets/Plugins/iOS/libUnityiOSStore.a`</li>
