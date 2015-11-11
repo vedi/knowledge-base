@@ -30,15 +30,15 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	  ![alt text](/img/tutorial_img/unity_grow/addNewApp.png "Add new app")
 
-	<div class="info-box">Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles. Click on any bundle to see your game's envKey and gameKey (You can ignore other installation instructions on the dashboard as you're only using Prime31).</div>
+	<div class="info-box">Once you created your game, you'll be redirected to a quick start process for integration. Click on the Prime31 box to see your game's envKey and gameKey.</div>
 
 2. Download and Import the GROW Lite unitypackage from [here](http://library.soom.la/fetch/unity3d-soomla-grow-lite/latest?cf=kb).
 
-3. Once you finished installation, add "Game Key" and "Env Key" from the GROW dashboard to your Unity3d Project:
+3. Once you finished importing the package, add "Game Key" and "Env Key" from the GROW dashboard to your Unity3d Project:
 
   <img src="/img/tutorial_img/unity_grow/dashboardKeys.png" alt="Game key and Env key" style="border:0;">
 
-  > You can always find the keys in the Game Settings Screens on the `environments` section.
+  > The keys are on the Quickstart page on the dashboard but you can always find them in the Game Settings Screens on the `Environments` section.
 
 	Add gameKey and envKey in the info.plist editor screen so it'll be applied to your **iOS** configuration:  
   ![alt text](/img/tutorial_img/unity_grow/info_plist_editor.png "Keys")
