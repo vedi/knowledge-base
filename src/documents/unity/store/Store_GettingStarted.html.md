@@ -28,7 +28,7 @@ platform: 'unity'
 
     <div class="info-box">There are some necessary files in submodules linked with symbolic links. If you're cloning the project make sure to include the `--recursive` flag.</div>
 
-    <div class="info-box">Starting from `SOOMLA Unity3D Store 1.8.7`, SOOMLA changed the location of binaries in `Plugins` directory. If you're upgrading from version lower than 1.8.7 to version higher than 1.8.7, please remove the following binaries manually:
+    <div class="info-box">Starting from `SOOMLA Unity3D Store 1.9.0`, SOOMLA changed the location of binaries in `Plugins` directory. If you're updating from a version lower than 1.9.0, please remove the following binaries manually:
       <ul>
     			<li>`Assets/Plugins/iOS/libSoomlaiOSCore.a`</li>
     			<li>`Assets/Plugins/iOS/libSoomlaiOSSStore.a`</li>

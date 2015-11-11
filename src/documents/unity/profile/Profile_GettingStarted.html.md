@@ -24,7 +24,7 @@ platform: 'unity'
 
 	If you want to use Store-related rewards you'll need to go over the instructions of [unity3d-store](https://github.com/soomla/unity3d-store).
 
-	<div class="info-box">Starting from `SOOMLA Unity3D Profile 2.1.9`, SOOMLA changed the location of binaries in `Plugins` directory. If you're upgrading from version lower than 2.1.9 to version higher than 2.1.9, please remove the following binaries manually:
+	<div class="info-box">Starting from `SOOMLA Unity3D Profile 2.2.0`, SOOMLA changed the location of binaries in `Plugins` directory. If you're updating from a version lower than 2.2.0, please remove the following binaries manually:
         <ul>
         		<li>`Assets/Plugins/iOS/libSoomlaiOSCore.a`</li>
 						<li>`Assets/Plugins/iOS/libSoomlaiOSSProfile.a`</li>

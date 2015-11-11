@@ -37,21 +37,16 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 2. Double-click on the downloaded Unity package, it'll import all the necessary files into your Unity project.
 
 	![alt text](/img/tutorial_img/unity_grow/importHighway.png "import")
-	
-	<div class="info-box">Starting from `SOOMLA Unity3D LevelUp 1.0.19`, SOOMLA changed the location of binaries in `Plugins` directory. If you're upgrading from version lower than 1.0.19 to version higher than 1.0.19, please remove the following binaries manually:
-            <ul>
-              <li>`Assets/Plugins/iOS/libSoomlaiOSCore.a`</li>
-              <li>`Assets/Plugins/iOS/libUnitySoomlaiOSCore.a`</li>
-              <li>`Assets/Plugins/Android/SoomlaAndroidCore.jar`</li>
-              <li>`Assets/Plugins/Android/UnitySoomlaAndroidCore.jar`</li>
-              <li>`Assets/Plugins/Android/square-otto-1.3.2.jar`</li>
-              <li>`Assets/Plugins/iOS/libAFNetworking.a`</li>
-              <li>`Assets/Plugins/iOS/libSoomlaiOSRoadster.a`</li>
-              <li>`Assets/Plugins/iOS/libUnityiOSHighway.a`</li>
-              <li>`Assets/Plugins/Android/UnityAndroidHighway.jar`</li>
-              <li>`Assets/Plugins/Android/AndroidViper.jar`</li>                                                                              
-            </ul>		        	    
-    </div>
+
+	<div class="info-box">Starting from `SOOMLA Unity3D Highway 2.1.0`, SOOMLA changed the location of binaries in `Plugins` directory. If you're updating from a version lower than 2.1.0, please remove the following binaries manually:
+        <ul>
+          <li>`Assets/Plugins/iOS/libAFNetworking.a`</li>
+          <li>`Assets/Plugins/iOS/libSoomlaiOSRoadster.a`</li>
+          <li>`Assets/Plugins/iOS/libUnityiOSHighway.a`</li>
+          <li>`Assets/Plugins/Android/UnityAndroidHighway.jar`</li>
+          <li>`Assets/Plugins/Android/AndroidViper.jar`</li>          
+        </ul>		    
+      </div>
 
 
 3. ~~Open your earliest loading scene.  Drag the `HighwayEvents` Prefab from `Assets/Soomla/Prefabs` into the scene. You should see it listed in the "Hierarchy" panel.~~
