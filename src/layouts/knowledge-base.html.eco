@@ -106,12 +106,12 @@
 <script>window.jQuery || document.write('<script src="/scripts/jquery-1.11.1.min.js"><\/script>')</script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script>$.fn.modal || document.write('<script src="/scripts/bootstrap-3.1.1.min.js"><\/script>')</script>
-<% if @getEnvironment() == 'development':%>
-<%- @getBlock('scripts').add(@site.scripts).toHTML() %>
-<%else:%>
+<!-- <% if @getEnvironment() == 'development':%> -->
+<!-- <%- @getBlock('scripts').add(@site.scripts).toHTML() %> -->
+<!-- <%else:%> -->
 <%- @include('analytics.html') %>
 <script src="/scripts/kb.min.js"></script>
-<%end%>
+<!-- <%end%> -->
 
 </body>
 </html>
