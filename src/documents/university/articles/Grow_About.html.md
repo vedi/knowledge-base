@@ -28,14 +28,12 @@ To get started with GROW, you can follow each one of different GROW bundles' tut
 
 
 ### Why use GROW?
-
 - GROW's Insights module brings you powerful information about your users in real-time. This information ranges from the user’s purchasing habits to his social behavior in the same game genre or in all other genres. You can use these insights to take actions on your users during gameplay, when it really matters. Some of the actions you can take are:
   - Create special prices / discounted bundles for paying users in your genre
   - Adapt the game difficulty for specific users
   - Display ads for non-payers only
   - Create push campaigns
   - Identify the time of the day the player is likely to purchase and send him offers accordingly
-
 
 - If you use SOOMLA Store and you join GROW, you’ll receive a weekly [Whales Report](/university/articles/Grow_WhalesReport/) to your inbox, this report identifies the paying players in your game from the grow data network and tells you how many payers from other games you’ve managed to convert and how much money you left on the table
 
