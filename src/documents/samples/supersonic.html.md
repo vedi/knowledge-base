@@ -470,4 +470,4 @@ https://www.supersonic.com/lp/roam/lp_m1/?utm_source=Soomla%20Promotion&utm_medi
 
 1. Combine 2 or 3 Video ad networks for increased coverage.<br> Working with a single provider could lead to inventory problems where there are no ads available.
 
-2. Adding <a href="/unity/grow/grow_gettingstarted/" target="_blank">SOOMLA GROW</a> will allow your users to backup their balances and will give you more tools to analyze their behavior.
+2. Adding <a href="/unity/grow/grow_gettingstarted/" target="_blank">GROW</a> will allow your users to backup their balances and will give you more tools to analyze their behavior.

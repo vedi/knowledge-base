@@ -192,7 +192,7 @@ window._fbq.push(['track', 'PixelInitialized', {}]);
   })();
 </script>
 
-<script src="/scripts/kb.min.js"></script>
+<!--<script src="/scripts/kb.min.js"></script>-->
 
 </body>
 </html>
