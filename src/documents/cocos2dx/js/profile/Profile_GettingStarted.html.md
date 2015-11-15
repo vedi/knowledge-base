@@ -275,6 +275,15 @@ Twitter is supported out-of-the-box, authentication is done either through the s
   </ul>
 </div>
 
+### Game Center for iOS
+
+Game Center is supported out-of-the-box, authentication is done either through the signed in Game Center account. Follow the next steps to make it work:
+
+1. Follow Apple's guide how to [Incorporate Game Center into Your Game](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/GameKit_Guide/GameCenterOverview/GameCenterOverview.html#//apple_ref/doc/uid/TP40008304-CH5-SW22) (steps 4 and 5).
+
+2. Add `-lSoomlaiOSProfileGameCenter` to your project's **Build Settings->Other Linker Flags**.
+
+<div class="info-box">This social provider is for iOS only.</div>
 
 > If you use Cocos IDE you'll need to `Build Custom Simulator` for iOS there.
 
