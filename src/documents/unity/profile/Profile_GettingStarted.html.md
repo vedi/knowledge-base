@@ -16,11 +16,9 @@ platform: 'unity'
 
 ## Getting Started
 
-1. Download and import:
+1. Download and import [unity3d-profile](http://library.soom.la/fetch/unity3d-profile/latest?cf=knowledge%20base).
 
-	a. [soomla-unity3d-core](http://library.soom.la/fetch/unity3d-core/latest?cf=knowledge%20base)
-
-	b. [unity3d-profile](http://library.soom.la/fetch/unity3d-profile/latest?cf=knowledge%20base)
+	**NOTE:** If you already have Store integrated use [unity3d-profile-only](http://library.soom.la/fetch/unity3d-profile-only/latest?cf=knowledge%20base) to avoid importing Core again.
 
 	If you want to use Store-related rewards you'll need to go over the instructions of [unity3d-store](https://github.com/soomla/unity3d-store).
 
