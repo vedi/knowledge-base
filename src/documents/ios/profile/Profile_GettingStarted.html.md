@@ -46,6 +46,7 @@ platform: 'ios'
       <li>`libSoomlaiOSSProfileFacebook.a` (if you use Facebook)</li>
       <li>`libSoomlaiOSSProfileTwitter.a` (if you use Twitter)</li>
       <li>`libSoomlaiOSSProfileGoogle.a` (if you use Google+)</li>
+      <li>`libSoomlaiOSSProfileGameCenter.a` (if you use GameCenter)</li>
     </ul>
 </div>
 
@@ -158,6 +159,14 @@ Google Plus is supported out-of-the-box, authentication is done either through t
     * UIKit.framework
 
 5. Add `-lSoomlaiOSProfileGoogle` to the project's "Other Linker Flags".
+
+### Game Center
+
+Game Center is supported out-of-the-box, authentication is done through the signed in Game Center account. Follow the next steps to make it work:
+
+1. Follow Apple's guide how to [Incorporate Game Center into Your Game](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/GameKit_Guide/GameCenterOverview/GameCenterOverview.html#//apple_ref/doc/uid/TP40008304-CH5-SW22) (steps 4 and 5).
+
+2. Add `-lSoomlaiOSProfileGameCenter` to the project's "Other Linker Flags".
 
 ## Browser-based Authentication
 
