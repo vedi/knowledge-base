@@ -15,7 +15,7 @@ platform: 'cocos2dx'
 
 ## Overview
 
-Soomla GROW is our flagship, community driven, data network. Developers using GROW can gain valuable insights about their
+GROW is SOOMLA's flagship, community driven, data network. Developers using GROW can gain valuable insights about their
 games' performance and compare the data to benchmarks of other games in the GROW community.
 
 Whales Report and GrowInsights are also provided to users of the GROW network. GrowInsights is an SDK provided with the
