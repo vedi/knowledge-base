@@ -19,7 +19,7 @@ This article shows an example of how to report Soomla Store in-game events to Ad
 
 1. Enables us to display the demographic parameters and personas of your in-app purchasers in our 'Insights Dashboard'.
 
-2. Allows Adience Mediation to add 'in-app purchasing behavior' as additional parameters in its targeting algorithm. 
+2. Allows Adience Mediation to add 'in-app purchasing behavior' as additional parameters in its targeting algorithm.
 
 <br>
 
@@ -57,4 +57,3 @@ This article shows an example of how to report Soomla Store in-game events to Ad
 1. Contact Adience <a href="mailto:business@adience.com" target="_blank">business@adience.com</a> to get your unique app key, Adience SDK and integration documentation.
 
 2. Integrate SOOMLA Store. Follow all steps in the platform specific getting started guides: <a href="http://know.soom.la/unity/store/store_gettingstarted/" target="_blank">Unity Store</a> | <a href="http://know.soom.la/android/store/store_gettingstarted/" target="_blank">Android Store</a>
-

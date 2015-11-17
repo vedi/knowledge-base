@@ -19,7 +19,7 @@ theme: 'samples'
   	giftgaming&reg; monetises games non-intrusively by delivering in-game gifts containing free power-ups, currency and real-world coupons.
   	Make money whilst making players feel good.
   </p>
-  
+
   <div class="samples-title">Why giftgaming</div>
   <p>
   	Unlike competitors, giftgaming provides a better gaming experience by:
@@ -45,7 +45,7 @@ theme: 'samples'
   <div class="tab-content tab-content-use-case-code">
     <div role="tabpanel" class="tab-pane active" id="sample-unity">
     <p>In Unity, this would be in your copy of `SampleGifts.cs`:</p>
-    
+
      <pre>
 ```
 <%- @include('./giftgaming/giftgaming_example.cs') %>
@@ -66,9 +66,9 @@ theme: 'samples'
 ```
      </pre>
     </div>
-    
+
   </div>
-  
+
 </div>
 
 <div class="samples-title">Getting started</div>
@@ -77,7 +77,7 @@ theme: 'samples'
 
 2. Integrate the SOOMLA <a href="/unity/grow/growspend_gettingstarted/" target="_blank">GrowSpend bundle</a>.
 
-3. The Unity code sample also makes use of <a href="/unity/grow/grow_insights/" target="_blank">GrowInsigts</a> to detect non-spending users. 
+3. The Unity code sample also makes use of <a href="/unity/grow/grow_insights/" target="_blank">GrowInsigts</a> to detect non-spending users.
 
 4. In your `giftClosed` callback call Soomla's `StoreInventory.GiveItem`
 
