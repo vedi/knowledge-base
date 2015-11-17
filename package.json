@@ -27,8 +27,8 @@
     "url": "http://github.com/docpad/html5-boilerplate.docpad.git"
   },
   "engines": {
-    "node": "0.12.6",
-    "npm": "2.11.2"
+    "node": "0.12.7",
+    "npm": "3.3.10"
   },
   "dependencies": {
     "bal-util": "^2.4.1",

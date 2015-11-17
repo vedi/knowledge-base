@@ -375,7 +375,7 @@ docpadConfig = {
 #      safeps = require('safeps')
 #      docpad = @docpad
 #      rootPath = docpad.getConfig().rootPath
-#      gruntPath = path.join('node_modules', 'docpad-plugin-grunt', 'node_modules', '.bin', 'grunt')
+#      gruntPath = path.join(rootPath, 'node_modules', '.bin', 'grunt')
 #
 #      command = [gruntPath, 'default']
 #
@@ -387,6 +387,7 @@ docpadConfig = {
 
 	plugins:
 		grunt:
+			writeAfter: []
 			environments:
 				development:
 					enabled: false
