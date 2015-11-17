@@ -54,6 +54,8 @@
       </div>
       <div class="cover"> <a id="header-logo" href="/"><img  src="/img/HeaderLogo.png"/></a></div>
       <div id="header-right">
+      </div>
+      <div id="header-before-right">
         <a href="https://soom.la/labs" class="survey-banner">
           <span class="survey-sign"></span>
           <span class="survey-soombot"></span>
