@@ -42,25 +42,45 @@ This class holds information about a user for a specific `Provider`.
 **A `UserProfile` contains the following elements:**
 
 - `ProfileId`
+
 - `Email`
+
 - `Username`
+
 - `FirstName`
+
 - `LastName`
+
 - `AvatarLink`
+
 - `Location`
+
 - `Gender`
+
 - `Language`
+
 - `Birthday`
+
 - `Extra` - a Dictionary contains additional info provided by social provider:
+
   - `Facebook`
+  
     - **access_token** - *String*
+	
     - **permissions** - *JSONObject of Strings*
+	
     - **expiration_date** - *UNIX timestamp as Double*
+	
   - `Twitter`
+  
     - **access_token** - *String*
+	
   - `Google+`
+  
     - **access_token** - *String*
+	
     - **refresh_token** - *String* - `not available for Android`
+	
     - **expiration_date** - *UNIX timestamp as Double* - `not available for Android`
 
 ## SoomlaProfile <a href="https://github.com/soomla/unity3d-profile/blob/master/Soomla/Assets/Plugins/Soomla/Profile/SoomlaProfile.cs" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>

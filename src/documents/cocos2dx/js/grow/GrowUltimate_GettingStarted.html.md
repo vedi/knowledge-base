@@ -26,12 +26,19 @@ GrowUltimate includes:
 - All of SOOMLA's open-source modules - [Store](/cocos2dx/js/store/Store_GettingStarted), 
 [Profile](/cocos2dx/js/profile/Profile_GettingStarted) and 
 [LevelUp](/cocos2dx/js/levelup/Levelup_GettingStarted)
+
 - [State & Economy Sync](/cocos2dx/js/grow/Grow_Sync)
+
 - [Gifting](/cocos2dx/js/grow/Grow_Gifting)
+
 - [IAP Fraud Protection](/cocos2dx/js/grow/Grow_FraudProtection)
+
 - [Social Leaderboards](/cocos2dx/js/grow/Grow_Leaderboards)
+
 - [Analytics](/cocos2dx/js/grow/Grow_Analytics)
+
 - [Whales Report](/cocos2dx/js/grow/Grow_WhalesReport)
+
 - [Insights](/cocos2dx/js/grow/Grow_Insights)
 
 ## Integrating GrowUltimate
@@ -191,11 +198,15 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
 1. For each of the following XCode projects:
 
   - `Cocos2dXCore.xcodeproj` (**frameworks/runtime-src/Classes/soomla-cocos2dx-core/**)  
+  
   - `Cocos2dXStore.xcodeproj` (**frameworks/runtime-src/Classes/cocos2dx-store/**)
+  
   - `Cocos2dXProfile.xcodeproj` (**frameworks/runtime-src/Classes/cocos2dx-profile/**)  
+  
   - `Cocos2dXLevelUp.xcodeproj` (**frameworks/runtime-src/Classes/cocos2dx-levelup/**)
+  
   - `Cocos2dXHighway.xcodeproj` (**frameworks/runtime-src/Classes/cocos2dx-highway/**)
-
+  
   perform the following:
 
     a. Drag the project into your project.
@@ -211,11 +222,17 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
   NOTE: This article assumes you have a `cocos2d` folder under your project folder which either contains the Cocos2d-x framework, or links to to its root folder.
 
  - `$(SRCROOT)/../Classes/soomla-cocos2dx-core/Soomla`
+ 
  - `$(SRCROOT)/../Classes/soomla-cocos2dx-core/build/ios/headers`
+ 
  - `$(SRCROOT)/../Classes/cocos2dx-store/Soomla`
+ 
  - `$(SRCROOT)/../Classes/cocos2dx-profile/Soomla`
+ 
  - `$(SRCROOT)/../Classes/cocos2dx-profile/build/ios/headers`
+ 
  - `$(SRCROOT)/../Classes/cocos2dx-levelup/Soomla`
+ 
  - `$(SRCROOT)/../Classes/cocos2dx-highway/Soomla`
 
   ![alt text](/img/tutorial_img/cocos_grow/headerSP.png "Header search paths")
@@ -227,13 +244,21 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
 6. Make sure you have these 9 Frameworks linked to your XCode project:
 
   - Security
+  
   - libsqlite3.0.dylib
+  
   - StoreKit
+  
   - CFNetwork
+  
   - libicucore
+  
   - SystemConfiguration
+  
   - AdSupport
+  
   - MediaPlayer
+  
   - GameController
 
 7. Connect the Profile module to a social network provider:

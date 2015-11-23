@@ -21,9 +21,13 @@ Insights you can:
 
 
 - Create special prices for paying users in your genre.
+
 - Adapt the game difficulty for the specific user.
+
 - Create push campaigns.
+
 - Adapt Ads to your specific users.
+
 - A lot more ... you can create your own personalization features and even share them with others on the SOOMLA [Forums](http://answers.soom.la).
 
 Currently, Insights supports PayInsights which categorizes users according to their pay-rank. More about this below.
@@ -173,12 +177,19 @@ Returns the user's pay-rank for the given [genre](/cocos2dx/js/grow/Grow_Insight
 ##### Possible return values
 
 - -1: No insights for selected genre
+
 - 0: The user has paid 0$ in total
+
 - 1: The user has paid up to 1$
+
 - 2: The user has paid up to 5$
+
 - 3: The user has paid up to 10$
+
 - 4: The user has paid up to 50$
+
 - 5: The user has paid up to 100$
+
 - 6: The user has paid more than 100$
 
 <div class="info-box">NOTE: Pay rank is calculated according to the user's total revenue from ALL games using GROW.</div>

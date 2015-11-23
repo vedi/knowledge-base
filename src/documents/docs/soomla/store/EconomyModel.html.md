@@ -80,8 +80,10 @@ MarketItem is a representation of an item in the Market. `MarketItem` is only us
 **MarketItem Members:**
 
 - `productId` - ID of the item in the Market (App Store, Google Play Store, etc..).
+
 - `type` - The type of the item in the Market.
   (see [android-store’s MarketItem](https://github.com/soomla/android-store/blob/master/SoomlaAndroidStore/src/com/soomla/store/domain/MarketItem.java) or [iOS-store’s MarketItem](https://github.com/soomla/ios-store/blob/master/SoomlaiOSStore/domain/MarketItem.h)).
+  
 - `price` - The price of the item that you charge in the Market.
 
 ## VirtualCurrency
@@ -107,7 +109,9 @@ If for some reason you want to sell a single “Gold Coin” or a single “Gem�
 #### **Real Game Examples:**
 
 - Gold Coin
+
 - Gem
+
 - Muffin
 
 ## VirtualCurrencyPack
@@ -130,6 +134,7 @@ public static final VirtualCurrencyPack FIFTYMUFF_PACK = new VirtualCurrencyPack
 #### **Real Game Examples:**
 
 - A pack of 100 “Gold Coins”
+
 - A pack of 12 “Muffins”
 
 ## VirtualGoods
@@ -138,9 +143,13 @@ Every virtual good is a `PurchasableVirtualItem`. You can buy it with other `Vir
 
 Every virtual good belongs to one of the following groups:
 1. Single Use
+
 2. Single Use Pack
+
 3. Lifetime
+
 4. Equippables
+
 5. Upgradables
 
 Below are detailed descriptions of each category.
@@ -168,7 +177,9 @@ public static final VirtualGood PAVLOVA_GOOD = new SingleUseVG(
 #### **Real Game Examples:**
 
 - Hat
+
 - Sword
+
 - Cake
 
 ### SingleUsePackVG
@@ -178,7 +189,9 @@ Sometimes, you'll want to to sell packs of `SingleUseVG`s. To support these case
 **The SingleUsePackVG's characteristics are:**
 
 - Can be purchased an unlimited number of times.
+
 - Doesn't have a balance in the database. The `SingleUseVG` that's associated with this pack has its own balance. When your users buy a `SingleUsePackVG`, the balance of the associated `SingleUseVG` goes up in the amount you defined for the pack.
+
 *For Example:*
 Suppose you offer a `SingleUsePackVG` of “10 Swords”. The `SingleUseVG` that’s associated with this Pack is “Sword”. When your user buys a “10 Sword” Pack, the balance of “Sword” is increased by 10 in the database.
 
@@ -202,6 +215,7 @@ A `LifetimeVG` is a `VirtualGood` that is bought exactly once and kept forever.
 **The LifetimeVG's characteristics are:**
 
 - Can only be purchased once.
+
 - Your users can't have more than one of this item. In other words, they can have either 0 or 1 of this item at any given time.
 
 As mentioned in the beginning of this document, every virtual item has a purchase type of either `PurchaseWithVirtualItem` or `PurchaseWithMarket`.
@@ -241,8 +255,11 @@ Let's say a user purchases both cars. Even if the game's local storage is delete
 #### **Real Game Examples:**
 
 - No Ads
+
 - Double Coins
+
 - Characters in the game
+
 - Vehicles or weapons, etc...
 
 ### EquippableVG
@@ -252,13 +269,17 @@ An `EquippableVG` is a special type of `LifetimeVG`. In addition to the fact tha
 **The EquippableVG's characteristics are:**
 
 - Can be purchased only once.
+
 - Can be equipped by the user.
+
 - Inherits the definition of `LifetimeVG`.
 
 **There are 3 equipping models:**
 
 - `LOCAL` - The current `EquippableVG`'s equipping status doesn't affect any other `EquippableVG`.
+
 - `CATEGORY` - In the containing category, if this `EquippableVG` is equipped, all other `EquippableVG`s are unequipped.
+
 - `GLOBAL` - In the whole game, if this `EquippableVG` is equipped, all other `EquippableVG`s are unequipped.
 
 #### **For Example**
@@ -289,10 +310,15 @@ An `UpgradeVG` is a `VirtualGood` in a series of `UpgradeVG`s that define an upg
 Say you have a strength attribute in your game and that strength is upgradeable on a scale of 1-5.  This is what you'll need to create:
 
 1. SingleUseVG for 'strength'
+
 2. UpgradeVG for strength 'level 1'
+
 3. UpgradeVG for strength 'level 2'
+
 4. UpgradeVG for strength 'level 3'
+
 5. UpgradeVG for strength 'level 4'
+
 6. UpgradeVG for strength 'level 5'
 
 When the user buys an`UpgradeVG`, a check is performed to make sure the appropriate conditions are met (which actually means the associated `VirtualGood` is upgraded).
@@ -300,12 +326,15 @@ When the user buys an`UpgradeVG`, a check is performed to make sure the appropri
 **The UpgradeVG's characteristics are:**
 
 - Can be purchased whenever it's not the current upgrade.
+
 - Doesn't have a balance in the database.
 
 **UpgradeVG class members that are worth mentioning:**
 
 - `goodItemId` - the itemId of the `VirtualGood` associated with this upgrade.
+
 - `prevItemId` - the itemId of the `UpgradeVG` that comes before this one, or if this is the first `UpgradeVG` in the scale then this value is null.
+
 - `nextItemId` - the itemId of the `UpgradeVG` that comes after this one, or if this is the last `UpgradeVG` in the scale then the value is null.
 
 #### **For Example:**

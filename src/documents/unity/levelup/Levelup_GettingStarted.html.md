@@ -18,8 +18,11 @@ platform: 'unity'
 
 1. Download the following unity-packages:
     - [soomla-unity3d-core](http://library.soom.la/fetch/unity3d-core/latest?cf=knowledge%20base)
+	
     - [unity3d-store](http://library.soom.la/fetch/unity3d-store/latest?cf=knowledge%20base)
+	
     - [unity3d-profile](http://library.soom.la/fetch/unity3d-profile/latest?cf=knowledge%20base)
+	
     - [unity3d-levelup](http://library.soom.la/fetch/unity3d-levelup/latest?cf=knowledge%20base)
 
   **OR** if you would like to work with sources, you should **recursively** clone the repo (instead of downloading):

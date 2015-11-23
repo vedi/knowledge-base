@@ -24,7 +24,9 @@ monetization. [Read more...](/cocos2dx/js/grow/Grow_About)
 GrowInsights includes:
 
 - [Analytics](/cocos2dx/js/grow/Grow_Analytics)
+
 - [Whales Report](/cocos2dx/js/grow/Grow_WhalesReport)
+
 - [Insights](/cocos2dx/js/grow/Grow_Insights)
 
 ## Integrating GrowInsights
@@ -165,13 +167,21 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
 6. Make sure you have these 9 Frameworks linked to your XCode project:
 
   - Security
+  
   - libsqlite3.0.dylib
+  
   - StoreKit
+  
   - CFNetwork
+  
   - libicucore
+  
   - SystemConfiguration
+  
   - AdSupport
+  
   - MediaPlayer
+  
   - GameController
 
 That's it! Now all you have to do is build your XCode project and run your game.

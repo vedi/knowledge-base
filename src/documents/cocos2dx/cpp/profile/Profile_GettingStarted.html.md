@@ -128,8 +128,11 @@ In your XCode project, perform the following steps:
 
 3. Add the following directories to **Build Settings->Header Search Paths** (with `recursive` option):
  - `$(SRCROOT)/../cocos2d/extensions/soomla-cocos2dx-core/Soomla`
+ 
  - `$(SRCROOT)/../cocos2d/extensions/soomla-cocos2dx-core/build/ios/headers`
+ 
  - `$(SRCROOT)/../cocos2d/extensions/cocos2dx-profile/Soomla`
+ 
  - `$(SRCROOT)/../cocos2d/extensions/cocos2dx-profile/build/ios/headers`
 
  ![alt text](/img/tutorial_img/cocos2dx-profile/headerSP.png "Header search paths")
@@ -169,15 +172,25 @@ Google+ is supported out-of-the-box, authentication is done either through the s
 5. Add additional frameworks if you still haven't:
 
     * AddressBook.framework
+	
     * AssetsLibrary.framework
+	
     * Foundation.framework
+	
     * CoreLocation.framework
+	
     * CoreMotion.framework
+	
     * CoreGraphics.framework
+	
     * CoreText.framework
+	
     * MediaPlayer.framework
+	
     * Security.framework
+	
     * SystemConfiguration.framework
+	
     * UIKit.framework
 
 6. Add `-lSoomlaiOSProfileGoogle` to your project's **Build Settings->Other Linker Flags**.
@@ -240,12 +253,17 @@ That's it! Now all you have to do is build your XCode project and run your game 
 2. Add the following jars to your android project's classpath:
 
   From `extensions/soomla-cocos2dx-core/build/android`:
+  
   - SoomlaAndroidCore.jar
+  
   - Cocos2dxAndroidCore.jar
+  
   - square-otto-1.3.2.jar
 
   From `extensions/cocos2dx-profile/build/android`:
+  
   - AndroidProfile.jar
+  
   - Cocos2dxAndroidProfile.jar
 
 4. Update your AndroidManifest.xml to include permissions and the SoomlaApp:

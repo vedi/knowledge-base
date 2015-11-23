@@ -18,7 +18,9 @@ GROW Leaderboards lets you turn your game into a competition, by showing users t
 With Leaderboards you can:
 
 - Create a leaderboard of all the user's friends playing your game.
+
 - Pop up a friend's better score in a level just completed by the user.
+
 - A lot more ... you can create your own use cases and even share them with others on SOOMLA's [Forums](http://answers.soom.la).
 
 ## Integration
@@ -94,6 +96,7 @@ Returns `false` if the operation cannot be started, `true` otherwise.
 Params:
 
 - providerId - The social provider ID for which to get the friends' state.
+
 - friendsProfileIds - a List of friends' profile IDs in the network provided. Can be obtained by calling [`SoomlaProfile.GetContacts(providerId)`](/unity/profile/profile_mainclasses/#GetContacts).
 
 The `OnFetchFriendsStatesStarted` event is triggered once the sending process is started, and one of `OnFetchFriendsStatesFinished` or `OnFetchFriendsStatesFailed` is triggered depending on the operation outcome.

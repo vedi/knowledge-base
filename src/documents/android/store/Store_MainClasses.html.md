@@ -42,8 +42,11 @@ This function queries the Market’s inventory, and creates a list of all metada
 This class holds your store's
 
 - Virtual currencies
+
 - Virtual currency packs
+
 - Virtual goods of all kinds
+
 - Virtual categories
 
 `StoreInfo` can be questioned about the existence of `VirtualItem`s and the associations between them.

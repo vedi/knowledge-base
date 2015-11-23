@@ -19,10 +19,15 @@ GrowSpend is the perfect virtual economy solution for your game. If you want Fra
 GrowSpend includes:
 
 - SOOMLA's open-source module - [Store](/unity/store/Store_GettingStarted)
+
 - [State & Economy Sync](/unity/grow/Grow_Sync)
+
 - [IAP Fraud Protection](/unity/grow/Grow_FraudProtection)
+
 - [Analytics](/unity/grow/Grow_Analytics)
+
 - [Whales Report](/unity/grow/Grow_WhalesReport)
+
 - [Insights](/unity/grow/Grow_Insights)
 
 **Note:** Cross-device SYNC is using the Profile module which allows your users to login with their social provider. If you want that, [integrate Profile](/unity/profile/Profile_GettingStarted) as well.
