@@ -22,7 +22,7 @@ Analytics, Whales Report and GrowInsights are provided for free to users of the 
 
 ## Getting Started
 
-Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon logging in, you will be directed to the main page of the dashboard. You will need to create a new game in order to start your journey with GROW.
+Go to the [GROW dashboard](https://doorman.soom.la/oauth/authorize?response_type=code&redirect_uri=http%3A%2F%2Fdashboard.soom.la%2Fauth%2Fdoorman%2Fcallback&scope=own&client_id=growDashboard&referrer=stansassets) and sign up \ login. Upon logging in, you will be directed to the main page of the dashboard. You will need to create a new game in order to start your journey with GROW.
 
 > This integration works with Stan's Assets Android Native Plugin v7.0.3+ OR iOS Native Plugin v8.0.6+.
 
@@ -55,7 +55,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 ## Back to the Dashboard
 
-Once your app is running, you can go back to the [GROW dashboard](http://dashboard.soom.la) to verify the integration. Just refresh the page, and the environments tab should appear (be patient, this step can take a few minutes).
+Once your app is running, you can go back to the [GROW dashboard](https://doorman.soom.la/oauth/authorize?response_type=code&redirect_uri=http%3A%2F%2Fdashboard.soom.la%2Fauth%2Fdoorman%2Fcallback&scope=own&client_id=growDashboard&referrer=stansassets) to verify the integration. Just refresh the page, and the environments tab should appear (be patient, this step can take a few minutes).
 
 ![alt text](/img/tutorial_img/unity_grow/verifyIntegration.png "Verify Integration")
 
