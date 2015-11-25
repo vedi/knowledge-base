@@ -19,10 +19,15 @@ GrowCompete is the perfect competition stimulation solution for your game. If yo
 GrowCompete includes:
 
 - All of SOOMLA's open-source modules - [Store](/unity/store/Store_GettingStarted), [Profile](/unity/profile/Profile_GettingStarted) and [LevelUp](/unity/levelup/Levelup_GettingStarted)
+
 - [State Sync](/unity/grow/Grow_Sync)
+
 - [Social Leaderboards](/unity/grow/Grow_Leaderboards)
+
 - [Analytics](/unity/grow/Grow_Analytics)
+
 - [Whales Report](/unity/grow/Grow_WhalesReport)
+
 - [Insights](/unity/grow/Grow_Insights)
 
 ## Integrating GrowCompete

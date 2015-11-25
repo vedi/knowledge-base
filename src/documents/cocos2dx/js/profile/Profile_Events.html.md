@@ -392,3 +392,163 @@ this.onInviteCancelled = function (provider, socialActionType, payload) {
   // ... your game specific implementation here ...
 }
 ```
+
+### GET_LEADERBOARDS_STARTED
+
+The event `EVENT_GET_LEADERBOARDS_STARTED` is triggered when fetching leaderboards has started.
+
+```js
+Soomla.addHandler(Soomla.ProfileConsts.EVENT_GET_LEADERBOARDS_STARTED, this.EVENT_GET_LEADERBOARDS_STARTED, this);
+
+this.EVENT_GET_LEADERBOARDS_STARTED = function (provider, payload) {
+  // provider           - The provider on which fetching will be performed  
+  // payload            - An identification string that you can give
+  //      initiate the social action operation and want to receive back upon failure
+
+  // ... your game specific implementation here ...
+}
+```
+
+### GET_LEADERBOARDS_FINISHED
+
+The event `EVENT_GET_LEADERBOARDS_FINISHED` is triggered when fetching leaderboards has finished successfully.
+
+``` js
+Soomla.addHandler(Soomla.ProfileConsts.EVENT_GET_LEADERBOARDS_FINISHED, this.EVENT_GET_LEADERBOARDS_FINISHED, this);
+
+this.EVENT_GET_LEADERBOARDS_FINISHED = function (provider, leaderboards, payload) {
+  // provider           - The provider on which fetching will be performed  
+  // leaderboards       - A list of leaderboards
+  // payload            - An identification string that you can give
+  //      initiate the social action operation and want to receive back upon failure
+
+  // ... your game specific implementation here ...
+}
+```
+
+### GET_LEADERBOARDS_FAILED
+
+The event `EVENT_GET_LEADERBOARDS_FAILED` is triggered when fetching leaderboards was failed.
+
+``` js
+Soomla.addHandler(Soomla.ProfileConsts.EVENT_GET_LEADERBOARDS_FAILED, this.EVENT_GET_LEADERBOARDS_FAILED, this);
+
+this.EVENT_GET_LEADERBOARDS_FAILED = function (provider, message, payload) {
+  // provider           - The provider on which fetching will be performed  
+  // message            - the failure message
+  // payload            - An identification string that you can give
+  //      initiate the social action operation and want to receive back upon failure
+
+  // ... your game specific implementation here ...
+}
+```
+
+### GET_SCORES_STARTED
+
+The event `EVENT_GET_SCORES_STARTED` is triggered when fetching scores from the current leaderboard has started.
+
+``` js
+Soomla.addHandler(Soomla.ProfileConsts.EVENT_GET_SCORES_STARTED, this.EVENT_GET_SCORES_STARTED, this);
+
+this.EVENT_GET_SCORES_STARTED = function (provider, leaderboard, fromStart, payload) {
+  // provider - the social provider
+  // leaderboard - the source leaderboard
+  // fromStart - Should we reset pagination or request the next page
+  // payload - an identification string that you can give when you initiate
+  //      the get contacts operation and want to receive back upon starting 
+
+  // ... your game specific implementation here ...
+}
+```
+
+### GET_SCORES_FINISHED
+
+The event `EVENT_GET_SCORES_FINISHED` is triggered when fetching scores from the current leaderboard has finished successfully.
+
+```js
+Soomla.addHandler(Soomla.ProfileConsts.EVENT_GET_SCORES_FINISHED, this.EVENT_GET_SCORES_FINISHED, this);
+
+this.EVENT_GET_SCORES_FINISHED = function (provider, leaderboard, scores, hasMore, payload) {
+  // provider - the social provider
+  // leaderboard - the source leaderboard
+  // payload  - an identification string that you can give when you initiate
+  //      the get scores operation and want to receive back upon its completion
+  // hasMore - if there are more items in pagination
+  // scores - a List of scores that have been fetched in the get
+  //      scores operation
+
+  // ... your game specific implementation here ...
+}
+```
+
+### GET_SCORES_FAILED
+
+The event `EVENT_GET_SCORES_FAILED` is triggered when fetching scores from the current leaderboard has failed.
+
+```js
+Soomla.addHandler(Soomla.ProfileConsts.EVENT_GET_SCORES_FAILED, this.EVENT_GET_SCORES_FAILED, this);
+
+this.EVENT_GET_SCORES_FAILED = function (provider, leaderboard, message, fromStart, payload) {
+  // provider - the social provider
+  // leaderboard - the source leaderboard
+  // message  - the failure message
+  // fromStart - Should we reset pagination or request the next page
+  // payload  - an identification string that you can give when you initiate
+  //      the get contacts operation and want to receive back upon failure
+
+  // ... your game specific implementation here ...
+}
+```
+
+### REPORT_SCORE_STARTED
+
+The event `EVENT_REPORT_SCORE_STARTED` is triggered when score reporting for the current leaderboard has started.
+
+```js
+Soomla.addHandler(Soomla.ProfileConsts.EVENT_REPORT_SCORE_STARTED, this.EVENT_REPORT_SCORE_STARTED, this);
+
+this.EVENT_REPORT_SCORE_STARTED = function (provider, leaderboard, payload) {
+  // provider - the social provider
+  // leaderboard - the source leaderboard  
+  // payload - an identification string that you can give when you initiate
+  //      the report score operation and want to receive back upon starting
+    
+  // ... your game specific implementation here ...
+}
+```
+
+### REPORT_SCORE_FINISHED
+
+The event `EVENT_REPORT_SCORE_FINISHED` is triggered when score reporting for the current leaderboard has finished successfully.
+
+```js
+Soomla.addHandler(Soomla.ProfileConsts.EVENT_REPORT_SCORE_FINISHED, this.EVENT_REPORT_SCORE_FINISHED, this);
+
+this.EVENT_REPORT_SCORE_FINISHED = function (provider, leaderboard, score, payload) {
+  // provider - the social provider
+  // leaderboard - the source leaderboard
+  // score - the resulted score
+  // payload - an identification string that you can give when you initiate
+  //      the report score operation and want to receive back upon starting 
+
+  // ... your game specific implementation here ...
+}
+```
+
+### REPORT_SCORE_FAILED
+
+The event `REPORT_SCORE_FAILED` is triggered when score reporting for the current leaderboard has failed.
+
+```js
+Soomla.addHandler(Soomla.ProfileConsts.REPORT_SCORE_FAILED, this.REPORT_SCORE_FAILED, this);
+
+this.REPORT_SCORE_FAILED = function (provider, leaderboard, message, payload) {
+  // provider - the social provider
+  // leaderboard - the source leaderboard
+  // message  - the failure message
+  // payload - an identification string that you can give when you initiate
+  //      the report score operation and want to receive back upon starting 
+
+  // ... your game specific implementation here ...
+}
+```

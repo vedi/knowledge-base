@@ -19,7 +19,9 @@ android-store supplies a package of Events, which contains many classes that rep
 In addition, android-store provides a singleton class called `BusProvider`, which exposes functions `post`, `register`, and `unregister`. Internally, `BusProvider` uses Square’s open-source project [Otto](http://square.github.io/otto/). Use the singleton instance of `BusProvider` to obtain the bus. Use the functions provided to publish-subscribe and handle the various events:
 
 - `post` - Use to post (publish) a new event, which essentially informs subscribers that an action has occurred.
+
 - `register` - In order to receive events, a class needs to register with the `BusProvider`.
+
 - `unregister` - In order to stop receiving events, a class needs to unregister with the `BusProvider`.
 
 [Learn more...](/docs/platforms/android/Events)

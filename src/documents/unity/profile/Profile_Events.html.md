@@ -422,3 +422,152 @@ public void onInviteFailed(Provider provider, SocialActionType action, string me
 	// ... your game specific implementation here ...
 }
 ```
+### onGetLeaderboardsStarted
+
+The event is triggered when fetching leaderboards has started.
+
+``` cs
+ProfileEvents.OnGetLeaderboardsStarted += onGetLeaderboardsStarted;
+
+public void onGetLeaderboardsStarted(GetLeaderboardsStartedEvent event) {
+	// event.Provider is the social provider	
+	// event.Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+
+	// ... your game specific implementation here ...
+}
+```
+
+### onGetLeaderboardsFinished
+
+The event is triggered when fetching leaderboards has finished successfully.
+
+``` cs
+ProfileEvents.OnGetLeaderboardsFinished += onGetLeaderboardsFinished;
+
+public void onGetLeaderboardsFinished(GetLeaderboardsFinishedEvent event) {
+	// event.Provider is the social provider
+    // event.Leaderboards is a list of leaderboards
+	// event.Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+
+	// ... your game specific implementation here ...
+}
+```
+
+### onGetLeaderboardsFailed
+
+The event is triggered when fetching leaderboards was failed.
+
+``` cs
+ProfileEvents.OnGetLeaderboardsFailed += onGetLeaderboardsFailed;
+
+public void onGetLeaderboardsFailed(GetLeaderboardsFailedEvent event) {
+	// event.Provider is the social provider
+    // event.ErrorDescription is Description of the reason for failure
+	// event.Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+
+	// ... your game specific implementation here ...
+}
+```
+
+### onGetScoresStarted
+
+The event is triggered when fetching scores from the current leaderboard has started.
+
+``` cs
+ProfileEvents.OnGetScoresStarted += onGetScoresStarted;
+
+public void onGetScoresStarted(GetScoresStartedEvent event) {
+	// event.Provider is the social provider
+    // event.Leaderboard is a source leaderboard
+    // event.FromStart should we reset pagination or request the next page
+	// event.Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+
+	// ... your game specific implementation here ...
+}
+```
+
+### onGetScoresFinished
+
+The event is triggered when fetching scores from the current leaderboard has finished successfully.
+
+``` cs
+ProfileEvents.OnGetScoresFinished += onGetScoresFinished;
+
+public void onGetScoresFinished(GetScoresFinishedEvent event) {
+	// event.Provider is the social provider
+    // event.Leaderboard is a source leaderboard
+    // event.Scores an array of scores
+	// event.Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+
+	// ... your game specific implementation here ...
+}
+```
+
+### onGetScoresFailed
+
+The event is triggered when fetching scores from the current leaderboard has failed.
+
+``` cs
+ProfileEvents.OnGetScoresFailed += onGetScoresFailed;
+
+public void onGetScoresFailed(GetScoresFailedEvent event) {
+	// event.Provider is the social provider
+    // event.Leaderboard is a source leaderboard
+    // event.ErrorDescription description of the reason for failure
+    // event.FromStart should we reset pagination or request the next page
+	// event.Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+
+	// ... your game specific implementation here ...
+}
+```
+
+### onReportScoreStarted
+
+The event is triggered when score reporting for the current leaderboard has started.
+
+``` cs
+ProfileEvents.OnReportScoreStarted += onReportScoreStarted;
+
+public void onReportScoreStarted(ReportScoreStartedEvent event) {
+	// event.Provider is the social provider
+    // event.Leaderboard is a source leaderboard    
+	// event.Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+
+	// ... your game specific implementation here ...
+}
+```
+
+### onReportScoreFinished
+
+The event is triggered when score reporting for the current leaderboard has finished successfully.
+
+
+``` cs
+ProfileEvents.OnReportScoreFinished += onReportScoreFinished;
+
+public void onReportScoreFinished(ReportScoreFinishedEvent event) {
+	// event.Provider is the social provider
+    // event.Leaderboard is a source leaderboard
+    // event.Score is a new score instance was created
+	// event.Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+
+	// ... your game specific implementation here ...
+}
+```
+
+### onReportScoreFailed
+
+The event is triggered when score reporting for the current leaderboard has failed.
+
+``` cs
+ProfileEvents.OnReportScoreFailed += onReportScoreFailed;
+
+public void onReportScoreFailed(ReportScoreFailedEvent event) {
+	// event.Provider is the social provider
+    // event.Leaderboard is a source leaderboard
+    // event.ErrorDescription description of the reason for failure
+	// event.Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+
+	// ... your game specific implementation here ...
+}
+```

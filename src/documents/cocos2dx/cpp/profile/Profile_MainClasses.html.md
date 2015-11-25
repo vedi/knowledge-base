@@ -41,27 +41,72 @@ This class represents a profile of a user from a social network (provider).
 **A `CCUserProfile` contains the following elements:**
 
 - `Provider`
+
 - `ProfileId`
+
 - `Email`
+
 - `Username`
+
 - `FirstName`
+
 - `LastName`
+
 - `AvatarLink`
+
 - `Location`
+
 - `Gender`
+
 - `Language`
+
 - `Birthday`
+
 - `Extra` - a cocos2dx::__Dictionary contains additional info provided by social provider:
+
   - `Facebook`
+  
     - **access_token** - *cocos2dx::__String*
+	
     - **permissions** - *cocos2dx::__Array of cocos2dx::__Strings*
+	
     - **expiration_date** - *UNIX timestamp as cocos2dx::__Double* - `not available for Android`
+	
   - `Twitter`
+  
     - **access_token** - *cocos2dx::__String*
+	
   - `Google+`
+  
     - **access_token** - *cocos2dx::__String*
+	
     - **refresh_token** - *cocos2dx::__String* - `not available for Android`
+	
     - **expiration_date** - *UNIX timestamp as cocos2dx::__Double* - `not available for Android`
+
+## CCLeaderboard <a href="https://github.com/soomla/cocos2dx-profile/blob/master/Soomla/domain/CCLeaderboard.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+
+This class holds information about a leaderboard which was returned by `getLeaderboards`.
+
+**A `CCLeaderboard` contains the following elements:**
+
+- `Provider`: the provider this leaderboard is related to
+
+- `ID`: a unique identifier of this leaderboard
+
+## CCScore <a href="https://github.com/soomla/ios-profile/blob/master/SoomlaiOSProfile/game-services/domain/Score.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+
+This class holds information about a score which was returned by `getScores` or `reportScore` methods.
+
+**A `CCScore` contains the following elements:**
+
+- `Leaderboard`: the leaderboard containing this score
+
+- `Rank`: the position of this score in the leaderboard
+
+- `Player`: the owner of this score
+
+- `Value`: the value of this score
 
 ## CCSoomlaProfile <a href="https://github.com/soomla/cocos2dx-profile/blob/master/Soomla/CCSoomlaProfile.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
@@ -564,6 +609,100 @@ soomla::CCSoomlaProfile::getInstance()->multiShare(
     "I'm happy. I can be shared everywhere.",
     "path/to/file/you/want/to/share"
 );
+```
+
+### `getLeaderboards`
+
+`getLeaderboards` retrieves a list of leaderboards used by your application using the provider specified (for example, GameCenter).
+
+``` cpp
+soomla::CCSoomlaProfile::getInstance()->getLeaderboards(
+        soomla::GAME_CENTER,
+        "",                                 // no payload
+        NULL,                               // no reward
+        NULL                                // no error handling, to keep example simple
+        );
+
+```
+
+<br>
+### `getScores`
+
+`getScores` retrieves a list of scores of selected leaderboard used by your application using the provider specified (for example, GameCenter).
+
+``` cpp
+soomla::CCSoomlaProfile::getInstance()->getScores(
+        soomla::GAME_CENTER,
+        leaderboard,                        // your leaderboard
+        true,                               // you definitely need the 1st page
+        "",                                 // no payload
+        NULL,                               // no reward
+        NULL                                // no error handling, to keep example simple
+        );
+
+```
+
+#### Pagination
+
+Note that the results will contain only part of the list. In order to get more items you should call the method again with `fromStart` param set to `false` (it's a default value for overloaded methods). You can use the following workflow:
+
+```cpp
+void Example::getScores() {
+    Director::getInstance()->getEventDispatcher()->addCustomEventListener(
+            CCProfileConsts::EVENT_GET_SCORES_FINISHED,
+            CC_CALLBACK_1(Example::onGetScoresFinished, this));
+
+    // request for the 1st page
+    soomla::CCSoomlaProfile::getInstance()->getScores(
+        soomla::GAME_CENTER,
+        leaderboard,                        // your leaderboard
+        true,                               // you definitely need the 1st page
+        "",                                 // no payload
+        NULL,                               // no reward
+        NULL                                // no error handling, to keep example simple
+        );
+}
+
+void Example::onGetScoresFinished(EventCustom *event) {
+
+    __Dictionary *eventData = (__Dictionary *)event->getUserData();
+    __Bool *hasMore = dynamic_cast<__Bool *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_HAS_MORE));
+    __Array *scores = dynamic_cast<__Array *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_SCORES));
+
+    // ... handle page results ...
+
+    if (hasMore != nullptr && hasMore->getValue()) {
+        soomla::CCSoomlaProfile::getInstance()->getScores(
+            soomla::GAME_CENTER,
+            leaderboard,
+            false,                              // going on with the pagination
+            "",                                 // no payload
+            NULL,                               // no reward
+            NULL                                // no error handling, to keep example simple
+            );
+    } else {
+        // no pages anymore
+    }
+}
+
+```
+
+<br>
+
+### `reportScore`
+
+`reportScore` submits new score for current user in selected leaderboard.
+
+``` cpp
+soomla::CCSoomlaProfile::getInstance()->reportScore(
+        soomla::GAME_CENTER,        
+        leaderboard,                        // your leaderboard
+        score,                              // value to submit
+        "",                                 // no payload
+        NULL,                               // no reward
+        NULL                                // no error handling, to keep example simple
+        );
+        
 ```
 
 ## Auxiliary Model: CCReward [<img class="link-icon" src="/img/tutorial_img/linkImg.png">](https://github.com/soomla/soomla-cocos2dx-core/blob/master/Soomla/rewards/CCReward.h)

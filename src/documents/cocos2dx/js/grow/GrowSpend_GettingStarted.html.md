@@ -24,10 +24,15 @@ valuable insights about their games' performance and increase retention and mone
 GrowSpend includes:
 
 - SOOMLA's open-source module - [Store](/cocos2dx/js/store/Store_GettingStarted)
+
 - [State & Economy Sync](/cocos2dx/js/grow/Grow_Sync)
+
 - [IAP Fraud Protection](/cocos2dx/js/grow/Grow_FraudProtection)
+
 - [Analytics](/cocos2dx/js/grow/Grow_Analytics)
+
 - [Whales Report](/cocos2dx/js/grow/Grow_WhalesReport)
+
 - [Insights](/cocos2dx/js/grow/Grow_Insights)
 
 **Note:** Cross-device SYNC is using the Profile module which allows your users to login with their social provider. If 
@@ -176,8 +181,11 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
 1. For each of the following XCode projects:
 
   - `Cocos2dXCore.xcodeproj` (**frameworks/runtime-src/Classes/soomla-cocos2dx-core/**)  
+  
   - `Cocos2dXStore.xcodeproj` (**frameworks/runtime-src/Classes/cocos2dx-store/**)
+  
   - `Cocos2dXHighway.xcodeproj` (**frameworks/runtime-src/Classes/cocos2dx-highway/**)
+  
 
   perform the following:
 
@@ -194,8 +202,11 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
   NOTE: This article assumes you have a `cocos2d` folder under your project folder which either contains the Cocos2d-x framework, or links to to its root folder.
 
  - `$(SRCROOT)/../Classes/soomla-cocos2dx-core/Soomla`
+ 
  - `$(SRCROOT)/../Classes/soomla-cocos2dx-core/build/ios/headers`
+ 
  - `$(SRCROOT)/../Classes/cocos2dx-store/Soomla`
+ 
  - `$(SRCROOT)/../Classes/cocos2dx-highway/Soomla`
 
   ![alt text](/img/tutorial_img/cocos_grow/headerSP.png "Header search paths")
@@ -207,13 +218,21 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
 6. Make sure you have these 9 Frameworks linked to your XCode project:
 
   - Security
+  
   - libsqlite3.0.dylib
+  
   - StoreKit
+  
   - CFNetwork
+  
   - libicucore
+  
   - SystemConfiguration
+  
   - AdSupport
+  
   - MediaPlayer
+  
   - GameController
 
 That's it! Now all you have to do is build your XCode project and run your game.
