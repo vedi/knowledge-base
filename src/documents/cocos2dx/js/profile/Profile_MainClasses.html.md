@@ -504,6 +504,54 @@ Soomla.soomlaProfile.multiShare(
 );
 ```
 
+### `getLeaderboards`
+
+`getLeaderboards` retrieves list of leaderboards used by your application using specified provider (for example, GameCenter).
+
+``` js
+Soomla.soomlaProfile.getLeaderboards(
+        soomla::GAME_CENTER,
+        "",                                 // no payload
+        null,                               // no reward
+        null                                // no error handling, to keep example simple
+        );
+
+```
+
+<br>
+### `getScores`
+
+`getScores` retrieves list of scores of selected leaderboard used by your application using specified provider (for example, GameCenter).
+
+``` js
+Soomla.soomlaProfile.getScores(
+        soomla::GAME_CENTER,
+        leaderboard,                        // your leaderboard
+        true,                               // you definitely need the 1st page
+        "",                                 // no payload
+        null,                               // no reward
+        null                                // no error handling, to keep example simple
+        );
+
+```
+
+
+### `reportScore`
+
+`reportScore` submits new score for current user in selected leaderboard.
+
+``` js
+Soomla.soomlaProfile.reportScore(
+        soomla::GAME_CENTER,        
+        leaderboard,                        // your leaderboard
+        score,                              // value to submit
+        "",                                 // no payload
+        null,                               // no reward
+        null                                // no error handling, to keep example simple
+        );
+        
+```
+
 ## Auxiliary Model: Soomla.Models.Reward
 
 A `Reward` is an entity which can be earned by the user for meeting certain criteria in game progress.
