@@ -90,9 +90,9 @@ This class holds information about a leaderboard which was returned by `getLeade
 
 **A `CCLeaderboard` contains the following elements:**
 
-- `Provider`: provider leaderboard related to
+- `Provider`: the provider this leaderboard is related to
 
-- `ID`: an unique identifier of leaderboard
+- `ID`: a unique identifier of this leaderboard
 
 ## CCScore <a href="https://github.com/soomla/ios-profile/blob/master/SoomlaiOSProfile/game-services/domain/Score.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
@@ -100,13 +100,13 @@ This class holds information about a score which was returned by `getScores` or 
 
 **A `CCScore` contains the following elements:**
 
-- `Leaderboard`: leaderboard containing this score
+- `Leaderboard`: the leaderboard containing this score
 
-- `Rank`: a position of this score in the leaderboard
+- `Rank`: the position of this score in the leaderboard
 
-- `Player`: an owner of this score
+- `Player`: the owner of this score
 
-- `Value`: a value of this score
+- `Value`: the value of this score
 
 ## CCSoomlaProfile <a href="https://github.com/soomla/cocos2dx-profile/blob/master/Soomla/CCSoomlaProfile.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
@@ -613,7 +613,7 @@ soomla::CCSoomlaProfile::getInstance()->multiShare(
 
 ### `getLeaderboards`
 
-`getLeaderboards` retrieves list of leaderboards used by your application using specified provider (for example, GameCenter).
+`getLeaderboards` retrieves a list of leaderboards used by your application using the provider specified (for example, GameCenter).
 
 ``` cpp
 soomla::CCSoomlaProfile::getInstance()->getLeaderboards(
@@ -628,7 +628,7 @@ soomla::CCSoomlaProfile::getInstance()->getLeaderboards(
 <br>
 ### `getScores`
 
-`getScores` retrieves list of scores of selected leaderboard used by your application using specified provider (for example, GameCenter).
+`getScores` retrieves a list of scores of selected leaderboard used by your application using the provider specified (for example, GameCenter).
 
 ``` cpp
 soomla::CCSoomlaProfile::getInstance()->getScores(

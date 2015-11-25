@@ -89,9 +89,9 @@ This class holds information about a leaderboard which was returned by `getLeade
 
 **A `Leaderboard` contains the following elements:**
 
-- `provider`: provider leaderboard related to
+- `provider`: the provider this leaderboard is related to
 
-- `ID`: an unique identifier of leaderboard
+- `ID`: a unique identifier of this leaderboard
 
 ## Score <a href="https://github.com/soomla/ios-profile/blob/master/SoomlaiOSProfile/game-services/domain/Score.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
@@ -99,13 +99,13 @@ This class holds information about a score which was returned by `getScores` or 
 
 **A `Score` contains the following elements:**
 
-- `leaderboard`: leaderboard containing this score
+- `leaderboard`: the leaderboard containing this score
 
-- `rank`: a position of this score in the leaderboard
+- `rank`: the position of this score in the leaderboard
 
-- `player`: an owner of this score
+- `player`: the owner of this score
 
-- `value`: a value of this score
+- `value`: the value of this score
 
 ## SoomlaProfile <a href="https://github.com/soomla/ios-profile/blob/master/SoomlaiOSProfile/SoomlaProfile.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
@@ -432,7 +432,7 @@ The user will be shown a screen where he selects where he wants to share.
 
 ### `getLeaderboards`
 
-`getLeaderboards` retrieves list of leaderboards used by your application using specified provider (for example, GameCenter).
+`getLeaderboards` retrieves a list of leaderboards used by your application using the provider specified (for example, GameCenter).
 
 ``` objectivec
 [[SoomlaProfile getInstance] getLeaderboardsWithProvider:GAME_CENTER payload:@"" andReward:nil];
@@ -442,7 +442,7 @@ The user will be shown a screen where he selects where he wants to share.
 <br>
 ### `getScores`
 
-`getScores` retrieves list of scores of selected leaderboard used by your application using specified provider (for example, GameCenter).
+`getScores` retrieves a list of scores of selected leaderboard used by your application using the provider specified (for example, GameCenter).
 
 ``` objectivec
 [[SoomlaProfile getInstance] getScoresWithProvider:GAME_CENTER //selected provider

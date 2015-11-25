@@ -89,9 +89,9 @@ This class holds information about a leaderboard which was returned by `GetLeade
 
 **A `Leaderboard` contains the following elements:**
 
-- `Provider`: provider leaderboard related to
+- `Provider`: the provider this leaderboard is related to
 
-- `Id`: an unique identifier of leaderboard
+- `Id`: a unique identifier of this leaderboard
 
 ## Score <a href="https://github.com/soomla/unity3d-profile/blob/master/Soomla/Assets/Plugins/Soomla/Profile/game-services/domain/Score.cs" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
@@ -99,13 +99,13 @@ This class holds information about a score which was returned by `GetScores` or 
 
 **A `Score` contains the following elements:**
 
-- `Leaderboard`: leaderboard containing this score
+- `Leaderboard`: the leaderboard containing this score
 
-- `Rank`: a position of this score in the leaderboard
+- `Rank`: the position of this score in the leaderboard
 
-- `Player`: an owner of this score
+- `Player`: the owner of this score
 
-- `Value`: a value of this score
+- `Value`: the value of this score
 
 
 ## SoomlaProfile <a href="https://github.com/soomla/unity3d-profile/blob/master/Soomla/Assets/Plugins/Soomla/Profile/SoomlaProfile.cs" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
@@ -523,7 +523,7 @@ SoomlaProfile.MultiShare(
 
 ### `GetLeaderboards`
 
-`GetLeaderboards` retrieves list of leaderboards used by your application using specified provider (for example, GameCenter).
+`GetLeaderboards` retrieves a list of leaderboards used by your application using the provider specified (for example, GameCenter).
 
 ``` cpp
 SoomlaProfile.GetLeaderboards(
@@ -538,7 +538,7 @@ SoomlaProfile.GetLeaderboards(
 <br>
 ### `GetScores`
 
-`GetScores` retrieves list of scores of selected leaderboard used by your application using specified provider (for example, GameCenter).
+`GetScores` retrieves a list of scores of selected leaderboard used by your application using the provider specified (for example, GameCenter).
 
 ``` cpp
 SoomlaProfile.GetScores(

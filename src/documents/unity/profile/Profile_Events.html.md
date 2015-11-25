@@ -424,7 +424,7 @@ public void onInviteFailed(Provider provider, SocialActionType action, string me
 ```
 ### onGetLeaderboardsStarted
 
-The event is triggered when an fetching leaderboards has started.
+The event is triggered when fetching leaderboards has started.
 
 ``` cs
 ProfileEvents.OnGetLeaderboardsStarted += onGetLeaderboardsStarted;

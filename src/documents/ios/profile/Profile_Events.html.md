@@ -557,7 +557,7 @@ The event `EVENT_UP_INVITE_FAILED` is triggered when a social action has failed.
 
 ### GET LEADERBOARDS STARTED
 
-The event `EVENT_UP_GET_LEADERBOARDS_STARTED` is triggered when an fetching leaderboards has started.
+The event `EVENT_UP_GET_LEADERBOARDS_STARTED` is triggered when fetching leaderboards has started.
 
 ``` objectivec
 // observe the event:
