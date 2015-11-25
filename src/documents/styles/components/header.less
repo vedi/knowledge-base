@@ -1,8 +1,8 @@
 #knowledge-navbar {
   background-color:#3Fa8F4;
-
   .container {
     position: relative;
+    height: 100%;
   }
 
   #dropdown-container {
@@ -30,7 +30,49 @@
 
 }
 
-.navbar-header {
+.survey-soombot {
+  width: 39px;
+  height: 47px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-image: url('/img/soombot-white.png');
+  transition: height 0.2s ease-in-out;
+}
+
+.survey-banner:hover {
+  top: 0px;
+  transition: all 0.2s ease-in-out;
+}
+
+.survey-banner {
+  position: relative;
+  top: 21px;
+  transition: all 0.2s ease-in-out;
+}
+
+.survey-banner.show-banner-start {
+  top: 0px;
+  transition: all 0.2s ease-in-out;
+}
+
+.survey-sign {
+  width: 199px;
+  height: 39px;
+  opacity: 0;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-image: url('/img/bubble-blue.png');
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  top: 50px;
+}
+
+.survey-sign.show-sign {
+  display: inline-block;
+  opacity: 100;
+  transition: all 0.3s ease-in-out;
+  top: 0px;
+}.navbar-header {
   z-index:1000;
 }
 .cover {
@@ -38,4 +80,11 @@
 }
 #header-right {
   float:right;
+}
+
+#header-before-right {
+  float: right;
+  overflow: hidden;
+  height: 100%;
+  margin-right: 30px;
 }

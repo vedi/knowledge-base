@@ -33,7 +33,6 @@
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
-
 <nav id="knowledge-navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
       <div id="main-menu">
@@ -54,7 +53,14 @@
         <img id="main-menu-tab" src="/img/menu/Menu-BG-Tab.png">
       </div>
       <div class="cover"> <a id="header-logo" href="/"><img  src="/img/HeaderLogo.png"/></a></div>
-      <div id="header-right"></div>
+      <div id="header-right">
+      </div>
+      <div id="header-before-right">
+        <a href="https://soom.la/labs" class="survey-banner">
+          <span class="survey-sign"></span>
+          <span class="survey-soombot"></span>
+        </a>
+      </div>
     </div>
 
 </nav>
@@ -92,19 +98,25 @@
                 <span id="soomla-copyright">&#169; 2014 Soomla</span>
                 <a href="http://about.soom.la/terms-of-use/">Terms of Use</a> |
                 <a href="http://about.soom.la/privacy-policy/">Privacy Policy</a> |
+                <a href="http://about.soom.la/end-user-privacy-policy/">End User Privacy Policy</a> |
                 <a href="//mappedinisrael.com/search/SOOMLA">Made with ♥ in Tel-Aviv</a>
             </div>
         </div>
     </div>
 </footer>
-<!-- /FOOTER -->
+<!-- /FOOTER END -->
 
 <!-- DocPad Scripts + Our Own -->
-
-
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="/scripts/jquery-1.11.1.min.js"><\/script>')</script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script>
+  jQuery('.survey-banner').on('mouseenter', function() { jQuery('.survey-sign').addClass("show-sign") });
+  jQuery('.survey-banner').on('mouseleave', function() { jQuery('.survey-sign').removeClass("show-sign") });
+  $('.survey-banner').addClass('show-banner-start');
+  setTimeout(function() {
+    $('.survey-banner').removeClass('show-banner-start');
+  }, 5000)
+</script><script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script>$.fn.modal || document.write('<script src="/scripts/bootstrap-3.1.1.min.js"><\/script>')</script>
 <% if @getEnvironment() == 'development':%>
 <%- @getBlock('scripts').add(@site.scripts).toHTML() %>

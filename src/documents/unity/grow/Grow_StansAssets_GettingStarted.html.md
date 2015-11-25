@@ -18,19 +18,19 @@ GROW is SOOMLA's flagship, community-driven, data network. Mobile game studios c
 
 Analytics, Whales Report and GrowInsights are provided for free to users of the GROW network. GrowInsights is an SDK provided with the GROW packages and Whales Report are automatically sent to the emails of users with live & active games.
 
-**Note:** This document is for users of Stan's Assets who installed the IAP plugin and/or social plugin and don't want to integrate SOOMLA's opensource modules into their game.
+**Note:** This document is for users of Stan's Assets who installed the IAP plugin and/or social plugin and don't integrate SOOMLA's opensource modules into their game.
 
 ## Getting Started
 
-Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon logging in, you will be directed to the main page of the dashboard. You will need to create a new game in order to start your journey with GROW.
+Go to the [GROW dashboard](https://doorman.soom.la/oauth/authorize?response_type=code&redirect_uri=http%3A%2F%2Fdashboard.soom.la%2Fauth%2Fdoorman%2Fcallback&scope=own&client_id=growDashboard&referrer=stansassets) and sign up \ login. Upon logging in, you will be directed to the main page of the dashboard. You will need to create a new game in order to start your journey with GROW.
 
-> This integration works with Stan's Asset's Android Native Plugin v7.0.3+ OR iOS Native Plugin v8.0.6+.
+> This integration works with Stan's Assets Android Native Plugin v7.0.3+ OR iOS Native Plugin v8.0.6+.
 
 1. In the games screen click on the "+" button to add a new game. If it's your first time in the dashboard, just click on the "+" button underneath the "Create your first game" label in the middle of the screen.
 
 	  ![alt text](/img/tutorial_img/unity_grow/addNewApp.png "Add new app")
 
-	<div class="info-box">Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles. Click on any bundle to see your game's envKey and gameKey (You can ignore other installation instructions on the dashboard as you're only using Stan's Assets).</div>
+	<div class="info-box">Once you created your game, you'll be redirected to a quick start process for integration. Click on the "Stan's Assets" box to see your game's envKey and gameKey.</div>
 
 2. Download and Import the GROW Lite unitypackage from [here](http://library.soom.la/fetch/unity3d-soomla-grow-lite/latest?cf=kb).
 
@@ -55,7 +55,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 ## Back to the Dashboard
 
-Once your app is running, you can go back to the [GROW dashboard](http://dashboard.soom.la) to verify the integration. Just refresh the page, and the environments tab should appear (be patient, this step can take a few minutes).
+Once your app is running, you can go back to the [GROW dashboard](https://doorman.soom.la/oauth/authorize?response_type=code&redirect_uri=http%3A%2F%2Fdashboard.soom.la%2Fauth%2Fdoorman%2Fcallback&scope=own&client_id=growDashboard&referrer=stansassets) to verify the integration. Just refresh the page, and the environments tab should appear (be patient, this step can take a few minutes).
 
 ![alt text](/img/tutorial_img/unity_grow/verifyIntegration.png "Verify Integration")
 

@@ -16,14 +16,9 @@ platform: 'unity'
 
   <div class="info-box">LevelUp depends on SOOMLA's other modules: Core, Store, and Profile. This document assumes that you are new to SOOMLA and have not worked with any of the other SOOMLA modules. If this is not the case, and you already *have* some or all of the other modules, please follow these directions only for the modules you are missing and of course, for the **LevelUp** module.</div>
 
-1. Download the following unity-packages:
-    - [soomla-unity3d-core](http://library.soom.la/fetch/unity3d-core/latest?cf=knowledge%20base)
-	
-    - [unity3d-store](http://library.soom.la/fetch/unity3d-store/latest?cf=knowledge%20base)
-	
-    - [unity3d-profile](http://library.soom.la/fetch/unity3d-profile/latest?cf=knowledge%20base)
-	
-    - [unity3d-levelup](http://library.soom.la/fetch/unity3d-levelup/latest?cf=knowledge%20base)
+1. Download and import [unity3d-levelup](http://library.soom.la/fetch/unity3d-levelup/latest?cf=knowledge%20base).
+
+	**NOTE:** If you already have Store and Profile integrated use [unity3d-levelup-only](http://library.soom.la/fetch/unity3d-levelup-only/latest?cf=knowledge%20base) to avoid importing Core, Store and Profile again.
 
   **OR** if you would like to work with sources, you should **recursively** clone the repo (instead of downloading):
 

@@ -12,7 +12,7 @@ platform: 'university'
 
 # Whales Report
 
-The Whales Report is a weekly report sent to studios with games participating in the GROW network. The report will be sent to games with more than 50 weekly players on their non-testing environments. The Whales Report gives you insights about paying users' week-over-week metrics such as conversion, retention and more.
+The Whales Report is a weekly report sent to studios with games participating in the GROW network. The report will be sent to games with more than 50 weekly players on their non-testing environments. The Whales Report gives you insights about paying users' week-over-week metrics such as conversion, Avg. days to payment and more.
 
 The data provided in the Whales Report is generated using aggregated data collected on the GROW network. Your report will show you a clear view of how your game performs with the paying users from GROW.
 
@@ -53,37 +53,35 @@ The whales report includes many metrics, some measured across the past week and 
 <br><br><br>
 
 <figure>
-    <img src="/img/docs/university/whales-report/WR-8_14.png" style="width:100%">
-    <figcaption style="text-align:center">Retention and gross weekly and alltime figures section</figcaption>
+    <img src="/img/docs/university/whales-report/WR-8_13.png" style="width:100%">
+    <figcaption style="text-align:center">Gross weekly and alltime figures section</figcaption>
 </figure>
 <br>
-8 - **Retention:** this section shows your payer retention performance over the report’s week days using a cohort analysis chart. The left axis shows the date in which each cohort entered your game and the top shows how many days passed since that entry day. The matching cell for these axis values shows how many payers stayed in your game after this many days since their entry.<br>
+8 - **Weekly users played:** weekly count of users who played your game.<br>
 
-9 - **Weekly users played:** weekly count of users who played your game.<br>
+9 - **Weekly users paid:** weekly count of users who paid in your game.<br>
 
-10 - **Weekly users paid:** weekly count of users who paid in your game.<br>
+10 - **Weekly conversion:** conversion rate for your game this week. Shows what percentage of new users you’ve been able to convert to paying users in your game this week.<br>
 
-11 - **Weekly conversion:** conversion rate for your game this week. Shows what percentage of new users you’ve been able to convert to paying users in your game this week.<br>
+11 - **All-time users played:** total count of users who played your game since you joined the Grow network.<br>
 
-12 - **All-time users played:** total count of users who played your game since you joined the Grow network.<br>
+12 - **All-time users paid:** total count of users who paid in your game since you joined the Grow network.<br>
 
-13 - **All-time users paid:** total count of users who paid in your game since you joined the Grow network.<br>
-
-14 - **Average days to payment:** how many days on average (on all days since you joined Grow) does it take a paying user to start paying in your game since he started playing it.<br>
+13 - **Average days to payment:** how many days on average (on all days since you joined Grow) does it take a paying user to start paying in your game since he started playing it.<br>
 
 <br><br><br>
 
 <figure>
-    <img src="/img/docs/university/whales-report/WR-15_16.png" style="width:100%">
+    <img src="/img/docs/university/whales-report/WR-14_15.png" style="width:100%">
     <figcaption style="text-align:center">Revenue section</figcaption>
 </figure>
 <br>
 
-15 - **Revenue:** shows how much revenue you made this week and last week side by side.<br>
+14 - **Revenue:** shows how much revenue you made this week and last week side by side.<br>
 
-16 - **Revenue graph:** shows your historical revenue over the last 12 weeks.<br>
+15 - **Revenue graph:** shows your historical revenue over the last 12 weeks.<br>
 
-<br><br><br><br><br>
+<br><br><br><br>
 
 #### Use the Whales Report to track your game's growth and see how well it does in relation to the GROW network week over week.
 
