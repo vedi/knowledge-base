@@ -726,7 +726,7 @@ The event `EVENT_UP_REPORT_SCORE_FINISHED` is triggered when score reporting for
   // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) on which the score reporting process
   //                                   finished
   // DICT_ELEMENT_LEADERBOARD        = Source leaderboard(Leaderboard*)
-  // DICT_ELEMENT_SCORE              = New score (Score*) instance fo created 
+  // DICT_ELEMENT_SCORE              = New score (Score*) instance was created 
   // DICT_ELEMENT_PAYLOAD            = An identification string (NSString*) that you can give  
   // when you initiate the report score operation and want to receive back upon its completion
 

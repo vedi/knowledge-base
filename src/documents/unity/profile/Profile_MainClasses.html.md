@@ -496,6 +496,53 @@ SoomlaProfile.MultiShare(
 );
 ```
 
+### `GetLeaderboards`
+
+`GetLeaderboards` retrieves list of leaderboards used by your application using specified provider (for example, GameCenter).
+
+``` cpp
+SoomlaProfile.GetLeaderboards(
+        Provider.GAME_CENTER,
+        "",                                 // no payload
+        null,                               // no reward
+        null                                // no error handling, to keep example simple
+        );
+
+```
+
+<br>
+### `GetScores`
+
+`GetScores` retrieves list of scores of selected leaderboard used by your application using specified provider (for example, GameCenter).
+
+``` cpp
+SoomlaProfile.GetScores(
+        Provider.GAME_CENTER,
+        leaderboard,                        // your leaderboard
+        true,                               // you definitely need the 1st page
+        "",                                 // no payload
+        null,                               // no reward
+        null                                // no error handling, to keep example simple
+        );
+
+```
+
+### `ReportScore`
+
+`ReportScore` submits new score for current user in selected leaderboard.
+
+``` cpp
+SoomlaProfile.ReportScore(
+        Provider.GAME_CENTER,        
+        leaderboard,                        // your leaderboard
+        score,                              // value to submit
+        "",                                 // no payload
+        null,                               // no reward
+        null                                // no error handling, to keep example simple
+        );
+        
+```
+
 <br>
 ## Auxiliary Model: Reward <a href="https://github.com/soomla/soomla-unity3d-core/blob/master/Soomla/Assets/Plugins/Soomla/Core/rewards/Reward.cs" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
