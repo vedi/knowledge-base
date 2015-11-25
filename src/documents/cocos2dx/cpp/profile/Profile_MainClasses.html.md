@@ -84,6 +84,30 @@ This class represents a profile of a user from a social network (provider).
 	
     - **expiration_date** - *UNIX timestamp as cocos2dx::__Double* - `not available for Android`
 
+## CCLeaderboard <a href="https://github.com/soomla/cocos2dx-profile/blob/master/Soomla/domain/CCLeaderboard.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+
+This class holds information about a leaderboard which was returned by `getLeaderboards`.
+
+**A `CCLeaderboard` contains the following elements:**
+
+- `Provider`: provider leaderboard related to
+
+- `ID`: an unique identifier of leaderboard
+
+## CCScore <a href="https://github.com/soomla/ios-profile/blob/master/SoomlaiOSProfile/game-services/domain/Score.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+
+This class holds information about a score which was returned by `getScores` or `reportScore` methods.
+
+**A `CCScore` contains the following elements:**
+
+- `Leaderboard`: leaderboard containing this score
+
+- `Rank`: a position of this score in the leaderboard
+
+- `Player`: an owner of this score
+
+- `Value`: a value of this score
+
 ## CCSoomlaProfile <a href="https://github.com/soomla/cocos2dx-profile/blob/master/Soomla/CCSoomlaProfile.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
 This is the main class that controls the entire SOOMLA Profile module. Use this class to perform various social and authentication operations for users. The Profile module will work with the social and authentication plugins of the integrated social provider (FB, G+, Twitter, etc..).

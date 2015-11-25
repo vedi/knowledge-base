@@ -82,6 +82,30 @@ This class represents a profile of a user from a social network (provider).
     - **refresh_token** - *NSString*
 	
     - **expiration_date** - *UNIX timestamp as NSNumber*
+    
+## Leaderboard <a href="https://github.com/soomla/ios-profile/blob/master/SoomlaiOSProfile/game-services/domain/Leaderboard.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+
+This class holds information about a leaderboard which was returned by `getLeaderboards`.
+
+**A `Leaderboard` contains the following elements:**
+
+- `provider`: provider leaderboard related to
+
+- `ID`: an unique identifier of leaderboard
+
+## Score <a href="https://github.com/soomla/ios-profile/blob/master/SoomlaiOSProfile/game-services/domain/Score.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+
+This class holds information about a score which was returned by `getScores` or `reportScore` methods.
+
+**A `Score` contains the following elements:**
+
+- `leaderboard`: leaderboard containing this score
+
+- `rank`: a position of this score in the leaderboard
+
+- `player`: an owner of this score
+
+- `value`: a value of this score
 
 ## SoomlaProfile <a href="https://github.com/soomla/ios-profile/blob/master/SoomlaiOSProfile/SoomlaProfile.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 

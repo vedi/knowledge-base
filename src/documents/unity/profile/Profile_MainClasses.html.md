@@ -82,6 +82,31 @@ This class holds information about a user for a specific `Provider`.
     - **refresh_token** - *String* - `not available for Android`
 	
     - **expiration_date** - *UNIX timestamp as Double* - `not available for Android`
+    
+## Leaderboard <a href="https://github.com/soomla/unity3d-profile/blob/master/Soomla/Assets/Plugins/Soomla/Profile/game-services/domain/Leaderboard.cs" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+
+This class holds information about a leaderboard which was returned by `GetLeaderboards`.
+
+**A `Leaderboard` contains the following elements:**
+
+- `Provider`: provider leaderboard related to
+
+- `Id`: an unique identifier of leaderboard
+
+## Score <a href="https://github.com/soomla/unity3d-profile/blob/master/Soomla/Assets/Plugins/Soomla/Profile/game-services/domain/Score.cs" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+
+This class holds information about a score which was returned by `GetScores` or `ReportScore` methods.
+
+**A `Score` contains the following elements:**
+
+- `Leaderboard`: leaderboard containing this score
+
+- `Rank`: a position of this score in the leaderboard
+
+- `Player`: an owner of this score
+
+- `Value`: a value of this score
+
 
 ## SoomlaProfile <a href="https://github.com/soomla/unity3d-profile/blob/master/Soomla/Assets/Plugins/Soomla/Profile/SoomlaProfile.cs" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
