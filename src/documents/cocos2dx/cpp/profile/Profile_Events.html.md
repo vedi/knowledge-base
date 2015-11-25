@@ -558,3 +558,210 @@ void Example::EVENT_INVITE_CANCELLED(EventCustom *event) {
   // ... your game specific implementation here ...
 }
 ```
+
+### GET_LEADERBOARDS_STARTED
+
+The event `EVENT_GET_LEADERBOARDS_STARTED` is triggered when an invitation process has started.
+
+```cpp
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_GET_LEADERBOARDS_STARTED, CC_CALLBACK_1(Example::EVENT_GET_LEADERBOARDS_STARTED, this));
+
+void Example::EVENT_GET_LEADERBOARDS_STARTED(EventCustom *event) {
+  // DICT_ELEMENT_PROVIDER           - The provider on which fetching will be performed  
+  // DICT_ELEMENT_PAYLOAD            - An identification string that you can give
+  //      initiate the social action operation and want to receive back upon failure
+
+  __Dictionary *eventData = (__Dictionary *)event->getUserData();
+  CCProvider provider = CCProvider((dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PROVIDER)))->getValue());    
+  __String *payload = dynamic_cast<__String *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PAYLOAD));
+
+  // ... your game specific implementation here ...
+}
+```
+
+### GET_LEADERBOARDS_FINISHED
+
+The event `EVENT_GET_LEADERBOARDS_FINISHED` is triggered when an leaderboards fetching has finished successfully.
+
+```cpp
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_GET_LEADERBOARDS_FINISHED, CC_CALLBACK_1(Example::EVENT_GET_LEADERBOARDS_FINISHED, this));
+
+void Example::EVENT_GET_LEADERBOARDS_FINISHED(EventCustom *event) {
+  // DICT_ELEMENT_PROVIDER           - The provider on which fetching will be performed  
+  // DICT_ELEMENT_LEADERBOARDS       - A list of leaderboards
+  // DICT_ELEMENT_PAYLOAD            - An identification string that you can give
+  //      initiate the social action operation and want to receive back upon failure
+
+  __Dictionary *eventData = (__Dictionary *)event->getUserData();
+  CCProvider provider = CCProvider((dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PROVIDER)))->getValue());
+  __Array *leaderboards = dynamic_cast<_Array *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_LEADERBOARDS));
+  __String *payload = dynamic_cast<__String *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PAYLOAD));
+
+  // ... your game specific implementation here ...
+}
+```
+
+### GET_LEADERBOARDS_FAILED
+
+The event `EVENT_GET_LEADERBOARDS_FAILED` is triggered when a leaderboards fetching was failed.
+
+```cpp
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_GET_LEADERBOARDS_FAILED, CC_CALLBACK_1(Example::EVENT_GET_LEADERBOARDS_FAILED, this));
+
+void Example::EVENT_GET_LEADERBOARDS_FAILED(EventCustom *event) {
+  // DICT_ELEMENT_PROVIDER           - The provider on which fetching will be performed  
+  // DICT_ELEMENT_MESSAGE            - the failure message
+  // DICT_ELEMENT_PAYLOAD            - An identification string that you can give
+  //      initiate the social action operation and want to receive back upon failure
+
+  __Dictionary *eventData = (__Dictionary *)event->getUserData();
+  CCProvider provider = CCProvider((dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PROVIDER)))->getValue());
+  __String *errorDescription = dynamic_cast<__String *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_MESSAGE));
+  __String *payload = dynamic_cast<__String *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PAYLOAD));
+
+  // ... your game specific implementation here ...
+}
+```
+
+### GET_SCORES_STARTED
+
+The event `EVENT_GET_SCORES_STARTED` is triggered when fetching the scores from the current leaderboard has started.
+
+```cpp
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_GET_SCORES_STARTED, CC_CALLBACK_1(Example::EVENT_GET_SCORES_STARTED, this));
+
+void Example::EVENT_GET_SCORES_STARTED(EventCustom *event) {
+  // DICT_ELEMENT_PROVIDER - the social provider
+  // DICT_ELEMENT_LEADERBOARD - the source leaderboard
+  // DICT_ELEMENT_FROM_START - Should we reset pagination or request the next page
+  // DICT_ELEMENT_PAYLOAD - an identification string that you can give when you initiate
+  //      the get contacts operation and want to receive back upon starting
+
+  __Dictionary *eventData = (__Dictionary *)event->getUserData();
+  CCProvider provider = CCProvider((dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PROVIDER)))->getValue());
+  CCLeaderboard *leaderboard = dynamic_cast<CCLeaderboard *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_LEADERBOARD)));
+  __String *payload = dynamic_cast<__String *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PAYLOAD));
+
+  // ... your game specific implementation here ...
+}
+```
+
+### GET_SCORES_FINISHED
+
+The event `EVENT_GET_SCORES_FINISHED` is triggered when fetching the scores from the current leaderboard has finished successfully.
+
+```cpp
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_GET_SCORES_FINISHED, CC_CALLBACK_1(Example::EVENT_GET_SCORES_FINISHED, this));
+
+void Example::EVENT_GET_SCORES_FINISHED(EventCustom *event) {
+  // DICT_ELEMENT_PROVIDER - the social provider
+  // DICT_ELEMENT_LEADERBOARD - the source leaderboard
+  // DICT_ELEMENT_PAYLOAD  - an identification string that you can give when you initiate
+  //      the get scores operation and want to receive back upon its completion
+  // DICT_ELEMENT_HAS_MORE - if there are more items in pagination
+  // DICT_ELEMENT_SCORES - a List of scores that have been fetched in the get
+  //      scores operation
+
+  __Dictionary *eventData = (__Dictionary *)event->getUserData();
+  CCProvider provider = CCProvider((dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PROVIDER)))->getValue());
+  CCLeaderboard *leaderboard = dynamic_cast<CCLeaderboard *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_LEADERBOARD)));
+  __String *payload = dynamic_cast<__String *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PAYLOAD));
+  __Array *scoresArray = dynamic_cast<__Array *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_SCORES));
+
+  // ... your game specific implementation here ...
+}
+```
+
+### GET_SCORES_FAILED
+
+The event `EVENT_GET_SCORES_FAILED` is triggered when fetching the scores from the current leaderboard has failed.
+
+```cpp
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_GET_SCORES_FAILED, CC_CALLBACK_1(Example::EVENT_GET_SCORES_FAILED, this));
+
+void Example::EVENT_GET_SCORES_FAILED(EventCustom *event) {
+  // DICT_ELEMENT_PROVIDER - the social provider
+  // DICT_ELEMENT_LEADERBOARD - the source leaderboard
+  // DICT_ELEMENT_MESSAGE  - the failure message
+  // DICT_ELEMENT_FROM_START - Should we reset pagination or request the next page
+  // DICT_ELEMENT_PAYLOAD  - an identification string that you can give when you initiate
+  //      the get contacts operation and want to receive back upon failure
+
+  __Dictionary *eventData = (__Dictionary *)event->getUserData();
+  CCProvider provider = CCProvider((dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PROVIDER)))->getValue());
+  CCLeaderboard *leaderboard = dynamic_cast<CCLeaderboard *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_LEADERBOARD)));
+  __String *errorDescription = dynamic_cast<__String *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_MESSAGE));
+  __String *payload = dynamic_cast<__String *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PAYLOAD));
+
+  // ... your game specific implementation here ...
+}
+```
+
+### REPORT_SCORE_STARTED
+
+The event `EVENT_REPORT_SCORE_STARTED` is triggered when score reporting for the current leaderboard has started.
+
+```cpp
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_REPORT_SCORE_STARTED, CC_CALLBACK_1(Example::EVENT_REPORT_SCORE_STARTED, this));
+
+void Example::EVENT_REPORT_SCORE_STARTED(EventCustom *event) {
+  // DICT_ELEMENT_PROVIDER - the social provider
+  // DICT_ELEMENT_LEADERBOARD - the source leaderboard  
+  // DICT_ELEMENT_PAYLOAD - an identification string that you can give when you initiate
+  //      the report score operation and want to receive back upon starting
+
+  __Dictionary *eventData = (__Dictionary *)event->getUserData();
+  CCProvider provider = CCProvider((dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PROVIDER)))->getValue());
+  CCLeaderboard *leaderboard = dynamic_cast<CCLeaderboard *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_LEADERBOARD)));
+  __String *payload = dynamic_cast<__String *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PAYLOAD));
+
+  // ... your game specific implementation here ...
+}
+```
+
+### REPORT_SCORE_FINISHED
+
+The event `EVENT_REPORT_SCORE_FINISHED` is triggered when score reporting for the current leaderboard has finished successfully.
+
+```cpp
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_REPORT_SCORE_FINISHED, CC_CALLBACK_1(Example::EVENT_REPORT_SCORE_FINISHED, this));
+
+void Example::EVENT_REPORT_SCORE_FINISHED(EventCustom *event) {
+  // DICT_ELEMENT_PROVIDER - the social provider
+  // DICT_ELEMENT_LEADERBOARD - the source leaderboard
+  // DICT_ELEMENT_SCORE - the resulted score
+  // DICT_ELEMENT_PAYLOAD - an identification string that you can give when you initiate
+  //      the report score operation and want to receive back upon starting
+
+  __Dictionary *eventData = (__Dictionary *)event->getUserData();
+  CCProvider provider = CCProvider((dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PROVIDER)))->getValue());
+  CCLeaderboard *leaderboard = dynamic_cast<CCLeaderboard *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_LEADERBOARD)));
+  CCScore *score = dynamic_cast<CCScore *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_SCORE)));
+  __String *payload = dynamic_cast<__String *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PAYLOAD));
+
+  // ... your game specific implementation here ...
+}
+```
+
+### REPORT_SCORE_FAILED
+
+The event `REPORT_SCORE_FAILED` is triggered when score reporting for the current leaderboard has failed.
+
+```cpp
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::REPORT_SCORE_FAILED, CC_CALLBACK_1(Example::REPORT_SCORE_FAILED, this));
+
+void Example::REPORT_SCORE_FAILED(EventCustom *event) {
+  // DICT_ELEMENT_PROVIDER - the social provider
+  // DICT_ELEMENT_LEADERBOARD - the source leaderboard
+  // DICT_ELEMENT_MESSAGE  - the failure message
+  // DICT_ELEMENT_PAYLOAD - an identification string that you can give when you initiate
+  //      the report score operation and want to receive back upon starting
+
+  __Dictionary *eventData = (__Dictionary *)event->getUserData();
+  CCProvider provider = CCProvider((dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PROVIDER)))->getValue());
+  CCLeaderboard *leaderboard = dynamic_cast<CCLeaderboard *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_LEADERBOARD)));  
+  __String *payload = dynamic_cast<__String *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PAYLOAD));
+
+  // ... your game specific implementation here ...
+}
+```

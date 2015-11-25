@@ -587,6 +587,100 @@ soomla::CCSoomlaProfile::getInstance()->multiShare(
 );
 ```
 
+### `getLeaderboards`
+
+`getLeaderboards` retrieves list of leaderboards used by your application using specified provider (for example, GameCenter).
+
+``` cpp
+soomla::CCSoomlaProfile::getInstance()->getLeaderboards(
+        soomla::GAME_CENTER,
+        "",                                 // no payload
+        NULL,                               // no reward
+        NULL                                // no error handling, to keep example simple
+        );
+
+```
+
+<br>
+### `getScores`
+
+`getScores` retrieves list of scores of selected leaderboard used by your application using specified provider (for example, GameCenter).
+
+``` cpp
+soomla::CCSoomlaProfile::getInstance()->getScores(
+        soomla::GAME_CENTER,
+        leaderboard,                        // your leaderboard
+        true,                               // you definitely need the 1st page
+        "",                                 // no payload
+        NULL,                               // no reward
+        NULL                                // no error handling, to keep example simple
+        );
+
+```
+
+#### Pagination
+
+Note that the results will contain only part of the list. In order to get more items you should call the method again with `fromStart` param set to `false` (it's a default value for overloaded methods). You can use the following workflow:
+
+```cpp
+void Example::getScores() {
+    Director::getInstance()->getEventDispatcher()->addCustomEventListener(
+            CCProfileConsts::EVENT_GET_SCORES_FINISHED,
+            CC_CALLBACK_1(Example::onGetScoresFinished, this));
+
+    // request for the 1st page
+    soomla::CCSoomlaProfile::getInstance()->getScores(
+        soomla::GAME_CENTER,
+        leaderboard,                        // your leaderboard
+        true,                               // you definitely need the 1st page
+        "",                                 // no payload
+        NULL,                               // no reward
+        NULL                                // no error handling, to keep example simple
+        );
+}
+
+void Example::onGetScoresFinished(EventCustom *event) {
+
+    __Dictionary *eventData = (__Dictionary *)event->getUserData();
+    __Bool *hasMore = dynamic_cast<__Bool *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_HAS_MORE));
+    __Array *scores = dynamic_cast<__Array *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_SCORES));
+
+    // ... handle page results ...
+
+    if (hasMore != nullptr && hasMore->getValue()) {
+        soomla::CCSoomlaProfile::getInstance()->getScores(
+            soomla::GAME_CENTER,
+            leaderboard,
+            false,                              // going on with the pagination
+            "",                                 // no payload
+            NULL,                               // no reward
+            NULL                                // no error handling, to keep example simple
+            );
+    } else {
+        // no pages anymore
+    }
+}
+
+```
+
+<br>
+
+### `reportScore`
+
+`reportScore` submits new score for current user in selected leaderboard.
+
+``` cpp
+soomla::CCSoomlaProfile::getInstance()->reportScore(
+        soomla::GAME_CENTER,        
+        leaderboard,                        // your leaderboard
+        score,                              // value to submit
+        "",                                 // no payload
+        NULL,                               // no reward
+        NULL                                // no error handling, to keep example simple
+        );
+        
+```
+
 ## Auxiliary Model: CCReward [<img class="link-icon" src="/img/tutorial_img/linkImg.png">](https://github.com/soomla/soomla-cocos2dx-core/blob/master/Soomla/rewards/CCReward.h)
 
 A `CCReward` is an entity which can be earned by the user for meeting certain criteria in game progress.

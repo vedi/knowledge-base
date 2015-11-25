@@ -406,6 +406,82 @@ The user will be shown a screen where he selects where he wants to share.
 
 ```
 
+### `getLeaderboards`
+
+`getLeaderboards` retrieves list of leaderboards used by your application using specified provider (for example, GameCenter).
+
+``` objectivec
+[[SoomlaProfile getInstance] getLeaderboardsWithProvider:GAME_CENTER payload:@"" andReward:nil];
+
+```
+
+<br>
+### `getScores`
+
+`getScores` retrieves list of scores of selected leaderboard used by your application using specified provider (for example, GameCenter).
+
+``` objectivec
+[[SoomlaProfile getInstance] getScoresWithProvider:GAME_CENTER //selected provider
+    forLeaderboard:leaderboard //your leaderboard
+    fromStart:false //should we fetch list from the 1st page or not 
+    payload:@"" 
+    andReward:nil];
+
+```
+
+#### Pagination
+
+Note that the results will contain only part of the list. In order to get more items you should call the method again with `fromStart` param set to `false` (it's a default value for overloaded methods). You can use the following workflow:
+
+```objectivec
+- (void)getScores {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getScoresFinished:)
+      name:EVENT_UP_GET_SCORES_FINISHED object:nil];
+
+    // request for the 1st page
+    [[SoomlaProfile getInstance] getScoresWithProvider:FACEBOOK
+        forLeaderboard:leaderboard
+        andFromStart: YES       // you definitely need the 1st page
+        andPayload: @""         // a String to receive when the function returns.
+        andReward:nil           // The reward to grant
+    ];
+}
+
+
+// your handler:
+- (void)getScoresFinished:(NSNotification*)notification {
+
+    // ... handle page results ...
+
+    if (notification.userData[DICT_ELEMENT_HAS_MORE] != nil && [notification.userData[DICT_ELEMENT_HAS_MORE] boolValue]) {
+        [[SoomlaProfile getInstance] getScoresWithProvider:FACEBOOK
+            forLeaderboard:leaderboard
+            andFromStart: NO        // going on with the pagination
+            andPayload: @""         // a String to receive when the function returns.
+            andReward:nil           // The reward to grant
+        ];
+    } else {
+        // no pages anymore
+    }
+}
+
+```
+
+<br>
+
+### `reportScore`
+
+`reportScore` submits new score for current user in selected leaderboard.
+
+``` objectivec
+[[SoomlaProfile getInstance] reportScoreWithProvider:GAME_CENTER //selected provider
+    score:score //value to submit
+    forLeaderboard:leaderboard //your leaderboard     
+    payload:@"" 
+    andReward:nil];
+
+```
+
 ## Auxiliary Model: Reward
 
 A `Reward` is an entity which can be earned by the user for meeting certain criteria in game progress.
