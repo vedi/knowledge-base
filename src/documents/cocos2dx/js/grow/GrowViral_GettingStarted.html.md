@@ -24,9 +24,13 @@ GrowViral includes:
 
 - SOOMLA's open-source modules - [Store](/cocos2dx/js/store/Store_GettingStarted) and 
 [Profile](/cocos2dx/js/profile/Profile_GettingStarted)
+
 - [Gifting](/cocos2dx/js/grow/Grow_Gifting)
+
 - [Analytics](/cocos2dx/js/grow/Grow_Analytics)
+
 - [Whales Report](/cocos2dx/js/grow/Grow_WhalesReport)
+
 - [Insights](/cocos2dx/js/grow/Grow_Insights)
 
 ## Integrating GrowViral
@@ -161,8 +165,11 @@ sure to check "create group").
 1. For each of the following XCode projects:
 
   - `Cocos2dXCore.xcodeproj` (**frameworks/runtime-src/Classes/soomla-cocos2dx-core/**)  
+  
   - `Cocos2dXStore.xcodeproj` (**frameworks/runtime-src/Classes/cocos2dx-store/**)
+  
   - `Cocos2dXProfile.xcodeproj` (**frameworks/runtime-src/Classes/cocos2dx-profile/**)  
+  
   - `Cocos2dXHighway.xcodeproj` (**frameworks/runtime-src/Classes/cocos2dx-highway/**)
 
   perform the following:
@@ -181,10 +188,15 @@ sure to check "create group").
   framework, or links to to its root folder.
 
  - `$(SRCROOT)/../Classes/soomla-cocos2dx-core/Soomla`
+ 
  - `$(SRCROOT)/../Classes/soomla-cocos2dx-core/build/ios/headers`
+ 
  - `$(SRCROOT)/../Classes/cocos2dx-store/Soomla`
+ 
  - `$(SRCROOT)/../Classes/cocos2dx-profile/Soomla`
+ 
  - `$(SRCROOT)/../Classes/cocos2dx-profile/build/ios/headers`
+ 
  - `$(SRCROOT)/../Classes/cocos2dx-highway/Soomla`
 
   ![alt text](/img/tutorial_img/cocos_grow/headerSP.png "Header search paths")
@@ -196,13 +208,21 @@ sure to check "create group").
 6. Make sure you have these 9 Frameworks linked to your XCode project:
 
   - Security
+  
   - libsqlite3.0.dylib
+  
   - StoreKit
+  
   - CFNetwork
+  
   - libicucore
+  
   - SystemConfiguration
+  
   - AdSupport
+  
   - MediaPlayer
+  
   - GameController
 
 7. Connect the Profile module to a social network provider:

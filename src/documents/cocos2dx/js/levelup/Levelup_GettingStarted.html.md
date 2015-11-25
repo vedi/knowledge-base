@@ -153,12 +153,19 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
 
 1. Add the following directories to **Build Settings->Header Search Paths** (with `recursive` option):
   - `$(SRCROOT)/../Classes/soomla-cocos2dx-core/Soomla`
+  
   - `$(SRCROOT)/../Classes/soomla-cocos2dx-core/build/ios/headers`
+  
   - `$(SRCROOT)/../Classes/cocos2dx-store/Soomla`
+  
   - `$(SRCROOT)/../Classes/cocos2dx-store/build/ios/headers`
+  
   - `$(SRCROOT)/../Classes/cocos2dx-profile/Soomla`
+  
   - `$(SRCROOT)/../Classes/cocos2dx-profile/build/ios/headers`
+  
   - `$(SRCROOT)/../Classes/cocos2dx-levelup/Soomla`
+  
   - `$(SRCROOT)/../Classes/cocos2dx-levelup/build/ios/headers`
  
   ![alt text](/img/tutorial_img/cocos2dx-levelup/headerSP.png "Header search paths")

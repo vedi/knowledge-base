@@ -181,8 +181,11 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
 1. Add the following directories to **Build Settings->Header Search Paths** (with `recursive` option):
 
  - `$(SRCROOT)/../Classes/soomla-cocos2dx-core/Soomla`
+ 
  - `$(SRCROOT)/../Classes/soomla-cocos2dx-core/build/ios/headers`
+ 
  - `$(SRCROOT)/../Classes/cocos2dx-profile/Soomla`
+ 
  - `$(SRCROOT)/../Classes/cocos2dx-profile/build/ios/headers`
 
  ![alt text](/img/tutorial_img/cocos2dx-profile/headerSP.png "Header search paths")
@@ -227,15 +230,25 @@ web browser (fallback). Follow the next steps to make it work:
 5. Add additional frameworks if you still haven't:
 
     * AddressBook.framework
+	
     * AssetsLibrary.framework
+	
     * Foundation.framework
+	
     * CoreLocation.framework
+	
     * CoreMotion.framework
+	
     * CoreGraphics.framework
+	
     * CoreText.framework
+	
     * MediaPlayer.framework
+	
     * Security.framework
+	
     * SystemConfiguration.framework
+	
     * UIKit.framework
 
 6. Add `-lSoomlaiOSProfileGoogle` to your project's **Build Settings->Other Linker Flags**.
@@ -313,11 +326,14 @@ Game Center is supported out-of-the-box, authentication is done through the sign
 
   From `frameworks/runtime-src/Classes/soomla-cocos2dx-core/build/android`:
   - SoomlaAndroidCore.jar
+  
   - Cocos2dxAndroidCore.jar
+  
   - square-otto-1.3.2.jar
 
   From `frameworks/runtime-src/Classes/cocos2dx-profile/build/android`:
   - AndroidProfile.jar
+  
   - Cocos2dxAndroidProfile.jar
 
 4. Update your AndroidManifest.xml to include permissions and the SoomlaApp:

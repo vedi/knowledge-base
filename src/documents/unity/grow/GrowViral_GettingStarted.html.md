@@ -19,9 +19,13 @@ GrowViral is the perfect social engagement solution for your game. If you want y
 GrowViral includes:
 
 - SOOMLA's open-source modules - [Store](/unity/store/Store_GettingStarted) and [Profile](/unity/profile/Profile_GettingStarted)
+
 - [Gifting](/unity/grow/Grow_Gifting)
+
 - [Analytics](/unity/grow/Grow_Analytics)
+
 - [Whales Report](/unity/grow/Grow_WhalesReport)
+
 - [Insights](/unity/grow/Grow_Insights)
 
 ## Integrating GrowViral
