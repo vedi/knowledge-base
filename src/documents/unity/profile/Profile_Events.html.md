@@ -424,7 +424,7 @@ public void onInviteFailed(Provider provider, SocialActionType action, string me
 ```
 ### onGetLeaderboardsStarted
 
-The event is triggered when an invitation process has started.
+The event is triggered when an fetching leaderboards has started.
 
 ``` cs
 ProfileEvents.OnGetLeaderboardsStarted += onGetLeaderboardsStarted;
@@ -439,7 +439,7 @@ public void onGetLeaderboardsStarted(GetLeaderboardsStartedEvent event) {
 
 ### onGetLeaderboardsFinished
 
-The event is triggered when an leaderboards fetching has finished successfully.
+The event is triggered when fetching leaderboards has finished successfully.
 
 ``` cs
 ProfileEvents.OnGetLeaderboardsFinished += onGetLeaderboardsFinished;
@@ -455,7 +455,7 @@ public void onGetLeaderboardsFinished(GetLeaderboardsFinishedEvent event) {
 
 ### onGetLeaderboardsFailed
 
-The event is triggered when a leaderboards fetching was failed.
+The event is triggered when fetching leaderboards was failed.
 
 ``` cs
 ProfileEvents.OnGetLeaderboardsFailed += onGetLeaderboardsFailed;
@@ -471,7 +471,7 @@ public void onGetLeaderboardsFailed(GetLeaderboardsFailedEvent event) {
 
 ### onGetScoresStarted
 
-The event is triggered when fetching the scores from the current leaderboard has started.
+The event is triggered when fetching scores from the current leaderboard has started.
 
 ``` cs
 ProfileEvents.OnGetScoresStarted += onGetScoresStarted;
@@ -488,7 +488,7 @@ public void onGetScoresStarted(GetScoresStartedEvent event) {
 
 ### onGetScoresFinished
 
-The event is triggered when fetching the scores from the current leaderboard has finished successfully.
+The event is triggered when fetching scores from the current leaderboard has finished successfully.
 
 ``` cs
 ProfileEvents.OnGetScoresFinished += onGetScoresFinished;
@@ -505,7 +505,7 @@ public void onGetScoresFinished(GetScoresFinishedEvent event) {
 
 ### onGetScoresFailed
 
-The event is triggered when fetching the scores from the current leaderboard has failed.
+The event is triggered when fetching scores from the current leaderboard has failed.
 
 ``` cs
 ProfileEvents.OnGetScoresFailed += onGetScoresFailed;

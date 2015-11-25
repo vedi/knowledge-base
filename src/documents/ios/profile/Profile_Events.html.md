@@ -557,7 +557,7 @@ The event `EVENT_UP_INVITE_FAILED` is triggered when a social action has failed.
 
 ### GET LEADERBOARDS STARTED
 
-The event `EVENT_UP_GET_LEADERBOARDS_STARTED` is triggered when an invitation process has started.
+The event `EVENT_UP_GET_LEADERBOARDS_STARTED` is triggered when an fetching leaderboards has started.
 
 ``` objectivec
 // observe the event:
@@ -577,7 +577,7 @@ The event `EVENT_UP_GET_LEADERBOARDS_STARTED` is triggered when an invitation pr
 
 ### GET LEADERBOARDS FINISHED
 
-The event `EVENT_UP_GET_LEADERBOARDS_FINISHED` is triggered when an leaderboards fetching has finished successfully.
+The event `EVENT_UP_GET_LEADERBOARDS_FINISHED` is triggered when fetching leaderboards has finished successfully.
 
 ``` objectivec
 // observe the event:
@@ -598,7 +598,7 @@ The event `EVENT_UP_GET_LEADERBOARDS_FINISHED` is triggered when an leaderboards
 
 ### GET LEADERBOARDS FAILED
 
-The event `EVENT_UP_GET_LEADERBOARDS_FAILED` is triggered when a leaderboards fetching was failed.
+The event `EVENT_UP_GET_LEADERBOARDS_FAILED` is triggered when fetching leaderboards  was failed.
 
 ``` objectivec
 // observe the event:
@@ -619,7 +619,7 @@ The event `EVENT_UP_GET_LEADERBOARDS_FAILED` is triggered when a leaderboards fe
 
 ### GET SCORES STARTED
 
-The event `EVENT_UP_GET_SCORES_STARTED` is triggered when fetching the scores from the current leaderboard has started.
+The event `EVENT_UP_GET_SCORES_STARTED` is triggered when fetching scores from the current leaderboard has started.
 
 ``` objectivec
 // observe the event:
@@ -642,7 +642,7 @@ The event `EVENT_UP_GET_SCORES_STARTED` is triggered when fetching the scores fr
 
 ### GET SCORES FINISHED
 
-The event `EVENT_UP_GET_SCORES_FINISHED` is triggered when fetching the scores from the current leaderboard has finished successfully.
+The event `EVENT_UP_GET_SCORES_FINISHED` is triggered when fetching scores from the current leaderboard has finished successfully.
 
 ``` objectivec
 // observe the event:
@@ -667,7 +667,7 @@ The event `EVENT_UP_GET_SCORES_FINISHED` is triggered when fetching the scores f
 
 ### GET SCORES FAILED
 
-The event `EVENT_UP_GET_SCORES_FAILED` is triggered when fetching the scores from the current leaderboard has failed.
+The event `EVENT_UP_GET_SCORES_FAILED` is triggered when fetching scores from the current leaderboard has failed.
 
 ``` objectivec
 // observe the event:

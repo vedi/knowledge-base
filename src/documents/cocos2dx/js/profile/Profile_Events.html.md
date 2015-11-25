@@ -395,7 +395,7 @@ this.onInviteCancelled = function (provider, socialActionType, payload) {
 
 ### GET_LEADERBOARDS_STARTED
 
-The event `EVENT_GET_LEADERBOARDS_STARTED` is triggered when an invitation process has started.
+The event `EVENT_GET_LEADERBOARDS_STARTED` is triggered when fetching leaderboards has started.
 
 ```js
 Soomla.addHandler(Soomla.ProfileConsts.EVENT_GET_LEADERBOARDS_STARTED, this.EVENT_GET_LEADERBOARDS_STARTED, this);
@@ -411,7 +411,7 @@ this.EVENT_GET_LEADERBOARDS_STARTED = function (provider, payload) {
 
 ### GET_LEADERBOARDS_FINISHED
 
-The event `EVENT_GET_LEADERBOARDS_FINISHED` is triggered when an leaderboards fetching has finished successfully.
+The event `EVENT_GET_LEADERBOARDS_FINISHED` is triggered when fetching leaderboards has finished successfully.
 
 ``` js
 Soomla.addHandler(Soomla.ProfileConsts.EVENT_GET_LEADERBOARDS_FINISHED, this.EVENT_GET_LEADERBOARDS_FINISHED, this);
@@ -428,7 +428,7 @@ this.EVENT_GET_LEADERBOARDS_FINISHED = function (provider, leaderboards, payload
 
 ### GET_LEADERBOARDS_FAILED
 
-The event `EVENT_GET_LEADERBOARDS_FAILED` is triggered when a leaderboards fetching was failed.
+The event `EVENT_GET_LEADERBOARDS_FAILED` is triggered when fetching leaderboards was failed.
 
 ``` js
 Soomla.addHandler(Soomla.ProfileConsts.EVENT_GET_LEADERBOARDS_FAILED, this.EVENT_GET_LEADERBOARDS_FAILED, this);
@@ -445,7 +445,7 @@ this.EVENT_GET_LEADERBOARDS_FAILED = function (provider, message, payload) {
 
 ### GET_SCORES_STARTED
 
-The event `EVENT_GET_SCORES_STARTED` is triggered when fetching the scores from the current leaderboard has started.
+The event `EVENT_GET_SCORES_STARTED` is triggered when fetching scores from the current leaderboard has started.
 
 ``` js
 Soomla.addHandler(Soomla.ProfileConsts.EVENT_GET_SCORES_STARTED, this.EVENT_GET_SCORES_STARTED, this);
@@ -463,7 +463,7 @@ this.EVENT_GET_SCORES_STARTED = function (provider, leaderboard, fromStart, payl
 
 ### GET_SCORES_FINISHED
 
-The event `EVENT_GET_SCORES_FINISHED` is triggered when fetching the scores from the current leaderboard has finished successfully.
+The event `EVENT_GET_SCORES_FINISHED` is triggered when fetching scores from the current leaderboard has finished successfully.
 
 ```js
 Soomla.addHandler(Soomla.ProfileConsts.EVENT_GET_SCORES_FINISHED, this.EVENT_GET_SCORES_FINISHED, this);
@@ -483,7 +483,7 @@ this.EVENT_GET_SCORES_FINISHED = function (provider, leaderboard, scores, hasMor
 
 ### GET_SCORES_FAILED
 
-The event `EVENT_GET_SCORES_FAILED` is triggered when fetching the scores from the current leaderboard has failed.
+The event `EVENT_GET_SCORES_FAILED` is triggered when fetching scores from the current leaderboard has failed.
 
 ```js
 Soomla.addHandler(Soomla.ProfileConsts.EVENT_GET_SCORES_FAILED, this.EVENT_GET_SCORES_FAILED, this);

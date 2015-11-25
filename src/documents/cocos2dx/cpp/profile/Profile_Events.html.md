@@ -561,7 +561,7 @@ void Example::EVENT_INVITE_CANCELLED(EventCustom *event) {
 
 ### GET_LEADERBOARDS_STARTED
 
-The event `EVENT_GET_LEADERBOARDS_STARTED` is triggered when an invitation process has started.
+The event `EVENT_GET_LEADERBOARDS_STARTED` is triggered when fetching leaderboards has started.
 
 ```cpp
 Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_GET_LEADERBOARDS_STARTED, CC_CALLBACK_1(Example::EVENT_GET_LEADERBOARDS_STARTED, this));
@@ -581,7 +581,7 @@ void Example::EVENT_GET_LEADERBOARDS_STARTED(EventCustom *event) {
 
 ### GET_LEADERBOARDS_FINISHED
 
-The event `EVENT_GET_LEADERBOARDS_FINISHED` is triggered when an leaderboards fetching has finished successfully.
+The event `EVENT_GET_LEADERBOARDS_FINISHED` is triggered when fetching leaderboards has finished successfully.
 
 ```cpp
 Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_GET_LEADERBOARDS_FINISHED, CC_CALLBACK_1(Example::EVENT_GET_LEADERBOARDS_FINISHED, this));
@@ -603,7 +603,7 @@ void Example::EVENT_GET_LEADERBOARDS_FINISHED(EventCustom *event) {
 
 ### GET_LEADERBOARDS_FAILED
 
-The event `EVENT_GET_LEADERBOARDS_FAILED` is triggered when a leaderboards fetching was failed.
+The event `EVENT_GET_LEADERBOARDS_FAILED` is triggered when fetching leaderboards was failed.
 
 ```cpp
 Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_GET_LEADERBOARDS_FAILED, CC_CALLBACK_1(Example::EVENT_GET_LEADERBOARDS_FAILED, this));
@@ -625,7 +625,7 @@ void Example::EVENT_GET_LEADERBOARDS_FAILED(EventCustom *event) {
 
 ### GET_SCORES_STARTED
 
-The event `EVENT_GET_SCORES_STARTED` is triggered when fetching the scores from the current leaderboard has started.
+The event `EVENT_GET_SCORES_STARTED` is triggered when fetching scores from the current leaderboard has started.
 
 ```cpp
 Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_GET_SCORES_STARTED, CC_CALLBACK_1(Example::EVENT_GET_SCORES_STARTED, this));
@@ -648,7 +648,7 @@ void Example::EVENT_GET_SCORES_STARTED(EventCustom *event) {
 
 ### GET_SCORES_FINISHED
 
-The event `EVENT_GET_SCORES_FINISHED` is triggered when fetching the scores from the current leaderboard has finished successfully.
+The event `EVENT_GET_SCORES_FINISHED` is triggered when fetching scores from the current leaderboard has finished successfully.
 
 ```cpp
 Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_GET_SCORES_FINISHED, CC_CALLBACK_1(Example::EVENT_GET_SCORES_FINISHED, this));
@@ -674,7 +674,7 @@ void Example::EVENT_GET_SCORES_FINISHED(EventCustom *event) {
 
 ### GET_SCORES_FAILED
 
-The event `EVENT_GET_SCORES_FAILED` is triggered when fetching the scores from the current leaderboard has failed.
+The event `EVENT_GET_SCORES_FAILED` is triggered when fetching scores from the current leaderboard has failed.
 
 ```cpp
 Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_GET_SCORES_FAILED, CC_CALLBACK_1(Example::EVENT_GET_SCORES_FAILED, this));
