@@ -90,7 +90,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
     GrowInsights.Initialize();
 	```
 
-2. Make sure that in your current implementation you initialize the open-source modules (Store/Profile/LevelUp) **AFTER** the initialization of Highway.
+2. Make sure that in your current implementation you initialize the open-source modules (Store/Profile) **AFTER** the initialization of Highway.
 
 ## Module usage & event handling
 

@@ -87,7 +87,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
     grow::CCGrowInsights::initShared();
   	```
 
-4. Make sure that in your current implementation you initialize the open-source modules (Store/Profile/LevelUp) **AFTER** the initialization of Highway.
+4. Make sure that in your current implementation you initialize the open-source modules (Store/Profile) **AFTER** the initialization of Highway.
 
 <br>
 <div class="info-box">The next steps are different according to which native platform you are building for.</div>

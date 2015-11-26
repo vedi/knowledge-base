@@ -252,7 +252,7 @@ var stateSync = true;  // Synchronizes the users' balances data with the server
 // State sync and Model sync can be enabled/disabled separately.
 Soomla.GrowSync.createShared(modelSync, stateSync);
 
-/** Set up and initialize Store, Profile, and LevelUp **/
+/** Set up and initialize Store and Profile **/
 var assets = new ExampleAssets();
 var storeParams = {
   androidPublicKey: "ExamplePublicKey",
