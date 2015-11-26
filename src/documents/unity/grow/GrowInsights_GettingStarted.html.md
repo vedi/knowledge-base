@@ -18,9 +18,9 @@ GrowInsights is the perfect solution for your game if you have already integrate
 
 GrowInsights includes:
 
-- [Analytics](/unity/grow/Grow_Analytics)
+- [Analytics](/university/articles/Grow_Analytics)
 
-- [Whales Report](/unity/grow/Grow_WhalesReport)
+- [Whales Report](/university/articles/Grow_WhalesReport)
 
 - [Insights](/unity/grow/Grow_Insights)
 

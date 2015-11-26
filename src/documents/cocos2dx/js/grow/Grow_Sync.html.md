@@ -240,7 +240,7 @@ Soomla.initialize('ExampleCustomSecret');
 Soomla.GrowHighway.createShared('yourGameKey', 'yourEnvKey');
 
 // Make sure to make this call AFTER initializing HIGHWAY,
-// and BEFORE initializing STORE/PROFILE/LEVELUP
+// and BEFORE initializing STORE/PROFILE
 var modelSync = true; 	 // Remote Economy Management - Synchronizes your game's
 						 // economy model between the client and server - enables
 						 // you to remotely manage your economy.
