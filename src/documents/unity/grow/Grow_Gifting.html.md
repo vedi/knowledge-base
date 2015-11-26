@@ -17,8 +17,11 @@ platform: 'unity'
 GROW Gifting brings you the tools to make your game go viral, by letting users send little surprises to one another. With GIFTING you can:  
 
 - Send lives to your friend.
+
 - Share rare items between friends to progress faster.
+
 - Send coins to your loved one.
+
 - A lot more ... you can create your own use cases and even share them with others on SOOMLA's [Forums](http://answers.soom.la).
 
 ## Integration
@@ -174,9 +177,13 @@ Returns `false` if the operation cannot be started, `true` otherwise.
 Params:
 
 - toProvider - The social provider ID of the user to send gift to.
+
 - toProfileId - The social provider user ID to send gift to.
+
 - itemId - The virtual item ID to give as a gift.
+
 - amount - The amount of virtual items to gift.
+
 - deductFromUser (optional) - Should the virtual items be deducted from the player upon sending the gift.
 
 The `OnGiftSendStarted` event is triggered once the sending process is started, and one of `OnGiftSendFinished` or `OnGiftSendFailed` is triggered depending on the operation outcome.

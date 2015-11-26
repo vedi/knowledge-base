@@ -41,26 +41,47 @@ This class represents a profile of a user from a social network (provider).
 **A `UserProfile` contains the following elements:**
 
 - `Provider`
+
 - `ProfileId`
+
 - `Email`
+
 - `Username`
+
 - `FirstName`
+
 - `LastName`
+
 - `AvatarLink`
+
 - `Location`
+
 - `Gender`
+
 - `Language`
+
 - `Birthday`
+
 - `Extra` - a dictionary contains additional info provided by social provider:
+
   - `Facebook`
+  
     - **access_token** - *string*
+	
     - **permissions** - *array of strings*
+	
     - **expiration_date** - *UNIX timestamp as number* - `not available for Android`
+	
   - `Twitter`
+  
     - **access_token** - *string*
+	
   - `Google+`
+  
     - **access_token** - *string*
+	
     - **refresh_token** - *string* - `not available for Android`
+	
     - **expiration_date** - *UNIX timestamp as number* - `not available for Android`
 
 ## Soomla.SoomlaProfile
@@ -481,6 +502,54 @@ Soomla.soomlaProfile.multiShare(
     'I\'m happy. I can be shared everywhere.',
     'path/to/file/you/want/to/share'
 );
+```
+
+### `getLeaderboards`
+
+`getLeaderboards` retrieves list of leaderboards used by your application using specified provider (for example, GameCenter).
+
+``` js
+Soomla.soomlaProfile.getLeaderboards(
+        soomla::GAME_CENTER,
+        "",                                 // no payload
+        null,                               // no reward
+        null                                // no error handling, to keep example simple
+        );
+
+```
+
+<br>
+### `getScores`
+
+`getScores` retrieves list of scores of selected leaderboard used by your application using specified provider (for example, GameCenter).
+
+``` js
+Soomla.soomlaProfile.getScores(
+        soomla::GAME_CENTER,
+        leaderboard,                        // your leaderboard
+        true,                               // you definitely need the 1st page
+        "",                                 // no payload
+        null,                               // no reward
+        null                                // no error handling, to keep example simple
+        );
+
+```
+
+
+### `reportScore`
+
+`reportScore` submits new score for current user in selected leaderboard.
+
+``` js
+Soomla.soomlaProfile.reportScore(
+        soomla::GAME_CENTER,        
+        leaderboard,                        // your leaderboard
+        score,                              // value to submit
+        "",                                 // no payload
+        null,                               // no reward
+        null                                // no error handling, to keep example simple
+        );
+        
 ```
 
 ## Auxiliary Model: Soomla.Models.Reward

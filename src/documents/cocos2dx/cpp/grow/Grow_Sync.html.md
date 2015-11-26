@@ -19,8 +19,11 @@ GROW's State & Economy Sync brings you a complete solution for saving your game 
 With State & Economy Sync you can:
 
 - Save game progress & virtual items on the server.
+
 - Restore the state upon uninstalling and reinstalling the game.
+
 - Cross device synching - allow the player to have the same game state across all of his/her devices.
+
 - Remote Economy (model) Management - manage your economy without changing any code in your game.
 
 ## Integration
@@ -250,6 +253,7 @@ Initializes the GROW Sync feature. Once initialized, the `EVENT_GROW_SYNC_INITIA
 Params:
 
 - modelSync - should GROW Sync synchronize the model for integrated modules.
+
 - stateSync - should GROW Sync synchronize state for integrated modules.
 
 **`CCGrowSync::resetState()`**

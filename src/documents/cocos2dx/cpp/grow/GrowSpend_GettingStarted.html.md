@@ -20,10 +20,15 @@ GrowSpend is the perfect virtual economy solution for your game. If you want Fra
 GrowSpend includes:
 
 - SOOMLA's open-source module - [Store](/cocos2dx/cpp/store/Store_GettingStarted)
+
 - [State & Economy Sync](/cocos2dx/cpp/grow/Grow_Sync)
+
 - [IAP Fraud Protection](/cocos2dx/cpp/grow/Grow_FraudProtection)
+
 - [Analytics](/cocos2dx/cpp/grow/Grow_Analytics)
+
 - [Whales Report](/cocos2dx/cpp/grow/Grow_WhalesReport)
+
 - [Insights](/cocos2dx/cpp/grow/Grow_Insights)
 
 **Note:** Cross-device SYNC is using the Profile module which allows your users to login with their social provider. If you want that, [integrate Profile](/cocos2dx/cpp/profile/Profile_GettingStarted) as well.
@@ -126,13 +131,17 @@ In your XCode project, perform the following steps:
 2. For each of the following XCode projects:
 
   - `Cocos2dXHighway.xcodeproj` (**extensions/cocos2dx-highway/**)
+  
   - `Cocos2dXCore.xcodeproj` (**extensions/soomla-cocos2dx-core/**)  
+  
   - `Cocos2dXStore.xcodeproj` (**extensions/cocos2dx-store/**)
 
   perform the following:
 
   - Drag the project into your project
+  
   - Add its targets to your **Build Phases->Target Dependencies**
+  
   - Add the Products (\*.a) of the project to **Build Phases->Link Binary With Libraries**.
 
   ![alt text](/img/tutorial_img/cocos_grow/iosStep2.png "iOS Integration")
@@ -142,8 +151,11 @@ In your XCode project, perform the following steps:
   NOTE: This article assumes you have a `cocos2d` folder under your project folder which either contains the Cocos2d-x framework, or links to to its root folder.
 
  - `$(SRCROOT)/../cocos2d/extensions/soomla-cocos2dx-core/Soomla`
+ 
  - `$(SRCROOT)/../cocos2d/extensions/soomla-cocos2dx-core/build/ios/headers`
+ 
  - `$(SRCROOT)/../cocos2d/extensions/cocos2dx-store/Soomla`
+ 
  - `$(SRCROOT)/../cocos2d/extensions/cocos2dx-highway/Soomla`
 
   ![alt text](/img/tutorial_img/cocos_grow/headerSP.png "Header search paths")
@@ -155,13 +167,21 @@ In your XCode project, perform the following steps:
 6. Make sure you have these 9 Frameworks linked to your XCode project:
 
   - Security
+  
   - libsqlite3.0.dylib
+  
   - StoreKit
+  
   - CFNetwork
+  
   - libicucore
+  
   - SystemConfiguration
+  
   - AdSupport
+  
   - MediaPlayer
+  
   - GameController
 
 That's it! Now all you have to do is build your XCode project and run your game.

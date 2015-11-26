@@ -102,11 +102,17 @@ sure to check "create group").
 1. Make sure you have these 7 Frameworks linked to your XCode project:
 
   - Security
+  
   - libsqlite3.0.dylib
+  
   - StoreKit
+  
   - CFNetwork
+  
   - libicucore
+  
   - SystemConfguration
+  
   - AdSupport
 
 That's it!

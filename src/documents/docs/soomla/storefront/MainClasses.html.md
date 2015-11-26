@@ -23,14 +23,23 @@ The Profile module has a class that holds information about the user for a speci
 **The class contains the following information about the user:**
 
 - `ProfileId`
+
 - `Email`
+
 - `Username`
+
 - `FirstName`
+
 - `LastName`
+
 - `AvatarLink`
+
 - `Location`
+
 - `Gender`
+
 - `Language`
+
 - `Birthday`
 
 ## Important Functions

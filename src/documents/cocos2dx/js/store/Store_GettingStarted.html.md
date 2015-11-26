@@ -191,12 +191,15 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
     From `frameworks/runtime-src/Classes/soomla-cocos2dx-core/build/android`:
 
     - SoomlaAndroidCore.jar
+	
     - Cocos2dxAndroidCore.jar
+	
     - square-otto-1.3.2.jar
 
   From `frameworks/runtime-src/Classes/cocos2dx-store/build/android`:
 
     - SoomlaAndroidStore.jar
+	
     - Cocos2dxAndroidStore.jar
 
 1. Update your AndroidManifest.xml to include permissions and the SoomlaApp:

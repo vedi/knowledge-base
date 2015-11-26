@@ -32,8 +32,11 @@ StoreInfo is the mother of all metadata information about your specific game.
 **This class holds your store’s**
 
 - Virtual currencies
+
 - Virtual currency packs
+
 - Virtual goods of all kinds
+
 - Virtual categories
 
 StoreInfo can be questioned about the existence of `VirtualItem`s and the associations between them.

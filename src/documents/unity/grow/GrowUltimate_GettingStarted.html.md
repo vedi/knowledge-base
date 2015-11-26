@@ -19,12 +19,19 @@ GrowUltimate is the perfect All In One solution for your game. If you want your 
 GrowUltimate includes:
 
 - All of SOOMLA's open-source modules - [Store](/unity/store/Store_GettingStarted), [Profile](/unity/profile/Profile_GettingStarted) and [LevelUp](/unity/levelup/Levelup_GettingStarted)
+
 - [State & Economy Sync](/unity/grow/Grow_Sync)
+
 - [Gifting](/unity/grow/Grow_Gifting)
+
 - [IAP Fraud Protection](/unity/grow/Grow_FraudProtection)
+
 - [Social Leaderboards](/unity/grow/Grow_Leaderboards)
+
 - [Analytics](/unity/grow/Grow_Analytics)
+
 - [Whales Report](/unity/grow/Grow_WhalesReport)
+
 - [Insights](/unity/grow/Grow_Insights)
 
 ## Integrating GrowUltimate

@@ -25,8 +25,11 @@ Each platform-specific Profile module has its own, slightly different, event-han
 Some of the functions that you'll need to implement in order to handle events are:
 
 - `onLoginFailed`
+
 - `onLoginFinished`
+
 - `onSocialActionFailedEvent`
+
 - `onSocialActionFinishedEvent`
 
 and several others.

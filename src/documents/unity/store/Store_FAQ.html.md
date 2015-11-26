@@ -19,8 +19,11 @@ platform: 'unity'
 After you download and import the unity3d-store package, you should see the following static libraries under `Assets/Plugins/iOS`:
 
 - libUnitySoomlaiOSCore.a
+
 - libUnityiOSStore.a
+
 - libSoomlaIOSStore.a
+
 - libSoomlaIOSCore.a
 
 **Android: What jars do I need in my project?**
@@ -28,10 +31,15 @@ After you download and import the unity3d-store package, you should see the foll
 After you download and import the unity3d-store package, you should see the following jars under `Assets/Plugins/Android`:
 
 - AndroidStore.jar
+
 - AndroidStoreGooglePlay.jar
+
 - SoomlaAndroidCore.jar
+
 - UnityAndroidStore.jar
+
 - UnitySoomlaAndroidCore.jar
+
 - square-otto-1.3.2.jar
 
 ---

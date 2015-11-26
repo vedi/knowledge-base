@@ -110,10 +110,15 @@ In your XCode project, perform the following steps:
   NOTE: This article assumes you have a `cocos2d` folder under your project folder which either contains the Cocos2d-x framework, or links to to its root folder.
 
  - `$(SRCROOT)/../cocos2d/extensions/soomla-cocos2dx-core/Soomla`
+ 
  - `$(SRCROOT)/../cocos2d/extensions/soomla-cocos2dx-core/build/ios/headers`
+ 
  - `$(SRCROOT)/../cocos2d/extensions/cocos2dx-store/Soomla`
+ 
  - `$(SRCROOT)/../cocos2d/extensions/cocos2dx-profile/Soomla`
+ 
  - `$(SRCROOT)/../cocos2d/extensions/cocos2dx-profile/build/ios/headers`
+ 
  - `$(SRCROOT)/../cocos2d/extensions/cocos2dx-levelup/Soomla`
 
  ![alt text](/img/tutorial_img/cocos2dx-levelup/headerSP.png "Header search paths")
@@ -257,14 +262,20 @@ That's it! Don't forget to run the **build_native.py** script so cocos2dx-levelu
 
 2. For iOS: Use sourced versions of Linked projects:
   - `extensions/soomla-cocos2dx-core/development/Cocos2dxCoreFromSources.xcodeproj`
+  
   - `extensions/cocos2dx-store/development/Cocos2dxStoreFromSources.xcodeproj`
+  
   - `extensions/cocos2dx-profile/development/Cocos2dxProfileFromSources.xcodeproj`
+  
   - `extensions/cocos2dx-levelup/development/Cocos2dxLevelUpFromSources.xcodeproj`
 
 3. For Android: You can use our "sourced" modules for Android Studio (or IntelliJ IDEA):
   - `extensions/soomla-cocos2dx-core/development/Cocos2dxCoreFromSources.iml`
+  
   - `extensions/cocos2dx-store/development/Cocos2dxStoreFromSources.iml`
+  
   - `extensions/cocos2dx-profile/development/Cocos2dxProfileFromSources.iml`
+  
   - `extensions/cocos2dx-levelup/development/Cocos2dxLevelUpFromSources.iml`
 
 ## Example Usages
