@@ -20,7 +20,7 @@ LevelUp allows you to subscribe to events, be notified when they occur, and impl
 
 ### Tips & Reminders
 
-- As mentioned in [Getting Started](/unity/levelup/Levelup_GettingStarted), make sure you add the event prefabs (LevelUpEvents, ProfileEvents, StoreEvents, CoreEvents) to your earliest loading scene.
+As mentioned in [Getting Started](/unity/levelup/Levelup_GettingStarted), make sure you add the event prefabs (LevelUpEvents, ProfileEvents, StoreEvents, CoreEvents) to your earliest loading scene.
 
 
 ## How it works

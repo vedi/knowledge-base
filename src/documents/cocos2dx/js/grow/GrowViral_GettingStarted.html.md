@@ -49,7 +49,7 @@ on the "+" button underneath the "Create your first game" label in the middle of
 
 	  ![alt text](/img/tutorial_img/unity_grow/addNewApp.png "Add new app")
 
-	* Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You 
+	Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You 
 	can also click "Downloads" on the top right corner of the screen). Click on **GrowViral**. You'll see an instructions 
 	screen, you can continue with that or stay here for the extended version.  
 

@@ -322,8 +322,7 @@ Facebook is supported out-of-the-box, you just have to follow the next steps to 
 
 2. Follow the steps in [Getting started with GooglePlus API for Android](https://developers.google.com/+/mobile/android/getting-started).
 
-    1. Import the `iml` file of the `google-play-services_lib` project to your project. You can either use the existing `google-play-services_lib` located under social-providers/android-profile-google/libs or create `google-play-services_lib` project by yourself
-       as the link above states.
+	  Import the `iml` file of the `google-play-services_lib` project to your project. You can either use the existing `google-play-services_lib` located under social-providers/android-profile-google/libs or create `google-play-services_lib` project by yourself as the link above states.
 
 3. Make further changes to `AndroidManifest.xml`:
 

@@ -47,7 +47,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	  ![alt text](/img/tutorial_img/cocos_grow/addNewApp.png "Add new app")
 
-	* Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You can also click "Downloads" on the top right corner of the screen). Click on **GrowSpend**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
+	Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You can also click "Downloads" on the top right corner of the screen). Click on **GrowSpend**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
 
 2. Unzip the downloaded file and copy its contents into the cocos2d directory located at the root of your Cocos2d-x project.
 
@@ -70,9 +70,10 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
   soomla::CCSoomla::initialize("ExampleCustomSecret");
   ```
 
-<div class="warning-box">Choose this secret wisely, you can't change it after you launch your game!</div>
+  <div class="warning-box">Choose this secret wisely, you can't change it after you launch your game!</div>
 
-* **Fraud Protection (RECOMMENDED):**
+  **Fraud Protection (RECOMMENDED)**
+
 3. Initialize `CCGrowHighway` with the "Game Key" and "Env Key" given to you in the [dashboard](http://dashboard.soom.la):
 
   **Copy the "Game Key" and "Environment Key"** given to you from the [dashboard](http://dashboard.soom.la) and initialize `CCGrowHighway` with them. At this point, you're probably testing your integration and you want to use the **Sandbox** environment key.
