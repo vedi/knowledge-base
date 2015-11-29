@@ -19,8 +19,10 @@ GrowInsights is the perfect solution for your game if you have already integrate
 
 GrowInsights includes:
 
-- [Analytics](/cocos2dx/cpp/grow/Grow_Analytics)
-- [Whales Report](/cocos2dx/cpp/grow/Grow_WhalesReport)
+- [Analytics](/university/articles/Grow_Analytics)
+
+- [Whales Report](/university/articles/Grow_WhalesReport)
+
 - [Insights](/cocos2dx/cpp/grow/Grow_Insights)
 
 ## Integrating GrowInsights
@@ -85,7 +87,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
     grow::CCGrowInsights::initShared();
   	```
 
-4. Make sure that in your current implementation you initialize the open-source modules (Store/Profile/LevelUp) **AFTER** the initialization of Highway.
+4. Make sure that in your current implementation you initialize the open-source modules (Store/Profile) **AFTER** the initialization of Highway.
 
 <br>
 <div class="info-box">The next steps are different according to which native platform you are building for.</div>
@@ -103,7 +105,9 @@ In your XCode project, perform the following steps:
   perform the following:
 
   - Drag the project into your project
+
   - Add its targets to your **Build Phases->Target Dependencies**
+
   - Add the Products (\*.a) of the project to **Build Phases->Link Binary With Libraries**.
 
   ![alt text](/img/tutorial_img/cocos_grow/iosStep2.png "iOS Integration")
@@ -123,13 +127,21 @@ In your XCode project, perform the following steps:
 6. Make sure you have these 9 Frameworks linked to your XCode project:
 
   - Security
+
   - libsqlite3.0.dylib
+
   - StoreKit
+
   - CFNetwork
+
   - libicucore
+
   - SystemConfiguration
+
   - AdSupport
+
   - MediaPlayer
+
   - GameController
 
 That's it! Now all you have to do is build your XCode project and run your game.

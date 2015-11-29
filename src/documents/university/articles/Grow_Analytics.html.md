@@ -48,10 +48,7 @@ For example, if you’ve just uploaded a new feature to your game you can use th
 
 The widgets you can see on the Activity screen are:
 
-*Level Up* - displays data about the number of users you have in each level and the avg time users spend in each level.  
-> will only show up if you have [LevelUp](http://know.soom.la/unity/levelup/) installed
-
-*Conversion* - you get a quick view of the number of new users you have and how many you’ve managed to convert > how many users rated your game and how many users connected to a social network within your game, you get all this also with breakdown to the device types!  
+*Conversion* - you get a quick view of the number of new users you have and how many you’ve managed to convert > how many users rated your game and how many users connected to a social network within your game, you get all this also with breakdown to the device types!
 > will only show up if you have [Profile](http://know.soom.la/unity/profile/) installed
 
 *Conversion by Country* - you get to see your users spread out on a map with additional indication of how many raters and how many connected to a social platform

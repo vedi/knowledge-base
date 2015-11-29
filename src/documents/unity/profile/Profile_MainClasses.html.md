@@ -42,26 +42,71 @@ This class holds information about a user for a specific `Provider`.
 **A `UserProfile` contains the following elements:**
 
 - `ProfileId`
+
 - `Email`
+
 - `Username`
+
 - `FirstName`
+
 - `LastName`
+
 - `AvatarLink`
+
 - `Location`
+
 - `Gender`
+
 - `Language`
+
 - `Birthday`
+
 - `Extra` - a Dictionary contains additional info provided by social provider:
+
   - `Facebook`
+  
     - **access_token** - *String*
+	
     - **permissions** - *JSONObject of Strings*
+	
     - **expiration_date** - *UNIX timestamp as Double*
+	
   - `Twitter`
+  
     - **access_token** - *String*
+	
   - `Google+`
+  
     - **access_token** - *String*
+	
     - **refresh_token** - *String* - `not available for Android`
+	
     - **expiration_date** - *UNIX timestamp as Double* - `not available for Android`
+    
+## Leaderboard <a href="https://github.com/soomla/unity3d-profile/blob/master/Soomla/Assets/Plugins/Soomla/Profile/game-services/domain/Leaderboard.cs" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+
+This class holds information about a leaderboard which was returned by `GetLeaderboards`.
+
+**A `Leaderboard` contains the following elements:**
+
+- `Provider`: the provider this leaderboard is related to
+
+- `Id`: a unique identifier of this leaderboard
+
+## Score <a href="https://github.com/soomla/unity3d-profile/blob/master/Soomla/Assets/Plugins/Soomla/Profile/game-services/domain/Score.cs" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+
+This class holds information about a score which was returned by `GetScores` or `ReportScore` methods.
+
+**A `Score` contains the following elements:**
+
+- `Leaderboard`: the leaderboard containing this score
+
+- `Rank`: the position of this score in the leaderboard
+
+- `Player`: the owner of this score
+
+- `Value`: the value of this score
+
 
 ## SoomlaProfile <a href="https://github.com/soomla/unity3d-profile/blob/master/Soomla/Assets/Plugins/Soomla/Profile/SoomlaProfile.cs" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
@@ -474,6 +519,53 @@ SoomlaProfile.MultiShare(
     "I'm happy. I can be shared everywhere.",
     "path/to/file/you/want/to/share"
 );
+```
+
+### `GetLeaderboards`
+
+`GetLeaderboards` retrieves a list of leaderboards used by your application using the provider specified (for example, GameCenter).
+
+``` cpp
+SoomlaProfile.GetLeaderboards(
+        Provider.GAME_CENTER,
+        "",                                 // no payload
+        null,                               // no reward
+        null                                // no error handling, to keep example simple
+        );
+
+```
+
+<br>
+### `GetScores`
+
+`GetScores` retrieves a list of scores of selected leaderboard used by your application using the provider specified (for example, GameCenter).
+
+``` cpp
+SoomlaProfile.GetScores(
+        Provider.GAME_CENTER,
+        leaderboard,                        // your leaderboard
+        true,                               // you definitely need the 1st page
+        "",                                 // no payload
+        null,                               // no reward
+        null                                // no error handling, to keep example simple
+        );
+
+```
+
+### `ReportScore`
+
+`ReportScore` submits new score for current user in selected leaderboard.
+
+``` cpp
+SoomlaProfile.ReportScore(
+        Provider.GAME_CENTER,        
+        leaderboard,                        // your leaderboard
+        score,                              // value to submit
+        "",                                 // no payload
+        null,                               // no reward
+        null                                // no error handling, to keep example simple
+        );
+        
 ```
 
 <br>

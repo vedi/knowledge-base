@@ -17,8 +17,11 @@ theme: 'samples'
 Showing interstital ads is easy. Choosing which users to show them to, and at what frequency is the hard part.  This code sample shows how to increase / decrease ad exposure according to user purchase history.  For this example we consider four types of users:
 
 * non-payers -  haven't paid in other games
+
 * Minnows -  paid up to $1 in other games
+
 * Dolphins -  paid up to $5 in other games
+
 * Whales -  paid more than $5 in other games
 
 Read more about this <a href="http://www.gamesbrief.com/2011/11/whales-dolphins-and-minnows-the-beating-heart-of-a-free-to-play-game/" target="_blank">F2P user classification</a>.

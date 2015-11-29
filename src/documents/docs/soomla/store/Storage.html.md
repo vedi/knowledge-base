@@ -64,8 +64,11 @@ To further understand how SOOMLA handles storage, below are descriptions about e
 This class holds all of the metadata information about your specific game. It is initialized with your implementation of `IStoreAssets` and you can use it to retrieve information about your specific game. `StoreInfo` holds your store's:
 
 - Virtual currencies
+
 - Virtual currency packs
+
 - Virtual goods of all kinds
+
 - Virtual categories
 
 `StoreInfo` can be questioned about the existence of `VirtualItem`s and the associations between them.
@@ -79,7 +82,9 @@ This section describes the internal classes that make up the storage. We highly 
 Here all the storage-related instances of your game are created. These include the following (all of which are described below):
 
 - `KeyValueStorage`
+
 - `VirtualCurrencyStorage`
+
 - `VirtualGoodsStorage`
 
 You use the `StorageManager`’s getter functions to access these different storages. Then you will be able to use the different storages’ available functions to perform actions such as set/get an item’s balance, add/remove an item from the storage, etc…

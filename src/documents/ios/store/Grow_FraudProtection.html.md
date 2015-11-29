@@ -17,6 +17,7 @@ platform: 'unity'
 In order to turn on Fraud Protection in iOS, use the following params:   
 
 - *VERIFY_PURCHASES* - enables _Fraud Protection_ for iOS.
+
 - *VERIFY_ON_ITUNES_FAILURE* - if you use Fraud Protection, optionally you set this param, if you want to get purchases 
 automatically verified in case of network failures during the verification process. Default value is `NO`. 
 

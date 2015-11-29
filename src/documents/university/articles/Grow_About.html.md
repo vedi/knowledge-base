@@ -16,24 +16,34 @@ platform: 'university'
 
 GROW is a new and innovative data network. You can use Grow to gain valuable insights about your users  and enrich your in-game experience through an amazing set of backend services that completes the client side open-source framework into a perfect solution every F2P game needs.  At the end, GROW provides you with tools to increase monetization and engagement of VIP users and easily get your in-game experience to a next level.
 
-GROW uses all of SOOMLA's modules: [Store](/unity/store/), [Profile](/unity/profile/) and [LevelUp](/unity/levelup/) to collect in-game data and render value for you. Studios may choose to use only specific modules, however, to benefit from the full power of GROW analytics we recommend that you integrate all three.
+GROW uses all of SOOMLA's modules: [Store](/unity/store/) and [Profile](/unity/profile/) to collect in-game data and render value for you. Studios may choose to use only specific modules, however, to benefit from the full power of GROW analytics we recommend that you integrate all three.
 
 To get started with GROW, you can follow each one of different GROW bundles' tutorials:
 
 - [GrowUltimate](/unity/grow/GrowUltimate_GettingStarted)
+
 - [GrowCompete](/unity/grow/GrowCompete_GettingStarted)
+
 - [GrowViral](/unity/grow/GrowViral_GettingStarted)
+
 - [GrowSpend](/unity/grow/GrowSpend_GettingStarted)
+
 - [GrowInsights](/unity/grow/GrowInsights_GettingStarted)
 
 
 ### Why use GROW?
 - GROW's Insights module brings you powerful information about your users in real-time. This information ranges from the user’s purchasing habits to his social behavior in the same game genre or in all other genres. You can use these insights to take actions on your users during gameplay, when it really matters. Some of the actions you can take are:
+
   - Create special prices / discounted bundles for paying users in your genre
+  
   - Adapt the game difficulty for specific users
+  
   - Display ads for non-payers only
+  
   - Create push campaigns
+  
   - Identify the time of the day the player is likely to purchase and send him offers accordingly
+  
 
 - If you use SOOMLA Store and you join GROW, you’ll receive a weekly [Whales Report](/university/articles/Grow_WhalesReport/) to your inbox, this report identifies the paying players in your game from the grow data network and tells you how many payers from other games you’ve managed to convert and how much money you left on the table
 

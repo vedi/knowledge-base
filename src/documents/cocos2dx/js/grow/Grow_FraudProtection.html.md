@@ -21,6 +21,7 @@ billing provider.
 *iOS*
 
 - *SSV* - enables _Fraud Protection_ for iOS.
+
 - *verifyOnServerFailure* - if you use Fraud Protection, optionally you set this param, if you want to get purchases
 automatically verified in case of network failures during the verification process. Default value is `false`.
 

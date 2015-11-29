@@ -150,12 +150,15 @@ In your XCode project, perform the following steps:
     From `extensions/soomla-cocos2dx-core/build/android`:
 
     - SoomlaAndroidCore.jar
+	
     - Cocos2dxAndroidCore.jar
+	
     - square-otto-1.3.2.jar
 
   From `extensions/cocos2dx-store/build/android`:
 
     - SoomlaAndroidStore.jar
+	
     - Cocos2dxAndroidStore.jar
 
 3. Update your AndroidManifest.xml to include permissions and the SoomlaApp:
