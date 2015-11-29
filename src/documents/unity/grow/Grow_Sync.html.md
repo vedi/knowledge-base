@@ -27,10 +27,7 @@ With State & Economy Sync you can:
 
 ## Integration
 
-<div class="info-box">GROW's State & Economy Sync is included in [GrowSpend](/unity/grow/GrowSpend_GettingStarted#SetupGrowSpend), [GrowCompete](/unity/grow/GrowCompete_GettingStarted#SetupGrowCompete) and [GrowUltimate](/unity/grow/GrowUltimate_GettingStarted#SetupGrowUltimate) bundles. Please refer to the relevant bundle for initialization instructions.</div>
-
-
-1. Initialize `GrowSync` according to the instructions of your relevant bundle.
+1. Initialize `GrowSpend` according to the [instructions](/unity/grow/GrowSpend_GettingStarted).
 
 * Create event handler functions in order to be notified about (and handle) GROW Sync related events. See [Events](/unity/grow/Grow_Sync/#Events) for more information.
 
