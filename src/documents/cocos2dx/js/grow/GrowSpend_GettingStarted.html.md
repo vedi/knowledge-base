@@ -38,9 +38,6 @@ GrowSpend includes:
 **Note:** Cross-device SYNC is using the Profile module which allows your users to login with their social provider. If 
 you want that, [integrate Profile](/cocos2dx/js/profile/Profile_GettingStarted) as well.
 
-**Note2:** In some games, SYNCing balances is useless without SYNCing progression as well. Using the LevelUp module will 
-get you there. If you want that, [integrate LevelUp](/cocos2dx/js/levelup/Levelup_GettingStarted) as well.
-
 ## Integrating GrowSpend
 
 ### New Game & Configurations
@@ -136,7 +133,7 @@ will be used to secure your data.):
 
 	``` js
 	// Make sure to make this call AFTER initializing HIGHWAY,
-	// and BEFORE initializing STORE/PROFILE/LEVELUP
+	// and BEFORE initializing STORE/PROFILE
 	var modelSync = true; 	 // Remote Economy Management - Synchronizes your game's
 							 // economy model between the client and server - enables
 							 // you to remotely manage your economy.
@@ -366,7 +363,7 @@ Soomla.initialize("ExampleCustomSecret");
 Soomla.GrowHighway.createShared('yourGameKey', 'yourEnvKey');
 
 // Make sure to make this call AFTER initializing HIGHWAY,
-// and BEFORE initializing STORE/PROFILE/LEVELUP
+// and BEFORE initializing STORE/PROFILE
 var modelSync = true; 	 // Remote Economy Management - Synchronizes your game's
                          // economy model between the client and server - enables
                          // you to remotely manage your economy.
@@ -378,7 +375,7 @@ var stateSync = true;  // Synchronizes the users' balances data with the server
 // State sync and Model sync can be enabled/disabled separately.
 Soomla.GrowSync.createShared(modelSync, stateSync);
 
-/** Set up and initialize Store, Profile, and LevelUp **/
+/** Set up and initialize Store and Profile **/
 var assets = ExampleAssets.create();
 
 var storeParams = {

@@ -14,7 +14,7 @@ platform: 'unity'
 
 ## Overview
 
-GrowSpend is the perfect virtual economy solution for your game. If you want Fraud Protection, cross-device balance SYNC and remote economy configurator then this bundle is for you. GrowSpend connects you to GROW, SOOMLA's flagship - a community-driven data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/unity/grow/Grow_About)
+GrowSpend is the perfect virtual economy solution for your game. If you want Fraud Protection, cross-device balance SYNC and remote economy configurator then this bundle is for you. GrowSpend connects you to GROW, SOOMLA's flagship - a community-driven data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/university/articles/Grow_About)
 
 GrowSpend includes:
 
@@ -24,15 +24,14 @@ GrowSpend includes:
 
 - [IAP Fraud Protection](/unity/grow/Grow_FraudProtection)
 
-- [Analytics](/unity/grow/Grow_Analytics)
+- [Analytics](/university/articles/Grow_Analytics)
 
-- [Whales Report](/unity/grow/Grow_WhalesReport)
+- [Whales Report](/university/articles/Grow_WhalesReport)
 
 - [Insights](/unity/grow/Grow_Insights)
 
 **Note:** Cross-device SYNC is using the Profile module which allows your users to login with their social provider. If you want that, [integrate Profile](/unity/profile/Profile_GettingStarted) as well.
 
-**Note2:** In some games, SYNCing balances is useless without SYNCing progression as well. Using the LevelUp module will get you there. If you want that, [integrate LevelUp](/unity/levelup/Levelup_GettingStarted) as well.
 
 ## Integrating GrowSpend
 
