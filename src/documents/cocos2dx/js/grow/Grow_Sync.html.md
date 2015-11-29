@@ -20,16 +20,16 @@ and remote economy (model) management.
 With State & Economy Sync you can:
 
 - Save game progress & virtual items on the server.
+
 - Restore the state upon uninstalling and reinstalling the game.
+
 - Cross device synching - allow the player to have the same game state across all of his/her devices.
+
 - Remote Economy (model) Management - manage your economy without changing any code in your game.
 
 ## Integration
 
-<div class="info-box">GROW's State & Economy Sync is included in [GrowSpend](/cocos2dx/js/grow/GrowSpend_GettingStarted#SetupGrowSpend),
-[GrowCompete](/cocos2dx/js/grow/GrowCompete_GettingStarted#SetupGrowCompete) and
-[GrowUltimate](/cocos2dx/js/grow/GrowUltimate_GettingStarted#SetupGrowUltimate) bundles. Please refer to the relevant
-bundle for initialization instructions.</div>
+<div class="info-box">GROW's State & Economy Sync is included in [GrowSpend](/cocos2dx/js/grow/GrowSpend_GettingStarted#SetupGrowSpend).</div>
 
 
 1. Initialize `GrowSync` according to the instructions of your relevant bundle.
@@ -215,6 +215,7 @@ Initializes the GROW Sync feature. Once initialized, the `EVENT_GROW_SYNC_INITIA
 Params:
 
 - modelSync - should GROW Sync synchronize the model for integrated modules.
+
 - stateSync - should GROW Sync synchronize state for integrated modules.
 
 **`GrowSync.resetState()`**
@@ -236,7 +237,7 @@ Soomla.initialize('ExampleCustomSecret');
 Soomla.GrowHighway.createShared('yourGameKey', 'yourEnvKey');
 
 // Make sure to make this call AFTER initializing HIGHWAY,
-// and BEFORE initializing STORE/PROFILE/LEVELUP
+// and BEFORE initializing STORE/PROFILE
 var modelSync = true; 	 // Remote Economy Management - Synchronizes your game's
 						 // economy model between the client and server - enables
 						 // you to remotely manage your economy.
@@ -248,7 +249,7 @@ var stateSync = true;  // Synchronizes the users' balances data with the server
 // State sync and Model sync can be enabled/disabled separately.
 Soomla.GrowSync.createShared(modelSync, stateSync);
 
-/** Set up and initialize Store, Profile, and LevelUp **/
+/** Set up and initialize Store and Profile **/
 var assets = new ExampleAssets();
 var storeParams = {
   androidPublicKey: "ExamplePublicKey",

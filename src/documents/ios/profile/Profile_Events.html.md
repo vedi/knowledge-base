@@ -554,3 +554,206 @@ The event `EVENT_UP_INVITE_FAILED` is triggered when a social action has failed.
   // ... your game specific implementation here ...
 }
 ```
+
+### GET LEADERBOARDS STARTED
+
+The event `EVENT_UP_GET_LEADERBOARDS_STARTED` is triggered when fetching leaderboards has started.
+
+``` objectivec
+// observe the event:
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getLeaderboardsStarted:)
+  name:EVENT_UP_GET_LEADERBOARDS_STARTED object:nil];
+
+// your handler:
+- (void)getLeaderboardsStarted:(NSNotification*)notification {
+  // notification's userInfo contains the following keys:
+  // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) on which fetching will be performed  
+  // DICT_ELEMENT_PAYLOAD            = An identification string (NSString*) that you can give
+  //     when you initiate the social action operation and want to receive back upon starting
+
+  // ... your game specific implementation here ...
+}
+```
+
+### GET LEADERBOARDS FINISHED
+
+The event `EVENT_UP_GET_LEADERBOARDS_FINISHED` is triggered when fetching leaderboards has finished successfully.
+
+``` objectivec
+// observe the event:
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getLeaderboardsFinished:)
+  name:EVENT_UP_GET_LEADERBOARDS_FINISHED object:nil];
+
+// your handler:
+- (void)getLeaderboardsFinished:(NSNotification*)notification {
+  // notification's userInfo contains the following keys:
+  // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) on which fetching was performed  
+  // DICT_ELEMENT_LEADERBOARDS       = A list of leaderboards
+  // DICT_ELEMENT_PAYLOAD            = An identification string (NSString*) that you can give
+  //   when you initiate the social action operation and want to receive back upon completion
+
+  // ... your game specific implementation here ...
+}
+```
+
+### GET LEADERBOARDS FAILED
+
+The event `EVENT_UP_GET_LEADERBOARDS_FAILED` is triggered when fetching leaderboards  was failed.
+
+``` objectivec
+// observe the event:
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getLeaderboardsFailed:)
+  name:EVENT_UP_GET_LEADERBOARDS_FAILED object:nil];
+
+// your handler:
+- (void)getLeaderboardsFailed:(NSNotification*)notification {
+  // notification's userInfo contains the following keys:
+  // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) on which fetching was performed  
+  // DICT_ELEMENT_MESSAGE            = Description (NSString*) of the reason for failure
+  // DICT_ELEMENT_PAYLOAD            = An identification string (NSString*) that you can give
+  //      when you initiate the social action operation and want to receive back upon failure
+
+  // ... your game specific implementation here ...
+}
+```
+
+### GET SCORES STARTED
+
+The event `EVENT_UP_GET_SCORES_STARTED` is triggered when fetching scores from the current leaderboard has started.
+
+``` objectivec
+// observe the event:
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getScoresStarted:)
+  name:EVENT_UP_GET_SCORES_STARTED object:nil];
+
+// your handler:
+- (void)getScoresStarted:(NSNotification*)notification {
+  // notification's userInfo contains the following keys:
+  // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) on which the get scores
+  //                                   process started
+  // DICT_ELEMENT_LEADERBOARD        = Source leaderboard(Leaderboard*)
+  // DICT_ELEMENT_FROM_START         = Should we reset pagination or request the next page
+  // DICT_ELEMENT_PAYLOAD            = An identification string (NSString*) that you can give
+  //      when you initiate the get scores operation and want to receive back upon starting
+
+  // ... your game specific implementation here ...
+}
+```
+
+### GET SCORES FINISHED
+
+The event `EVENT_UP_GET_SCORES_FINISHED` is triggered when fetching scores from the current leaderboard has finished successfully.
+
+``` objectivec
+// observe the event:
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getScoresFinished:)
+  name:EVENT_UP_GET_SCORES_FINISHED object:nil];
+
+// your handler:
+- (void)getScoresFinished:(NSNotification*)notification {
+  // notification's userInfo contains the following keys:
+  // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) on which the get scores process
+  //                                   finished
+  // DICT_ELEMENT_LEADERBOARD        = Source leaderboard(Leaderboard*)
+  // DICT_ELEMENT_SCORES             = An Array (NSArray*) of scores (Score*)
+  // DICT_ELEMENT_PAYLOAD            = An identification string (NSString*) that you can give
+  // DICT_ELEMENT_HAS_MORE           = if there are more items in pagination
+  // when you initiate the get scores operation and want to receive back upon its completion
+
+
+  // ... your game specific implementation here ...
+}
+```
+
+### GET SCORES FAILED
+
+The event `EVENT_UP_GET_SCORES_FAILED` is triggered when fetching scores from the current leaderboard has failed.
+
+``` objectivec
+// observe the event:
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getScoresFailed:)
+  name:EVENT_UP_GET_SCORES_FAILED object:nil];
+
+// your handler:
+- (void)getScoresFailed:(NSNotification*)notification {
+  // notification's userInfo contains the following keys:
+  // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) on which the get scores
+  //                                   process has failed
+  // DICT_ELEMENT_LEADERBOARD        = Source leaderboard(Leaderboard*)
+  // DICT_ELEMENT_MESSAGE            = Description (NSString*) of the reason for failure
+  // DICT_ELEMENT_FROM_START         = Should we reset pagination or request the next page
+  // DICT_ELEMENT_PAYLOAD            = An identification string (NSString*) that you can give
+  //       when you initiate the get scores operation and want to receive back upon failure
+
+  // ... your game specific implementation here ...
+}
+```
+
+### REPORT SCORE STARTED
+
+The event `EVENT_UP_REPORT_SCORE_STARTED` is triggered when score reporting for the current leaderboard has started.
+
+``` objectivec
+// observe the event:
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reportScoreStarted:)
+  name:EVENT_UP_REPORT_SCORE_STARTED object:nil];
+
+// your handler:
+- (void)reportScoreStarted:(NSNotification*)notification {
+  // notification's userInfo contains the following keys:
+  // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) on which the score reporting
+  //                                   process started
+  // DICT_ELEMENT_LEADERBOARD        = Source leaderboard(Leaderboard*)  
+  // DICT_ELEMENT_PAYLOAD            = An identification string (NSString*) that you can give
+  //      when you initiate the report score operation and want to receive back upon starting
+
+  // ... your game specific implementation here ...
+}
+```
+
+### REPORT SCORE FINISHED
+
+The event `EVENT_UP_REPORT_SCORE_FINISHED` is triggered when score reporting for the current leaderboard has finished successfully.
+
+``` objectivec
+// observe the event:
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reportScoreFinished:)
+  name:EVENT_UP_REPORT_SCORE_FINISHED object:nil];
+
+// your handler:
+- (void)reportScoreFinished:(NSNotification*)notification {
+  // notification's userInfo contains the following keys:
+  // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) on which the score reporting process
+  //                                   finished
+  // DICT_ELEMENT_LEADERBOARD        = Source leaderboard(Leaderboard*)
+  // DICT_ELEMENT_SCORE              = New score (Score*) instance was created 
+  // DICT_ELEMENT_PAYLOAD            = An identification string (NSString*) that you can give  
+  // when you initiate the report score operation and want to receive back upon its completion
+
+
+  // ... your game specific implementation here ...
+}
+```
+
+### REPORT SCORE FAILED
+
+The event `EVENT_UP_REPORT_SCORE_FAILED` is triggered when score reporting for the current leaderboard has failed.
+
+``` objectivec
+// observe the event:
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reportScoreFailed:)
+  name:EVENT_UP_REPORT_SCORE_FAILED object:nil];
+
+// your handler:
+- (void)reportScoreFailed:(NSNotification*)notification {
+  // notification's userInfo contains the following keys:
+  // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) on which the score reporting
+  //                                   process has failed
+  // DICT_ELEMENT_LEADERBOARD        = Source leaderboard(Leaderboard*)
+  // DICT_ELEMENT_MESSAGE            = Description (NSString*) of the reason for failure  
+  // DICT_ELEMENT_PAYLOAD            = An identification string (NSString*) that you can give
+  //       when you initiate the report score operation and want to receive back upon failure
+
+  // ... your game specific implementation here ...
+}
+```

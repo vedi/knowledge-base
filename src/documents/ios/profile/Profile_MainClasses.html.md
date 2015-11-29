@@ -40,27 +40,72 @@ This class represents a profile of a user from a social network (provider).
 **A `UserProfile` contains the following elements:**
 
 - `provider`
+
 - `profileId`
+
 - `username`
+
 - `email`
+
 - `firstName`
+
 - `lastName`
+
 - `avatarLink`
+
 - `location`
+
 - `gender`
+
 - `language`
+
 - `birthday`
+
 - `extra` - a NSDictionary contains additional info provided by social provider:
+
   - `Facebook`
+  
     - **access_token** - *NSString*
+	
     - **permissions** - *NSArray of NSStrings*
+	
     - **expiration_date** - *UNIX timestamp as NSNumber*
+	
   - `Twitter`
+  
     - **access_token** - *NSString*
+	
   - `Google+`
+  
     - **access_token** - *NSString*
+	
     - **refresh_token** - *NSString*
+	
     - **expiration_date** - *UNIX timestamp as NSNumber*
+    
+## Leaderboard <a href="https://github.com/soomla/ios-profile/blob/master/SoomlaiOSProfile/game-services/domain/Leaderboard.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+
+This class holds information about a leaderboard which was returned by `getLeaderboards`.
+
+**A `Leaderboard` contains the following elements:**
+
+- `provider`: the provider this leaderboard is related to
+
+- `ID`: a unique identifier of this leaderboard
+
+## Score <a href="https://github.com/soomla/ios-profile/blob/master/SoomlaiOSProfile/game-services/domain/Score.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
+
+This class holds information about a score which was returned by `getScores` or `reportScore` methods.
+
+**A `Score` contains the following elements:**
+
+- `leaderboard`: the leaderboard containing this score
+
+- `rank`: the position of this score in the leaderboard
+
+- `player`: the owner of this score
+
+- `value`: the value of this score
 
 ## SoomlaProfile <a href="https://github.com/soomla/ios-profile/blob/master/SoomlaiOSProfile/SoomlaProfile.h" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
@@ -382,6 +427,82 @@ The user will be shown a screen where he selects where he wants to share.
 ``` objectivec
 [[SoomlaProfile getInstance] multiShareWithText:@""I'm happy. I can be shared everywhere."
                                andImageFilePath:@"path/to/file/you/want/to/share"];
+
+```
+
+### `getLeaderboards`
+
+`getLeaderboards` retrieves a list of leaderboards used by your application using the provider specified (for example, GameCenter).
+
+``` objectivec
+[[SoomlaProfile getInstance] getLeaderboardsWithProvider:GAME_CENTER payload:@"" andReward:nil];
+
+```
+
+<br>
+### `getScores`
+
+`getScores` retrieves a list of scores of selected leaderboard used by your application using the provider specified (for example, GameCenter).
+
+``` objectivec
+[[SoomlaProfile getInstance] getScoresWithProvider:GAME_CENTER //selected provider
+    forLeaderboard:leaderboard //your leaderboard
+    fromStart:false //should we fetch list from the 1st page or not 
+    payload:@"" 
+    andReward:nil];
+
+```
+
+#### Pagination
+
+Note that the results will contain only part of the list. In order to get more items you should call the method again with `fromStart` param set to `false` (it's a default value for overloaded methods). You can use the following workflow:
+
+```objectivec
+- (void)getScores {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getScoresFinished:)
+      name:EVENT_UP_GET_SCORES_FINISHED object:nil];
+
+    // request for the 1st page
+    [[SoomlaProfile getInstance] getScoresWithProvider:FACEBOOK
+        forLeaderboard:leaderboard
+        andFromStart: YES       // you definitely need the 1st page
+        andPayload: @""         // a String to receive when the function returns.
+        andReward:nil           // The reward to grant
+    ];
+}
+
+
+// your handler:
+- (void)getScoresFinished:(NSNotification*)notification {
+
+    // ... handle page results ...
+
+    if (notification.userData[DICT_ELEMENT_HAS_MORE] != nil && [notification.userData[DICT_ELEMENT_HAS_MORE] boolValue]) {
+        [[SoomlaProfile getInstance] getScoresWithProvider:FACEBOOK
+            forLeaderboard:leaderboard
+            andFromStart: NO        // going on with the pagination
+            andPayload: @""         // a String to receive when the function returns.
+            andReward:nil           // The reward to grant
+        ];
+    } else {
+        // no pages anymore
+    }
+}
+
+```
+
+<br>
+
+### `reportScore`
+
+`reportScore` submits new score for current user in selected leaderboard.
+
+``` objectivec
+[[SoomlaProfile getInstance] reportScoreWithProvider:GAME_CENTER //selected provider
+    score:score //value to submit
+    forLeaderboard:leaderboard //your leaderboard     
+    payload:@"" 
+    andReward:nil];
 
 ```
 

@@ -139,23 +139,37 @@ Google Plus is supported out-of-the-box, authentication is done either through t
 2. Follow [Step 3. Add a URL type](https://developers.google.com/+/mobile/ios/getting-started#step_3_add_a_url_type) and add url type to your application to allow browser based authentication.
 
 3. Navigate to [social-providers/ios-profile-google/libs](https://github.com/soomla/ios-profile/tree/master/social-providers/ios-profile-google/libs) and add the following frameworks to your application:
+
     * GooglePlus.framework
+	
     * GoogleOpenSource.framework
+	
     * GooglePlus.bundle
 
   **NOTE** that ios-profile uses [Google Plus SDK 1.7.1](https://developers.google.com/+/mobile/ios/upgrading-sdk) to support Google Plus integration.
 
 4. Add additional frameworks to your project:
+
     * AddressBook.framework
+	
     * AssetsLibrary.framework
+	
     * Foundation.framework
+	
     * CoreLocation.framework
+	
     * CoreMotion.framework
+	
     * CoreGraphics.framework
+	
     * CoreText.framework
+	
     * MediaPlayer.framework
+	
     * Security.framework
+	
     * SystemConfiguration.framework
+	
     * UIKit.framework
 
 5. Add `-lSoomlaiOSProfileGoogle` to the project's "Other Linker Flags".
