@@ -34,11 +34,8 @@ Currently, Insights supports PayInsights which categorizes users according to th
 
 ## Integration
 
-<div class="info-box">GROW Insights is included all GROW bundles: [GrowSpend](/cocos2dx/js/grow/GrowSpend_GettingStarted#SetupGrowSpend),
-[GrowViral](/cocos2dx/js/grow/GrowViral_GettingStarted#SetupGrowViral),
-[GrowCompete](/cocos2dx/js/grow/GrowCompete_GettingStarted#SetupGrowCompete),
-[GrowInsights](/cocos2dx/js/grow/GrowInsights_GettingStarted#SetupGrowInsights) and
-[GrowUltimate](/cocos2dx/js/grow/GrowUltimate_GettingStarted#SetupGrowUltimate) bundles. Please refer to the relevant
+<div class="info-box">GROW Insights is included in the GROW bundles: [GrowSpend](/cocos2dx/js/grow/GrowSpend_GettingStarted#SetupGrowSpend) and
+[GrowInsights](/cocos2dx/js/grow/GrowInsights_GettingStarted#SetupGrowInsights) and. Please refer to the relevant
 bundle for initialization instructions.</div>
 
 

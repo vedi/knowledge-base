@@ -28,7 +28,7 @@ With State & Economy Sync you can:
 
 ## Integration
 
-<div class="info-box">GROW's State & Economy Sync is included in [GrowSpend](/cocos2dx/cpp/grow/GrowSpend_GettingStarted#SetupGrowSpend), [GrowCompete](/cocos2dx/cpp/grow/GrowCompete_GettingStarted#SetupGrowCompete) and [GrowUltimate](/cocos2dx/cpp/grow/GrowUltimate_GettingStarted#SetupGrowUltimate) bundles. Please refer to the relevant bundle for initialization instructions.</div>
+<div class="info-box">GROW's State & Economy Sync is included in [GrowSpend](/cocos2dx/cpp/grow/GrowSpend_GettingStarted#SetupGrowSpend).</div>
 
 
 1. Initialize `CCGrowSync` according to the instructions of your relevant bundle.
@@ -281,7 +281,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 									__String::create("yourEnvKey"));
 
 	// Make sure to make this call AFTER initializing HIGHWAY,
-	// and BEFORE initializing STORE/PROFILE/LEVELUP
+	// and BEFORE initializing STORE/PROFILE
 	bool modelSync = true; 	// Remote Economy Management - Synchronizes your game's
 							 // economy model between the client and server - enables
 							 // you to remotely manage your economy.
@@ -293,7 +293,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	// State sync and Model sync can be enabled/disabled separately.
 	grow::CCGrowSync::initShared(modelSync, stateSync);
 
-	/** Set up and initialize Store, Profile, and LevelUp **/
+	/** Set up and initialize Store and Profile**/
 	ExampleAssets *assets = ExampleAssets::create();
 
 	__Dictionary *storeParams = __Dictionary::create();
