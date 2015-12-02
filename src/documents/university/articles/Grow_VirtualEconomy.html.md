@@ -1,6 +1,6 @@
 ---
 layout: "content"
-image: "Guide"
+image: "Economy"
 title: "Virtual Economy"
 text: "You can update your virtual economy on the fly!"
 position: 2
@@ -13,7 +13,7 @@ platform: 'university'
 # Virtual Economy
 
 ## Introduction
-The Virtual Economy Manager is a new section in the GROW Dashboard in which you can review, manage and deploy your games' virtual economy. In this section you can actually update your virtual economy without having to release an update to the market (App Store/Google Play).
+The Virtual Economy Manager is where you can review, manage and deploy your games' virtual economy. In this section you can actually update your virtual economy without having to release an update to the market (App Store/Google Play).
 
 ![alt text](/img/docs/university/18_Grow_Economy_Dashboard.png "Virtual Economy in Dashboard")
 
