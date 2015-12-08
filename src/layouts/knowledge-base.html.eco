@@ -58,7 +58,7 @@
       <div id="header-before-right">
         <a href="https://soom.la/labs2" class="survey-banner">
           <span class="survey-sign"></span>
-          <span class="survey-soombot"></span>
+          <span class="survey-soombot animated bounceInDown"></span>
         </a>
       </div>
     </div>
@@ -115,7 +115,7 @@
   $('.survey-banner').addClass('show-banner-start');
   setTimeout(function() {
     $('.survey-banner').removeClass('show-banner-start');
-  }, 5000)
+  }, 2000)
 </script><script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script>$.fn.modal || document.write('<script src="/scripts/bootstrap-3.1.1.min.js"><\/script>')</script>
 <% if @getEnvironment() == 'development':%>
