@@ -44,7 +44,8 @@ docpadConfig = {
 				'/styles/tocify.css'
 				'/styles/highlightcode.css'
 				'/styles/footer.css'
-				'/styles/knowledge.css'
+				'/styles/knowledge.css',
+				'/styles/animate.css'
 			]
 
 		# The website's scripts
