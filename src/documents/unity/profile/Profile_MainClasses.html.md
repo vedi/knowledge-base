@@ -529,8 +529,7 @@ SoomlaProfile.MultiShare(
 SoomlaProfile.GetLeaderboards(
         Provider.GAME_CENTER,
         "",                                 // no payload
-        null,                               // no reward
-        null                                // no error handling, to keep example simple
+        null                                // no reward        
         );
 
 ```
@@ -546,24 +545,22 @@ SoomlaProfile.GetScores(
         leaderboard,                        // your leaderboard
         true,                               // you definitely need the 1st page
         "",                                 // no payload
-        null,                               // no reward
-        null                                // no error handling, to keep example simple
+        null                                // no reward        
         );
 
 ```
 
-### `ReportScore`
+### `SubmitScore`
 
-`ReportScore` submits new score for current user in selected leaderboard.
+`SubmitScore` submits new score for current user in selected leaderboard.
 
 ``` cpp
-SoomlaProfile.ReportScore(
+SoomlaProfile.SubmitScore(
         Provider.GAME_CENTER,        
         leaderboard,                        // your leaderboard
         score,                              // value to submit
         "",                                 // no payload
-        null,                               // no reward
-        null                                // no error handling, to keep example simple
+        null                                // no reward        
         );
         
 ```

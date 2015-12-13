@@ -493,12 +493,12 @@ Note that the results will contain only part of the list. In order to get more i
 
 <br>
 
-### `reportScore`
+### `submitScore`
 
-`reportScore` submits new score for current user in selected leaderboard.
+`submitScore` submits new score for current user in selected leaderboard.
 
 ``` objectivec
-[[SoomlaProfile getInstance] reportScoreWithProvider:GAME_CENTER //selected provider
+[[SoomlaProfile getInstance] submitScoreForProvider:GAME_CENTER //selected provider
     score:score //value to submit
     forLeaderboard:leaderboard //your leaderboard     
     payload:@"" 

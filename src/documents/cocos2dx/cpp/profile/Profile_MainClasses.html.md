@@ -689,12 +689,12 @@ void Example::onGetScoresFinished(EventCustom *event) {
 
 <br>
 
-### `reportScore`
+### `submitScore`
 
-`reportScore` submits new score for current user in selected leaderboard.
+`submitScore` submits new score for current user in selected leaderboard.
 
 ``` cpp
-soomla::CCSoomlaProfile::getInstance()->reportScore(
+soomla::CCSoomlaProfile::getInstance()->submitScore(
         soomla::GAME_CENTER,        
         leaderboard,                        // your leaderboard
         score,                              // value to submit

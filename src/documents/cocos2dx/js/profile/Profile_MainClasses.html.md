@@ -536,12 +536,12 @@ Soomla.soomlaProfile.getScores(
 ```
 
 
-### `reportScore`
+### `submitScore`
 
-`reportScore` submits new score for current user in selected leaderboard.
+`submitScore` submits new score for current user in selected leaderboard.
 
 ``` js
-Soomla.soomlaProfile.reportScore(
+Soomla.soomlaProfile.submitScore(
         soomla::GAME_CENTER,        
         leaderboard,                        // your leaderboard
         score,                              // value to submit
