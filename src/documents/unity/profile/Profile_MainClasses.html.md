@@ -565,6 +565,19 @@ SoomlaProfile.SubmitScore(
         
 ```
 
+### `ShowLeaderboards`
+
+`ShowLeaderboards` opens a native dialog that will display leaderboards list.
+
+``` cs
+SoomlaProfile.ShowLeaderboards(
+        Provider.GAME_CENTER,                
+        "",                                 // no payload
+        null                                // no reward        
+        );
+        
+```
+
 <br>
 ## Auxiliary Model: Reward <a href="https://github.com/soomla/soomla-unity3d-core/blob/master/Soomla/Assets/Plugins/Soomla/Core/rewards/Reward.cs" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 

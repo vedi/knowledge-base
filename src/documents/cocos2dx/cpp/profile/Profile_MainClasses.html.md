@@ -705,6 +705,23 @@ soomla::CCSoomlaProfile::getInstance()->submitScore(
         
 ```
 
+<br>
+
+### `showLeaderboards`
+
+`showLeaderboards` opens a native dialog that will display leaderboards list.
+
+``` cpp
+soomla::CCSoomlaProfile::getInstance()->showLeaderboards(
+        Provider.GAME_CENTER,        
+        "",                                 // no payload
+        null                                // no reward        
+        );
+        
+```
+
+<br>
+
 ## Auxiliary Model: CCReward [<img class="link-icon" src="/img/tutorial_img/linkImg.png">](https://github.com/soomla/soomla-cocos2dx-core/blob/master/Soomla/rewards/CCReward.h)
 
 A `CCReward` is an entity which can be earned by the user for meeting certain criteria in game progress.

@@ -757,3 +757,23 @@ The event `EVENT_UP_SUBMIT_SCORE_FAILED` is triggered when score submission for 
   // ... your game specific implementation here ...
 }
 ```
+
+### SHOW LEADERBOARDS
+
+The event `EVENT_UP_SHOW_LEADERBOARDS` is triggered when leaderboards native dialog was shown.
+
+``` objectivec
+// observe the event:
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(leaderboardsShown:)
+  name:EVENT_UP_SHOW_LEADERBOARDS object:nil];
+
+// your handler:
+- (void)leaderboardsShown:(NSNotification*)notification {
+  // notification's userInfo contains the following keys:
+  // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) that displays native leaderboards dialog      
+  // DICT_ELEMENT_PAYLOAD            = An identification string (NSString*) that you can give
+  //       when you initiate the operation and want to receive back upon failure
+
+  // ... your game specific implementation here ...
+}
+```

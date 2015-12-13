@@ -598,3 +598,17 @@ public void onSubmitScoreFailed(SubmitScoreFailedEvent submitScoreFailedEvent) {
   // ... your game specific implementation here ...
 }
 ```
+
+### ShowLeaderboardsEvent
+
+The event is triggered when leaderboards native dialog was shown.
+
+``` java
+@Subscribe
+public void onShowLeaderboards(ShowLeaderboardsEvent showLeaderboardsEvent) {
+	// Provider is the social provider  
+  // Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+  
+  // ... your game specific implementation here ...
+}
+```

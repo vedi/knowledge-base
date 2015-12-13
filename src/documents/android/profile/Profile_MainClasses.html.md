@@ -517,6 +517,7 @@ SoomlaProfile.getInstance().multiShare(
 );
 ```
 
+<br>
 ### `getLeaderboards`
 
 `getLeaderboards` retrieves a list of leaderboards used by your application using the provider specified (for example, Google Plus Game Services).
@@ -546,6 +547,7 @@ SoomlaProfile.getInstance().getScores(
 
 ```
 
+<br>
 ### `submitScore`
 
 `submitScore` submits new score for current user in selected leaderboard.
@@ -555,6 +557,21 @@ SoomlaProfile.getInstance().submitScore(
         IProvider.Provider.GOOGLE,        
         leaderboard,                        // your leaderboard
         score,                              // value to submit
+        "",                                 // no payload
+        null                                // no reward        
+        );
+        
+```
+
+<br>
+### `showLeaderboards`
+
+`showLeaderboards` opens a native dialog that will display leaderboards list.
+
+``` java
+SoomlaProfile.getInstance().showLeaderboards(
+        Provider.GOOGLE,
+        this,                               // Activity
         "",                                 // no payload
         null                                // no reward        
         );

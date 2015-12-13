@@ -506,6 +506,19 @@ Note that the results will contain only part of the list. In order to get more i
 
 ```
 
+<br>
+
+### `showLeaderboards`
+
+`showLeaderboards` opens a native dialog that will display leaderboards list.
+
+``` objectivec
+[[SoomlaProfile getInstance] showLeaderboardsForProvider:GAME_CENTER //selected provider         
+    payload:@"" 
+    andReward:nil];
+
+```
+
 ## Auxiliary Model: Reward
 
 A `Reward` is an entity which can be earned by the user for meeting certain criteria in game progress.

@@ -552,3 +552,19 @@ this.EVENT_SUBMIT_SCORE_FINISHED = function (provider, leaderboard, message, pay
   // ... your game specific implementation here ...
 }
 ```
+
+### SHOW_LEADERBOARDS
+
+The event `EVENT_SHOW_LEADERBOARDS` is triggered when leaderboards native dialog was shown.
+
+```js
+Soomla.addHandler(Soomla.ProfileConsts.EVENT_SHOW_LEADERBOARDS, this.EVENT_SHOW_LEADERBOARDS, this);
+
+this.EVENT_SHOW_LEADERBOARDS = function (provider, payload) {
+  // provider - the social provider  
+  // payload - an identification string that you can give when you initiate
+  //      the operation and want to receive back upon starting 
+
+  // ... your game specific implementation here ...
+}
+```

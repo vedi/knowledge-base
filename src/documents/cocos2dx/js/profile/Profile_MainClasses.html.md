@@ -552,6 +552,20 @@ Soomla.soomlaProfile.submitScore(
         
 ```
 
+### `showLeaderboards`
+
+`showLeaderboards` opens a native dialog that will display leaderboards list.
+
+``` js
+Soomla.soomlaProfile.showLeaderboards(
+        soomla::GAME_CENTER,                        
+        "",                                 // no payload
+        null,                               // no reward
+        null                                // no error handling, to keep example simple
+        );
+        
+```
+
 ## Auxiliary Model: Soomla.Models.Reward
 
 A `Reward` is an entity which can be earned by the user for meeting certain criteria in game progress.
