@@ -525,7 +525,7 @@ SoomlaProfile.MultiShare(
 
 `GetLeaderboards` retrieves a list of leaderboards used by your application using the provider specified (for example, GameCenter).
 
-``` cpp
+``` cs
 SoomlaProfile.GetLeaderboards(
         Provider.GAME_CENTER,
         "",                                 // no payload
@@ -539,7 +539,7 @@ SoomlaProfile.GetLeaderboards(
 
 `GetScores` retrieves a list of scores of selected leaderboard used by your application using the provider specified (for example, GameCenter).
 
-``` cpp
+``` cs
 SoomlaProfile.GetScores(
         Provider.GAME_CENTER,
         leaderboard,                        // your leaderboard
@@ -554,7 +554,7 @@ SoomlaProfile.GetScores(
 
 `SubmitScore` submits new score for current user in selected leaderboard.
 
-``` cpp
+``` cs
 SoomlaProfile.SubmitScore(
         Provider.GAME_CENTER,        
         leaderboard,                        // your leaderboard
