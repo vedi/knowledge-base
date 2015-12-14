@@ -33,8 +33,6 @@ GrowSpend includes:
 
 **Note:** Cross-device SYNC is using the Profile module which allows your users to login with their social provider. If you want that, [integrate Profile](/cocos2dx/cpp/profile/Profile_GettingStarted) as well.
 
-**Note2:** In some games, SYNCing balances is useless without SYNCing progression as well. Using the LevelUp module will get you there. If you want that, [integrate LevelUp](/cocos2dx/cpp/levelup/Levelup_GettingStarted) as well.
-
 ## Integrating GrowSpend
 
 ### New Game & Configurations
@@ -47,7 +45,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	  ![alt text](/img/tutorial_img/cocos_grow/addNewApp.png "Add new app")
 
-	Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You can also click "Downloads" on the top right corner of the screen). Click on **GrowSpend**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
+	* Once you created your game, you'll be redirected to download  **GrowSpend**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
 
 2. Unzip the downloaded file and copy its contents into the cocos2d directory located at the root of your Cocos2d-x project.
 
@@ -70,10 +68,9 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
   soomla::CCSoomla::initialize("ExampleCustomSecret");
   ```
 
-  <div class="warning-box">Choose this secret wisely, you can't change it after you launch your game!</div>
+<div class="warning-box">Choose this secret wisely, you can't change it after you launch your game!</div>
 
-  **Fraud Protection (RECOMMENDED)**
-
+* **Fraud Protection (RECOMMENDED):**
 3. Initialize `CCGrowHighway` with the "Game Key" and "Env Key" given to you in the [dashboard](http://dashboard.soom.la):
 
   **Copy the "Game Key" and "Environment Key"** given to you from the [dashboard](http://dashboard.soom.la) and initialize `CCGrowHighway` with them. At this point, you're probably testing your integration and you want to use the **Sandbox** environment key.
@@ -96,7 +93,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	``` cpp
 	// Make sure to make this call AFTER initializing HIGHWAY,
-	// and BEFORE initializing STORE/PROFILE/LEVELUP
+	// and BEFORE initializing STORE/PROFILE
 	bool modelSync = true; 	// Remote Economy Management - Synchronizes your game's
                              // economy model between the client and server - enables
                              // you to remotely manage your economy.
@@ -132,17 +129,17 @@ In your XCode project, perform the following steps:
 2. For each of the following XCode projects:
 
   - `Cocos2dXHighway.xcodeproj` (**extensions/cocos2dx-highway/**)
-  
+
   - `Cocos2dXCore.xcodeproj` (**extensions/soomla-cocos2dx-core/**)  
-  
+
   - `Cocos2dXStore.xcodeproj` (**extensions/cocos2dx-store/**)
 
   perform the following:
 
   - Drag the project into your project
-  
+
   - Add its targets to your **Build Phases->Target Dependencies**
-  
+
   - Add the Products (\*.a) of the project to **Build Phases->Link Binary With Libraries**.
 
   ![alt text](/img/tutorial_img/cocos_grow/iosStep2.png "iOS Integration")
@@ -152,11 +149,11 @@ In your XCode project, perform the following steps:
   NOTE: This article assumes you have a `cocos2d` folder under your project folder which either contains the Cocos2d-x framework, or links to to its root folder.
 
  - `$(SRCROOT)/../cocos2d/extensions/soomla-cocos2dx-core/Soomla`
- 
+
  - `$(SRCROOT)/../cocos2d/extensions/soomla-cocos2dx-core/build/ios/headers`
- 
+
  - `$(SRCROOT)/../cocos2d/extensions/cocos2dx-store/Soomla`
- 
+
  - `$(SRCROOT)/../cocos2d/extensions/cocos2dx-highway/Soomla`
 
   ![alt text](/img/tutorial_img/cocos_grow/headerSP.png "Header search paths")
@@ -168,21 +165,21 @@ In your XCode project, perform the following steps:
 6. Make sure you have these 9 Frameworks linked to your XCode project:
 
   - Security
-  
+
   - libsqlite3.0.dylib
-  
+
   - StoreKit
-  
+
   - CFNetwork
-  
+
   - libicucore
-  
+
   - SystemConfiguration
-  
+
   - AdSupport
-  
+
   - MediaPlayer
-  
+
   - GameController
 
 That's it! Now all you have to do is build your XCode project and run your game.
@@ -314,7 +311,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 									__String::create("yourEnvKey"));
 
 	// Make sure to make this call AFTER initializing HIGHWAY,
-	// and BEFORE initializing STORE/PROFILE/LEVELUP
+	// and BEFORE initializing STORE/PROFILE
 	bool modelSync = true; 	// Remote Economy Management - Synchronizes your game's
 							 // economy model between the client and server - enables
 							 // you to remotely manage your economy.
@@ -326,7 +323,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	// State sync and Model sync can be enabled/disabled separately.
 	grow::CCGrowSync::initShared(modelSync, stateSync);
 
-	/** Set up and initialize Store, Profile, and LevelUp **/
+	/** Set up and initialize Store and Profile **/
 	ExampleAssets *assets = ExampleAssets::create();
 
 	__Dictionary *storeParams = __Dictionary::create();

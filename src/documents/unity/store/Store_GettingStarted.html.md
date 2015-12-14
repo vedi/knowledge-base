@@ -14,11 +14,7 @@ platform: 'unity'
 
 ## Integrate unity3d-store
 
-1. First, you'll need to either download (RECOMMENDED) the unity3d-store pre-baked packages, or clone unity3d-store.
-
-  - RECOMMENDED: Download [soomla-unity3d-core](http://library.soom.la/fetch/unity3d-core/latest?cf=knowledge%20base) and [unity3d-store](http://library.soom.la/fetch/unity3d-store/latest?cf=knowledge%20base)
-
-    OR, if you'd like to work with sources:
+1. First, you'll need to download the [Store - In App Purchase](https://www.assetstore.unity3d.com/en/#!/content/6103) plug-in OR, if you'd like to work with sources:
 
   - Clone unity3d-store from SOOMLA's github page.
 

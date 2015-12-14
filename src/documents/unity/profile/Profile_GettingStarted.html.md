@@ -16,11 +16,11 @@ platform: 'unity'
 
 ## Getting Started
 
-1. Download and import [unity3d-profile](http://library.soom.la/fetch/unity3d-profile/latest?cf=knowledge%20base).
+1. Download and import the [Profile plug-in](https://www.assetstore.unity3d.com/en/#!/content/24601).
 
-	**NOTE:** If you already have Store integrated use [unity3d-profile-only](http://library.soom.la/fetch/unity3d-profile-only/latest?cf=knowledge%20base) to avoid importing Core again.
+	**NOTE:** If you already have Store integrated make sure to avoid importing Core again.
 
-	If you want to use Store-related rewards you'll need to go over the instructions of [unity3d-store](https://github.com/soomla/unity3d-store).
+	If you want to use Store-related rewards you'll need to go over the instructions of [Store](/unity/store/Store_GettingStarted).
 
 	<div class="info-box">Starting from `SOOMLA Unity3D Profile 2.2.0`, SOOMLA changed the location of binaries in `Plugins` directory. If you're updating from a version lower than 2.2.0, please remove the following binaries manually:
         <ul>

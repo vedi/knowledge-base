@@ -18,9 +18,9 @@ GrowInsights is the perfect solution for your game if you have already integrate
 
 GrowInsights includes:
 
-- [Analytics](/unity/grow/Grow_Analytics)
+- [Analytics](/university/articles/Grow_Analytics)
 
-- [Whales Report](/unity/grow/Grow_WhalesReport)
+- [Whales Report](/university/articles/Grow_WhalesReport)
 
 - [Insights](/unity/grow/Grow_Insights)
 
@@ -90,7 +90,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
     GrowInsights.Initialize();
 	```
 
-2. Make sure that in your current implementation you initialize the open-source modules (Store/Profile/LevelUp) **AFTER** the initialization of Highway.
+2. Make sure that in your current implementation you initialize the open-source modules (Store/Profile) **AFTER** the initialization of Highway.
 
 ## Module usage & event handling
 

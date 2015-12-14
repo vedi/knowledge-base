@@ -31,9 +31,6 @@ Currently, Insights supports PayInsights which categorizes users according to th
 
 ## Integration
 
-<div class="info-box">GROW Insights is included all GROW bundles: [GrowSpend](/unity/grow/GrowSpend_GettingStarted#SetupGrowSpend), [GrowViral](/unity/grow/GrowViral_GettingStarted#SetupGrowViral), [GrowCompete](/unity/grow/GrowCompete_GettingStarted#SetupGrowCompete), [GrowInsights](/unity/grow/GrowInsights_GettingStarted#SetupGrowInsights) and [GrowUltimate](/unity/grow/GrowUltimate_GettingStarted#SetupGrowUltimate) bundles. Please refer to the relevant bundle for initialization instructions.</div>
-
-
 1. Initialize `GrowInsights` according to the instructions of your relevant bundle.
 
 * Create event handler functions in order to be notified about (and handle) GROW Insights related events. See [Events](/unity/grow/Grow_Insights/#Events) for more information.
