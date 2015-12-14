@@ -70,7 +70,15 @@ platform: 'android'
   For instance, if you try to call `updateStatus`, SoomlaProfile will ask for `publish_actions` permission, 
   if your app has not got it.</div>
 
-  b. **Google+** - No special parameters needed
+  b. **Google+** -  You can enable Google Play Games Services here.
+  
+  ``` java
+  	HashMap<String, String> googleParams = new HashMap<String, String>();
+  	googleParams.put("enableGameServices", Boolean.toString(true));
+  	providerParams.put(IProvider.Provider.GOOGLE, googleParams);
+  
+  	SoomlaProfile.getInstance().initialize(providerParams);
+  	```
 
   c. **Twitter** - Please provide **Consumer Key** and **Consumer Secret** from the "Keys and Access Tokens" section in [Twitter Apps](https://apps.twitter.com/), like so:
 
@@ -159,12 +167,14 @@ Twitter is supported out-of-the-box, authentication is done via web view. Follow
 
     > **Note:** Set the PACKAGE NAME of your google+ app to the value the package defined in your `AndroidManifest.xml`.
 
-3. Import `google-play-services_lib` project as module dependency to your project.
+3. SOOMLA Profile supports [GPGS](https://developers.google.com/games/services/) functionality out-of-the-box also. If you want to use GPGS, please, follow [Steps 2 and 3 in GPGS Quickstart Guide](https://developers.google.com/games/services/android/quickstart#step_2_set_up_the_game_in_the_dev_console). Also, there you can find information how to add your own leaderboards.
+
+4. Import `google-play-services_lib` project as module dependency to your project.
 
     > **Note:** You can either download/copy the existing `google-play-services_lib` project located under 
     [google social provider libs](https://github.com/soomla/android-profile/tree/master/social-providers/android-profile-google/libs) folder or [create one yourself](https://developers.google.com/+/mobile/android/getting-started#step_2_configure_your_eclipse_project).
 
-4. Add `SoomlaGooglePlusActivity` to `AndroidManifest.xml` as following:
+5. Add `SoomlaGooglePlusActivity` to `AndroidManifest.xml` as following:
 
 	```xml
 	...
@@ -174,7 +184,7 @@ Twitter is supported out-of-the-box, authentication is done via web view. Follow
 	</application>
 	```
 
-5. Add the following permissions in `AndroidManifest.xml`:
+6. Add the following permissions in `AndroidManifest.xml`:
 
 	```xml
 	<uses-permission android:name="android.permission.INTERNET" />

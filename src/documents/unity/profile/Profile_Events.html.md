@@ -521,51 +521,66 @@ public void onGetScoresFailed(GetScoresFailedEvent event) {
 }
 ```
 
-### onReportScoreStarted
+### onSubmitScoreStarted
 
-The event is triggered when score reporting for the current leaderboard has started.
+The event is triggered when score submission for the current leaderboard has started.
 
 ``` cs
-ProfileEvents.OnReportScoreStarted += onReportScoreStarted;
+ProfileEvents.OnSubmitScoreStarted += onSubmitScoreStarted;
 
-public void onReportScoreStarted(ReportScoreStartedEvent event) {
+public void onSubmitScoreStarted(SubmitScoreStartedEvent event) {
 	// event.Provider is the social provider
-    // event.Leaderboard is a source leaderboard    
+  // event.Leaderboard is a source leaderboard    
 	// event.Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
 
 	// ... your game specific implementation here ...
 }
 ```
 
-### onReportScoreFinished
+### onSubmitScoreFinished
 
-The event is triggered when score reporting for the current leaderboard has finished successfully.
+The event is triggered when score submission for the current leaderboard has finished successfully.
 
 
 ``` cs
-ProfileEvents.OnReportScoreFinished += onReportScoreFinished;
+ProfileEvents.OnSubmitScoreFinished += onSubmitScoreFinished;
 
-public void onReportScoreFinished(ReportScoreFinishedEvent event) {
+public void onSubmitScoreFinished(SubmitScoreFinishedEvent event) {
 	// event.Provider is the social provider
-    // event.Leaderboard is a source leaderboard
-    // event.Score is a new score instance was created
+  // event.Leaderboard is a source leaderboard
+  // event.Score is a new score instance was created
 	// event.Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
 
 	// ... your game specific implementation here ...
 }
 ```
 
-### onReportScoreFailed
+### onSubmitScoreFailed
 
-The event is triggered when score reporting for the current leaderboard has failed.
+The event is triggered when score submission for the current leaderboard has failed.
 
 ``` cs
-ProfileEvents.OnReportScoreFailed += onReportScoreFailed;
+ProfileEvents.OnSubmitScoreFailed += onSubmitScoreFailed;
 
-public void onReportScoreFailed(ReportScoreFailedEvent event) {
+public void onSubmitScoreFailed(SubmitScoreFailedEvent event) {
 	// event.Provider is the social provider
-    // event.Leaderboard is a source leaderboard
-    // event.ErrorDescription description of the reason for failure
+  // event.Leaderboard is a source leaderboard
+  // event.ErrorDescription description of the reason for failure
+	// event.Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+
+	// ... your game specific implementation here ...
+}
+```
+
+### onShowLeaderboards
+
+The event is triggered when leaderboards native dialog was shown.
+
+``` cs
+ProfileEvents.OnShowLeaderboards += onShowLeaderboards;
+
+public void onShowLeaderboards(ShowLeaderboardsEvent event) {
+	// event.Provider is the social provider  
 	// event.Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
 
 	// ... your game specific implementation here ...

@@ -455,7 +455,7 @@ this.EVENT_GET_SCORES_STARTED = function (provider, leaderboard, fromStart, payl
   // leaderboard - the source leaderboard
   // fromStart - Should we reset pagination or request the next page
   // payload - an identification string that you can give when you initiate
-  //      the get contacts operation and want to receive back upon starting 
+  //      the get scores operation and want to receive back upon starting 
 
   // ... your game specific implementation here ...
 }
@@ -494,60 +494,76 @@ this.EVENT_GET_SCORES_FAILED = function (provider, leaderboard, message, fromSta
   // message  - the failure message
   // fromStart - Should we reset pagination or request the next page
   // payload  - an identification string that you can give when you initiate
-  //      the get contacts operation and want to receive back upon failure
+  //      the get scores operation and want to receive back upon failure
 
   // ... your game specific implementation here ...
 }
 ```
 
-### REPORT_SCORE_STARTED
+### SUBMIT_SCORE_STARTED
 
-The event `EVENT_REPORT_SCORE_STARTED` is triggered when score reporting for the current leaderboard has started.
+The event `EVENT_SUBMIT_SCORE_STARTED` is triggered when score submission for the current leaderboard has started.
 
 ```js
-Soomla.addHandler(Soomla.ProfileConsts.EVENT_REPORT_SCORE_STARTED, this.EVENT_REPORT_SCORE_STARTED, this);
+Soomla.addHandler(Soomla.ProfileConsts.EVENT_SUBMIT_SCORE_STARTED, this.EVENT_SUBMIT_SCORE_STARTED, this);
 
-this.EVENT_REPORT_SCORE_STARTED = function (provider, leaderboard, payload) {
+this.EVENT_SUBMIT_SCORE_STARTED = function (provider, leaderboard, payload) {
   // provider - the social provider
   // leaderboard - the source leaderboard  
   // payload - an identification string that you can give when you initiate
-  //      the report score operation and want to receive back upon starting
+  //      the submit score operation and want to receive back upon starting
     
   // ... your game specific implementation here ...
 }
 ```
 
-### REPORT_SCORE_FINISHED
+### SUBMIT_SCORE_FINISHED
 
-The event `EVENT_REPORT_SCORE_FINISHED` is triggered when score reporting for the current leaderboard has finished successfully.
+The event `EVENT_SUBMIT_SCORE_FINISHED` is triggered when score submission for the current leaderboard has finished successfully.
 
 ```js
-Soomla.addHandler(Soomla.ProfileConsts.EVENT_REPORT_SCORE_FINISHED, this.EVENT_REPORT_SCORE_FINISHED, this);
+Soomla.addHandler(Soomla.ProfileConsts.EVENT_SUBMIT_SCORE_FINISHED, this.EVENT_SUBMIT_SCORE_FINISHED, this);
 
-this.EVENT_REPORT_SCORE_FINISHED = function (provider, leaderboard, score, payload) {
+this.EVENT_SUBMIT_SCORE_FINISHED = function (provider, leaderboard, score, payload) {
   // provider - the social provider
   // leaderboard - the source leaderboard
   // score - the resulted score
   // payload - an identification string that you can give when you initiate
-  //      the report score operation and want to receive back upon starting 
+  //      the submit score operation and want to receive back upon starting 
 
   // ... your game specific implementation here ...
 }
 ```
 
-### REPORT_SCORE_FAILED
+### SUBMIT_SCORE_FAILED
 
-The event `REPORT_SCORE_FAILED` is triggered when score reporting for the current leaderboard has failed.
+The event `EVENT_SUBMIT_SCORE_FINISHED` is triggered when score submission for the current leaderboard has failed.
 
 ```js
-Soomla.addHandler(Soomla.ProfileConsts.REPORT_SCORE_FAILED, this.REPORT_SCORE_FAILED, this);
+Soomla.addHandler(Soomla.ProfileConsts.EVENT_SUBMIT_SCORE_FINISHED, this.EVENT_SUBMIT_SCORE_FINISHED, this);
 
-this.REPORT_SCORE_FAILED = function (provider, leaderboard, message, payload) {
+this.EVENT_SUBMIT_SCORE_FINISHED = function (provider, leaderboard, message, payload) {
   // provider - the social provider
   // leaderboard - the source leaderboard
   // message  - the failure message
   // payload - an identification string that you can give when you initiate
-  //      the report score operation and want to receive back upon starting 
+  //      the submit score operation and want to receive back upon starting 
+
+  // ... your game specific implementation here ...
+}
+```
+
+### SHOW_LEADERBOARDS
+
+The event `EVENT_SHOW_LEADERBOARDS` is triggered when leaderboards native dialog was shown.
+
+```js
+Soomla.addHandler(Soomla.ProfileConsts.EVENT_SHOW_LEADERBOARDS, this.EVENT_SHOW_LEADERBOARDS, this);
+
+this.EVENT_SHOW_LEADERBOARDS = function (provider, payload) {
+  // provider - the social provider  
+  // payload - an identification string that you can give when you initiate
+  //      the operation and want to receive back upon starting 
 
   // ... your game specific implementation here ...
 }
