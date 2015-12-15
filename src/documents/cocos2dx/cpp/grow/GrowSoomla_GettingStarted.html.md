@@ -1,7 +1,7 @@
 ---
 layout: "content"
 image: "Bundle"
-title: "GrowInsights"
+title: "GrowSoomla"
 text: "The perfect solution for your game if you have already integrated any of the SOOMLA open-source modules into it. If you just want to get Analytics, Whales Report and Grow Insights then this bundle is for you."
 position: 15
 theme: 'platforms'
@@ -11,13 +11,13 @@ lang: 'cpp'
 platform: 'cocos2dx'
 ---
 
-# GrowInsights - Bundle
+# GrowSoomla - Bundle
 
 ## Overview
 
-GrowInsights is the perfect solution for your game if you have already integrated any of the SOOMLA open-source modules into it. If you just want to get Analytics Whales Report and Grow Insights then this bundle is for you. GrowInsights connects you to GROW, SOOMLA's flagship - a community-driven data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/cocos2dx/cpp/grow/Grow_About)
+GrowSoomla is the perfect solution for your game if you have already integrated any of the SOOMLA open-source modules into it. If you just want to get Analytics Whales Report and Grow Insights then this bundle is for you. GrowSoomla connects you to GROW, SOOMLA's flagship - a community-driven data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/university/articles/Grow_About)
 
-GrowInsights includes:
+GrowSoomla includes:
 
 - [Analytics](/university/articles/Grow_Analytics)
 
@@ -25,7 +25,7 @@ GrowInsights includes:
 
 - [Insights](/cocos2dx/cpp/grow/Grow_Insights)
 
-## Integrating GrowInsights
+## Integrating GrowSoomla
 
 ### New Game & Configurations
 
@@ -37,7 +37,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	  ![alt text](/img/tutorial_img/cocos_grow/addNewApp.png "Add new app")
 
-	* Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You can also click "Downloads" on the top right corner of the screen). Click on **GrowInsights**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
+	* Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You can also click "Downloads" on the top right corner of the screen). Click on **GrowSoomla**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
 
 2. Unzip the downloaded file and copy its contents into the cocos2d directory located at the root of your Cocos2d-x project.
 
@@ -68,7 +68,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
   Explanation: The "game" and "env" keys allow for your game to distinguish multiple environments for the same game. The dashboard pre-generates two fixed environments for your game: **Production** and **Sandbox**. When you decide to publish your game, make sure to switch the env key to **Production**.  You can always generate more environments.  For example - you can choose to have a playground environment for your game's beta testers which will be isolated from your production environment and will thus prevent analytics data from being mixed between the two.  Another best practice is to have a separate environment for each version of your game.
 
-  ``` cpp
+  ```
   // Make sure to make this call in your AppDelegate's
   // applicationDidFinishLaunching method, and before
   // initializing any other SOOMLA/GROW components
