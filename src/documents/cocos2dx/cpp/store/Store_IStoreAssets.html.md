@@ -19,11 +19,11 @@ platform: 'cocos2dx'
 
 ### Guidelines
 
-- Each item in `IStoreAssets` has a unique item ID that is used to identify it in various functions throughout the SDK. Make sure your item IDs do NOT contain periods (.).
+- Each item in `CCStoreAssets` has a unique item ID that is used to identify it in various functions throughout the SDK. Make sure your item IDs do NOT contain periods (.).
 
 - Make sure to implement ALL functions, even if you don't need some of them, just have them return an empty array.
 
-- SOOMLA Store initialization will be stopped if some of methods in `IStoreAssets` will return null-pointer reference. Even if you don't need some of them, just have them return an empty array.
+- SOOMLA Store initialization will be stopped if some of methods in `CCStoreAssets` will return null-pointer reference. Even if you don't need some of them, just have them return an empty array.
 
 ### Example
 

@@ -136,7 +136,7 @@ And that's it! unity3d-profile knows how to contact the social provider (Faceboo
 
 2. SOOMLA Profile supports [GPGS](https://developers.google.com/games/services/) functionality out-of-the-box also. If you want to use GPGS, please, follow [Steps 2 and 3 in GPGS Quickstart Guide](https://developers.google.com/games/services/android/quickstart#step_2_set_up_the_game_in_the_dev_console). Also, there you can find information how to add your own leaderboards.
 
-3. Navigate to **Window > Soomla > Edit Settings** and toggle "google" check box (ignore the Client Id text box).
+3. Navigate to **Window > Soomla > Edit Settings**, toggle "google" check box and specify Client ID field, if you want to use GPGS.
 
 4. Navigate to "Publishing Settings" and browse for your keystore file (debug.keystore/custom keystore).
 

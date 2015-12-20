@@ -146,23 +146,23 @@ Google Plus is supported out-of-the-box, authentication is done either through t
 
 3. Follow [Add URL schemes to your project](https://developers.google.com/identity/sign-in/ios/start-integrating#add_url_schemes_to_your_project) and add url type to your application to allow browser based authentication.
 
-4. Navigate to [social-providers/ios-profile-google/libs](https://github.com/soomla/ios-profile/tree/master/social-providers/ios-profile-google/libs) and add the following frameworks to your application:
+4. Add the following frameworks to your application:
 
-    * GoogleSignIn.framework
+    * GoogleSignIn.framework (can be downloaded here: https://developers.google.com/identity/sign-in/ios/sdk/)
     
-    * GoogleSignIn.bundle
+    * GoogleSignIn.bundle (coming together with GoogleSignIn.framework)
 
-    * GooglePlus.framework
+    * GooglePlus.framework (can be downloaded here: https://developers.google.com/+/downloads/)
 	
-    * GoogleOpenSource.framework
+    * GoogleOpenSource.framework (can be downloaded here: https://developers.google.com/+/downloads/)
 	
-    * GooglePlus.bundle
+    * GooglePlus.bundle (coming together with GooglePlus.framework)
     
     and, if you want to use GPGS, also include the following frameworks:
     
-    * gpg.framework
+    * gpg.framework (can be downloaded here: https://developers.google.com/games/services/downloads/sdks)
         
-    * gpg.bundle 
+    * gpg.bundle (coming together with gpg.framework) 
 
   **NOTE** that ios-profile uses [Google Plus SDK 1.7.1](https://developers.google.com/+/mobile/ios/upgrading-sdk) to support Google Plus integration.
 
