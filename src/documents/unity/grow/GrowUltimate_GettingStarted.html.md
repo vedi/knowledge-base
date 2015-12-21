@@ -54,14 +54,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
           <li>`Assets/Plugins/Android/UnitySoomlaAndroidCore.jar`</li>
           <li>`Assets/Plugins/Android/square-otto-1.3.2.jar`</li>
         </ul>		    
-	    Also, if you're using SOOMLA Unity3D LevelUp, remove the following binaries:
-        <ul>
-          <li>`Assets/Plugins/iOS/libSoomlaiOSSLevelUp.a`</li>
-          <li>`Assets/Plugins/iOS/libUnityiOSLevelUp.a`</li>
-          <li>`Assets/Plugins/Android/AndroidLevelUp.jar`</li>
-          <li>`Assets/Plugins/Android/UnityAndroidLevelUp.jar`</li>
-        </ul>
-        Also, if you're using SOOMLA Unity3D Profile, remove the following binaries:
+	    Also, if you're using SOOMLA Unity3D Profile, remove the following binaries:
         <ul>      
           <li>`Assets/Plugins/iOS/libSoomlaiOSSProfile.a`</li>      
           <li>`Assets/Plugins/iOS/libUnityiOSProfile.a`</li>            
@@ -87,13 +80,12 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
         </ul>
       </div>
 
-3. ~~Open your earliest loading scene.  Drag the `CoreEvents`, `StoreEvents`, `ProfileEvents`, `LevelUpEvents` and `HighwayEvents` Prefabs from `Assets/Soomla/Prefabs` into the scene. You should see them listed in the "Hierarchy" panel.~~
+3. ~~Open your earliest loading scene.  Drag the `CoreEvents`, `StoreEvents`, `ProfileEvents` and `HighwayEvents` Prefabs from `Assets/Soomla/Prefabs` into the scene. You should see them listed in the "Hierarchy" panel.~~
 
 	<div class="info-box">This step is no longer required starting from: <br>
 	Core    v1.2.0 <br>
 	Store   v1.9.0 <br>
 	Profile v2.2.0 <br>
-	LevelUp v1.1.0 <br>
 	Highway v2.1.0</div>
 
 	![alt text](/img/tutorial_img/unity_grow/prefabsAll.png "Prefabs")
@@ -135,14 +127,12 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 <br>
 <div class="info-box">The GrowHighway module is the module responsible for connecting your game to the GROW network. In order for it to operate it only needs to be initialized.</div>
 
-1. Initialize Highway, Insights, Sync and Gifting:
+1. Initialize Highway, Insights and Sync:
 
 	``` cs
 	using Grow.Highway;
 	using Grow.Insights;
 	using Grow.Sync;
-	using Grow.Gifting;
-	using Grow.Leaderboards;
 
 	// Make sure to make this call in your earliest loading scene,
 	// and before initializing any other SOOMLA/GROW components
@@ -153,27 +143,20 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
     GrowInsights.Initialize();
 
 	// Make sure to make this call AFTER initializing HIGHWAY,
-	// and BEFORE initializing STORE/PROFILE/LEVELUP
+	// and BEFORE initializing STORE/PROFILE
 	bool modelSync = true; 	// Remote Economy Management - Synchronizes your game's
                              // economy model between the client and server - enables
                              // you to remotely manage your economy.
 
 	bool stateSync = true; // Synchronizes the users' balances data with the server
                            // and across his other devices.
-						   // Must be TRUE in order to use LEADERBOARDS.
 
 	// State sync and Model sync can be enabled/disabled separately.
 	GrowSync.Initialize(modelSync, stateSync);
 
-	// LEADERBOARDS requires no initialization,
-	// but it depends on SYNC initialization with stateSync=true
-
-	// Make sure to make this call AFTER initializing SYNC,
-	// and BEFORE initializing STORE/PROFILE/LEVELUP
-	GrowGifting.Initialize();
 	```
 
-2. Initialize the open-source modules: Store, Profile & LevelUp (**AFTER** the initialization of Highway, Sync and Gifting).
+2. Initialize the open-source modules: Store & Profile (**AFTER** the initialization of Highway & Sync).
 
 	* **Initialize Store:** Create your own implementation of `IStoreAssets` in order to describe your specific game's assets ([example](https://github.com/soomla/unity3d-store/blob/master/Soomla/Assets/Examples/MuffinRush/MuffinRushAssets.cs)). Initialize SoomlaStore with the class you just created:
 
@@ -189,11 +172,6 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 	SoomlaProfile.Initialize();
 	```
 
-	* **Initialize LevelUp:** Create your own Initial World which should contain the entire 'blueprint' of the game (see [Model Overview](/unity/levelup/Levelup_Model)). Initialize LevelUp with the world you just created:
-
-	``` cs
-	SoomlaLevelUp.Initialize(initialWorld);
-	```
 
 ## Module usage & event handling
 
@@ -206,24 +184,16 @@ In order to be notified about (and handle) SOOMLA-related events, you will also 
 - **Profile** - This module will make your life extremely easy when it comes to connecting your users to Social Networks.  
 [API](/unity/profile/Profile_MainClasses) | [Events](/unity/profile/Profile_Events)
 
-- **LevelUp** - When you want to easily create your game structure and handle your users' state, LevelUp is your guy.  
-[API](/unity/levelup/Levelup_Model) | [Events](/unity/levelup/Levelup_Events)
-
 - **Insights** - Getting in-game information about your users in real-time used to be a dream. Now it's here. Insights will tell you things about your users (as seen in other games) inside the code so you can take actions when it matters. This is the power of the GROW data network.  
 [API](/unity/grow/Grow_Insights#MainClasses&Methods) | [Events](/unity/grow/Grow_Insights#Events)
 
 - **State & Economy Sync** - Your users want to get their balances, levels and other game state parameters when they switch devices. Now you can let them do it.  
 [Events](/unity/grow/Grow_Sync#Events)
 
-- **Social Leaderboards** - Make your users compete with each other using their favorite social network. GROW's Social Leaderboards will let your users compete using their Facebook, Twitter or Google+ accounts.  
-[API](/unity/grow/Grow_Leaderboards) | [Events](/unity/grow/Grow_Leaderboards#Events)
-
-- **Gifting** - Increase the virality of your game by letting your users gift each other with any virtual item in your game.  
-[API](/unity/grow/Grow_Gifting) | [Events](/unity/grow/Grow_Gifting#Events)
 
 ## Example
 
-Below is a short example of how to initialize SOOMLA's modules. We suggest you read about the different modules and their entities in SOOMLA's Knowledge Base: [Store](/unity/store/Store_Model), [Profile](/unity/profile/Profile_MainClasses), [LevelUp](/unity/levelup/Levelup_Model), [State & Economy Sync](/unity/grow/Grow_Sync), [Insights](/unity/grow/Grow_Insights), [Gifting](/unity/grow/Grow_Gifting) and [Social Leaderboards](/unity/grow/Grow_Leaderboards).
+Below is a short example of how to initialize SOOMLA's modules. We suggest you read about the different modules and their entities in SOOMLA's Knowledge Base: [Store](/unity/store/Store_Model), [Profile](/unity/profile/Profile_MainClasses), [State & Economy Sync](/unity/grow/Grow_Sync) and [Insights](/unity/grow/Grow_Insights).
 
 ### IStoreAssets
 
@@ -311,52 +281,12 @@ public class ExampleAssets : IStoreAssets {
 using Soomla;
 using Soomla.Store;
 using Soomla.Profile;
-using Soomla.Levelup;
 using Grow.Highway;
 using Grow.Insights;
 using Grow.Sync;
-using Grow.Gifting;
-using Grow.Leaderboards;
 using System.Collections.Generic;
 
 public class ExampleWindow : MonoBehaviour {
-
-	//
-	// Utility method for creating the game's worlds
-	// and levels hierarchy
-	//
-	private World createMainWorld() {
-		World worldA = new World("world_a");
-		World worldB = new World("world_b");
-
-		Reward coinReward = new VirtualItemReward(
-			"coinReward",                       // ID
-			"100 Coins",                        // Name
-			ExampleAssets.COIN_CURRENCY.ID,     // Associated item ID
-			100                                 // Amount
-			);
-
-		Mission likeMission = new SocialLikeMission(
-			"likeMission",                      // ID
-			"Like Mission",                     // Name
-			new List<Reward>(){coinReward},     // Reward
-		Soomla.Profile.Provider.FACEBOOK,   // Social Provider
-		"[page name]"                       // Page to "Like"
-		);
-
-		// Add 10 levels to each world
-		worldA.BatchAddLevelsWithTemplates(10, null,
-		                                   null, new List<Mission>(){likeMission});
-		worldB.BatchAddLevelsWithTemplates(10, null,
-		                                   null, new List<Mission>(){likeMission});
-
-		// Create a world that will contain all worlds of the game
-		World mainWorld = new World("main_world");
-		mainWorld.InnerWorldsMap.Add(worldA.ID, worldA);
-		mainWorld.InnerWorldsMap.Add(worldB.ID, worldB);
-
-		return mainWorld;
-	}
 
 	//
 	// Various event handling methods
@@ -367,9 +297,6 @@ public class ExampleWindow : MonoBehaviour {
 	public static void onLoginFinished(UserProfile userProfileJson, bool autoLogin, string payload){
 		SoomlaUtils.LogDebug("TAG", "Logged in as: " + userProfileJson.toJSONObject().print());
 	}
-	public void onLevelStarted(Level level) {
-		SoomlaUtils.LogDebug("TAG", "Level started: " + level.toJSONObject().print());
-	}
 	public void onGrowInsightsInitialized () {
 		Debug.Log("Grow insights has been initialized.");
 	}
@@ -377,15 +304,6 @@ public class ExampleWindow : MonoBehaviour {
 		if (GrowInsights.UserInsights.PayInsights.PayRankByGenre[Genre.Educational] > 3) {
 			// ... Do stuff according to your business plan ...
 		}
-	}
-	void OnGrowGiftingInitialized () {
-		Debug.Log("GROW Gifting has been initialized.");
-	}
-	void OnGiftHandOutSuccess (Gift gift){
-		// ... Show a nice animation of receiving the gift ...
-	}
-	void OnGiftSendFinished (Gift gift) {
-		Debug.Log("Successfully sent " + gift.Payload.AssociatedItemId);
 	}
 	public void onGrowSyncInitialized() {
 		Debug.Log("GROW Sync has been initialized.");
@@ -397,11 +315,6 @@ public class ExampleWindow : MonoBehaviour {
 	                                IList<string> failedComponents) {
 		Debug.Log("State Sync has finished.");
 	}
-	public void onFetchFriendsStatesFinished(int providerId,
-	                                         IList<FriendState> friendStates) {
-		Debug.Log("Finished fetching friends states.");
-		// ... Display leaderboards to the user ...
-	}
 
 	//
 	// Initialize all of SOOMLA's modules
@@ -411,14 +324,9 @@ public class ExampleWindow : MonoBehaviour {
 		// Setup all event handlers - Make sure to set the event handlers before you initialize
 		StoreEvents.OnGoodBalanceChanged += onGoodBalanceChanged;
 		ProfileEvents.OnLoginFinished += onLoginFinished;
-		LevelUpEvents.OnLevelStarted += onLevelStarted;
 
 		HighwayEvents.OnGrowInsightsInitialized += onGrowInsightsInitialized;
 		HighwayEvents.OnInsightsRefreshFinished += onInsightsRefreshFinished;
-
-		HighwayEvents.OnGrowGiftingInitialized += OnGrowGiftingInitialized;
-		HighwayEvents.OnGiftHandOutSuccess += OnGiftHandOutSuccess;
-		HighwayEvents.OnGiftSendFinished += OnGiftSendFinished;
 
 		HighwayEvents.OnGrowSyncInitialized += onGrowSyncInitialized;
 		HighwayEvents.OnModelSyncFinished += onModelSyncFinished;
@@ -437,8 +345,6 @@ public class ExampleWindow : MonoBehaviour {
 			System.Collections.Generic.List<string> profileIdList =
 				userProfiles.PageData.ConvertAll(e => e.ProfileId);
 
-			// Fetch friends' states
-			GrowLeaderboards.FetchFriendsStates(provider.toInt(), profileIdList);
 
 			if (userProfiles.HasMore) {
 				SoomlaProfile.GetContacts(provider, false);
@@ -456,7 +362,7 @@ public class ExampleWindow : MonoBehaviour {
 		GrowInsights.Initialize();
 
 		// Make sure to make this call AFTER initializing HIGHWAY,
-		// and BEFORE initializing STORE/PROFILE/LEVELUP
+		// and BEFORE initializing STORE/PROFILE
 		bool modelSync = true; 	// Remote Economy Management - Synchronizes your game's
 								// economy model between the client and server - enables
 								// you to remotely manage your economy.
@@ -467,14 +373,8 @@ public class ExampleWindow : MonoBehaviour {
 		// State sync and Model sync can be enabled/disabled separately.
 		GrowSync.Initialize(modelSync, stateSync);
 
-		// Make sure to make this call AFTER initializing SYNC,
-		// and BEFORE initializing STORE/PROFILE/LEVELUP
-		GrowGifting.Initialize();
-
 		SoomlaStore.Initialize(new ExampleAssets());
 		SoomlaProfile.Initialize();
-		SoomlaLevelUp.Initialize(createMainWorld());
-
 	}
 }
 ```

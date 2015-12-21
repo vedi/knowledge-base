@@ -81,34 +81,26 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
   <img src="/img/tutorial_img/cocos_grow/dashboardKeys.png" alt="Game key and Env key" style="border:0;">
 
-4. Initialize Insights, Sync and Gifting:
+4. Initialize Insights and Sync:
 
 	``` cpp
 	// Make sure to make this call AFTER initializing HIGHWAY
     grow::CCGrowInsights::initShared();
 
 	// Make sure to make this call AFTER initializing HIGHWAY,
-	// and BEFORE initializing STORE/PROFILE/LEVELUP
+	// and BEFORE initializing STORE/PROFILE
 	bool modelSync = true; 	// Remote Economy Management - Synchronizes your game's
                              // economy model between the client and server - enables
                              // you to remotely manage your economy.
 
 	bool stateSync = true; // Synchronizes the users' balances data with the server
                            // and across his other devices.
-						   // Must be TRUE in order to use LEADERBOARDS.
 
 	// State sync and Model sync can be enabled/disabled separately.
 	grow::CCGrowSync::initShared(modelSync, stateSync);
-
-	// LEADERBOARDS requires no initialization,
-	// but it depends on SYNC initialization with stateSync=true
-
-	// Make sure to make this call AFTER initializing SYNC,
-	// and BEFORE initializing STORE/PROFILE/LEVELUP
-	grow::CCGrowGifting::initShared();
 	```
 
-2. Initialize the rest of the SOOMLA modules: `CCSoomlaStore`, `CCSoomlaProfile` and `CCSoomlaLevelUp`.
+2. Initialize the rest of the SOOMLA modules: `CCSoomlaStore` and `CCSoomlaProfile`.
 
     ```cpp
     // `YourImplementationAssets` should implement the `CCStoreAssets` interface
@@ -120,9 +112,6 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
     __Dictionary *profileParams = __Dictionary::create();
     soomla::CCSoomlaProfile::initialize(profileParams);
-
-    // initialWorld - should be created here and contain all worlds and levels of the game
-    soomla::CCSoomlaLevelUp::getInstance()->initialize(initialWorld);
     ```
 
 <br>
@@ -140,7 +129,6 @@ In your XCode project, perform the following steps:
   - `Cocos2dXCore.xcodeproj` (**extensions/soomla-cocos2dx-core/**)  
   - `Cocos2dXStore.xcodeproj` (**extensions/cocos2dx-store/**)
   - `Cocos2dXProfile.xcodeproj` (**extensions/cocos2dx-profile/**)  
-  - `Cocos2dXLevelUp.xcodeproj` (**extensions/cocos2dx-levelup/**)
 
   perform the following:
 
@@ -159,7 +147,6 @@ In your XCode project, perform the following steps:
  - `$(SRCROOT)/../cocos2d/extensions/cocos2dx-store/Soomla`
  - `$(SRCROOT)/../cocos2d/extensions/cocos2dx-profile/Soomla`
  - `$(SRCROOT)/../cocos2d/extensions/cocos2dx-profile/build/ios/headers`
- - `$(SRCROOT)/../cocos2d/extensions/cocos2dx-levelup/Soomla`
  - `$(SRCROOT)/../cocos2d/extensions/cocos2dx-highway/Soomla`
 
   ![alt text](/img/tutorial_img/cocos_grow/headerSP.png "Header search paths")
@@ -192,18 +179,16 @@ That's it! Now all you have to do is build your XCode project and run your game.
 
 ### **Instructions for Android**
 
-1. Import cocos2dx-highway, cocos2dx-store, cocos2dx-profile and cocos2dx-levelup modules into your project's Android.mk by adding the following:
+1. Import cocos2dx-highway, cocos2dx-store and cocos2dx-profile modules into your project's Android.mk by adding the following:
 
     ```
     LOCAL_STATIC_LIBRARIES += cocos2dx_store_static
     LOCAL_STATIC_LIBRARIES += cocos2dx_profile_static
-    LOCAL_STATIC_LIBRARIES += cocos2dx_levelup_static
     LOCAL_STATIC_LIBRARIES += cocos2dx_highway_static
     # add these lines along with your other LOCAL_STATIC_LIBRARIES
 
     $(call import-module, extensions/cocos2dx-store)
     $(call import-module, extensions/cocos2dx-profile)
-    $(call import-module, extensions/cocos2dx-levelup)
     $(call import-module, extensions/cocos2dx-highway)
     # add these lines at the end of the file, along with the other import-module calls
     ```
@@ -238,13 +223,7 @@ That's it! Now all you have to do is build your XCode project and run your game.
 
     - Cocos2dxAndroidProfile.jar
 
-  From `extensions/cocos2dx-levelup/build/android`
-
-    - AndroidLevelUp.jar
-
-    - Cocos2dxAndroidLevelUp.jar
-
-4. Update your `AndroidManifest.xml`:
+  4. Update your `AndroidManifest.xml`:
 
   ``` xml
   <uses-permission android:name="android.permission.INTERNET"/>
@@ -287,24 +266,15 @@ In order to be notified about (and handle) SOOMLA-related events, you will also 
 - **Profile** - This module will make your life extremely easy when it comes to connecting your users to Social Networks.  
 [API](/cocos2dx/cpp/profile/Profile_MainClasses) | [Events](/cocos2dx/cpp/profile/Profile_Events)
 
-- **LevelUp** - When you want to easily create your game structure and handle your users' state, LevelUp is your guy.  
-[API](/cocos2dx/cpp/levelup/Levelup_Model) | [Events](/cocos2dx/cpp/levelup/Levelup_Events)
-
 - **Insights** - Getting in-game information about your users in real-time used to be a dream. Now it's here. Insights will tell you things about your users (as seen in other games) inside the code so you can take actions when it matters. This is the power of the GROW data network.  
 [API](/cocos2dx/cpp/grow/Grow_Insights#MainClasses&Methods) | [Events](/cocos2dx/cpp/grow/Grow_Insights#Events)
 
 - **State & Economy Sync** - Your users want to get their balances, levels and other game state parameters when they switch devices. Now you can let them do it.  
 [Events](/cocos2dx/cpp/grow/Grow_Sync#Events)
 
-- **Social Leaderboards** - Make your users compete with each other using their favorite social network. GROW's Social Leaderboards will let your users compete using their Facebook, Twitter or Google+ accounts.  
-[API](/cocos2dx/cpp/grow/Grow_Leaderboards) | [Events](/cocos2dx/cpp/grow/Grow_Leaderboards#Events)
-
-- **Gifting** - Increase the virality of your game by letting your users gift each other with any virtual item in your game.  
-[API](/cocos2dx/cpp/grow/Grow_Gifting) | [Events](/cocos2dx/cpp/grow/Grow_Gifting#Events)
-
 ## Example
 
-Below is a short example of how to initialize SOOMLA's modules. We suggest you read about the different modules and their entities in SOOMLA's Knowledge Base: [Store](/cocos2dx/cpp/store/Store_Model), [Profile](/cocos2dx/cpp/profile/Profile_MainClasses), [LevelUp](/cocos2dx/cpp/levelup/Levelup_Model), [State & Economy Sync](/cocos2dx/cpp/grow/Grow_Sync), [Insights](/cocos2dx/cpp/grow/Grow_Insights), [Gifting](/cocos2dx/cpp/grow/Grow_Gifting) and [Social Leaderboards](/cocos2dx/cpp/grow/Grow_Leaderboards).
+Below is a short example of how to initialize SOOMLA's modules. We suggest you read about the different modules and their entities in SOOMLA's Knowledge Base: [Store](/cocos2dx/cpp/store/Store_Model), [Profile](/cocos2dx/cpp/profile/Profile_MainClasses), [State & Economy Sync](/cocos2dx/cpp/grow/Grow_Sync) and [Insights](/cocos2dx/cpp/grow/Grow_Insights).
 
 ### CCStoreAssets
 
@@ -368,10 +338,6 @@ CCMission *mission = CCBalanceMission::create(
   CCInteger::create(100)
 );
 
-/** Levels **/
-// Add 5 levels to the main world with the gate, score, and mission templates we just created.
-mainWorld->batchAddLevelsWithTemplates(5, gate, score, mission);
-
 soomla::CCSoomla::initialize("ExampleCustomSecret");
 
 // Make sure to make this call in your AppDelegate's
@@ -385,26 +351,18 @@ grow::CCGrowHighway::initShared(__String::create("yourGameKey"),
 grow::CCGrowInsights::initShared();
 
 // Make sure to make this call AFTER initializing HIGHWAY,
-// and BEFORE initializing STORE/PROFILE/LEVELUP
+// and BEFORE initializing STORE/PROFILE
 bool modelSync = true; 	// Remote Economy Management - Synchronizes your game's
 						 // economy model between the client and server - enables
 						 // you to remotely manage your economy.
 
 bool stateSync = true; // Synchronizes the users' balances data with the server
 					   // and across his other devices.
-					   // Must be TRUE in order to use LEADERBOARDS.
 
 // State sync and Model sync can be enabled/disabled separately.
 grow::CCGrowSync::initShared(modelSync, stateSync);
 
-// LEADERBOARDS requires no initialization,
-// but it depends on SYNC initialization with stateSync=true
-
-// Make sure to make this call AFTER initializing SYNC,
-// and BEFORE initializing STORE/PROFILE/LEVELUP
-grow::CCGrowGifting::initShared();
-
-/** Set up and initialize Store, Profile, and LevelUp **/
+/** Set up and initialize Store and Profile **/
 ExampleAssets *assets = ExampleAssets::create();
 
 __Dictionary *storeParams = __Dictionary::create();
@@ -414,6 +372,4 @@ soomla::CCSoomlaStore::initialize(assets, storeParams);
 
 __Dictionary *profileParams = __Dictionary::create();
 soomla::CCSoomlaProfile::initialize(profileParams);
-
-soomla::CCSoomlaLevelUp::getInstance()->initialize(mainWorld);
 ```
