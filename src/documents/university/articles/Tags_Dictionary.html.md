@@ -305,7 +305,7 @@ Indicates that the game has scores
 Indicates that the game has missions
 <br/><br/>
 #### `Challenges`
-Indicates that the game has Challenges
+Indicates that the game has Challenges, some challenges are daily / weekly.
 <br/><br/>
 #### `Worlds / Locations`
 Indicates that the game has Worlds or Locations
