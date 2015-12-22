@@ -26,17 +26,15 @@ This is sort of a high-level insight to your data and you can drill down by look
 
 > Financial information like `Payers`, `Revenue ` and `Top Product` require that you integrate [Store](http://know.soom.la/unity/store/) in your game.
 
-Below the general information section, you'll see some widgets that describe the different services provided by GROW. [Whales Report](/university/articles/Grow_WhalesReport) and Insights widgets will provide you with relevant high-level information about those services. Other widgets show you data about the Social Leaderboard, Sync - how many users play on more than one device, Fraud - how many players and orders were identified as fraud and blocked. There’s also a Gifting widget which shows you how many gifts were given by your users and which gift is the most popular.
+Below the general information section, you'll see some widgets that describe the different services provided by GROW. [Whales Report](/university/articles/Grow_WhalesReport) and Insights widgets will provide you with relevant high-level information about those services. Other widgets show you data about the Sync - how many users play on more than one device and Fraud - how many players and orders were identified as fraud and blocked.
 
 ![alt text](/img/docs/university/10_Grow_Analytics_Dashboard_Widgtets.png "Dashboard Widgets")
 
 > The [Whales Report](/university/articles/Grow_WhalesReport) and Insights widgets require that you have any one of our [Grow Bundles](http://dashboard.soom.la/games//quickStart) installed in your game.
 
-> The [Social Leaderboard](http://know.soom.la/unity/grow/grow_leaderboards/) widget requires the Grow Compete or Grow Ultimate bundles installed in your game.
+> [State Economy & Sync](http://know.soom.la/unity/grow/grow_sync/) requires one of the following bundles: Grow Spend or Grow Ultimate.
 
-> [State Economy & Sync](http://know.soom.la/unity/grow/grow_sync/) requires one of the following bundles: Grow Spend, Grow Compete or Grow Ultimate.
-
-> [Fraud Protection](/university/articles/Grow_FraudProtection) requires Grow Spend or Grow Ultimate and [Gifting](http://know.soom.la/unity/grow/grow_gifting/) requires Grow Viral or Grow Ultimate installed in your game.
+> [Fraud Protection](/university/articles/Grow_FraudProtection) requires Grow Ultimate.
 
 ### ACTIVITY
 
