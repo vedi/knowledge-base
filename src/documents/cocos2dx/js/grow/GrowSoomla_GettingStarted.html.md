@@ -1,7 +1,7 @@
 ---
 layout: "content"
 image: "Bundle"
-title: "GrowInsights"
+title: "GrowSoomla"
 text: "The perfect solution for your game if you have already integrated any of the SOOMLA open-source modules into it. If you just want to get Analytics, Whales Report and Grow Insights then this bundle is for you."
 position: 15
 theme: 'platforms'
@@ -11,17 +11,17 @@ lang: 'js'
 platform: 'cocos2dx'
 ---
 
-# GrowInsights - Bundle
+# GrowSoomla - Bundle
 
 ## Overview
 
-GrowInsights is the perfect solution for your game if you have already integrated any of the SOOMLA open-source modules
-into it. If you just want to get Analytics Whales Report and Grow Insights then this bundle is for you. GrowInsights
+GrowSoomla is the perfect solution for your game if you have already integrated any of the SOOMLA open-source modules
+into it. If you just want to get Analytics Whales Report and Grow Insights then this bundle is for you. GrowSoomla
 connects you to GROW, SOOMLA's flagship - a community-driven data network. Mobile game studios can take advantage of
 the different GROW products in order to get valuable insights about their games' performance and increase retention and
-monetization. [Read more...](/cocos2dx/js/grow/Grow_About)
+monetization. [Read more...](/university/articles/Grow_About)
 
-GrowInsights includes:
+GrowSoomla includes:
 
 - [Analytics](/university/articles/Grow_Analytics)
 
@@ -29,7 +29,7 @@ GrowInsights includes:
 
 - [Insights](/cocos2dx/js/grow/Grow_Insights)
 
-## Integrating GrowInsights
+## Integrating GrowSoomla
 
 ### New Game & Configurations
 
@@ -45,8 +45,8 @@ the "+" button underneath the "Create your first game" label in the middle of th
 
 	  ![alt text](/img/tutorial_img/unity_grow/addNewApp.png "Add new app")
 
-	* Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You
-	can also click "Downloads" on the top right corner of the screen). Click on **GrowInsights**. You'll see an
+	Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You
+	can also click "Downloads" on the top right corner of the screen). Click on **GrowSoomla**. You'll see an
 	instructions screen, you can continue with that or stay here for the extended version.  
 
 2. Unzip the downloaded file and copy its contents into the cocos2d directory located at the root of your Cocos2d-x project.
@@ -67,22 +67,21 @@ In order for it to operate it only needs to be initialized.</div>
     sc->addRegisterCallback(register_jsb_soomla);
     ```
 
-1. Initialize Native Bridge in your `AppDelegate.cpp` in the method `applicationDidFinishLaunching`:
+2. Initialize Native Bridge in your `AppDelegate.cpp` in the method `applicationDidFinishLaunching`:
 
     ```cpp
         // Bind native bridges
         soomla::CCHighwayBridge::getInstance();
     ```
 
-1. Copy soomla js-files to your project:
+3. Copy soomla js-files to your project:
 
     ```bash
     mkdir script/soomla
     cp frameworks/runtime-src/Classes/cocos2dx-highway/js/* script/soomla/
     ```
 
-
-2. Initialize `Soomla` with a custom secret of your choice (**Custom Secret** is an encryption secret you provide that
+4. Initialize `Soomla` with a custom secret of your choice (**Custom Secret** is an encryption secret you provide that
 will be used to secure your data.):
 
   ```js
@@ -91,7 +90,7 @@ will be used to secure your data.):
 
   <div class="warning-box">Choose this secret wisely, you can't change it after you launch your game!</div>
 
-3. Initialize `GrowHighway` with the "Game Key" and "Env Key" given to you in the [dashboard](http://dashboard.soom.la):
+5. Initialize `GrowHighway` with the "Game Key" and "Env Key" given to you in the [dashboard](http://dashboard.soom.la):
 
   **Copy the "Game Key" and "Environment Key"** given to you from the [dashboard](http://dashboard.soom.la) and initialize
   `GrowHighway` with them. At this point, you're probably testing your integration and you want to use the **Sandbox**
@@ -113,14 +112,14 @@ will be used to secure your data.):
 
   ![alt text](/img/tutorial_img/cocos_grow/dashboardKeys.png "Keys")
 
-4. Initialize Insights:
+6. Initialize Insights:
 
   	``` js
   	// Make sure to make this call AFTER initializing HIGHWAY
     Soomla.GrowInsights.createShared();
   	```
 
-4. Make sure that in your current implementation you initialize the open-source modules (Store/Profile)
+7. Make sure that in your current implementation you initialize the open-source modules (Store/Profile)
 **AFTER** the initialization of Highway.
 
 <br>
