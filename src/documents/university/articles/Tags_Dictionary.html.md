@@ -153,6 +153,12 @@ This genre includes action games that focus on close-combat fighting, unarmed or
 #### `Flight`
 Simulation of aircraft flight, usually represented in three-dimensional (3D) graphics.
 <br/><br>
+#### `Food`
+Any game that evolves around food.
+<br/><br>
+#### `Fruit`
+A game that evolves around fruit.
+<br/><br>
 #### `Game Show`
 Simulation of a TV "game show"
 <br/><br>
