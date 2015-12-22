@@ -91,7 +91,6 @@ In order for it to operate it only needs to be initialized.</div>
     cp frameworks/runtime-src/Classes/cocos2dx-highway/js/* script/soomla/
     ```
 
-
 4. Initialize `Soomla` with a custom secret of your choice (**Custom Secret** is an encryption secret you provide that
 will be used to secure your data.):
 
@@ -165,9 +164,9 @@ In your XCode project, perform the following steps:
 
 1. In order to proceed Soomla needs to know, where your cocos2d-x is. Please, create a symlink with cocos2d-x at the path `frameworks/runtime-src` of the project, which looks at cocos2d-x. It can be something like that:
 
-```bash
-ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime-src/cocos2d-x
-```
+	```bash
+	ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime-src/cocos2d-x
+	```
 
 2. Add `jansson` (**frameworks/runtime-src/Classes/jansson/**) to your project (just add it as a source folder, make sure to check "create group").
 
@@ -280,7 +279,6 @@ That's it! Now all you have to do is build your XCode project and run your game.
     - AndroidProfile.jar
 
     - Cocos2dxAndroidProfile.jar
-
 
 3. Update your `AndroidManifest.xml`:
 

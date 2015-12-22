@@ -50,7 +50,6 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
         </ul>		    
       </div>
 
-
 3. ~~Open your earliest loading scene.  Drag the `HighwayEvents` Prefab from `Assets/Soomla/Prefabs` into the scene. You should see it listed in the "Hierarchy" panel.~~
 
 	<div class="info-box">This step is no longer required starting from: <br>

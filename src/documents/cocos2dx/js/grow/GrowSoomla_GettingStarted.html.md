@@ -67,22 +67,21 @@ In order for it to operate it only needs to be initialized.</div>
     sc->addRegisterCallback(register_jsb_soomla);
     ```
 
-1. Initialize Native Bridge in your `AppDelegate.cpp` in the method `applicationDidFinishLaunching`:
+2. Initialize Native Bridge in your `AppDelegate.cpp` in the method `applicationDidFinishLaunching`:
 
     ```cpp
         // Bind native bridges
         soomla::CCHighwayBridge::getInstance();
     ```
 
-1. Copy soomla js-files to your project:
+3. Copy soomla js-files to your project:
 
     ```bash
     mkdir script/soomla
     cp frameworks/runtime-src/Classes/cocos2dx-highway/js/* script/soomla/
     ```
 
-
-2. Initialize `Soomla` with a custom secret of your choice (**Custom Secret** is an encryption secret you provide that
+4. Initialize `Soomla` with a custom secret of your choice (**Custom Secret** is an encryption secret you provide that
 will be used to secure your data.):
 
   ```js
@@ -91,7 +90,7 @@ will be used to secure your data.):
 
   <div class="warning-box">Choose this secret wisely, you can't change it after you launch your game!</div>
 
-3. Initialize `GrowHighway` with the "Game Key" and "Env Key" given to you in the [dashboard](http://dashboard.soom.la):
+5. Initialize `GrowHighway` with the "Game Key" and "Env Key" given to you in the [dashboard](http://dashboard.soom.la):
 
   **Copy the "Game Key" and "Environment Key"** given to you from the [dashboard](http://dashboard.soom.la) and initialize
   `GrowHighway` with them. At this point, you're probably testing your integration and you want to use the **Sandbox**
@@ -113,14 +112,14 @@ will be used to secure your data.):
 
   ![alt text](/img/tutorial_img/cocos_grow/dashboardKeys.png "Keys")
 
-4. Initialize Insights:
+6. Initialize Insights:
 
   	``` js
   	// Make sure to make this call AFTER initializing HIGHWAY
     Soomla.GrowInsights.createShared();
   	```
 
-4. Make sure that in your current implementation you initialize the open-source modules (Store/Profile)
+7. Make sure that in your current implementation you initialize the open-source modules (Store/Profile)
 **AFTER** the initialization of Highway.
 
 <br>

@@ -125,7 +125,6 @@ In your XCode project, perform the following steps:
 
 2. For each of the following XCode projects:
 
-
   - `Cocos2dXHighway.xcodeproj` (**extensions/cocos2dx-highway/**)
 
   - `Cocos2dXCore.xcodeproj` (**extensions/soomla-cocos2dx-core/**)  
@@ -135,7 +134,6 @@ In your XCode project, perform the following steps:
   - `Cocos2dXProfile.xcodeproj` (**extensions/cocos2dx-profile/**)  
 
   perform the following:
-
 
   - Drag the project into your project
 
@@ -158,11 +156,11 @@ In your XCode project, perform the following steps:
 
   ![alt text](/img/tutorial_img/cocos_grow/headerSP.png "Header search paths")
 
-5. Add the `-ObjC` to the **Build Setting->Other Linker Flags**
+4. Add the `-ObjC` to the **Build Setting->Other Linker Flags**
 
   ![alt text](/img/tutorial_img/ios_getting_started/linkerFlags.png "Linker Flags")
 
-6. Make sure you have these 9 Frameworks linked to your XCode project:
+5. Make sure you have these 9 Frameworks linked to your XCode project:
 
   - Security
 
@@ -182,7 +180,7 @@ In your XCode project, perform the following steps:
 
   - GameController
 
-7. Connect the Profile module to a social network provider:
+6. Connect the Profile module to a social network provider:
 
   - [Facebook](/cocos2dx/cpp/profile/Profile_GettingStarted#facebook-for-ios)
 
@@ -238,7 +236,7 @@ That's it! Now all you have to do is build your XCode project and run your game.
 
     - Cocos2dxAndroidProfile.jar
 
-  4. Update your `AndroidManifest.xml`:
+3. Update your `AndroidManifest.xml`:
 
   ``` xml
   <uses-permission android:name="android.permission.INTERNET"/>
@@ -254,13 +252,13 @@ That's it! Now all you have to do is build your XCode project and run your game.
   </application>
   ```
 
-5. Connect the Store module to your desired billing service:
+4. Connect the Store module to your desired billing service:
 
   - [Google Play](/cocos2dx/cpp/store/Store_GettingStarted#google-play)
 
   - [Amazon Appstore](/cocos2dx/cpp/store/Store_GettingStarted#amazon)
 
-6. Connect the Profile module to a social network provider:
+5. Connect the Profile module to a social network provider:
 
   - [Facebook](/cocos2dx/cpp/profile/Profile_GettingStarted#facebook-for-android)
 
