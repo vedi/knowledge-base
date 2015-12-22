@@ -48,7 +48,7 @@ on the "+" button underneath the "Create your first game" label in the middle of
 
 	  ![alt text](/img/tutorial_img/cocos_grow/addNewApp.png "Add new app")
 
-	* Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You
+	Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You
 	can also click "Downloads" on the top right corner of the screen). Click on **GrowUltimate**. You'll see an
 	instructions screen, you can continue with that or stay here for the extended version.  
 
@@ -71,7 +71,7 @@ In order for it to operate it only needs to be initialized.</div>
     sc->addRegisterCallback(register_jsb_soomla);
     ```
 
-1. Initialize Native Bridge in your `AppDelegate.cpp` in the method `applicationDidFinishLaunching`:
+2. Initialize Native Bridge in your `AppDelegate.cpp` in the method `applicationDidFinishLaunching`:
 
     ```cpp
         // Bind native bridges
@@ -81,7 +81,7 @@ In order for it to operate it only needs to be initialized.</div>
         soomla::CCHighwayBridge::getInstance();
     ```
 
-1. Copy soomla js-files to your project:
+3. Copy soomla js-files to your project:
 
     ```bash
     mkdir script/soomla
@@ -92,7 +92,7 @@ In order for it to operate it only needs to be initialized.</div>
     ```
 
 
-2. Initialize `Soomla` with a custom secret of your choice (**Custom Secret** is an encryption secret you provide that
+4. Initialize `Soomla` with a custom secret of your choice (**Custom Secret** is an encryption secret you provide that
 will be used to secure your data.):
 
   ```js
@@ -101,7 +101,7 @@ will be used to secure your data.):
 
   <div class="warning-box">Choose this secret wisely, you can't change it after you launch your game!</div>
 
-3. Initialize `GrowHighway` with the "Game Key" and "Env Key" given to you in the [dashboard](http://dashboard.soom.la):
+5. Initialize `GrowHighway` with the "Game Key" and "Env Key" given to you in the [dashboard](http://dashboard.soom.la):
 
   **Copy the "Game Key" and "Environment Key"** given to you from the [dashboard](http://dashboard.soom.la) and initialize
   `GrowHighway` with them. At this point, you're probably testing your integration and you want to use the **Sandbox**
@@ -123,7 +123,7 @@ will be used to secure your data.):
 
   ![alt text](/img/tutorial_img/cocos_grow/dashboardKeys.png "Keys")
 
-4. Initialize Insights and Sync:
+6. Initialize Insights and Sync:
 
 	``` js
 	// Make sure to make this call AFTER initializing HIGHWAY
@@ -142,7 +142,7 @@ will be used to secure your data.):
 	Soomla.GrowSync.createShared(modelSync, stateSync);
 	```
 
-2. Initialize the rest of the SOOMLA modules: `SoomlaStore` and `SoomlaProfile`.
+7. Initialize the rest of the SOOMLA modules: `SoomlaStore` and `SoomlaProfile`.
 
     ```js
     // `assets` should implement the `IStoreAssets` interface
@@ -165,13 +165,13 @@ In your XCode project, perform the following steps:
 
 1. In order to proceed Soomla needs to know, where your cocos2d-x is. Please, create a symlink with cocos2d-x at the path `frameworks/runtime-src` of the project, which looks at cocos2d-x. It can be something like that:
 
-    ```bash
+```bash
 ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime-src/cocos2d-x
-    ````
+```
 
-1. Add `jansson` (**frameworks/runtime-src/Classes/jansson/**) to your project (just add it as a source folder, make sure to check "create group").
+2. Add `jansson` (**frameworks/runtime-src/Classes/jansson/**) to your project (just add it as a source folder, make sure to check "create group").
 
-1. For each of the following XCode projects:
+3. For each of the following XCode projects:
 
   - `Cocos2dXCore.xcodeproj` (**frameworks/runtime-src/Classes/soomla-cocos2dx-core/**)  
   - `Cocos2dXStore.xcodeproj` (**frameworks/runtime-src/Classes/cocos2dx-store/**)
@@ -188,7 +188,7 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
 
   ![alt text](/img/tutorial_img/cocos_grow/iosStep2.png "iOS Integration")
 
-3. Add the following directories to **Build Settings->Header Search Paths** (with the `recursive` option):
+4. Add the following directories to **Build Settings->Header Search Paths** (with the `recursive` option):
 
   NOTE: This article assumes you have a `cocos2d` folder under your project folder which either contains the Cocos2d-x framework, or links to to its root folder.
 
@@ -208,13 +208,21 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
 6. Make sure you have these 9 Frameworks linked to your XCode project:
 
   - Security
+
   - libsqlite3.0.dylib
+
   - StoreKit
+
   - CFNetwork
+
   - libicucore
+
   - SystemConfiguration
+
   - AdSupport
+
   - MediaPlayer
+
   - GameController
 
 7. Connect the Profile module to a social network provider:
@@ -274,7 +282,7 @@ That's it! Now all you have to do is build your XCode project and run your game.
     - Cocos2dxAndroidProfile.jar
 
 
-4. Update your `AndroidManifest.xml`:
+3. Update your `AndroidManifest.xml`:
 
   ``` xml
   <uses-permission android:name="android.permission.INTERNET"/>
@@ -290,13 +298,13 @@ That's it! Now all you have to do is build your XCode project and run your game.
   </application>
   ```
 
-5. Connect the Store module to your desired billing service:
+4. Connect the Store module to your desired billing service:
 
   - [Google Play](/cocos2dx/js/store/Store_GettingStarted#google-play)
 
   - [Amazon Appstore](/cocos2dx/js/store/Store_GettingStarted#amazon)
 
-6. Connect the Profile module to a social network provider:
+5. Connect the Profile module to a social network provider:
 
   - [Facebook](/cocos2dx/js/profile/Profile_GettingStarted#facebook-for-android)
 
@@ -369,32 +377,7 @@ their entities in SOOMLA's Knowledge Base: [Store](/cocos2dx/js/store/Store_Mode
 
 ### Initialization
 
-```js
-/** World **/
-  var mainWorld = Soomla.Models.World.create({
-    itemId: 'mainWorld_ID'                      // ID
-  });
-
-/** Score **/
-var diamondScore = Soomla.Models.VirtualItemScore.create({
-	itemId: 'coinScore_ID',                 // ID
-	associatedItemId: 'coin_currency_ID'    // Associated item ID
-});
-
-/** Gate **/
-var gate = Soomla.Models.ScheduleGate.create({
-    itemId: 'gate_ID',                          // ID
-	schedule: Schedule.createAnyTimeUnLimited() // Schedule
-});
-
-/** Mission **/
-  var mission = Soomla.Models.BalanceMission.create({
-    itemId: 'mission_ID',                       // ID
-    name: 'Collect 100 coins',                  // Name
-    rewards: rewardsList,                       // Rewards
-    associatedItemId: 'coinScore_ID',           // Associated virtual item
-    desiredBalance: 100                         // Desired balance
-  });
+``` js
 
 /** Set the custom secret **/
 Soomla.initialize("ExampleCustomSecret");

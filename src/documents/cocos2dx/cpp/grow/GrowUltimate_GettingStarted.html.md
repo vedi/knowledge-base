@@ -38,7 +38,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	  ![alt text](/img/tutorial_img/cocos_grow/addNewApp.png "Add new app")
 
-	* Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You can also click "Downloads" on the top right corner of the screen). Click on **GrowUltimate**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
+	Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You can also click "Downloads" on the top right corner of the screen). Click on **GrowUltimate**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
 
 2. Unzip the downloaded file and copy its contents into the cocos2d directory located at the root of your Cocos2d-x project.
 
@@ -69,7 +69,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
   Explanation: The "game" and "env" keys allow for your game to distinguish multiple environments for the same game. The dashboard pre-generates two fixed environments for your game: **Production** and **Sandbox**. When you decide to publish your game, make sure to switch the env key to **Production**.  You can always generate more environments.  For example - you can choose to have a playground environment for your game's beta testers which will be isolated from your production environment and will thus prevent analytics data from being mixed between the two.  Another best practice is to have a separate environment for each version of your game.
 
-  ```
+	``` cpp
   // Make sure to make this call in your AppDelegate's
   // applicationDidFinishLaunching method, and before
   // initializing any other SOOMLA/GROW components
@@ -77,7 +77,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
   grow::CCGrowHighway::initShared(
       __String::create("yourGameKey"),
       __String::create("yourEnvKey"));
-  ```
+	```
 
   <img src="/img/tutorial_img/cocos_grow/dashboardKeys.png" alt="Game key and Env key" style="border:0;">
 
@@ -125,15 +125,22 @@ In your XCode project, perform the following steps:
 
 2. For each of the following XCode projects:
 
+
   - `Cocos2dXHighway.xcodeproj` (**extensions/cocos2dx-highway/**)
+
   - `Cocos2dXCore.xcodeproj` (**extensions/soomla-cocos2dx-core/**)  
+
   - `Cocos2dXStore.xcodeproj` (**extensions/cocos2dx-store/**)
+
   - `Cocos2dXProfile.xcodeproj` (**extensions/cocos2dx-profile/**)  
 
   perform the following:
 
+
   - Drag the project into your project
+
   - Add its targets to your **Build Phases->Target Dependencies**
+
   - Add the Products (\*.a) of the project to **Build Phases->Link Binary With Libraries**.
 
   ![alt text](/img/tutorial_img/cocos_grow/iosStep2.png "iOS Integration")
@@ -158,13 +165,21 @@ In your XCode project, perform the following steps:
 6. Make sure you have these 9 Frameworks linked to your XCode project:
 
   - Security
+
   - libsqlite3.0.dylib
+
   - StoreKit
+
   - CFNetwork
+
   - libicucore
+
   - SystemConfiguration
+
   - AdSupport
+
   - MediaPlayer
+
   - GameController
 
 7. Connect the Profile module to a social network provider:
@@ -312,32 +327,6 @@ CCVirtualGood *shieldGood = CCSingleUseVG::create(
 ### Initialization
 
 ```
-/** World **/
-CCWorld* mainWorld = CCWorld::create(
-  CCString::create("mainWorld_ID")
-);
-
-/** Score **/
-CCScore *coinScore = CCVirtualItemScore::create(
-  CCString::create("coinScore_ID"),
-  CCString::create("coin_currency_ID")
-);
-
-/** Gate **/
-CCGate *gate = CCScheduleGate::create(
-  CCString::create("gate_ID"),
-  CCSchedule::createAnyTimeUnLimited()
-);
-
-/** Mission **/
-CCMission *mission = CCBalanceMission::create(
-  CCString::create("mission_ID"),
-  CCString::create("Collect 100 coins"),
-  rewardsList,
-  CCString::create("coinScore_ID"),
-  CCInteger::create(100)
-);
-
 soomla::CCSoomla::initialize("ExampleCustomSecret");
 
 // Make sure to make this call in your AppDelegate's
