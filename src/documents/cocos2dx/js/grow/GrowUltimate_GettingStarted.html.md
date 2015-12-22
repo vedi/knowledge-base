@@ -48,7 +48,7 @@ on the "+" button underneath the "Create your first game" label in the middle of
 
 	  ![alt text](/img/tutorial_img/cocos_grow/addNewApp.png "Add new app")
 
-	* Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You
+	Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You
 	can also click "Downloads" on the top right corner of the screen). Click on **GrowUltimate**. You'll see an
 	instructions screen, you can continue with that or stay here for the extended version.  
 
@@ -71,30 +71,27 @@ In order for it to operate it only needs to be initialized.</div>
     sc->addRegisterCallback(register_jsb_soomla);
     ```
 
-1. Initialize Native Bridge in your `AppDelegate.cpp` in the method `applicationDidFinishLaunching`:
+2. Initialize Native Bridge in your `AppDelegate.cpp` in the method `applicationDidFinishLaunching`:
 
     ```cpp
         // Bind native bridges
         soomla::CCCoreBridge::getInstance();
         soomla::CCStoreBridge::getInstance();
         soomla::CCProfileBridge::getInstance();
-        soomla::CCLevelUpBridge::getInstance();
         soomla::CCHighwayBridge::getInstance();
     ```
 
-1. Copy soomla js-files to your project:
+3. Copy soomla js-files to your project:
 
     ```bash
     mkdir script/soomla
     cp frameworks/runtime-src/Classes/soomla-cocos2dx-core/js/* script/soomla/
     cp frameworks/runtime-src/Classes/cocos2dx-store/js/* script/soomla/
     cp frameworks/runtime-src/Classes/cocos2dx-profile/js/* script/soomla/
-    cp frameworks/runtime-src/Classes/cocos2dx-levelup/js/* script/soomla/
     cp frameworks/runtime-src/Classes/cocos2dx-highway/js/* script/soomla/
     ```
 
-
-2. Initialize `Soomla` with a custom secret of your choice (**Custom Secret** is an encryption secret you provide that
+4. Initialize `Soomla` with a custom secret of your choice (**Custom Secret** is an encryption secret you provide that
 will be used to secure your data.):
 
   ```js
@@ -103,7 +100,7 @@ will be used to secure your data.):
 
   <div class="warning-box">Choose this secret wisely, you can't change it after you launch your game!</div>
 
-3. Initialize `GrowHighway` with the "Game Key" and "Env Key" given to you in the [dashboard](http://dashboard.soom.la):
+5. Initialize `GrowHighway` with the "Game Key" and "Env Key" given to you in the [dashboard](http://dashboard.soom.la):
 
   **Copy the "Game Key" and "Environment Key"** given to you from the [dashboard](http://dashboard.soom.la) and initialize
   `GrowHighway` with them. At this point, you're probably testing your integration and you want to use the **Sandbox**
@@ -125,34 +122,26 @@ will be used to secure your data.):
 
   ![alt text](/img/tutorial_img/cocos_grow/dashboardKeys.png "Keys")
 
-4. Initialize Insights, Sync and Gifting:
+6. Initialize Insights and Sync:
 
 	``` js
 	// Make sure to make this call AFTER initializing HIGHWAY
     Soomla.GrowInsights.createShared();
 
 	// Make sure to make this call AFTER initializing HIGHWAY,
-	// and BEFORE initializing STORE/PROFILE/LEVELUP
+	// and BEFORE initializing STORE/PROFILE
 	var modelSync = true; 	 // Remote Economy Management - Synchronizes your game's
 							 // economy model between the client and server - enables
 							 // you to remotely manage your economy.
 
 	var stateSync = true;  // Synchronizes the users' balances data with the server
 						   // and across his other devices.
-						   // Must be TRUE in order to use LEADERBOARDS.
 
 	// State sync and Model sync can be enabled/disabled separately.
 	Soomla.GrowSync.createShared(modelSync, stateSync);
-
-	// LEADERBOARDS requires no initialization,
-	// but it depends on SYNC initialization with stateSync=true
-
-	// Make sure to make this call AFTER initializing SYNC,
-	// and BEFORE initializing STORE/PROFILE/LEVELUP
-    Soomla.GrowGifting.createShared();
 	```
 
-2. Initialize the rest of the SOOMLA modules: `SoomlaStore`, `SoomlaProfile` and `SoomlaLevelUp`.
+7. Initialize the rest of the SOOMLA modules: `SoomlaStore` and `SoomlaProfile`.
 
     ```js
     // `assets` should implement the `IStoreAssets` interface
@@ -164,10 +153,6 @@ will be used to secure your data.):
 
     var profileParams = {};
     Soomla.soomlaProfile.initialize(profileParams);
-
-    // initialWorld - should be created here and contain all worlds and levels of the game
-    // rewards - should contain a list of all rewards that are given through LevelUp
-    Soomla.soomlaLevelUp.initialize(initialWorld, rewards);
     ```
 
 <br>
@@ -179,18 +164,17 @@ In your XCode project, perform the following steps:
 
 1. In order to proceed Soomla needs to know, where your cocos2d-x is. Please, create a symlink with cocos2d-x at the path `frameworks/runtime-src` of the project, which looks at cocos2d-x. It can be something like that:
 
-    ```bash
-ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime-src/cocos2d-x
-    ````
+	```bash
+	ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime-src/cocos2d-x
+	```
 
-1. Add `jansson` (**frameworks/runtime-src/Classes/jansson/**) to your project (just add it as a source folder, make sure to check "create group").
+2. Add `jansson` (**frameworks/runtime-src/Classes/jansson/**) to your project (just add it as a source folder, make sure to check "create group").
 
-1. For each of the following XCode projects:
+3. For each of the following XCode projects:
 
   - `Cocos2dXCore.xcodeproj` (**frameworks/runtime-src/Classes/soomla-cocos2dx-core/**)  
   - `Cocos2dXStore.xcodeproj` (**frameworks/runtime-src/Classes/cocos2dx-store/**)
   - `Cocos2dXProfile.xcodeproj` (**frameworks/runtime-src/Classes/cocos2dx-profile/**)  
-  - `Cocos2dXLevelUp.xcodeproj` (**frameworks/runtime-src/Classes/cocos2dx-levelup/**)
   - `Cocos2dXHighway.xcodeproj` (**frameworks/runtime-src/Classes/cocos2dx-highway/**)
 
   perform the following:
@@ -203,7 +187,7 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
 
   ![alt text](/img/tutorial_img/cocos_grow/iosStep2.png "iOS Integration")
 
-3. Add the following directories to **Build Settings->Header Search Paths** (with the `recursive` option):
+4. Add the following directories to **Build Settings->Header Search Paths** (with the `recursive` option):
 
   NOTE: This article assumes you have a `cocos2d` folder under your project folder which either contains the Cocos2d-x framework, or links to to its root folder.
 
@@ -212,7 +196,6 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
  - `$(SRCROOT)/../Classes/cocos2dx-store/Soomla`
  - `$(SRCROOT)/../Classes/cocos2dx-profile/Soomla`
  - `$(SRCROOT)/../Classes/cocos2dx-profile/build/ios/headers`
- - `$(SRCROOT)/../Classes/cocos2dx-levelup/Soomla`
  - `$(SRCROOT)/../Classes/cocos2dx-highway/Soomla`
 
   ![alt text](/img/tutorial_img/cocos_grow/headerSP.png "Header search paths")
@@ -224,13 +207,21 @@ ln -s <your-cocos2d-js-path>/frameworks/js-bindings/cocos2d-x frameworks/runtime
 6. Make sure you have these 9 Frameworks linked to your XCode project:
 
   - Security
+
   - libsqlite3.0.dylib
+
   - StoreKit
+
   - CFNetwork
+
   - libicucore
+
   - SystemConfiguration
+
   - AdSupport
+
   - MediaPlayer
+
   - GameController
 
 7. Connect the Profile module to a social network provider:
@@ -245,18 +236,16 @@ That's it! Now all you have to do is build your XCode project and run your game.
 
 ### **Instructions for Android**
 
-1. Import cocos2dx-highway, cocos2dx-store, cocos2dx-profile and cocos2dx-levelup modules into your project's Android.mk by adding the following:
+1. Import cocos2dx-highway, cocos2dx-store and cocos2dx-profile modules into your project's Android.mk by adding the following:
 
     ```
     LOCAL_STATIC_LIBRARIES += cocos2dx_store_static
     LOCAL_STATIC_LIBRARIES += cocos2dx_profile_static
-    LOCAL_STATIC_LIBRARIES += cocos2dx_levelup_static
     LOCAL_STATIC_LIBRARIES += cocos2dx_highway_static
     # add these lines along with your other LOCAL_STATIC_LIBRARIES
 
     $(call import-module, cocos2dx-store)
     $(call import-module, cocos2dx-profile)
-    $(call import-module, cocos2dx-levelup)
     $(call import-module, cocos2dx-highway)
     # add these lines at the end of the file, along with the other import-module calls
     ```
@@ -291,13 +280,7 @@ That's it! Now all you have to do is build your XCode project and run your game.
 
     - Cocos2dxAndroidProfile.jar
 
-  From `frameworks/runtime-src/Classes/cocos2dx-levelup/build/android`
-
-    - AndroidLevelUp.jar
-
-    - Cocos2dxAndroidLevelUp.jar
-
-4. Update your `AndroidManifest.xml`:
+3. Update your `AndroidManifest.xml`:
 
   ``` xml
   <uses-permission android:name="android.permission.INTERNET"/>
@@ -313,13 +296,13 @@ That's it! Now all you have to do is build your XCode project and run your game.
   </application>
   ```
 
-5. Connect the Store module to your desired billing service:
+4. Connect the Store module to your desired billing service:
 
   - [Google Play](/cocos2dx/js/store/Store_GettingStarted#google-play)
 
   - [Amazon Appstore](/cocos2dx/js/store/Store_GettingStarted#amazon)
 
-6. Connect the Profile module to a social network provider:
+5. Connect the Profile module to a social network provider:
 
   - [Facebook](/cocos2dx/js/profile/Profile_GettingStarted#facebook-for-android)
 
@@ -343,9 +326,6 @@ your users' balances.
 - **Profile** - This module will make your life extremely easy when it comes to connecting your users to Social Networks.  
 [API](/cocos2dx/js/profile/Profile_MainClasses) | [Events](/cocos2dx/js/profile/Profile_Events)
 
-- **LevelUp** - When you want to easily create your game structure and handle your users' state, LevelUp is your guy.  
-[API](/cocos2dx/js/levelup/Levelup_Model) | [Events](/cocos2dx/js/levelup/Levelup_Events)
-
 - **Insights** - Getting in-game information about your users in real-time used to be a dream. Now it's here. Insights
 will tell you things about your users (as seen in other games) inside the code so you can take actions when it matters.
 This is the power of the GROW data network.  
@@ -355,21 +335,11 @@ This is the power of the GROW data network.
 switch devices. Now you can let them do it.  
 [Events](/cocos2dx/js/grow/Grow_Sync#Events)
 
-- **Social Leaderboards** - Make your users compete with each other using their favorite social network. GROW's Social
-Leaderboards will let your users compete using their Facebook, Twitter or Google+ accounts.  
-[API](/cocos2dx/js/grow/Grow_Leaderboards) | [Events](/cocos2dx/js/grow/Grow_Leaderboards#Events)
-
-- **Gifting** - Increase the virality of your game by letting your users gift each other with any virtual item in your
-game.  
-[API](/cocos2dx/js/grow/Grow_Gifting) | [Events](/cocos2dx/js/grow/Grow_Gifting#Events)
 
 ## Example
 
 Below is a short example of how to initialize SOOMLA's modules. We suggest you read about the different modules and
-their entities in SOOMLA's Knowledge Base: [Store](/cocos2dx/js/store/Store_Model), [Profile](/cocos2dx/js/profile/Profile_MainClasses),
-[LevelUp](/cocos2dx/js/levelup/Levelup_Model), [State & Economy Sync](/cocos2dx/js/grow/Grow_Sync),
-[Insights](/cocos2dx/js/grow/Grow_Insights), [Gifting](/cocos2dx/js/grow/Grow_Gifting) and
-[Social Leaderboards](/cocos2dx/js/grow/Grow_Leaderboards).
+their entities in SOOMLA's Knowledge Base: [Store](/cocos2dx/js/store/Store_Model), [Profile](/cocos2dx/js/profile/Profile_MainClasses), [State & Economy Sync](/cocos2dx/js/grow/Grow_Sync) and [Insights](/cocos2dx/js/grow/Grow_Insights).
 
 ### IStoreAssets
 
@@ -405,36 +375,7 @@ their entities in SOOMLA's Knowledge Base: [Store](/cocos2dx/js/store/Store_Mode
 
 ### Initialization
 
-```js
-/** World **/
-  var mainWorld = Soomla.Models.World.create({
-    itemId: 'mainWorld_ID'                      // ID
-  });
-
-/** Score **/
-var diamondScore = Soomla.Models.VirtualItemScore.create({
-	itemId: 'coinScore_ID',                 // ID
-	associatedItemId: 'coin_currency_ID'    // Associated item ID
-});
-
-/** Gate **/
-var gate = Soomla.Models.ScheduleGate.create({
-    itemId: 'gate_ID',                          // ID
-	schedule: Schedule.createAnyTimeUnLimited() // Schedule
-});
-
-/** Mission **/
-  var mission = Soomla.Models.BalanceMission.create({
-    itemId: 'mission_ID',                       // ID
-    name: 'Collect 100 coins',                  // Name
-    rewards: rewardsList,                       // Rewards
-    associatedItemId: 'coinScore_ID',           // Associated virtual item
-    desiredBalance: 100                         // Desired balance
-  });
-
-/** Levels **/
-// Add 5 levels to the main world with the gate, score, and mission templates we just created.
-mainWorld.batchAddLevelsWithTemplates(5, gate, score, mission);
+``` js
 
 /** Set the custom secret **/
 Soomla.initialize("ExampleCustomSecret");
@@ -446,26 +387,18 @@ Soomla.initialize("ExampleCustomSecret");
 Soomla.GrowHighway.createShared('yourGameKey', 'yourEnvKey');
 
 // Make sure to make this call AFTER initializing HIGHWAY,
-// and BEFORE initializing STORE/PROFILE/LEVELUP
+// and BEFORE initializing STORE/PROFILE
 var modelSync = true; 	 // Remote Economy Management - Synchronizes your game's
                          // economy model between the client and server - enables
                          // you to remotely manage your economy.
 
 var stateSync = true;  // Synchronizes the users' balances data with the server
                        // and across his other devices.
-                       // Must be TRUE in order to use LEADERBOARDS.
 
 // State sync and Model sync can be enabled/disabled separately.
 Soomla.GrowSync.createShared(modelSync, stateSync);
 
-// LEADERBOARDS requires no initialization,
-// but it depends on SYNC initialization with stateSync=true
-
-// Make sure to make this call AFTER initializing SYNC,
-// and BEFORE initializing STORE/PROFILE/LEVELUP
-Soomla.GrowGifting.createShared();
-
-** Set up and initialize Store, Profile, and LevelUp **/
+** Set up and initialize Store and Profile **/
 var assets = ExampleAssets.create();
 
 var storeParams = {
@@ -476,6 +409,4 @@ Soomla.soomlaStore.initialize(assets, storeParams);
 
 var profileParams = {};
 Soomla.soomlaProfile.initialize(profileParams);
-
-Soomla.soomlaLevelUp.initialize(mainWorld);
 ```
