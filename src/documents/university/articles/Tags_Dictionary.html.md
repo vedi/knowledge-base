@@ -124,6 +124,9 @@ Any game using ideas, machines, weapons, or 'mechs similar to the FASA BattleTec
 #### `Tiles`
 Computer implementation of a game played with tiles.
 <br/><br>
+#### `Candy`
+Any game that the gameplay evolves around Candy
+<br/><br>
 #### `Chess`
 Computer implementation of a game played with tiles.
 <br/><br>
