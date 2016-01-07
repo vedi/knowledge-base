@@ -28,7 +28,7 @@ In order to protect your game from 'bad people', follow these guidelines:
 
 - SOOMLA keeps your game's data in an encrypted database. In order to encrypt your data, SOOMLA generates a private key out of several parts of information. The **Soomla Secret** (in older versions was called customSec) is one of them. SOOMLA requires that you provide this value when initializing SoomlaStore and before releasing your game.
 
-<div class="warning-box">You can change this value once! If you try to change it again, old data from the database will become unavailable.</div>
+   <div class="warning-box">You can change this value once! If you try to change it again, old data from the database will become unavailable.</div>
 
 - Following Google's recommendation, SOOMLA also recommends that you split your public key and construct it on runtime or even use bit manipulation on it in order to hide it. The key itself is not secret information but if someone replaces it, your application might receive fake messages that might harm it.
 

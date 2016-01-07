@@ -114,8 +114,11 @@ latency and setup routines you could have done silently in the background.
 
 - If `-ObjC` flag conflicts with other libs you use in your project, you should remove the `-ObjC` flag from the link flags in Xcode and add `-force_load $(BUILT_PRODUCTS_DIR)/<LIBRARY_NAME>` to `Other Linker Flags` for the following SOOMLA libraries:
   * `libSoomlaiOSCore.a`,
+  
   * `libSoomlaiOSStore.a`,
+  
   * `libUnitySoomlaiOSCore.a`,
+  
   * `libUnityiOSStore.a`.                                                                                                                             
 
   ![alt text](/img/tutorial_img/unity_debugging/switchPlatform.png "Tip")
@@ -136,6 +139,7 @@ Define your economy in Google Play or Amazon Appstore.
 See our tutorials:
 
 - [Google Play](/android/store/Store_GooglePlayIAB)
+
 - [Amazon Appstore](/android/store/Store_AmazonIAB)
 
 ### iOS

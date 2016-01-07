@@ -219,13 +219,11 @@ web browser (fallback). Follow the next steps to make it work:
 
 1. Click [here](https://console.developers.google.com/project) to create your Google Plus app.
 
-2. Add a URL scheme to your application:
+2. SOOMLA Profile supports [GPGS](https://developers.google.com/games/services/) functionality out-of-the-box also. If you want to use GPGS, please, follow [Steps 3 and 4 (Option 2: Manual Installation) in GPGS Quickstart Guide](https://developers.google.com/games/services/ios/quickstart). Also, there you can find information how to add your own leaderboards.
 
-  a. Go to your project's **Info->URL Types**.
+3. Follow [Add URL schemes to your project](https://developers.google.com/identity/sign-in/ios/start-integrating#add_url_schemes_to_your_project) and add url type to your application to allow browser based authentication.
 
-  b. Add a new URL type and enter your bundle ID as the identifier and scheme.
-
-4. Make sure you have the following frameworks in your application's project: **GooglePlus, GoogleOpenSource, GooglePlus.bundle**.
+4. Make sure you have the following frameworks in your application's project: **GooglePlus, GoogleOpenSource, GooglePlus.bundle** and, if you want to use GPGS, also include the following frameworks: **gpg.framework, gpg.bundle**.
 
 5. Add additional frameworks if you still haven't:
 
@@ -250,6 +248,18 @@ web browser (fallback). Follow the next steps to make it work:
     * SystemConfiguration.framework
 	
     * UIKit.framework
+    
+    and, if you want to use GPGS, also include the following frameworks:
+                
+    * CoreData.framework
+       
+    * CoreTelephony.framework
+                    
+    * QuartzCore.framework
+                
+    * libc++.dylib
+        
+    * libz.dylib    
 
 6. Add `-lSoomlaiOSProfileGoogle` to your project's **Build Settings->Other Linker Flags**.
 
@@ -395,7 +405,9 @@ Facebook is supported out-of-the-box, you just have to follow the next steps to 
     1. Import the `iml` file of the `google-play-services_lib` project to your project. You can either use the existing `google-play-services_lib` located under social-providers/android-profile-google/libs or create `google-play-services_lib` project by yourself
        as the link above states.
 
-3. Make further changes to `AndroidManifest.xml`:
+3. SOOMLA Profile supports [GPGS](https://developers.google.com/games/services/) functionality out-of-the-box also. If you want to use GPGS, please, follow [Steps 2 and 3 in GPGS Quickstart Guide](https://developers.google.com/games/services/android/quickstart#step_2_set_up_the_game_in_the_dev_console). Also, there you can find information how to add your own leaderboards.
+
+4. Make further changes to `AndroidManifest.xml`:
 
       ``` xml
       ...
@@ -406,7 +418,7 @@ Facebook is supported out-of-the-box, you just have to follow the next steps to 
       </application>
       ```
 
-4. Add the following permissions in `AndroidManifest.xml`:
+5. Add the following permissions in `AndroidManifest.xml`:
 
     ``` xml
     <uses-permission android:name="android.permission.INTERNET" />
