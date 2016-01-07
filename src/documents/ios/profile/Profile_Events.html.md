@@ -689,70 +689,90 @@ The event `EVENT_UP_GET_SCORES_FAILED` is triggered when fetching scores from th
 }
 ```
 
-### REPORT SCORE STARTED
+### SUBMIT SCORE STARTED
 
-The event `EVENT_UP_REPORT_SCORE_STARTED` is triggered when score reporting for the current leaderboard has started.
+The event `EVENT_UP_SUBMIT_SCORE_STARTED` is triggered when score submission for the current leaderboard has started.
 
 ``` objectivec
 // observe the event:
-[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reportScoreStarted:)
-  name:EVENT_UP_REPORT_SCORE_STARTED object:nil];
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(submitScoreStarted:)
+  name:EVENT_UP_SUBMIT_SCORE_STARTED object:nil];
 
 // your handler:
-- (void)reportScoreStarted:(NSNotification*)notification {
+- (void)submitScoreStarted:(NSNotification*)notification {
   // notification's userInfo contains the following keys:
-  // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) on which the score reporting
+  // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) on which the score submission
   //                                   process started
   // DICT_ELEMENT_LEADERBOARD        = Source leaderboard(Leaderboard*)  
   // DICT_ELEMENT_PAYLOAD            = An identification string (NSString*) that you can give
-  //      when you initiate the report score operation and want to receive back upon starting
+  //      when you initiate the submit score operation and want to receive back upon starting
 
   // ... your game specific implementation here ...
 }
 ```
 
-### REPORT SCORE FINISHED
+### SUBMIT SCORE FINISHED
 
-The event `EVENT_UP_REPORT_SCORE_FINISHED` is triggered when score reporting for the current leaderboard has finished successfully.
+The event `EVENT_UP_SUBMIT_SCORE_FINISHED` is triggered when score submission for the current leaderboard has finished successfully.
 
 ``` objectivec
 // observe the event:
-[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reportScoreFinished:)
-  name:EVENT_UP_REPORT_SCORE_FINISHED object:nil];
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(submitScoreFinished:)
+  name:EVENT_UP_SUBMIT_SCORE_FINISHED object:nil];
 
 // your handler:
-- (void)reportScoreFinished:(NSNotification*)notification {
+- (void)submitScoreFinished:(NSNotification*)notification {
   // notification's userInfo contains the following keys:
-  // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) on which the score reporting process
+  // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) on which the score submission process
   //                                   finished
   // DICT_ELEMENT_LEADERBOARD        = Source leaderboard(Leaderboard*)
   // DICT_ELEMENT_SCORE              = New score (Score*) instance was created 
   // DICT_ELEMENT_PAYLOAD            = An identification string (NSString*) that you can give  
-  // when you initiate the report score operation and want to receive back upon its completion
+  // when you initiate the submit score operation and want to receive back upon its completion
 
 
   // ... your game specific implementation here ...
 }
 ```
 
-### REPORT SCORE FAILED
+### SUBMIT SCORE FAILED
 
-The event `EVENT_UP_REPORT_SCORE_FAILED` is triggered when score reporting for the current leaderboard has failed.
+The event `EVENT_UP_SUBMIT_SCORE_FAILED` is triggered when score submission for the current leaderboard has failed.
 
 ``` objectivec
 // observe the event:
-[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reportScoreFailed:)
-  name:EVENT_UP_REPORT_SCORE_FAILED object:nil];
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(submitScoreFailed:)
+  name:EVENT_UP_SUBMIT_SCORE_FAILED object:nil];
 
 // your handler:
-- (void)reportScoreFailed:(NSNotification*)notification {
+- (void)submitScoreFailed:(NSNotification*)notification {
   // notification's userInfo contains the following keys:
-  // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) on which the score reporting
+  // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) on which the score submission
   //                                   process has failed
   // DICT_ELEMENT_LEADERBOARD        = Source leaderboard(Leaderboard*)
   // DICT_ELEMENT_MESSAGE            = Description (NSString*) of the reason for failure  
   // DICT_ELEMENT_PAYLOAD            = An identification string (NSString*) that you can give
-  //       when you initiate the report score operation and want to receive back upon failure
+  //       when you initiate the submit score operation and want to receive back upon failure
+
+  // ... your game specific implementation here ...
+}
+```
+
+### SHOW LEADERBOARDS
+
+The event `EVENT_UP_SHOW_LEADERBOARDS` is triggered when leaderboards native dialog was shown.
+
+``` objectivec
+// observe the event:
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(leaderboardsShown:)
+  name:EVENT_UP_SHOW_LEADERBOARDS object:nil];
+
+// your handler:
+- (void)leaderboardsShown:(NSNotification*)notification {
+  // notification's userInfo contains the following keys:
+  // DICT_ELEMENT_PROVIDER           = The provider (NSNumber*) that displays native leaderboards dialog      
+  // DICT_ELEMENT_PAYLOAD            = An identification string (NSString*) that you can give
+  //       when you initiate the operation and want to receive back upon failure
 
   // ... your game specific implementation here ...
 }
