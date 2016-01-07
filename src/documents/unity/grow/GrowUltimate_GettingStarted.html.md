@@ -92,7 +92,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 4. In the menu bar go to **Window > Soomla > Edit Settings**:
 
-	![alt text](/img/tutorial_img/unity_grow/soomlaSettingsUltimate.png "SOOMLA Settings")
+	![alt text](/img/tutorial_img/unity_grow/soomlaSettingsStoreAndHighway.png "SOOMLA Settings")
 
 	a. **Change the value for "Soomla Secret"**: "Soomla Secret" is an encryption secret you provide that will be used to secure your data on the device. **NOTE:** Choose this secret wisely, you can't change it after you launch your game!
 

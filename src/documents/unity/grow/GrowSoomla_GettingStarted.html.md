@@ -60,7 +60,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 4. In the menu bar go to **Window > Soomla > Edit Settings**:
 
-	![alt text](/img/tutorial_img/unity_grow/soomlaSettingsUltimate.png "SOOMLA Settings")
+	![alt text](/img/tutorial_img/unity_grow/soomlaSettingsStoreAndHighway.png "SOOMLA Settings")
 
 	**Copy the "Game Key" and "Environment Key"** given to you from the [dashboard](http://dashboard.soom.la) into the fields in the settings pane of the Unity Editor. At this point, you're probably testing your integration and you want to use the **Sandbox** environment key.
 
