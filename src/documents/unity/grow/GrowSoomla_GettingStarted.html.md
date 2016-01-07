@@ -1,7 +1,7 @@
 ---
 layout: "content"
 image: "Bundle"
-title: "GrowInsights"
+title: "GrowSoomla"
 text: "The perfect solution for your game if you have already integrated any of the SOOMLA open-source modules into it. If you just want to get Analytics, Whales Report and Grow Insights then this bundle is for you."
 position: 15
 theme: 'platforms'
@@ -10,13 +10,13 @@ module: 'grow'
 platform: 'unity'
 ---
 
-# GrowInsights - Bundle
+# GrowSoomla - Bundle
 
 ## Overview
 
-GrowInsights is the perfect solution for your game if you have already integrated any of the SOOMLA open-source modules into it. If you just want to get Analytics Whales Report and Grow Insights then this bundle is for you. GrowInsights connects you to GROW, SOOMLA's flagship - a community-driven data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/unity/grow/Grow_About)
+GrowSoomla is the perfect solution for your game if you have already integrated any of the SOOMLA open-source modules into it. If you just want to get Analytics Whales Report and Grow Insights then this bundle is for you. GrowSoomla connects you to GROW, SOOMLA's flagship - a community-driven data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/university/articles/Grow_About)
 
-GrowInsights includes:
+GrowSoomla includes:
 
 - [Analytics](/university/articles/Grow_Analytics)
 
@@ -24,7 +24,7 @@ GrowInsights includes:
 
 - [Insights](/unity/grow/Grow_Insights)
 
-## Integrating GrowInsights
+## Integrating GrowSoomla
 
 ### New Game & Configurations
 
@@ -34,7 +34,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	  ![alt text](/img/tutorial_img/unity_grow/addNewApp.png "Add new app")
 
-	* Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You can also click "Downloads" on the top right corner of the screen). Click on **GrowInsights**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
+	Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You can also click "Downloads" on the top right corner of the screen). Click on **GrowSoomla**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
 
 2. Double-click on the downloaded Unity package, it'll import all the necessary files into your Unity project.
 
@@ -49,7 +49,6 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
           <li>`Assets/Plugins/Android/AndroidViper.jar`</li>          
         </ul>		    
       </div>
-
 
 3. ~~Open your earliest loading scene.  Drag the `HighwayEvents` Prefab from `Assets/Soomla/Prefabs` into the scene. You should see it listed in the "Hierarchy" panel.~~
 
@@ -97,7 +96,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 The next step is to create your game specific implementation for each of the modules. Use SOOMLA's awesome products to create better in-game economy, social interactions, game design and user experience.  
 In order to be notified about (and handle) SOOMLA-related events, you will also need to create event-handling functions. Refer to the following sections for more information:
 
-- **Insights** - Getting in-game information about your users in real-time used to be a dream. Now it's here. Insights will tell you things about your users (as seen in other games) inside the code so you can take actions when it matters. This is the power of the GROW data network.  
+ - **Insights** - Getting in-game information about your users in real-time used to be a dream. Now it's here. Insights will tell you things about your users (as seen in other games) inside the code so you can take actions when it matters. This is the power of the GROW data network.  
 [API](/unity/grow/Grow_Insights#MainClasses&Methods) | [Events](/unity/grow/Grow_Insights#Events)
 
 ## Example
