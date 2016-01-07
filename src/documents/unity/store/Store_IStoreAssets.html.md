@@ -22,6 +22,8 @@ platform: 'unity'
 
 - Make sure to implement ALL functions, even if you don't need some of them, just have them return an empty array.
 
+- SOOMLA Store initialization will be stopped if some of methods in `IStoreAssets` will return null-pointer reference. Even if you don't need some of them, just have them return an empty array.
+
 ### Example
 
 This is a brief example of `IStoreAssets`, our [MuffinRush Example](https://github.com/soomla/unity3d-store/blob/master/Soomla/Assets/Examples/MuffinRush/MuffinRushAssets.cs) contains a more detailed implementation. In the [Functions section](#functions) below, you'll find explanations of the functions in `IStoreAssets`.

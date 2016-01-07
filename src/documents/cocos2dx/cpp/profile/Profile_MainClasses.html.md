@@ -689,12 +689,12 @@ void Example::onGetScoresFinished(EventCustom *event) {
 
 <br>
 
-### `reportScore`
+### `submitScore`
 
-`reportScore` submits new score for current user in selected leaderboard.
+`submitScore` submits new score for current user in selected leaderboard.
 
 ``` cpp
-soomla::CCSoomlaProfile::getInstance()->reportScore(
+soomla::CCSoomlaProfile::getInstance()->submitScore(
         soomla::GAME_CENTER,        
         leaderboard,                        // your leaderboard
         score,                              // value to submit
@@ -704,6 +704,23 @@ soomla::CCSoomlaProfile::getInstance()->reportScore(
         );
         
 ```
+
+<br>
+
+### `showLeaderboards`
+
+`showLeaderboards` opens a native dialog that will display leaderboards list.
+
+``` cpp
+soomla::CCSoomlaProfile::getInstance()->showLeaderboards(
+        Provider.GAME_CENTER,        
+        "",                                 // no payload
+        null                                // no reward        
+        );
+        
+```
+
+<br>
 
 ## Auxiliary Model: CCReward [<img class="link-icon" src="/img/tutorial_img/linkImg.png">](https://github.com/soomla/soomla-cocos2dx-core/blob/master/Soomla/rewards/CCReward.h)
 

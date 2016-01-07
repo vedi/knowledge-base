@@ -23,6 +23,8 @@ platform: 'cocos2dx'
 
 - Make sure to implement ALL functions, even if you don't need some of them, just have them return an empty array.
 
+- SOOMLA Store initialization will be stopped if some of methods in `CCStoreAssets` will return null-pointer reference. Even if you don't need some of them, just have them return an empty array.
+
 ### Example
 
 This is a brief example of `CCStoreAssets`, our [MuffinRush Example](https://github.com/soomla/cocos2dx-store-example/blob/master/Classes/MuffinRushAssets.cpp) contains a more detailed implementation. In the [Functions section](#functions) below, you'll find explanations of the functions in `CCStoreAssets`.

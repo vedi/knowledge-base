@@ -525,12 +525,11 @@ SoomlaProfile.MultiShare(
 
 `GetLeaderboards` retrieves a list of leaderboards used by your application using the provider specified (for example, GameCenter).
 
-``` cpp
+``` cs
 SoomlaProfile.GetLeaderboards(
         Provider.GAME_CENTER,
         "",                                 // no payload
-        null,                               // no reward
-        null                                // no error handling, to keep example simple
+        null                                // no reward        
         );
 
 ```
@@ -540,30 +539,41 @@ SoomlaProfile.GetLeaderboards(
 
 `GetScores` retrieves a list of scores of selected leaderboard used by your application using the provider specified (for example, GameCenter).
 
-``` cpp
+``` cs
 SoomlaProfile.GetScores(
         Provider.GAME_CENTER,
         leaderboard,                        // your leaderboard
         true,                               // you definitely need the 1st page
         "",                                 // no payload
-        null,                               // no reward
-        null                                // no error handling, to keep example simple
+        null                                // no reward        
         );
 
 ```
 
-### `ReportScore`
+### `SubmitScore`
 
-`ReportScore` submits new score for current user in selected leaderboard.
+`SubmitScore` submits new score for current user in selected leaderboard.
 
-``` cpp
-SoomlaProfile.ReportScore(
+``` cs
+SoomlaProfile.SubmitScore(
         Provider.GAME_CENTER,        
         leaderboard,                        // your leaderboard
         score,                              // value to submit
         "",                                 // no payload
-        null,                               // no reward
-        null                                // no error handling, to keep example simple
+        null                                // no reward        
+        );
+        
+```
+
+### `ShowLeaderboards`
+
+`ShowLeaderboards` opens a native dialog that will display leaderboards list.
+
+``` cs
+SoomlaProfile.ShowLeaderboards(
+        Provider.GAME_CENTER,                
+        "",                                 // no payload
+        null                                // no reward        
         );
         
 ```

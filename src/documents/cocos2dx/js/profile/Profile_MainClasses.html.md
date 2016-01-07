@@ -536,15 +536,29 @@ Soomla.soomlaProfile.getScores(
 ```
 
 
-### `reportScore`
+### `submitScore`
 
-`reportScore` submits new score for current user in selected leaderboard.
+`submitScore` submits new score for current user in selected leaderboard.
 
 ``` js
-Soomla.soomlaProfile.reportScore(
+Soomla.soomlaProfile.submitScore(
         soomla::GAME_CENTER,        
         leaderboard,                        // your leaderboard
         score,                              // value to submit
+        "",                                 // no payload
+        null,                               // no reward
+        null                                // no error handling, to keep example simple
+        );
+        
+```
+
+### `showLeaderboards`
+
+`showLeaderboards` opens a native dialog that will display leaderboards list.
+
+``` js
+Soomla.soomlaProfile.showLeaderboards(
+        soomla::GAME_CENTER,                        
         "",                                 // no payload
         null,                               // no reward
         null                                // no error handling, to keep example simple
