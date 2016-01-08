@@ -64,25 +64,25 @@ This class holds information about a user for a specific `Provider`.
 - `Extra` - a Dictionary contains additional info provided by social provider:
 
   - `Facebook`
-  
+
     - **access_token** - *String*
-	
+
     - **permissions** - *JSONObject of Strings*
-	
+
     - **expiration_date** - *UNIX timestamp as Double*
-	
+
   - `Twitter`
-  
+
     - **access_token** - *String*
-	
+
   - `Google+`
-  
+
     - **access_token** - *String*
-	
+
     - **refresh_token** - *String* - `not available for Android`
-	
+
     - **expiration_date** - *UNIX timestamp as Double* - `not available for Android`
-    
+
 ## Leaderboard <a href="https://github.com/soomla/unity3d-profile/blob/master/Soomla/Assets/Plugins/Soomla/Profile/game-services/domain/Leaderboard.cs" target="_blank"><img class="link-icon" src="/img/tutorial_img/linkImg.png"></a>
 
 This class holds information about a leaderboard which was returned by `GetLeaderboards`.
@@ -252,7 +252,7 @@ SoomlaProfile.UpdateStatusDialog(
 	Provider.FACEBOOK,                      // Provider
 	"http://www.soom.la",                   // Link to post as status
 	"",                                     // Payload
-	null                                    // Reward	
+	null                                    // Reward
 );
 ```
 
@@ -291,7 +291,8 @@ SoomlaProfile.UpdateStory(
 	"SOOMBOT Story",                            // Caption
 	"Hey! It's SOOMBOT Story",                 	// Description
 	"http://about.soom.la/soombots",            // Link to post
-	"http://about.soom.la/.../spockbot.png",    // Image URL
+	"http://about.soom.la/wp-content/uploads/
+  2014/05/330x268-spockbot.png",              // Image URL
 	"",                                         // Payload
 	soombotReward                               // Reward for posting a story
 );
@@ -328,14 +329,14 @@ Using the provider's native dialog (when available).
 
 ``` cs
 SoomlaProfile.UpdateStoryDialog(
-	Provider.FACEBOOK,                          // Provider	
+	Provider.FACEBOOK,                          // Provider
 	"The story of SOOMBOT (Profile Test App)",  // Name
 	"SOOMBOT Story",                            // Caption
 	"Hey! It's SOOMBOT Story",                 	// Description
 	"http://about.soom.la/soombots",            // Link to post
 	"http://about.soom.la/.../spockbot.png",    // Image URL
 	"",                                         // Payload
-	null                                        // Reward	
+	null                                        // Reward
 );
 ```
 
@@ -488,7 +489,7 @@ SoomlaProfile.Invite(
 
 ``` cs
 SoomlaProfile.UploadCurrentScreenShot(
-  (MonoBehaviour)this,            // Attached MonoBehaviour to make screenshot 
+  (MonoBehaviour)this,            // Attached MonoBehaviour to make screenshot
 	Provider.FACEBOOK,              // Provider
 	"Sharing title",                // Story title
 	"Let's use SOOMLA together!",   // Story message
@@ -562,7 +563,7 @@ SoomlaProfile.SubmitScore(
         "",                                 // no payload
         null                                // no reward        
         );
-        
+
 ```
 
 ### `ShowLeaderboards`
@@ -575,7 +576,7 @@ SoomlaProfile.ShowLeaderboards(
         "",                                 // no payload
         null                                // no reward        
         );
-        
+
 ```
 
 <br>

@@ -283,14 +283,15 @@ Games with virtual / touch controls
 When the device Gyro to control the game / When you need to tilt the device to play
 <br/><br/>
 #### `Voice Control`
-Controling the game using your voice
+Controlling the game using your voice
 <br/><br/>
 #### `Drawing`
-Controling the game by drawing
+Controlling the game by drawing
 <br/><br/>
 #### `Remote Pad`
 The device (phone / tablet) is your joystick and you play on a tv/screen
-
+#### `Swipe`
+Controlling the game using the Swipe gesture
 
 ### Perspective
 `3D`, `2D`
