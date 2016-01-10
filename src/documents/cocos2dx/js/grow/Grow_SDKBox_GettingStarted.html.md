@@ -92,7 +92,9 @@ sure to check "create group").
   ![alt text](/img/tutorial_img/cocos_grow/headerSP.png "Header search paths")
 
 1. Add the AFNetworking dependency to your project:
+
   - Add the static library (from `frameworks/runtime-src/Classes/cocos2dx-highway/build/ios/libAFNetworking.a`) to **Build Phases->Link Binary With Libraries**.  Achieve this by clicking the + icon, and then "Add Other", and browse for the file.
+  
   - Add `$(SRCROOT)/../Classes/cocos2dx-highway/build/ios/` to **Build Settings->Library Search Paths** (non-recursive)
 
 1. Add the `-ObjC` to the **Build Setting->Other Linker Flags**

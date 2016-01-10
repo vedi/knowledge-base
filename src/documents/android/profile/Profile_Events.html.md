@@ -458,3 +458,157 @@ public void onInviteFailed(InviteFailedEvent inviteFailedEvent) {
 	// ... your game specific implementation here ...
 }
 ```
+
+### GetLeaderboardsStartedEvent
+
+The event is triggered when fetching leaderboards has started.
+
+``` java
+@Subscribe
+public void onGetLeaderboardsStarted(GetLeaderboardsStartedEvent getLeaderboardsStartedEvent) {
+	// Provider is the social provider	
+  // Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+  
+  // ... your game specific implementation here ...
+}
+```
+
+### GetLeaderboardsFinishedEvent
+
+The event is triggered when fetching leaderboards has finished successfully.
+
+``` java
+@Subscribe
+public void onGetLeaderboardsFinished(GetLeaderboardsFinishedEvent getLeaderboardsFinishedEvent) {
+	// Provider is the social provider
+  // Leaderboards is a list of leaderboards
+  // Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+  
+ 	// ... your game specific implementation here ...
+}
+```
+
+### GetLeaderboardsFailedEvent
+
+The event is triggered when fetching leaderboards was failed.
+
+``` java
+@Subscribe
+public void onGetLeaderboardsFailed(GetLeaderboardsFailedEvent getLeaderboardsFailedEvent) {
+	// Provider is the social provider
+  // ErrorDescription is Description of the reason for failure
+  // Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+  
+  // ... your game specific implementation here ...
+}
+```
+
+### GetScoresStartedEvent
+
+The event is triggered when fetching scores from the current leaderboard has started.
+
+``` java
+@Subscribe
+public void onGetScoresStarted(GetScoresStartedEvent getScoresStartedEvent) {
+	// Provider is the social provider
+  // Leaderboard is a source leaderboard
+  // FromStart should we reset pagination or request the next page
+  // Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+  
+  // ... your game specific implementation here ...
+}
+```
+
+### GetScoresFinishedEvent
+
+The event is triggered when fetching scores from the current leaderboard has finished successfully.
+
+``` java
+@Subscribe
+public void onGetScoresFinished(GetScoresFinishedEvent getScoresFinishedEvent) {
+	// Provider is the social provider
+  // Leaderboard is a source leaderboard
+  // Scores an array of scores
+  // Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+  
+  // ... your game specific implementation here ...
+}
+```
+
+### GetScoresFailedEvent
+
+The event is triggered when fetching scores from the current leaderboard has failed.
+
+``` java
+@Subscribe
+public void onGetScoresFailed(GetScoresFailedEvent getScoresFailedEvent) {
+	// Provider is the social provider
+  // Leaderboard is a source leaderboard
+  // ErrorDescription description of the reason for failure
+  // FromStart should we reset pagination or request the next page
+  // Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+  
+  // ... your game specific implementation here ...
+}
+```
+
+### SubmitScoreStartedEvent
+
+The event is triggered when score submission for the current leaderboard has started.
+
+``` java
+@Subscribe
+public void onSubmitScoreStarted(SubmitScoreStartedEvent submitScoreStartedEvent) {
+	// Provider is the social provider
+  // Leaderboard is a source leaderboard    
+  // Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+  
+  // ... your game specific implementation here ...
+}
+```
+
+### SubmitScoreFinishedEvent
+
+The event is triggered when score submission for the current leaderboard has finished successfully.
+
+``` java
+@Subscribe
+public void onSubmitScoreFinished(SubmitScoreFinishedEvent submitScoreFinishedEvent) {
+	// Provider is the social provider
+  // Leaderboard is a source leaderboard
+  // Score is a new score instance was created
+  // Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+  
+  // ... your game specific implementation here ...
+}
+```
+
+### SubmitScoreFailedEvent
+
+The event is triggered when score submission for the current leaderboard has failed.
+
+``` java
+@Subscribe
+public void onSubmitScoreFailed(SubmitScoreFailedEvent submitScoreFailedEvent) {
+	// Provider is the social provider
+  // Leaderboard is a source leaderboard
+  // ErrorDescription description of the reason for failure
+  // Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+  
+  // ... your game specific implementation here ...
+}
+```
+
+### ShowLeaderboardsEvent
+
+The event is triggered when leaderboards native dialog was shown.
+
+``` java
+@Subscribe
+public void onShowLeaderboards(ShowLeaderboardsEvent showLeaderboardsEvent) {
+	// Provider is the social provider  
+  // Payload is an identification string that you can give when you initiate the social action operation and want to receive back upon failure
+  
+  // ... your game specific implementation here ...
+}
+```

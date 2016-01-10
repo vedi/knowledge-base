@@ -697,18 +697,18 @@ void Example::EVENT_GET_SCORES_FAILED(EventCustom *event) {
 }
 ```
 
-### REPORT_SCORE_STARTED
+### SUBMIT_SCORE_STARTED
 
-The event `EVENT_REPORT_SCORE_STARTED` is triggered when score reporting for the current leaderboard has started.
+The event `EVENT_SUBMIT_SCORE_STARTED` is triggered when score submission for the current leaderboard has started.
 
 ```cpp
-Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_REPORT_SCORE_STARTED, CC_CALLBACK_1(Example::EVENT_REPORT_SCORE_STARTED, this));
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_SUBMIT_SCORE_STARTED, CC_CALLBACK_1(Example::EVENT_SUBMIT_SCORE_STARTED, this));
 
-void Example::EVENT_REPORT_SCORE_STARTED(EventCustom *event) {
+void Example::EVENT_SUBMIT_SCORE_STARTED(EventCustom *event) {
   // DICT_ELEMENT_PROVIDER - the social provider
   // DICT_ELEMENT_LEADERBOARD - the source leaderboard  
   // DICT_ELEMENT_PAYLOAD - an identification string that you can give when you initiate
-  //      the report score operation and want to receive back upon starting
+  //      the submit score operation and want to receive back upon starting
 
   __Dictionary *eventData = (__Dictionary *)event->getUserData();
   CCProvider provider = CCProvider((dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PROVIDER)))->getValue());
@@ -719,19 +719,19 @@ void Example::EVENT_REPORT_SCORE_STARTED(EventCustom *event) {
 }
 ```
 
-### REPORT_SCORE_FINISHED
+### SUBMIT_SCORE_FINISHED
 
-The event `EVENT_REPORT_SCORE_FINISHED` is triggered when score reporting for the current leaderboard has finished successfully.
+The event `EVENT_SUBMIT_SCORE_FINISHED` is triggered when score submission for the current leaderboard has finished successfully.
 
 ```cpp
-Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_REPORT_SCORE_FINISHED, CC_CALLBACK_1(Example::EVENT_REPORT_SCORE_FINISHED, this));
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_SUBMIT_SCORE_FINISHED, CC_CALLBACK_1(Example::EVENT_SUBMIT_SCORE_FINISHED, this));
 
-void Example::EVENT_REPORT_SCORE_FINISHED(EventCustom *event) {
+void Example::EVENT_SUBMIT_SCORE_FINISHED(EventCustom *event) {
   // DICT_ELEMENT_PROVIDER - the social provider
   // DICT_ELEMENT_LEADERBOARD - the source leaderboard
   // DICT_ELEMENT_SCORE - the resulted score
   // DICT_ELEMENT_PAYLOAD - an identification string that you can give when you initiate
-  //      the report score operation and want to receive back upon starting
+  //      the submit score operation and want to receive back upon starting
 
   __Dictionary *eventData = (__Dictionary *)event->getUserData();
   CCProvider provider = CCProvider((dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PROVIDER)))->getValue());
@@ -743,23 +743,43 @@ void Example::EVENT_REPORT_SCORE_FINISHED(EventCustom *event) {
 }
 ```
 
-### REPORT_SCORE_FAILED
+### SUBMIT_SCORE_FAILED
 
-The event `REPORT_SCORE_FAILED` is triggered when score reporting for the current leaderboard has failed.
+The event `EVENT_SUBMIT_SCORE_FAILED` is triggered when score submission for the current leaderboard has failed.
 
 ```cpp
-Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::REPORT_SCORE_FAILED, CC_CALLBACK_1(Example::REPORT_SCORE_FAILED, this));
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_SUBMIT_SCORE_FAILED, CC_CALLBACK_1(Example::EVENT_SUBMIT_SCORE_FAILED, this));
 
-void Example::REPORT_SCORE_FAILED(EventCustom *event) {
+void Example::EVENT_SUBMIT_SCORE_FAILED(EventCustom *event) {
   // DICT_ELEMENT_PROVIDER - the social provider
   // DICT_ELEMENT_LEADERBOARD - the source leaderboard
   // DICT_ELEMENT_MESSAGE  - the failure message
   // DICT_ELEMENT_PAYLOAD - an identification string that you can give when you initiate
-  //      the report score operation and want to receive back upon starting
+  //      the submit score operation and want to receive back upon starting
 
   __Dictionary *eventData = (__Dictionary *)event->getUserData();
   CCProvider provider = CCProvider((dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PROVIDER)))->getValue());
   CCLeaderboard *leaderboard = dynamic_cast<CCLeaderboard *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_LEADERBOARD)));  
+  __String *payload = dynamic_cast<__String *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PAYLOAD));
+
+  // ... your game specific implementation here ...
+}
+```
+
+### SHOW_LEADERBOARDS
+
+The event `EVENT_SHOW_LEADERBOARDS` is triggered when leaderboards native dialog was shown.
+
+```cpp
+Director::getInstance()->getEventDispatcher()->addCustomEventListener(CCProfileConsts::EVENT_SHOW_LEADERBOARDS, CC_CALLBACK_1(Example::EVENT_SHOW_LEADERBOARDS, this));
+
+void Example::EVENT_SHOW_LEADERBOARDS(EventCustom *event) {
+  // DICT_ELEMENT_PROVIDER - the social provider  
+  // DICT_ELEMENT_PAYLOAD - an identification string that you can give when you initiate
+  //      the operation and want to receive back upon starting
+
+  __Dictionary *eventData = (__Dictionary *)event->getUserData();
+  CCProvider provider = CCProvider((dynamic_cast<__Integer *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PROVIDER)))->getValue());    
   __String *payload = dynamic_cast<__String *>(eventData->objectForKey(CCProfileConsts::DICT_ELEMENT_PAYLOAD));
 
   // ... your game specific implementation here ...

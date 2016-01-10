@@ -72,6 +72,12 @@ platform: 'ios'
     ```objectivec
     @(GOOGLE) : @{ @"clientId": @"[CLIENT ID]" }
     ```
+    
+   (OPTIONAL) You can supply the `enableGameServices` key in the parameters (with a `BOOL`) value if you would like to use functionality of Google Play Game Services (score submitting, retrieving of leaderboards and scores), like so:
+    
+     ```objectivec
+     @(GOOGLE): @{ ..., @"enableGameServices": @(YES) },
+     ```
 
   3. **Twitter** - Please provide **Consumer Key** and **Consumer Secret** from the "Keys and Access Tokens" section in [Twitter Apps](https://apps.twitter.com/), like so:
     ```objectivec
@@ -135,20 +141,32 @@ Google Plus is supported out-of-the-box, authentication is done either through t
 1. Follow [Step 1. Creating the Google Developers Console project](https://developers.google.com/+/mobile/ios/getting-started#step_1_creating_the_console_name_project) and create a google+ app for iOS.
 
   **NOTE:** Set the BUNDLE ID of the google+ app to the bundle identifier of your app.
+  
+2. SOOMLA Profile supports [GPGS](https://developers.google.com/games/services/) functionality out-of-the-box also. If you want to use GPGS, please, follow [Steps 3 and 4 (Option 2: Manual Installation) in GPGS Quickstart Guide](https://developers.google.com/games/services/ios/quickstart). Also, there you can find information how to add your own leaderboards.
 
-2. Follow [Step 3. Add a URL type](https://developers.google.com/+/mobile/ios/getting-started#step_3_add_a_url_type) and add url type to your application to allow browser based authentication.
+3. Follow [Add URL schemes to your project](https://developers.google.com/identity/sign-in/ios/start-integrating#add_url_schemes_to_your_project) and add url type to your application to allow browser based authentication.
 
-3. Navigate to [social-providers/ios-profile-google/libs](https://github.com/soomla/ios-profile/tree/master/social-providers/ios-profile-google/libs) and add the following frameworks to your application:
+4. Add the following frameworks to your application:
 
-    * GooglePlus.framework
+    * GoogleSignIn.framework (can be downloaded here: https://developers.google.com/identity/sign-in/ios/sdk/)
+    
+    * GoogleSignIn.bundle (coming together with GoogleSignIn.framework)
+
+    * GooglePlus.framework (can be downloaded here: https://developers.google.com/+/downloads/)
 	
-    * GoogleOpenSource.framework
+    * GoogleOpenSource.framework (can be downloaded here: https://developers.google.com/+/downloads/)
 	
-    * GooglePlus.bundle
+    * GooglePlus.bundle (coming together with GooglePlus.framework)
+    
+    and, if you want to use GPGS, also include the following frameworks:
+    
+    * gpg.framework (can be downloaded here: https://developers.google.com/games/services/downloads/sdks)
+        
+    * gpg.bundle (coming together with gpg.framework) 
 
   **NOTE** that ios-profile uses [Google Plus SDK 1.7.1](https://developers.google.com/+/mobile/ios/upgrading-sdk) to support Google Plus integration.
 
-4. Add additional frameworks to your project:
+5. Add additional frameworks to your project:
 
     * AddressBook.framework
 	
@@ -169,10 +187,24 @@ Google Plus is supported out-of-the-box, authentication is done either through t
     * Security.framework
 	
     * SystemConfiguration.framework
+    
+    * StoreKit.framework
 	
     * UIKit.framework
+    
+    and, if you want to use GPGS, also include the following frameworks:
+            
+    * CoreData.framework
+    
+    * CoreTelephony.framework
+                
+    * QuartzCore.framework
+            
+    * libc++.dylib
+    
+    * libz.dylib
 
-5. Add `-lSoomlaiOSProfileGoogle` to the project's "Other Linker Flags".
+6. Add `-lSoomlaiOSProfileGoogle` to the project's "Other Linker Flags".
 
 ### Game Center
 
