@@ -3,7 +3,7 @@ layout: "content"
 image: "FraudProtection"
 title: "Fraud Protection"
 text: "Get started with Grow Fraud Protection."
-position: 7
+position: 10
 theme: 'platforms'
 collection: 'unity_grow'
 module: 'grow'
@@ -21,4 +21,3 @@ network failures during the verification process.
 Additionally you need to provide specific params needed for your billing service provider.
 
   For Google Play go over to [Google Play Purchase Verification](/android/store/Store_GooglePlayVerification).
-

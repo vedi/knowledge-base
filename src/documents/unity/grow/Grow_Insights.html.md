@@ -3,7 +3,7 @@ layout: "content"
 image: "Insights"
 title: "Insights"
 text: "Get started with GROW Insights for Unity. Here you can find initialization instructions, event handling and usage examples."
-position: 5
+position: 8
 theme: 'platforms'
 collection: 'unity_grow'
 module: 'grow'
