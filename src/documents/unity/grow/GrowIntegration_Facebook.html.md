@@ -1,7 +1,7 @@
 ---
 layout: "content"
 image: "Tutorial"
-title: "Grow with Facebook"
+title: "Facebook"
 text: "Add GROW to your existing project with Facebook integration"
 position: 15
 theme: 'platforms'
@@ -14,7 +14,7 @@ platform: 'unity'
 
 ## Overview
 
- GROW is a community-driven data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/university/articles/Grow_About)
+ GROW is SOOMLA's flagship, community driven, data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/university/articles/Grow_About)
 
 GROW Includes:
 
@@ -34,9 +34,9 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	  ![alt text](/img/tutorial_img/unity_grow/addNewApp.png "Add new app")
 
-	Once you created your game, you'll be redirected to an Integrations page where you can start with any of the GROW integrations. Click on **Facebook**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
+	Once you created your game, you'll be redirected to the Integrations page where you can start with any of the GROW integrations. Click on **Facebook**. You'll see the instructions screen, you can continue with that or stay here for the extended version.  
 
-2. Double-click on the downloaded Unity package, it'll import all the necessary files into your Unity project.
+2. Download and import the unity package into your Unity project.
 
 	![alt text](/img/tutorial_img/unity_grow/importHighway.png "import")
 
@@ -52,3 +52,11 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	b. Click on the **Add Prefab** button and the prefab will be added to the **current scene**.
 	<div class="info-box"> Make sure that you are in your Main Scene when adding the Prefab </div>
+
+<br/>
+  Once your app is running you can verify it's Active in the [GROW Dashboard](http://dashboard.soom.la/) Facebook integration page, just refresh the page:
+
+  ![alt text](/img/tutorial_img/unity_grow/ActiveIntegration_Facebook.png "Facebook Integration")
+
+
+  That's it, you now have GROW integrated with Facebook and you can start checking your analytics!
