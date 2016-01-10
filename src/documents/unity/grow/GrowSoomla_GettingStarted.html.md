@@ -3,7 +3,7 @@ layout: "content"
 image: "Bundle"
 title: "GrowSoomla"
 text: "The perfect solution for your game if you have already integrated any of the SOOMLA open-source modules into it. If you just want to get Analytics, Whales Report and Grow Insights then this bundle is for you."
-position: 15
+position: 7
 theme: 'platforms'
 collection: 'unity_grow'
 module: 'grow'
@@ -14,7 +14,7 @@ platform: 'unity'
 
 ## Overview
 
-GrowSoomla is the perfect solution for your game if you have already integrated any of the SOOMLA open-source modules into it. If you just want to get Analytics Whales Report and Grow Insights then this bundle is for you. GrowSoomla connects you to GROW, SOOMLA's flagship - a community-driven data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/university/articles/Grow_About)
+GrowSoomla is the perfect solution for your game if you have already integrated any of the SOOMLA open-source modules into it. If you just want to get Analytics Whales Report and Grow Insights then this bundle is for you. GrowSoomla connects you to GROW - a community-driven data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/university/articles/Grow_About)
 
 GrowSoomla includes:
 
@@ -34,7 +34,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	  ![alt text](/img/tutorial_img/unity_grow/addNewApp.png "Add new app")
 
-	Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You can also click "Downloads" on the top right corner of the screen). Click on **GrowSoomla**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
+	Once you created your game, you'll be redirected to the Integrations page where you can start with any of the GROW integrations. Click on **GrowSoomla**. You'll see the instructions screen, you can continue with that or stay here for the extended version.  
 
 2. Double-click on the downloaded Unity package, it'll import all the necessary files into your Unity project.
 
@@ -60,13 +60,12 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 4. In the menu bar go to **Window > Soomla > Edit Settings**:
 
-	![alt text](/img/tutorial_img/unity_grow/soomlaSettingsUltimate.png "SOOMLA Settings")
+	![alt text](/img/tutorial_img/unity_grow/soomlaSettingsStoreAndHighway.png "SOOMLA Settings")
 
 	**Copy the "Game Key" and "Environment Key"** given to you from the [dashboard](http://dashboard.soom.la) into the fields in the settings pane of the Unity Editor. At this point, you're probably testing your integration and you want to use the **Sandbox** environment key.
 
 	<div class="info-box">The "game" and "environment" keys allow GROW to distinguish between multiple environments of your games. The dashboard pre-generates two fixed environments for your game: **Production** and **Sandbox**. When you decide to publish your game, **make sure to switch the environment key to <u>Production</u>**.  You can always generate more environments:  For example - you can choose to have a playground environment for your game's beta testers which will be isolated from your production environment and will thus prevent analytics data from being mixed between the two.  Another best practice might be to have a separate environment for each version of your game.</div>
 
-	<img src="/img/tutorial_img/unity_grow/dashboardKeys.png" alt="Game key and Env key" style="border:0;">
 
 ### Initialize modules
 
