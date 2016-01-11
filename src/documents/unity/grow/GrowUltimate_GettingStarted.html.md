@@ -3,7 +3,7 @@ layout: "content"
 image: "Bundle"
 title: "GrowUltimate"
 text: "The perfect All In One solution for your game. If you want your users to have the perfect experience in your game then this bundle is for you."
-position: 14
+position: 5
 theme: 'platforms'
 collection: 'unity_grow'
 module: 'grow'
@@ -14,7 +14,7 @@ platform: 'unity'
 
 ## Overview
 
-GrowUltimate is the perfect All In One solution for your game. If you want your users to have the perfect experience in your game then this bundle is for you. GrowUltimate connects you to GROW, SOOMLA's flagship - a community-driven data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/university/articles/Grow_About)
+GrowUltimate is the perfect All In One solution for your game. If you want your users to have the perfect experience in your game then this bundle is for you. GrowUltimate connects you to GROW - a community-driven data network. Mobile game studios can take advantage of the different GROW products in order to get valuable insights about their games' performance and increase retention and monetization. [Read more...](/university/articles/Grow_About)
 
 GrowUltimate includes:
 
@@ -35,7 +35,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 	  ![alt text](/img/tutorial_img/unity_grow/addNewApp.png "Add new app")
 
-	Once you created your game, you'll be redirected to a quick start process to download any of the GROW bundles (You can also click "Downloads" on the top right corner of the screen). Click on **GrowUltimate**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
+	Once you created your game, you'll be redirected to an Integrations page where you can start with any of the GROW integrations. Click on **GrowUltimate**. You'll see an instructions screen, you can continue with that or stay here for the extended version.  
 
 2. Double-click on the downloaded Unity package, it'll import all the necessary files into your Unity project.
 
@@ -92,7 +92,7 @@ Go to the [GROW dashboard](http://dashboard.soom.la) and sign up \ login. Upon l
 
 4. In the menu bar go to **Window > Soomla > Edit Settings**:
 
-	![alt text](/img/tutorial_img/unity_grow/soomlaSettingsUltimate.png "SOOMLA Settings")
+	![alt text](/img/tutorial_img/unity_grow/soomlaSettingsStoreAndHighway.png "SOOMLA Settings")
 
 	a. **Change the value for "Soomla Secret"**: "Soomla Secret" is an encryption secret you provide that will be used to secure your data on the device. **NOTE:** Choose this secret wisely, you can't change it after you launch your game!
 

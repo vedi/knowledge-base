@@ -3,7 +3,7 @@ layout: "content"
 image: "Insights"
 title: "Insights"
 text: "Get started with GROW Insights for Unity. Here you can find initialization instructions, event handling and usage examples."
-position: 5
+position: 8
 theme: 'platforms'
 collection: 'unity_grow'
 module: 'grow'
@@ -31,7 +31,7 @@ Currently, Insights supports PayInsights which categorizes users according to th
 
 ## Integration
 
-1. Initialize `GrowInsights` according to the instructions of your relevant bundle.
+1. Initialize `GrowInsights` according to the instructions of your relevant integration.
 
 * Create event handler functions in order to be notified about (and handle) GROW Insights related events. See [Events](/unity/grow/Grow_Insights/#Events) for more information.
 
