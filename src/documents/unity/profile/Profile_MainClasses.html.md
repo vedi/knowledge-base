@@ -291,8 +291,7 @@ SoomlaProfile.UpdateStory(
 	"SOOMBOT Story",                            // Caption
 	"Hey! It's SOOMBOT Story",                 	// Description
 	"http://about.soom.la/soombots",            // Link to post
-	"http://about.soom.la/wp-content/uploads/
-  2014/05/330x268-spockbot.png",              // Image URL
+	"http://about.soom.la/.../spockbot.png",    // Image URL
 	"",                                         // Payload
 	soombotReward                               // Reward for posting a story
 );
