@@ -85,7 +85,7 @@ Any game with a Sport playing theme.
 *The player's decision-making skills have a high significance in determining the outcome.*<br/>
 Strategy games refer to a genre that puts the player in command of an armed force (sometimes an entire nation), trying to gain the upper hand in a conflict either through diplomatic means or warfare. Strategy games can be either turn-based or real-time.
 <br/><br/>
-#### `Trivia/Quiz`
+#### `Trivia`
 Games that are often with a set of questions that require general knowledge.
 <br/><br/>
 ####  `Word`
@@ -248,6 +248,9 @@ Games where the main characters are Ninja's.
 #### `Numbers`
 Games with Numbers as the main theme, many times these are puzzle games such as the game '2048'.
 <br/><br>
+#### `Pets`
+Games that have a pet/pets in them.
+<br/><br>
 #### `Pinball`
 Simulation of an arcade pinball machine.
 <br/><br>
@@ -281,7 +284,7 @@ When the game has a Sci-Fi setting.
 #### `Space`
 Any game where the setting is in space
 <br/><br>
-#### `Spy / Espionage`
+#### `Espionage`
 *The player is usually a spy or government operative.* <br/>
 Denotes any game where gameplay centers around performing covert operations, searching for government documents, and otherwise generally being a spy. The protagonist is usually a spy or government operative, performing espionage or otherwise working covert operations.
 <br/><br>
@@ -310,13 +313,13 @@ When the gameplay setting has Vampires in it
 Any game where the main scene has vegetables (such as Farmville, different vegetable match-3 games and more..)
 <br/><br>
 #### `Virtual Pet`
-A game where you take care of a pet pf any sort (dog/cat/monter/dragon...), you feed it, bath it, give medicine... anything that makes the pet grow up
+A game where you take care of a pet of any sort (dog/cat/monter/dragon...), you feed it, bath it, give medicine... anything that makes the pet grow up
 <br/><br>
 #### `Visual Novel`
 Also called NVL games, "digital novels", and "choose-your-own-adventure games": games in which the story is told through text overlaid on a background representing the scene being described. The player's input is confined to periodically making choices which might affect the direction and outcome of the story.
 <br/><br>
 #### `War`
-Game involving a war theme.
+Game involving a war scene.
 <br/><br>
 #### `Wild West`
 Any game that has a Wild West theme - cowboys, sheriffs, horses...
@@ -339,7 +342,7 @@ When the entire game is played using a tap. Each tap makes something happen (mov
 #### `Virtual Controls`
 Games with virtual / touch controls
 <br/><br/>
-#### `Gyro / Tilt Control`
+#### `Gyro`
 When the device Gyro to control the game / When you need to tilt the device to play
 <br/><br/>
 #### `Voice Control`
