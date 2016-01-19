@@ -20,6 +20,6 @@ Unity debug messages will only be printed out if you build the project with Deve
 
 ## Android & iOS Debug Messages
 
-If you want to see full debug messages from android-store and iOS-store you just need to check the box that says "Debug Messages" in the SOOMLA Settings.
+If you want to see full debug messages from android-store and iOS-store you just need to check both Debug boxes "Debug Native" and "Debug Unity" in the SOOMLA Settings.
 
 ![alt text](/img/tutorial_img/unity_debugging/debugMsgs.png "Debug messages")
