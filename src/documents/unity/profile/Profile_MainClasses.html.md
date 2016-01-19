@@ -285,15 +285,15 @@ Reward soombotReward = new VirtualItemReward(
 
 // When a user updates this story, they'll receive a soombotReward (free "Soombot").
 SoomlaProfile.UpdateStory(
-	Provider.FACEBOOK,                          // Provider
-	"This is the story.",                       // Text of the story to post
-	"The story of SOOMBOT (Profile Test App)",  // Name
-	"SOOMBOT Story",                            // Caption
-	"Hey! It's SOOMBOT Story",                 	// Description
-	"http://about.soom.la/soombots",            // Link to post
-	"http://about.soom.la/.../spockbot.png",    // Image URL
-	"",                                         // Payload
-	soombotReward                               // Reward for posting a story
+	Provider.FACEBOOK,                             // Provider
+	"This is the story.",                          // Text of the story to post
+	"The story of SOOMBOT (Profile Test App)",     // Name
+	"SOOMBOT Story",                               // Caption
+	"Hey! It's SOOMBOT Story",                     // Description
+	"http://about.soom.la/soombots",               // Link to post
+	"http://assets.soom.la/soombots/spockbot.png", // Image URL
+	"",                                            // Payload
+	soombotReward                                  // Reward for posting a story
 );
 ```
 
@@ -306,15 +306,15 @@ Works the same as `updateStory` only here a confirmation dialog will be shown be
 
 ``` cs
 SoomlaProfile.UpdateStoryWithConfirmation(
-	Provider.FACEBOOK,                          // Provider
-	"This is the story.",                       // Text of the story to post
-	"The story of SOOMBOT (Profile Test App)",  // Name
-	"SOOMBOT Story",                            // Caption
-	"Hey! It's SOOMBOT Story",                 	// Description
-	"http://about.soom.la/soombots",            // Link to post
-	"http://about.soom.la/.../spockbot.png",    // Image URL
-	"",                                         // Payload
-	null,                                       // Reward
+	Provider.FACEBOOK,                               // Provider
+	"This is the story.",                            // Text of the story to post
+	"The story of SOOMBOT (Profile Test App)",       // Name
+	"SOOMBOT Story",                                 // Caption
+	"Hey! It's SOOMBOT Story",                       // Description
+	"http://about.soom.la/soombots",                 // Link to post
+	"http://assets.soom.la/soombots/spockbot.png",   // Image URL
+	"",                                              // Payload
+	null,                                            // Reward
 	customMessage								// Message to show in the confirmation dialog
 );
 ```
@@ -328,14 +328,14 @@ Using the provider's native dialog (when available).
 
 ``` cs
 SoomlaProfile.UpdateStoryDialog(
-	Provider.FACEBOOK,                          // Provider
-	"The story of SOOMBOT (Profile Test App)",  // Name
-	"SOOMBOT Story",                            // Caption
-	"Hey! It's SOOMBOT Story",                 	// Description
-	"http://about.soom.la/soombots",            // Link to post
-	"http://about.soom.la/.../spockbot.png",    // Image URL
-	"",                                         // Payload
-	null                                        // Reward
+	Provider.FACEBOOK,                             // Provider
+	"The story of SOOMBOT (Profile Test App)",     // Name
+	"SOOMBOT Story",                               // Caption
+	"Hey! It's SOOMBOT Story",                     // Description
+	"http://about.soom.la/soombots",               // Link to post
+	"http://assets.soom.la/soombots/spockbot.png", // Image URL
+	"",                                            // Payload
+	null                                           // Reward
 );
 ```
 
