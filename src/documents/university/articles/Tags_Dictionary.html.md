@@ -85,7 +85,7 @@ Any game with a Sport playing theme.
 *The player's decision-making skills have a high significance in determining the outcome.*<br/>
 Strategy games refer to a genre that puts the player in command of an armed force (sometimes an entire nation), trying to gain the upper hand in a conflict either through diplomatic means or warfare. Strategy games can be either turn-based or real-time.
 <br/><br/>
-#### `Trivia/Quiz`
+#### `Trivia`
 Games that are often with a set of questions that require general knowledge.
 <br/><br/>
 ####  `Word`
@@ -137,20 +137,32 @@ Multiplayer Online Battle Arena.
 
 ### Theme
 
+#### `Aliens`
+Games that have aliens as the main characters.
+<br/><br>
+#### `Animals`
+Any game that has Animals in it where there's not one specific animal (such as only a dog or a cat) but has several animals. Such as Zoo games, Animal Puzzles etc.
+<br/><br>
 #### `BattleMech`
 Any game using ideas, machines, weapons, or 'mechs similar to the FASA BattleTech series. This includes all 'Mech and "Giant Robot" games, including titles that are not explicitly from the FASA universe (Earthsiege, etc.).
 <br/><br>
-#### `Tiles`
-Computer implementation of a game played with tiles.
+#### `Birds`
+Games in which the main characters are birds, for example Angry Birds would have this tag.
 <br/><br>
 #### `Candy`
 Any game that the gameplay evolves around Candy.
+<br/><br>
+#### `Cars`
+Games that have a Car/Cars as the main "character".
 <br/><br>
 #### `Chess`
 Any variation of a Chess game.
 <br/><br>
 #### `Comics`
 Any comics related game, either characters from comics or comics look& feel...
+<br/><br>
+#### `Cute`
+Any game that its main theme/character is something Cute / Adorable but is not exactly defined.
 <br/><br>
 #### `Cyberpunk`
 *Subgenre of science fiction in a future setting.* <br/>
@@ -181,8 +193,14 @@ Simulation of aircraft flight, usually represented in three-dimensional (3D) gra
 #### `Food`
 Any game that evolves around food.
 <br/><br>
+#### `Forest`
+Games that have a Forest as their main theme (running through a forest, picking things from tree's in the Forest, etc.)
+<br/><br>
 #### `Fruit`
 A game that evolves around fruit.
+<br/><br>
+#### `Futirustic`
+When the gameplay setting takes place in the future
 <br/><br>
 #### `Game Show`
 Simulation of a TV "game show"
@@ -199,6 +217,12 @@ Any strategy game that recreates, closely mimics, or attempts to show different 
 #### `Horror`
 Any game with classic "horror" elements
 <br/><br>
+#### `Jungle`
+Any game that takes place in a jungle, where the main schene is a jungle.
+<br/><br>
+#### `Magic`
+Games that have Magic or Magicians in them, anything with magic spells and magic tricks for example.
+<br/><br>
 #### `Managerial`
 *management of resources.* <br/>
 Gameplay centers mainly around the management of resources instead of controlling the resources or gameplay itself. Both sports-management (fantasy football, etc.) and real-life simulations (Railroad Tycoon, Simcity, etc.) are applicable to this theme
@@ -209,7 +233,7 @@ Simulation specifically geared towards traditional martial arts situations or co
 #### `Medieval`
 Games that take place in the middle ages
 <br/><br>
-#### `Meditative/Zen`
+#### `Meditative`
 Gameplay elements are specifically oriented around relaxing, meditative, and contemplative thought processes. Careful manipulation of objects and thoughts are stressed over knee-jerk reactions.
 <br/><br>
 #### `Mental Training`
@@ -218,8 +242,14 @@ Games based around intellectual activities to exercise your mental capacity.
 #### `Naval`
 Any game with a naval theme, such as battleship wargaming/strategy, submarine simulations, or other type of combat/gameplay based on seafaring vessels.
 <br/><br>
-#### `Pong / Paddle`
-Denotes any game patterned after the original Pong arcade game, where a paddle is moved back and forth (or up and down) to deflect a ball thrown at it. The ball can be "aimed" by deflecting off of different parts of the paddle to hit targets for points; missing the ball results in loss of life.
+#### `Ninja`
+Games where the main characters are Ninja's.
+<br/><br>
+#### `Numbers`
+Games with Numbers as the main theme, many times these are puzzle games such as the game '2048'.
+<br/><br>
+#### `Pets`
+Games that have a pet/pets in them.
 <br/><br>
 #### `Pinball`
 Simulation of an arcade pinball machine.
@@ -227,27 +257,48 @@ Simulation of an arcade pinball machine.
 #### `Pirates`
 Any game that centers around Pirates
 <br/><br>
+#### `Pong / Paddle`
+Denotes any game patterned after the original Pong arcade game, where a paddle is moved back and forth (or up and down) to deflect a ball thrown at it. The ball can be "aimed" by deflecting off of different parts of the paddle to hit targets for points; missing the ball results in loss of life.
+<br/><br>
 #### `Post-Apocalyptic`
 Any game where the setting is soon after a world-wide nuclear war, where radiation has created mutants, entire cities are leveled, and necessities like gas, food, and water are hard to come by
+<br/><br>
+#### `Princess`
+Games with a Princess theme, where there's a main princess character or everything is princess oriented such as pink, tiara's, fancy dresses...
 <br/><br>
 #### `Puzzle-Solving`
 Puzzle-solving may refer to actual puzzles (logical, mathematical, physical, etc.), as well as a type of problem-solving distinguished by clue-gathering and manipulation of objects.
 <br/><br>
+#### `Quiz`
+Games with quizes - where you're required to answer sets of quesitons correctly.
+<br/><br>
 #### `Retro`
 A game that looks/acts like a classic (old school) game
 <br/><br>
-#### `Sci-Fi / Futuristic`
-When the gameplay setting takes place in the future, outer space, or other Sci-Fi setting
+#### `Shapes`
+When the gameplay evolves around different shapes and not any defined Characters. For example Sky by Ketchapp.
+<br/><br>
+#### `Sci-Fi`
+When the game has a Sci-Fi setting.
 <br/><br>
 #### `Space`
 Any game where the setting is in space
 <br/><br>
-#### `Spy / Espionage`
+#### `Espionage`
 *The player is usually a spy or government operative.* <br/>
 Denotes any game where gameplay centers around performing covert operations, searching for government documents, and otherwise generally being a spy. The protagonist is usually a spy or government operative, performing espionage or otherwise working covert operations.
 <br/><br>
+#### `Sweet`
+Any game that has a sweet theme (jello, chocolate...) that's **not** specifically candy.
+<br/><br>
 #### `Tank`
 Any game that explicitly centers around tanks, for the purposes of action, arcade, or simulation (or all three).
+<br/><br>
+#### `Tiles`
+Computer implementation of a game played with tiles.
+<br/><br>
+#### `Toys`
+Games where the main theme are Toys, many times these are games where Toys are the main characters of the game.
 <br/><br>
 #### `Train`
 Games involving train management, simulation, and general use for more than 50% of a game.
@@ -255,14 +306,26 @@ Games involving train management, simulation, and general use for more than 50% 
 #### `Turn-based`
 In turn-based games the flow of play is well-defined (entirely or partially) into "turns". A player has time to decide what his/her next move will be. The computer AI opponent (or the next human player) then gets time to make their move(s).
 <br/><br>
+#### `Vampires`
+When the gameplay setting has Vampires in it
+<br/><br>
+#### `Vegetables`
+Any game where the main scene has vegetables (such as Farmville, different vegetable match-3 games and more..)
+<br/><br>
 #### `Virtual Pet`
-A game where you take care of a pet pf any sort (dog/cat/monter/dragon...), you feed it, bath it, give medicine... anything that makes the pet grow up
+A game where you take care of a pet of any sort (dog/cat/monter/dragon...), you feed it, bath it, give medicine... anything that makes the pet grow up
 <br/><br>
 #### `Visual Novel`
 Also called NVL games, "digital novels", and "choose-your-own-adventure games": games in which the story is told through text overlaid on a background representing the scene being described. The player's input is confined to periodically making choices which might affect the direction and outcome of the story.
 <br/><br>
 #### `War`
-Game involving a war theme.
+Game involving a war scene.
+<br/><br>
+#### `Wild West`
+Any game that has a Wild West theme - cowboys, sheriffs, horses...
+<br/><br>
+#### `Zen`
+Games that have a relaxing theme, many times they have relaxing and soothing background music/sounds.
 <br/><br>
 #### `Zombies`
 When the gameplay setting has Zombies in it
@@ -279,18 +342,19 @@ When the entire game is played using a tap. Each tap makes something happen (mov
 #### `Virtual Controls`
 Games with virtual / touch controls
 <br/><br/>
-#### `Gyro / Tilt Control`
+#### `Gyro`
 When the device Gyro to control the game / When you need to tilt the device to play
 <br/><br/>
 #### `Voice Control`
-Controling the game using your voice
+Controlling the game using your voice
 <br/><br/>
 #### `Drawing`
-Controling the game by drawing
+Controlling the game by drawing
 <br/><br/>
 #### `Remote Pad`
 The device (phone / tablet) is your joystick and you play on a tv/screen
-
+#### `Swipe`
+Controlling the game using the Swipe gesture
 
 ### Perspective
 `3D`, `2D`
@@ -306,6 +370,10 @@ Playfield is technically two-dimensional, but drawn using an axonometric project
 #### `Top-Down`
 *The gameplay is represented by a top-down view.* <br/>
 Used to describe any game where the main setting of gameplay is represented by a top-down (also known as overhead) view of the playfield. Top-down perspective may be used for a wide variety of genres; among the most common ones are vertically scrolling shooters and most 2D role-playing games.
+<br/><br/>
+#### `Bottom-Up`
+*The gameplay is represented by a bottom-up view.* <br/>
+When the game is represented by a bottom-up view of the playfield.
 <br/><br/>
 #### `1st-Person`
 Displayed from a 1st-person perspective or view - from the viewer's own eyes (not used in describing interactive fiction, as all interactive fiction is 1st-person by definition).
