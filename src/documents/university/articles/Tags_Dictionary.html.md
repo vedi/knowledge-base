@@ -329,9 +329,129 @@ Games that have a relaxing theme, many times they have relaxing and soothing bac
 <br/><br>
 #### `Zombies`
 When the gameplay setting has Zombies in it
+<br/><br/><br/>
+
+#### **Specific Sports / Casino Theme**
+<br/>
+#### `Backgammon`
+Any variation of a Backgammon game
 <br/><br/>
-#### Specific Sports / Casino Theme
-`Backgammon`, `Baseball`,`Basketball`, `Bike`, `Bicycling`, `Bowling`, `Boxing`, `Cricket`, `Fishing`, `Football(American)`, `Football/Soccer`, `Golf`, `Hockey`, `Horse`, `Hunting`, `Motorcycle`, `Off-Road`, `Monster Truck`, `Olympiad`, `Paintball` ,`Ping Pong`, `Pool`, `Snooker`, `Rugby`, `Sailing`, `Skateboarding`, `Snowboarding`, `Ski`, `Surfing`, `Tennis`, `Volleyball`, `Wakeboarding`, `Wrestling`, `Fantasy league`, `Poker`, `Bridge`, `Solitaire`, `Black Jack`, `Slots`, `Roulette`
+#### `Baseball`
+Games evolving around Baseball, Baseball Players, any Baseball elements
+<br/><br/>
+#### `Basketball`
+Games that have any Basketball elements such as game, players, field, etc.
+<br/><br/>
+#### `Bike`
+Games that evolve around Bikes, Bike gameplay, Bike 'characters', etc.
+<br/><br/>
+#### `Bicycling`
+Games which have a Bicycling theme. It can be pictures or elements from the Bicycling world
+<br/><br/>
+#### `Bowling`
+Games which have a Bowling theme. It can be any elements, pictures, people from the Bowling world
+<br/><br/>
+#### `Boxing`
+Games which have a Boxing theme. It can be any elements, pictures, people from the Boxing world
+<br/><br/>
+#### `Cricket`
+Games which have a Cricket game theme. It can be anything related to the Cricket world
+<br/><br/>
+#### `Fishing`
+Games with any Fishing elements. It can be Fishing, Fishing Boats, Fishing nets and more
+<br/><br/>
+#### `Football(American)`
+Games which have a Football scene, Football players, anything Football related
+<br/><br/>
+#### `Soccer`
+Games which have a Soccer scene, Soccer players, anything Soccer related<br/><br/>
+#### `Golf`
+Games which have a Golf theme. It can be elements or pictures from the Golf scene
+<br/><br/>
+#### `Hockey`
+Games which have a Hockey theme. It can be elements or pictures from the Hockey scene
+<br/><br/>
+#### `Horse`
+Games which have a Horse theme. It can be Horse Racing, Jockey's, anything relates to Horses
+<br/><br/>
+#### `Hunting`
+Games which have a Hunting theme. It can be people hunting animals or animals hunting other animals.
+<br/><br/>
+#### `Motorcycle`
+Games which have a Motorcycle in them. It can be a race, a rider, just riding on a road
+<br/><br/>
+#### `Off-Road`
+Games which have anything to do with Off-road. It can be racing, 4x4's, parts, vehicles...
+<br/><br/>
+#### `Monster Truck`
+Games which have a Moster truck theme. It can be pictures, trucks and any other elements from the Onster world
+<br/><br/>
+#### `Olympiad`
+Games which have an Olympiad/Olympics theme. It can be any of the games played a the Olympics or any other elements or pictures
+<br/><br/>
+#### `Paintball`
+Games which have a Paintball theme. It can be and images or elements from the Paintball scene
+<br/><br/>
+####`Ping Pong`
+Games which have a Ping-Pong scene and any variation of a Ping Pong game
+<br/><br/>
+#### `Pool`
+Games which have a Pool/8 Ball theme. It can be anything from the Pool/8 Ball world
+<br/><br/>
+#### `Snooker`
+Games which have a Snooker theme. It can be anything from the Snooker world
+<br/><br/>
+#### `Rugby`
+Games which have a Rugby scene, Rugby players, anything Rugby related
+<br/><br/>
+#### `Sailing`
+Games which have any Sailing scene. It can be sailing a boat, sailign races and more
+<br/><br/>
+#### `Skateboarding`
+Games which have a Skateboarding scene. It can be a competition, ramps, tricks...
+<br/><br/>
+#### `Snowboarding`
+Games which have a Snowboarding scene. It can be a competition, tricks, racing...
+<br/><br/>
+#### `Ski`
+Games which have a Ski scene. It can be a competition, tricks, racing...
+<br/><br/>
+#### `Surfing`
+Games which have a Surfing theme. It can be Surfing or Wind Surfing, anything from the Surfing world
+<br/><br/>
+#### `Tennis`
+Games which have a Tennis in them. It can me a Tennis match, Tennis pictures or any other Tennis elements
+<br/><br/>
+#### `Volleyball`
+Games which have a Volleyball scene. It can Indoor or Beach Bolleyball and anything to do with Volleyball
+<br/><br/>
+#### `Wakeboarding`
+Games which have a Wakeboarding theme. It can be pictures or elements from the Wakeboarding world
+<br/><br/>
+#### `Wrestling`
+Games which have a Wrestling theme. It can be wrestlers, wrestling ring, matches. Anything from the Wrestling world
+<br/><br/>
+#### `Fantasy league`
+Games that are all about Fantasy League. It can be of any Sports branch and any league
+<br/><br/>
+#### `Poker`
+Any online Poker games. It can be Poker, Texas Hold'em and more
+<br/><br/>
+#### `Bridge`
+Any online Bridge games or a variation or Bridge
+<br/><br/>
+#### `Solitaire`
+Games which have an option to play Solitaire
+<br/><br/>
+#### `Black Jack`
+Any Blackjack game played via mobile
+<br/><br/>
+#### `Slots`
+Games which have Slot Machines
+<br/><br/>
+#### `Roulette`
+Games which have a Roulette in them. You can play against the computer or against other online players
+<br/><br/>
 
 
 ### Game Controls
@@ -389,12 +509,13 @@ Displayed from a third person perspective or view - the player is able to see hi
 ### Onboarding System
 
 #### `Tutorial`
-Indicates that the game has a tutorial
+Indicates that the game has a tutorial such as missions to guide through first steps within the actual game
 <br/><br/>
 #### `Intro Video`
-Indicates that the game has an introduction video
+A video of several seconds (less than 1 minute) that explains about the game and how to play
 
 ### Progression system
+
 #### `Levels`
 Indicates whether the game has levels or not
 <br/><br/>
@@ -414,25 +535,120 @@ Indicates that the game has Worlds or Locations
 ### Economy
 
 #### `IAP`
-Indicates that the game has IAP (In App Purchase)
+The game has In App Purchase which means you can buy different items through the store
 <br/><br/>
-#### Can I pay for one of the following?
-`Remove Ads`, `Currency doubler`, `Lives`, `Energy`, `Time`, `Speed up time`, `Save me`, `Hints`, `Boosts`, `Weapons`, `Vehicles` , `Characters(vanity)`, `Characters(functional)`, `Costumes`, `Level packs`, `Resources`, `Single-use`, `Upgradable Items`
+#### `Remove Ads`
+A game that has a Remove Ads option
+<br/><br/>
+#### `Currency doubler`
+A game in which you can purchase Currency Doublers
+<br/><br/>
+#### `Lives`
+A game in which you can purchase Lives to keep on playing
+<br/><br/>
+#### `Energy`
+A game in which you can purchase Energy, usually it's to keep on playing or it's a boost that makes you faster/stronger
+<br/><br/>
+#### `Time`
+A game in which you can purchase extra Time so you can keep on playing
+<br/><br/>
+#### `Speed up time`
+A game in which you can purchase a Speed Up Time option so you can pass a level faster for example
+<br/><br/>
+#### `Save me`
+A game in which you can purchase Save Me's so you can keep on playing
+<br/><br/>
+#### `Hints`
+A game in which you can purchase Hints if you're stuck and need help in proceeding
+<br/><br/>
+#### `Boosts`
+A game in which you can purchase Boosts, for example items like a car to proceed faster than by foot
+<br/><br/>
+#### `Weapons`
+A game in which you can purchase Weapons so you can shoot better or just have a cooler or bigger weapon
+<br/><br/>
+#### `Vehicles`
+A game in which you can purchase Vehicles. It can be a Car, a Plane, a Bike. Any sort of vehicle, even made-up vehicles in certain games
+<br/><br/>
+#### `Characters(vanity)`
+A game in which you can purchase Characters for Vanity - for fun. It can be a Boy/Girl, an animal, a monster...
+<br/><br/>
+#### `Characters(functional)`
+A game in which you can purchase Characters that can help you progress in the game by having different abilities
+<br/><br/>
+#### `Costumes`
+A game in which you can purchase Costumes for your characters such as hats, coats, shoes and more
+<br/><br/>
+#### `Level packs`
+A game in which you can purchase Level Packs. Usually it unlocksall levels at once istead of unlocking them one by one
+<br/><br/>
+#### `Resources`
+A game in which you can purchase different Resources, usually they help you with progressing in the game
+<br/><br/>
+#### `Single-use`
+A game in which you can purchase Single Use items. These are items that are used once and are then disposable for example amo in shooter games
+<br/><br/>
+#### `Upgradable Items`
+A game in which you can purchase Upgradable Items, this means you can upgrade an item to progress in a game, you can always use these items in the game
 <br/><br/>
 #### `Discounts`
-Are there any special discounts offered in the game?
+A game that offers discounts if you buy bundles/packs of items instead or single items
 <br/><br/>
 #### `Surprise Box(Gatcha)`
-Is there a surprise box / gatcha element in the game?
+A game that has Surprise Boxes / Gathca. You can watch a Rewarded Video and after that get a surprise box that has an item that will help you proceed in the game
 <br/><br/>
 
 
 ### Social
-`Connect`, `Share`, `Invite Friends`, `Challenge Friends`, `Leaderboards`, `Gifting`, `Compete`, `Friends Progress`, `Matches`
+
+#### `Connect`
+A game that offers to Connect to a social network
+<br/><br/>
+#### `Share`
+A game that offers to Share to a social network. You can share your score o rthe level you've reached
+<br/><br/>
+#### `Invite Friends`
+A game that offers to Invite Friends through a social network
+<br/><br/>
+#### `Challenge Friends`
+A game that offers to Challenge Friends through a social network
+<br/><br/>
+#### `Leaderboards`
+A game that offers leaderboards to see where you stand in comparison to other people of friends
+<br/><br/>
+#### `Gifting`
+A game that offers Gifting. You can send or recieve gifts from friends. Gifts such as Save Me's, a live, a Single Use Item...
+<br/><br/>
+#### `Compete`
+A game that offers to Compete against your friends or against other people
+<br/><br/>
+#### `Friends Progress`
+A game that shows your friend's progress within the game
+<br/><br/>
+#### `Matches`
+A game that offers Matches between you and your friends
+<br/><br/>
 
 
 ### Ads
-`Rewarded Video`, `Interstitial`, `Interstitial Video`, `Banners`, `More games button`, `Offer wall`
 
+#### `Rewarded Video`
+A game that has a Rewarded Videos option. You have an option to watch a video ad and recieve a reward in return
 <br/><br/>
+#### `Interstitial`
+A game that has Interstitial Ads. Usually these ads appearbetween levels, but not only
+<br/><br/>
+#### `Interstitial Video`
+A game that has Interstitial Video Ads. Usually these ads appearbetween levels, but not only
+<br/><br/>
+#### `Banners`
+A game that has Banners. THe banners usually appear constantly at the top orbottom of the screen at gameplay
+<br/><br/>
+#### `More games button`
+A game that shows a More Games button. Clicking this button takes you to the store to download another game
+<br/><br/>
+#### `Offer wall`
+A game that has an Offer Wall which is a page that appears that offers rewards or different incentives in exchange for spending money/watching a video/Liking the game...
+<br/><br/>
+
 In any case you stumble upon a missing tag or if you have a game and you'd like to update/change its tags just [drop us a line](mailto:dafi@soom.la) and we'll update things accordingly.
