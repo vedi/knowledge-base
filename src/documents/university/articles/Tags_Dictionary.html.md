@@ -392,7 +392,7 @@ Games which have an Olympiad/Olympics theme. It can be any of the games played a
 #### `Paintball`
 Games which have a Paintball theme. It can be and images or elements from the Paintball scene
 <br/><br/>
-####`Ping Pong`
+#### `Ping Pong`
 Games which have a Ping-Pong scene and any variation of a Ping Pong game
 <br/><br/>
 #### `Pool`
