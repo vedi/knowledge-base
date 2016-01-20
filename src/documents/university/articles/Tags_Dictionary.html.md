@@ -384,7 +384,7 @@ Games which have a Motorcycle in them. It can be a race, a rider, just riding on
 Games which have anything to do with Off-road. It can be racing, 4x4's, parts, vehicles...
 <br/><br/>
 #### `Monster Truck`
-Games which have a Moster truck theme. It can be pictures, trucks and any other elements from the Onster world
+Games which have a Monster truck theme. It can be pictures, trucks and any other elements from the Monster world
 <br/><br/>
 #### `Olympiad`
 Games which have an Olympiad/Olympics theme. It can be any of the games played a the Olympics or any other elements or pictures
@@ -405,7 +405,7 @@ Games which have a Snooker theme. It can be anything from the Snooker world
 Games which have a Rugby scene, Rugby players, anything Rugby related
 <br/><br/>
 #### `Sailing`
-Games which have any Sailing scene. It can be sailing a boat, sailign races and more
+Games which have any Sailing scene. It can be sailing a boat, Sailing races and more
 <br/><br/>
 #### `Skateboarding`
 Games which have a Skateboarding scene. It can be a competition, ramps, tricks...
@@ -423,7 +423,7 @@ Games which have a Surfing theme. It can be Surfing or Wind Surfing, anything fr
 Games which have a Tennis in them. It can me a Tennis match, Tennis pictures or any other Tennis elements
 <br/><br/>
 #### `Volleyball`
-Games which have a Volleyball scene. It can Indoor or Beach Bolleyball and anything to do with Volleyball
+Games which have a Volleyball scene. It can Indoor or Beach Volleyball and anything to do with Volleyball
 <br/><br/>
 #### `Wakeboarding`
 Games which have a Wakeboarding theme. It can be pictures or elements from the Wakeboarding world
@@ -477,7 +477,11 @@ The device (phone / tablet) is your joystick and you play on a tv/screen
 Controlling the game using the Swipe gesture
 
 ### Perspective
-`3D`, `2D`
+#### `3D`
+A game is in 3D perspective
+<br/><br/>
+#### `2D`
+A game is in 2D perspective
 <br/><br/>
 #### `Side-Scrolling`
 *The character moves from one side of the screen to the other.* <br/>
@@ -580,7 +584,7 @@ A game in which you can purchase Characters that can help you progress in the ga
 A game in which you can purchase Costumes for your characters such as hats, coats, shoes and more
 <br/><br/>
 #### `Level packs`
-A game in which you can purchase Level Packs. Usually it unlocksall levels at once istead of unlocking them one by one
+A game in which you can purchase Level Packs. Usually it unlocks all levels at once instead of unlocking them one by one
 <br/><br/>
 #### `Resources`
 A game in which you can purchase different Resources, usually they help you with progressing in the game
@@ -617,7 +621,7 @@ A game that offers to Challenge Friends through a social network
 A game that offers leaderboards to see where you stand in comparison to other people of friends
 <br/><br/>
 #### `Gifting`
-A game that offers Gifting. You can send or recieve gifts from friends. Gifts such as Save Me's, a live, a Single Use Item...
+A game that offers Gifting. You can send or receive gifts from friends. Gifts such as Save Me's, a live, a Single Use Item...
 <br/><br/>
 #### `Compete`
 A game that offers to Compete against your friends or against other people
@@ -636,13 +640,13 @@ A game that offers Matches between you and your friends
 A game that has a Rewarded Videos option. You have an option to watch a video ad and recieve a reward in return
 <br/><br/>
 #### `Interstitial`
-A game that has Interstitial Ads. Usually these ads appearbetween levels, but not only
+A game that has Interstitial Ads. Usually these ads appear between levels, but not only
 <br/><br/>
 #### `Interstitial Video`
-A game that has Interstitial Video Ads. Usually these ads appearbetween levels, but not only
+A game that has Interstitial Video Ads. Usually these ads appear between levels, but not only
 <br/><br/>
 #### `Banners`
-A game that has Banners. THe banners usually appear constantly at the top orbottom of the screen at gameplay
+A game that has Banners. The banners usually appear constantly at the top or bottom of the screen at gameplay
 <br/><br/>
 #### `More games button`
 A game that shows a More Games button. Clicking this button takes you to the store to download another game
